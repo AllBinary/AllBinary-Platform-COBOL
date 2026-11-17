@@ -1,0 +1,165 @@
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.system.os.windows
+*> Java class WindowsOperatingSystemFactory
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WndwsOprtngSystmFctry-sttc-nc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 WindowsOperatingSystemFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 WindowsOperatingSystemFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF WindowsOperatingSystemFactory-jset-instance = 0
+        MOVE 1 TO WindowsOperatingSystemFactory-jset-instance
+        COMPUTE WindowsOperatingSystemFactory-jcell-instance = FUNCTION WndwsOprtngSystmFctry-new0
+    END-IF
+    MOVE WindowsOperatingSystemFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION WndwsOprtngSystmFctry-sttc-nc.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WndwsOprtngSystmFctry-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("WindowsOperatingSystemFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION WndwsOprtngSystmFctry-new0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WndwsOprtngSystmFctry-gtInstc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION WndwsOprtngSystmFctry-sttc-nc
+        GOBACK
+    GOBACK.
+END FUNCTION WndwsOprtngSystmFctry-gtInstc0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WndwsOprtngSystmFctry-gtOprtc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-operatingSystems BINARY-DOUBLE.
+01 J-osName BINARY-DOUBLE.
+01 J-operatingSystemInterface BINARY-DOUBLE.
+01 J-commonStrings BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE J-operatingSystems = FUNCTION OperatingSystems-getInstance0
+            COMPUTE jtemp1 = FUNCTION SystemProperties-getInstance0
+            COMPUTE J-osName = FUNCTION SystemProperties-getName0(jtemp1)
+            CONTINUE
+            IF (FUNCTION JR-COMPARETO(J-osName, FUNCTION JR-GET(J-operatingSystems, "f_WINDOWS_NT")) = 0)
+                COMPUTE J-operatingSystemInterface = FUNCTION WindowsOS-new0
+            ELSE
+                IF (FUNCTION JR-COMPARETO(J-osName, FUNCTION JR-GET(J-operatingSystems, "f_WINDOWS_10")) = 0)
+                COMPUTE J-operatingSystemInterface = FUNCTION WindowsOS-new0
+            ELSE
+                IF (FUNCTION JR-COMPARETO(J-osName, FUNCTION JR-GET(J-operatingSystems, "f_WINDOWS_11")) = 0)
+                COMPUTE J-operatingSystemInterface = FUNCTION WindowsOS-new0
+            ELSE
+                IF (FUNCTION JR-COMPARETO(J-osName, FUNCTION JR-GET(J-operatingSystems, "f_WINDOWS2000")) = 0)
+                COMPUTE J-operatingSystemInterface = FUNCTION WindowsOS-new0
+            ELSE
+                IF (FUNCTION JR-COMPARETO(J-osName, FUNCTION JR-GET(J-operatingSystems, "f_WINDOWS_XP")) = 0)
+                COMPUTE J-operatingSystemInterface = FUNCTION WindowsOS-new0
+            ELSE
+                IF (FUNCTION JR-COMPARETO(J-osName, FUNCTION JR-GET(J-operatingSystems, "f_WINDOWS_VISTA")) = 0)
+                COMPUTE J-operatingSystemInterface = FUNCTION WindowsOS-new0
+            ELSE
+                IF (FUNCTION OprtngSystms-isUnknwnSpcfcOSd0(J-operatingSystems) = 1)
+                    COMPUTE J-operatingSystemInterface = FUNCTION WindowsOS-new0
+                ELSE
+                    COMPUTE jtemp2 = FUNCTION JR-CONCAT(FUNCTION JR-STR("Specific Windows OS Not Supported: "), J-osName)
+                    COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+                END-IF
+            END-IF
+            END-IF
+            END-IF
+            END-IF
+            END-IF
+            END-IF
+            COMPUTE J-RESULT = J-operatingSystemInterface
+            GOBACK
+    GOBACK.
+END FUNCTION WndwsOprtngSystmFctry-gtOprtc0.
+

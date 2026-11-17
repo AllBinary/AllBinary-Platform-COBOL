@@ -1,0 +1,142 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.allbinary</groupId>
+  <artifactId>CombatGameJavaLibraryPOMCobol</artifactId>
+  <packaging>pom</packaging>
+  <!-- AllBinary Platform Version Start -->
+  <version>1.0.0-SNAPSHOT</version>
+  <!-- AllBinary Platform Version End -->
+
+  <name>CombatGameJavaLibraryPOMCobol</name>
+  <url>http://www.allbinary.com/</url>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>AllBinary Snapshots Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>AllBinary Releases Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+
+    <properties>
+        <buildLabel>${project.version}</buildLabel>
+        <assemblyPluginVersion>2.2-beta-1</assemblyPluginVersion>
+    </properties>
+
+    <modules>
+
+        <!--
+
+        -->
+
+        <module>../../games/TickableJavaLibraryCobolM</module>
+
+        <module>../../games/CommonHeadsUpDisplayLibraryCobolM</module>
+
+        <module>../../../physics/MovementJavaLibraryCobolM</module>
+        <!--        -->
+        <module>../../games/PartsJavaLibraryCobolM</module>
+        <module>../../games/PickupGameJavaLibraryCobolM</module>
+
+        <module>../../../allbinary_src/licensing/HardCodedLicenseInitInfoJavaLibraryCobolM</module>
+        <module>../../../allbinary_src/licensing/FileLicenseInitInfoJavaLibraryCobolM</module>
+        <module>../../../allbinary_src/licensing/ClientInfoLicensingJavaLibraryCobolM</module>
+
+        <module>../../games/licensing/PartnerJ2MEJavaLibraryCobolM</module>
+        <!--<module>../../games/licensing/PartnerHTMLJavaLibraryCobolM</module>-->
+        <!--<module>../../games/licensing/PartnerAndroidJavaLibraryCobolM</module>-->
+        <module>../../games/licensing/NoGameLicensingJavaLibraryCobolM</module>
+        <module>../../games/licensing/GameLicensingOnlyDemoJavaLibraryCobolM</module>
+        <!--<module>../../games/licensing/GameLicensingOnlyNormalJavaLibraryCobolM</module>-->
+        <module>../../games/licensing/GameLicensingBaseJavaLibraryCobolM</module>
+
+        <!--
+        <module>../../games/GameScoresBaseLibraryCobolM</module>
+        <module>../../games/GameScoresBaseHTMLLibraryCobolM</module>
+        <module>../../games/GameScoresBaseJ2MELibraryCobolM</module>
+        -->
+        <module>../../games/GameScoresLocalJavaLibraryCobolM</module>
+        <!--<module>../../games/GameScoresRemoteAndLocalJavaLibraryCobolM</module>-->
+
+        <module>../../../store/ThirdPartyStoreJavaLibraryCobolM</module>
+        <module>../../../store/NoThirdPartyStoreJavaLibraryCobolM</module>
+
+        <module>../../media/graphics/layer/CollisionLayerJavaLibraryCobolM</module>
+        <module>../../games/CollisionLibraryCobolM</module>
+
+        <module>../../games/multiplayer/AllBinaryGameClientBaseNullJavaLibraryCobolM</module>
+
+        <module>../../games/PickupLayerJavaLibraryCobolM</module>
+
+        <module>../../games/DamageGameJavaLibraryCobolM</module>
+        <module>../../games/DropJavaLibraryCobolM</module>
+        <module>../../games/WeaponLayerJavaLibraryCobolM</module>
+
+        <module>../../games/CombatGameJavaLibraryCobolM</module>
+        <module>../../games/LifeJavaLibraryCobolM</module>
+
+        <module>../../games/CommonHeadsUpDisplayCombatGameLibraryCobolM</module>
+        <module>../../games/LifeOrDeathDataJavaLibraryCobolM</module>
+
+        <module>../../games/BasicWeaponPartsJavaLibraryCobolM</module>
+        <module>../../games/weapon/WeaponPropertiesJavaLibraryCobolM</module>
+
+        <module>../../games/weapon/WeaponMineJavaLibraryCobolM</module>
+
+        <!--
+        <module>../../media/graphics/effects/fireworks/FireworksJavaLibraryCobolM</module>
+        -->
+
+        <module>../../media/graphics/geography/map/TerrainEventJavaLibraryCobolM</module>
+
+<!--
+        <module>../../media/graphics/geography/map/BasicPlatformGeographicMapJavaLibraryCobolM</module>
+        -->
+
+        <!--
+        <module>../../media/graphics/geography/map/RaceTrackCobolP</module>
+        -->
+
+        <!--
+        XmlRpcJavaLibrary
+        RemoteXmlRpcJavaLibrary
+
+        Since POMs are built before the other libs is it best to handle this differently
+        ../../
+        <module>../../../../workcobol/j2me/games/strategy/rts/RTSGameJavaLibraryCobolP</module>
+        -->
+
+        <module>../../media/graphics/OtherGraphicsMediaLibraryCobolP</module>
+
+        <module>../../input/NoTouchButtonResourceAnimationJavaLibraryCobolM</module>
+        <module>../../input/TouchButtonResourceAnimationJavaLibraryCobolM</module>
+        <module>../../input/TouchButtonResourceOpenGLESAnimationJavaLibraryCobolM</module>
+
+        <module>../../input/TrackingEventJavaLibraryCobolM</module>
+        <module>../../../game/behavior/BehaviorLibraryCobolP</module>
+
+        <module>../../media/sound/OtherSoundMediaLibraryCobolP</module>
+
+        <module>../../../allbinary_src/licensing/ApplicationConfigurationJavaLibraryCobolM</module>
+        <module>../../../allbinary_src/licensing/ApplicationConfigurationNoFSJavaLibraryCobolM</module>
+        <module>../../input/AllBinaryMagneticFieldSensorJavaLibraryCobolM</module>
+        <!--<module>../../android/VirtualKeyboardJavaLibraryCobolM</module>-->
+
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+</project>
+

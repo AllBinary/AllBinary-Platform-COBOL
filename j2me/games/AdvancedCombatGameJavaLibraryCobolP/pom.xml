@@ -1,0 +1,90 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.allbinary</groupId>
+  <artifactId>AdvancedCombatGameJavaLibraryPOMCobol</artifactId>
+  <packaging>pom</packaging>
+  <!-- AllBinary Platform Version Start -->
+  <version>1.0.0-SNAPSHOT</version>
+  <!-- AllBinary Platform Version End -->
+
+  <name>AdvancedCombatGameJavaLibraryPOMCobol</name>
+  <url>http://www.allbinary.com/</url>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>AllBinary Snapshots Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>AllBinary Releases Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+
+    <properties>
+        <buildLabel>${project.version}</buildLabel>
+        <assemblyPluginVersion>2.2-beta-1</assemblyPluginVersion>
+    </properties>
+
+    <modules>
+
+        <!--
+
+        -->
+
+        <!-- Should be in OtherGraphicsMediaLibrary but android dependencies ar not available then 
+        <module>../workingcobol/media/graphics/animation/image/ImageAndroidJavaLibraryCobolM</module>
+        -->
+        <!--
+        <module>../workingcobol/media/graphics/animation/image/ImageHTMLJavaLibraryCobolM</module>
+        <module>../workingcobol/media/graphics/animation/image/ImageHTMLJavaLibraryM_1_1</module>
+        -->
+
+        <!--
+        HTML logging should be in the AllBinaryPOM, but they depend on playn
+        which depends on midp that depends on some of the AllBinary Platform
+        <module>../workingcobol/allbinary_src/LogPlayNJavaLibraryCobolM</module>
+        <module>../workingcobol/logging/LoggingHTMLAllCobolM</module>
+        <module>../workingcobol/logging/LoggingHTMLExceptionCobolM</module>
+        -->
+
+        <!--
+        <module>../../../graphics/opengl/OpenGLESJavaLibraryCobolM</module>
+        -->
+        <!--<module>../../../graphics/opengl/OpenGLJOGLJavaLibraryCobolM</module>-->
+        <module>../../../graphics/opengl/OpenGLESBaseJavaLibraryCobolM</module>
+
+        <!-- Not used in Platform Libraries -->
+        <module>../licensing/LicensingJavaLibraryCobolP</module>
+        <module>../../../allbinary_src/allbinary_src_generic_event_srcCobolM</module>
+        <!--
+        -->
+
+        <!--<module>../../android/AllBinaryAndroidLibraryCobolP</module>-->
+        <!-- Not used in Platform Libraries -->
+        <!--
+        <module>../../ProgressAndroidJavaLibraryCobolM</module>
+        <module>../../media/graphics/animation/image/AllBinaryAndroidImageRotationJavaLibraryCobolM</module>
+        -->
+
+        <module>../CommonPickupJavaLibraryCobolM</module>
+        <module>../../../physics/FrictionJavaLibraryCobolM</module>
+
+        <module>../Resources/images/GameImageLowResourcesJavaLibraryCobolM</module>
+        <module>../Resources/images/GameImageMediumResourcesJavaLibraryCobolM</module>
+
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+</project>
+

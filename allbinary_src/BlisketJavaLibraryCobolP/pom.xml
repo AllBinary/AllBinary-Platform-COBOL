@@ -1,0 +1,147 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.allbinary.business</groupId>
+    <artifactId>BlisketJavaLibraryPCobol</artifactId>
+    <packaging>pom</packaging>
+    <!-- AllBinary Platform Version Start -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
+
+    <name>BlisketJavaLibraryPCobol</name>
+    <url>http://www.allbinary.com/</url>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>AllBinary Snapshots Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>AllBinary Releases Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+    
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    
+    <modules>
+
+        <!--
+        <module>../../j2me/AllBinaryJ2MELibraryCobolP</module>
+        -->
+        <!--
+        <module>../data/DataJavaLibraryCobolM</module>
+        -->
+
+        <module>../licensing/TestServiceClientInfoJavaLibraryCobolM</module>        
+
+        <module>../data/DataTableInterfacesCobolM</module>
+        
+        <module>../QueueJavaLibraryCobolM</module>
+        
+        <!--
+        <module>../TokenizerJavaLibraryCobolM</module>
+        -->
+
+        <module>../logging/LogConfigTypeFreeblisketJavaLibraryCobolM</module>
+
+        <module>../JavaUtilLibraryCobolM</module>
+        <module>../NullInitInfoJavaLibraryCobolM</module>        
+        <module>../InitInfoJavaLibraryCobolM</module>
+        <module>../PreLoaderHttpJavaLibraryCobolM</module>
+        
+        <module>../TagsBaseJavaLibraryCobolM</module>
+        <module>../CustomLoaderJavaLibraryCobolM</module>
+        
+        <!--
+        <module>../logic/data/file/FileJ2SEJavaLibraryCobolM</module>
+        <module>../logic/data/file/FileJavaLibraryCobolM</module>
+        -->
+
+        <module>../data/SQLAllBinaryJavaLibraryCobolM</module>
+
+        <!--
+        <module>../licensing/FileLicenseInitInfoJavaLibraryCobolM</module>
+        -->
+
+        <module>../DocumentObjectModelJavaLibraryCobolM</module>
+
+        <module>../VisualStyleJavaLibraryCobolM</module>
+
+        <module>../ConfigurationJavaLibraryCobolM</module>
+
+        <module>../VisualTransformBaseJavaLibraryCobolM</module>
+
+        <module>../CategoryBaseJavaLibraryCobolM</module>
+        <module>../CategoryJavaLibraryCobolM</module>
+
+        <module>../UserJavaLibraryCobolM</module>
+
+        <module>../PaymentGatewayBaseJavaLibraryCobolM</module>
+
+        <module>../data/vo/EntitiesBlisketVOJavaLibraryCobolM</module>
+        <module>../PaymentGatewayJavaLibraryCobolM</module>
+        <module>../data/vo/EntitiesOrderHistoryVOJavaLibraryCobolM</module>
+        <module>../data/vo/EntityPaymentGatewayVOJavaLibraryCobolM</module>
+        <module>../data/vo/EntityStoreFrontVOJavaLibraryCobolM</module>
+
+        <module>../data/EntitiesBlisketBaseInterfacesJavaLibraryCobolM</module>
+        <module>../data/EntitiesBlisketBaseJavaLibraryCobolM</module>
+        
+        <module>../data/EntitiesAdvertisementBaseJavaLibraryCobolM</module>
+        <module>../data/EntityOrderHistoryJavaLibraryCobolM</module>
+        <module>../data/EntityPaymentGatewayJavaLibraryCobolM</module>
+        <module>../data/EntityVisualTransformJavaLibraryCobolM</module>
+        <module>../data/EntityUserJavaLibraryCobolM</module>
+        <module>../data/EntityWorkflowJavaLibraryCobolM</module>
+
+        <module>../SMTPConfigurationJavaLibraryCobolM</module>
+        <module>../SMTPBaseJavaLibraryCobolM</module>
+
+        <module>../VisualTransformJavaLibraryCobolM</module>
+
+        <module>../../replace_these_stub_projects/allbinary_src/YourRuntimeEnvironmentJavaLibraryCobolM</module>
+        <module>../GatewayJavaLibraryCobolM</module>
+        
+        <module>../WorkflowBaseJavaLibraryCobolM</module>
+        <module>../WorkflowJavaLibraryCobolM</module>
+
+        <module>../IdGeneratorUsingFilesJavaLibraryCobolM</module>
+        <module>../BlisketPreVOJavaLibraryCobolM</module>
+
+        <!-- 
+        EntitiesOrderHistoryVOJavaLibrary
+        UserJavaLibrary
+        -->
+        
+        <module>../BlisketVOJavaLibraryCobolM</module>
+
+        <module>../UserCommerceJavaLibraryCobolM</module>
+
+        <module>../CustomizerValidatorsJavaLibraryCobolM</module>
+
+        <!-- 
+        AllBinaryCacheForShiftOneJavaLibrary
+        AllBinaryJSECacheJavaLibrary
+        ColorJavaLibrary
+        ImageJavaLibrary
+        -->
+        
+        <module>../logic/data/file/FileMediaJ2SEJavaLibraryCobolM</module>
+        <module>../BlisketBaseJavaLibraryCobolM</module>
+
+        <module>../logging/LoggingGAEAllCobolM</module>
+        <module>../BlisketJavaLibraryCobolM</module>
+        
+    </modules>
+
+</project>
+

@@ -1,0 +1,88 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.allbinary</groupId>
+    <artifactId>AllBinaryBaseLibraryPOMCobol</artifactId>
+    <packaging>pom</packaging>
+    <!-- AllBinary Platform Version Start -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
+
+    <name>AllBinaryBaseLibraryPOMCobol</name>
+    <url>http://www.allbinary.com/</url>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>AllBinary Snapshots Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>AllBinary Releases Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+    
+    <properties>
+        <buildLabel>${project.version}</buildLabel>
+        <assemblyPluginVersion>2.2-beta-1</assemblyPluginVersion>
+    </properties>
+
+    <modules>
+        <module>../CommonJavaLibraryCobolM</module>
+        <module>../TempBaseJavaLibraryCobolM</module>
+        
+        <module>../../allbinary_src/LogCobolM</module>
+        <module>../../allbinary_src/allbinary_src_designpatterns_srcCobolM</module>
+        <module>../../allbinary_src/data/BaseDataJavaLibraryCobolM</module>
+        <module>../../allbinary_src/cache/BaseCacheJavaLibraryCobolM</module>
+        <module>../../allbinary_src/logic/BasePreloaderJavaLibraryCobolM</module>
+        <module>../../allbinary_src/logic/BasePreloaderJ2MEJavaLibraryCobolM</module>
+
+        <module>../ExceptionHTMLJavaLibraryCobolM</module>
+        <module>../J2MEExceptionLibraryCobolM</module>
+        <module>../../allbinary_src/J2SEExceptionLibraryCobolM</module>
+        <module>../J2MEUtilJavaLibraryCobolM</module>
+        <module>../J2MEColorJavaLibraryCobolM</module>
+        <module>../EventJ2MELibraryCobolM</module>
+
+        <module>../../allbinary_src/LogNoPlatformJavaLibraryCobolM</module>
+        <module>../../allbinary_src/LogJ2MEJavaLibraryCobolM</module>
+        <module>../../allbinary_src/LogJ2SEJavaLibraryCobolM</module>
+        <!--<module>../../allbinary_src/LogAndroidJavaLibraryCobolM</module>-->
+        <module>../logging/LoggingNoneCobolM</module>
+        <module>../logging/LoggingJ2MEAllCobolM</module>
+        <module>../logging/LoggingJ2MEExceptionCobolM</module>
+        <!--<module>../logging/LoggingAndroidAllCobolM</module>-->
+        <!--
+        //While it is a possible dependency option it really does not fit here
+        //as such it is actually build in the final POM builds instead
+        <module>../logging/LoggingRemoteExceptionCobolM</module>  
+        -->
+        
+        <module>../J2MEWindowingJavaLibraryCobolM</module>
+        
+        <module>../lib/BaseMathLibraryCobolM</module>
+        <module>../lib/BasicMathLibraryCobolM</module>
+        
+        <module>../../allbinary_src/ThreadLibraryCobolM</module>
+        <!--<module>../../allbinary_src/ThreadHTMLLibraryCobolM</module>-->
+        <module>../../replace_these_stub_projects/allbinary_src/NoneOnlyJavaLibraryCobolM</module>
+        <module>../../allbinary_src/ThreadJ2MELibraryCobolM</module>
+        <module>../time/TimeJavaLibraryCobolM</module>
+
+        <module>../statistics/ApplicationStatisticsJ2SELibraryCobolM</module>
+        <module>../statistics/ApplicationStatisticsJ2MELibraryCobolM</module>
+        <module>../statistics/ApplicationStatisticsJavaLibraryCobolM</module>
+
+        <module>../../allbinary_src/logging/BasicLogConfigTypeJavaLibraryCobolM</module>
+        <module>../../allbinary_src/logging/LogConfigTypeGameClientJavaLibraryCobolM</module>
+
+        <module>../../allbinary_src/hardware/HardwareLibraryPOCobolM</module>
+
+        <module>../lib/TrigBaseLibraryCobolM</module>
+
+    </modules>
+
+</project>
+

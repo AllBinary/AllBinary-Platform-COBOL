@@ -1,0 +1,72 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.allbinary</groupId>
+  <artifactId>AllBinaryOnAllPlatformsJavaLibraryPOMCobol</artifactId>
+  <packaging>pom</packaging>
+  <!-- AllBinary Platform Version Start -->
+  <version>1.0.0-SNAPSHOT</version>
+  <!-- AllBinary Platform Version End -->
+
+  <name>AllBinaryOnAllPlatformsJavaLibraryPOMCobol</name>
+  <url>http://www.allbinary.com/</url>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>AllBinary Snapshots Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>AllBinary Releases Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+
+
+
+    <modules>
+
+        <!--
+        <module>../j2me/HTMLForJ2MEJavaLibraryCobolM</module>
+        -->
+        
+        <module>../../../games/PreGameJ2MEJavaLibraryCobolP</module>
+        <module>../../GameJ2MELibraryCobolP</module>
+        <module>../../CombatGameJavaLibraryPOCobolM</module>
+        <module>../../AdvancedCombatGameJavaLibraryCobolP</module>
+        
+        <module>../j2me/AllBinaryOnJ2MEBasePlatformJavaLibraryCobolM</module>
+        
+        <!--<module>../j2me/AllBinaryOnJ2MEPlatformJavaLibraryCobolM</module>-->
+        
+        <module>../j2se/AllBinaryOnJ2SEBasePlatformJavaLibraryCobolM</module>
+        
+        <!--
+        <module>../j2se/AllBinaryOnJ2SEPlatformJavaLibraryCobolM</module>
+        
+        <module>../html/AllBinaryOnHTMLBasePlatformJavaLibraryCobolM</module>
+        <module>../html/AllBinaryOnHTMLPlatformJavaLibraryCobolM</module>
+
+        <module>../android/AllBinaryOnAndroidBasePlatformJavaLibraryCobolM</module>
+        <module>../android/AllBinaryOnAndroidBasePlatformDependenciesJavaLibraryCobolM</module>
+        <module>../android/AllBinaryOnAndroidPlatformJavaLibraryCobolM</module>
+        <module>../android/AllBinaryOnAndroidPlatformDependenciesJavaLibraryCobolM</module>
+        
+        -->
+        
+        <module>../AllBinaryOptionalBasePlatformJavaLibraryCobolM</module>
+
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+</project>
+

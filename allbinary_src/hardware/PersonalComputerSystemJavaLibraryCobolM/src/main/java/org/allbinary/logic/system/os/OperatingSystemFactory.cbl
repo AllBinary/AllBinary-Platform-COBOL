@@ -1,0 +1,206 @@
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.system.os
+*> Java class OperatingSystemFactory
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OprtngSystmFctry-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 OperatingSystemFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 OperatingSystemFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF OperatingSystemFactory-jset-instance = 0
+        MOVE 1 TO OperatingSystemFactory-jset-instance
+        COMPUTE OperatingSystemFactory-jcell-instance = FUNCTION OperatingSystemFactory-new0
+    END-IF
+    MOVE OperatingSystemFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION OprtngSystmFctry-sttc-nstnc.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OperatingSystemFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("OperatingSystemFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_genericOperatingSystem")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_hasDetected")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
+    COMPUTE JVALUE = FUNCTION NOprtngSystm-sttc-NO-OPEREM
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_genericOperatingSystem", JVALUE)
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hasDetected", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION OperatingSystemFactory-new0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OprtngSystmFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION OprtngSystmFctry-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION OprtngSystmFctry-getInstance0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OprtngSystmFctry-gtOprtngSysc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-operatingSystems BINARY-DOUBLE.
+01 J-systemProperties BINARY-DOUBLE.
+01 J-osName BINARY-DOUBLE.
+01 J-osArch BINARY-DOUBLE.
+01 J-osVersion BINARY-DOUBLE.
+01 J-log BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE J-operatingSystems = FUNCTION OperatingSystems-getInstance0
+            COMPUTE J-systemProperties = FUNCTION SystemProperties-getInstance0
+            COMPUTE J-osName = FUNCTION SystemProperties-getName0(J-systemProperties)
+            COMPUTE J-osArch = FUNCTION SystemProperties-getArch0(J-systemProperties)
+            COMPUTE J-osVersion = FUNCTION SystemProperties-getVersion0(J-systemProperties)
+            IF (NOT (FUNCTION JR-GET(J-THIS, "f_hasDetected") = 1))
+                COMPUTE jtemp1 = FUNCTION JR-CONCAT(FUNCTION JR-STR("osName: "), J-osName)
+                COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), jtemp1, J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_GET_INSTANCE"))
+                COMPUTE JVALUE = 1
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hasDetected", JVALUE)
+                IF (FUNCTION JR-INDEX-OF(J-osName, FUNCTION JR-GET(J-operatingSystems, "f_LINUX")) >= 0)
+                    COMPUTE jtemp9 = FUNCTION LgCnfgTypFctry-getInstance0
+                    IF (FUNCTION JR-CLASS-NAME(FUNCTION LogConfigTypes-static-LOGGING) = 1)
+                        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-STR("Found a Linux OS"), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_GET_INSTANCE"))
+                    END-IF
+                    COMPUTE jtemp10 = FUNCTION LnxOprtngSystmFctry-gtInstnc0
+                    COMPUTE JVALUE = FUNCTION LnxOprtngSystmFctry-gtOprtngc0(jtemp10)
+                    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_genericOperatingSystem", JVALUE)
+                ELSE
+                    IF (FUNCTION JR-INDEX-OF(J-osName, FUNCTION JR-GET(J-operatingSystems, "f_WINDOWS")) >= 0)
+                    COMPUTE jtemp7 = FUNCTION LgCnfgTypFctry-getInstance0
+                    IF (FUNCTION JR-CLASS-NAME(FUNCTION LogConfigTypes-static-LOGGING) = 1)
+                        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-STR("Found a Windows OS"), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_GET_INSTANCE"))
+                    END-IF
+                    COMPUTE jtemp8 = FUNCTION WndwsOprtngSystmFctry-gtInstc0
+                    COMPUTE JVALUE = FUNCTION WndwsOprtngSystmFctry-gtOprtc0(jtemp8)
+                    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_genericOperatingSystem", JVALUE)
+                ELSE
+                    IF (FUNCTION JR-INDEX-OF(J-osName, FUNCTION JR-GET(J-operatingSystems, "f_SOLARIS")) >= 0)
+                    COMPUTE jtemp5 = FUNCTION LgCnfgTypFctry-getInstance0
+                    IF (FUNCTION JR-CLASS-NAME(FUNCTION LogConfigTypes-static-LOGGING) = 1)
+                        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-STR("Found a Solaris OS"), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_GET_INSTANCE"))
+                    END-IF
+                    COMPUTE jtemp6 = FUNCTION SlrsOprtngSystmFctry-gtInstnc0
+                    COMPUTE JVALUE = FUNCTION SlrsOprtngSystmFctry-gtOprtnc0(jtemp6)
+                    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_genericOperatingSystem", JVALUE)
+                ELSE
+                    COMPUTE jtemp4 = FUNCTION StringMaker-new0
+                    COMPUTE jtemp3 = FUNCTION StringMaker-append1(jtemp4, FUNCTION JR-STR("OS Not Supported: "))
+                    COMPUTE jtemp2 = FUNCTION StringMaker-append1(jtemp3, J-osName)
+                    COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+                END-IF
+                END-IF
+                END-IF
+                COMPUTE jtemp14 = FUNCTION StringUtil-getInstance0
+                COMPUTE jtemp13 = FUNCTION StringMaker-new0
+                COMPUTE jtemp12 = FUNCTION StringMaker-append1(jtemp13, FUNCTION JR-STR("OperatingSystem Info: "))
+                COMPUTE jtemp11 = FUNCTION StringMaker-append1(jtemp12, FUNCTION StringUtil-toString1(jtemp14, FUNCTION JR-GET(J-THIS, "f_genericOperatingSystem")))
+                COMPUTE J-log = FUNCTION LogFactory-getInstanceF3(FUNCTION JR-TO-STRING(jtemp11), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_GET_INSTANCE"))
+                COMPUTE JDISCARD = FUNCTION JR-PRINTLN(FUNCTION JR-TO-STRING(J-log))
+                COMPUTE JDISCARD = FUNCTION LogUtil-putL1(FUNCTION JR-GET(J-THIS, "f_logUtil"), J-log)
+            END-IF
+            COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_genericOperatingSystem")
+            GOBACK
+    GOBACK.
+END FUNCTION OprtngSystmFctry-gtOprtngSysc0.
+

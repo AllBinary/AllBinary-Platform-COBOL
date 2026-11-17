@@ -1,0 +1,192 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.allbinary</groupId>
+  <artifactId>GameJ2MELibraryPOMCobol</artifactId>
+  <packaging>pom</packaging>
+  <!-- AllBinary Platform Version Start -->
+  <version>1.0.0-SNAPSHOT</version>
+  <!-- AllBinary Platform Version End -->
+
+  <name>GameJ2MELibraryPOMCobol</name>
+  <url>http://www.allbinary.com/</url>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>AllBinary Snapshots Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>AllBinary Releases Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+
+
+
+    <modules>
+
+        <!--
+        NoGyroSensorLibrary
+
+        -->
+        <!--<module>../../android/AndroidUtilJavaLibraryCobolM</module>-->
+
+        <module>../../../allbinary_src/security/SimpleCryptLibraryCobolM</module>
+        <!--
+        <module>../../../../working_thirdpartycobol/security/BouncyCastleDESJavaLibraryCobolM</module>
+        <module>../../../../working_thirdpartycobol/communication/XmlRpc/XmlRpcJavaLibraryCobolM</module>
+        -->
+        <module>../../../allbinary_src/TokenizerJavaLibraryCobolM</module>
+        <module>../../../allbinary_src/security/BasicSecurityJavaLibraryCobolM</module>
+        <!--<module>../../../replace_these_stub_projects/security/YourCryptFileJavaLibraryCobolM</module>-->
+        <module>../../../replace_these_stub_projects/security/YourSecurityJavaLibraryCobolM</module>
+        <module>../../../replace_these_stub_projects/communication/YourXmlRpcJavaLibraryCobolM</module>
+        <!--<module>../../../replace_these_stub_projects/allbinary_src/J2MEOnlyJavaLibraryCobolM</module>-->
+        <module>../../../replace_these_stub_projects/allbinary_src/J2MECompatibilityJavaLibraryCobolM</module>
+        <module>../../../replace_these_stub_projects/allbinary_src/J2MEJsInteropCompatibilityJavaLibraryCobolM</module>
+
+        <module>../../DebugJavaLibraryCobolM</module>             
+        <module>../../ResourceLibraryCobolM</module>
+        <module>../../ResourceJ2MEJavaLibraryCobolM</module>
+        <!--<module>../../AndroidResourceLibraryCobolM</module>-->
+        <!--<module>../../../allbinary_src/hardware/AndroidSystemJavaLibraryCobolM</module>-->
+
+        <module>../../../game/behavior/ArtificialIntelligenceLibraryCobolM</module>
+
+        <module>../../media/graphics/PlatformNullImageJavaLibraryCobolM</module>
+        <module>../../media/graphics/ImageCacheBaseJ2MEJavaLibraryCobolM</module>
+        <module>../../media/graphics/ImageCacheJ2MEJavaLibraryCobolM</module>
+        <module>../../../graphics/opengl/OpenGLJ2MENoneJavaLibraryCobolM</module>
+        <module>../../../graphics/opengl/OpenGLNoneJavaLibraryCobolM</module>
+        <module>../../../graphics/opengl/OpenGLNoneOtherJavaLibraryCobolM</module>
+        <module>../../../graphics/opengl/OpenGLNoneOther2JavaLibraryCobolM</module>
+        <module>../../../graphics/opengl/OpenGLESBaseJ2MEJavaLibraryCobolM</module>
+
+        <module>../../media/graphics/animation/AnimationLibraryCobolM</module>
+        <module>../../media/graphics/animation/RotationAnimationJavaLibraryCobolM</module>
+
+        <module>../../games/GameInputLibraryCobolM</module>
+
+        <module>../../games/GameScoresBaseJavaLibraryCobolM</module>
+        <module>../../games/GameScoresBaseJ2MELibraryCobolM</module>
+
+        <module>../../statistics/ApplicationStatisticsHTMLLibraryCobolM</module>
+        <!--
+        <module>../../games/GameConfigurationHTMLJavaLibraryCobolM</module>
+        -->
+        <module>../../games/GameConfigurationJ2MEJavaLibraryCobolM</module>   
+        <module>../../games/GameConfigurationJavaLibraryCobolM</module>
+
+        <module>../../games/GameIntermissionLibraryCobolM</module>
+
+        <module>../../GroupLibraryCobolM</module>
+
+        <module>../../input/NoSensorJavaLibraryCobolM</module>
+
+        <module>../../input/AllBinarySensorJavaLibraryCobolM</module>
+
+        <module>../../input/platform/me/GameInputMEJavaLibraryCobolM</module>
+        <module>../../input/platform/me/GameInputMEKeyOnlyJavaLibraryCobolM</module>
+        <module>../../input/platform/me/GameInputMEMotionJavaLibraryCobolM</module>
+        <module>../../input/platform/pc/GameInputPCBaseJavaLibraryCobolM</module>
+        <module>../../input/platform/pc/GameInputPCJavaLibraryCobolM</module>
+        <module>../../input/platform/pc/GameInputPCKeyOnlyJavaLibraryCobolM</module>
+        <module>../../input/platform/pc/GameInputPCMotionJavaLibraryCobolM</module>
+        <module>../../input/platform/pc/GameInputSwtJavaLibraryCobolM</module>
+
+        <module>../../input/AllBinaryGyroSensorJavaLibraryCobolM</module>
+        <module>../../input/MotionGestureJavaLibraryCobolM</module>
+        
+        <module>../../input/MotionGestureBaseJavaLibraryCobolM</module>
+
+        <module>../../games/GameInputPersistanceLibraryCobolM</module>
+        <module>../../games/GameInputNoPersistanceLibraryCobolM</module>
+        
+        <module>../../lib/VectorThreeDimensionalLibraryCobolM</module>
+        <module>../../input/AllBinaryAccelerometerSensorJavaLibraryCobolM</module>
+        <module>../../input/NoGyroSensorJavaLibraryCobolM</module>
+        <module>../../input/JSEGyroSensorJavaLibraryCobolM</module>
+        <!--
+        <module>../../input/android/</module>
+        <module>../../input/platform/android/GameInputAndroidBaseJavaLibraryCobolM</module>
+        -->
+
+        <module>../../media/sound/BasicPlayerJavaLibraryCobolM</module>
+        <module>../../media/sound/BasicPlayerMIDP2JavaLibraryCobolM</module>
+        <module>../../media/sound/NoPlayerJavaLibraryCobolM</module>
+        <module>../../media/sound/SoundJ2MELibraryCobolM</module>
+
+        <module>../../media/motion/AllBinaryVibrationJavaLibraryCobolM</module>
+        <module>../../media/motion/NoVibrateJavaLibraryCobolM</module>
+        <!--<module>../../media/motion/VibrateAndroidJavaLibraryCobolM</module>-->
+
+        <module>../../media/graphics/NullCustomUIJavaLibraryCobolM</module>
+        <module>../../media/graphics/NullCustomUIBaseJavaLibraryCobolM</module>
+
+        <module>../../media/graphics/FormValidationJavaLibraryCobolM</module>
+        
+        <module>../../media/graphics/FormJavaLibraryCobolM</module>
+        <module>../../media/graphics/FormBaseJavaLibraryCobolM</module>
+        <!--
+        <module>../../media/graphics/FormJMEJavaLibraryCobolM</module>
+        -->
+        <module>../../../j2me/media/graphics/FormJMEJavaLibraryCobolM</module>
+
+        <module>../../media/graphics/animation/AnimationResourceJavaLibraryCobolM</module>
+        <module>../../media/graphics/animation/TransitionAnimationJavaLibraryCobolM</module>
+        <module>../../media/graphics/animation/NoTransitionAnimationJavaLibraryCobolM</module>
+        <!--
+        AndroidTransitionAnimationJavaLibraryM
+        -->
+        <module>../../media/graphics/animation/GameAnimationJavaLibraryCobolM</module>
+        <module>../../games/GameResourceJavaLibraryCobolM</module>
+        <module>../../games/GameSoundsJavaLibraryCobolM</module>
+
+        <module>../../input/TouchInputLibraryCobolP</module>
+
+        <module>../../media/MediaDataCobolM</module>
+        <module>../../media/sound/NotDeviceSpecificNoMediaMIDP1LibraryCobolM</module>
+
+        <module>../../../allbinary_src/content/ContentNoneJavaLibraryCobolM</module>
+        <!--<module>../../../allbinary_src/content/ContentAndroidJavaLibraryCobolM</module>-->
+
+        <module>../../games/GameConfigurationFormJavaLibraryCobolM</module>
+
+        <module>../../FullScreenNoneJavaLibraryCobolM</module>
+        <!--
+        <module>../../FullScreenJavaLibraryCobolM</module>
+        -->
+
+        <module>../../../physics/VelocityLibraryCobolM</module>
+
+        <module>../../games/weapon/SoundsBasicWeaponsJavaLibraryCobolM</module>
+
+        <module>../../lib/TrigJ2MELibraryCobolM</module>
+
+        <module>../../media/graphics/geography/map/LayerPlacementLibraryCobolM</module>
+        <module>../../media/graphics/layer/AllBinaryLayerJavaLibraryCobolM</module>
+
+        <module>../../ScreenCaptureNoneJavaLibraryCobolM</module>
+        
+        <module>../licensing/GameLicensingNullJavaLibraryCobolM</module>
+        
+        <module>../../business/advertisement/AllBinaryAdvertisementClientJavaLibraryCobolM</module>
+        <module>../../business/advertisement/AdvertisementClientNoneJavaLibraryCobolM</module>
+
+        <module>../GameNotificationJavaLibraryCobolM</module>
+
+        <module>../../../graphics/opengl/NoSWTJavaLibraryCobolM</module>
+        <module>../../../graphics/opengl/SWTWithoutJOGLJavaLibraryCobolM</module>
+        <module>../SWTJavaLibraryCobolM</module>
+        <module>../GameJ2MELibraryCobolM</module>
+        
+        <!--
+        <module>../GameJ2MEOptionalLibraryPOCobolM</module>
+        -->
+    
+    </modules>
+
+</project>
+

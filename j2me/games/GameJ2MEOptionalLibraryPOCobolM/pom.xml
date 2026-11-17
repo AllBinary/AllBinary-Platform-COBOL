@@ -1,0 +1,76 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.allbinary</groupId>
+    <artifactId>GameJ2MEOptionalLibraryPOMCobol</artifactId>
+    <packaging>pom</packaging>
+    <!-- AllBinary Platform Version Start -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
+
+    <name>GameJ2MEOptionalLibraryPOMCobol</name>
+    <url>http://www.allbinary.com/</url>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>AllBinary Snapshots Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>AllBinary Releases Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+
+
+
+    <modules>
+        
+        <module>../../ProgressLazyJ2MEJavaLibraryCobolM</module>
+        <!--
+                <module>../../games/GameScoresBaseHTMLLibraryCobolM</module>
+                <module>../../games/GameScoresJ2MEJavaLibraryCobolM</module>
+                <module>../../../allbinary_src/licensing/RemoteXmlRpcJavaLibraryCobolM</module>
+                <module>../../games/GameScoresLocalLibraryCobolM</module>
+                <module>../../games/GameScoresRemoteAndLocalLibraryCobolM</module>
+        -->
+<!-- in GameJ2MELibraryPOM <module>../../media/graphics/ImageCacheJ2MEJavaLibraryCobolM</module>-->
+        <module>../../media/graphics/ImageCacheLazyJ2MEJavaLibraryCobolM</module>
+        <!--        <module>../../media/graphics/ImageCacheOpenGLESJavaLibraryCobolM</module>-->
+        <module>../../media/graphics/LazyGameResourceNoneJavaLibraryCobolM</module>
+
+<!-- in GameJ2MELibraryPOM <module>../../../graphics/opengl/OpenGLNoneJavaLibraryCobolM</module>-->
+
+        <!--
+                <module>../../../graphics/opengl/OpenGLESJavaLibraryCobolM</module>
+        -->
+
+<!-- in GameJ2MELibraryPOM <module>../../input/JSEGyroSensorJavaLibraryCobolM</module>-->
+        <!--        
+                <module>../../ProgressJ2MEJavaLibraryCobolM</module>
+        -->
+        <!--        
+                //At some point the GameInput libraries were here
+        -->
+        
+        <!--
+        ../../
+        <module>../../../../workcobol/j2me/media/graphics/FormJMEJavaLibraryCobolM</module>
+        -->
+        <!--
+        ../../
+        <module>../../../../workcobol/j2me/media/graphics/FormJSEJavaLibraryCobolM</module>
+        -->
+
+        <module>../../media/sound/J2SEMediaMIDPMinimalJavaLibraryCobolM</module>
+<!--        <module>../../media/sound/NotDeviceSpecificMIDP2JavaLibraryCobolM</module>-->
+        <module>../../media/sound/MediaMIDP2ForHTMLJavaLibraryCobolM</module>
+
+        <!--
+                <module>../../../../workcobol/j2me/ScreenCaptureAndroidJavaLibraryCobolM</module>
+        -->
+    </modules>
+
+</project>
+
