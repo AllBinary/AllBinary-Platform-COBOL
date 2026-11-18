@@ -1,74 +1,125 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2022 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.opengles.renderer
-unit RendererStrings;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.opengles.renderer
+*> Java class RendererStrings
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RndrrStrngs-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 RendererStrings-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 RendererStrings-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF RendererStrings-jset-instance = 0
+        MOVE 1 TO RendererStrings-jset-instance
+        COMPUTE RendererStrings-jcell-instance = FUNCTION RendererStrings-new0
+    END-IF
+    MOVE RendererStrings-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION RndrrStrngs-static-instance.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RndrrStrngsstaticinsS77348.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 RendererStrings-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION RndrrStrngs-static-instance TO J-RESULT
+    MOVE J-VALUE TO RendererStrings-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION RndrrStrngsstaticinsS77348.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RendererStrings-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("RendererStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ON_SURFACE_CREATED")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ON_SURFACE_CHANGED")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ON_DRAW_FRAME")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ON_DRAW_FRAME_THREED")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ON_DRAW_FRAME_2D")
+    COMPUTE JVALUE = FUNCTION JR-STR("onSurfaceCreated")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ON_SURFACE_CREATED", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("onSurfaceChanged")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ON_SURFACE_CHANGED", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("onDrawFrame")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ON_DRAW_FRAME", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("onDrawFrameThreed")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ON_DRAW_FRAME_THREED", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("onDrawFrame2d")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ON_DRAW_FRAME_2D", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION RendererStrings-new0.
 
-type
-  {AB:TYPES}
-  TRendererStrings = class(TObject)
-  public
-    ON_SURFACE_CREATED: string;
-    ON_SURFACE_CHANGED: string;
-    ON_DRAW_FRAME: string;
-    ON_DRAW_FRAME_THREED: string;
-    ON_DRAW_FRAME_2D: string;
-    class var instance: TRendererStrings;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TRendererStrings; static;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TRendererStrings.InitFields;
-begin
-  Self.ON_SURFACE_CREATED := 'onSurfaceCreated';
-  Self.ON_SURFACE_CHANGED := 'onSurfaceChanged';
-  Self.ON_DRAW_FRAME := 'onDrawFrame';
-  Self.ON_DRAW_FRAME_THREED := 'onDrawFrameThreed';
-  Self.ON_DRAW_FRAME_2D := 'onDrawFrame2d';
-end;
-
-constructor TRendererStrings.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TRendererStrings.getInstance: TRendererStrings;
-begin
-        Exit(TRendererStrings.instance);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TRendererStrings.instance := TRendererStrings.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RendererStrings-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION RndrrStrngs-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION RendererStrings-getInstance0.
 

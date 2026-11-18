@@ -1,129 +1,311 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.vector
+*> Java class LineAnimation
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.vector
-unit LineAnimation;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LineAnimation-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-basicColor RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("LineAnimation")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_newLine")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_tempLine")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_line")
+    COMPUTE jtemp1 = 2
+    COMPUTE jtemp2 = 2
+    COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY2(jtemp1, jtemp2)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_newLine", JVALUE)
+    COMPUTE jtemp3 = FUNCTION NullUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp3, "f_NULL_INT_ARRAY_ARRAY")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_tempLine", JVALUE)
+    COMPUTE jtemp4 = 2
+    COMPUTE jtemp5 = 2
+    COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY2(jtemp4, jtemp5)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_line", JVALUE)
+        COMPUTE JDISCARD = FUNCTION LineAnimation-setBasicColorP1(J-THIS, J-basicColor)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION LineAnimation-new1.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LineAnimation-init2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp7 = 0
+        COMPUTE jtemp6 = 0
+        COMPUTE JVALUE = J-x
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_newLine"), jtemp7), jtemp6, JVALUE)
+        COMPUTE jtemp9 = 0
+        COMPUTE jtemp8 = 1
+        COMPUTE JVALUE = J-y
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_newLine"), jtemp9), jtemp8, JVALUE)
+        COMPUTE jtemp11 = 1
+        COMPUTE jtemp10 = 0
+        COMPUTE JVALUE = J-x
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_newLine"), jtemp11), jtemp10, JVALUE)
+        COMPUTE jtemp13 = 1
+        COMPUTE jtemp12 = 1
+        COMPUTE JVALUE = J-y
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_newLine"), jtemp13), jtemp12, JVALUE)
+        COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_line")
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_tempLine", JVALUE)
+        COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_newLine")
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_line", JVALUE)
+        COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_tempLine")
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_newLine", JVALUE)
+    GOBACK.
+END FUNCTION LineAnimation-init2.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LineAnimation-setPosition3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+01 jtemp18 BINARY-DOUBLE.
+01 jtemp19 BINARY-DOUBLE.
+01 jtemp20 BINARY-DOUBLE.
+01 jtemp21 BINARY-DOUBLE.
+01 jtemp22 BINARY-DOUBLE.
+01 jtemp23 BINARY-DOUBLE.
+01 jtemp24 BINARY-DOUBLE.
+01 jtemp25 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-z BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-x J-y J-z RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp15 = 0
+        COMPUTE jtemp17 = 1
+        COMPUTE jtemp14 = 0
+        COMPUTE jtemp16 = 0
+        COMPUTE JVALUE = FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_line"), jtemp17), jtemp16)
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_newLine"), jtemp15), jtemp14, JVALUE)
+        COMPUTE jtemp19 = 0
+        COMPUTE jtemp21 = 1
+        COMPUTE jtemp18 = 1
+        COMPUTE jtemp20 = 1
+        COMPUTE JVALUE = FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_line"), jtemp21), jtemp20)
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_newLine"), jtemp19), jtemp18, JVALUE)
+        COMPUTE jtemp23 = 1
+        COMPUTE jtemp22 = 0
+        COMPUTE JVALUE = J-x
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_newLine"), jtemp23), jtemp22, JVALUE)
+        COMPUTE jtemp25 = 1
+        COMPUTE jtemp24 = 1
+        COMPUTE JVALUE = J-y
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_newLine"), jtemp25), jtemp24, JVALUE)
+        COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_line")
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_tempLine", JVALUE)
+        COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_newLine")
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_line", JVALUE)
+        COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_tempLine")
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_newLine", JVALUE)
+    GOBACK.
+END FUNCTION LineAnimation-setPosition3.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, Animation, BasicColor, ColorCompositeInterface, PositionInterface, BasicColorCompositeSetterInterface;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LineAnimation-paintXY3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-currentLine BINARY-DOUBLE.
+01 jtemp26 BINARY-DOUBLE.
+01 jtemp27 BINARY-DOUBLE.
+01 jtemp28 BINARY-DOUBLE.
+01 jtemp29 BINARY-DOUBLE.
+01 jtemp30 BINARY-DOUBLE.
+01 jtemp31 BINARY-DOUBLE.
+01 jtemp32 BINARY-DOUBLE.
+01 jtemp33 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-currentLine = FUNCTION JR-GET(J-THIS, "f_line")
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_basicSetColorUtil"))
+        COMPUTE jtemp27 = 0
+        COMPUTE jtemp29 = 0
+        COMPUTE jtemp31 = 1
+        COMPUTE jtemp33 = 1
+        COMPUTE jtemp26 = 0
+        COMPUTE jtemp28 = 1
+        COMPUTE jtemp30 = 0
+        COMPUTE jtemp32 = 1
+        COMPUTE JDISCARD = FUNCTION Graphics-drawLine4(J-graphics, FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(J-currentLine, jtemp27), jtemp26), FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(J-currentLine, jtemp29), jtemp28), FUNCTION
+        JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(J-currentLine, jtemp31), jtemp30), FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(J-currentLine, jtemp33), jtemp32))
+    GOBACK.
+END FUNCTION LineAnimation-paintXY3.
 
-type
-  {AB:TYPES}
-  TLineAnimation = class(TAnimation, IColorCompositeInterface, IPositionInterface, IBasicColorCompositeSetterInterface)
-  public
-    newLine: TArray<TArray<Integer>>;
-    tempLine: TArray<TArray<Integer>>;
-    line: TArray<TArray<Integer>>;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(basicColor_: TBasicColor);
-        procedure init(x: Integer; y: Integer); virtual;
-        procedure setPosition(x: Integer; y: Integer; z: Integer); virtual;
-        procedure paintXY(graphics_: TGraphics; x: Integer; y: Integer); virtual;
-        procedure nextFrame; virtual;
-        function getBasicColorP: TBasicColor; virtual;
-        procedure setBasicColorP(basicColor_: TBasicColor); virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LineAnimation-nextFrame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION LineAnimation-nextFrame0.
 
-implementation
-uses
-  NullUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LineAnimation-getBasicColorP0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION Animation-getBasicColorP0(J-THIS)
+        GOBACK
+    GOBACK.
+END FUNCTION LineAnimation-getBasicColorP0.
 
-
-{AB:CODE}
-
-procedure TLineAnimation.InitFields;
-begin
-  Self.newLine := TJava.NewArray2<Integer>(2, 2);
-  Self.tempLine := TNullUtil.getInstance().NULL_INT_ARRAY_ARRAY;
-  Self.line := TJava.NewArray2<Integer>(2, 2);
-end;
-
-function TLineAnimation.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-    
-
-constructor TLineAnimation.Create(basicColor_: TBasicColor);
-begin
-    inherited Create;
-    InitFields;
-        Self.setBasicColorP(basicColor_);
-end;
-    
-
-procedure TLineAnimation.init(x: Integer; y: Integer);
-begin
-        Self.newLine[0][0] := x;
-        Self.newLine[0][1] := y;
-        Self.newLine[1][0] := x;
-        Self.newLine[1][1] := y;
-        Self.tempLine := Self.line;
-        Self.line := Self.newLine;
-        Self.newLine := Self.tempLine;
-end;
-    
-
-procedure TLineAnimation.setPosition(x: Integer; y: Integer; z: Integer);
-begin
-        Self.newLine[0][0] := Self.line[1][0];
-        Self.newLine[0][1] := Self.line[1][1];
-        Self.newLine[1][0] := x;
-        Self.newLine[1][1] := y;
-        Self.tempLine := Self.line;
-        Self.line := Self.newLine;
-        Self.newLine := Self.tempLine;
-end;
-    
-
-procedure TLineAnimation.paintXY(graphics_: TGraphics; x: Integer; y: Integer);
-var
-  currentLine: TArray<TArray<Integer>>;
-begin
-        currentLine := Self.line;
-        Self.basicSetColorUtil.setBasicColorP3(graphics_, Self.getBasicColorP(), Self.getColor());
-        graphics_.drawLine(currentLine[0][0], currentLine[0][1], currentLine[1][0], currentLine[1][1]);
-end;
-    
-
-procedure TLineAnimation.nextFrame;
-begin
-end;
-    
-
-function TLineAnimation.getBasicColorP: TBasicColor;
-begin
-        Exit(inherited getBasicColorP());
-end;
-    
-
-procedure TLineAnimation.setBasicColorP(basicColor_: TBasicColor);
-begin
-        inherited setBasicColorP(basicColor_);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LineAnimation-setBasicColorP1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-basicColor RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Animation-setBasicColorP1(J-THIS, J-basicColor)
+    GOBACK.
+END FUNCTION LineAnimation-setBasicColorP1.
 

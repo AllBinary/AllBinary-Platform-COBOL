@@ -1,85 +1,153 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.io
+*> Java class AbFileOutputStream
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.logic.io
-unit AbFileOutputStream;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbFileOutputStream-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-name BINARY-DOUBLE.
+01 J-append BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-name J-append RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("AbFileOutputStream")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION AbFileOutputStream-new2.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbFlOtptStrm-createFromAbFile1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-file BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-file RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = 0
+        COMPUTE J-RESULT = FUNCTION AbFileOutputStream-new2(FUNCTION AbFile-getPath0(J-file), jtemp1)
+        GOBACK
+    GOBACK.
+END FUNCTION AbFlOtptStrm-createFromAbFile1.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbFlOtptStrm-crtFrmAbFlAppnd2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-file BINARY-DOUBLE.
+01 J-append BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-file J-append RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION AbFileOutputStream-new2(FUNCTION AbFile-getPath0(J-file), J-append)
+        GOBACK
+    GOBACK.
+END FUNCTION AbFlOtptStrm-crtFrmAbFlAppnd2.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AbFile;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbFlOtptStrm-crtFrmFlPth1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-name BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-name RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = 0
+        COMPUTE J-RESULT = FUNCTION AbFileOutputStream-new2(J-name, jtemp2)
+        GOBACK
+    GOBACK.
+END FUNCTION AbFlOtptStrm-crtFrmFlPth1.
 
-type
-  {AB:TYPES}
-  TAbFileOutputStream = class(TFileOutputStream)
-  public
-        class function createFromAbFile(file_: TAbFile): TAbFileOutputStream; static;
-        class function createFromAbFileAppend(file_: TAbFile; append: Boolean): TAbFileOutputStream; static;
-        class function createFromFilePath(name: string): TAbFileOutputStream; static;
-        class function createFromFilePathAppend(name: string; append: Boolean): TAbFileOutputStream; static;
-        constructor Create(name: string; append: Boolean);
-  end;
-
-implementation
-uses
-  AbFileNativeUtil;
-
-
-{AB:CODE}
-    
-
-// throws FileNotFoundException
-class function TAbFileOutputStream.createFromAbFile(file_: TAbFile): TAbFileOutputStream;
-begin
-        Exit(TAbFileOutputStream.Create(file_.getPath(), False));
-end;
-    
-
-// throws FileNotFoundException
-class function TAbFileOutputStream.createFromAbFileAppend(file_: TAbFile; append: Boolean): TAbFileOutputStream;
-begin
-        Exit(TAbFileOutputStream.Create(file_.getPath(), append));
-end;
-    
-
-// throws FileNotFoundException
-class function TAbFileOutputStream.createFromFilePath(name: string): TAbFileOutputStream;
-begin
-        Exit(TAbFileOutputStream.Create(name, False));
-end;
-    
-
-// throws FileNotFoundException
-class function TAbFileOutputStream.createFromFilePathAppend(name: string; append: Boolean): TAbFileOutputStream;
-begin
-        Exit(TAbFileOutputStream.Create(name, append));
-end;
-    
-
-constructor TAbFileOutputStream.Create(name: string; append: Boolean);
-begin
-        inherited Create(name, append);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbFlOtptStrm-crtFrmFlPthAppnd2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-name BINARY-DOUBLE.
+01 J-append BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-name J-append RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION AbFileOutputStream-new2(J-name, J-append)
+        GOBACK
+    GOBACK.
+END FUNCTION AbFlOtptStrm-crtFrmFlPthAppnd2.
 

@@ -1,99 +1,170 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.init.crypt.jcehelper
+*> Java class BasicCryptUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.init.crypt.jcehelper
-unit BasicCryptUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscCryptUtl-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BasicCryptUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 BasicCryptUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF BasicCryptUtil-jset-instance = 0
+        MOVE 1 TO BasicCryptUtil-jset-instance
+        COMPUTE BasicCryptUtil-jcell-instance = FUNCTION BasicCryptUtil-new0
+    END-IF
+    MOVE BasicCryptUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION BscCryptUtl-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscCryptUtlstaticinsS28973.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BasicCryptUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION BscCryptUtl-static-instance TO J-RESULT
+    MOVE J-VALUE TO BasicCryptUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION BscCryptUtlstaticinsS28973.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicCryptUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("BasicCryptUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_tsUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_XML_START")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION TsUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_tsUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("<?xml")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_XML_START", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION BasicCryptUtil-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, TsUtil, LogUtil, CryptInterface;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicCryptUtil-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION BscCryptUtl-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION BasicCryptUtil-getInstance0.
 
-type
-  {AB:TYPES}
-  TBasicCryptUtil = class(TObject)
-  public
-    logUtil: TLogUtil;
-    tsUtil: TTsUtil;
-    XML_START: string;
-    class var instance: TBasicCryptUtil;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TBasicCryptUtil; static;
-        function getDecryptedInputStream(inputStream_: TInputStream; cryptInterface_: ICryptInterface): TInputStream; virtual;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TBasicCryptUtil.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.tsUtil := TTsUtil.getInstance();
-  Self.XML_START := '<?xml';
-end;
-
-constructor TBasicCryptUtil.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TBasicCryptUtil.getInstance: TBasicCryptUtil;
-begin
-        Exit(TBasicCryptUtil.instance);
-end;
-    
-
-// throws Exception
-function TBasicCryptUtil.getDecryptedInputStream(inputStream_: TInputStream; cryptInterface_: ICryptInterface): TInputStream;
-var
-  buffer: TByteArrayOutputStream;
-  ch: Integer;
-  decrypted: TArray<ShortInt>;
-  decryptedString: string;
-  index: Integer;
-begin
-        buffer := TByteArrayOutputStream.Create;
-        
-        while True do begin
-            ch := inputStream_.read();
-            if (ch) = (-1) then begin
-                Break;
-            end;
-            buffer.write(ch);
-        end;
-        decrypted := cryptInterface_.decrypt(buffer.toByteArray());
-        decryptedString := TJava.NewString(decrypted);
-        index := (Pos(TJava.ToString(Self.XML_START), decryptedString) - 1);
-        if (index) > (0) then begin
-            decryptedString := Copy(decryptedString, (index) + 1, MaxInt);
-        end;
-        Exit(TByteArrayInputStream.Create(Self.tsUtil.getByteArray(decryptedString)));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TBasicCryptUtil.instance := TBasicCryptUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscCryptUtl-gtDcryptdInptStrm2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-buffer BINARY-DOUBLE.
+01 J-ch BINARY-DOUBLE.
+01 J-decrypted BINARY-DOUBLE.
+01 J-decryptedString BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-inputStream BINARY-DOUBLE.
+01 J-cryptInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-inputStream J-cryptInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-buffer = FUNCTION ByteArrayOutputStream-new0
+        CONTINUE
+        PERFORM FOREVER
+            IF NOT (1 = 1) EXIT PERFORM END-IF
+            COMPUTE J-ch = FUNCTION InputStream-read0(J-inputStream)
+            IF (J-ch = (0 - 1))
+                EXIT PERFORM
+            END-IF
+            COMPUTE JDISCARD = FUNCTION ByteArrayOutputStream-write1(J-buffer, J-ch)
+        END-PERFORM
+        COMPUTE J-decrypted = FUNCTION CryptInterface-decrypt1(J-cryptInterface, FUNCTION BytArryOtptStrm-toByteArray0(J-buffer))
+        COMPUTE J-decryptedString = J-decrypted
+        COMPUTE J-index = FUNCTION JR-INDEX-OF(J-decryptedString, FUNCTION JR-GET(J-THIS, "f_XML_START"))
+        IF (J-index > 0)
+            COMPUTE J-decryptedString = FUNCTION JR-SUBSTRING(J-decryptedString, J-index)
+        END-IF
+        COMPUTE J-RESULT = FUNCTION ByteArrayInputStream-new1(FUNCTION TsUtil-getByteArray1(FUNCTION JR-GET(J-THIS, "f_tsUtil"), J-decryptedString))
+        GOBACK
+    GOBACK.
+END FUNCTION BscCryptUtl-gtDcryptdInptStrm2.
 

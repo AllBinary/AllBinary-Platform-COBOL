@@ -1,70 +1,81 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.image.sprite
+*> Java class AllBinaryAdjustedSpriteRotationAnimation
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.image.sprite
-unit AllBinaryAdjustedSpriteRotationAnimation;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, Image, Sprite, AnimationBehavior, AllBinarySpriteRotationAnimation;
-
-type
-  {AB:TYPES}
-  TAllBinaryAdjustedSpriteRotationAnimation = class(TAllBinarySpriteRotationAnimation)
-  public
-    dx: Integer;
-    dy: Integer;
-    procedure InitFields;
-        constructor Create(sprite_: TSprite; image_: TImage; dx: Integer; dy: Integer; animationBehavior_: TAnimationBehavior);
-        procedure paintXY(g: TGraphics; x: Integer; y: Integer); override;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TAllBinaryAdjustedSpriteRotationAnimation.InitFields;
-begin
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryAdjstdSprtRttnAnmtn-nw5.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-sprite BINARY-DOUBLE.
+01 J-image BINARY-DOUBLE.
+01 J-dx BINARY-DOUBLE.
+01 J-dy BINARY-DOUBLE.
+01 J-animationBehavior BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-sprite J-image J-dx J-dy J-animationBehavior RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("AllBinaryAdjustedSpriteRotationAnimation")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_dx")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_dy")
     
-
-constructor TAllBinaryAdjustedSpriteRotationAnimation.Create(sprite_: TSprite; image_: TImage; dx: Integer; dy: Integer; animationBehavior_: TAnimationBehavior);
-begin
-        inherited Create(sprite_, image_, animationBehavior_);
-        InitFields;
-        Self.dx := dx;
-        Self.dy := dy;
-end;
     
+        CONTINUE
+        COMPUTE JVALUE = J-dx
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_dx", JVALUE)
+        COMPUTE JVALUE = J-dy
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_dy", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION AllBnryAdjstdSprtRttnAnmtn-nw5.
 
-procedure TAllBinaryAdjustedSpriteRotationAnimation.paintXY(g: TGraphics; x: Integer; y: Integer);
-begin
-        Self.sprite.setPosition((x) + (Self.dx), (y) + (Self.dy));
-        Self.paint(g);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryAdjstdSprtRttnAn-16493.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-g BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-g J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = (FUNCTION MOD((J-x + FUNCTION JR-GET(J-THIS, "f_dx")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp2 = (FUNCTION MOD((J-y + FUNCTION JR-GET(J-THIS, "f_dy")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION Sprite-setPosition2(FUNCTION JR-GET(J-THIS, "f_sprite"), jtemp1, jtemp2)
+        COMPUTE JDISCARD = FUNCTION HckRttnSprtIndxdAnmtn-paint1(J-THIS, J-g)
+    GOBACK.
+END FUNCTION AllBnryAdjstdSprtRttnAn-16493.
 

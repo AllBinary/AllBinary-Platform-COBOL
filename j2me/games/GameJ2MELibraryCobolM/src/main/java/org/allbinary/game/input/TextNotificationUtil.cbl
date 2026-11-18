@@ -1,111 +1,250 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.input
+*> Java class TextNotificationUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.input
-unit TextNotificationUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TxtNtfctnUtl-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 TextNotificationUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 TextNotificationUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF TextNotificationUtil-jset-instance = 0
+        MOVE 1 TO TextNotificationUtil-jset-instance
+        COMPUTE TextNotificationUtil-jcell-instance = FUNCTION TextNotificationUtil-new0
+    END-IF
+    MOVE TextNotificationUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION TxtNtfctnUtl-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TxtNtfctnUtlstaticinS57242.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 TextNotificationUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION TxtNtfctnUtl-static-instance TO J-RESULT
+    MOVE J-VALUE TO TextNotificationUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION TxtNtfctnUtlstaticinS57242.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TextNotificationUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("TextNotificationUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_TWO")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_FALSE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameNotificationEventHandler")
+    COMPUTE jtemp5 = 2
+    COMPUTE jtemp4 = FUNCTION SmllIntgrSngltnFctry-gtInstnc0
+    COMPUTE JVALUE = FUNCTION SmllIntgrSngltnFctry-getAt1(jtemp4, jtemp5)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_TWO", JVALUE)
+    COMPUTE jtemp6 = FUNCTION BooleanFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp6, "f_FALSE")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_FALSE", JVALUE)
+    COMPUTE JVALUE = FUNCTION GmNtfctnEvntHndlr-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameNotificationEventHandler", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION TextNotificationUtil-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameNotificationEventHandler;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TxtNtfctnUtl-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION TxtNtfctnUtl-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION TxtNtfctnUtl-getInstance0.
 
-type
-  {AB:TYPES}
-  TTextNotificationUtil = class(TObject)
-  public
-    TWO: Integer;
-    FALSE_: Boolean;
-    gameNotificationEventHandler: TGameNotificationEventHandler;
-    class var instance: TTextNotificationUtil;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TTextNotificationUtil; static;
-        procedure fireError(message: string); virtual;
-        procedure fireNew(message: string); virtual;
-        procedure fireSuccess(message: string); virtual;
-        procedure fire(message: string); virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TxtNtfctnUtl-fireError1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-message BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-message RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = FUNCTION PrmryPlyrQFctry-getInstance0
+        COMPUTE JDISCARD = FUNCTION PrimaryPlayerQueueFactory-add1(jtemp1, FUNCTION ErrorSound-getInstance0)
+        COMPUTE JDISCARD = FUNCTION TextNotificationUtil-fire1(J-THIS, J-message)
+    GOBACK.
+END FUNCTION TxtNtfctnUtl-fireError1.
 
-implementation
-uses
-  GameNotificationEvent, BasicColorFactory, BooleanFactory, SmallIntegerSingletonFactory, ErrorSound, PrimaryPlayerQueueFactory, SelectSound;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TextNotificationUtil-fireNew1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-message BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-message RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION PrmryPlyrQFctry-getInstance0
+        COMPUTE JDISCARD = FUNCTION PrimaryPlayerQueueFactory-add1(jtemp2, FUNCTION SelectSound-getInstance0)
+        COMPUTE JDISCARD = FUNCTION TextNotificationUtil-fire1(J-THIS, J-message)
+    GOBACK.
+END FUNCTION TextNotificationUtil-fireNew1.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TxtNtfctnUtl-fireSuccess1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-message BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-message RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp3 = FUNCTION PrmryPlyrQFctry-getInstance0
+        COMPUTE JDISCARD = FUNCTION PrimaryPlayerQueueFactory-add1(jtemp3, FUNCTION SelectSound-getInstance0)
+        COMPUTE JDISCARD = FUNCTION TextNotificationUtil-fire1(J-THIS, J-message)
+    GOBACK.
+END FUNCTION TxtNtfctnUtl-fireSuccess1.
 
-{AB:CODE}
-
-procedure TTextNotificationUtil.InitFields;
-begin
-  Self.TWO := TSmallIntegerSingletonFactory.getInstance().getAt(2);
-  Self.FALSE_ := TBooleanFactory.getInstance().FALSE_;
-  Self.gameNotificationEventHandler := TGameNotificationEventHandler.getInstance();
-end;
-
-constructor TTextNotificationUtil.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TTextNotificationUtil.getInstance: TTextNotificationUtil;
-begin
-        Exit(TTextNotificationUtil.instance);
-end;
-    
-
-// throws Exception
-procedure TTextNotificationUtil.fireError(message: string);
-begin
-        TPrimaryPlayerQueueFactory.getInstance().add(TErrorSound.getInstance());
-        Self.fire(message);
-end;
-    
-
-// throws Exception
-procedure TTextNotificationUtil.fireNew(message: string);
-begin
-        TPrimaryPlayerQueueFactory.getInstance().add(TSelectSound.getInstance());
-        Self.fire(message);
-end;
-    
-
-// throws Exception
-procedure TTextNotificationUtil.fireSuccess(message: string);
-begin
-        TPrimaryPlayerQueueFactory.getInstance().add(TSelectSound.getInstance());
-        Self.fire(message);
-end;
-    
-
-// throws Exception
-procedure TTextNotificationUtil.fire(message: string);
-var
-  gameNotificationEvent_: TGameNotificationEvent;
-begin
-        gameNotificationEvent_ := TGameNotificationEvent.Create(TJava.Box(Self), message, Self.TWO, TBasicColorFactory.getInstance().RED, Self.FALSE_);
-        Self.gameNotificationEventHandler.fireEvent(gameNotificationEvent_);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TTextNotificationUtil.instance := TTextNotificationUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TextNotificationUtil-fire1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameNotificationEvent BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-message BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-message RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp7 = FUNCTION BasicColorFactory-getInstance0
+        COMPUTE J-gameNotificationEvent = FUNCTION GameNotificationEvent-new5(J-THIS, J-message, FUNCTION JR-GET(J-THIS, "f_TWO"), FUNCTION JR-GET(jtemp7, "f_RED"), FUNCTION JR-GET(J-THIS, "f_FALSE"))
+        COMPUTE JDISCARD = FUNCTION BasicEventHandler-fireEvent1(FUNCTION JR-GET(J-THIS, "f_gameNotificationEventHandler"), J-gameNotificationEvent)
+    GOBACK.
+END FUNCTION TextNotificationUtil-fire1.
 

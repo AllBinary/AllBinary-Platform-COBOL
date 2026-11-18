@@ -1,81 +1,62 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.input
+*> Java class NormalJ2MEDefaultGameInputMapping
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.input
-unit NormalJ2MEDefaultGameInputMapping;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, PersistentInputMapping;
-
-type
-  {AB:TYPES}
-  TNormalJ2MEDefaultGameInputMapping = class(TPersistentInputMapping)
-  public
-        constructor Create;
-  end;
-
-implementation
-uses
-  GameKeyFactory, GamePersistanceStrings, InputToGameKeyMapping;
-
-
-{AB:CODE}
-    
-
-constructor TNormalJ2MEDefaultGameInputMapping.Create;
-var
-  inputToGameKeyMapping_: TInputToGameKeyMapping;
-  gameKeyFactory_: TGameKeyFactory;
-begin
-        inherited Create(TGamePersistanceStrings.getInstance().DEFAULT_INPUT_MAPPING_RECORD_ID);
-        inputToGameKeyMapping_ := Self.getInputMapping();
-        gameKeyFactory_ := TGameKeyFactory.getInstance();
-        inputToGameKeyMapping_.add(gameKeyFactory_.UP, gameKeyFactory_.KEY_NUM2);
-        inputToGameKeyMapping_.add(gameKeyFactory_.LEFT, gameKeyFactory_.KEY_NUM4);
-        inputToGameKeyMapping_.add(gameKeyFactory_.RIGHT, gameKeyFactory_.KEY_NUM6);
-        inputToGameKeyMapping_.add(gameKeyFactory_.DOWN, gameKeyFactory_.KEY_NUM8);
-        inputToGameKeyMapping_.add(gameKeyFactory_.KEY_NUM1, gameKeyFactory_.GAME_A);
-        inputToGameKeyMapping_.add(gameKeyFactory_.KEY_NUM3, gameKeyFactory_.GAME_B);
-        inputToGameKeyMapping_.add(gameKeyFactory_.KEY_NUM7, gameKeyFactory_.GAME_C);
-        inputToGameKeyMapping_.add(gameKeyFactory_.KEY_NUM9, gameKeyFactory_.GAME_D);
-        inputToGameKeyMapping_.add(gameKeyFactory_.LEVEL_DOWN, gameKeyFactory_.LEVEL_DOWN);
-        inputToGameKeyMapping_.add(gameKeyFactory_.LEVEL_UP, gameKeyFactory_.LEVEL_UP);
-        inputToGameKeyMapping_.add(gameKeyFactory_.UP, gameKeyFactory_.UP);
-        inputToGameKeyMapping_.add(gameKeyFactory_.DOWN, gameKeyFactory_.DOWN);
-        inputToGameKeyMapping_.add(gameKeyFactory_.LEFT, gameKeyFactory_.LEFT);
-        inputToGameKeyMapping_.add(gameKeyFactory_.RIGHT, gameKeyFactory_.RIGHT);
-        inputToGameKeyMapping_.add(gameKeyFactory_.KEY_POUND, gameKeyFactory_.KEY_POUND);
-        inputToGameKeyMapping_.add(gameKeyFactory_.KEY_STAR, gameKeyFactory_.KEY_STAR);
-        inputToGameKeyMapping_.add(gameKeyFactory_.KEY_NUM1, gameKeyFactory_.KEY_NUM1);
-        inputToGameKeyMapping_.add(gameKeyFactory_.KEY_NUM3, gameKeyFactory_.KEY_NUM3);
-        inputToGameKeyMapping_.add(gameKeyFactory_.KEY_NUM5, gameKeyFactory_.KEY_NUM5);
-        inputToGameKeyMapping_.add(gameKeyFactory_.KEY_NUM7, gameKeyFactory_.KEY_NUM7);
-        inputToGameKeyMapping_.add(gameKeyFactory_.KEY_NUM9, gameKeyFactory_.KEY_NUM9);
-        inputToGameKeyMapping_.add(gameKeyFactory_.KEY_NUM0, gameKeyFactory_.KEY_NUM0);
-        inputToGameKeyMapping_.add(gameKeyFactory_.KEY_NUM1, gameKeyFactory_.FIRE);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NrmlJ2MEDfltGmInptMppng-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-inputToGameKeyMapping BINARY-DOUBLE.
+01 J-gameKeyFactory BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("NormalJ2MEDefaultGameInputMapping")
+        COMPUTE jtemp1 = FUNCTION GmPrsstncStrngs-getInstance0
+        CONTINUE
+        COMPUTE J-inputToGameKeyMapping = FUNCTION PrsstntInptMppng-gtInptMppng0(J-THIS)
+        COMPUTE J-gameKeyFactory = FUNCTION GameKeyFactory-getInstance0
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_UP"), FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM2"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_LEFT"), FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM4"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_RIGHT"), FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM6"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_DOWN"), FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM8"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM1"), FUNCTION JR-GET(J-gameKeyFactory, "f_GAME_A"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM3"), FUNCTION JR-GET(J-gameKeyFactory, "f_GAME_B"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM7"), FUNCTION JR-GET(J-gameKeyFactory, "f_GAME_C"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM9"), FUNCTION JR-GET(J-gameKeyFactory, "f_GAME_D"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_LEVEL_DOWN"), FUNCTION JR-GET(J-gameKeyFactory, "f_LEVEL_DOWN"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_LEVEL_UP"), FUNCTION JR-GET(J-gameKeyFactory, "f_LEVEL_UP"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_UP"), FUNCTION JR-GET(J-gameKeyFactory, "f_UP"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_DOWN"), FUNCTION JR-GET(J-gameKeyFactory, "f_DOWN"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_LEFT"), FUNCTION JR-GET(J-gameKeyFactory, "f_LEFT"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_RIGHT"), FUNCTION JR-GET(J-gameKeyFactory, "f_RIGHT"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_POUND"), FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_POUND"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_STAR"), FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_STAR"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM1"), FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM1"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM3"), FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM3"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM5"), FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM5"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM7"), FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM7"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM9"), FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM9"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM0"), FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM0"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM1"), FUNCTION JR-GET(J-gameKeyFactory, "f_FIRE"))
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION NrmlJ2MEDfltGmInptMppng-new0.
 

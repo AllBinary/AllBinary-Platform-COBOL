@@ -1,75 +1,147 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.physics.acceleration
+*> Java class GravityUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.physics.acceleration
-unit GravityUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GravityUtil-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GravityUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 GravityUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GravityUtil-jset-instance = 0
+        MOVE 1 TO GravityUtil-jset-instance
+        COMPUTE GravityUtil-jcell-instance = FUNCTION GravityUtil-new0
+    END-IF
+    MOVE GravityUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION GravityUtil-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GravityUtilstaticinsS10481.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GravityUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GravityUtil-static-instance TO J-RESULT
+    MOVE J-VALUE TO GravityUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GravityUtilstaticinsS10481.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GravityUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GravityUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_GAME_GRAVITY_VELOCITY")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_MAX_GAME_VELOCITY")
+    COMPUTE JVALUE = 1800
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_GAME_GRAVITY_VELOCITY", JVALUE)
+    COMPUTE JVALUE = 18000
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_MAX_GAME_VELOCITY", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GravityUtil-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, BasicVelocityProperties;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GravityUtil-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION GravityUtil-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION GravityUtil-getInstance0.
 
-type
-  {AB:TYPES}
-  TGravityUtil = class(TObject)
-  public
-    GAME_GRAVITY_VELOCITY: Integer;
-    MAX_GAME_VELOCITY: Integer;
-    class var instance: TGravityUtil;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TGravityUtil; static;
-        procedure process(velocityProperties: TBasicVelocityProperties; customGravity: Integer);
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TGravityUtil.InitFields;
-begin
-  Self.GAME_GRAVITY_VELOCITY := 1800;
-  Self.MAX_GAME_VELOCITY := 18000;
-end;
-
-constructor TGravityUtil.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TGravityUtil.getInstance: TGravityUtil;
-begin
-        Exit(TGravityUtil.instance);
-end;
-    
-
-procedure TGravityUtil.process(velocityProperties: TBasicVelocityProperties; customGravity: Integer);
-begin
-        velocityProperties.getVelocityYBasicDecimalP().addint(customGravity);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TGravityUtil.instance := TGravityUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GravityUtil-process2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-velocityProperties BINARY-DOUBLE.
+01 J-customGravity BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-velocityProperties J-customGravity RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = FUNCTION BscVlctyPrprts-gtVlctyYBs99895(J-velocityProperties)
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp1)
+    GOBACK.
+END FUNCTION GravityUtil-process2.
 

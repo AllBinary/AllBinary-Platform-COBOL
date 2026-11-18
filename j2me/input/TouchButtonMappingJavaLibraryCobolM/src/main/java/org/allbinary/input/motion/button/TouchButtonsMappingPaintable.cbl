@@ -1,129 +1,201 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion.button
+*> Java class TouchButtonsMappingPaintable
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion.button
-unit TouchButtonsMappingPaintable;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, BasicColor, Paintable, LogUtil, TouchButtonLocationHelper;
-
-type
-  {AB:TYPES}
-  TTouchButtonsMappingPaintable = class(TPaintable)
-  public
-    logUtil: TLogUtil;
-    foregroundColor: Integer;
-    paintableTable: TArray<TArray<TPaintable>>;
-    touchButtonLocationHelper: TTouchButtonLocationHelper;
-    procedure InitFields;
-        constructor Create(basicColor_: TBasicColor);
-        procedure init;
-        function createPaintableTable: TArray<TArray<TPaintable>>;
-        procedure paint(graphics_: TGraphics); override;
-  end;
-
-implementation
-uses
-  CommonButtons, TouchButton, BasicTouchInputFactory, TouchButtonBlankResource, CellPositionFactory, CommonStrings;
-
-
-{AB:CODE}
-
-procedure TTouchButtonsMappingPaintable.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  
-  Self.paintableTable := TJava.NewArray2<TPaintable>(0, 0);
-  Self.touchButtonLocationHelper := TTouchButtonLocationHelper.Create();
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchBttnsMppngPntbl-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-basicColor RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("TouchButtonsMappingPaintable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_foregroundColor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_paintableTable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_touchButtonLocationHelper")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
     
+    COMPUTE jtemp1 = 0
+    COMPUTE jtemp2 = 0
+    COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY2(jtemp1, jtemp2)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_paintableTable", JVALUE)
+    COMPUTE JVALUE = FUNCTION TouchButtonLocationHelper-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_touchButtonLocationHelper", JVALUE)
+        COMPUTE JVALUE = FUNCTION BasicColor-intValue0(J-basicColor)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_foregroundColor", JVALUE)
+        COMPUTE JDISCARD = FUNCTION TchBttnsMppngPntbl-init0(J-THIS)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION TchBttnsMppngPntbl-new1.
 
-constructor TTouchButtonsMappingPaintable.Create(basicColor_: TBasicColor);
-begin
-    inherited Create;
-    InitFields;
-        Self.foregroundColor := basicColor_.intValue();
-        Self.init();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchBttnsMppngPntbl-init0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-commonStrings BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE JVALUE = FUNCTION TchBttnsMppngPntbl-crtPnt10401(J-THIS)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_paintableTable", JVALUE)
+    GOBACK.
+END FUNCTION TchBttnsMppngPntbl-init0.
 
-procedure TTouchButtonsMappingPaintable.init;
-var
-  commonStrings_: TCommonStrings;
-begin
-        try
-            Self.paintableTable := Self.createPaintableTable();
-        except
-            on e: SysUtils.Exception do begin
-            commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), 'updateRectangle', TJava.Box(e));
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchBttnsMppngPntbl-crtPnt10401.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-totalColumns BINARY-DOUBLE.
+01 J-totalRows BINARY-DOUBLE.
+01 J-paintableTable BINARY-DOUBLE.
+01 J-cellPositionFactory BINARY-DOUBLE.
+01 J-commonButtons BINARY-DOUBLE.
+01 J-rowIndex BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-totalColumns = FUNCTION TchBttnLctnHlpr-gtTtlClmns0(FUNCTION JR-GET(J-THIS, "f_touchButtonLocationHelper"))
+        COMPUTE J-totalRows = FUNCTION TchBttnLctnHlpr-getTotalRows0(FUNCTION JR-GET(J-THIS, "f_touchButtonLocationHelper"))
+        COMPUTE J-paintableTable = FUNCTION JR-NEW-ARRAY2(J-totalColumns, J-totalRows)
+        COMPUTE J-cellPositionFactory = FUNCTION CllPstnFctry-getInstance0
+        COMPUTE J-commonButtons = FUNCTION CommonButtons-getInstance0
+        COMPUTE J-index = (FUNCTION MOD((J-totalColumns - 1) + 2147483648, 4294967296) - 2147483648)
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index >= 0) EXIT PERFORM END-IF
+            COMPUTE J-rowIndex = (FUNCTION MOD((J-totalRows - 1) + 2147483648, 4294967296) - 2147483648)
+            MOVE 1 TO JFIRST2
+            PERFORM FOREVER
+                IF JFIRST2 = 0
+                    COMPUTE J-rowIndex = (FUNCTION MOD(J-rowIndex - 1 + 2147483648, 4294967296) - 2147483648)
+                END-IF
+                MOVE 0 TO JFIRST2
+                IF NOT (J-rowIndex >= 0) EXIT PERFORM END-IF
+                COMPUTE jtemp3 = FUNCTION BscTchInptFctry-getInstance0
+                COMPUTE JVALUE = FUNCTION TouchButton-createButton6(FUNCTION JR-GET(jtemp3, "f_NONE"), FUNCTION TchBttnBlnkRsrc-getInstance0, FUNCTION JR-GET(J-commonButtons, "f_NORMAL_BUTTON"), FUNCTION
+        CllPstnFctry-gtInstncClRw2(J-cellPositionFactory, J-index, J-rowIndex), FUNCTION TchBttnLctnHlpr-gtClmnsRm39318(FUNCTION JR-GET(J-THIS, "f_touchButtonLocationHelper")), FUNCTION TchBttnLctnHlpr-gtRwsRmndrHlf0(FUNCTION
+        JR-GET(J-THIS, "f_touchButtonLocationHelper")))
+                COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_paintableTable"), J-index), J-rowIndex, JVALUE)
+            END-PERFORM
+        END-PERFORM
+        COMPUTE J-RESULT = J-paintableTable
+        GOBACK
+    GOBACK.
+END FUNCTION TchBttnsMppngPntbl-crtPnt10401.
 
-// throws Exception
-function TTouchButtonsMappingPaintable.createPaintableTable: TArray<TArray<TPaintable>>;
-var
-  totalColumns: Integer;
-  totalRows: Integer;
-  paintableTable: TArray<TArray<TPaintable>>;
-  cellPositionFactory_: TCellPositionFactory;
-  commonButtons_: TCommonButtons;
-  rowIndex: Integer;
-  index: Integer;
-begin
-        totalColumns := Self.touchButtonLocationHelper.getTotalColumns();
-        totalRows := Self.touchButtonLocationHelper.getTotalRows();
-        paintableTable := TJava.NewArray2<TPaintable>(totalColumns, totalRows);
-        cellPositionFactory_ := TCellPositionFactory.getInstance();
-        commonButtons_ := TCommonButtons.getInstance();
-        for index := (totalColumns) - (1) downto 0 do begin
-            for rowIndex := (totalRows) - (1) downto 0 do begin
-                Self.paintableTable[index][rowIndex] := TTouchButton.createButton(TBasicTouchInputFactory.getInstance().NONE, TTouchButtonBlankResource.getInstance(), commonButtons_.NORMAL_BUTTON, cellPositionFactory_.getInstanceColRow(index, rowIndex), Self.touchButtonLocationHelper.getColumnsRemainderHalf(), Self.touchButtonLocationHelper.getRowsRemainderHalf());
-            end;
-        end;
-        Exit(paintableTable);
-end;
-    
-
-procedure TTouchButtonsMappingPaintable.paint(graphics_: TGraphics);
-var
-  totalColumns: Integer;
-  totalRows: Integer;
-  rowIndex: Integer;
-  index: Integer;
-begin
-        totalColumns := Self.touchButtonLocationHelper.getTotalColumns();
-        totalRows := Self.touchButtonLocationHelper.getTotalRows();
-        for index := (totalColumns) - (1) downto 0 do begin
-            for rowIndex := (totalRows) - (1) downto 0 do begin
-                Self.paintableTable[index][rowIndex].paint(graphics_);
-            end;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchBttnsMppngPntbl-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-totalColumns BINARY-DOUBLE.
+01 J-totalRows BINARY-DOUBLE.
+01 J-rowIndex BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 JFIRST3 BINARY-DOUBLE.
+01 JFIRST4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-totalColumns = FUNCTION TchBttnLctnHlpr-gtTtlClmns0(FUNCTION JR-GET(J-THIS, "f_touchButtonLocationHelper"))
+        COMPUTE J-totalRows = FUNCTION TchBttnLctnHlpr-getTotalRows0(FUNCTION JR-GET(J-THIS, "f_touchButtonLocationHelper"))
+        COMPUTE J-index = (FUNCTION MOD((J-totalColumns - 1) + 2147483648, 4294967296) - 2147483648)
+        MOVE 1 TO JFIRST3
+        PERFORM FOREVER
+            IF JFIRST3 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST3
+            IF NOT (J-index >= 0) EXIT PERFORM END-IF
+            COMPUTE J-rowIndex = (FUNCTION MOD((J-totalRows - 1) + 2147483648, 4294967296) - 2147483648)
+            MOVE 1 TO JFIRST4
+            PERFORM FOREVER
+                IF JFIRST4 = 0
+                    COMPUTE J-rowIndex = (FUNCTION MOD(J-rowIndex - 1 + 2147483648, 4294967296) - 2147483648)
+                END-IF
+                MOVE 0 TO JFIRST4
+                IF NOT (J-rowIndex >= 0) EXIT PERFORM END-IF
+                COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_paintableTable"), J-index), J-rowIndex))
+            END-PERFORM
+        END-PERFORM
+    GOBACK.
+END FUNCTION TchBttnsMppngPntbl-paint1.
 

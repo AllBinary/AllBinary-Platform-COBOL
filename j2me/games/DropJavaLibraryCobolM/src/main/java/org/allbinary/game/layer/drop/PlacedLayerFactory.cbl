@@ -1,86 +1,228 @@
-// Generated Code Do Not Modify
-// package org.allbinary.game.layer.drop
-unit PlacedLayerFactory;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.layer.drop
+*> Java class PlacedLayerFactory
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlcdLyrFctry-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PlacedLayerFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 PlacedLayerFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF PlacedLayerFactory-jset-instance = 0
+        MOVE 1 TO PlacedLayerFactory-jset-instance
+        COMPUTE PlacedLayerFactory-jcell-instance = FUNCTION PlacedLayerFactory-new0
+    END-IF
+    MOVE PlacedLayerFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION PlcdLyrFctry-static-instance.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlcdLyrFctrystaticinS93431.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PlacedLayerFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION PlcdLyrFctry-static-instance TO J-RESULT
+    MOVE J-VALUE TO PlacedLayerFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION PlcdLyrFctrystaticinS93431.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AllBinaryLayerFactoryInterface, BasicArrayList, BasicArrayListUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlacedLayerFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("PlacedLayerFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_list")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_basicArrayListUtil")
+    COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
+    COMPUTE JVALUE = FUNCTION BscArryLstUtl-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicArrayListUtil", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION PlacedLayerFactory-new0.
 
-type
-  {AB:TYPES}
-  TPlacedLayerFactory = class(TObject)
-  public
-    list: TBasicArrayList;
-    basicArrayListUtil: TBasicArrayListUtil;
-    class var instance: TPlacedLayerFactory;
-    procedure InitFields;
-        constructor Create;
-        procedure clear; virtual;
-        class function getInstance: TPlacedLayerFactory; static;
-        function getSize: Integer; virtual;
-        function getRandomInstance: IAllBinaryLayerFactoryInterface; virtual;
-        procedure add(layerInterfaceFactoryInterface: IAllBinaryLayerFactoryInterface); virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlacedLayerFactory-clear0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-clear0(FUNCTION JR-GET(J-THIS, "f_list"))
+    GOBACK.
+END FUNCTION PlacedLayerFactory-clear0.
 
-implementation
-uses
-  BasicArrayListD;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlcdLyrFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION PlcdLyrFctry-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION PlcdLyrFctry-getInstance0.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlacedLayerFactory-getSize0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_list"))
+        GOBACK
+    GOBACK.
+END FUNCTION PlacedLayerFactory-getSize0.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlcdLyrFctry-gtRndmInstnc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION BasicArrayListUtil-getRandom1(FUNCTION JR-GET(J-THIS, "f_basicArrayListUtil"), FUNCTION JR-GET(J-THIS, "f_list"))
+        GOBACK
+    GOBACK.
+END FUNCTION PlcdLyrFctry-gtRndmInstnc0.
 
-procedure TPlacedLayerFactory.InitFields;
-begin
-  Self.list := TBasicArrayListD.Create();
-  Self.basicArrayListUtil := TBasicArrayListUtil.getInstance();
-end;
-    
-
-constructor TPlacedLayerFactory.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
-
-procedure TPlacedLayerFactory.clear;
-begin
-        Self.list.clear();
-end;
-    
-
-class function TPlacedLayerFactory.getInstance: TPlacedLayerFactory;
-begin
-        Exit(TPlacedLayerFactory.instance);
-end;
-    
-
-function TPlacedLayerFactory.getSize: Integer;
-begin
-        Exit(Self.list.size());
-end;
-    
-
-function TPlacedLayerFactory.getRandomInstance: IAllBinaryLayerFactoryInterface;
-begin
-        Exit((TJava.ToObject(Self.basicArrayListUtil.getRandom(Self.list)) as IAllBinaryLayerFactoryInterface));
-end;
-    
-
-procedure TPlacedLayerFactory.add(layerInterfaceFactoryInterface: IAllBinaryLayerFactoryInterface);
-begin
-        Self.list.add(TJava.Box(layerInterfaceFactoryInterface));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TPlacedLayerFactory.instance := TPlacedLayerFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlacedLayerFactory-add1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerInterfaceFactoryInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerInterfaceFactoryInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), J-layerInterfaceFactoryInterface)
+    GOBACK.
+END FUNCTION PlacedLayerFactory-add1.
 

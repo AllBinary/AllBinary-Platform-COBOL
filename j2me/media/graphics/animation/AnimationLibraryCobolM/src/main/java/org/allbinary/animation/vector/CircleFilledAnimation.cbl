@@ -1,97 +1,159 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.vector
+*> Java class CircleFilledAnimation
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.vector
-unit CircleFilledAnimation;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, Animation, BasicColor, ColorCompositeInterface, BasicColorCompositeSetterInterface;
-
-type
-  {AB:TYPES}
-  TCircleFilledAnimation = class(TAnimation, IColorCompositeInterface, IBasicColorCompositeSetterInterface)
-  public
-    width: Integer;
-    height: Integer;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(width: Integer; height: Integer; basicColor_: TBasicColor);
-        procedure nextFrame; virtual;
-        procedure paintXY(graphics_: TGraphics; x: Integer; y: Integer); virtual;
-        function getBasicColorP: TBasicColor; virtual;
-        procedure setBasicColorP(basicColor_: TBasicColor); virtual;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TCircleFilledAnimation.InitFields;
-begin
-  
-  
-end;
-
-function TCircleFilledAnimation.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CircleFilledAnimation-new3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-width J-height J-basicColor RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CircleFilledAnimation")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_width")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_height")
     
-
-constructor TCircleFilledAnimation.Create(width: Integer; height: Integer; basicColor_: TBasicColor);
-begin
-        inherited Create();
-        InitFields;
-        Self.width := width;
-        Self.height := height;
-        Self.setBasicColorP(basicColor_);
-end;
     
+        CONTINUE
+        COMPUTE JVALUE = J-width
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_width", JVALUE)
+        COMPUTE JVALUE = J-height
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_height", JVALUE)
+        COMPUTE JDISCARD = FUNCTION CrclFlldAnmtn-setBasicColorP1(J-THIS, J-basicColor)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CircleFilledAnimation-new3.
 
-procedure TCircleFilledAnimation.nextFrame;
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CrclFlldAnmtn-nextFrame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION CrclFlldAnmtn-nextFrame0.
 
-procedure TCircleFilledAnimation.paintXY(graphics_: TGraphics; x: Integer; y: Integer);
-begin
-        Self.basicSetColorUtil.setBasicColorP3(graphics_, Self.getBasicColorP(), Self.getColor());
-        graphics_.fillRect(x, y, Self.width, Self.height);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CircleFilledAnimation-paintXY3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_basicSetColorUtil"))
+        COMPUTE JDISCARD = FUNCTION Graphics-fillRect4(J-graphics, J-x, J-y, FUNCTION JR-GET(J-THIS, "f_width"), FUNCTION JR-GET(J-THIS, "f_height"))
+    GOBACK.
+END FUNCTION CircleFilledAnimation-paintXY3.
 
-function TCircleFilledAnimation.getBasicColorP: TBasicColor;
-begin
-        Exit(inherited getBasicColorP());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CrclFlldAnmtn-getBasicColorP0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION Animation-getBasicColorP0(J-THIS)
+        GOBACK
+    GOBACK.
+END FUNCTION CrclFlldAnmtn-getBasicColorP0.
 
-procedure TCircleFilledAnimation.setBasicColorP(basicColor_: TBasicColor);
-begin
-        inherited setBasicColorP(basicColor_);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CrclFlldAnmtn-setBasicColorP1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-basicColor RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Animation-setBasicColorP1(J-THIS, J-basicColor)
+    GOBACK.
+END FUNCTION CrclFlldAnmtn-setBasicColorP1.
 

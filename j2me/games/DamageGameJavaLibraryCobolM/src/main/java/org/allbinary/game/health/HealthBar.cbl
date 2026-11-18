@@ -1,94 +1,146 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.health
+*> Java class HealthBar
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.health
-unit HealthBar;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, Paintable, AllBinaryLayer, HealthBarAnimation, HealthInterface, Health, HealthListenerInterface;
-
-type
-  {AB:TYPES}
-  THealthBar = class(TPaintable, IHealthListenerInterface)
-  public
-    animationInterface: THealthBarAnimation;
-    healthInterface: IHealthInterface;
-    allbinaryLayer: TAllBinaryLayer;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(layerInterface: TAllBinaryLayer; healthInterface_: THealth; animationInterface: THealthBarAnimation; direction: Integer);
-        procedure onHealthChange; virtual;
-        procedure paint(graphics_: TGraphics); virtual;
-        procedure paintThreed(graphics_: TGraphics); virtual;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure THealthBar.InitFields;
-begin
-  
-  
-  
-end;
-
-function THealthBar.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HealthBar-new4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-healthInterface BINARY-DOUBLE.
+01 J-animationInterface BINARY-DOUBLE.
+01 J-direction BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-layerInterface J-healthInterface J-animationInterface J-direction RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("HealthBar")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_animationInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_healthInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_allbinaryLayer")
     
-
-constructor THealthBar.Create(layerInterface: TAllBinaryLayer; healthInterface_: THealth; animationInterface: THealthBarAnimation; direction: Integer);
-begin
-    inherited Create;
-    InitFields;
-        Self.allbinaryLayer := layerInterface;
-        Self.animationInterface := animationInterface;
-        Self.healthInterface := healthInterface_;
-        Self.healthInterface.addListener(Self);
-        Self.onHealthChange();
-end;
     
-
-procedure THealthBar.onHealthChange;
-begin
-        Self.animationInterface.onHealthChange(TJava.Divide((Self.healthInterface.getHealth()) * (Self.allbinaryLayer.getWidth()), Self.healthInterface.getMaxHealth()));
-end;
     
+        COMPUTE JVALUE = J-layerInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_allbinaryLayer", JVALUE)
+        COMPUTE JVALUE = J-animationInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animationInterface", JVALUE)
+        COMPUTE JVALUE = J-healthInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_healthInterface", JVALUE)
+        COMPUTE JDISCARD = FUNCTION HealthInterface-addListener1(FUNCTION JR-GET(J-THIS, "f_healthInterface"), J-THIS)
+        COMPUTE JDISCARD = FUNCTION HealthBar-onHealthChange0(J-THIS)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION HealthBar-new4.
 
-procedure THealthBar.paint(graphics_: TGraphics);
-begin
-        Self.animationInterface.paintXY(graphics_, 0, 0);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HealthBar-onHealthChange0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = (FUNCTION MOD(FUNCTION INTEGER-PART((FUNCTION MOD((FUNCTION HealthInterface-getHealth0(FUNCTION JR-GET(J-THIS, "f_healthInterface")) * FUNCTION AllBinaryLayer-getWidth0(FUNCTION JR-GET(J-THIS, "f_allbinaryLayer")))
+        + 2147483648, 4294967296) - 2147483648) / FUNCTION HealthInterface-getMaxHealth0(FUNCTION JR-GET(J-THIS, "f_healthInterface"))) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION HlthBrAnmtn-onHealthChange1(FUNCTION JR-GET(J-THIS, "f_animationInterface"), jtemp1)
+    GOBACK.
+END FUNCTION HealthBar-onHealthChange0.
 
-procedure THealthBar.paintThreed(graphics_: TGraphics);
-begin
-        Self.animationInterface.paintThreedXYZ(graphics_, 0, 0, 0);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HealthBar-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = 0
+        COMPUTE jtemp3 = 0
+        COMPUTE JDISCARD = FUNCTION Animation-paintXY3(FUNCTION JR-GET(J-THIS, "f_animationInterface"), J-graphics, jtemp2, jtemp3)
+    GOBACK.
+END FUNCTION HealthBar-paint1.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HealthBar-paintThreed1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp4 = 0
+        COMPUTE jtemp5 = 0
+        COMPUTE jtemp6 = 0
+        COMPUTE JDISCARD = FUNCTION Animation-paintThreedXYZ4(FUNCTION JR-GET(J-THIS, "f_animationInterface"), J-graphics, jtemp4, jtemp5, jtemp6)
+    GOBACK.
+END FUNCTION HealthBar-paintThreed1.
 

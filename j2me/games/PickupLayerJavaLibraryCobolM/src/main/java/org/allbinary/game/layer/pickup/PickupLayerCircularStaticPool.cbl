@@ -1,75 +1,147 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.layer.pickup
+*> Java class PickupLayerCircularStaticPool
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.layer.pickup
-unit PickupLayerCircularStaticPool;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PckpLyrCrclrSttcPl-sttc-73016.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PickupLayerCircularStaticPool-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+01 PickupLayerCircularStaticPool-jset-SINGLETON BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF PickupLayerCircularStaticPool-jset-SINGLETON = 0
+        MOVE 1 TO PickupLayerCircularStaticPool-jset-SINGLETON
+        COMPUTE PickupLayerCircularStaticPool-jcell-SINGLETON = FUNCTION PckpLyrCrclrSttcPl-new0
+    END-IF
+    MOVE PickupLayerCircularStaticPool-jcell-SINGLETON TO J-RESULT
+    GOBACK.
+END FUNCTION PckpLyrCrclrSttcPl-sttc-73016.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PckpLyrCrclrSttcPlstS70509.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PickupLayerCircularStaticPool-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION PckpLyrCrclrSttcPl-sttc-73016 TO J-RESULT
+    MOVE J-VALUE TO PickupLayerCircularStaticPool-jcell-SINGLETON
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION PckpLyrCrclrSttcPlstS70509.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PckpLyrCrclrSttcPl-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("PickupLayerCircularStaticPool")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION PckpLyrCrclrSttcPl-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AllBinaryLayerCircularPool, PickedUpLayerInterface, PickedUpLayerInterfaceFactoryInterface;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PckpLyrCrclrSttcPl-gtInstnc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION PckpLyrCrclrSttcPl-sttc-73016
+        GOBACK
+    GOBACK.
+END FUNCTION PckpLyrCrclrSttcPl-gtInstnc0.
 
-type
-  {AB:TYPES}
-  TPickupLayerCircularStaticPool = class(TAllBinaryLayerCircularPool)
-  public
-    class var SINGLETON: TPickupLayerCircularStaticPool;
-        constructor Create;
-        class function getInstance: TPickupLayerCircularStaticPool; static;
-        function getInstanceXYZ(pickedUpLayerInterfaceFactoryInterface_: IPickedUpLayerInterfaceFactoryInterface; x: Integer; y: Integer; z: Integer): IPickedUpLayerInterface; virtual;
-  end;
-
-implementation
-uses
-  PickupLayer;
-
-
-{AB:CODE}
-    
-
-constructor TPickupLayerCircularStaticPool.Create;
-begin
-    inherited Create;
-end;
-    
-
-class function TPickupLayerCircularStaticPool.getInstance: TPickupLayerCircularStaticPool;
-begin
-        Exit(TPickupLayerCircularStaticPool.SINGLETON);
-end;
-    
-
-// throws Exception
-function TPickupLayerCircularStaticPool.getInstanceXYZ(pickedUpLayerInterfaceFactoryInterface_: IPickedUpLayerInterfaceFactoryInterface; x: Integer; y: Integer; z: Integer): IPickedUpLayerInterface;
-var
-  pickupLayer_: TPickupLayer;
-begin
-        pickupLayer_ := TPickupLayer(TJava.ToObject(Self.getNextInstance()));
-        pickupLayer_.initXYZ(x, y, z);
-        pickupLayer_.init(pickedUpLayerInterfaceFactoryInterface_, pickedUpLayerInterfaceFactoryInterface_.getAnimationInterface());
-        Exit(pickupLayer_);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TPickupLayerCircularStaticPool.SINGLETON := TPickupLayerCircularStaticPool.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PckpLyrCrclrSttcPl-gtInst66604.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-pickupLayer BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-pickedUpLayerInterfaceFactoryInterface BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-z BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-pickedUpLayerInterfaceFactoryInterface J-x J-y J-z RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-pickupLayer = FUNCTION BsCrclrPl-getNextInstance0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION PickupLayer-initXYZ3(J-pickupLayer, J-x, J-y, J-z)
+        COMPUTE JDISCARD = FUNCTION PickupLayer-init2(J-pickupLayer, J-pickedUpLayerInterfaceFactoryInterface, FUNCTION PckdUpLyrIntrfcFctryInt-17147(J-pickedUpLayerInterfaceFactoryInterface))
+        COMPUTE J-RESULT = J-pickupLayer
+        GOBACK
+    GOBACK.
+END FUNCTION PckpLyrCrclrSttcPl-gtInst66604.
 

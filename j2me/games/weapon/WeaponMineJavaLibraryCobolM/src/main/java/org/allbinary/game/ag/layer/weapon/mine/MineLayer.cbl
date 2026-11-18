@@ -1,97 +1,243 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.layer.weapon.mine
+*> Java class MineLayer
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.layer.weapon.mine
-unit MineLayer;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MineLayer-static-NAME.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 MineLayer-jcell-NAME BINARY-DOUBLE EXTERNAL.
+01 MineLayer-jset-NAME BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF MineLayer-jset-NAME = 0
+        MOVE 1 TO MineLayer-jset-NAME
+        COMPUTE MineLayer-jcell-NAME = FUNCTION JR-STR("MineLayer")
+    END-IF
+    MOVE MineLayer-jcell-NAME TO J-RESULT
+    GOBACK.
+END FUNCTION MineLayer-static-NAME.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MineLayerstaticNAMES45837.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 MineLayer-jcell-NAME BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION MineLayer-static-NAME TO J-RESULT
+    MOVE J-VALUE TO MineLayer-jcell-NAME
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION MineLayerstaticNAMES45837.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MineLayer-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-viewPosition BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-viewPosition RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("MineLayer")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_viewPositionEventHandler")
+    COMPUTE JVALUE = FUNCTION VwPstnEvntHndlr-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_viewPositionEventHandler", JVALUE)
+        COMPUTE jtemp5 = FUNCTION MnWpnRsrcs-getInstance0
+        COMPUTE jtemp7 = FUNCTION PointFactory-getInstance0
+        COMPUTE jtemp4 = FUNCTION FtrdAnmtnIntrfcFctryInt-53898
+        COMPUTE jtemp6 = 0
+        COMPUTE jtemp8 = 10
+        COMPUTE jtemp9 = 10
+        COMPUTE jtemp2 = FUNCTION NoMovementFactory-getInstance0
+        COMPUTE jtemp3 = FUNCTION FtrdAnmtnIntrfcFctryInt-13097(jtemp4, FUNCTION JR-GET(jtemp5, "f_RESOURCE"))
+        COMPUTE jtemp1 = (0 - 1)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION MineLayer-new1.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, SimpleWeaponLayer, ViewPositionBase, ViewPositionEventHandler;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MineLayer-initXYZ3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-z BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-x J-y J-z RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp11 = 5
+        COMPUTE jtemp13 = 5
+        COMPUTE jtemp10 = (FUNCTION MOD((J-x + jtemp11) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp12 = (FUNCTION MOD((J-y + jtemp13) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION AllBinaryLayer-setPosition3(J-THIS, jtemp10, jtemp12, J-z)
+        COMPUTE jtemp14 = J-THIS
+        COMPUTE JDISCARD = FUNCTION VwPstnEvntHndlr-addListener1(FUNCTION JR-GET(J-THIS, "f_viewPositionEventHandler"), jtemp14)
+        COMPUTE jtemp15 = FUNCTION ScndryPlyrQFctry-getInstance0
+        COMPUTE JDISCARD = FUNCTION ScndryPlyrQFctry-add1(jtemp15, FUNCTION DropWeaponSound-getInstance0)
+    GOBACK.
+END FUNCTION MineLayer-initXYZ3.
 
-type
-  {AB:TYPES}
-  TMineLayer = class(TSimpleWeaponLayer)
-  public
-    viewPositionEventHandler: TViewPositionEventHandler;
-    class var NAME: string;
-    procedure InitFields;
-        constructor Create(viewPosition: TViewPositionBase);
-        procedure initXYZ(x: Integer; y: Integer; z: Integer); override;
-        procedure damage(damage: Integer; damageType: Integer); override;
-        function getDamage(damageType: Integer): Integer; override;
-        procedure setDestroyed(destroyed: Boolean); override;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MineLayer-damage2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp16 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-damage BINARY-DOUBLE.
+01 J-damageType BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-damage J-damageType RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp16 = 1
+        COMPUTE JVALUE = (FUNCTION MOD((FUNCTION WeaponLayer-getInitDamage0(J-THIS) + jtemp16) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_totalDamage", JVALUE)
+    GOBACK.
+END FUNCTION MineLayer-damage2.
 
-implementation
-uses
-  MineWeaponResources, DropWeaponSound, FeaturedAnimationInterfaceFactoryInterfaceFactory, RemoteInfo, PointFactory, Rectangle, AllBinaryLayer, SecondaryPlayerQueueFactory, NoMovementFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MineLayer-getDamage1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-damageType BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-damageType RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION WeaponLayer-getDamage1(J-THIS, J-damageType)
+        COMPUTE J-RESULT = FUNCTION WeaponLayer-getInitDamage0(J-THIS)
+        GOBACK
+    GOBACK.
+END FUNCTION MineLayer-getDamage1.
 
-
-{AB:CODE}
-
-procedure TMineLayer.InitFields;
-begin
-  Self.viewPositionEventHandler := TViewPositionEventHandler.getInstance();
-end;
-    
-
-constructor TMineLayer.Create(viewPosition: TViewPositionBase);
-begin
-        inherited Create(TMineLayer.NAME, TRemoteInfo.REMOTE_INFO, -1, TNoMovementFactory.getInstance().getMovmentInstance(), TFeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(TMineWeaponResources.getInstance().RESOURCE).getInstance(0), TSimpleWeaponLayer.createDestroyed(), TRectangle.Create(TPointFactory.getInstance().ZERO_ZERO, 10, 10), viewPosition);
-        InitFields;
-end;
-    
-
-procedure TMineLayer.initXYZ(x: Integer; y: Integer; z: Integer);
-begin
-        Self.setPosition((x) + (5), (y) + (5), z);
-        Self.viewPositionEventHandler.addListener(TAllBinaryLayer(TJava.ToObject(Self)));
-        TSecondaryPlayerQueueFactory.getInstance().add(TDropWeaponSound.getInstance());
-end;
-    
-
-procedure TMineLayer.damage(damage: Integer; damageType: Integer);
-begin
-        Self.totalDamage := (Self.getInitDamage()) + (1);
-end;
-    
-
-function TMineLayer.getDamage(damageType: Integer): Integer;
-begin
-        inherited getDamage(damageType);
-        Exit(Self.getInitDamage());
-end;
-    
-
-procedure TMineLayer.setDestroyed(destroyed: Boolean);
-begin
-        inherited setDestroyed(destroyed);
-        if Self.isDestroyed() then begin
-            Self.viewPositionEventHandler.removeListener(Self);
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TMineLayer.NAME := 'MineLayer';
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MineLayer-setDestroyed1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-destroyed BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-destroyed RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION WeaponLayer-setDestroyed1(J-THIS, J-destroyed)
+        IF (FUNCTION WeaponLayer-isDestroyed0(J-THIS) = 1)
+            COMPUTE JDISCARD = FUNCTION VwPstnEvntHndlr-rmvLstnr1(FUNCTION JR-GET(J-THIS, "f_viewPositionEventHandler"), J-THIS)
+        END-IF
+    GOBACK.
+END FUNCTION MineLayer-setDestroyed1.
 

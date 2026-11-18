@@ -1,77 +1,197 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.image
+*> Java class PreResourceImageUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.image
-unit PreResourceImageUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrRsrcImgUtl-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PreResourceImageUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 PreResourceImageUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF PreResourceImageUtil-jset-instance = 0
+        MOVE 1 TO PreResourceImageUtil-jset-instance
+        COMPUTE PreResourceImageUtil-jcell-instance = FUNCTION PreResourceImageUtil-new0
+    END-IF
+    MOVE PreResourceImageUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION PrRsrcImgUtl-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrRsrcImgUtlstaticinS89635.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PreResourceImageUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION PrRsrcImgUtl-static-instance TO J-RESULT
+    MOVE J-VALUE TO PreResourceImageUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION PrRsrcImgUtlstaticinS89635.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PreResourceImageUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("PreResourceImageUtil")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION PreResourceImageUtil-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GL, Graphics, Image;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrRsrcImgUtl-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION PrRsrcImgUtl-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION PrRsrcImgUtl-getInstance0.
 
-type
-  {AB:TYPES}
-  TPreResourceImageUtil = class(TObject)
-  public
-    class var instance: TPreResourceImageUtil;
-    constructor Create;
-        class function getInstance: TPreResourceImageUtil; static;
-        function encapsulate(image_: TImage): TImage; virtual;
-        procedure updateGL(gl_: IGL; image_: TImage); virtual;
-        procedure update(graphics_: TGraphics; image_: TImage); virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrRsrcImgUtl-encapsulate1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-image BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-image RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = J-image
+        GOBACK
+    GOBACK.
+END FUNCTION PrRsrcImgUtl-encapsulate1.
 
-implementation
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PreResourceImageUtil-updateGL2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gl BINARY-DOUBLE.
+01 J-image BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gl J-image RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION PreResourceImageUtil-updateGL2.
 
-{AB:CODE}
-
-constructor TPreResourceImageUtil.Create;
-begin
-  inherited Create;
-end;
-    
-
-class function TPreResourceImageUtil.getInstance: TPreResourceImageUtil;
-begin
-        Exit(TPreResourceImageUtil.instance);
-end;
-    
-
-function TPreResourceImageUtil.encapsulate(image_: TImage): TImage;
-begin
-        Exit(image_);
-end;
-    
-
-procedure TPreResourceImageUtil.updateGL(gl_: IGL; image_: TImage);
-begin
-end;
-    
-
-procedure TPreResourceImageUtil.update(graphics_: TGraphics; image_: TImage);
-begin
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TPreResourceImageUtil.instance := TPreResourceImageUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PreResourceImageUtil-update2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-image BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-image RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION PreResourceImageUtil-update2.
 

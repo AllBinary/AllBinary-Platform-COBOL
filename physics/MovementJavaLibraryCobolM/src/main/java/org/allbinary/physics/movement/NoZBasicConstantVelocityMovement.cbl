@@ -1,148 +1,337 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.physics.movement
+*> Java class NoZBasicConstantVelocityMovement
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.physics.movement
-unit NoZBasicConstantVelocityMovement;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AllBinaryGameLayer, BasicVelocityProperties, VelocityInterfaceCompositeInterface, AllBinaryLayer, BasicDecimal, AxisMathVectorUtil, Movement;
-
-type
-  {AB:TYPES}
-  TNoZBasicConstantVelocityMovement = class(TMovement, IVelocityInterfaceCompositeInterface)
-  public
-    velocityProperties: TBasicVelocityProperties;
-    speedBasicDecimal: TBasicDecimal;
-    axisMathVectorUtil: TAxisMathVectorUtil;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(basicDecimal_: TBasicDecimal; velocityProperties: TBasicVelocityProperties);
-        procedure init(speedBasicDecimal: TBasicDecimal; angle: Integer; otherAngle: Integer); virtual;
-        procedure moveOutsideRadius(layer: TAllBinaryLayer; radius: Int64; angle: Integer; otherAngle: Integer); virtual;
-        procedure process(layer: TAllBinaryGameLayer); virtual;
-        function toString: string; override;
-        procedure stop; virtual;
-        function getVelocityProperties: TBasicVelocityProperties; virtual;
-        procedure setVelocityProperties(velocityProperties: TBasicVelocityProperties); virtual;
-        procedure setSpeedBasicDecimal(speedBasicDecimal: TBasicDecimal); virtual;
-        function getSpeedBasicDecimal: TBasicDecimal; virtual;
-  end;
-
-implementation
-uses
-  AngleFactory;
-
-
-{AB:CODE}
-
-procedure TNoZBasicConstantVelocityMovement.InitFields;
-begin
-  
-  Self.speedBasicDecimal := TBasicDecimal.ZERO_BIGDECIMAL;
-  Self.axisMathVectorUtil := TAxisMathVectorUtil.getInstance();
-end;
-
-function TNoZBasicConstantVelocityMovement.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NZBscCnstntVlctyMvmnt-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-basicDecimal BINARY-DOUBLE.
+01 J-velocityProperties BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-basicDecimal J-velocityProperties RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("NoZBasicConstantVelocityMovement")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_velocityProperties")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_speedBasicDecimal")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_axisMathVectorUtil")
     
+    COMPUTE JVALUE = FUNCTION BscDcml-sttc-ZERO-BIGDECIMAL
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_speedBasicDecimal", JVALUE)
+    COMPUTE JVALUE = FUNCTION AxsMthVctrUtl-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_axisMathVectorUtil", JVALUE)
+        COMPUTE JDISCARD = FUNCTION NZBscCnstntVlctyMvmnt-stS86355(J-THIS, J-basicDecimal)
+        COMPUTE JVALUE = J-velocityProperties
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_velocityProperties", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION NZBscCnstntVlctyMvmnt-new2.
 
-constructor TNoZBasicConstantVelocityMovement.Create(basicDecimal_: TBasicDecimal; velocityProperties: TBasicVelocityProperties);
-begin
-    inherited Create;
-    InitFields;
-        Self.setSpeedBasicDecimal(basicDecimal_);
-        Self.velocityProperties := velocityProperties;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NZBscCnstntVlctyMvmnt-init3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-angleFactory BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-speedBasicDecimal BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-otherAngle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-speedBasicDecimal J-angle J-otherAngle RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-speedBasicDecimal
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_speedBasicDecimal", JVALUE)
+        COMPUTE J-angleFactory = FUNCTION AngleFactory-getInstance0
+        COMPUTE JDISCARD = FUNCTION BscVlctyPrprts-stVlctyWth69902(FUNCTION JR-GET(J-THIS, "f_velocityProperties"), J-speedBasicDecimal, FUNCTION AngleFactory-getAt1(J-angleFactory, J-angle), FUNCTION AngleFactory-getAt1(J-angleFactory,
+        J-otherAngle))
+    GOBACK.
+END FUNCTION NZBscCnstntVlctyMvmnt-init3.
 
-procedure TNoZBasicConstantVelocityMovement.init(speedBasicDecimal: TBasicDecimal; angle: Integer; otherAngle: Integer);
-var
-  angleFactory_: TAngleFactory;
-begin
-        Self.speedBasicDecimal := speedBasicDecimal;
-        angleFactory_ := TAngleFactory.getInstance();
-        Self.velocityProperties.setVelocityWithBigDecimal(speedBasicDecimal, angleFactory_.getAt(angle), angleFactory_.getAt(otherAngle));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NZBscCnstntVlctyMvmnt-mvO14698.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-scaleFactorValue BINARY-DOUBLE.
+01 J-xVector BINARY-DOUBLE.
+01 J-yVector BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layer BINARY-DOUBLE.
+01 J-radius BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-otherAngle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layer J-radius J-angle J-otherAngle RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-scaleFactorValue = FUNCTION BscDcml-getScaledFactorValue0(FUNCTION JR-GET(J-THIS, "f_speedBasicDecimal"))
+        COMPUTE J-xVector = (FUNCTION MOD((FUNCTION INTEGER-PART(FUNCTION AxisMathVectorUtil-calculateX2(FUNCTION JR-GET(J-THIS, "f_axisMathVectorUtil"), J-radius, J-angle) / J-scaleFactorValue)) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE J-yVector = (FUNCTION MOD((FUNCTION INTEGER-PART(FUNCTION AxisMathVectorUtil-calculateY2(FUNCTION JR-GET(J-THIS, "f_axisMathVectorUtil"), J-radius, J-angle) / J-scaleFactorValue)) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp1 = 0
+        COMPUTE JDISCARD = FUNCTION AllBinaryLayer-moveDXYZ3(J-layer, J-xVector, J-yVector, jtemp1)
+    GOBACK.
+END FUNCTION NZBscCnstntVlctyMvmnt-mvO14698.
 
-procedure TNoZBasicConstantVelocityMovement.moveOutsideRadius(layer: TAllBinaryLayer; radius: Int64; angle: Integer; otherAngle: Integer);
-var
-  scaleFactorValue: Integer;
-  xVector: Integer;
-  yVector: Integer;
-begin
-        scaleFactorValue := Self.speedBasicDecimal.getScaledFactorValue();
-        xVector := Integer(Trunc((TJava.Divide(Self.axisMathVectorUtil.calculateX(radius, angle), scaleFactorValue))));
-        yVector := Integer(Trunc((TJava.Divide(Self.axisMathVectorUtil.calculateY(radius, angle), scaleFactorValue))));
-        layer.moveDXYZ(xVector, yVector, 0);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NZBscCnstntVlctyMvmnt-process1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layer RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION BscVlctyPrprts-gtVlctyXBs63775(FUNCTION JR-GET(J-THIS, "f_velocityProperties"))
+        COMPUTE jtemp3 = FUNCTION BscVlctyPrprts-gtVlctyYBs99895(FUNCTION JR-GET(J-THIS, "f_velocityProperties"))
+        COMPUTE jtemp4 = 0
+        COMPUTE JDISCARD = FUNCTION AllBinaryLayer-moveDXYZ3(J-layer, FUNCTION JR-CLASS-NAME(jtemp2), FUNCTION JR-CLASS-NAME(jtemp3), jtemp4)
+    GOBACK.
+END FUNCTION NZBscCnstntVlctyMvmnt-process1.
 
-// throws Exception
-procedure TNoZBasicConstantVelocityMovement.process(layer: TAllBinaryGameLayer);
-begin
-        layer.moveDXYZ(Self.velocityProperties.getVelocityXBasicDecimalP().getScaled(), Self.velocityProperties.getVelocityYBasicDecimalP().getScaled(), 0);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NZBscCnstntVlctyMvmnt-tStrng0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(FUNCTION JR-GET(J-THIS, "f_velocityProperties"))
+        GOBACK
+    GOBACK.
+END FUNCTION NZBscCnstntVlctyMvmnt-tStrng0.
 
-function TNoZBasicConstantVelocityMovement.toString: string;
-begin
-        Exit(Self.velocityProperties.toString());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NZBscCnstntVlctyMvmnt-stop0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicVelocityProperties-zero0(FUNCTION JR-GET(J-THIS, "f_velocityProperties"))
+    GOBACK.
+END FUNCTION NZBscCnstntVlctyMvmnt-stop0.
 
-procedure TNoZBasicConstantVelocityMovement.stop;
-begin
-        Self.velocityProperties.zero();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NZBscCnstntVlctyMvmnt-gtV60321.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_velocityProperties")
+        GOBACK
+    GOBACK.
+END FUNCTION NZBscCnstntVlctyMvmnt-gtV60321.
 
-function TNoZBasicConstantVelocityMovement.getVelocityProperties: TBasicVelocityProperties;
-begin
-        Exit(Self.velocityProperties);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NZBscCnstntVlctyMvmnt-stV18689.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-velocityProperties BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-velocityProperties RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-velocityProperties
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_velocityProperties", JVALUE)
+    GOBACK.
+END FUNCTION NZBscCnstntVlctyMvmnt-stV18689.
 
-procedure TNoZBasicConstantVelocityMovement.setVelocityProperties(velocityProperties: TBasicVelocityProperties);
-begin
-        Self.velocityProperties := velocityProperties;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NZBscCnstntVlctyMvmnt-stS86355.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-speedBasicDecimal BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-speedBasicDecimal RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-speedBasicDecimal
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_speedBasicDecimal", JVALUE)
+    GOBACK.
+END FUNCTION NZBscCnstntVlctyMvmnt-stS86355.
 
-procedure TNoZBasicConstantVelocityMovement.setSpeedBasicDecimal(speedBasicDecimal: TBasicDecimal);
-begin
-        Self.speedBasicDecimal := speedBasicDecimal;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NZBscCnstntVlctyMvmnt-gtS41729.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_speedBasicDecimal")
+        GOBACK
+    GOBACK.
+END FUNCTION NZBscCnstntVlctyMvmnt-gtS41729.
 
-function TNoZBasicConstantVelocityMovement.getSpeedBasicDecimal: TBasicDecimal;
-begin
-        Exit(Self.speedBasicDecimal);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+PROGRAM-ID. NoZBasicConstantVeloc-toString.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION NZBscCnstntVlctyMvmnt-tStrng0(J-THIS)
+    GOBACK.
+END PROGRAM NoZBasicConstantVeloc-toString.
 

@@ -1,112 +1,252 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.ai
+*> Java class InputProbability
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.ai
-unit InputProbability;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InptPrbblty-sttc-INPUT-49178.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 InputProbability-jcell-INPUT_PROBABILITY BINARY-DOUBLE EXTERNAL.
+01 InputProbability-jset-INPUT_PROBABILITY BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF InputProbability-jset-INPUT_PROBABILITY = 0
+        MOVE 1 TO InputProbability-jset-INPUT_PROBABILITY
+        COMPUTE jtemp2 = 0
+    COMPUTE jtemp1 = FUNCTION SmllIntgrSngltnFctry-gtInstnc0
+    COMPUTE InputProbability-jcell-INPUT_PROBABILITY = FUNCTION SmllIntgrSngltnFctry-getAt1(jtemp1, jtemp2)
+    END-IF
+    MOVE InputProbability-jcell-INPUT_PROBABILITY TO J-RESULT
+    GOBACK.
+END FUNCTION InptPrbblty-sttc-INPUT-49178.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InptPrbbltysttcINPUTS65828.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 InputProbability-jcell-INPUT_PROBABILITY BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION InptPrbblty-sttc-INPUT-49178 TO J-RESULT
+    MOVE J-VALUE TO InputProbability-jcell-INPUT_PROBABILITY
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION InptPrbbltysttcINPUTS65828.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, TimeDelayHelper, ABHashtable;
-
-type
-  {AB:TYPES}
-  TInputProbability = class(TObject)
-  public
-    likelyhoodIntegerArray: TArray<TArray<Integer>>;
-    repeatLikelyhoodIntegerArray: TArray<Integer>;
-    max: Integer;
-    timeDelayHelper: TTimeDelayHelper;
-    class var INPUT_PROBABILITY: Integer;
-    procedure InitFields;
-        constructor Create(likelyhoodIntegerArray: TArray<TArray<Integer>>; repeatLikelyhoodIntegerArray: TArray<Integer>; max: Integer; timeDelayHelper_: TTimeDelayHelper);
-        function getLikelyhoodIntegerArray: TArray<TArray<Integer>>; virtual;
-        function getRepeatLikelyhoodIntegerArray: TArray<Integer>; virtual;
-        function getMax: Integer; virtual;
-        function getTimeDelayHelper: TTimeDelayHelper; virtual;
-        function toHashtable: TABHashtable<TObject, TObject>; virtual;
-  end;
-
-implementation
-uses
-  StdUtil, SmallIntegerSingletonFactory;
-
-
-{AB:CODE}
-
-procedure TInputProbability.InitFields;
-begin
-  
-  
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InputProbability-new4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-likelyhoodIntegerArray BINARY-DOUBLE.
+01 J-repeatLikelyhoodIntegerArray BINARY-DOUBLE.
+01 J-max BINARY-DOUBLE.
+01 J-timeDelayHelper BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-likelyhoodIntegerArray J-repeatLikelyhoodIntegerArray J-max J-timeDelayHelper RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("InputProbability")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_likelyhoodIntegerArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_repeatLikelyhoodIntegerArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_max")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_timeDelayHelper")
     
-
-constructor TInputProbability.Create(likelyhoodIntegerArray: TArray<TArray<Integer>>; repeatLikelyhoodIntegerArray: TArray<Integer>; max: Integer; timeDelayHelper_: TTimeDelayHelper);
-begin
-    inherited Create;
-    InitFields;
-        Self.likelyhoodIntegerArray := likelyhoodIntegerArray;
-        Self.repeatLikelyhoodIntegerArray := repeatLikelyhoodIntegerArray;
-        Self.max := max;
-        Self.timeDelayHelper := timeDelayHelper_;
-end;
     
-
-function TInputProbability.getLikelyhoodIntegerArray: TArray<TArray<Integer>>;
-begin
-        Exit(Self.likelyhoodIntegerArray);
-end;
     
-
-function TInputProbability.getRepeatLikelyhoodIntegerArray: TArray<Integer>;
-begin
-        Exit(Self.repeatLikelyhoodIntegerArray);
-end;
     
+        COMPUTE JVALUE = J-likelyhoodIntegerArray
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_likelyhoodIntegerArray", JVALUE)
+        COMPUTE JVALUE = J-repeatLikelyhoodIntegerArray
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_repeatLikelyhoodIntegerArray", JVALUE)
+        COMPUTE JVALUE = J-max
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_max", JVALUE)
+        COMPUTE JVALUE = J-timeDelayHelper
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_timeDelayHelper", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION InputProbability-new4.
 
-function TInputProbability.getMax: Integer;
-begin
-        Exit(Self.max);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InptPrbblty-gtLklyhdIntgrArry0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_likelyhoodIntegerArray")
+        GOBACK
+    GOBACK.
+END FUNCTION InptPrbblty-gtLklyhdIntgrArry0.
 
-function TInputProbability.getTimeDelayHelper: TTimeDelayHelper;
-begin
-        Exit(Self.timeDelayHelper);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InptPrbblty-gtRptLklyhdIn73747.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_repeatLikelyhoodIntegerArray")
+        GOBACK
+    GOBACK.
+END FUNCTION InptPrbblty-gtRptLklyhdIn73747.
 
-function TInputProbability.toHashtable: TABHashtable<TObject, TObject>;
-var
-  hashtable: TABHashtable<TObject, TObject>;
-begin
-        hashtable := TStdUtil.getInstance().createHashtable();
-        hashtable.put(TJava.Box(TInputProbability.INPUT_PROBABILITY), TJava.Box(Self));
-        Exit(hashtable);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InputProbability-getMax0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_max")
+        GOBACK
+    GOBACK.
+END FUNCTION InputProbability-getMax0.
 
-initialization
-  {AB:INITIALIZATION}
-  TInputProbability.INPUT_PROBABILITY := TSmallIntegerSingletonFactory.getInstance().getAt(0);
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InptPrbblty-gtTmDlyHlpr0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_timeDelayHelper")
+        GOBACK
+    GOBACK.
+END FUNCTION InptPrbblty-gtTmDlyHlpr0.
 
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InputProbability-toHashtable0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-hashtable BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp3 = FUNCTION StdUtil-getInstance0
+        COMPUTE J-hashtable = FUNCTION StdUtil-createHashtable0(jtemp3)
+        COMPUTE JDISCARD = FUNCTION Hashtable-put2(J-hashtable, FUNCTION InptPrbblty-sttc-INPUT-49178, J-THIS)
+        COMPUTE J-RESULT = J-hashtable
+        GOBACK
+    GOBACK.
+END FUNCTION InputProbability-toHashtable0.
 

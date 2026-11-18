@@ -1,67 +1,122 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2026 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.logic
-unit PropertyInitUtil;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic
+*> Java class PropertyInitUtil
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrprtyIntUtl-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PropertyInitUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 PropertyInitUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF PropertyInitUtil-jset-instance = 0
+        MOVE 1 TO PropertyInitUtil-jset-instance
+        COMPUTE PropertyInitUtil-jcell-instance = FUNCTION PropertyInitUtil-new0
+    END-IF
+    MOVE PropertyInitUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION PrprtyIntUtl-static-instance.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrprtyIntUtlstaticinS93326.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PropertyInitUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION PrprtyIntUtl-static-instance TO J-RESULT
+    MOVE J-VALUE TO PropertyInitUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION PrprtyIntUtlstaticinS93326.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PropertyInitUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("PropertyInitUtil")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION PropertyInitUtil-new0.
 
-type
-  {AB:TYPES}
-  TPropertyInitUtil = class(TObject)
-  public
-    class var instance: TPropertyInitUtil;
-    constructor Create;
-        class function getInstance(value: Integer): TPropertyInitUtil; static;
-  end;
-
-implementation
-uses
-  LogUtil, StringMaker, CommonStrings;
-
-
-{AB:CODE}
-
-constructor TPropertyInitUtil.Create;
-begin
-  inherited Create;
-end;
-    
-
-class function TPropertyInitUtil.getInstance(value: Integer): TPropertyInitUtil;
-var
-  commonStrings_: TCommonStrings;
-  logUtil_: TLogUtil;
-begin
-        commonStrings_ := TCommonStrings.getInstance();
-        logUtil_ := TLogUtil.getInstance();
-        logUtil_.putF(TStringMaker.Create().append('PropertyInitUtil: ').appendint(value).toString(), TJava.Box(logUtil_), commonStrings_.CONSTRUCTOR_);
-        Exit(TPropertyInitUtil.instance);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TPropertyInitUtil.instance := TPropertyInitUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PropertyInitUtil-getInstance1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-commonStrings BINARY-DOUBLE.
+01 J-logUtil BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-value BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-value RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-commonStrings = FUNCTION CommonStrings-getInstance0
+        COMPUTE J-logUtil = FUNCTION LogUtil-getInstance0
+        COMPUTE jtemp3 = FUNCTION StringMaker-new0
+        COMPUTE jtemp2 = FUNCTION StringMaker-append1(jtemp3, FUNCTION JR-STR("PropertyInitUtil: "))
+        COMPUTE jtemp1 = FUNCTION StringMaker-appendint1(jtemp2, J-value)
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(J-logUtil, FUNCTION JR-TO-STRING(jtemp1), J-logUtil, FUNCTION JR-GET(J-commonStrings, "f_CONSTRUCTOR"))
+        COMPUTE J-RESULT = FUNCTION PrprtyIntUtl-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION PropertyInitUtil-getInstance1.
 

@@ -1,105 +1,151 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.media
+*> Java class AllBinaryVisualDebugVibration
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.media
-unit AllBinaryVisualDebugVibration;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, DisplayInfoSingleton, MyFontProcessor, UpdateMyFontInterface, TimeDelayHelper, AllBinaryVibrationME;
-
-type
-  {AB:TYPES}
-  TAllBinaryVisualDebugVibration = class(TAllBinaryVibrationME, IUpdateMyFontInterface)
-  public
-    displayInfoSingleton: TDisplayInfoSingleton;
-    timeDelayHelper: TTimeDelayHelper;
-    VIBRATING: string;
-    myFontProcessor: TMyFontProcessor;
-    anchor: Integer;
-    width: Integer;
-    procedure InitFields;
-    function JavaObject: TObject;
-    constructor Create;
-        procedure updateMeasurement(graphics_: TGraphics); virtual;
-        procedure vibrate(duration: Integer; type_: Integer; volume: Integer); virtual;
-        procedure paint(graphics_: TGraphics); virtual;
-  end;
-
-implementation
-uses
-  Font, Anchor, UpdateMyFontProcessor;
-
-
-{AB:CODE}
-
-procedure TAllBinaryVisualDebugVibration.InitFields;
-begin
-  Self.displayInfoSingleton := TDisplayInfoSingleton.getInstance();
-  Self.timeDelayHelper := TTimeDelayHelper.Create(High(Integer));
-  Self.VIBRATING := 'Vibrating';
-  Self.myFontProcessor := TUpdateMyFontProcessor.Create(Self);
-  Self.anchor := TAnchor.TOP_LEFT;
-  
-end;
-
-function TAllBinaryVisualDebugVibration.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-
-constructor TAllBinaryVisualDebugVibration.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryVslDbgVbrtn-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("AllBinaryVisualDebugVibration")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_displayInfoSingleton")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_timeDelayHelper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_VIBRATING")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_myFontProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_anchor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_width")
+    COMPUTE JVALUE = FUNCTION DsplyInfSngltn-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_displayInfoSingleton", JVALUE)
+    COMPUTE JVALUE = FUNCTION TimeDelayHelper-new1(FUNCTION Integer-static-MAX-VALUE)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_timeDelayHelper", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Vibrating")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_VIBRATING", JVALUE)
+    COMPUTE JVALUE = FUNCTION UpdateMyFontProcessor-new1(J-THIS)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
+    COMPUTE JVALUE = FUNCTION Anchor-static-TOP-LEFT
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_anchor", JVALUE)
     
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION AllBnryVslDbgVbrtn-new0.
 
-procedure TAllBinaryVisualDebugVibration.updateMeasurement(graphics_: TGraphics);
-var
-  font_: TFont;
-begin
-        font_ := graphics_.getFont();
-        Self.width := font_.stringWidth(Self.VIBRATING);
-        Self.myFontProcessor := TMyFontProcessor.getInstance();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryVslDbgVbrtn-updtMsrmnt1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-font BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-font = FUNCTION Graphics-getFont0(J-graphics)
+        COMPUTE JVALUE = FUNCTION Font-stringWidth1(J-font, FUNCTION JR-GET(J-THIS, "f_VIBRATING"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_width", JVALUE)
+        COMPUTE JVALUE = FUNCTION MyFontProcessor-getInstance0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
+    GOBACK.
+END FUNCTION AllBnryVslDbgVbrtn-updtMsrmnt1.
 
-procedure TAllBinaryVisualDebugVibration.vibrate(duration: Integer; type_: Integer; volume: Integer);
-begin
-        Self.timeDelayHelper.delay := duration;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryVslDbgVbrtn-vibrate3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-duration BINARY-DOUBLE.
+01 J-type BINARY-DOUBLE.
+01 J-volume BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-duration J-type J-volume RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-duration
+        COMPUTE JDISCARD = FUNCTION JR-SET(FUNCTION JR-GET(J-THIS, "f_timeDelayHelper"), "f_delay", JVALUE)
+    GOBACK.
+END FUNCTION AllBnryVslDbgVbrtn-vibrate3.
 
-procedure TAllBinaryVisualDebugVibration.paint(graphics_: TGraphics);
-begin
-        if Self.timeDelayHelper.isTimeTNT() then begin
-            Self.timeDelayHelper.delay := High(Integer);
-            Self.myFontProcessor.process(graphics_);
-            graphics_.drawString(Self.VIBRATING, (Self.displayInfoSingleton.getLastHalfWidth()) - ((TJava.SignedRightShift(Self.width, 1))), 0, Self.anchor);
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryVslDbgVbrtn-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION TimeDelayHelper-isTimeTNT0(FUNCTION JR-GET(J-THIS, "f_timeDelayHelper")) = 1)
+            COMPUTE JVALUE = FUNCTION Integer-static-MAX-VALUE
+            COMPUTE JDISCARD = FUNCTION JR-SET(FUNCTION JR-GET(J-THIS, "f_timeDelayHelper"), "f_delay", JVALUE)
+            COMPUTE JDISCARD = FUNCTION MyFontProcessor-process1(FUNCTION JR-GET(J-THIS, "f_myFontProcessor"), J-graphics)
+            COMPUTE jtemp1 = (FUNCTION MOD((FUNCTION DsplyInfSngltn-gtLstHlfWdth0(FUNCTION JR-GET(J-THIS, "f_displayInfoSingleton")) - (FUNCTION JR-SHIFT(JFIVE, FUNCTION JR-GET(J-THIS, "f_width"), 1))) + 2147483648, 4294967296) -
+        2147483648)
+            COMPUTE jtemp2 = 0
+            COMPUTE JDISCARD = FUNCTION Graphics-drawString4(J-graphics, FUNCTION JR-GET(J-THIS, "f_VIBRATING"), jtemp1, jtemp2, FUNCTION JR-GET(J-THIS, "f_anchor"))
+        END-IF
+    GOBACK.
+END FUNCTION AllBnryVslDbgVbrtn-paint1.
 

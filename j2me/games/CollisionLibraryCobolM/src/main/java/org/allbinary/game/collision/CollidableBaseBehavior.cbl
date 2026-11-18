@@ -1,144 +1,354 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.collision
+*> Java class CollidableBaseBehavior
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.collision
-unit CollidableBaseBehavior;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CollidableBaseBehavior-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-collidable BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-collidable RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CollidableBaseBehavior")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_layerCollisionUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_collidable")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
+    COMPUTE JVALUE = FUNCTION LyrCllsnUtl-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_layerCollisionUtil", JVALUE)
+    COMPUTE JVALUE = 1
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_collidable", JVALUE)
+        COMPUTE JVALUE = J-collidable
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_collidable", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CollidableBaseBehavior-new1.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CollidableBaseBehavior-update0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION CollidableBaseBehavior-update0.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblBsBhvr-getName0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = FUNCTION JR-CLASS-NAME(J-THIS)
+        COMPUTE J-RESULT = jtemp1
+        GOBACK
+    GOBACK.
+END FUNCTION ClldblBsBhvr-getName0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, CollidableCompositeLayer, AllBinaryLayer, LogUtil, CommonStrings, LayerCollisionUtil, CollidableInterfaceCompositeInterface, CollisionType, CollidableInterface, NamedInterface;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblBsBhvr-setCollidable1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-collidable BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-collidable RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-collidable
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_collidable", JVALUE)
+    GOBACK.
+END FUNCTION ClldblBsBhvr-setCollidable1.
 
-type
-  {AB:TYPES}
-  TCollidableBaseBehavior = class(TInterfacedObject, ICollidableInterface, INamedInterface)
-  public
-    logUtil: TLogUtil;
-    commonStrings: TCommonStrings;
-    layerCollisionUtil: TLayerCollisionUtil;
-    collidable: Boolean;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(collidable: Boolean);
-        procedure update; virtual;
-        function getName: string; virtual;
-        procedure setCollidable(collidable: Boolean); virtual;
-        function isCollidable(ownerLayer: TCollidableCompositeLayer): Boolean; virtual;
-        procedure collide(ownerLayer: TCollidableCompositeLayer; allbinaryCollidableLayer: TCollidableCompositeLayer); virtual;
-        function isCollision(ownerLayer: TCollidableCompositeLayer; collisionLayer: TCollidableCompositeLayer): Boolean; virtual;
-        function isCollisionInterface(ownerLayer: TCollidableCompositeLayer; collidableInterfaceCompositeInterface_: ICollidableInterfaceCompositeInterface): Boolean; virtual;
-        procedure collideInterface(ownerLayer: TCollidableCompositeLayer; collidableInterfaceCompositeInterface_: ICollidableInterfaceCompositeInterface); virtual;
-        procedure paint(ownerLayer: TCollidableCompositeLayer; graphics_: TGraphics); virtual;
-        function getCollisionTypeWith(layerInterface: TAllBinaryLayer): TCollisionType; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblBsBhvr-isCollidable1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ownerLayer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ownerLayer RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_collidable")
+        GOBACK
+    GOBACK.
+END FUNCTION ClldblBsBhvr-isCollidable1.
 
-implementation
-uses
-  CollisionTypeFactory, StringMaker, CommonLabels;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblBsBhvr-collide2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ownerLayer BINARY-DOUBLE.
+01 J-allbinaryCollidableLayer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ownerLayer J-allbinaryCollidableLayer RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp6 = FUNCTION CommonLabels-getInstance0
+        COMPUTE jtemp5 = FUNCTION StringMaker-new0
+        COMPUTE jtemp7 = FUNCTION JR-CLASS-NAME(J-THIS)
+        COMPUTE jtemp4 = FUNCTION StringMaker-append1(jtemp5, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_NOT_IMPLEMENTED"))
+        COMPUTE jtemp3 = FUNCTION StringMaker-append1(jtemp4, FUNCTION JR-GET(jtemp6, "f_COLON_SEP"))
+        COMPUTE jtemp2 = FUNCTION StringMaker-append1(jtemp3, jtemp7)
+        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+    GOBACK.
+END FUNCTION ClldblBsBhvr-collide2.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblBsBhvr-isCollision2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ownerLayer BINARY-DOUBLE.
+01 J-collisionLayer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ownerLayer J-collisionLayer RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION LyrCllsnUtl-isCollision2(FUNCTION JR-GET(J-THIS, "f_layerCollisionUtil"), J-ownerLayer, J-collisionLayer)
+        GOBACK
+    GOBACK.
+END FUNCTION ClldblBsBhvr-isCollision2.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblBsBhvr-isCllsnIntrfc2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp8 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ownerLayer BINARY-DOUBLE.
+01 J-collidableInterfaceCompositeInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ownerLayer J-collidableInterfaceCompositeInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp8 = J-collidableInterfaceCompositeInterface
+        COMPUTE J-RESULT = FUNCTION LyrCllsnUtl-isCollision2(FUNCTION JR-GET(J-THIS, "f_layerCollisionUtil"), J-ownerLayer, jtemp8)
+        GOBACK
+    GOBACK.
+END FUNCTION ClldblBsBhvr-isCllsnIntrfc2.
 
-procedure TCollidableBaseBehavior.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.commonStrings := TCommonStrings.getInstance();
-  Self.layerCollisionUtil := TLayerCollisionUtil.getInstance();
-  Self.collidable := True;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblBsBhvr-collideInterface2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ownerLayer BINARY-DOUBLE.
+01 J-collidableInterfaceCompositeInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ownerLayer J-collidableInterfaceCompositeInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+    GOBACK.
+END FUNCTION ClldblBsBhvr-collideInterface2.
 
-function TCollidableBaseBehavior.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CollidableBaseBehavior-paint2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ownerLayer BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ownerLayer J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION CollidableBaseBehavior-paint2.
 
-constructor TCollidableBaseBehavior.Create(collidable: Boolean);
-begin
-    inherited Create;
-    InitFields;
-        Self.collidable := collidable;
-end;
-    
-
-procedure TCollidableBaseBehavior.update;
-begin
-end;
-    
-
-function TCollidableBaseBehavior.getName: string;
-begin
-        Exit(Self.ClassType.ClassName);
-end;
-    
-
-procedure TCollidableBaseBehavior.setCollidable(collidable: Boolean);
-begin
-        Self.collidable := collidable;
-end;
-    
-
-function TCollidableBaseBehavior.isCollidable(ownerLayer: TCollidableCompositeLayer): Boolean;
-begin
-        Exit(Self.collidable);
-end;
-    
-
-// throws Exception
-procedure TCollidableBaseBehavior.collide(ownerLayer: TCollidableCompositeLayer; allbinaryCollidableLayer: TCollidableCompositeLayer);
-begin
-        raise SysUtils.Exception.Create(TStringMaker.Create().append(Self.commonStrings.NOT_IMPLEMENTED).append(TCommonLabels.getInstance().COLON_SEP).append(Self.ClassType.ClassName).toString());
-end;
-    
-
-function TCollidableBaseBehavior.isCollision(ownerLayer: TCollidableCompositeLayer; collisionLayer: TCollidableCompositeLayer): Boolean;
-begin
-        Exit(Self.layerCollisionUtil.isCollision(ownerLayer, collisionLayer));
-end;
-    
-
-function TCollidableBaseBehavior.isCollisionInterface(ownerLayer: TCollidableCompositeLayer; collidableInterfaceCompositeInterface_: ICollidableInterfaceCompositeInterface): Boolean;
-begin
-        Exit(Self.layerCollisionUtil.isCollision(ownerLayer, TAllBinaryLayer(TJava.ToObject(collidableInterfaceCompositeInterface_))));
-end;
-    
-
-// throws Exception
-procedure TCollidableBaseBehavior.collideInterface(ownerLayer: TCollidableCompositeLayer; collidableInterfaceCompositeInterface_: ICollidableInterfaceCompositeInterface);
-begin
-        raise SysUtils.Exception.Create(Self.commonStrings.NOT_IMPLEMENTED);
-end;
-    
-
-procedure TCollidableBaseBehavior.paint(ownerLayer: TCollidableCompositeLayer; graphics_: TGraphics);
-begin
-end;
-    
-
-function TCollidableBaseBehavior.getCollisionTypeWith(layerInterface: TAllBinaryLayer): TCollisionType;
-begin
-        Exit(TCollisionTypeFactory.getInstance().NONE);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblBsBhvr-gtCllsnTypWth1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp9 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp9 = FUNCTION CllsnTypFctry-getInstance0
+        COMPUTE J-RESULT = FUNCTION JR-GET(jtemp9, "f_NONE")
+        GOBACK
+    GOBACK.
+END FUNCTION ClldblBsBhvr-gtCllsnTypWth1.
 

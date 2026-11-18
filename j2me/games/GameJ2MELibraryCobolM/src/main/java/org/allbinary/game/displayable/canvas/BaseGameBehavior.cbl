@@ -1,162 +1,443 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2022 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.displayable.canvas
-unit BaseGameBehavior;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.displayable.canvas
+*> Java class BaseGameBehavior
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsGmBhvr-static-instanceC.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BaseGameBehavior-jcell-instanceC BINARY-DOUBLE EXTERNAL.
+01 BaseGameBehavior-jset-instanceC BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF BaseGameBehavior-jset-instanceC = 0
+        MOVE 1 TO BaseGameBehavior-jset-instanceC
+        COMPUTE BaseGameBehavior-jcell-instanceC = FUNCTION BaseGameBehavior-new0
+    END-IF
+    MOVE BaseGameBehavior-jcell-instanceC TO J-RESULT
+    GOBACK.
+END FUNCTION BsGmBhvr-static-instanceC.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsGmBhvrstaticinstanS47403.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BaseGameBehavior-jcell-instanceC BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION BsGmBhvr-static-instanceC TO J-RESULT
+    MOVE J-VALUE TO BaseGameBehavior-jcell-instanceC
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION BsGmBhvrstaticinstanS47403.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AbeClientInformationInterface, DemoGameBehavior, AllBinaryGameCanvas;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BaseGameBehavior-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("BaseGameBehavior")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION BaseGameBehavior-new0.
 
-type
-  {AB:TYPES}
-  TBaseGameBehavior = class(TDemoGameBehavior)
-  public
-    class var instanceC: TBaseGameBehavior;
-    constructor Create;
-        class function getInstance: TDemoGameBehavior; static;
-        procedure init; override;
-        procedure pause(allBinaryGameCanvas_: TAllBinaryGameCanvas); override;
-        procedure unPause(allBinaryGameCanvas_: TAllBinaryGameCanvas); override;
-        procedure updateTouch(allBinaryGameCanvas_: TAllBinaryGameCanvas); override;
-        procedure updateScreenButtonPaintable(allBinaryGameCanvas_: TAllBinaryGameCanvas); override;
-        procedure setGameState(allBinaryGameCanvas_: TAllBinaryGameCanvas); override;
-        procedure removeAllGameKeyInputListeners(allBinaryGameCanvas_: TAllBinaryGameCanvas); override;
-        procedure updateEndGameProcessor(allBinaryGameCanvas_: TAllBinaryGameCanvas); override;
-        procedure buildGame(allBinaryGameCanvas_: TAllBinaryGameCanvas); override;
-        procedure run(allBinaryGameCanvas_: TAllBinaryGameCanvas); override;
-        procedure setHighScore(abeClientInformation: IAbeClientInformationInterface; allBinaryGameCanvas_: TAllBinaryGameCanvas; name: string; score: Int64; autoSubmit: Boolean; isLast: Boolean); override;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BaseGameBehavior-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION BsGmBhvr-static-instanceC
+        GOBACK
+    GOBACK.
+END FUNCTION BaseGameBehavior-getInstance0.
 
-implementation
-uses
-  GameAdStateFactory, GameAdState, Features, CurrentDisplayableFactory, OpenGLFeatureFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BaseGameBehavior-init0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameAdState BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = FUNCTION GmAdSttFctry-getInstance0
+        COMPUTE J-gameAdState = FUNCTION GmAdSttFctry-gtCrrntInstnc0(jtemp1)
+        COMPUTE JDISCARD = FUNCTION GmAdSttBs-playingAdState0(J-gameAdState)
+    GOBACK.
+END FUNCTION BaseGameBehavior-init0.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BaseGameBehavior-pause1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-features BINARY-DOUBLE.
+01 J-currentDisplayableFactory BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryGameCanvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryGameCanvas RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-features = FUNCTION Features-getInstance0
+        COMPUTE jtemp2 = FUNCTION OpnGLFtrFctry-getInstance0
+        IF (FUNCTION Features-isDefault1(J-features, FUNCTION JR-GET(jtemp2, "f_OPENGL_AS_GAME_THREAD")) = 1)
+            COMPUTE J-currentDisplayableFactory = FUNCTION CrrntDsplyblFctry-getInstance0
+            COMPUTE JDISCARD = FUNCTION CrrntDsplyblFctry-setRunnable1(J-currentDisplayableFactory, FUNCTION JR-GET(J-allBinaryGameCanvas, "f_gamePauseRunnable"))
+        END-IF
+    GOBACK.
+END FUNCTION BaseGameBehavior-pause1.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BaseGameBehavior-unPause1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-currentDisplayableFactory BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryGameCanvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryGameCanvas RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp4 = FUNCTION OpnGLFtrFctry-getInstance0
+        COMPUTE jtemp3 = FUNCTION Features-getInstance0
+        IF (FUNCTION Features-isDefault1(jtemp3, FUNCTION JR-GET(jtemp4, "f_OPENGL_AS_GAME_THREAD")) = 1)
+            COMPUTE J-currentDisplayableFactory = FUNCTION CrrntDsplyblFctry-getInstance0
+            COMPUTE JDISCARD = FUNCTION CrrntDsplyblFctry-setRunnable1(J-currentDisplayableFactory, FUNCTION JR-GET(J-allBinaryGameCanvas, "f_gameRunnable"))
+            COMPUTE JDISCARD = FUNCTION CrrntDsplyblFctry-stDsplybl1(J-currentDisplayableFactory, J-allBinaryGameCanvas)
+        END-IF
+    GOBACK.
+END FUNCTION BaseGameBehavior-unPause1.
 
-constructor TBaseGameBehavior.Create;
-begin
-  inherited Create;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BaseGameBehavior-updateTouch1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryGameCanvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryGameCanvas RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION AllBnryGmCnvs-updateTouch20(J-allBinaryGameCanvas)
+    GOBACK.
+END FUNCTION BaseGameBehavior-updateTouch1.
 
-class function TBaseGameBehavior.getInstance: TDemoGameBehavior;
-begin
-        Exit(TBaseGameBehavior.instanceC);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsGmBhvr-updtScrnBttnPntbl1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryGameCanvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryGameCanvas RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION AllBnryGmCnvs-updtScrnBtt80211(J-allBinaryGameCanvas)
+    GOBACK.
+END FUNCTION BsGmBhvr-updtScrnBttnPntbl1.
 
-// throws Exception
-procedure TBaseGameBehavior.init;
-var
-  gameAdState_: TGameAdState;
-begin
-        gameAdState_ := TGameAdStateFactory.getInstance().getCurrentInstance();
-        gameAdState_.playingAdState();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BaseGameBehavior-setGameState1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryGameCanvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryGameCanvas RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION AllBnryGmCnvs-updateGameState0(J-allBinaryGameCanvas)
+    GOBACK.
+END FUNCTION BaseGameBehavior-setGameState1.
 
-procedure TBaseGameBehavior.pause(allBinaryGameCanvas_: TAllBinaryGameCanvas);
-var
-  features_: TFeatures;
-  currentDisplayableFactory_: TCurrentDisplayableFactory;
-begin
-        features_ := TFeatures.getInstance();
-        if features_.isDefault(TOpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD) then begin
-            currentDisplayableFactory_ := TCurrentDisplayableFactory.getInstance();
-            currentDisplayableFactory_.setRunnable(allBinaryGameCanvas_.gamePauseRunnable);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsGmBhvr-rmvAllGmKyInptLstnrs1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryGameCanvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryGameCanvas RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION AllBnryGmCnvs-rmvAllGmKyI41956(J-allBinaryGameCanvas)
+    GOBACK.
+END FUNCTION BsGmBhvr-rmvAllGmKyInptLstnrs1.
 
-procedure TBaseGameBehavior.unPause(allBinaryGameCanvas_: TAllBinaryGameCanvas);
-var
-  currentDisplayableFactory_: TCurrentDisplayableFactory;
-begin
-        if TFeatures.getInstance().isDefault(TOpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD) then begin
-            currentDisplayableFactory_ := TCurrentDisplayableFactory.getInstance();
-            currentDisplayableFactory_.setRunnable(allBinaryGameCanvas_.gameRunnable);
-            currentDisplayableFactory_.setDisplayable(allBinaryGameCanvas_);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsGmBhvr-updtEndGmPrcssr1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryGameCanvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryGameCanvas RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION AllBnryGmCnvs-updtEndGmPr82220(J-allBinaryGameCanvas)
+    GOBACK.
+END FUNCTION BsGmBhvr-updtEndGmPrcssr1.
 
-// throws Exception
-procedure TBaseGameBehavior.updateTouch(allBinaryGameCanvas_: TAllBinaryGameCanvas);
-begin
-        allBinaryGameCanvas_.updateTouch2();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BaseGameBehavior-buildGame1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryGameCanvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryGameCanvas RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION AllBnryGmCnvs-buildGame20(J-allBinaryGameCanvas)
+    GOBACK.
+END FUNCTION BaseGameBehavior-buildGame1.
 
-// throws Exception
-procedure TBaseGameBehavior.updateScreenButtonPaintable(allBinaryGameCanvas_: TAllBinaryGameCanvas);
-begin
-        allBinaryGameCanvas_.updateScreenButtonPaintable2();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BaseGameBehavior-run1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryGameCanvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryGameCanvas RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION AllBinaryGameCanvas-run20(J-allBinaryGameCanvas)
+    GOBACK.
+END FUNCTION BaseGameBehavior-run1.
 
-// throws Exception
-procedure TBaseGameBehavior.setGameState(allBinaryGameCanvas_: TAllBinaryGameCanvas);
-begin
-        allBinaryGameCanvas_.updateGameState();
-end;
-    
-
-procedure TBaseGameBehavior.removeAllGameKeyInputListeners(allBinaryGameCanvas_: TAllBinaryGameCanvas);
-begin
-        allBinaryGameCanvas_.removeAllGameKeyInputListeners2();
-end;
-    
-
-// throws Exception
-procedure TBaseGameBehavior.updateEndGameProcessor(allBinaryGameCanvas_: TAllBinaryGameCanvas);
-begin
-        allBinaryGameCanvas_.updateEndGameProcessor2();
-end;
-    
-
-// throws Exception
-procedure TBaseGameBehavior.buildGame(allBinaryGameCanvas_: TAllBinaryGameCanvas);
-begin
-        allBinaryGameCanvas_.buildGame2();
-end;
-    
-
-// throws Exception
-procedure TBaseGameBehavior.run(allBinaryGameCanvas_: TAllBinaryGameCanvas);
-begin
-        allBinaryGameCanvas_.run2();
-end;
-    
-
-// throws Exception
-procedure TBaseGameBehavior.setHighScore(abeClientInformation: IAbeClientInformationInterface; allBinaryGameCanvas_: TAllBinaryGameCanvas; name: string; score: Int64; autoSubmit: Boolean; isLast: Boolean);
-begin
-        allBinaryGameCanvas_.setHighScore2(abeClientInformation, name, score, autoSubmit, isLast);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TBaseGameBehavior.instanceC := TBaseGameBehavior.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BaseGameBehavior-setHighScore6.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-abeClientInformation BINARY-DOUBLE.
+01 J-allBinaryGameCanvas BINARY-DOUBLE.
+01 J-name BINARY-DOUBLE.
+01 J-score BINARY-DOUBLE.
+01 J-autoSubmit BINARY-DOUBLE.
+01 J-isLast BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-abeClientInformation J-allBinaryGameCanvas J-name J-score J-autoSubmit J-isLast RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION AllBnryGmCnvs-setHighScore25(J-allBinaryGameCanvas, J-abeClientInformation, J-name, J-score, J-autoSubmit, J-isLast)
+    GOBACK.
+END FUNCTION BaseGameBehavior-setHighScore6.
 

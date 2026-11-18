@@ -1,100 +1,187 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.util.cache
+*> Java class CachePolicy
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.logic.util.cache
-unit CachePolicy;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
-
-type
-  {AB:TYPES}
-  TCachePolicy = class(TObject)
-  public
-    name: string;
-    maxTime: Int64;
-    maxSize: Int64;
-    procedure InitFields;
-        constructor Create(name: string; maxTime: Int64; maxSize: Int64);
-        function getMaxTime: Int64; virtual;
-        procedure setMaxTime(maxTime: Int64); virtual;
-        function getMaxSize: Int64; virtual;
-        procedure setMaxSize(maxSize: Int64); virtual;
-        function getName: string; virtual;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TCachePolicy.InitFields;
-begin
-  
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CachePolicy-new3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-name BINARY-DOUBLE.
+01 J-maxTime BINARY-DOUBLE.
+01 J-maxSize BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-name J-maxTime J-maxSize RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CachePolicy")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_name")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_maxTime")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_maxSize")
     
-
-constructor TCachePolicy.Create(name: string; maxTime: Int64; maxSize: Int64);
-begin
-    inherited Create;
-    InitFields;
-        Self.name := name;
-        Self.setMaxTime(maxTime);
-        Self.setMaxSize(maxSize);
-end;
     
-
-function TCachePolicy.getMaxTime: Int64;
-begin
-        Exit(Self.maxTime);
-end;
     
+        COMPUTE JVALUE = J-name
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_name", JVALUE)
+        COMPUTE JDISCARD = FUNCTION CachePolicy-setMaxTime1(J-THIS, J-maxTime)
+        COMPUTE JDISCARD = FUNCTION CachePolicy-setMaxSize1(J-THIS, J-maxSize)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CachePolicy-new3.
 
-procedure TCachePolicy.setMaxTime(maxTime: Int64);
-begin
-        Self.maxTime := maxTime;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CachePolicy-getMaxTime0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_maxTime")
+        GOBACK
+    GOBACK.
+END FUNCTION CachePolicy-getMaxTime0.
 
-function TCachePolicy.getMaxSize: Int64;
-begin
-        Exit(Self.maxSize);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CachePolicy-setMaxTime1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-maxTime BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-maxTime RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-maxTime
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_maxTime", JVALUE)
+    GOBACK.
+END FUNCTION CachePolicy-setMaxTime1.
 
-procedure TCachePolicy.setMaxSize(maxSize: Int64);
-begin
-        Self.maxSize := maxSize;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CachePolicy-getMaxSize0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_maxSize")
+        GOBACK
+    GOBACK.
+END FUNCTION CachePolicy-getMaxSize0.
 
-function TCachePolicy.getName: string;
-begin
-        Exit(Self.name);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CachePolicy-setMaxSize1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-maxSize BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-maxSize RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-maxSize
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_maxSize", JVALUE)
+    GOBACK.
+END FUNCTION CachePolicy-setMaxSize1.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CachePolicy-getName0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_name")
+        GOBACK
+    GOBACK.
+END FUNCTION CachePolicy-getName0.
 

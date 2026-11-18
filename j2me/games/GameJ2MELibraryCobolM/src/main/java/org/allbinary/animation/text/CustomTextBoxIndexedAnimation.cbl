@@ -1,159 +1,387 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2022 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.text
+*> Java class CustomTextBoxIndexedAnimation
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CstmTxtBxIndxdAnmtn-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-customTextBox BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-customTextBox RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CustomTextBoxIndexedAnimation")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_customTextBox")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_lastText")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_hasChanged")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_textChangeListener")
     
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.text
-unit CustomTextBoxIndexedAnimation;
+    COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_INIT_STRING")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lastText", JVALUE)
+    COMPUTE JVALUE = 1
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hasChanged", JVALUE)
+    COMPUTE JVALUE = FUNCTION TxtChngLstnr-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_textChangeListener", JVALUE)
+        CONTINUE
+        COMPUTE JVALUE = J-customTextBox
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_customTextBox", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CstmTxtBxIndxdAnmtn-new1.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CstmTxtBxIndxdAnmtn-stBscClrP1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-basicColor RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION CstmTxtBx-getTextFieldItem0(FUNCTION JR-GET(J-THIS, "f_customTextBox"))
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp2)
+    GOBACK.
+END FUNCTION CstmTxtBxIndxdAnmtn-stBscClrP1.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CstmTxtBxIndxdAnmtn-stBck26559.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-basicColor RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp3 = FUNCTION CstmTxtBx-getTextFieldItem0(FUNCTION JR-GET(J-THIS, "f_customTextBox"))
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp3)
+    GOBACK.
+END FUNCTION CstmTxtBxIndxdAnmtn-stBck26559.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, IndexedAnimation, RawKeyEventListener, BasicColor, UpdateMyFontInterface, CustomTextBox, TextChangeListener, TextInterface;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CstmTxtBxIndxdAnmtn-stTxt26488.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-text BINARY-DOUBLE.
+01 J-textChangeListener BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-text J-textChangeListener RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION CstmTxtBxIndxdAnmtn-setText1(J-THIS, J-text)
+        COMPUTE JVALUE = J-textChangeListener
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_textChangeListener", JVALUE)
+    GOBACK.
+END FUNCTION CstmTxtBxIndxdAnmtn-stTxt26488.
 
-type
-  {AB:TYPES}
-  TCustomTextBoxIndexedAnimation = class(TIndexedAnimation, IRawKeyEventListener, IUpdateMyFontInterface, ITextInterface)
-  public
-    customTextBox: TCustomTextBox;
-    lastText: string;
-    hasChanged: Boolean;
-    textChangeListener: TTextChangeListener;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(customTextBox_: TCustomTextBox);
-        procedure setBasicColorP(basicColor_: TBasicColor); virtual;
-        procedure setBackgroundBasicColorP(basicColor_: TBasicColor); virtual;
-        procedure setTextWithOnMeasure(text: string; textChangeListener_: TTextChangeListener); virtual;
-        procedure updateMeasurement(graphics_: TGraphics); virtual;
-        procedure setText(text: string); virtual;
-        function getText: string; virtual;
-        procedure onEventRaw(keyCode: Integer; deviceId: Integer; repeated: Boolean); virtual;
-        function getFontHeight: Integer; virtual;
-        procedure paintXY(graphics_: TGraphics; x: Integer; y: Integer); virtual;
-        procedure paintThreedXYZ(graphics_: TGraphics; x: Integer; y: Integer; z: Integer); virtual;
-        function getWidth: Integer; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CstmTxtBxIndxdAnmtn-updtM31280.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-font BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-font = FUNCTION Graphics-getFont0(J-graphics)
+        COMPUTE JDISCARD = FUNCTION TextChangeListener-onMeasure0(FUNCTION JR-GET(J-THIS, "f_textChangeListener"))
+        COMPUTE JVALUE = FUNCTION TxtChngLstnr-getInstance0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_textChangeListener", JVALUE)
+    GOBACK.
+END FUNCTION CstmTxtBxIndxdAnmtn-updtM31280.
 
-implementation
-uses
-  Font, AnimationBehavior, StringUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CstmTxtBxIndxdAnmtn-setText1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-text BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-text RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION JR-GET(J-THIS, "f_lastText") NOT = J-text)
+            COMPUTE JVALUE = 1
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hasChanged", JVALUE)
+            COMPUTE JVALUE = J-text
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lastText", JVALUE)
+            COMPUTE jtemp4 = FUNCTION CstmTxtBx-getTextFieldItem0(FUNCTION JR-GET(J-THIS, "f_customTextBox"))
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp4)
+        END-IF
+    GOBACK.
+END FUNCTION CstmTxtBxIndxdAnmtn-setText1.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CstmTxtBxIndxdAnmtn-getText0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp5 = FUNCTION CstmTxtBx-getTextFieldItem0(FUNCTION JR-GET(J-THIS, "f_customTextBox"))
+        COMPUTE J-RESULT = FUNCTION JR-CLASS-NAME(jtemp5)
+        GOBACK
+    GOBACK.
+END FUNCTION CstmTxtBxIndxdAnmtn-getText0.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CstmTxtBxIndxdAnmtn-onEvntRw3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-keyCode BINARY-DOUBLE.
+01 J-deviceId BINARY-DOUBLE.
+01 J-repeated BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-keyCode J-deviceId J-repeated RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION CustomTextBox-onEventRaw3(FUNCTION JR-GET(J-THIS, "f_customTextBox"), J-keyCode, J-deviceId, J-repeated)
+    GOBACK.
+END FUNCTION CstmTxtBxIndxdAnmtn-onEvntRw3.
 
-procedure TCustomTextBoxIndexedAnimation.InitFields;
-begin
-  
-  Self.lastText := TStringUtil.getInstance().INIT_STRING;
-  Self.hasChanged := True;
-  Self.textChangeListener := TTextChangeListener.getInstance();
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CstmTxtBxIndxdAnmtn-gtFntHght0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp6 = FUNCTION CstmTxtBx-getTextFieldItem0(FUNCTION JR-GET(J-THIS, "f_customTextBox"))
+        COMPUTE J-RESULT = FUNCTION JR-CLASS-NAME(jtemp6)
+        GOBACK
+    GOBACK.
+END FUNCTION CstmTxtBxIndxdAnmtn-gtFntHght0.
 
-function TCustomTextBoxIndexedAnimation.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CstmTxtBxIndxdAnmtn-paintXY3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION CustomTextBox-paintXY3(FUNCTION JR-GET(J-THIS, "f_customTextBox"), J-graphics, J-x, J-y)
+    GOBACK.
+END FUNCTION CstmTxtBxIndxdAnmtn-paintXY3.
 
-constructor TCustomTextBoxIndexedAnimation.Create(customTextBox_: TCustomTextBox);
-begin
-        inherited Create(TAnimationBehavior.getInstance());
-        InitFields;
-        Self.customTextBox := customTextBox_;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CstmTxtBxIndxdAnmtn-pntTh92462.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-z BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-x J-y J-z RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION CstmTxtBxIndxdAnmtn-pntTh92462.
 
-procedure TCustomTextBoxIndexedAnimation.setBasicColorP(basicColor_: TBasicColor);
-begin
-        Self.customTextBox.getTextFieldItem().setForegroundBasicColorP(basicColor_);
-end;
-    
-
-procedure TCustomTextBoxIndexedAnimation.setBackgroundBasicColorP(basicColor_: TBasicColor);
-begin
-        Self.customTextBox.getTextFieldItem().setBackgroundBasicColorP(basicColor_);
-end;
-    
-
-procedure TCustomTextBoxIndexedAnimation.setTextWithOnMeasure(text: string; textChangeListener_: TTextChangeListener);
-begin
-        Self.setText(text);
-        Self.textChangeListener := textChangeListener_;
-end;
-    
-
-procedure TCustomTextBoxIndexedAnimation.updateMeasurement(graphics_: TGraphics);
-var
-  font_: TFont;
-begin
-        font_ := graphics_.getFont();
-        Self.textChangeListener.onMeasure();
-        Self.textChangeListener := TTextChangeListener.getInstance();
-end;
-    
-
-procedure TCustomTextBoxIndexedAnimation.setText(text: string);
-begin
-        if (Self.lastText) <> (text) then begin
-            Self.hasChanged := True;
-            Self.lastText := text;
-            Self.customTextBox.getTextFieldItem().setString(text);
-        end;
-end;
-    
-
-function TCustomTextBoxIndexedAnimation.getText: string;
-begin
-        Exit(Self.customTextBox.getTextFieldItem().getString());
-end;
-    
-
-procedure TCustomTextBoxIndexedAnimation.onEventRaw(keyCode: Integer; deviceId: Integer; repeated: Boolean);
-begin
-        Self.customTextBox.onEventRaw(keyCode, deviceId, repeated);
-end;
-    
-
-function TCustomTextBoxIndexedAnimation.getFontHeight: Integer;
-begin
-        Exit(Self.customTextBox.getTextFieldItem().getFontHeight());
-end;
-    
-
-procedure TCustomTextBoxIndexedAnimation.paintXY(graphics_: TGraphics; x: Integer; y: Integer);
-begin
-        Self.customTextBox.paintXY(graphics_, x, y);
-end;
-    
-
-procedure TCustomTextBoxIndexedAnimation.paintThreedXYZ(graphics_: TGraphics; x: Integer; y: Integer; z: Integer);
-begin
-end;
-    
-
-function TCustomTextBoxIndexedAnimation.getWidth: Integer;
-begin
-        Exit(inherited getWidth());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CstmTxtBxIndxdAnmtn-getWidth0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION IndexedAnimation-getWidth0(J-THIS)
+        GOBACK
+    GOBACK.
+END FUNCTION CstmTxtBxIndxdAnmtn-getWidth0.
 

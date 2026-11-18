@@ -1,148 +1,271 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.media.image
+*> Java class ImageCopyUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.media.image
-unit ImageCopyUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImageCopyUtil-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ImageCopyUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 ImageCopyUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF ImageCopyUtil-jset-instance = 0
+        MOVE 1 TO ImageCopyUtil-jset-instance
+        COMPUTE ImageCopyUtil-jcell-instance = FUNCTION ImageCopyUtil-new0
+    END-IF
+    MOVE ImageCopyUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION ImageCopyUtil-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImageCopyUtilstaticiS18491.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ImageCopyUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION ImageCopyUtil-static-instance TO J-RESULT
+    MOVE J-VALUE TO ImageCopyUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION ImageCopyUtilstaticiS18491.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImageCopyUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ImageCopyUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_imageCreationUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_anchor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameFeatureFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_features")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NO_COPY")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
+    COMPUTE JVALUE = FUNCTION ImageCreationUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_imageCreationUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION Anchor-static-TOP-LEFT
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_anchor", JVALUE)
+    COMPUTE JVALUE = FUNCTION GmFtrFctry-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameFeatureFactory", JVALUE)
+    COMPUTE JVALUE = FUNCTION Features-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_features", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("J2ME does not need to copy images after initial loading")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NO_COPY", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ImageCopyUtil-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Image, Features, GameFeatureFactory, LogUtil, CommonStrings, ImageCreationUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImageCopyUtil-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION ImageCopyUtil-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION ImageCopyUtil-getInstance0.
 
-type
-  {AB:TYPES}
-  TImageCopyUtil = class(TObject)
-  public
-    logUtil: TLogUtil;
-    commonStrings: TCommonStrings;
-    imageCreationUtil: TImageCreationUtil;
-    anchor: Integer;
-    gameFeatureFactory: TGameFeatureFactory;
-    features: TFeatures;
-    NO_COPY: string;
-    class var instance: TImageCopyUtil;
-    procedure InitFields;
-        class function getInstance: TImageCopyUtil; static;
-        constructor Create;
-        function createImageForRotation(originalImage: TImage): TImage; virtual;
-        function createImage(originalImage: TImage): TImage; virtual;
-        function createImageScale(originalImage: TImage; canvasScale: Single; resize: Boolean): TImage; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgCpyUtl-crtImgFrRttn1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-originalImage BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-originalImage RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION ImageCopyUtil-createImage1(J-THIS, J-originalImage)
+        GOBACK
+    GOBACK.
+END FUNCTION ImgCpyUtl-crtImgFrRttn1.
 
-implementation
-uses
-  Graphics, Anchor;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImageCopyUtil-createImage1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-image BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-originalImage BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-originalImage RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (NOT (FUNCTION Features-isFeature1(FUNCTION JR-GET(J-THIS, "f_features"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameFeatureFactory"), "f_POST_IMAGE_LOADING_MODIFICATION")) = 1))
+            COMPUTE JDISCARD = FUNCTION LogUtil-put4(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-GET(J-THIS, "f_NO_COPY"), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_CONSTRUCTOR"), FUNCTION
+        JR-NEW-OBJECT("Exception"))
+            COMPUTE J-RESULT = J-originalImage
+            GOBACK
+        END-IF
+        COMPUTE J-image = FUNCTION ImgCrtnUtl-createImageWH2(FUNCTION JR-GET(J-THIS, "f_imageCreationUtil"), FUNCTION Image-getWidth0(J-originalImage), FUNCTION Image-getHeight0(J-originalImage))
+        IF (FUNCTION Image-isMutable0(J-image) = 1)
+            COMPUTE jtemp2 = 0
+            COMPUTE jtemp3 = 0
+            COMPUTE jtemp1 = FUNCTION Image-getGraphics0(J-image)
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp1)
+            COMPUTE J-RESULT = J-image
+            GOBACK
+        ELSE
+            COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+        END-IF
+    GOBACK.
+END FUNCTION ImageCopyUtil-createImage1.
 
-
-{AB:CODE}
-
-procedure TImageCopyUtil.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.commonStrings := TCommonStrings.getInstance();
-  Self.imageCreationUtil := TImageCreationUtil.getInstance();
-  Self.anchor := TAnchor.TOP_LEFT;
-  Self.gameFeatureFactory := TGameFeatureFactory.getInstance();
-  Self.features := TFeatures.getInstance();
-  Self.NO_COPY := 'J2ME does not need to copy images after initial loading';
-end;
-    
-
-class function TImageCopyUtil.getInstance: TImageCopyUtil;
-begin
-        Exit(TImageCopyUtil.instance);
-end;
-    
-
-constructor TImageCopyUtil.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
-
-// throws Exception
-function TImageCopyUtil.createImageForRotation(originalImage: TImage): TImage;
-begin
-        Exit(Self.createImage(originalImage));
-end;
-    
-
-// throws Exception
-function TImageCopyUtil.createImage(originalImage: TImage): TImage;
-var
-  image_: TImage;
-begin
-        if not (Self.features.isFeature(Self.gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) then begin
-            Self.logUtil.put(Self.NO_COPY, TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_, TJava.Box(SysUtils.Exception.Create('')));
-            Exit(originalImage);
-        end;
-        image_ := Self.imageCreationUtil.createImageWH(originalImage.getWidth(), originalImage.getHeight());
-        if image_.isMutable() then begin
-            image_.getGraphics().drawImage(originalImage, 0, 0, Self.anchor);
-            Exit(image_);
-        end else begin
-            raise SysUtils.Exception.Create('Not Mutable');
-        end;
-end;
-    
-
-// throws Exception
-function TImageCopyUtil.createImageScale(originalImage: TImage; canvasScale: Single; resize: Boolean): TImage;
-var
-  newWidth: Integer;
-  newHeight: Integer;
-  image_: TImage;
-  halfWidthDelta: Integer;
-  halfHeightDelta: Integer;
-  graphics_: TGraphics;
-begin
-        if not (Self.features.isFeature(Self.gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) then begin
-            Self.logUtil.put(Self.NO_COPY, TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_, TJava.Box(SysUtils.Exception.Create('')));
-            Exit(originalImage);
-        end;
-        newWidth := Integer(Trunc(((originalImage.getWidth()) * (canvasScale))));
-        newHeight := Integer(Trunc(((originalImage.getHeight()) * (canvasScale))));
-        if resize then begin
-            if (newWidth) < (newHeight) then begin
-                newWidth := newHeight;
-            end;
-            if (newHeight) < (newWidth) then begin
-                newHeight := newWidth;
-            end;
-        end;
-        image_ := Self.imageCreationUtil.createImageWH(newWidth, newHeight);
-        if image_.isMutable() then begin
-            halfWidthDelta := (((newWidth) - (originalImage.getWidth()))) div (2);
-            halfHeightDelta := (((newHeight) - (originalImage.getHeight()))) div (2);
-            graphics_ := image_.getGraphics();
-            graphics_.drawImage(originalImage, halfWidthDelta, halfHeightDelta, Self.anchor);
-            Exit(image_);
-        end else begin
-            raise SysUtils.Exception.Create('Not Mutable');
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TImageCopyUtil.instance := TImageCopyUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgCpyUtl-createImageScale3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-newWidth BINARY-DOUBLE.
+01 J-newHeight BINARY-DOUBLE.
+01 J-image BINARY-DOUBLE.
+01 J-halfWidthDelta BINARY-DOUBLE.
+01 J-halfHeightDelta BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-originalImage BINARY-DOUBLE.
+01 J-canvasScale COMP-2.
+01 J-resize BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-originalImage J-canvasScale J-resize RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (NOT (FUNCTION Features-isFeature1(FUNCTION JR-GET(J-THIS, "f_features"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameFeatureFactory"), "f_POST_IMAGE_LOADING_MODIFICATION")) = 1))
+            COMPUTE JDISCARD = FUNCTION LogUtil-put4(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-GET(J-THIS, "f_NO_COPY"), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_CONSTRUCTOR"), FUNCTION
+        JR-NEW-OBJECT("Exception"))
+            COMPUTE J-RESULT = J-originalImage
+            GOBACK
+        END-IF
+        COMPUTE J-newWidth = ((FUNCTION Image-getWidth0(J-originalImage) * J-canvasScale))
+        COMPUTE J-newHeight = ((FUNCTION Image-getHeight0(J-originalImage) * J-canvasScale))
+        IF (J-resize = 1)
+            IF (J-newWidth < J-newHeight)
+                COMPUTE J-newWidth = J-newHeight
+            END-IF
+            IF (J-newHeight < J-newWidth)
+                COMPUTE J-newHeight = J-newWidth
+            END-IF
+        END-IF
+        COMPUTE J-image = FUNCTION ImgCrtnUtl-createImageWH2(FUNCTION JR-GET(J-THIS, "f_imageCreationUtil"), J-newWidth, J-newHeight)
+        IF (FUNCTION Image-isMutable0(J-image) = 1)
+            COMPUTE J-halfWidthDelta = (FUNCTION MOD(FUNCTION INTEGER-PART(((FUNCTION MOD((J-newWidth - FUNCTION Image-getWidth0(J-originalImage)) + 2147483648, 4294967296) - 2147483648)) / 2) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE J-halfHeightDelta = (FUNCTION MOD(FUNCTION INTEGER-PART(((FUNCTION MOD((J-newHeight - FUNCTION Image-getHeight0(J-originalImage)) + 2147483648, 4294967296) - 2147483648)) / 2) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE J-graphics = FUNCTION Image-getGraphics0(J-image)
+            COMPUTE JDISCARD = FUNCTION Graphics-drawImage4(J-graphics, J-originalImage, J-halfWidthDelta, J-halfHeightDelta, FUNCTION JR-GET(J-THIS, "f_anchor"))
+            COMPUTE J-RESULT = J-image
+            GOBACK
+        ELSE
+            COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+        END-IF
+    GOBACK.
+END FUNCTION ImgCpyUtl-createImageScale3.
 

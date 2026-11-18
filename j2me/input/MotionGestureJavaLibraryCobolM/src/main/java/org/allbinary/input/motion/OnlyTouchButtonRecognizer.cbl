@@ -1,94 +1,143 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion
+*> Java class OnlyTouchButtonRecognizer
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion
-unit OnlyTouchButtonRecognizer;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, TouchButtonRecognizer, MotionRecognizer;
-
-type
-  {AB:TYPES}
-  TOnlyTouchButtonRecognizer = class(TMotionRecognizer)
-  public
-    touchButtonRecognizer: TTouchButtonRecognizer;
-    touchButtonProcessing: Boolean;
-    procedure InitFields;
-        constructor Create;
-        procedure processStartMotionEvent(x: Integer; y: Integer; deviceId: Integer; modifiers: Integer); override;
-        procedure processEndMotionEvent(x: Integer; y: Integer; deviceId: Integer; modifiers: Integer); override;
-        procedure processDraggedMotionEvent(x: Integer; y: Integer; deviceId: Integer; modifiers: Integer); override;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TOnlyTouchButtonRecognizer.InitFields;
-begin
-  
-  Self.touchButtonProcessing := False;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OnlyTouchButtonRecognizer-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("OnlyTouchButtonRecognizer")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_touchButtonRecognizer")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_touchButtonProcessing")
     
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_touchButtonProcessing", JVALUE)
+        COMPUTE JVALUE = FUNCTION TouchButtonRecognizer-new0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_touchButtonRecognizer", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION OnlyTouchButtonRecognizer-new0.
 
-constructor TOnlyTouchButtonRecognizer.Create;
-begin
-    inherited Create;
-    InitFields;
-        Self.touchButtonRecognizer := TTouchButtonRecognizer.Create();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OnlyTchBttnRcgnzr-prcssSt27217.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-deviceId BINARY-DOUBLE.
+01 J-modifiers BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-x J-y J-deviceId J-modifiers RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION TchBttnRcgnzr-prssTchBttnInpt3(FUNCTION JR-GET(J-THIS, "f_touchButtonRecognizer"), J-x, J-y, J-deviceId) = 1)
+            COMPUTE JVALUE = 1
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_touchButtonProcessing", JVALUE)
+        END-IF
+    GOBACK.
+END FUNCTION OnlyTchBttnRcgnzr-prcssSt27217.
 
-// throws Exception
-procedure TOnlyTouchButtonRecognizer.processStartMotionEvent(x: Integer; y: Integer; deviceId: Integer; modifiers: Integer);
-begin
-        if Self.touchButtonRecognizer.pressTouchButtonInput(x, y, deviceId) then begin
-            Self.touchButtonProcessing := True;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OnlyTchBttnRcgnzr-prcssEn70573.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-deviceId BINARY-DOUBLE.
+01 J-modifiers BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-x J-y J-deviceId J-modifiers RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION JR-GET(J-THIS, "f_touchButtonProcessing") = 1)
+            COMPUTE JVALUE = 0
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_touchButtonProcessing", JVALUE)
+        END-IF
+        IF (FUNCTION TchBttnRcgnzr-rlsTchBttnInpt3(FUNCTION JR-GET(J-THIS, "f_touchButtonRecognizer"), J-x, J-y, J-deviceId) = 1)
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION OnlyTchBttnRcgnzr-prcssEn70573.
 
-// throws Exception
-procedure TOnlyTouchButtonRecognizer.processEndMotionEvent(x: Integer; y: Integer; deviceId: Integer; modifiers: Integer);
-begin
-        if Self.touchButtonProcessing then begin
-            Self.touchButtonProcessing := False;
-        end;
-        if Self.touchButtonRecognizer.releaseTouchButtonInput(x, y, deviceId) then begin
-            Exit;
-        end;
-end;
-    
-
-// throws Exception
-procedure TOnlyTouchButtonRecognizer.processDraggedMotionEvent(x: Integer; y: Integer; deviceId: Integer; modifiers: Integer);
-begin
-        if Self.touchButtonProcessing then begin
-            Self.touchButtonRecognizer.pressTouchButtonInput(x, y, deviceId);
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OnlyTchBttnRcgnzr-prcssDr74393.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-deviceId BINARY-DOUBLE.
+01 J-modifiers BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-x J-y J-deviceId J-modifiers RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION JR-GET(J-THIS, "f_touchButtonProcessing") = 1)
+            COMPUTE JDISCARD = FUNCTION TchBttnRcgnzr-prssTchBttnInpt3(FUNCTION JR-GET(J-THIS, "f_touchButtonRecognizer"), J-x, J-y, J-deviceId)
+        END-IF
+    GOBACK.
+END FUNCTION OnlyTchBttnRcgnzr-prcssDr74393.
 

@@ -1,64 +1,138 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2022 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.emulator.swt
-unit SWTRunnableProcessor;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.emulator.swt
+*> Java class SWTRunnableProcessor
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SWTRnnblPrcssr-sttc-nstncR.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 SWTRunnableProcessor-jcell-instanceR BINARY-DOUBLE EXTERNAL.
+01 SWTRunnableProcessor-jset-instanceR BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF SWTRunnableProcessor-jset-instanceR = 0
+        MOVE 1 TO SWTRunnableProcessor-jset-instanceR
+        COMPUTE SWTRunnableProcessor-jcell-instanceR = FUNCTION SWTRunnableProcessor-new0
+    END-IF
+    MOVE SWTRunnableProcessor-jcell-instanceR TO J-RESULT
+    GOBACK.
+END FUNCTION SWTRnnblPrcssr-sttc-nstncR.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SWTRnnblPrcssrsttcnsS68082.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 SWTRunnableProcessor-jcell-instanceR BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION SWTRnnblPrcssr-sttc-nstncR TO J-RESULT
+    MOVE J-VALUE TO SWTRunnableProcessor-jcell-instanceR
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION SWTRnnblPrcssrsttcnsS68082.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, SwtDisplay, SWTProcessor;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SWTRunnableProcessor-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("SWTRunnableProcessor")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION SWTRunnableProcessor-new0.
 
-type
-  {AB:TYPES}
-  TSWTRunnableProcessor = class(TSWTProcessor)
-  public
-    class var instanceR: TSWTRunnableProcessor;
-    constructor Create;
-        class function getInstance: TSWTRunnableProcessor; static;
-        procedure process(display: TSwtDisplay); override;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SWTRnnblPrcssr-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION SWTRnnblPrcssr-sttc-nstncR
+        GOBACK
+    GOBACK.
+END FUNCTION SWTRnnblPrcssr-getInstance0.
 
-implementation
-
-{AB:CODE}
-
-constructor TSWTRunnableProcessor.Create;
-begin
-  inherited Create;
-end;
-    
-
-class function TSWTRunnableProcessor.getInstance: TSWTRunnableProcessor;
-begin
-        Exit(TSWTRunnableProcessor.instanceR);
-end;
-    
-
-procedure TSWTRunnableProcessor.process(display: TSwtDisplay);
-begin
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TSWTRunnableProcessor.instanceR := TSWTRunnableProcessor.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SWTRunnableProcessor-process1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-display BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-display RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION SWTRunnableProcessor-process1.
 

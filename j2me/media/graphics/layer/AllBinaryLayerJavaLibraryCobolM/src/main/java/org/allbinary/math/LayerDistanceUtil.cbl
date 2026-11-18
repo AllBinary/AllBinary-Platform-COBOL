@@ -1,104 +1,244 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.math
+*> Java class LayerDistanceUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.math
-unit LayerDistanceUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LyrDstncUtl-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 LayerDistanceUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 LayerDistanceUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF LayerDistanceUtil-jset-instance = 0
+        MOVE 1 TO LayerDistanceUtil-jset-instance
+        COMPUTE LayerDistanceUtil-jcell-instance = FUNCTION LayerDistanceUtil-new0
+    END-IF
+    MOVE LayerDistanceUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION LyrDstncUtl-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LyrDstncUtlstaticinsS72472.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 LayerDistanceUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION LyrDstncUtl-static-instance TO J-RESULT
+    MOVE J-VALUE TO LayerDistanceUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION LyrDstncUtlstaticinsS72472.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LayerDistanceUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("LayerDistanceUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_mathUtil")
+    COMPUTE JVALUE = FUNCTION MathUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_mathUtil", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION LayerDistanceUtil-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GPoint, AllBinaryLayer, MathUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LayerDistanceUtil-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION LyrDstncUtl-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION LayerDistanceUtil-getInstance0.
 
-type
-  {AB:TYPES}
-  TLayerDistanceUtil = class(TObject)
-  public
-    mathUtil: TMathUtil;
-    class var instance: TLayerDistanceUtil;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TLayerDistanceUtil; static;
-        function getDistance(layerInterface: TAllBinaryLayer; layerInterface2: TAllBinaryLayer): Integer; virtual;
-        function getDistance3D(layerInterface: TAllBinaryLayer; layerInterface2: TAllBinaryLayer): Integer; virtual;
-        function getDistanceAt(layerInterface: TAllBinaryLayer; point: TGPoint): Integer; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LayerDistanceUtil-getDistance2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-dx BINARY-DOUBLE.
+01 J-dy BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-layerInterface2 BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerInterface J-layerInterface2 RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-dx = (FUNCTION MOD((((FUNCTION MOD((FUNCTION AllBinaryLayer-getXP0(J-layerInterface) + FUNCTION AllBinaryLayer-getHalfWidth0(J-layerInterface)) + 2147483648, 4294967296) - 2147483648)) - ((FUNCTION MOD((FUNCTION
+        AllBinaryLayer-getXP0(J-layerInterface2) + FUNCTION AllBinaryLayer-getHalfWidth0(J-layerInterface2)) + 2147483648, 4294967296) - 2147483648))) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE J-dy = (FUNCTION MOD((((FUNCTION MOD((FUNCTION AllBinaryLayer-getYP0(J-layerInterface) + FUNCTION AllBinaryLayer-getHalfHeight0(J-layerInterface)) + 2147483648, 4294967296) - 2147483648)) - ((FUNCTION MOD((FUNCTION
+        AllBinaryLayer-getYP0(J-layerInterface2) + FUNCTION AllBinaryLayer-getHalfHeight0(J-layerInterface2)) + 2147483648, 4294967296) - 2147483648))) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp2 = ((FUNCTION MOD((J-dx * J-dx) + 2147483648, 4294967296) - 2147483648))
+        COMPUTE jtemp3 = ((FUNCTION MOD((J-dy * J-dy) + 2147483648, 4294967296) - 2147483648))
+        COMPUTE jtemp1 = (FUNCTION MOD((jtemp2 + jtemp3) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE J-RESULT = FUNCTION MathUtil-sqrt1(FUNCTION JR-GET(J-THIS, "f_mathUtil"), jtemp1)
+        GOBACK
+    GOBACK.
+END FUNCTION LayerDistanceUtil-getDistance2.
 
-implementation
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LyrDstncUtl-getDistance3D2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-dx BINARY-DOUBLE.
+01 J-dy BINARY-DOUBLE.
+01 J-dz BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-layerInterface2 BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerInterface J-layerInterface2 RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-dx = (FUNCTION MOD((((FUNCTION MOD((FUNCTION AllBinaryLayer-getXP0(J-layerInterface) + FUNCTION AllBinaryLayer-getHalfWidth0(J-layerInterface)) + 2147483648, 4294967296) - 2147483648)) - ((FUNCTION MOD((FUNCTION
+        AllBinaryLayer-getXP0(J-layerInterface2) + FUNCTION AllBinaryLayer-getHalfWidth0(J-layerInterface2)) + 2147483648, 4294967296) - 2147483648))) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE J-dy = (FUNCTION MOD((((FUNCTION MOD((FUNCTION AllBinaryLayer-getYP0(J-layerInterface) + FUNCTION AllBinaryLayer-getHalfHeight0(J-layerInterface)) + 2147483648, 4294967296) - 2147483648)) - ((FUNCTION MOD((FUNCTION
+        AllBinaryLayer-getYP0(J-layerInterface2) + FUNCTION AllBinaryLayer-getHalfHeight0(J-layerInterface2)) + 2147483648, 4294967296) - 2147483648))) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE J-dz = (FUNCTION MOD((((FUNCTION MOD((FUNCTION AllBinaryLayer-getZP0(J-layerInterface) + FUNCTION AllBinaryLayer-getHalfDepth0(J-layerInterface)) + 2147483648, 4294967296) - 2147483648)) - ((FUNCTION MOD((FUNCTION
+        AllBinaryLayer-getZP0(J-layerInterface2) + FUNCTION AllBinaryLayer-getHalfDepth0(J-layerInterface2)) + 2147483648, 4294967296) - 2147483648))) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp6 = ((FUNCTION MOD((J-dx * J-dx) + 2147483648, 4294967296) - 2147483648))
+        COMPUTE jtemp7 = ((FUNCTION MOD((J-dy * J-dy) + 2147483648, 4294967296) - 2147483648))
+        COMPUTE jtemp5 = (FUNCTION MOD((jtemp6 + jtemp7) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp8 = ((FUNCTION MOD((J-dz * J-dz) + 2147483648, 4294967296) - 2147483648))
+        COMPUTE jtemp4 = (FUNCTION MOD((jtemp5 + jtemp8) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE J-RESULT = FUNCTION MathUtil-sqrt1(FUNCTION JR-GET(J-THIS, "f_mathUtil"), jtemp4)
+        GOBACK
+    GOBACK.
+END FUNCTION LyrDstncUtl-getDistance3D2.
 
-{AB:CODE}
-
-procedure TLayerDistanceUtil.InitFields;
-begin
-  Self.mathUtil := TMathUtil.getInstance();
-end;
-
-constructor TLayerDistanceUtil.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TLayerDistanceUtil.getInstance: TLayerDistanceUtil;
-begin
-        Exit(TLayerDistanceUtil.instance);
-end;
-    
-
-function TLayerDistanceUtil.getDistance(layerInterface: TAllBinaryLayer; layerInterface2: TAllBinaryLayer): Integer;
-var
-  dx: Integer;
-  dy: Integer;
-begin
-        dx := (((layerInterface.getXP()) + (layerInterface.getHalfWidth()))) - (((layerInterface2.getXP()) + (layerInterface2.getHalfWidth())));
-        dy := (((layerInterface.getYP()) + (layerInterface.getHalfHeight()))) - (((layerInterface2.getYP()) + (layerInterface2.getHalfHeight())));
-        Exit(Integer(Trunc(Self.mathUtil.sqrt((((dx) * (dx))) + (((dy) * (dy)))))));
-end;
-    
-
-function TLayerDistanceUtil.getDistance3D(layerInterface: TAllBinaryLayer; layerInterface2: TAllBinaryLayer): Integer;
-var
-  dx: Integer;
-  dy: Integer;
-  dz: Integer;
-begin
-        dx := (((layerInterface.getXP()) + (layerInterface.getHalfWidth()))) - (((layerInterface2.getXP()) + (layerInterface2.getHalfWidth())));
-        dy := (((layerInterface.getYP()) + (layerInterface.getHalfHeight()))) - (((layerInterface2.getYP()) + (layerInterface2.getHalfHeight())));
-        dz := (((layerInterface.getZP()) + (layerInterface.getHalfDepth()))) - (((layerInterface2.getZP()) + (layerInterface2.getHalfDepth())));
-        Exit(Integer(Trunc(Self.mathUtil.sqrt(((((dx) * (dx))) + (((dy) * (dy)))) + (((dz) * (dz)))))));
-end;
-    
-
-function TLayerDistanceUtil.getDistanceAt(layerInterface: TAllBinaryLayer; point: TGPoint): Integer;
-var
-  dx: Integer;
-  dy: Integer;
-begin
-        dx := (layerInterface.getXP()) - (point.getX());
-        dy := (layerInterface.getYP()) - (point.getY());
-        Exit(Integer(Trunc(Self.mathUtil.sqrt((((dx) * (dx))) + (((dy) * (dy)))))));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TLayerDistanceUtil.instance := TLayerDistanceUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LyrDstncUtl-getDistanceAt2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-dx BINARY-DOUBLE.
+01 J-dy BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-point BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerInterface J-point RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-dx = (FUNCTION MOD((FUNCTION AllBinaryLayer-getXP0(J-layerInterface) - FUNCTION GPoint-getX0(J-point)) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE J-dy = (FUNCTION MOD((FUNCTION AllBinaryLayer-getYP0(J-layerInterface) - FUNCTION GPoint-getY0(J-point)) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp10 = ((FUNCTION MOD((J-dx * J-dx) + 2147483648, 4294967296) - 2147483648))
+        COMPUTE jtemp11 = ((FUNCTION MOD((J-dy * J-dy) + 2147483648, 4294967296) - 2147483648))
+        COMPUTE jtemp9 = (FUNCTION MOD((jtemp10 + jtemp11) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE J-RESULT = FUNCTION MathUtil-sqrt1(FUNCTION JR-GET(J-THIS, "f_mathUtil"), jtemp9)
+        GOBACK
+    GOBACK.
+END FUNCTION LyrDstncUtl-getDistanceAt2.
 

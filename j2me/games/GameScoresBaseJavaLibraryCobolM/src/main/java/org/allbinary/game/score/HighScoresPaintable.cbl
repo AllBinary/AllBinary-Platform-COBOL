@@ -1,174 +1,307 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.score
+*> Java class HighScoresPaintable
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.score
-unit HighScoresPaintable;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, BasicColor, ColorChangeListener, DisplayInfoSingleton, MyFontProcessor, UpdateMyFontInterface, Paintable, AllBinaryEventObject, HighScores, EventListenerInterface;
-
-type
-  {AB:TYPES}
-  THighScoresPaintable = class(TPaintable, IColorChangeListener, IUpdateMyFontInterface, IEventListenerInterface)
-  public
-    displayInfoSingleton: TDisplayInfoSingleton;
-    myFontProcessor: TMyFontProcessor;
-    basicColor: TBasicColor;
-    highScores: THighScores;
-    anchor: Integer;
-    charHeight: Integer;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create;
-        procedure updateMeasurement(graphics_: TGraphics); virtual;
-        procedure onEvent(eventObject: TAllBinaryEventObject); virtual;
-        procedure paint(graphics_: TGraphics); virtual;
-        procedure setBasicColorP(basicColor_: TBasicColor); virtual;
-        function getBasicColorP: TBasicColor; virtual;
-        procedure setHighScores(highScores_: THighScores); virtual;
-  end;
-
-implementation
-uses
-  NullHighScoresSingletonFactory, HighScore, Font, Anchor, BasicColorFactory, ColorChangeEvent, UpdateMyFontProcessor, BasicArrayList;
-
-
-{AB:CODE}
-
-procedure THighScoresPaintable.InitFields;
-begin
-  Self.displayInfoSingleton := TDisplayInfoSingleton.getInstance();
-  Self.myFontProcessor := TUpdateMyFontProcessor.Create(Self);
-  Self.basicColor := TBasicColorFactory.getInstance().WHITE;
-  Self.highScores := TNullHighScoresSingletonFactory.getInstance();
-  Self.anchor := TAnchor.TOP_LEFT;
-  
-end;
-
-function THighScoresPaintable.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HighScoresPaintable-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("HighScoresPaintable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_displayInfoSingleton")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_myFontProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_basicColor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_highScores")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_anchor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_charHeight")
+    COMPUTE JVALUE = FUNCTION DsplyInfSngltn-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_displayInfoSingleton", JVALUE)
+    COMPUTE JVALUE = FUNCTION UpdateMyFontProcessor-new1(J-THIS)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
+    COMPUTE jtemp1 = FUNCTION BasicColorFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_WHITE")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicColor", JVALUE)
+    COMPUTE JVALUE = FUNCTION NllHghScrsSngltnFctry-gtI23303
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_highScores", JVALUE)
+    COMPUTE JVALUE = FUNCTION Anchor-static-TOP-LEFT
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_anchor", JVALUE)
     
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION HighScoresPaintable-new0.
 
-constructor THighScoresPaintable.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrsPntbl-updtMsrmnt1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-font BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-font = FUNCTION Graphics-getFont0(J-graphics)
+        COMPUTE JVALUE = FUNCTION Font-getHeight0(J-font)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_charHeight", JVALUE)
+        COMPUTE JVALUE = FUNCTION MyFontProcessor-getInstance0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
+    GOBACK.
+END FUNCTION HghScrsPntbl-updtMsrmnt1.
 
-procedure THighScoresPaintable.updateMeasurement(graphics_: TGraphics);
-var
-  font_: TFont;
-begin
-        font_ := graphics_.getFont();
-        Self.charHeight := font_.getHeight();
-        Self.myFontProcessor := TMyFontProcessor.getInstance();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HighScoresPaintable-onEvent1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-colorChangeEvent BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-colorChangeEvent = J-eventObject
+        COMPUTE JVALUE = FUNCTION ClrChngEvnt-getBasicColorP0(J-colorChangeEvent)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicColor", JVALUE)
+    GOBACK.
+END FUNCTION HighScoresPaintable-onEvent1.
 
-procedure THighScoresPaintable.onEvent(eventObject: TAllBinaryEventObject);
-var
-  colorChangeEvent_: TColorChangeEvent;
-begin
-        colorChangeEvent_ := TColorChangeEvent(TJava.ToObject(eventObject));
-        Self.basicColor := colorChangeEvent_.getBasicColorP();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HighScoresPaintable-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-heading BINARY-DOUBLE.
+01 J-topScoresWidth BINARY-DOUBLE.
+01 J-charHeight BINARY-DOUBLE.
+01 J-columnTwoHeading BINARY-DOUBLE.
+01 J-columnTwoHeadingWidth BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-largestSecondColumnWidth BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-vectorIndex BINARY-DOUBLE.
+01 J-highScore BINARY-DOUBLE.
+01 J-nextScoreWidth BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION MyFontProcessor-process1(FUNCTION JR-GET(J-THIS, "f_myFontProcessor"), J-graphics)
+        COMPUTE J-width = FUNCTION DsplyInfSngltn-getLastWidth0(FUNCTION JR-GET(J-THIS, "f_displayInfoSingleton"))
+        COMPUTE J-height = FUNCTION DsplyInfSngltn-getLastHeight0(FUNCTION JR-GET(J-THIS, "f_displayInfoSingleton"))
+        COMPUTE jtemp2 = FUNCTION HghScrsPntbl-getBasicColorP0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION Graphics-setColor1(J-graphics, FUNCTION BasicColor-intValue0(jtemp2))
+        COMPUTE J-heading = FUNCTION HighScores-getHeading0(FUNCTION JR-GET(J-THIS, "f_highScores"))
+        COMPUTE jtemp3 = FUNCTION Graphics-getFont0(J-graphics)
+        COMPUTE J-topScoresWidth = (FUNCTION JR-SHIFT(JFIVE, FUNCTION JR-CLASS-NAME(jtemp3), 1))
+        COMPUTE J-charHeight = FUNCTION JR-GET(J-THIS, "f_charHeight")
+        COMPUTE jtemp4 = (FUNCTION MOD(((FUNCTION JR-SHIFT(JFIVE, J-width, 1)) - J-topScoresWidth) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION Graphics-drawString4(J-graphics, J-heading, jtemp4, J-charHeight, FUNCTION JR-GET(J-THIS, "f_anchor"))
+        COMPUTE jtemp5 = 10
+        COMPUTE jtemp6 = (FUNCTION MOD((J-charHeight * 3) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION Graphics-drawString4(J-graphics, FUNCTION HghScrs-getColumnOneHeading0(FUNCTION JR-GET(J-THIS, "f_highScores")), jtemp5, jtemp6, FUNCTION JR-GET(J-THIS, "f_anchor"))
+        COMPUTE J-columnTwoHeading = FUNCTION HghScrs-getColumnTwoHeading0(FUNCTION JR-GET(J-THIS, "f_highScores"))
+        COMPUTE jtemp7 = FUNCTION Graphics-getFont0(J-graphics)
+        COMPUTE J-columnTwoHeadingWidth = FUNCTION JR-CLASS-NAME(jtemp7)
+        COMPUTE jtemp8 = (FUNCTION MOD(((FUNCTION MOD((J-width - 10) + 2147483648, 4294967296) - 2147483648) - J-columnTwoHeadingWidth) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp9 = (FUNCTION MOD((J-charHeight * 3) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION Graphics-drawString4(J-graphics, J-columnTwoHeading, jtemp8, jtemp9, FUNCTION JR-GET(J-THIS, "f_anchor"))
+        COMPUTE J-index = 4
+        COMPUTE J-largestSecondColumnWidth = J-columnTwoHeadingWidth
+        COMPUTE J-list = FUNCTION HighScores-getList0(FUNCTION JR-GET(J-THIS, "f_highScores"))
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(J-list)
+        COMPUTE J-vectorIndex = 0
+        CONTINUE
+        PERFORM FOREVER
+            IF NOT ((J-vectorIndex < J-size) AND ((FUNCTION MOD((J-charHeight * J-index) + 2147483648, 4294967296) - 2147483648) < (FUNCTION MOD((J-height - ((FUNCTION MOD((J-charHeight * 2) + 2147483648, 4294967296) - 2147483648))) +
+        2147483648, 4294967296) - 2147483648))) EXIT PERFORM END-IF
+            COMPUTE J-highScore = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-vectorIndex)
+            COMPUTE jtemp10 = FUNCTION Graphics-getFont0(J-graphics)
+            COMPUTE J-nextScoreWidth = FUNCTION JR-CLASS-NAME(jtemp10)
+            IF (J-nextScoreWidth > J-largestSecondColumnWidth)
+                COMPUTE J-largestSecondColumnWidth = J-nextScoreWidth
+            END-IF
+            COMPUTE J-vectorIndex = (FUNCTION MOD(J-vectorIndex + 1 + 2147483648, 4294967296) - 2147483648)
+        END-PERFORM
+        COMPUTE J-vectorIndex = 0
+        PERFORM FOREVER
+            IF NOT ((J-vectorIndex < J-size) AND ((FUNCTION MOD((J-charHeight * J-index) + 2147483648, 4294967296) - 2147483648) < (FUNCTION MOD((J-height - ((FUNCTION MOD((J-charHeight * 2) + 2147483648, 4294967296) - 2147483648))) +
+        2147483648, 4294967296) - 2147483648))) EXIT PERFORM END-IF
+            COMPUTE J-highScore = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-vectorIndex)
+            COMPUTE jtemp11 = 10
+            COMPUTE jtemp12 = (FUNCTION MOD((J-charHeight * J-index) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JDISCARD = FUNCTION Graphics-drawString4(J-graphics, FUNCTION HighScore-getName0(J-highScore), jtemp11, jtemp12, FUNCTION JR-GET(J-THIS, "f_anchor"))
+            COMPUTE jtemp13 = (FUNCTION MOD(((FUNCTION MOD((J-width - 10) + 2147483648, 4294967296) - 2147483648) - J-largestSecondColumnWidth) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE jtemp14 = (FUNCTION MOD((J-charHeight * J-index) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JDISCARD = FUNCTION Graphics-drawString4(J-graphics, FUNCTION HighScore-getScoreString0(J-highScore), jtemp13, jtemp14, FUNCTION JR-GET(J-THIS, "f_anchor"))
+            COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            COMPUTE J-vectorIndex = (FUNCTION MOD(J-vectorIndex + 1 + 2147483648, 4294967296) - 2147483648)
+        END-PERFORM
+    GOBACK.
+END FUNCTION HighScoresPaintable-paint1.
 
-procedure THighScoresPaintable.paint(graphics_: TGraphics);
-var
-  width: Integer;
-  height: Integer;
-  heading: string;
-  topScoresWidth: Integer;
-  charHeight: Integer;
-  columnTwoHeading: string;
-  columnTwoHeadingWidth: Integer;
-  index: Integer;
-  largestSecondColumnWidth: Integer;
-  list: TBasicArrayList;
-  size: Integer;
-  vectorIndex: Integer;
-  highScore_: THighScore;
-  nextScoreWidth: Integer;
-begin
-        Self.myFontProcessor.process(graphics_);
-        width := Self.displayInfoSingleton.getLastWidth();
-        height := Self.displayInfoSingleton.getLastHeight();
-        graphics_.setColor(Self.getBasicColorP().intValue());
-        heading := Self.highScores.getHeading();
-        topScoresWidth := (TJava.SignedRightShift(graphics_.getFont().stringWidth(heading), 1));
-        charHeight := Self.charHeight;
-        graphics_.drawString(heading, ((TJava.SignedRightShift(width, 1))) - (topScoresWidth), charHeight, Self.anchor);
-        graphics_.drawString(Self.highScores.getColumnOneHeading(), 10, (charHeight) * (3), Self.anchor);
-        columnTwoHeading := Self.highScores.getColumnTwoHeading();
-        columnTwoHeadingWidth := graphics_.getFont().stringWidth(columnTwoHeading);
-        graphics_.drawString(columnTwoHeading, ((width) - (10)) - (columnTwoHeadingWidth), (charHeight) * (3), Self.anchor);
-        index := 4;
-        largestSecondColumnWidth := columnTwoHeadingWidth;
-        list := Self.highScores.getList();
-        size := list.size();
-        vectorIndex := 0;
-        
-        while ((vectorIndex) < (size)) and (((charHeight) * (index)) < ((height) - (((charHeight) * (2))))) do begin
-            highScore_ := THighScore(TJava.ToObject(list.objectArray[vectorIndex]));
-            nextScoreWidth := graphics_.getFont().stringWidth(highScore_.getScoreString());
-            if (nextScoreWidth) > (largestSecondColumnWidth) then begin
-                largestSecondColumnWidth := nextScoreWidth;
-            end;
-            Inc(vectorIndex);
-        end;
-        vectorIndex := 0;
-        while ((vectorIndex) < (size)) and (((charHeight) * (index)) < ((height) - (((charHeight) * (2))))) do begin
-            highScore_ := THighScore(TJava.ToObject(list.objectArray[vectorIndex]));
-            graphics_.drawString(highScore_.getName(), 10, (charHeight) * (index), Self.anchor);
-            graphics_.drawString(highScore_.getScoreString(), ((width) - (10)) - (largestSecondColumnWidth), (charHeight) * (index), Self.anchor);
-            Inc(index);
-            Inc(vectorIndex);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrsPntbl-setBasicColorP1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-basicColor RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-basicColor
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicColor", JVALUE)
+    GOBACK.
+END FUNCTION HghScrsPntbl-setBasicColorP1.
 
-procedure THighScoresPaintable.setBasicColorP(basicColor_: TBasicColor);
-begin
-        Self.basicColor := basicColor_;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrsPntbl-getBasicColorP0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_basicColor")
+        GOBACK
+    GOBACK.
+END FUNCTION HghScrsPntbl-getBasicColorP0.
 
-function THighScoresPaintable.getBasicColorP: TBasicColor;
-begin
-        Exit(Self.basicColor);
-end;
-    
-
-procedure THighScoresPaintable.setHighScores(highScores_: THighScores);
-begin
-        Self.highScores := highScores_;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrsPntbl-setHighScores1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-highScores BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-highScores RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-highScores
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_highScores", JVALUE)
+    GOBACK.
+END FUNCTION HghScrsPntbl-setHighScores1.
 

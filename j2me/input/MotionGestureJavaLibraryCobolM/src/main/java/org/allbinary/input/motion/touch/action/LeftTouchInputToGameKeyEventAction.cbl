@@ -1,65 +1,124 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion.touch.action
+*> Java class LeftTouchInputToGameKeyEventAction
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion.touch.action
-unit LeftTouchInputToGameKeyEventAction;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LftTchInptTGmKyEvntActn-70836.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 LeftTouchInputToGameKeyEventAction-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 LeftTouchInputToGameKeyEventAction-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF LeftTouchInputToGameKeyEventAction-jset-instance = 0
+        MOVE 1 TO LeftTouchInputToGameKeyEventAction-jset-instance
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE LeftTouchInputToGameKeyEventAction-jcell-instance = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+    END-IF
+    MOVE LeftTouchInputToGameKeyEventAction-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION LftTchInptTGmKyEvntActn-70836.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LftTchInptTGmKyEvntAS10283.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 LeftTouchInputToGameKeyEventAction-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION LftTchInptTGmKyEvntActn-70836 TO J-RESULT
+    MOVE J-VALUE TO LeftTouchInputToGameKeyEventAction-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION LftTchInptTGmKyEvntAS10283.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LftTchInptTGmKyEvntActn-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("LeftTouchInputToGameKeyEventAction")
+        COMPUTE jtemp5 = FUNCTION PltfrmInptMppngFctry-gtInstnc0
+        COMPUTE jtemp3 = FUNCTION TchMtnGstrFctry-getInstance0
+        COMPUTE jtemp4 = FUNCTION PltfrmInptMppngFctry-gtPr75051(jtemp5)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION LftTchInptTGmKyEvntActn-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameKeyCompleteMotionGestureInputEvent;
-
-type
-  {AB:TYPES}
-  TLeftTouchInputToGameKeyEventAction = class(TGameKeyCompleteMotionGestureInputEvent)
-  public
-    class var instance: TObject;
-        class function getInstance: TGameKeyCompleteMotionGestureInputEvent; static;
-        constructor Create;
-  end;
-
-implementation
-uses
-  PlatformInputMappingFactory, TouchMotionGestureFactory, NullUtil;
-
-
-{AB:CODE}
-    
-
-class function TLeftTouchInputToGameKeyEventAction.getInstance: TGameKeyCompleteMotionGestureInputEvent;
-begin
-        if (TLeftTouchInputToGameKeyEventAction.instance) = (TNullUtil.getInstance().NULL_OBJECT) then begin
-            TLeftTouchInputToGameKeyEventAction.instance := TLeftTouchInputToGameKeyEventAction.Create();
-        end;
-        Exit(TGameKeyCompleteMotionGestureInputEvent(TJava.ToObject(TLeftTouchInputToGameKeyEventAction.instance)));
-end;
-    
-
-constructor TLeftTouchInputToGameKeyEventAction.Create;
-begin
-        inherited Create('Left Action', TTouchMotionGestureFactory.getInstance().LEFT, TPlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TLeftTouchInputToGameKeyEventAction.instance := TJava.Box(TNullUtil.getInstance().NULL_OBJECT);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LftTchInptTGmKyEvntActn-g37353.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+        IF (FUNCTION LftTchInptTGmKyEvntActn-70836 = FUNCTION JR-GET(jtemp2, "f_NULL_OBJECT"))
+            COMPUTE JDISCARD = FUNCTION LftTchInptTGmKyEvntAS10283(FUNCTION LftTchInptTGmKyEvntActn-new0)
+        END-IF
+        COMPUTE J-RESULT = FUNCTION LftTchInptTGmKyEvntActn-70836
+        GOBACK
+    GOBACK.
+END FUNCTION LftTchInptTGmKyEvntActn-g37353.
 

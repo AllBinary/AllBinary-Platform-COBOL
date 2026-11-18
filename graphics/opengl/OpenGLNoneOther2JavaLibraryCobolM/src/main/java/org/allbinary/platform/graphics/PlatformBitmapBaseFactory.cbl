@@ -1,58 +1,112 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2022 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.platform.graphics
-unit PlatformBitmapBaseFactory;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.platform.graphics
+*> Java class PlatformBitmapBaseFactory
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PltfrmBtmpBsFctry-st14323.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PlatformBitmapBaseFactory-jcell-NULL_PLATFORM_BITMAP_BASE_FACTORY BINARY-DOUBLE EXTERNAL.
+01 PlatformBitmapBaseFactory-jset-NULL_PLATFORM_BITMAP_BASE_FACTORY BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF PlatformBitmapBaseFactory-jset-NULL_PLATFORM_BITMAP_BASE_FACTORY = 0
+        MOVE 1 TO PlatformBitmapBaseFactory-jset-NULL_PLATFORM_BITMAP_BASE_FACTORY
+        COMPUTE PlatformBitmapBaseFactory-jcell-NULL_PLATFORM_BITMAP_BASE_FACTORY = FUNCTION PlatformBitmapBaseFactory-new0
+    END-IF
+    MOVE PlatformBitmapBaseFactory-jcell-NULL_PLATFORM_BITMAP_BASE_FACTORY TO J-RESULT
+    GOBACK.
+END FUNCTION PltfrmBtmpBsFctry-st14323.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PltfrmBtmpBsFctryst1S23024.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PlatformBitmapBaseFactory-jcell-NULL_PLATFORM_BITMAP_BASE_FACTORY BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION PltfrmBtmpBsFctry-st14323 TO J-RESULT
+    MOVE J-VALUE TO PlatformBitmapBaseFactory-jcell-NULL_PLATFORM_BITMAP_BASE_FACTORY
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION PltfrmBtmpBsFctryst1S23024.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Image, PlatformBitmapBase;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlatformBitmapBaseFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("PlatformBitmapBaseFactory")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION PlatformBitmapBaseFactory-new0.
 
-type
-  {AB:TYPES}
-  TPlatformBitmapBaseFactory = class(TObject)
-  public
-    class var NULL_PLATFORM_BITMAP_BASE_FACTORY: TPlatformBitmapBaseFactory;
-    constructor Create;
-        function createBitmap(image_: TImage): TPlatformBitmapBase; virtual;
-  end;
-
-implementation
-
-{AB:CODE}
-
-constructor TPlatformBitmapBaseFactory.Create;
-begin
-  inherited Create;
-end;
-    
-
-function TPlatformBitmapBaseFactory.createBitmap(image_: TImage): TPlatformBitmapBase;
-begin
-        Exit(TPlatformBitmapBase.NULL_PLATFORM_BITMAP_BASE);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TPlatformBitmapBaseFactory.NULL_PLATFORM_BITMAP_BASE_FACTORY := TPlatformBitmapBaseFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PltfrmBtmpBsFctry-crtBtmp1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-image BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-image RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION PltfrmBtmpBs-sttc-NUL69876
+        GOBACK
+    GOBACK.
+END FUNCTION PltfrmBtmpBsFctry-crtBtmp1.
 

@@ -1,92 +1,186 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.resource
+*> Java class ResourceLoadingLevelFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.resource
-unit ResourceLoadingLevelFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RsrcLdngLvlFctry-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ResourceLoadingLevelFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 ResourceLoadingLevelFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF ResourceLoadingLevelFactory-jset-instance = 0
+        MOVE 1 TO ResourceLoadingLevelFactory-jset-instance
+        COMPUTE ResourceLoadingLevelFactory-jcell-instance = FUNCTION RsrcLdngLvlFctry-new0
+    END-IF
+    MOVE ResourceLoadingLevelFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION RsrcLdngLvlFctry-sttc-nstnc.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RsrcLdngLvlFctrysttcS61625.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ResourceLoadingLevelFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION RsrcLdngLvlFctry-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO ResourceLoadingLevelFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION RsrcLdngLvlFctrysttcS61625.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RsrcLdngLvlFctry-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ResourceLoadingLevelFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_LOAD_EARLY")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_LOAD_TOUCH")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_LOAD_GAME")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_LEVEL")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_MAX_LEVEL")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_LOAD_ALL")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_RESOURCE_LOADING_LEVEL_ARRAY")
+    COMPUTE JVALUE = FUNCTION ResourceLoadingLevel-new2(FUNCTION JR-STR("Load Early"), FUNCTION Integer-static-MAX-VALUE)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_LOAD_EARLY", JVALUE)
+    COMPUTE jtemp1 = (FUNCTION MOD((FUNCTION Integer-static-MAX-VALUE - 1) + 2147483648, 4294967296) - 2147483648)
+    COMPUTE JVALUE = FUNCTION ResourceLoadingLevel-new2(FUNCTION JR-STR("Load Touch"), jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_LOAD_TOUCH", JVALUE)
+    COMPUTE jtemp2 = (FUNCTION MOD((FUNCTION Integer-static-MAX-VALUE - 2) + 2147483648, 4294967296) - 2147483648)
+    COMPUTE JVALUE = FUNCTION ResourceLoadingLevel-new2(FUNCTION JR-STR("Load Game"), jtemp2)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_LOAD_GAME", JVALUE)
+    COMPUTE jtemp3 = (FUNCTION MOD((FUNCTION Integer-static-MAX-VALUE - 99) + 2147483648, 4294967296) - 2147483648)
+    COMPUTE JVALUE = FUNCTION ResourceLoadingLevel-new2(FUNCTION JR-STR("Level"), jtemp3)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_LEVEL", JVALUE)
+    COMPUTE jtemp4 = (FUNCTION MOD((FUNCTION Integer-static-MAX-VALUE - 100) + 2147483648, 4294967296) - 2147483648)
+    COMPUTE JVALUE = FUNCTION ResourceLoadingLevel-new2(FUNCTION JR-STR("Max Level"), jtemp4)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_MAX_LEVEL", JVALUE)
+    COMPUTE jtemp5 = (0 - 1)
+    COMPUTE JVALUE = FUNCTION ResourceLoadingLevel-new2(FUNCTION JR-STR("Load All"), jtemp5)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_LOAD_ALL", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-NEW-ARRAY(JZERO), FUNCTION JR-GET(J-THIS, "f_LOAD_ALL")), FUNCTION
+        JR-GET(J-THIS, "f_MAX_LEVEL")), FUNCTION JR-GET(J-THIS, "f_LEVEL")), FUNCTION JR-GET(J-THIS, "f_LOAD_GAME")), FUNCTION JR-GET(J-THIS, "f_LOAD_TOUCH")), FUNCTION JR-GET(J-THIS, "f_LOAD_EARLY"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_RESOURCE_LOADING_LEVEL_ARRAY", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION RsrcLdngLvlFctry-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, ResourceLoadingLevel;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RsrcLdngLvlFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION RsrcLdngLvlFctry-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION RsrcLdngLvlFctry-getInstance0.
 
-type
-  {AB:TYPES}
-  TResourceLoadingLevelFactory = class(TObject)
-  public
-    LOAD_EARLY: TResourceLoadingLevel;
-    LOAD_TOUCH: TResourceLoadingLevel;
-    LOAD_GAME: TResourceLoadingLevel;
-    LEVEL: TResourceLoadingLevel;
-    MAX_LEVEL: TResourceLoadingLevel;
-    LOAD_ALL: TResourceLoadingLevel;
-    RESOURCE_LOADING_LEVEL_ARRAY: TArray<TResourceLoadingLevel>;
-    class var instance: TResourceLoadingLevelFactory;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TResourceLoadingLevelFactory; static;
-        function getLevelString(level: Integer): string; virtual;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TResourceLoadingLevelFactory.InitFields;
-begin
-  Self.LOAD_EARLY := TResourceLoadingLevel.Create('Load Early', High(Integer));
-  Self.LOAD_TOUCH := TResourceLoadingLevel.Create('Load Touch', (High(Integer)) - (1));
-  Self.LOAD_GAME := TResourceLoadingLevel.Create('Load Game', (High(Integer)) - (2));
-  Self.LEVEL := TResourceLoadingLevel.Create('Level', (High(Integer)) - (99));
-  Self.MAX_LEVEL := TResourceLoadingLevel.Create('Max Level', (High(Integer)) - (100));
-  Self.LOAD_ALL := TResourceLoadingLevel.Create('Load All', -1);
-  Self.RESOURCE_LOADING_LEVEL_ARRAY := TArray<TResourceLoadingLevel>.Create(Self.LOAD_ALL, Self.MAX_LEVEL, Self.LEVEL, Self.LOAD_GAME, Self.LOAD_TOUCH, Self.LOAD_EARLY);
-end;
-
-constructor TResourceLoadingLevelFactory.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TResourceLoadingLevelFactory.getInstance: TResourceLoadingLevelFactory;
-begin
-        Exit(TResourceLoadingLevelFactory.instance);
-end;
-    
-
-function TResourceLoadingLevelFactory.getLevelString(level: Integer): string;
-var
-  index: Integer;
-begin
-        for index := 0 to System.Length(Self.RESOURCE_LOADING_LEVEL_ARRAY) - 1 do begin
-            if (level) = (Self.RESOURCE_LOADING_LEVEL_ARRAY[index].getLevel()) then begin
-                Exit(Self.RESOURCE_LOADING_LEVEL_ARRAY[index].getName());
-            end;
-        end;
-        Exit(IntToStr(level));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TResourceLoadingLevelFactory.instance := TResourceLoadingLevelFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RsrcLdngLvlFctry-gtLvlStrng1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-index BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-level BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-level RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_RESOURCE_LOADING_LEVEL_ARRAY"))) EXIT PERFORM END-IF
+            IF (J-level = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_RESOURCE_LOADING_LEVEL_ARRAY"), J-index)))
+                COMPUTE J-RESULT = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_RESOURCE_LOADING_LEVEL_ARRAY"), J-index))
+                GOBACK
+            END-IF
+        END-PERFORM
+        COMPUTE J-RESULT = FUNCTION JR-INT-STRING(J-level)
+        GOBACK
+    GOBACK.
+END FUNCTION RsrcLdngLvlFctry-gtLvlStrng1.
 

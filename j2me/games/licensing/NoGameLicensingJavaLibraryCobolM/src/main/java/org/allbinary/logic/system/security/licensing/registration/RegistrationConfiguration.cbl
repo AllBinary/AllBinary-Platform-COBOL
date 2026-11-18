@@ -1,107 +1,277 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.system.security.licensing.registration
+*> Java class RegistrationConfiguration
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.logic.system.security.licensing.registration
-unit RegistrationConfiguration;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RgstrtnCnfgrtn-sttc-SINGLETON.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 RegistrationConfiguration-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+01 RegistrationConfiguration-jset-SINGLETON BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF RegistrationConfiguration-jset-SINGLETON = 0
+        MOVE 1 TO RegistrationConfiguration-jset-SINGLETON
+        COMPUTE RegistrationConfiguration-jcell-SINGLETON = FUNCTION RegistrationConfiguration-new0
+    END-IF
+    MOVE RegistrationConfiguration-jcell-SINGLETON TO J-RESULT
+    GOBACK.
+END FUNCTION RgstrtnCnfgrtn-sttc-SINGLETON.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RgstrtnCnfgrtnsttcSIS53159.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 RegistrationConfiguration-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION RgstrtnCnfgrtn-sttc-SINGLETON TO J-RESULT
+    MOVE J-VALUE TO RegistrationConfiguration-jcell-SINGLETON
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION RgstrtnCnfgrtnsttcSIS53159.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RegistrationConfiguration-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("RegistrationConfiguration")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_registrationCode")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NAME")
+    COMPUTE JVALUE = FUNCTION JR-STR("No Registration Code")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_registrationCode", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("registrationid")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NAME", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION RegistrationConfiguration-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RgstrtnCnfgrtn-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION RgstrtnCnfgrtn-sttc-SINGLETON
+        GOBACK
+    GOBACK.
+END FUNCTION RgstrtnCnfgrtn-getInstance0.
 
-type
-  {AB:TYPES}
-  TRegistrationConfiguration = class(TObject)
-  public
-    registrationCode: string;
-    NAME: string;
-    class var SINGLETON: TRegistrationConfiguration;
-    procedure InitFields;
-        constructor Create;
-        class function getInstance: TRegistrationConfiguration; static;
-        procedure read;
-        procedure write; virtual;
-        function toString: string; virtual;
-        procedure setRegistrationCode(registrationCode: string); virtual;
-        function getRegistrationCode: string; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RgstrtnCnfgrtn-read0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION RgstrtnCnfgrtn-read0.
 
-implementation
-uses
-  StringMaker;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RgstrtnCnfgrtn-write0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION RgstrtnCnfgrtn-write0.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RgstrtnCnfgrtn-toString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp3 = FUNCTION StringMaker-new0
+        COMPUTE jtemp2 = FUNCTION StringMaker-append1(jtemp3, FUNCTION JR-STR("Registration Code: "))
+        COMPUTE jtemp1 = FUNCTION StringMaker-append1(jtemp2, FUNCTION RgstrtnCnfgrtn-gtRgstrtnCd0(J-THIS))
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(jtemp1)
+        GOBACK
+    GOBACK.
+END FUNCTION RgstrtnCnfgrtn-toString0.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RgstrtnCnfgrtn-stRgstrtnCd1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-registrationCode BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-registrationCode RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-registrationCode
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_registrationCode", JVALUE)
+    GOBACK.
+END FUNCTION RgstrtnCnfgrtn-stRgstrtnCd1.
 
-procedure TRegistrationConfiguration.InitFields;
-begin
-  Self.registrationCode := 'No Registration Code';
-  Self.NAME := 'registrationid';
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RgstrtnCnfgrtn-gtRgstrtnCd0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_registrationCode")
+        GOBACK
+    GOBACK.
+END FUNCTION RgstrtnCnfgrtn-gtRgstrtnCd0.
 
-constructor TRegistrationConfiguration.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
-
-class function TRegistrationConfiguration.getInstance: TRegistrationConfiguration;
-begin
-        Exit(TRegistrationConfiguration.SINGLETON);
-end;
-    
-
-// throws Exception
-procedure TRegistrationConfiguration.read;
-begin
-end;
-    
-
-// throws Exception
-procedure TRegistrationConfiguration.write;
-begin
-end;
-    
-
-function TRegistrationConfiguration.toString: string;
-begin
-        Exit(TStringMaker.Create().append('Registration Code: ').append(Self.getRegistrationCode()).toString());
-end;
-    
-
-procedure TRegistrationConfiguration.setRegistrationCode(registrationCode: string);
-begin
-        Self.registrationCode := registrationCode;
-end;
-    
-
-function TRegistrationConfiguration.getRegistrationCode: string;
-begin
-        Exit(Self.registrationCode);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TRegistrationConfiguration.SINGLETON := TRegistrationConfiguration.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+PROGRAM-ID. RegistrationConfigura-toString.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION RgstrtnCnfgrtn-toString0(J-THIS)
+    GOBACK.
+END PROGRAM RegistrationConfigura-toString.
 

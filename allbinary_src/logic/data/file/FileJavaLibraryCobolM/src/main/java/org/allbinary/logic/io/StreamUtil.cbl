@@ -1,131 +1,231 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.io
+*> Java class StreamUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.logic.io
-unit StreamUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StreamUtil-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 StreamUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 StreamUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF StreamUtil-jset-instance = 0
+        MOVE 1 TO StreamUtil-jset-instance
+        COMPUTE StreamUtil-jcell-instance = FUNCTION StreamUtil-new0
+    END-IF
+    MOVE StreamUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION StreamUtil-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StreamUtilstaticinstS11624.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 StreamUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION StreamUtil-static-instance TO J-RESULT
+    MOVE J-VALUE TO StreamUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION StreamUtilstaticinstS11624.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StreamUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("StreamUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION StreamUtil-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LogUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StreamUtil-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION StreamUtil-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION StreamUtil-getInstance0.
 
-type
-  {AB:TYPES}
-  TStreamUtil = class(TObject)
-  public
-    logUtil: TLogUtil;
-    class var instance: TStreamUtil;
-    procedure InitFields;
-        class function getInstance: TStreamUtil; static;
-        constructor Create;
-        function get(inputStream_: TInputStream; outputStream_: TOutputStream; buffer: TArray<ShortInt>): TOutputStream; virtual;
-        function getByteArray(inputStream_: TInputStream; outputStream2: TByteArrayOutputStream; byteArray: TArray<ShortInt>): TArray<ShortInt>; virtual;
-        function close(closeable_: ICloseable): Boolean; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StreamUtil-get3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-len BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-inputStream BINARY-DOUBLE.
+01 J-outputStream BINARY-DOUBLE.
+01 J-buffer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-inputStream J-outputStream J-buffer RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-len = 0
+        PERFORM FOREVER
+            IF NOT (1 = 1) EXIT PERFORM END-IF
+            COMPUTE jtemp1 = 0
+            COMPUTE J-len = FUNCTION InputStream-read3(J-inputStream, J-buffer, jtemp1, FUNCTION JR-ARRAY-LENGTH(J-buffer))
+            IF (J-len NOT = (0 - 1))
+                CONTINUE
+            ELSE
+                EXIT PERFORM
+            END-IF
+            COMPUTE jtemp2 = 0
+            COMPUTE JDISCARD = FUNCTION OutputStream-write3(J-outputStream, J-buffer, jtemp2, J-len)
+        END-PERFORM
+        COMPUTE J-RESULT = J-outputStream
+        GOBACK
+    GOBACK.
+END FUNCTION StreamUtil-get3.
 
-implementation
-uses
-  CommonStrings;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StreamUtil-getByteArray3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-outputStream BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-inputStream BINARY-DOUBLE.
+01 J-outputStream2 BINARY-DOUBLE.
+01 J-byteArray BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-inputStream J-outputStream2 J-byteArray RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-outputStream = J-outputStream2
+        CONTINUE
+            COMPUTE JDISCARD = FUNCTION StreamUtil-get3(J-THIS, J-inputStream, J-outputStream, J-byteArray)
+            COMPUTE J-RESULT = FUNCTION BytArryOtptStrm-toByteArray0(J-outputStream)
+            GOBACK
+            COMPUTE JDISCARD = FUNCTION StreamUtil-close1(J-THIS, J-outputStream)
+    GOBACK.
+END FUNCTION StreamUtil-getByteArray3.
 
-
-{AB:CODE}
-
-procedure TStreamUtil.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-end;
-    
-
-class function TStreamUtil.getInstance: TStreamUtil;
-begin
-        Exit(TStreamUtil.instance);
-end;
-    
-
-constructor TStreamUtil.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
-
-// throws Exception
-function TStreamUtil.get(inputStream_: TInputStream; outputStream_: TOutputStream; buffer: TArray<ShortInt>): TOutputStream;
-var
-  len: Integer;
-begin
-        len := 0;
-        while True do begin
-            len := inputStream_.read(buffer, 0, System.Length(buffer));
-            if (len) <> (-1) then begin
-            end else begin
-                Break;
-            end;
-            outputStream_.write(buffer, 0, len);
-        end;
-        Exit(outputStream_);
-end;
-    
-
-// throws Exception
-function TStreamUtil.getByteArray(inputStream_: TInputStream; outputStream2: TByteArrayOutputStream; byteArray: TArray<ShortInt>): TArray<ShortInt>;
-var
-  outputStream_: TByteArrayOutputStream;
-begin
-        outputStream_ := outputStream2;
-        try
-        try
-            Self.get(inputStream_, outputStream_, byteArray);
-            Exit(outputStream_.toByteArray());
-        except
-            on e: SysUtils.Exception do begin
-            raise e;
-            end;
-        end;
-        finally
-            Self.close(outputStream_);
-        end;
-end;
-    
-
-function TStreamUtil.close(closeable_: ICloseable): Boolean;
-var
-  commonStrings_: TCommonStrings;
-begin
-        try
-            if (closeable_) <> (nil) then begin
-                closeable_.close();
-            end;
-            Exit(True);
-        except
-            on e: SysUtils.Exception do begin
-            commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.CLOSE, TJava.Box(e));
-            Exit(False);
-            end;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TStreamUtil.instance := TStreamUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StreamUtil-close1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-commonStrings BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-closeable BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-closeable RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            IF (J-closeable NOT = 0)
+                COMPUTE JDISCARD = FUNCTION Closeable-close0(J-closeable)
+            END-IF
+            COMPUTE J-RESULT = 1
+            GOBACK
+    GOBACK.
+END FUNCTION StreamUtil-close1.
 

@@ -1,174 +1,406 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.layer.pickup
+*> Java class PickupLayer
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.layer.pickup
-unit PickupLayer;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GL, Graphics, Animation, MultiPlayerGameLayer, RemoteInfo, Rectangle, ViewPositionBase, PickedUpLayerInterfaceFactoryInterface, PickedUpLayerInterface, PickupableInterface, GroupInterfaceCompositeInterface, LayerInterface, NamedInterface, PaintableInterface, PositionInterface;
-
-type
-  {AB:TYPES}
-  TPickupLayer = class(TMultiPlayerGameLayer, IPickedUpLayerInterface, IPickupableInterface, IGroupInterfaceCompositeInterface, ILayerInterface, INamedInterface, IPaintableInterface, IPositionInterface)
-  public
-    pickedUpLayerInterfaceFactoryInterface: IPickedUpLayerInterfaceFactoryInterface;
-    destroyed: Boolean;
-    animationInterface: TAnimation;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(name: string; remoteInfo_: TRemoteInfo; total: Integer; pickedUpLayerInterfaceFactoryInterface_: IPickedUpLayerInterfaceFactoryInterface; animationInterface: TAnimation; rectangle_: TRectangle; viewPosition: TViewPositionBase);
-        procedure init(pickedUpLayerInterfaceFactoryInterface_: IPickedUpLayerInterfaceFactoryInterface; animationInterface: TAnimation); virtual;
-        procedure initXYZ(x: Integer; y: Integer; z: Integer); virtual;
-        procedure paint(graphics_: TGraphics); virtual;
-        procedure paintThreed(graphics_: TGraphics); virtual;
-        function getPickedUpLayerInterfaceFactoryInterface: IPickedUpLayerInterfaceFactoryInterface; virtual;
-        procedure setPickedUp; virtual;
-        function isDestroyed: Boolean; virtual;
-        procedure setDestroyed(destroyed: Boolean); virtual;
-        procedure damage(damage: Integer; damageType: Integer); virtual;
-        function getDamage(damageType: Integer): Integer; virtual;
-        procedure set_(gl_: IGL); virtual;
-  end;
-
-implementation
-uses
-  CountedPickedUpLayerInterfaceFactory, NullAnimationFactory, CollidableAlwaysPickupNeverCollideBehaviorFactory, DestroyedLayerProcessor, BasicGroupFactory, OpenGLSurfaceChangedInterface;
-
-
-{AB:CODE}
-
-procedure TPickupLayer.InitFields;
-begin
-  Self.pickedUpLayerInterfaceFactoryInterface := TCountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY;
-  
-  Self.animationInterface := TNullAnimationFactory.getFactoryInstance().getInstance(0);
-end;
-
-function TPickupLayer.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PickupLayer-new7.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-name BINARY-DOUBLE.
+01 J-remoteInfo BINARY-DOUBLE.
+01 J-total BINARY-DOUBLE.
+01 J-pickedUpLayerInterfaceFactoryInterface BINARY-DOUBLE.
+01 J-animationInterface BINARY-DOUBLE.
+01 J-rectangle BINARY-DOUBLE.
+01 J-viewPosition BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-name J-remoteInfo J-total J-pickedUpLayerInterfaceFactoryInterface J-animationInterface J-rectangle J-viewPosition RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("PickupLayer")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_pickedUpLayerInterfaceFactoryInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_destroyed")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_animationInterface")
+    COMPUTE JVALUE = FUNCTION CntdPckdUpLyrIntrfcFctr-47319
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_pickedUpLayerInterfaceFactoryInterface", JVALUE)
     
+    COMPUTE jtemp2 = 0
+    COMPUTE jtemp1 = FUNCTION NllAnmtnFctry-gtFctryInstnc0
+    COMPUTE JVALUE = FUNCTION JR-CLASS-NAME(jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animationInterface", JVALUE)
+        COMPUTE jtemp3 = FUNCTION BasicGroupFactory-getInstance0
+        CONTINUE
+        COMPUTE jtemp4 = FUNCTION ClldblAlwysPckpNvrClldB-98832
+        COMPUTE JDISCARD = FUNCTION ClldblCmpstLyr-stClldblInfrfc1(J-THIS, FUNCTION ClldblAlwysPckpNvrClldB-34151(jtemp4))
+        COMPUTE jtemp5 = 10
+        COMPUTE JDISCARD = FUNCTION Layer-setLayerWidth1(J-THIS, jtemp5)
+        COMPUTE jtemp6 = 10
+        COMPUTE JDISCARD = FUNCTION Layer-setLayerHeight1(J-THIS, jtemp6)
+        COMPUTE JDISCARD = FUNCTION PickupLayer-init2(J-THIS, J-pickedUpLayerInterfaceFactoryInterface, J-animationInterface)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION PickupLayer-new7.
 
-constructor TPickupLayer.Create(name: string; remoteInfo_: TRemoteInfo; total: Integer; pickedUpLayerInterfaceFactoryInterface_: IPickedUpLayerInterfaceFactoryInterface; animationInterface: TAnimation; rectangle_: TRectangle; viewPosition: TViewPositionBase);
-begin
-        inherited Create(remoteInfo_, TBasicGroupFactory.getInstance().NONE_ARRAY, name, rectangle_, viewPosition);
-        InitFields;
-        Self.setCollidableInferface(TCollidableAlwaysPickupNeverCollideBehaviorFactory.getInstance().createBehavior());
-        Self.setLayerWidth(10);
-        Self.setLayerHeight(10);
-        Self.init(pickedUpLayerInterfaceFactoryInterface_, animationInterface);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PickupLayer-init2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-pickedUpLayerInterfaceFactoryInterface BINARY-DOUBLE.
+01 J-animationInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-pickedUpLayerInterfaceFactoryInterface J-animationInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-pickedUpLayerInterfaceFactoryInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_pickedUpLayerInterfaceFactoryInterface", JVALUE)
+        COMPUTE JVALUE = J-animationInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animationInterface", JVALUE)
+        COMPUTE jtemp7 = 0
+        COMPUTE JDISCARD = FUNCTION PickupLayer-setDestroyed1(J-THIS, jtemp7)
+    GOBACK.
+END FUNCTION PickupLayer-init2.
 
-procedure TPickupLayer.init(pickedUpLayerInterfaceFactoryInterface_: IPickedUpLayerInterfaceFactoryInterface; animationInterface: TAnimation);
-begin
-        Self.pickedUpLayerInterfaceFactoryInterface := pickedUpLayerInterfaceFactoryInterface_;
-        Self.animationInterface := animationInterface;
-        Self.setDestroyed(False);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PickupLayer-initXYZ3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-z BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-x J-y J-z RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION AllBinaryLayer-setPosition3(J-THIS, J-x, J-y, J-z)
+    GOBACK.
+END FUNCTION PickupLayer-initXYZ3.
 
-procedure TPickupLayer.initXYZ(x: Integer; y: Integer; z: Integer);
-begin
-        Self.setPosition(x, y, z);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PickupLayer-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-viewPosition BINARY-DOUBLE.
+01 J-viewX BINARY-DOUBLE.
+01 J-viewY BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-viewPosition = FUNCTION AllBnryLyr-getViewPosition0(J-THIS)
+        COMPUTE J-viewX = FUNCTION GPoint-getX0(J-viewPosition)
+        COMPUTE J-viewY = FUNCTION GPoint-getY0(J-viewPosition)
+        COMPUTE JDISCARD = FUNCTION Animation-paintXY3(FUNCTION JR-GET(J-THIS, "f_animationInterface"), J-graphics, J-viewX, J-viewY)
+    GOBACK.
+END FUNCTION PickupLayer-paint1.
 
-procedure TPickupLayer.paint(graphics_: TGraphics);
-var
-  viewPosition: TViewPositionBase;
-  viewX: Integer;
-  viewY: Integer;
-begin
-        viewPosition := Self.getViewPosition();
-        viewX := viewPosition.getX();
-        viewY := viewPosition.getY();
-        Self.animationInterface.paintXY(graphics_, viewX, viewY);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PickupLayer-paintThreed1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-viewPosition BINARY-DOUBLE.
+01 J-viewX BINARY-DOUBLE.
+01 J-viewY BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-viewPosition = FUNCTION AllBnryLyr-getViewPosition0(J-THIS)
+        COMPUTE J-viewX = FUNCTION GPoint-getX0(J-viewPosition)
+        COMPUTE J-viewY = FUNCTION GPoint-getY0(J-viewPosition)
+        COMPUTE jtemp8 = 3
+        COMPUTE JDISCARD = FUNCTION Animation-paintThreedXYZ4(FUNCTION JR-GET(J-THIS, "f_animationInterface"), J-graphics, J-viewX, J-viewY, jtemp8)
+    GOBACK.
+END FUNCTION PickupLayer-paintThreed1.
 
-procedure TPickupLayer.paintThreed(graphics_: TGraphics);
-var
-  viewPosition: TViewPositionBase;
-  viewX: Integer;
-  viewY: Integer;
-begin
-        viewPosition := Self.getViewPosition();
-        viewX := viewPosition.getX();
-        viewY := viewPosition.getY();
-        Self.animationInterface.paintThreedXYZ(graphics_, viewX, viewY, 3);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PckpLyr-gtPckdUpLyrIntrfc54538.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_pickedUpLayerInterfaceFactoryInterface")
+        GOBACK
+    GOBACK.
+END FUNCTION PckpLyr-gtPckdUpLyrIntrfc54538.
 
-function TPickupLayer.getPickedUpLayerInterfaceFactoryInterface: IPickedUpLayerInterfaceFactoryInterface;
-begin
-        Exit(Self.pickedUpLayerInterfaceFactoryInterface);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PickupLayer-setPickedUp0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp9 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp9 = 1
+        COMPUTE JDISCARD = FUNCTION PickupLayer-setDestroyed1(J-THIS, jtemp9)
+    GOBACK.
+END FUNCTION PickupLayer-setPickedUp0.
 
-procedure TPickupLayer.setPickedUp;
-begin
-        Self.setDestroyed(True);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PickupLayer-isDestroyed0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_destroyed")
+        GOBACK
+    GOBACK.
+END FUNCTION PickupLayer-isDestroyed0.
 
-function TPickupLayer.isDestroyed: Boolean;
-begin
-        Exit(Self.destroyed);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PickupLayer-setDestroyed1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp10 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-destroyed BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-destroyed RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-destroyed
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_destroyed", JVALUE)
+        IF (FUNCTION PickupLayer-isDestroyed0(J-THIS) = 1)
+            COMPUTE jtemp10 = FUNCTION DstrydLyrPrcssr-getInstance0
+            COMPUTE JDISCARD = FUNCTION BasicLayerProcessor-add1(jtemp10, J-THIS)
+        END-IF
+    GOBACK.
+END FUNCTION PickupLayer-setDestroyed1.
 
-procedure TPickupLayer.setDestroyed(destroyed: Boolean);
-begin
-        Self.destroyed := destroyed;
-        if Self.isDestroyed() then begin
-            TDestroyedLayerProcessor.getInstance().add(Self);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PickupLayer-damage2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-damage BINARY-DOUBLE.
+01 J-damageType BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-damage J-damageType RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION PickupLayer-damage2.
 
-procedure TPickupLayer.damage(damage: Integer; damageType: Integer);
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PickupLayer-getDamage1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-damageType BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-damageType RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION PickupLayer-getDamage1.
 
-function TPickupLayer.getDamage(damageType: Integer): Integer;
-begin
-        Exit(0);
-end;
-    
-
-// throws Exception
-procedure TPickupLayer.set_(gl_: IGL);
-var
-  openGLSurfaceChangedInterface_: IOpenGLSurfaceChangedInterface;
-begin
-        openGLSurfaceChangedInterface_ := (TJava.ToObject(Self.animationInterface) as IOpenGLSurfaceChangedInterface);
-        openGLSurfaceChangedInterface_.set_(gl_);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PickupLayer-set1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-openGLSurfaceChangedInterface BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gl BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gl RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-openGLSurfaceChangedInterface = FUNCTION JR-GET(J-THIS, "f_animationInterface")
+        COMPUTE JDISCARD = FUNCTION OpnGLSrfcChngdIntrfc-set1(J-openGLSurfaceChangedInterface, J-gl)
+    GOBACK.
+END FUNCTION PickupLayer-set1.
 

@@ -1,92 +1,186 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.android.input.motion
+*> Java class AnalogControllerConfigurationFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.android.input.motion
-unit AnalogControllerConfigurationFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnlgCntrllrCnfgrtnFctry-81360.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AnalogControllerConfigurationFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 AnalogControllerConfigurationFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF AnalogControllerConfigurationFactory-jset-instance = 0
+        MOVE 1 TO AnalogControllerConfigurationFactory-jset-instance
+        COMPUTE AnalogControllerConfigurationFactory-jcell-instance = FUNCTION AnlgCntrllrCnfgrtnFctry-new0
+    END-IF
+    MOVE AnalogControllerConfigurationFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION AnlgCntrllrCnfgrtnFctry-81360.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnlgCntrllrCnfgrtnFcS94426.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AnalogControllerConfigurationFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION AnlgCntrllrCnfgrtnFctry-81360 TO J-RESULT
+    MOVE J-VALUE TO AnalogControllerConfigurationFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION AnlgCntrllrCnfgrtnFcS94426.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AnalogControllerConfigurationEvent;
-
-type
-  {AB:TYPES}
-  TAnalogControllerConfigurationFactory = class(TObject)
-  public
-    SCALE_FACTOR: Integer;
-    SCALE_VALUE: Integer;
-    available: Boolean;
-    analogControllerConfigurationEvent: TAnalogControllerConfigurationEvent;
-    class var instance: TAnalogControllerConfigurationFactory;
-    procedure InitFields;
-        class function getInstance: TAnalogControllerConfigurationFactory; static;
-        constructor Create;
-        function isAvailable: Boolean; virtual;
-        procedure setAvailable(available: Boolean); virtual;
-  end;
-
-implementation
-uses
-  AnalogControllerConfigurationEventHandler, ScaleFactorFactory;
-
-
-{AB:CODE}
-
-procedure TAnalogControllerConfigurationFactory.InitFields;
-begin
-  Self.SCALE_FACTOR := TScaleFactorFactory.getInstance().DEFAULT_SCALE_FACTOR;
-  Self.SCALE_VALUE := TScaleFactorFactory.getInstance().DEFAULT_SCALE_VALUE;
-  
-  Self.analogControllerConfigurationEvent := TAnalogControllerConfigurationEvent.Create(TJava.Box(Self));
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnlgCntrllrCnfgrtnFctry-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("AnalogControllerConfigurationFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SCALE_FACTOR")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SCALE_VALUE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_available")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_analogControllerConfigurationEvent")
+    COMPUTE jtemp1 = FUNCTION SclFctrFctry-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_DEFAULT_SCALE_FACTOR")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SCALE_FACTOR", JVALUE)
+    COMPUTE jtemp2 = FUNCTION SclFctrFctry-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp2, "f_DEFAULT_SCALE_VALUE")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SCALE_VALUE", JVALUE)
     
+    COMPUTE JVALUE = FUNCTION AnlgCntrllrCnfgrtnEvnt-new1(J-THIS)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_analogControllerConfigurationEvent", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION AnlgCntrllrCnfgrtnFctry-new0.
 
-class function TAnalogControllerConfigurationFactory.getInstance: TAnalogControllerConfigurationFactory;
-begin
-        Exit(TAnalogControllerConfigurationFactory.instance);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnlgCntrllrCnfgrtnFctry-g35385.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION AnlgCntrllrCnfgrtnFctry-81360
+        GOBACK
+    GOBACK.
+END FUNCTION AnlgCntrllrCnfgrtnFctry-g35385.
 
-constructor TAnalogControllerConfigurationFactory.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnlgCntrllrCnfgrtnFctry-i69764.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_available")
+        GOBACK
+    GOBACK.
+END FUNCTION AnlgCntrllrCnfgrtnFctry-i69764.
 
-function TAnalogControllerConfigurationFactory.isAvailable: Boolean;
-begin
-        Exit(Self.available);
-end;
-    
-
-// throws Exception
-procedure TAnalogControllerConfigurationFactory.setAvailable(available: Boolean);
-begin
-        Self.available := available;
-        TAnalogControllerConfigurationEventHandler.getInstance().fireEvent(Self.analogControllerConfigurationEvent);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TAnalogControllerConfigurationFactory.instance := TAnalogControllerConfigurationFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnlgCntrllrCnfgrtnFctry-s35337.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-available BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-available RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-available
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_available", JVALUE)
+        COMPUTE jtemp3 = FUNCTION AnlgCntrllrCnfgrtnEvntH-24328
+        COMPUTE JDISCARD = FUNCTION AnlgCntrllrCnfgrtnEvntH-19389(jtemp3, FUNCTION JR-GET(J-THIS, "f_analogControllerConfigurationEvent"))
+    GOBACK.
+END FUNCTION AnlgCntrllrCnfgrtnFctry-s35337.
 

@@ -1,136 +1,247 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.paint
+*> Java class SimpleTextPaintable
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.paint
-unit SimpleTextPaintable;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, BasicColor, DisplayInfoSingleton, MyFontProcessor, UpdateMyFontInterface, Paintable;
-
-type
-  {AB:TYPES}
-  TSimpleTextPaintable = class(TPaintable, IUpdateMyFontInterface)
-  public
-    displayInfoSingleton: TDisplayInfoSingleton;
-    updateMyFontProcessor: TMyFontProcessor;
-    myFontProcessor: TMyFontProcessor;
-    text: string;
-    basicColor: TBasicColor;
-    topScoresWidth: Integer;
-    fontHeight: Integer;
-    anchor: Integer;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(text: string; basicColor_: TBasicColor);
-        procedure updateMeasurement(graphics_: TGraphics); virtual;
-        procedure paint(graphics_: TGraphics); virtual;
-        procedure setBasicColorP(basicColor_: TBasicColor); virtual;
-        function getBasicColorP: TBasicColor;
-        procedure setText(text: string); virtual;
-        function getText: string; virtual;
-  end;
-
-implementation
-uses
-  Font, Anchor, UpdateMyFontProcessor;
-
-
-{AB:CODE}
-
-procedure TSimpleTextPaintable.InitFields;
-begin
-  Self.displayInfoSingleton := TDisplayInfoSingleton.getInstance();
-  Self.updateMyFontProcessor := TUpdateMyFontProcessor.Create(Self);
-  Self.myFontProcessor := Self.updateMyFontProcessor;
-  
-  
-  Self.topScoresWidth := 0;
-  Self.fontHeight := 0;
-  Self.anchor := TAnchor.TOP_LEFT;
-end;
-
-function TSimpleTextPaintable.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SimpleTextPaintable-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-text BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-text J-basicColor RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("SimpleTextPaintable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_displayInfoSingleton")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_updateMyFontProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_myFontProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_text")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_basicColor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_topScoresWidth")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_fontHeight")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_anchor")
+    COMPUTE JVALUE = FUNCTION DsplyInfSngltn-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_displayInfoSingleton", JVALUE)
+    COMPUTE JVALUE = FUNCTION UpdateMyFontProcessor-new1(J-THIS)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_updateMyFontProcessor", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_updateMyFontProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
     
-
-constructor TSimpleTextPaintable.Create(text: string; basicColor_: TBasicColor);
-begin
-    inherited Create;
-    InitFields;
-        Self.text := text;
-        Self.basicColor := basicColor_;
-end;
     
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_topScoresWidth", JVALUE)
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_fontHeight", JVALUE)
+    COMPUTE JVALUE = FUNCTION Anchor-static-TOP-LEFT
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_anchor", JVALUE)
+        COMPUTE JVALUE = J-text
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_text", JVALUE)
+        COMPUTE JVALUE = J-basicColor
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicColor", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION SimpleTextPaintable-new2.
 
-procedure TSimpleTextPaintable.updateMeasurement(graphics_: TGraphics);
-var
-  font_: TFont;
-begin
-        font_ := graphics_.getFont();
-        Self.topScoresWidth := (TJava.SignedRightShift(font_.stringWidth(Self.text), 1));
-        Self.fontHeight := font_.getHeight();
-        Self.myFontProcessor := TMyFontProcessor.getInstance();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SmplTxtPntbl-updtMsrmnt1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-font BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-font = FUNCTION Graphics-getFont0(J-graphics)
+        COMPUTE JVALUE = (FUNCTION JR-SHIFT(JFIVE, FUNCTION Font-stringWidth1(J-font, FUNCTION JR-GET(J-THIS, "f_text")), 1))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_topScoresWidth", JVALUE)
+        COMPUTE JVALUE = FUNCTION Font-getHeight0(J-font)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_fontHeight", JVALUE)
+        COMPUTE JVALUE = FUNCTION MyFontProcessor-getInstance0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
+    GOBACK.
+END FUNCTION SmplTxtPntbl-updtMsrmnt1.
 
-procedure TSimpleTextPaintable.paint(graphics_: TGraphics);
-var
-  width: Integer;
-begin
-        Self.myFontProcessor.process(graphics_);
-        width := Self.displayInfoSingleton.getLast()[Self.displayInfoSingleton.WIDTH];
-        graphics_.setColor(Self.getBasicColorP().intValue());
-        graphics_.drawString(Self.text, ((TJava.SignedRightShift(width, 1))) - (Self.topScoresWidth), Self.fontHeight, Self.anchor);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SimpleTextPaintable-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-width BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION MyFontProcessor-process1(FUNCTION JR-GET(J-THIS, "f_myFontProcessor"), J-graphics)
+        COMPUTE J-width = FUNCTION JR-ARRAY-GET(FUNCTION DisplayInfoSingleton-getLast0(FUNCTION JR-GET(J-THIS, "f_displayInfoSingleton")), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_displayInfoSingleton"), "f_WIDTH"))
+        COMPUTE jtemp1 = FUNCTION SmplTxtPntbl-getBasicColorP0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION Graphics-setColor1(J-graphics, FUNCTION BasicColor-intValue0(jtemp1))
+        COMPUTE jtemp2 = (FUNCTION MOD(((FUNCTION JR-SHIFT(JFIVE, J-width, 1)) - FUNCTION JR-GET(J-THIS, "f_topScoresWidth")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION Graphics-drawString4(J-graphics, FUNCTION JR-GET(J-THIS, "f_text"), jtemp2, FUNCTION JR-GET(J-THIS, "f_fontHeight"), FUNCTION JR-GET(J-THIS, "f_anchor"))
+    GOBACK.
+END FUNCTION SimpleTextPaintable-paint1.
 
-procedure TSimpleTextPaintable.setBasicColorP(basicColor_: TBasicColor);
-begin
-        Self.basicColor := basicColor_;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SmplTxtPntbl-setBasicColorP1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-basicColor RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-basicColor
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicColor", JVALUE)
+    GOBACK.
+END FUNCTION SmplTxtPntbl-setBasicColorP1.
 
-function TSimpleTextPaintable.getBasicColorP: TBasicColor;
-begin
-        Exit(Self.basicColor);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SmplTxtPntbl-getBasicColorP0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_basicColor")
+        GOBACK
+    GOBACK.
+END FUNCTION SmplTxtPntbl-getBasicColorP0.
 
-procedure TSimpleTextPaintable.setText(text: string);
-begin
-        Self.text := text;
-        Self.myFontProcessor := Self.updateMyFontProcessor;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SimpleTextPaintable-setText1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-text BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-text RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-text
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_text", JVALUE)
+        COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_updateMyFontProcessor")
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
+    GOBACK.
+END FUNCTION SimpleTextPaintable-setText1.
 
-function TSimpleTextPaintable.getText: string;
-begin
-        Exit(Self.text);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SimpleTextPaintable-getText0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_text")
+        GOBACK
+    GOBACK.
+END FUNCTION SimpleTextPaintable-getText0.
 

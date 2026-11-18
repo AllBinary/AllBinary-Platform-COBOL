@@ -1,136 +1,271 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation
+*> Java class VectorRotationGenerator
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation
-unit VectorRotationGenerator;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrRttnGnrtr-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 VectorRotationGenerator-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 VectorRotationGenerator-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF VectorRotationGenerator-jset-instance = 0
+        MOVE 1 TO VectorRotationGenerator-jset-instance
+        COMPUTE VectorRotationGenerator-jcell-instance = FUNCTION VectorRotationGenerator-new0
+    END-IF
+    MOVE VectorRotationGenerator-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION VctrRttnGnrtr-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrRttnGnrtrstaticiS80190.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 VectorRotationGenerator-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION VctrRttnGnrtr-static-instance TO J-RESULT
+    MOVE J-VALUE TO VectorRotationGenerator-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION VctrRttnGnrtrstaticiS80190.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VectorRotationGenerator-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("VectorRotationGenerator")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_vectorAnimationUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_angleFactory")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION VctrAnmtnUtl-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_vectorAnimationUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION AngleFactory-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_angleFactory", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION VectorRotationGenerator-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LogUtil, Angle, AngleFactory, BasicArrayList, VectorInfo, VectorAnimationUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrRttnGnrtr-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION VctrRttnGnrtr-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION VctrRttnGnrtr-getInstance0.
 
-type
-  {AB:TYPES}
-  TVectorRotationGenerator = class(TObject)
-  public
-    logUtil: TLogUtil;
-    vectorAnimationUtil: TVectorAnimationUtil;
-    angleFactory: TAngleFactory;
-    class var instance: TVectorRotationGenerator;
-    procedure InitFields;
-        class function getInstance: TVectorRotationGenerator; overload; static;
-        constructor Create;
-        function getInstance(vectorRotationInfo: TVectorInfo): TArray<TArray<TArray<Integer>>>; overload; virtual;
-        function getInstanceFrames(width: Integer; height: Integer; points: TArray<TArray<Integer>>; frames: Integer): TArray<TArray<TArray<Integer>>>; virtual;
-        function getListAtAngle(width: Integer; height: Integer; pointBasicArrayList: TBasicArrayList; angle_: TAngle): TBasicArrayList; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrRttnGnrtr-getInstance1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-vectorRotationInfo BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-vectorRotationInfo RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION VctrRttnGnrtr-gtInstncFrms4(J-THIS, FUNCTION VectorInfo-getWidth0(J-vectorRotationInfo), FUNCTION VectorInfo-getHeight0(J-vectorRotationInfo), FUNCTION VectorInfo-getPoints0(J-vectorRotationInfo),
+        FUNCTION VectorInfo-getTotalFrames0(J-vectorRotationInfo))
+        GOBACK
+    GOBACK.
+END FUNCTION VctrRttnGnrtr-getInstance1.
 
-implementation
-uses
-  PointFactory, BasicGraphicsPipeline, NullUtil, CommonStrings, BasicArrayListS;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrRttnGnrtr-gtInstncFrms4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-totalAngle BINARY-DOUBLE.
+01 J-angleIncrement BINARY-DOUBLE.
+01 J-pointsBasicArrayList BINARY-DOUBLE.
+01 J-pointBasicArrayList BINARY-DOUBLE.
+01 J-pointFactory BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-newPoints BINARY-DOUBLE.
+01 J-commonStrings BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-points BINARY-DOUBLE.
+01 J-frames BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-width J-height J-points J-frames RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE J-totalAngle = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_angleFactory"), "f_TOTAL_ANGLE")
+            COMPUTE J-angleIncrement = (FUNCTION MOD(FUNCTION INTEGER-PART(J-totalAngle / J-frames) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE jtemp1 = (FUNCTION MOD(FUNCTION INTEGER-PART(J-totalAngle / J-angleIncrement) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE J-pointsBasicArrayList = FUNCTION BasicArrayListS-new1(jtemp1)
+            COMPUTE J-pointBasicArrayList = FUNCTION BasicArrayListS-new1(FUNCTION JR-ARRAY-LENGTH(J-points))
+            COMPUTE J-pointFactory = FUNCTION PointFactory-getInstance0
+            COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(J-points)
+            COMPUTE J-index = 0
+            MOVE 1 TO JFIRST1
+            PERFORM FOREVER
+                IF JFIRST1 = 0
+                    COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+                END-IF
+                MOVE 0 TO JFIRST1
+                IF NOT (J-index < J-size) EXIT PERFORM END-IF
+                COMPUTE jtemp2 = 0
+                COMPUTE jtemp3 = 1
+                COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-pointBasicArrayList, FUNCTION PointFactory-createXY2(J-pointFactory, FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(J-points, J-index), jtemp2), FUNCTION JR-ARRAY-GET(FUNCTION
+        JR-ARRAY-GET(J-points, J-index), jtemp3)))
+            END-PERFORM
+            COMPUTE J-index = 0
+            PERFORM FOREVER
+                IF NOT (J-index < J-totalAngle) EXIT PERFORM END-IF
+                COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-pointsBasicArrayList, FUNCTION VctrRttnGnrtr-getListAtAngle4(J-THIS, J-width, J-height, J-pointBasicArrayList, FUNCTION AngleFactory-getAt1(FUNCTION JR-GET(J-THIS,
+        "f_angleFactory"), J-index)))
+                COMPUTE J-index = (FUNCTION MOD((J-index + J-angleIncrement) + 2147483648, 4294967296) - 2147483648)
+            END-PERFORM
+            COMPUTE J-newPoints = FUNCTION VctrAnmtnUtl-tAnmtnArryFr44994(FUNCTION JR-GET(J-THIS, "f_vectorAnimationUtil"), J-pointsBasicArrayList, FUNCTION BasicArrayList-size0(J-pointBasicArrayList))
+            COMPUTE J-RESULT = J-newPoints
+            GOBACK
+    GOBACK.
+END FUNCTION VctrRttnGnrtr-gtInstncFrms4.
 
-
-{AB:CODE}
-
-procedure TVectorRotationGenerator.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.vectorAnimationUtil := TVectorAnimationUtil.getInstance();
-  Self.angleFactory := TAngleFactory.getInstance();
-end;
-    
-
-class function TVectorRotationGenerator.getInstance: TVectorRotationGenerator;
-begin
-        Exit(TVectorRotationGenerator.instance);
-end;
-    
-
-constructor TVectorRotationGenerator.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
-
-function TVectorRotationGenerator.getInstance(vectorRotationInfo: TVectorInfo): TArray<TArray<TArray<Integer>>>;
-begin
-        Exit(Self.getInstanceFrames(vectorRotationInfo.getWidth(), vectorRotationInfo.getHeight(), vectorRotationInfo.getPoints(), vectorRotationInfo.getTotalFrames()));
-end;
-    
-
-function TVectorRotationGenerator.getInstanceFrames(width: Integer; height: Integer; points: TArray<TArray<Integer>>; frames: Integer): TArray<TArray<TArray<Integer>>>;
-var
-  totalAngle: SmallInt;
-  angleIncrement: Integer;
-  pointsBasicArrayList: TBasicArrayList;
-  pointBasicArrayList: TBasicArrayList;
-  pointFactory_: TPointFactory;
-  size: Integer;
-  index: Integer;
-  newPoints: TArray<TArray<TArray<Integer>>>;
-  commonStrings_: TCommonStrings;
-begin
-        try
-            totalAngle := Self.angleFactory.TOTAL_ANGLE;
-            angleIncrement := (Integer(totalAngle)) div (frames);
-            pointsBasicArrayList := TBasicArrayListS.Create((Integer(totalAngle)) div (angleIncrement));
-            pointBasicArrayList := TBasicArrayListS.Create(System.Length(points));
-            pointFactory_ := TPointFactory.getInstance();
-            size := System.Length(points);
-            for index := 0 to size - 1 do begin
-                pointBasicArrayList.add(TJava.Box(pointFactory_.createXY(points[index][0], points[index][1])));
-            end;
-            index := 0;
-            while (index) < (Integer(totalAngle)) do begin
-                pointsBasicArrayList.add(TJava.Box(Self.getListAtAngle(width, height, pointBasicArrayList, Self.angleFactory.getAt(index))));
-                index := (index) + (angleIncrement);
-            end;
-            newPoints := Self.vectorAnimationUtil.toAnimationArrayFromListOfPointListWithPointsPerFrame(pointsBasicArrayList, pointBasicArrayList.size());
-            Exit(newPoints);
-        except
-            on e: SysUtils.Exception do begin
-            commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.GET_INSTANCE, TJava.Box(e));
-            Exit(TNullUtil.getInstance().NULL_INT_ARRAY_ARRAY_ARRAY);
-            end;
-        end;
-end;
-    
-
-// throws Exception
-function TVectorRotationGenerator.getListAtAngle(width: Integer; height: Integer; pointBasicArrayList: TBasicArrayList; angle_: TAngle): TBasicArrayList;
-var
-  graphicsPipe: TBasicGraphicsPipeline;
-begin
-        graphicsPipe := TBasicGraphicsPipeline.Create(pointBasicArrayList);
-        graphicsPipe.createMatrix();
-        graphicsPipe.translate(-(TJava.SignedRightShift(width, 1)), -(TJava.SignedRightShift(height, 1)));
-        graphicsPipe.rotateToAngle(angle_);
-        graphicsPipe.translate((TJava.SignedRightShift(width, 1)), (TJava.SignedRightShift(height, 1)));
-        Exit(graphicsPipe.getMatrix());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TVectorRotationGenerator.instance := TVectorRotationGenerator.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrRttnGnrtr-getListAtAngle4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-graphicsPipe BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-pointBasicArrayList BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-width J-height J-pointBasicArrayList J-angle RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-graphicsPipe = FUNCTION BasicGraphicsPipeline-new1(J-pointBasicArrayList)
+        COMPUTE JDISCARD = FUNCTION BscGrphcsPpln-createMatrix0(J-graphicsPipe)
+        COMPUTE jtemp5 = (0 - (FUNCTION JR-SHIFT(JFIVE, J-width, 1)))
+        COMPUTE jtemp6 = (0 - (FUNCTION JR-SHIFT(JFIVE, J-height, 1)))
+        COMPUTE JDISCARD = FUNCTION BscGrphcsPpln-translate2(J-graphicsPipe, jtemp5, jtemp6)
+        COMPUTE JDISCARD = FUNCTION BscGrphcsPpln-rotateToAngle1(J-graphicsPipe, J-angle)
+        COMPUTE jtemp7 = (FUNCTION JR-SHIFT(JFIVE, J-width, 1))
+        COMPUTE jtemp8 = (FUNCTION JR-SHIFT(JFIVE, J-height, 1))
+        COMPUTE JDISCARD = FUNCTION BscGrphcsPpln-translate2(J-graphicsPipe, jtemp7, jtemp8)
+        COMPUTE J-RESULT = FUNCTION BscGrphcsPpln-getMatrix0(J-graphicsPipe)
+        GOBACK
+    GOBACK.
+END FUNCTION VctrRttnGnrtr-getListAtAngle4.
 

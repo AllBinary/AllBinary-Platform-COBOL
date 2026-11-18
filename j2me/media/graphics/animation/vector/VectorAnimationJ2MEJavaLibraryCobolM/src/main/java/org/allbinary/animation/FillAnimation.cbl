@@ -1,124 +1,283 @@
-// Generated Code Do Not Modify
-// package org.allbinary.animation
-unit FillAnimation;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation
+*> Java class FillAnimation
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, BasicColor, AnimationBehavior, IndexedAnimation;
-
-type
-  {AB:TYPES}
-  TFillAnimation = class(TIndexedAnimation)
-  public
-    pixelBuffer: TArray<Integer>;
-    width: Integer;
-    height: Integer;
-    procedure InitFields;
-        constructor Create(pixelBuffer: TArray<Integer>; width: Integer; height: Integer; animationBehavior_: TAnimationBehavior);
-        procedure setBasicColorP(basicColor_: TBasicColor); override;
-        procedure changeBasicColor(basicColor_: TBasicColor); override;
-        procedure setAlpha(alpha: Integer); override;
-        procedure setScale(scaleX: Single; scaleY: Single); override;
-        procedure setMaxScale(maxScaleX: Single; maxScaleY: Single); override;
-        procedure updateModifiers;
-        procedure paint(g: TGraphics); virtual;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TFillAnimation.InitFields;
-begin
-  
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FillAnimation-new4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-pixelBuffer BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-animationBehavior BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-pixelBuffer J-width J-height J-animationBehavior RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("FillAnimation")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_pixelBuffer")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_width")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_height")
     
-
-constructor TFillAnimation.Create(pixelBuffer: TArray<Integer>; width: Integer; height: Integer; animationBehavior_: TAnimationBehavior);
-begin
-        inherited Create(animationBehavior_);
-        InitFields;
-        Self.width := 100;
-        Self.height := 100;
-        Self.pixelBuffer := pixelBuffer;
-end;
     
-
-procedure TFillAnimation.setBasicColorP(basicColor_: TBasicColor);
-var
-  changed: Boolean;
-begin
-        changed := False;
-        if (TJava.IsNull(Self.getBasicColorP())) or ((Self.getBasicColorP().intValue()) <> (basicColor_.intValue())) then begin
-            changed := True;
-        end;
-        inherited setBasicColorP(basicColor_);
-        if changed then begin
-            Self.updateModifiers();
-        end;
-end;
     
+        CONTINUE
+        COMPUTE JVALUE = 100
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_width", JVALUE)
+        COMPUTE JVALUE = 100
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_height", JVALUE)
+        COMPUTE JVALUE = J-pixelBuffer
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_pixelBuffer", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION FillAnimation-new4.
 
-procedure TFillAnimation.changeBasicColor(basicColor_: TBasicColor);
-var
-  changed: Boolean;
-begin
-        changed := False;
-        if (TJava.IsNull(Self.getChangeBasicColor())) or ((Self.getChangeBasicColor().intValue()) <> (basicColor_.intValue())) then begin
-            changed := True;
-        end;
-        inherited changeBasicColor(basicColor_);
-        if changed then begin
-            Self.updateModifiers();
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FillAnimation-setBasicColorP1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-changed BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-basicColor RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-changed = 0
+        COMPUTE jtemp1 = FUNCTION Animation-getBasicColorP0(J-THIS)
+        IF ((FUNCTION Animation-getBasicColorP0(J-THIS) = 0) OR (FUNCTION JR-CLASS-NAME(jtemp1) NOT = FUNCTION BasicColor-intValue0(J-basicColor)))
+            COMPUTE J-changed = 1
+        END-IF
+        COMPUTE JDISCARD = FUNCTION Animation-setBasicColorP1(J-THIS, J-basicColor)
+        IF (J-changed = 1)
+            COMPUTE JDISCARD = FUNCTION FillAnimation-updateModifiers0(J-THIS)
+        END-IF
+    GOBACK.
+END FUNCTION FillAnimation-setBasicColorP1.
 
-procedure TFillAnimation.setAlpha(alpha: Integer);
-var
-  changed: Boolean;
-begin
-        changed := False;
-        if (Self.alphaP) <> (alpha) then begin
-            changed := True;
-        end;
-        inherited setAlpha(alpha);
-        if changed then begin
-            Self.updateModifiers();
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FllAnmtn-changeBasicColor1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-changed BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-basicColor RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-changed = 0
+        COMPUTE jtemp2 = FUNCTION Animation-getChangeBasicColor0(J-THIS)
+        IF ((FUNCTION Animation-getChangeBasicColor0(J-THIS) = 0) OR (FUNCTION JR-CLASS-NAME(jtemp2) NOT = FUNCTION BasicColor-intValue0(J-basicColor)))
+            COMPUTE J-changed = 1
+        END-IF
+        COMPUTE JDISCARD = FUNCTION Animation-changeBasicColor1(J-THIS, J-basicColor)
+        IF (J-changed = 1)
+            COMPUTE JDISCARD = FUNCTION FillAnimation-updateModifiers0(J-THIS)
+        END-IF
+    GOBACK.
+END FUNCTION FllAnmtn-changeBasicColor1.
 
-procedure TFillAnimation.setScale(scaleX: Single; scaleY: Single);
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FillAnimation-setAlpha1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-changed BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-alpha BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-alpha RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-changed = 0
+        IF (FUNCTION JR-GET(J-THIS, "f_alphaP") NOT = J-alpha)
+            COMPUTE J-changed = 1
+        END-IF
+        COMPUTE JDISCARD = FUNCTION Animation-setAlpha1(J-THIS, J-alpha)
+        IF (J-changed = 1)
+            COMPUTE JDISCARD = FUNCTION FillAnimation-updateModifiers0(J-THIS)
+        END-IF
+    GOBACK.
+END FUNCTION FillAnimation-setAlpha1.
 
-procedure TFillAnimation.setMaxScale(maxScaleX: Single; maxScaleY: Single);
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FillAnimation-setScale2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-scaleX COMP-2.
+01 J-scaleY COMP-2.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-scaleX J-scaleY RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION FillAnimation-setScale2.
 
-procedure TFillAnimation.updateModifiers;
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FillAnimation-setMaxScale2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-maxScaleX COMP-2.
+01 J-maxScaleY COMP-2.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-maxScaleX J-maxScaleY RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION FillAnimation-setMaxScale2.
 
-procedure TFillAnimation.paint(g: TGraphics);
-begin
-        g.drawRGB(Self.pixelBuffer, 0, Self.width, 0, 0, Self.width, Self.height, True);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FillAnimation-updateModifiers0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION FillAnimation-updateModifiers0.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FillAnimation-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-g BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-g RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp3 = 0
+        COMPUTE jtemp4 = 0
+        COMPUTE jtemp5 = 0
+        COMPUTE jtemp6 = 1
+        COMPUTE JDISCARD = FUNCTION Graphics-drawRGB8(J-g, FUNCTION JR-GET(J-THIS, "f_pixelBuffer"), jtemp3, FUNCTION JR-GET(J-THIS, "f_width"), jtemp4, jtemp5, FUNCTION JR-GET(J-THIS, "f_width"), FUNCTION JR-GET(J-THIS, "f_height"),
+        jtemp6)
+    GOBACK.
+END FUNCTION FillAnimation-paint1.
 

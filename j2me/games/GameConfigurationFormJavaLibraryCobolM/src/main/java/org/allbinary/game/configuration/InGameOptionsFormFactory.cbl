@@ -1,100 +1,189 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.configuration
+*> Java class InGameOptionsFormFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.configuration
-unit InGameOptionsFormFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InGmOptnsFrmFctry-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 InGameOptionsFormFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 InGameOptionsFormFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF InGameOptionsFormFactory-jset-instance = 0
+        MOVE 1 TO InGameOptionsFormFactory-jset-instance
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE InGameOptionsFormFactory-jcell-instance = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+    END-IF
+    MOVE InGameOptionsFormFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION InGmOptnsFrmFctry-sttc-nstnc.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InGmOptnsFrmFctrysttS36122.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 InGameOptionsFormFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION InGmOptnsFrmFctry-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO InGameOptionsFormFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION InGmOptnsFrmFctrysttS36122.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InGameOptionsFormFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("InGameOptionsFormFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SINGLETON")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION CmmndFrm-getNullCommandForm0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SINGLETON", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION InGameOptionsFormFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, CommandListener, BasicColor, CommandForm, Init, LogUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InGmOptnsFrmFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+        IF (FUNCTION InGmOptnsFrmFctry-sttc-nstnc = FUNCTION JR-GET(jtemp2, "f_NULL_OBJECT"))
+            COMPUTE JDISCARD = FUNCTION InGmOptnsFrmFctrysttS36122(FUNCTION InGameOptionsFormFactory-new0)
+        END-IF
+        COMPUTE J-RESULT = FUNCTION InGmOptnsFrmFctry-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION InGmOptnsFrmFctry-getInstance0.
 
-type
-  {AB:TYPES}
-  TInGameOptionsFormFactory = class(TObject)
-  public
-    logUtil: TLogUtil;
-    SINGLETON: TCommandForm;
-    class var instance: TObject;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TInGameOptionsFormFactory; static;
-        procedure init(commandListener_: ICommandListener; initInterface: TInit; title: string; backgrounBasicColor: TBasicColor; foregroundBasicColor: TBasicColor); virtual;
-        function get: TCommandForm; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InGameOptionsFormFactory-init5.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-commonStrings BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-commandListener BINARY-DOUBLE.
+01 J-initInterface BINARY-DOUBLE.
+01 J-title BINARY-DOUBLE.
+01 J-backgrounBasicColor BINARY-DOUBLE.
+01 J-foregroundBasicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-commandListener J-initInterface J-title J-backgrounBasicColor J-foregroundBasicColor RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            IF (FUNCTION JR-GET(J-THIS, "f_SINGLETON") = FUNCTION CmmndFrm-getNullCommandForm0)
+                COMPUTE JDISCARD = FUNCTION Init-init0(J-initInterface)
+                COMPUTE JVALUE = FUNCTION InGameOptionsForm-new4(J-commandListener, J-title, J-backgrounBasicColor, J-foregroundBasicColor)
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SINGLETON", JVALUE)
+            END-IF
+    GOBACK.
+END FUNCTION InGameOptionsFormFactory-init5.
 
-implementation
-uses
-  InGameOptionsForm, NullUtil, CommonStrings;
-
-
-{AB:CODE}
-
-procedure TInGameOptionsFormFactory.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.SINGLETON := TCommandForm.getNullCommandForm();
-end;
-
-constructor TInGameOptionsFormFactory.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TInGameOptionsFormFactory.getInstance: TInGameOptionsFormFactory;
-begin
-        if (TInGameOptionsFormFactory.instance) = (TNullUtil.getInstance().NULL_OBJECT) then begin
-            TInGameOptionsFormFactory.instance := TInGameOptionsFormFactory.Create();
-        end;
-        Exit(TInGameOptionsFormFactory(TJava.ToObject(TInGameOptionsFormFactory.instance)));
-end;
-    
-
-procedure TInGameOptionsFormFactory.init(commandListener_: ICommandListener; initInterface: TInit; title: string; backgrounBasicColor: TBasicColor; foregroundBasicColor: TBasicColor);
-var
-  commonStrings_: TCommonStrings;
-begin
-        try
-            if (Self.SINGLETON) = (TCommandForm.getNullCommandForm()) then begin
-                initInterface.init();
-                Self.SINGLETON := TInGameOptionsForm.Create(commandListener_, title, backgrounBasicColor, foregroundBasicColor);
-            end;
-        except
-            on e: SysUtils.Exception do begin
-            commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.INIT, TJava.Box(e));
-            end;
-        end;
-end;
-    
-
-function TInGameOptionsFormFactory.get: TCommandForm;
-begin
-        Exit(Self.SINGLETON);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TInGameOptionsFormFactory.instance := TJava.Box(TNullUtil.getInstance().NULL_OBJECT);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InGameOptionsFormFactory-get0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_SINGLETON")
+        GOBACK
+    GOBACK.
+END FUNCTION InGameOptionsFormFactory-get0.
 

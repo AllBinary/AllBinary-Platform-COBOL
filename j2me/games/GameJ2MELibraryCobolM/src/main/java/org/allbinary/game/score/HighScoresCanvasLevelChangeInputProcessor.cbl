@@ -1,143 +1,243 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.score
+*> Java class HighScoresCanvasLevelChangeInputProcessor
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.score
-unit HighScoresCanvasLevelChangeInputProcessor;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrsCnvsLvlChngInptP-76325.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-highScoresCanvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-highScoresCanvas RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("HighScoresCanvasLevelChangeInputProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_displayInfoSingleton")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_INSTRUCTIONS")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_myFontProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_anchor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_fontHeight")
+    COMPUTE JVALUE = FUNCTION DsplyInfSngltn-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_displayInfoSingleton", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("(Right = Next Track, Left = Previous Track)")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_INSTRUCTIONS", JVALUE)
+    COMPUTE JVALUE = FUNCTION UpdateMyFontProcessor-new1(J-THIS)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
+    COMPUTE JVALUE = FUNCTION Anchor-static-TOP-LEFT
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_anchor", JVALUE)
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_fontHeight", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION HghScrsCnvsLvlChngInptP-76325.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrsCnvsLvlChngInptP-81581.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-font BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-font = FUNCTION Graphics-getFont0(J-graphics)
+        COMPUTE JVALUE = FUNCTION Font-getHeight0(J-font)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_fontHeight", JVALUE)
+        COMPUTE JVALUE = FUNCTION MyFontProcessor-getInstance0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
+    GOBACK.
+END FUNCTION HghScrsCnvsLvlChngInptP-81581.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrsCnvsLvlChngInptP-50865.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = FUNCTION GmKyEvntHndlr-getInstance0
+        COMPUTE JDISCARD = FUNCTION GmKyEvntHndlr-addListener1(jtemp1, J-THIS)
+    GOBACK.
+END FUNCTION HghScrsCnvsLvlChngInptP-50865.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, HighScoresCanvas, DisplayInfoSingleton, MyFontProcessor, UpdateMyFontInterface, HighScoresCanvasInputProcessor;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrsCnvsLvlChngInptP-82987.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION GmKyEvntHndlr-getInstance0
+        COMPUTE JDISCARD = FUNCTION GmKyEvntHndlr-removeListener1(jtemp2, J-THIS)
+    GOBACK.
+END FUNCTION HghScrsCnvsLvlChngInptP-82987.
 
-type
-  {AB:TYPES}
-  THighScoresCanvasLevelChangeInputProcessor = class(THighScoresCanvasInputProcessor, IUpdateMyFontInterface)
-  public
-    displayInfoSingleton: TDisplayInfoSingleton;
-    INSTRUCTIONS: string;
-    myFontProcessor: TMyFontProcessor;
-    anchor: Integer;
-    fontHeight: Integer;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(highScoresCanvas_: THighScoresCanvas);
-        procedure updateMeasurement(graphics_: TGraphics); virtual;
-        procedure open; virtual;
-        procedure close; virtual;
-        procedure update; virtual;
-        procedure paint(graphics_: TGraphics); virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrsCnvsLvlChngInptP-31703.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-list BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-anyType BINARY-DOUBLE.
+01 J-key BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-list = FUNCTION GameInput-getGameKeyEventList0(J-THIS)
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(J-list)
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-anyType = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
+            COMPUTE J-key = FUNCTION GameKeyEventUtil-getKey1(J-anyType)
+            IF (J-key = FUNCTION Canvas-static-RIGHT)
+                COMPUTE jtemp6 = FUNCTION HghScrsCnvsInptPrcssr-gtH58100(J-THIS)
+                COMPUTE jtemp5 = FUNCTION JR-CLASS-NAME(jtemp6)
+                COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp5)
+            ELSE
+                IF (J-key = FUNCTION Canvas-static-LEFT)
+                COMPUTE jtemp4 = FUNCTION HghScrsCnvsInptPrcssr-gtH58100(J-THIS)
+                COMPUTE jtemp3 = FUNCTION JR-CLASS-NAME(jtemp4)
+                COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp3)
+            END-IF
+            END-IF
+            COMPUTE jtemp7 = FUNCTION HghScrsCnvsInptPrcssr-gtH58100(J-THIS)
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp7)
+        END-PERFORM
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-clear0(J-list)
+    GOBACK.
+END FUNCTION HghScrsCnvsLvlChngInptP-31703.
 
-implementation
-uses
-  Canvas, Font, GameKeyEventHandler, GameKeyEventUtil, Anchor, UpdateMyFontProcessor, BasicArrayList;
-
-
-{AB:CODE}
-
-procedure THighScoresCanvasLevelChangeInputProcessor.InitFields;
-begin
-  Self.displayInfoSingleton := TDisplayInfoSingleton.getInstance();
-  Self.INSTRUCTIONS := '(Right = Next Track, Left = Previous Track)';
-  Self.myFontProcessor := TUpdateMyFontProcessor.Create(Self);
-  Self.anchor := TAnchor.TOP_LEFT;
-  Self.fontHeight := 0;
-end;
-
-function THighScoresCanvasLevelChangeInputProcessor.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-    
-
-constructor THighScoresCanvasLevelChangeInputProcessor.Create(highScoresCanvas_: THighScoresCanvas);
-begin
-        inherited Create(highScoresCanvas_);
-        InitFields;
-end;
-    
-
-procedure THighScoresCanvasLevelChangeInputProcessor.updateMeasurement(graphics_: TGraphics);
-var
-  font_: TFont;
-begin
-        font_ := graphics_.getFont();
-        Self.fontHeight := font_.getHeight();
-        Self.myFontProcessor := TMyFontProcessor.getInstance();
-end;
-    
-
-procedure THighScoresCanvasLevelChangeInputProcessor.open;
-begin
-        TGameKeyEventHandler.getInstance().addListener(Self);
-end;
-    
-
-procedure THighScoresCanvasLevelChangeInputProcessor.close;
-begin
-        TGameKeyEventHandler.getInstance().removeListener(Self);
-end;
-    
-
-procedure THighScoresCanvasLevelChangeInputProcessor.update;
-var
-  list: TBasicArrayList;
-  size: Integer;
-  anyType: TObject;
-  key: Integer;
-  index: Integer;
-begin
-    TJava.MonitorEnter(Self);
-    try
-        list := Self.getGameKeyEventList();
-        size := list.size();
-        for index := 0 to size - 1 do begin
-            anyType := TJava.Box(list.objectArray[index]);
-            key := TGameKeyEventUtil.getKey(TJava.Box(anyType));
-            if (key) = (TCanvas.RIGHT) then begin
-                Self.getHighScoresCanvas().getGameInfo().nextGameLevel();
-            end else if (key) = (TCanvas.LEFT) then begin
-                Self.getHighScoresCanvas().getGameInfo().previousGameLevel();
-            end;
-            Self.getHighScoresCanvas().executeUpdate();
-        end;
-        list.clear();
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
-
-procedure THighScoresCanvasLevelChangeInputProcessor.paint(graphics_: TGraphics);
-var
-  width: Integer;
-  topScoresWidth: Integer;
-begin
-        Self.myFontProcessor.process(graphics_);
-        width := Self.displayInfoSingleton.getLastWidth();
-        topScoresWidth := (TJava.SignedRightShift(graphics_.getFont().stringWidth(Self.INSTRUCTIONS), 1));
-        graphics_.drawString(Self.INSTRUCTIONS, ((TJava.SignedRightShift(width, 1))) - (topScoresWidth), (Self.fontHeight) * (2), Self.anchor);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrsCnvsLvlChngInptP-68933.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-width BINARY-DOUBLE.
+01 J-topScoresWidth BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION MyFontProcessor-process1(FUNCTION JR-GET(J-THIS, "f_myFontProcessor"), J-graphics)
+        COMPUTE J-width = FUNCTION DsplyInfSngltn-getLastWidth0(FUNCTION JR-GET(J-THIS, "f_displayInfoSingleton"))
+        COMPUTE jtemp8 = FUNCTION Graphics-getFont0(J-graphics)
+        COMPUTE J-topScoresWidth = (FUNCTION JR-SHIFT(JFIVE, FUNCTION JR-CLASS-NAME(jtemp8), 1))
+        COMPUTE jtemp9 = (FUNCTION MOD(((FUNCTION JR-SHIFT(JFIVE, J-width, 1)) - J-topScoresWidth) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp10 = (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_fontHeight") * 2) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION Graphics-drawString4(J-graphics, FUNCTION JR-GET(J-THIS, "f_INSTRUCTIONS"), jtemp9, jtemp10, FUNCTION JR-GET(J-THIS, "f_anchor"))
+    GOBACK.
+END FUNCTION HghScrsCnvsLvlChngInptP-68933.
 

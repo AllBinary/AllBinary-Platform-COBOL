@@ -1,58 +1,110 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.paint
+*> Java class NullLocationPaintable
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.paint
-unit NullLocationPaintable;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NllLctnPntbl-static-instanceC.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 NullLocationPaintable-jcell-instanceC BINARY-DOUBLE EXTERNAL.
+01 NullLocationPaintable-jset-instanceC BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF NullLocationPaintable-jset-instanceC = 0
+        MOVE 1 TO NullLocationPaintable-jset-instanceC
+        COMPUTE NullLocationPaintable-jcell-instanceC = FUNCTION NullLocationPaintable-new0
+    END-IF
+    MOVE NullLocationPaintable-jcell-instanceC TO J-RESULT
+    GOBACK.
+END FUNCTION NllLctnPntbl-static-instanceC.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NllLctnPntblstaticinS41420.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 NullLocationPaintable-jcell-instanceC BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION NllLctnPntbl-static-instanceC TO J-RESULT
+    MOVE J-VALUE TO NullLocationPaintable-jcell-instanceC
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION NllLctnPntblstaticinS41420.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullLocationPaintable-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("NullLocationPaintable")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION NullLocationPaintable-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LocationPaintable;
-
-type
-  {AB:TYPES}
-  TNullLocationPaintable = class(TLocationPaintable)
-  public
-    class var instanceC: TNullLocationPaintable;
-    constructor Create;
-        class function getInstance: TNullLocationPaintable; static;
-  end;
-
-implementation
-
-{AB:CODE}
-
-constructor TNullLocationPaintable.Create;
-begin
-  inherited Create;
-end;
-    
-
-class function TNullLocationPaintable.getInstance: TNullLocationPaintable;
-begin
-        Exit(TNullLocationPaintable.instanceC);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TNullLocationPaintable.instanceC := TNullLocationPaintable.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NllLctnPntbl-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION NllLctnPntbl-static-instanceC
+        GOBACK
+    GOBACK.
+END FUNCTION NllLctnPntbl-getInstance0.
 

@@ -1,113 +1,228 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.layer.hud.event
+*> Java class GameNotificationEvent
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.layer.hud.event
-unit GameNotificationEvent;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, BasicColor, AllBinaryEventObject;
-
-type
-  {AB:TYPES}
-  TGameNotificationEvent = class(TAllBinaryEventObject)
-  public
-    string_: string;
-    seconds: Integer;
-    basicColor: TBasicColor;
-    removeable: Boolean;
-    procedure InitFields;
-        constructor Create(anyType: TObject; string_: string; seconds: Integer; basicColor_: TBasicColor; permanent: Boolean);
-        function getString: string; virtual;
-        function getSeconds: Integer; virtual;
-        function getBasicColorP: TBasicColor; virtual;
-        function getPermanent: Boolean; virtual;
-        procedure setString(string_: string); virtual;
-        procedure setBasicColorP(basicColor_: TBasicColor); virtual;
-  end;
-
-implementation
-uses
-  BasicColorFactory, StringUtil;
-
-
-{AB:CODE}
-
-procedure TGameNotificationEvent.InitFields;
-begin
-  Self.string_ := TStringUtil.getInstance().EMPTY_STRING;
-  
-  Self.basicColor := TBasicColorFactory.getInstance().BLACK;
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameNotificationEvent-new5.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-anyType BINARY-DOUBLE.
+01 J-string BINARY-DOUBLE.
+01 J-seconds BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-permanent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-anyType J-string J-seconds J-basicColor J-permanent RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameNotificationEvent")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_string")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_seconds")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_basicColor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_removeable")
+    COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_EMPTY_STRING")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_string", JVALUE)
     
-
-constructor TGameNotificationEvent.Create(anyType: TObject; string_: string; seconds: Integer; basicColor_: TBasicColor; permanent: Boolean);
-begin
-        inherited Create(anyType);
-        InitFields;
-        Self.setString(string_);
-        Self.seconds := seconds;
-        Self.setBasicColorP(basicColor_);
-        Self.removeable := permanent;
-end;
+    COMPUTE jtemp2 = FUNCTION BasicColorFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp2, "f_BLACK")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicColor", JVALUE)
     
+        CONTINUE
+        COMPUTE JDISCARD = FUNCTION GmNtfctnEvnt-setString1(J-THIS, J-string)
+        COMPUTE JVALUE = J-seconds
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_seconds", JVALUE)
+        COMPUTE JDISCARD = FUNCTION GmNtfctnEvnt-setBasicColorP1(J-THIS, J-basicColor)
+        COMPUTE JVALUE = J-permanent
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_removeable", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GameNotificationEvent-new5.
 
-function TGameNotificationEvent.getString: string;
-begin
-        Exit(Self.string_);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmNtfctnEvnt-getString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_string")
+        GOBACK
+    GOBACK.
+END FUNCTION GmNtfctnEvnt-getString0.
 
-function TGameNotificationEvent.getSeconds: Integer;
-begin
-        Exit(Self.seconds);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmNtfctnEvnt-getSeconds0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_seconds")
+        GOBACK
+    GOBACK.
+END FUNCTION GmNtfctnEvnt-getSeconds0.
 
-function TGameNotificationEvent.getBasicColorP: TBasicColor;
-begin
-        Exit(Self.basicColor);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmNtfctnEvnt-getBasicColorP0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_basicColor")
+        GOBACK
+    GOBACK.
+END FUNCTION GmNtfctnEvnt-getBasicColorP0.
 
-function TGameNotificationEvent.getPermanent: Boolean;
-begin
-        Exit(Self.removeable);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmNtfctnEvnt-getPermanent0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_removeable")
+        GOBACK
+    GOBACK.
+END FUNCTION GmNtfctnEvnt-getPermanent0.
 
-procedure TGameNotificationEvent.setString(string_: string);
-begin
-        Self.string_ := string_;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmNtfctnEvnt-setString1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-string BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-string RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-string
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_string", JVALUE)
+    GOBACK.
+END FUNCTION GmNtfctnEvnt-setString1.
 
-procedure TGameNotificationEvent.setBasicColorP(basicColor_: TBasicColor);
-begin
-        Self.basicColor := basicColor_;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmNtfctnEvnt-setBasicColorP1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-basicColor RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-basicColor
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicColor", JVALUE)
+    GOBACK.
+END FUNCTION GmNtfctnEvnt-setBasicColorP1.
 

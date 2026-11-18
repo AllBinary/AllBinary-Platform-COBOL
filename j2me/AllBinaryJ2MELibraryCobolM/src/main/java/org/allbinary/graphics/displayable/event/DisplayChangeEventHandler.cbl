@@ -1,73 +1,144 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.displayable.event
+*> Java class DisplayChangeEventHandler
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.displayable.event
-unit DisplayChangeEventHandler;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DsplyChngEvntHndlr-sttc-11073.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 DisplayChangeEventHandler-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+01 DisplayChangeEventHandler-jset-SINGLETON BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF DisplayChangeEventHandler-jset-SINGLETON = 0
+        MOVE 1 TO DisplayChangeEventHandler-jset-SINGLETON
+        COMPUTE DisplayChangeEventHandler-jcell-SINGLETON = FUNCTION DisplayChangeEventHandler-new0
+    END-IF
+    MOVE DisplayChangeEventHandler-jcell-SINGLETON TO J-RESULT
+    GOBACK.
+END FUNCTION DsplyChngEvntHndlr-sttc-11073.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DsplyChngEvntHndlrstS94970.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 DisplayChangeEventHandler-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION DsplyChngEvntHndlr-sttc-11073 TO J-RESULT
+    MOVE J-VALUE TO DisplayChangeEventHandler-jcell-SINGLETON
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION DsplyChngEvntHndlrstS94970.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DisplayChangeEventHandler-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("DisplayChangeEventHandler")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION DisplayChangeEventHandler-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AllBinaryEventObject, EventListenerInterface, BasicEventHandler;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DsplyChngEvntHndlr-gtInstnc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION DsplyChngEvntHndlr-sttc-11073
+        GOBACK
+    GOBACK.
+END FUNCTION DsplyChngEvntHndlr-gtInstnc0.
 
-type
-  {AB:TYPES}
-  TDisplayChangeEventHandler = class(TBasicEventHandler)
-  public
-    class var SINGLETON: TDisplayChangeEventHandler;
-        class function getInstance: TDisplayChangeEventHandler; static;
-        constructor Create;
-        procedure process(eventObject: TAllBinaryEventObject; eventListenerInterface_: IEventListenerInterface); override;
-  end;
-
-implementation
-uses
-  DisplayChangeEventListener, DisplayChangeEvent;
-
-
-{AB:CODE}
-    
-
-class function TDisplayChangeEventHandler.getInstance: TDisplayChangeEventHandler;
-begin
-        Exit(TDisplayChangeEventHandler.SINGLETON);
-end;
-    
-
-constructor TDisplayChangeEventHandler.Create;
-begin
-    inherited Create;
-end;
-    
-
-// throws Exception
-procedure TDisplayChangeEventHandler.process(eventObject: TAllBinaryEventObject; eventListenerInterface_: IEventListenerInterface);
-var
-  displayChangeEventListener_: IDisplayChangeEventListener;
-begin
-        displayChangeEventListener_ := ((TJava.ToObject(eventListenerInterface_) as IDisplayChangeEventListener));
-        displayChangeEventListener_.onDisplayChangeEvent(TDisplayChangeEvent(TJava.ToObject(eventObject)));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TDisplayChangeEventHandler.SINGLETON := TDisplayChangeEventHandler.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DsplyChngEvntHndlr-process2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-displayChangeEventListener BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-eventListenerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject J-eventListenerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-displayChangeEventListener = (J-eventListenerInterface)
+        COMPUTE jtemp1 = J-eventObject
+        COMPUTE JDISCARD = FUNCTION DsplyChngEvntLstnr-onDspl87677(J-displayChangeEventListener, jtemp1)
+    GOBACK.
+END FUNCTION DsplyChngEvntHndlr-process2.
 

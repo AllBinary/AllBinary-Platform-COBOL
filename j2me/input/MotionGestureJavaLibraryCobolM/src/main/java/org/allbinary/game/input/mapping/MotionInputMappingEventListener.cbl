@@ -1,74 +1,95 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.input.mapping
+*> Java class MotionInputMappingEventListener
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.input.mapping
-unit MotionInputMappingEventListener;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnInptMppngEvntLstnr-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("MotionInputMappingEventListener")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION MtnInptMppngEvntLstnr-new0.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnInptMppngEvntLstnr-onEvent1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = FUNCTION EventStrings-getInstance0
+        COMPUTE JDISCARD = FUNCTION ForcedLogUtil-log2(FUNCTION JR-GET(jtemp1, "f_PERFORMANCE_MESSAGE"), J-THIS)
+    GOBACK.
+END FUNCTION MtnInptMppngEvntLstnr-onEvent1.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, InputMappingEvent, InputMappingEventListenerInterface, AllBinaryEventObject, EventListenerInterface;
-
-type
-  {AB:TYPES}
-  TMotionInputMappingEventListener = class(TInterfacedObject, IInputMappingEventListenerInterface, IEventListenerInterface)
-  public
-    function JavaObject: TObject;
-    constructor Create;
-        procedure onEvent(eventObject: TAllBinaryEventObject); virtual;
-        procedure onInputMappingEvent(inputMappingEvent_: TInputMappingEvent); virtual;
-  end;
-
-implementation
-uses
-  GameKeyCompleteMotionGestureInputEventFactory, BasicTouchInputFactory, ForcedLogUtil, EventStrings;
-
-
-{AB:CODE}
-
-function TMotionInputMappingEventListener.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-
-constructor TMotionInputMappingEventListener.Create;
-begin
-  inherited Create;
-end;
-    
-
-procedure TMotionInputMappingEventListener.onEvent(eventObject: TAllBinaryEventObject);
-begin
-        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, TJava.Box(Self));
-end;
-    
-
-// throws Exception
-procedure TMotionInputMappingEventListener.onInputMappingEvent(inputMappingEvent_: TInputMappingEvent);
-begin
-        TGameKeyCompleteMotionGestureInputEventFactory.getInstance().updateAll();
-        TBasicTouchInputFactory.getInstance().updateAll(inputMappingEvent_.getInputToGameKeyMapping());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnInptMppngEvntLstnr-onI12081.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-inputMappingEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-inputMappingEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION GmKyCmpltMtnGstrInptEvn-61374
+        COMPUTE JDISCARD = FUNCTION GmKyCmpltMtnGstrInptEvn-35949(jtemp2)
+        COMPUTE jtemp3 = FUNCTION BscTchInptFctry-getInstance0
+        COMPUTE JDISCARD = FUNCTION BscTchInptFctry-updateAll1(jtemp3, FUNCTION InptMppngEvnt-gtInptTGmKy38803(J-inputMappingEvent))
+    GOBACK.
+END FUNCTION MtnInptMppngEvntLstnr-onI12081.
 

@@ -1,86 +1,136 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion.button
+*> Java class FullTouchButton
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion.button
-unit FullTouchButton;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FullTouchButton-new7.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-touchButtonInput BINARY-DOUBLE.
+01 J-animationInterface BINARY-DOUBLE.
+01 J-hintAnimationInterface BINARY-DOUBLE.
+01 J-rawRectangle BINARY-DOUBLE.
+01 J-cellPosition BINARY-DOUBLE.
+01 J-xBorder BINARY-DOUBLE.
+01 J-yBorder BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-touchButtonInput J-animationInterface J-hintAnimationInterface J-rawRectangle J-cellPosition J-xBorder J-yBorder RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("FullTouchButton")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION FullTouchButton-new7.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FullTouchButton-createButton6.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-touchButtonInput BINARY-DOUBLE.
+01 J-touchButtonResource BINARY-DOUBLE.
+01 J-rawRectangle BINARY-DOUBLE.
+01 J-cellPosition BINARY-DOUBLE.
+01 J-xBorder BINARY-DOUBLE.
+01 J-yBorder BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-touchButtonInput J-touchButtonResource J-rawRectangle J-cellPosition J-xBorder J-yBorder RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION FtrdAnmtnIntrfcFctryInt-53898
+        COMPUTE jtemp3 = 0
+        COMPUTE jtemp5 = FUNCTION FtrdAnmtnIntrfcFctryInt-53898
+        COMPUTE jtemp6 = 0
+        COMPUTE jtemp1 = FUNCTION FtrdAnmtnIntrfcFctryInt-13097(jtemp2, FUNCTION JR-GET(J-touchButtonResource, "f_RESOURCE"))
+        COMPUTE jtemp4 = FUNCTION FtrdAnmtnIntrfcFctryInt-13097(jtemp5, FUNCTION JR-GET(J-touchButtonResource, "f_HINT"))
+        COMPUTE J-RESULT = FUNCTION FullTouchButton-new7(J-touchButtonInput, FUNCTION JR-CLASS-NAME(jtemp1), FUNCTION JR-CLASS-NAME(jtemp4), J-rawRectangle, J-cellPosition, J-xBorder, J-yBorder)
+        GOBACK
+    GOBACK.
+END FUNCTION FullTouchButton-createButton6.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Animation, CellPosition, Rectangle, TouchButtonInput, TouchButtonResource, TouchButton;
-
-type
-  {AB:TYPES}
-  TFullTouchButton = class(TTouchButton)
-  public
-        class function createButton(touchButtonInput_: TTouchButtonInput; touchButtonResource_: TTouchButtonResource; rawRectangle: TRectangle; cellPosition_: TCellPosition; xBorder: Integer; yBorder: Integer): TFullTouchButton; static;
-        constructor Create(touchButtonInput_: TTouchButtonInput; animationInterface: TAnimation; hintAnimationInterface: TAnimation; rawRectangle: TRectangle; cellPosition_: TCellPosition; xBorder: Integer; yBorder: Integer);
-        procedure updateRectangle; override;
-  end;
-
-implementation
-uses
-  FeaturedAnimationInterfaceFactoryInterfaceFactory, GPoint, PointFactory;
-
-
-{AB:CODE}
-    
-
-// throws Exception
-class function TFullTouchButton.createButton(touchButtonInput_: TTouchButtonInput; touchButtonResource_: TTouchButtonResource; rawRectangle: TRectangle; cellPosition_: TCellPosition; xBorder: Integer; yBorder: Integer): TFullTouchButton;
-begin
-        Exit(TFullTouchButton.Create(touchButtonInput_, TFeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(touchButtonResource_.RESOURCE).getInstance(0), TFeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(touchButtonResource_.HINT).getInstance(0), rawRectangle, cellPosition_, xBorder, yBorder));
-end;
-    
-
-constructor TFullTouchButton.Create(touchButtonInput_: TTouchButtonInput; animationInterface: TAnimation; hintAnimationInterface: TAnimation; rawRectangle: TRectangle; cellPosition_: TCellPosition; xBorder: Integer; yBorder: Integer);
-begin
-        inherited Create(touchButtonInput_, animationInterface, hintAnimationInterface, rawRectangle, cellPosition_, xBorder, yBorder);
-end;
-    
-
-procedure TFullTouchButton.updateRectangle;
-var
-  pointFactory_: TPointFactory;
-  x: Integer;
-  y: Integer;
-  point: TGPoint;
-begin
-        try
-            pointFactory_ := TPointFactory.getInstance();
-            x := (Self.rawRectangle.getWidth()) * (Self.cellPositionP.getColumn());
-            y := (Self.rawRectangle.getHeight()) * (Self.cellPositionP.getRow());
-            Self.rectangleP := TRectangle.Create(pointFactory_.createXY(x, y), (Self.rawRectangle.getWidth()) + (((2) * (Self.xBorder))), (Self.rawRectangle.getHeight()) + (((2) * (Self.yBorder))));
-            point := Self.rectangleP.getPoint();
-            Self.animationX := (point.getX()) + (Self.xBorder);
-            Self.animationY := (point.getY()) + (Self.yBorder);
-            Self.hintAnimationY := TJava.SignedRightShift((Self.animationY) - (Self.rectangleP.getHeight()), 1);
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), 'updateRectangle', TJava.Box(e));
-            end;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FllTchBttn-updateRectangle0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-pointFactory BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-point BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE J-pointFactory = FUNCTION PointFactory-getInstance0
+            COMPUTE J-x = (FUNCTION MOD((FUNCTION Rectangle-getWidth0(FUNCTION JR-GET(J-THIS, "f_rawRectangle")) * FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_cellPositionP"))) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE J-y = (FUNCTION MOD((FUNCTION Rectangle-getHeight0(FUNCTION JR-GET(J-THIS, "f_rawRectangle")) * FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_cellPositionP"))) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE jtemp8 = ((FUNCTION MOD((2 * FUNCTION JR-GET(J-THIS, "f_xBorder")) + 2147483648, 4294967296) - 2147483648))
+            COMPUTE jtemp10 = ((FUNCTION MOD((2 * FUNCTION JR-GET(J-THIS, "f_yBorder")) + 2147483648, 4294967296) - 2147483648))
+            COMPUTE jtemp7 = (FUNCTION MOD((FUNCTION Rectangle-getWidth0(FUNCTION JR-GET(J-THIS, "f_rawRectangle")) + jtemp8) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE jtemp9 = (FUNCTION MOD((FUNCTION Rectangle-getHeight0(FUNCTION JR-GET(J-THIS, "f_rawRectangle")) + jtemp10) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JVALUE = FUNCTION Rectangle-new3(FUNCTION PointFactory-createXY2(J-pointFactory, J-x, J-y), jtemp7, jtemp9)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_rectangleP", JVALUE)
+            COMPUTE J-point = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_rectangleP"))
+            COMPUTE JVALUE = (FUNCTION MOD((FUNCTION GPoint-getX0(J-point) + FUNCTION JR-GET(J-THIS, "f_xBorder")) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animationX", JVALUE)
+            COMPUTE JVALUE = (FUNCTION MOD((FUNCTION GPoint-getY0(J-point) + FUNCTION JR-GET(J-THIS, "f_yBorder")) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animationY", JVALUE)
+            COMPUTE JVALUE = FUNCTION JR-SHIFT(JFIVE, (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_animationY") - FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_rectangleP"))) + 2147483648, 4294967296) - 2147483648), 1)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hintAnimationY", JVALUE)
+    GOBACK.
+END FUNCTION FllTchBttn-updateRectangle0.
 

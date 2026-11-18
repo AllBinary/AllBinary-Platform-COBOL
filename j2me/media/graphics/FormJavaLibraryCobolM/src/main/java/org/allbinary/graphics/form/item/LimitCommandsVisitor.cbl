@@ -1,81 +1,86 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.form.item
+*> Java class LimitCommandsVisitor
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.form.item
-unit LimitCommandsVisitor;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Visitor;
-
-type
-  {AB:TYPES}
-  TLimitCommandsVisitor = class(TVisitor)
-  public
-    isNotSmallDisplay: Boolean;
-    procedure InitFields;
-        constructor Create;
-        function visit(anyType: TObject): TObject; override;
-  end;
-
-implementation
-uses
-  Command, GameCommandsFactory, DisplayInfoSingleton, ScreenInfo, BooleanFactory;
-
-
-{AB:CODE}
-
-procedure TLimitCommandsVisitor.InitFields;
-begin
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LimitCommandsVisitor-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-displayInfo BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("LimitCommandsVisitor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_isNotSmallDisplay")
     
+        COMPUTE J-displayInfo = FUNCTION DsplyInfSngltn-getInstance0
+        COMPUTE jtemp1 = FUNCTION ScreenInfo-getInstance0
+        COMPUTE jtemp2 = FUNCTION ScreenInfo-getInstance0
+        COMPUTE JVALUE = FUNCTION MAX(((FUNCTION DsplyInfSngltn-isPortrait0(J-displayInfo) * FUNCTION MAX(0, FUNCTION SIGN(FUNCTION DsplyInfSngltn-getLastHeight0(J-displayInfo) - FUNCTION JR-GET(jtemp1, "f_SMALL_WIDTH"))))), (((1 -
+        FUNCTION DsplyInfSngltn-isPortrait0(J-displayInfo)) * FUNCTION MAX(0, FUNCTION SIGN(FUNCTION DsplyInfSngltn-getLastHeight0(J-displayInfo) - FUNCTION JR-GET(jtemp2, "f_SMALL_HEIGHT"))))))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_isNotSmallDisplay", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION LimitCommandsVisitor-new0.
 
-constructor TLimitCommandsVisitor.Create;
-var
-  displayInfo: TDisplayInfoSingleton;
-begin
-    inherited Create;
-    InitFields;
-        displayInfo := TDisplayInfoSingleton.getInstance();
-        Self.isNotSmallDisplay := (((displayInfo.isPortrait()) and ((displayInfo.getLastHeight()) > (TScreenInfo.getInstance().SMALL_WIDTH)))) or (((not (displayInfo.isPortrait())) and ((displayInfo.getLastHeight()) > (TScreenInfo.getInstance().SMALL_HEIGHT))));
-end;
-    
-
-function TLimitCommandsVisitor.visit(anyType: TObject): TObject;
-var
-  command_: TCommand;
-  booleanFactory_: TBooleanFactory;
-begin
-        command_ := TCommand(TJava.ToObject(anyType));
-        booleanFactory_ := TBooleanFactory.getInstance();
-        if (((Self.isNotSmallDisplay) or ((command_.getPriority()) = (1))) or ((command_) = (TGameCommandsFactory.getInstance().EXIT_COMMAND))) or ((command_) = (TGameCommandsFactory.getInstance().EXIT_WITHOUT_PROGRESS_COMMAND)) then begin
-            Exit(TJava.Box(booleanFactory_.TRUE_));
-        end else begin
-            Exit(TJava.Box(booleanFactory_.FALSE_));
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LimitCommandsVisitor-visit1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-command BINARY-DOUBLE.
+01 J-booleanFactory BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-anyType BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-anyType RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-command = J-anyType
+        COMPUTE J-booleanFactory = FUNCTION BooleanFactory-getInstance0
+        COMPUTE jtemp3 = FUNCTION GmCmmndsFctry-getInstance0
+        COMPUTE jtemp4 = FUNCTION GmCmmndsFctry-getInstance0
+        IF ((((FUNCTION JR-GET(J-THIS, "f_isNotSmallDisplay") = 1) OR (FUNCTION Command-getPriority0(J-command) = 1)) OR (J-command = FUNCTION JR-GET(jtemp3, "f_EXIT_COMMAND"))) OR (J-command = FUNCTION JR-GET(jtemp4,
+        "f_EXIT_WITHOUT_PROGRESS_COMMAND")))
+            COMPUTE J-RESULT = FUNCTION JR-GET(J-booleanFactory, "f_TRUE")
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = FUNCTION JR-GET(J-booleanFactory, "f_FALSE")
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION LimitCommandsVisitor-visit1.
 

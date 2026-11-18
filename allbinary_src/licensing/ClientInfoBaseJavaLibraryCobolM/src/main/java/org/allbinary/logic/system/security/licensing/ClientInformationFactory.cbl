@@ -1,67 +1,68 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2022 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.logic.system.security.licensing
-unit ClientInformationFactory;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.system.security.licensing
+*> Java class ClientInformationFactory
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClientInformationFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ClientInformationFactory")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ClientInformationFactory-new0.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, ClientInformation;
-
-type
-  {AB:TYPES}
-  TClientInformationFactory = class(TObject)
-  public
-    constructor Create;
-        function getInstance: TClientInformation; virtual;
-  end;
-
-implementation
-uses
-  LogUtil, StringUtil, CommonStrings;
-
-
-{AB:CODE}
-
-constructor TClientInformationFactory.Create;
-begin
-  inherited Create;
-end;
-    
-
-function TClientInformationFactory.getInstance: TClientInformation;
-var
-  logUtil_: TLogUtil;
-  commonStrings_: TCommonStrings;
-  stringUtil_: TStringUtil;
-begin
-        logUtil_ := TLogUtil.getInstance();
-        commonStrings_ := TCommonStrings.getInstance();
-        logUtil_.putF(commonStrings_.NOT_IMPLEMENTED, TJava.Box(Self), commonStrings_.GET_INSTANCE);
-        stringUtil_ := TStringUtil.getInstance();
-        Exit(TClientInformation.Create(stringUtil_.NULL_STRING, stringUtil_.NULL_STRING, stringUtil_.NULL_STRING, stringUtil_.NULL_STRING));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClntInfrmtnFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-logUtil BINARY-DOUBLE.
+01 J-commonStrings BINARY-DOUBLE.
+01 J-stringUtil BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-logUtil = FUNCTION LogUtil-getInstance0
+        COMPUTE J-commonStrings = FUNCTION CommonStrings-getInstance0
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(J-logUtil, FUNCTION JR-GET(J-commonStrings, "f_NOT_IMPLEMENTED"), J-THIS, FUNCTION JR-GET(J-commonStrings, "f_GET_INSTANCE"))
+        COMPUTE J-stringUtil = FUNCTION StringUtil-getInstance0
+        COMPUTE J-RESULT = FUNCTION ClientInformation-new4(FUNCTION JR-GET(J-stringUtil, "f_NULL_STRING"), FUNCTION JR-GET(J-stringUtil, "f_NULL_STRING"), FUNCTION JR-GET(J-stringUtil, "f_NULL_STRING"), FUNCTION JR-GET(J-stringUtil,
+        "f_NULL_STRING"))
+        GOBACK
+    GOBACK.
+END FUNCTION ClntInfrmtnFctry-getInstance0.
 

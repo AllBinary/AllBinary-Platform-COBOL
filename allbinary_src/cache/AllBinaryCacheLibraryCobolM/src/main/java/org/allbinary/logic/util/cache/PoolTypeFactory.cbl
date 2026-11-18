@@ -1,55 +1,115 @@
-// Generated Code Do Not Modify
-// package org.allbinary.logic.util.cache
-unit PoolTypeFactory;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.util.cache
+*> Java class PoolTypeFactory
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlTypFctry-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PoolTypeFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 PoolTypeFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF PoolTypeFactory-jset-instance = 0
+        MOVE 1 TO PoolTypeFactory-jset-instance
+        COMPUTE PoolTypeFactory-jcell-instance = FUNCTION PoolTypeFactory-new0
+    END-IF
+    MOVE PoolTypeFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION PlTypFctry-static-instance.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlTypFctrystaticinstS61735.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PoolTypeFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION PlTypFctry-static-instance TO J-RESULT
+    MOVE J-VALUE TO PoolTypeFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION PlTypFctrystaticinstS61735.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, PoolType;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PoolTypeFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("PoolTypeFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_VECTOR_POOL")
+    COMPUTE jtemp1 = FUNCTION CacheTypeFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION PoolType-new1(FUNCTION JR-GET(jtemp1, "f_NO_CACHE"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_VECTOR_POOL", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION PoolTypeFactory-new0.
 
-type
-  {AB:TYPES}
-  TPoolTypeFactory = class(TObject)
-  public
-    VECTOR_POOL: TPoolType;
-    class var instance: TPoolTypeFactory;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TPoolTypeFactory; static;
-  end;
-
-implementation
-uses
-  CacheTypeFactory;
-
-
-{AB:CODE}
-
-procedure TPoolTypeFactory.InitFields;
-begin
-  Self.VECTOR_POOL := TPoolType.Create(TCacheTypeFactory.getInstance().NO_CACHE);
-end;
-
-constructor TPoolTypeFactory.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TPoolTypeFactory.getInstance: TPoolTypeFactory;
-begin
-        Exit(TPoolTypeFactory.instance);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TPoolTypeFactory.instance := TPoolTypeFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PoolTypeFactory-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION PlTypFctry-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION PoolTypeFactory-getInstance0.
 

@@ -1,224 +1,491 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2011 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.input.event
-unit DownKeyEventHandlerBase;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.input.event
+*> Java class DownKeyEventHandlerBase
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DwnKyEvntHndlrBs-sttc-T96188.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 DownKeyEventHandlerBase-jcell-TOTAL_LISTENERS BINARY-DOUBLE EXTERNAL.
+01 DownKeyEventHandlerBase-jset-TOTAL_LISTENERS BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF DownKeyEventHandlerBase-jset-TOTAL_LISTENERS = 0
+        MOVE 1 TO DownKeyEventHandlerBase-jset-TOTAL_LISTENERS
+        COMPUTE DownKeyEventHandlerBase-jcell-TOTAL_LISTENERS = FUNCTION JR-STR(" Total PlayerGameInput Listeners: ")
+    END-IF
+    MOVE DownKeyEventHandlerBase-jcell-TOTAL_LISTENERS TO J-RESULT
+    GOBACK.
+END FUNCTION DwnKyEvntHndlrBs-sttc-T96188.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DwnKyEvntHndlrBssttcS76191.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 DownKeyEventHandlerBase-jcell-TOTAL_LISTENERS BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION DwnKyEvntHndlrBs-sttc-T96188 TO J-RESULT
+    MOVE J-VALUE TO DownKeyEventHandlerBase-jcell-TOTAL_LISTENERS
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION DwnKyEvntHndlrBssttcS76191.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, PlayerGameInput, EventListenerInterface, BasicEventHandler, BasicArrayList, GameKeyEvent;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DwnKyEvntHndlrBs-sttc-L16106.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 DownKeyEventHandlerBase-jcell-LISTENER_LABEL BINARY-DOUBLE EXTERNAL.
+01 DownKeyEventHandlerBase-jset-LISTENER_LABEL BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF DownKeyEventHandlerBase-jset-LISTENER_LABEL = 0
+        MOVE 1 TO DownKeyEventHandlerBase-jset-LISTENER_LABEL
+        COMPUTE DownKeyEventHandlerBase-jcell-LISTENER_LABEL = FUNCTION JR-STR(" PlayerGameInput Listener: ")
+    END-IF
+    MOVE DownKeyEventHandlerBase-jcell-LISTENER_LABEL TO J-RESULT
+    GOBACK.
+END FUNCTION DwnKyEvntHndlrBs-sttc-L16106.
 
-type
-  {AB:TYPES}
-  TDownKeyEventHandlerBase = class(TBasicEventHandler)
-  public
-    list: TBasicArrayList;
-    class var TOTAL_LISTENERS: string;
-    class var LISTENER_LABEL: string;
-    procedure InitFields;
-        constructor Create;
-        procedure addListener(playerGameInput_: TPlayerGameInput); virtual;
-        procedure removeAllListeners; override;
-        procedure removeListenerSingleThreaded(eventListenerInterface_: IEventListenerInterface); override;
-        procedure removeListener(eventListenerInterface_: IEventListenerInterface); override;
-        procedure fireEventI(eventObject: Integer); virtual;
-        procedure fireEventForGameKeyEvent(eventObject: TGameKeyEvent); virtual;
-        procedure processI(eventObject: Integer; eventListenerInterface_: IEventListenerInterface); virtual;
-        procedure processEvent(eventObject: TGameKeyEvent; eventListenerInterface_: IEventListenerInterface); virtual;
-        function toString: string; override;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DwnKyEvntHndlrBssttcS78693.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 DownKeyEventHandlerBase-jcell-LISTENER_LABEL BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION DwnKyEvntHndlrBs-sttc-L16106 TO J-RESULT
+    MOVE J-VALUE TO DownKeyEventHandlerBase-jcell-LISTENER_LABEL
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION DwnKyEvntHndlrBssttcS78693.
 
-implementation
-uses
-  DownKeyEventListenerInterface, StringMaker, EventStrings, BasicArrayListD;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DownKeyEventHandlerBase-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("DownKeyEventHandlerBase")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_list")
+    COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION DownKeyEventHandlerBase-new0.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DwnKyEvntHndlrBs-addListener1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-playerGameInput BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-playerGameInput RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (NOT (FUNCTION BasicArrayList-contains1(FUNCTION JR-GET(J-THIS, "f_list"), J-playerGameInput) = 1))
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), J-playerGameInput)
+        END-IF
+    GOBACK.
+END FUNCTION DwnKyEvntHndlrBs-addListener1.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DwnKyEvntHndlrBs-rmvAllLstnrs0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-clear0(FUNCTION JR-GET(J-THIS, "f_list"))
+        COMPUTE JDISCARD = FUNCTION BscEvntHndlr-rmvAllLstnrs0(J-THIS)
+    GOBACK.
+END FUNCTION DwnKyEvntHndlrBs-rmvAllLstnrs0.
 
-procedure TDownKeyEventHandlerBase.InitFields;
-begin
-  Self.list := TBasicArrayListD.Create();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DwnKyEvntHndlrBs-rmvLstnr32470.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventListenerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventListenerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-remove1(FUNCTION JR-GET(J-THIS, "f_list"), J-eventListenerInterface)
+        COMPUTE JDISCARD = FUNCTION BscEvntHndlr-rmvLstnrSngl78564(J-THIS, J-eventListenerInterface)
+    GOBACK.
+END FUNCTION DwnKyEvntHndlrBs-rmvLstnr32470.
 
-constructor TDownKeyEventHandlerBase.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DwnKyEvntHndlrBs-rmvLstnr1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventListenerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventListenerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-remove1(FUNCTION JR-GET(J-THIS, "f_list"), J-eventListenerInterface)
+        COMPUTE JDISCARD = FUNCTION BscEvntHndlr-removeListener1(J-THIS, J-eventListenerInterface)
+    GOBACK.
+END FUNCTION DwnKyEvntHndlrBs-rmvLstnr1.
 
-procedure TDownKeyEventHandlerBase.addListener(playerGameInput_: TPlayerGameInput);
-begin
-        if not (Self.list.contains(TJava.Box(playerGameInput_))) then begin
-            Self.list.add(TJava.Box(playerGameInput_));
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DwnKyEvntHndlrBs-fireEventI1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-playerGameInput BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-eventListenerInterface BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp2 = J-index
+        COMPUTE J-index = FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_list"))
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            MOVE 0 TO JFIRST1
+            IF NOT (jtemp2 >= 0) EXIT PERFORM END-IF
+            CONTINUE
+                COMPUTE J-playerGameInput = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_list"), "f_objectArray"), J-index)
+                COMPUTE JDISCARD = FUNCTION PlayerGameInput-onDownKey1(J-playerGameInput, J-eventObject)
+        END-PERFORM
+        COMPUTE J-index = 0
+        CONTINUE
+        PERFORM FOREVER
+            IF NOT (J-index < FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_eventListenerInterfaceList"))) EXIT PERFORM END-IF
+            CONTINUE
+                COMPUTE J-eventListenerInterface = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_eventListenerInterfaceList"))
+                COMPUTE JDISCARD = FUNCTION DwnKyEvntHndlrBs-processI2(J-THIS, J-eventObject, J-eventListenerInterface)
+            COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+        END-PERFORM
+    GOBACK.
+END FUNCTION DwnKyEvntHndlrBs-fireEventI1.
 
-procedure TDownKeyEventHandlerBase.removeAllListeners;
-begin
-        Self.list.clear();
-        inherited removeAllListeners();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DwnKyEvntHndlrBs-frEvntFr10370.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-size BINARY-DOUBLE.
+01 J-playerGameInput BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-eventListenerInterface BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_list"))
+        COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp5 = J-index
+        COMPUTE J-index = J-size
+        MOVE 1 TO JFIRST2
+        PERFORM FOREVER
+            MOVE 0 TO JFIRST2
+            IF NOT (jtemp5 >= 0) EXIT PERFORM END-IF
+            CONTINUE
+                COMPUTE J-playerGameInput = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_list"), "f_objectArray"), J-index)
+                COMPUTE JDISCARD = FUNCTION PlyrGmInpt-onDownKeyEvent1(J-playerGameInput, J-eventObject)
+        END-PERFORM
+        COMPUTE J-index = 0
+        CONTINUE
+        PERFORM FOREVER
+            IF NOT (J-index < FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_eventListenerInterfaceList"))) EXIT PERFORM END-IF
+            CONTINUE
+                COMPUTE J-eventListenerInterface = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_eventListenerInterfaceList"))
+                COMPUTE JDISCARD = FUNCTION DwnKyEvntHndlrBs-processEvent2(J-THIS, J-eventObject, J-eventListenerInterface)
+            COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+        END-PERFORM
+    GOBACK.
+END FUNCTION DwnKyEvntHndlrBs-frEvntFr10370.
 
-procedure TDownKeyEventHandlerBase.removeListenerSingleThreaded(eventListenerInterface_: IEventListenerInterface);
-begin
-        Self.list.remove(TJava.ToObject(eventListenerInterface_));
-        inherited removeListenerSingleThreaded(eventListenerInterface_);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DwnKyEvntHndlrBs-processI2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-downKeyEventListenerInterface BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-eventListenerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject J-eventListenerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-downKeyEventListenerInterface = J-eventListenerInterface
+        COMPUTE JDISCARD = FUNCTION DwnKyEvntLstnrIntrfc-onDwnKy1(J-downKeyEventListenerInterface, J-eventObject)
+    GOBACK.
+END FUNCTION DwnKyEvntHndlrBs-processI2.
 
-procedure TDownKeyEventHandlerBase.removeListener(eventListenerInterface_: IEventListenerInterface);
-begin
-    TJava.MonitorEnter(Self);
-    try
-        Self.list.remove(TJava.ToObject(eventListenerInterface_));
-        inherited removeListener(eventListenerInterface_);
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DwnKyEvntHndlrBs-processEvent2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-downKeyEventListenerInterface BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-eventListenerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject J-eventListenerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-downKeyEventListenerInterface = J-eventListenerInterface
+        COMPUTE JDISCARD = FUNCTION DwnKyEvntLstnrIntrfc-onDw65509(J-downKeyEventListenerInterface, J-eventObject)
+    GOBACK.
+END FUNCTION DwnKyEvntHndlrBs-processEvent2.
 
-// throws Exception
-procedure TDownKeyEventHandlerBase.fireEventI(eventObject: Integer);
-var
-  playerGameInput_: TPlayerGameInput;
-  index: Integer;
-  eventListenerInterface_: IEventListenerInterface;
-begin
-        index := Self.list.size();
-        while (TJava.PreDec(index)) >= (0) do begin
-            try
-                playerGameInput_ := TPlayerGameInput(TJava.ToObject(Self.list.objectArray[index]));
-                playerGameInput_.onDownKey(eventObject);
-            except
-                on e: SysUtils.Exception do begin
-                Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), TEventStrings.getInstance().FIRE_EVENT, TJava.Box(e));
-                end;
-            end;
-        end;
-        index := 0;
-        
-        while (index) < (Self.eventListenerInterfaceList.size()) do begin
-            try
-                eventListenerInterface_ := (TJava.ToObject(Self.eventListenerInterfaceList.get(index)) as IEventListenerInterface);
-                Self.processI(eventObject, eventListenerInterface_);
-            except
-                on e: SysUtils.Exception do begin
-                Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), TEventStrings.getInstance().FIRE_EVENT, TJava.Box(e));
-                end;
-            end;
-            Inc(index);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DwnKyEvntHndlrBs-toString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringBuffer BINARY-DOUBLE.
+01 J-eventListenerInterface BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 JFIRST3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION BasicEventHandler-toString0(J-THIS))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION DwnKyEvntHndlrBs-sttc-T96188)
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_list")))
+        CONTINUE
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST3
+        PERFORM FOREVER
+            IF JFIRST3 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST3
+            IF NOT (J-index < FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_list"))) EXIT PERFORM END-IF
+            CONTINUE
+                COMPUTE J-eventListenerInterface = FUNCTION BasicArrayList-get1(FUNCTION JR-GET(J-THIS, "f_list"), J-index)
+                COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION DwnKyEvntHndlrBs-sttc-L16106)
+                COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-TO-STRING(J-eventListenerInterface))
+        END-PERFORM
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(J-stringBuffer)
+        GOBACK
+    GOBACK.
+END FUNCTION DwnKyEvntHndlrBs-toString0.
 
-// throws Exception
-procedure TDownKeyEventHandlerBase.fireEventForGameKeyEvent(eventObject: TGameKeyEvent);
-var
-  size: Integer;
-  playerGameInput_: TPlayerGameInput;
-  index: Integer;
-  eventListenerInterface_: IEventListenerInterface;
-begin
-        size := Self.list.size();
-        index := size;
-        while (TJava.PreDec(index)) >= (0) do begin
-            try
-                playerGameInput_ := TPlayerGameInput(TJava.ToObject(Self.list.objectArray[index]));
-                playerGameInput_.onDownKeyEvent(eventObject);
-            except
-                on e: SysUtils.Exception do begin
-                Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), TEventStrings.getInstance().FIRE_EVENT, TJava.Box(e));
-                end;
-            end;
-        end;
-        index := 0;
-        
-        while (index) < (Self.eventListenerInterfaceList.size()) do begin
-            try
-                eventListenerInterface_ := (TJava.ToObject(Self.eventListenerInterfaceList.get(index)) as IEventListenerInterface);
-                Self.processEvent(eventObject, eventListenerInterface_);
-            except
-                on e: SysUtils.Exception do begin
-                Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), TEventStrings.getInstance().FIRE_EVENT, TJava.Box(e));
-                end;
-            end;
-            Inc(index);
-        end;
-end;
-    
-
-// throws Exception
-procedure TDownKeyEventHandlerBase.processI(eventObject: Integer; eventListenerInterface_: IEventListenerInterface);
-var
-  downKeyEventListenerInterface_: IDownKeyEventListenerInterface;
-begin
-        downKeyEventListenerInterface_ := (TJava.ToObject(eventListenerInterface_) as IDownKeyEventListenerInterface);
-        downKeyEventListenerInterface_.onDownKey(eventObject);
-end;
-    
-
-// throws Exception
-procedure TDownKeyEventHandlerBase.processEvent(eventObject: TGameKeyEvent; eventListenerInterface_: IEventListenerInterface);
-var
-  downKeyEventListenerInterface_: IDownKeyEventListenerInterface;
-begin
-        downKeyEventListenerInterface_ := (TJava.ToObject(eventListenerInterface_) as IDownKeyEventListenerInterface);
-        downKeyEventListenerInterface_.onDownKeyEvent(eventObject);
-end;
-    
-
-function TDownKeyEventHandlerBase.toString: string;
-var
-  stringBuffer: TStringMaker;
-  eventListenerInterface_: IEventListenerInterface;
-  index: Integer;
-begin
-        stringBuffer := TStringMaker.Create();
-        stringBuffer.append(inherited toString());
-        stringBuffer.append(TDownKeyEventHandlerBase.TOTAL_LISTENERS);
-        stringBuffer.appendint(Self.list.size());
-        
-        for index := 0 to Self.list.size() - 1 do begin
-            try
-                eventListenerInterface_ := (TJava.ToObject(Self.list.get(index)) as IEventListenerInterface);
-                stringBuffer.append(TDownKeyEventHandlerBase.LISTENER_LABEL);
-                stringBuffer.append(TJava.ToString(TJava.ToObject(eventListenerInterface_)));
-            except
-                on e: SysUtils.Exception do begin
-                Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.TOSTRING, TJava.Box(e));
-                end;
-            end;
-        end;
-        Exit(stringBuffer.toString());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TDownKeyEventHandlerBase.TOTAL_LISTENERS := ' Total PlayerGameInput Listeners: ';
-  TDownKeyEventHandlerBase.LISTENER_LABEL := ' PlayerGameInput Listener: ';
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+PROGRAM-ID. DownKeyEventHandlerBa-toString.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION DwnKyEvntHndlrBs-toString0(J-THIS)
+    GOBACK.
+END PROGRAM DownKeyEventHandlerBa-toString.
 

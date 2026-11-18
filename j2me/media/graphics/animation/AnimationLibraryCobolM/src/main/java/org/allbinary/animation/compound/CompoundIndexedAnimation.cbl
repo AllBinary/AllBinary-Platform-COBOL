@@ -1,213 +1,521 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.compound
+*> Java class CompoundIndexedAnimation
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.compound
-unit CompoundIndexedAnimation;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GL, Graphics, Animation, AnimationBehavior, IndexedAnimation, CircularIndexUtil, CompoundAnimationInterface, AnimationInterface, LocationPaintableInterface;
-
-type
-  {AB:TYPES}
-  TCompoundIndexedAnimation = class(TIndexedAnimation, ICompoundAnimationInterface, IAnimationInterface, ILocationPaintableInterface)
-  public
-    circularIndexUtil: TCircularIndexUtil;
-    animationInterfaceArray: TArray<TAnimation>;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(animationInterfaceArray: TArray<TAnimation>; animationBehavior_: TAnimationBehavior);
-        procedure setFrame(index: Integer); virtual;
-        function getFrame: Integer; virtual;
-        function getSize: Integer; virtual;
-        procedure previousFrame; virtual;
-        procedure setSequence(sequence: TArray<Integer>); virtual;
-        function getSequence: TArray<Integer>; virtual;
-        procedure nextFrame; virtual;
-        procedure paintXY(graphics_: TGraphics; x: Integer; y: Integer); virtual;
-        procedure paintThreedXYZ(graphics_: TGraphics; x: Integer; y: Integer; z: Integer); virtual;
-        function getCurrentAnimation: TIndexedAnimation; virtual;
-        procedure nextAnimation; virtual;
-        procedure previousAnimation; virtual;
-        procedure setAnimation(index: Integer); virtual;
-        function getAnimationInterfaceArray: TArray<TAnimation>; virtual;
-        procedure setAnimationInterfaceArray(animationInterfaceArray: TArray<TAnimation>); virtual;
-        procedure set_(gl_: IGL); virtual;
-  end;
-
-implementation
-uses
-  PrimitiveIntUtil;
-
-
-{AB:CODE}
-
-procedure TCompoundIndexedAnimation.InitFields;
-begin
-  
-  
-end;
-
-function TCompoundIndexedAnimation.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CompoundIndexedAnimation-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-animationInterfaceArray BINARY-DOUBLE.
+01 J-animationBehavior BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-animationInterfaceArray J-animationBehavior RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CompoundIndexedAnimation")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_circularIndexUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_animationInterfaceArray")
     
-
-constructor TCompoundIndexedAnimation.Create(animationInterfaceArray: TArray<TAnimation>; animationBehavior_: TAnimationBehavior);
-begin
-        inherited Create(animationBehavior_);
-        InitFields;
-        Self.animationInterfaceArray := animationInterfaceArray;
-        Self.circularIndexUtil := TCircularIndexUtil.createInstance(System.Length(Self.animationInterfaceArray));
-end;
     
+        CONTINUE
+        COMPUTE JVALUE = J-animationInterfaceArray
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animationInterfaceArray", JVALUE)
+        COMPUTE JVALUE = FUNCTION CrclrIndxUtl-createInstance1(FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_animationInterfaceArray")))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_circularIndexUtil", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CompoundIndexedAnimation-new2.
 
-procedure TCompoundIndexedAnimation.setFrame(index: Integer);
-var
-  indexedAnimation_: TIndexedAnimation;
-begin
-        indexedAnimation_ := TIndexedAnimation(TJava.ToObject(Self.animationInterfaceArray[Self.circularIndexUtil.getIndex()]));
-        indexedAnimation_.setFrame(index);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpndIndxdAnmtn-setFrame1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-indexedAnimation BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-index RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-indexedAnimation = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_animationInterfaceArray"), FUNCTION CircularIndexUtil-getIndex0(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil")))
+        COMPUTE JDISCARD = FUNCTION IndexedAnimation-setFrame1(J-indexedAnimation, J-index)
+    GOBACK.
+END FUNCTION CmpndIndxdAnmtn-setFrame1.
 
-function TCompoundIndexedAnimation.getFrame: Integer;
-var
-  indexedAnimation_: TIndexedAnimation;
-begin
-        indexedAnimation_ := TIndexedAnimation(TJava.ToObject(Self.animationInterfaceArray[Self.circularIndexUtil.getIndex()]));
-        Exit(indexedAnimation_.getFrame());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpndIndxdAnmtn-getFrame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-indexedAnimation BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-indexedAnimation = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_animationInterfaceArray"), FUNCTION CircularIndexUtil-getIndex0(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil")))
+        COMPUTE J-RESULT = FUNCTION IndexedAnimation-getFrame0(J-indexedAnimation)
+        GOBACK
+    GOBACK.
+END FUNCTION CmpndIndxdAnmtn-getFrame0.
 
-function TCompoundIndexedAnimation.getSize: Integer;
-var
-  indexedAnimation_: TIndexedAnimation;
-begin
-        indexedAnimation_ := TIndexedAnimation(TJava.ToObject(Self.animationInterfaceArray[Self.circularIndexUtil.getIndex()]));
-        Exit(indexedAnimation_.getSize());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpndIndxdAnmtn-getSize0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-indexedAnimation BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-indexedAnimation = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_animationInterfaceArray"), FUNCTION CircularIndexUtil-getIndex0(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil")))
+        COMPUTE J-RESULT = FUNCTION IndexedAnimation-getSize0(J-indexedAnimation)
+        GOBACK
+    GOBACK.
+END FUNCTION CmpndIndxdAnmtn-getSize0.
 
-procedure TCompoundIndexedAnimation.previousFrame;
-var
-  indexedAnimation_: TIndexedAnimation;
-begin
-        indexedAnimation_ := TIndexedAnimation(TJava.ToObject(Self.animationInterfaceArray[Self.circularIndexUtil.getIndex()]));
-        indexedAnimation_.previousFrame();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpndIndxdAnmtn-previousFrame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-indexedAnimation BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-indexedAnimation = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_animationInterfaceArray"), FUNCTION CircularIndexUtil-getIndex0(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil")))
+        COMPUTE JDISCARD = FUNCTION IndxdAnmtn-previousFrame0(J-indexedAnimation)
+    GOBACK.
+END FUNCTION CmpndIndxdAnmtn-previousFrame0.
 
-procedure TCompoundIndexedAnimation.setSequence(sequence: TArray<Integer>);
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpndIndxdAnmtn-setSequence1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-sequence BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-sequence RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION CmpndIndxdAnmtn-setSequence1.
 
-function TCompoundIndexedAnimation.getSequence: TArray<Integer>;
-begin
-        Exit(TPrimitiveIntUtil.getArrayInstance());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpndIndxdAnmtn-getSequence0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION PrmtvIntUtl-getArrayInstance0
+        GOBACK
+    GOBACK.
+END FUNCTION CmpndIndxdAnmtn-getSequence0.
 
-// throws Exception
-procedure TCompoundIndexedAnimation.nextFrame;
-begin
-        Self.animationInterfaceArray[Self.circularIndexUtil.getIndex()].nextFrame();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpndIndxdAnmtn-nextFrame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_animationInterfaceArray"), FUNCTION CircularIndexUtil-getIndex0(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil"))))
+    GOBACK.
+END FUNCTION CmpndIndxdAnmtn-nextFrame0.
 
-procedure TCompoundIndexedAnimation.paintXY(graphics_: TGraphics; x: Integer; y: Integer);
-begin
-        Self.animationInterfaceArray[Self.circularIndexUtil.getIndex()].paintXY(graphics_, x, y);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpndIndxdAnmtn-paintXY3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_animationInterfaceArray"), FUNCTION CircularIndexUtil-getIndex0(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil"))))
+    GOBACK.
+END FUNCTION CmpndIndxdAnmtn-paintXY3.
 
-procedure TCompoundIndexedAnimation.paintThreedXYZ(graphics_: TGraphics; x: Integer; y: Integer; z: Integer);
-begin
-        Self.animationInterfaceArray[Self.circularIndexUtil.getIndex()].paintThreedXYZ(graphics_, x, y, z);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpndIndxdAnmtn-pntThrdXYZ4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-z BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-x J-y J-z RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_animationInterfaceArray"), FUNCTION CircularIndexUtil-getIndex0(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil"))))
+    GOBACK.
+END FUNCTION CmpndIndxdAnmtn-pntThrdXYZ4.
 
-function TCompoundIndexedAnimation.getCurrentAnimation: TIndexedAnimation;
-begin
-        Exit(TIndexedAnimation(TJava.ToObject(Self.animationInterfaceArray[Self.circularIndexUtil.getIndex()])));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpndIndxdAnmtn-gtCrrntAnmtn0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_animationInterfaceArray"), FUNCTION CircularIndexUtil-getIndex0(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil")))
+        GOBACK
+    GOBACK.
+END FUNCTION CmpndIndxdAnmtn-gtCrrntAnmtn0.
 
-procedure TCompoundIndexedAnimation.nextAnimation;
-var
-  frame: Integer;
-begin
-        frame := Self.getFrame();
-        Self.circularIndexUtil.next();
-        Self.setFrame(frame);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpndIndxdAnmtn-nextAnimation0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-frame BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-frame = FUNCTION CmpndIndxdAnmtn-getFrame0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION CircularIndexUtil-next0(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil"))
+        COMPUTE JDISCARD = FUNCTION CmpndIndxdAnmtn-setFrame1(J-THIS, J-frame)
+    GOBACK.
+END FUNCTION CmpndIndxdAnmtn-nextAnimation0.
 
-procedure TCompoundIndexedAnimation.previousAnimation;
-var
-  frame: Integer;
-begin
-        frame := Self.getFrame();
-        Self.circularIndexUtil.previous();
-        Self.setFrame(frame);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpndIndxdAnmtn-prvsAnmtn0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-frame BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-frame = FUNCTION CmpndIndxdAnmtn-getFrame0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION CircularIndexUtil-previous0(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil"))
+        COMPUTE JDISCARD = FUNCTION CmpndIndxdAnmtn-setFrame1(J-THIS, J-frame)
+    GOBACK.
+END FUNCTION CmpndIndxdAnmtn-prvsAnmtn0.
 
-procedure TCompoundIndexedAnimation.setAnimation(index: Integer);
-var
-  frame: Integer;
-begin
-        frame := Self.getFrame();
-        Self.circularIndexUtil.setIndex(index);
-        Self.setFrame(frame);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpndIndxdAnmtn-setAnimation1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-frame BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-index RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-frame = FUNCTION CmpndIndxdAnmtn-getFrame0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION CircularIndexUtil-setIndex1(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil"), J-index)
+        COMPUTE JDISCARD = FUNCTION CmpndIndxdAnmtn-setFrame1(J-THIS, J-frame)
+    GOBACK.
+END FUNCTION CmpndIndxdAnmtn-setAnimation1.
 
-function TCompoundIndexedAnimation.getAnimationInterfaceArray: TArray<TAnimation>;
-begin
-        Exit(Self.animationInterfaceArray);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpndIndxdAnmtn-gtAnmtnIn28878.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_animationInterfaceArray")
+        GOBACK
+    GOBACK.
+END FUNCTION CmpndIndxdAnmtn-gtAnmtnIn28878.
 
-procedure TCompoundIndexedAnimation.setAnimationInterfaceArray(animationInterfaceArray: TArray<TAnimation>);
-begin
-        Self.animationInterfaceArray := animationInterfaceArray;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpndIndxdAnmtn-stAnmtnIn23587.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-animationInterfaceArray BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-animationInterfaceArray RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-animationInterfaceArray
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animationInterfaceArray", JVALUE)
+    GOBACK.
+END FUNCTION CmpndIndxdAnmtn-stAnmtnIn23587.
 
-// throws Exception
-procedure TCompoundIndexedAnimation.set_(gl_: IGL);
-var
-  index: Integer;
-begin
-        index := System.Length(Self.animationInterfaceArray);
-        while (TJava.PreDec(index)) >= (0) do begin
-            Self.animationInterfaceArray[index].set_(gl_);
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CompoundIndexedAnimation-set1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-index BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gl BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gl RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp1 = J-index
+        COMPUTE J-index = FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_animationInterfaceArray"))
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            MOVE 0 TO JFIRST1
+            IF NOT (jtemp1 >= 0) EXIT PERFORM END-IF
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_animationInterfaceArray"), J-index))
+        END-PERFORM
+    GOBACK.
+END FUNCTION CompoundIndexedAnimation-set1.
 

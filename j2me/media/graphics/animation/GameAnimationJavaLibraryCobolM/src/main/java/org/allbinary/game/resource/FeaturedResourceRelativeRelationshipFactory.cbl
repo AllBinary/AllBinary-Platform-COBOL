@@ -1,116 +1,229 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.resource
+*> Java class FeaturedResourceRelativeRelationshipFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.resource
-unit FeaturedResourceRelativeRelationshipFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FtrdRsrcRltvRltnshpFctr-33342.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 FeaturedResourceRelativeRelationshipFactory-jcell-INSTANCE BINARY-DOUBLE EXTERNAL.
+01 FeaturedResourceRelativeRelationshipFactory-jset-INSTANCE BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF FeaturedResourceRelativeRelationshipFactory-jset-INSTANCE = 0
+        MOVE 1 TO FeaturedResourceRelativeRelationshipFactory-jset-INSTANCE
+        COMPUTE FeaturedResourceRelativeRelationshipFactory-jcell-INSTANCE = FUNCTION FtrdRsrcRltvRltnshpFctry-new0
+    END-IF
+    MOVE FeaturedResourceRelativeRelationshipFactory-jcell-INSTANCE TO J-RESULT
+    GOBACK.
+END FUNCTION FtrdRsrcRltvRltnshpFctr-33342.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FtrdRsrcRltvRltnshpFS73541.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 FeaturedResourceRelativeRelationshipFactory-jcell-INSTANCE BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION FtrdRsrcRltvRltnshpFctr-33342 TO J-RESULT
+    MOVE J-VALUE TO FeaturedResourceRelativeRelationshipFactory-jcell-INSTANCE
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION FtrdRsrcRltvRltnshpFS73541.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FtrdRsrcRltvRltnshpFctry-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("FeaturedResourceRelativeRelationshipFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_basicArrayListUtil")
+    COMPUTE JVALUE = FUNCTION BscArryLstUtl-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicArrayListUtil", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION FtrdRsrcRltvRltnshpFctry-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AllBinaryLayer, BasicArrayList, BasicArrayListUtil, FeaturedResourceFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FtrdRsrcRltvRltnshpFctr-94721.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION FtrdRsrcRltvRltnshpFctr-33342
+        GOBACK
+    GOBACK.
+END FUNCTION FtrdRsrcRltvRltnshpFctr-94721.
 
-type
-  {AB:TYPES}
-  TFeaturedResourceRelativeRelationshipFactory = class(TFeaturedResourceFactory)
-  public
-    basicArrayListUtil: TBasicArrayListUtil;
-    class var INSTANCE: TFeaturedResourceRelativeRelationshipFactory;
-    procedure InitFields;
-        constructor Create;
-        class function getInstance: TFeaturedResourceRelativeRelationshipFactory; static;
-        function getRelativeRelationshipList(resource: string; layer: TAllBinaryLayer): TBasicArrayList; virtual;
-        function duplicate(list: TBasicArrayList; layer: TAllBinaryLayer): TBasicArrayList;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FtrdRsrcRltvRltnshpFctr-21960.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-featureReleaseList BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-featureInterface BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-resource BINARY-DOUBLE.
+01 J-layer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-resource J-layer RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-featureReleaseList = FUNCTION FtrdRsrcFctry-getList0(J-THIS)
+        COMPUTE jtemp1 = FUNCTION FtrdRsrcFctry-getList0(J-THIS)
+        COMPUTE J-size = FUNCTION JR-CLASS-NAME(jtemp1)
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-featureInterface = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-featureReleaseList, "f_objectArray"), J-index)
+            IF (FUNCTION RsrcRltvRltnshpFctryInt-41163(J-featureInterface) = 1)
+                COMPUTE J-list = FUNCTION RsrcRltvRltnshpFctryInt-12237(J-featureInterface, J-resource)
+                IF (J-list NOT = FUNCTION BscArryLstUtl-gtImmtblInstnc0(FUNCTION JR-GET(J-THIS, "f_basicArrayListUtil")))
+                    COMPUTE J-RESULT = FUNCTION FtrdRsrcRltvRltnshpFctr-87969(J-THIS, J-list, J-layer)
+                    GOBACK
+                END-IF
+            END-IF
+        END-PERFORM
+        COMPUTE jtemp4 = FUNCTION StringMaker-new0
+        COMPUTE jtemp3 = FUNCTION StringMaker-append1(jtemp4, FUNCTION JR-STR("Not available for current feature selection or Resource: "))
+        COMPUTE jtemp2 = FUNCTION StringMaker-append1(jtemp3, J-resource)
+        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+    GOBACK.
+END FUNCTION FtrdRsrcRltvRltnshpFctr-21960.
 
-implementation
-uses
-  ResourceRelativeRelationshipFactoryInterface, PointFactory, RelativeRelationship, RelativeLayerRelationship, StringMaker, BasicArrayListD;
-
-
-{AB:CODE}
-
-procedure TFeaturedResourceRelativeRelationshipFactory.InitFields;
-begin
-  Self.basicArrayListUtil := TBasicArrayListUtil.getInstance();
-end;
-    
-
-constructor TFeaturedResourceRelativeRelationshipFactory.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
-
-class function TFeaturedResourceRelativeRelationshipFactory.getInstance: TFeaturedResourceRelativeRelationshipFactory;
-begin
-        Exit(TFeaturedResourceRelativeRelationshipFactory.INSTANCE);
-end;
-    
-
-// throws Exception
-function TFeaturedResourceRelativeRelationshipFactory.getRelativeRelationshipList(resource: string; layer: TAllBinaryLayer): TBasicArrayList;
-var
-  featureReleaseList: TBasicArrayList;
-  size: Integer;
-  featureInterface: IResourceRelativeRelationshipFactoryInterface;
-  list: TBasicArrayList;
-  index: Integer;
-begin
-        featureReleaseList := Self.getList();
-        size := Self.getList().size();
-        for index := 0 to size - 1 do begin
-            featureInterface := (TJava.ToObject(featureReleaseList.objectArray[index]) as IResourceRelativeRelationshipFactoryInterface);
-            if featureInterface.isFeature() then begin
-                list := featureInterface.getResourceRelativeRelationshipList(resource);
-                if (list) <> (Self.basicArrayListUtil.getImmutableInstance()) then begin
-                    Exit(Self.duplicate(list, layer));
-                end;
-            end;
-        end;
-        raise SysUtils.Exception.Create(TStringMaker.Create().append('Not available for current feature selection or Resource: ').append(resource).toString());
-end;
-    
-
-// throws Exception
-function TFeaturedResourceRelativeRelationshipFactory.duplicate(list: TBasicArrayList; layer: TAllBinaryLayer): TBasicArrayList;
-var
-  pointFactory_: TPointFactory;
-  newList: TBasicArrayList;
-  size: Integer;
-  relativeRelationship_: TRelativeRelationship;
-  index: Integer;
-begin
-        pointFactory_ := TPointFactory.getInstance();
-        newList := TBasicArrayListD.Create();
-        size := list.size();
-        for index := 0 to size - 1 do begin
-            relativeRelationship_ := TRelativeRelationship(TJava.ToObject(list.objectArray[index]));
-            newList.add(TJava.Box(TRelativeLayerRelationship.Create(layer, pointFactory_.createXY(relativeRelationship_.getX(), relativeRelationship_.getY()), TBasicArrayListUtil.getInstance().getImmutableInstance())));
-        end;
-        Exit(newList);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TFeaturedResourceRelativeRelationshipFactory.INSTANCE := TFeaturedResourceRelativeRelationshipFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FtrdRsrcRltvRltnshpFctr-87969.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-pointFactory BINARY-DOUBLE.
+01 J-newList BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-relativeRelationship BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-layer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-list J-layer RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-pointFactory = FUNCTION PointFactory-getInstance0
+        COMPUTE J-newList = FUNCTION BasicArrayListD-new0
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(J-list)
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST2
+        PERFORM FOREVER
+            IF JFIRST2 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST2
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-relativeRelationship = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
+            COMPUTE jtemp5 = FUNCTION BscArryLstUtl-getInstance0
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-newList, FUNCTION RelativeLayerRelationship-new3(J-layer, FUNCTION PointFactory-createXY2(J-pointFactory, FUNCTION RelativeRelationship-getX0(J-relativeRelationship), FUNCTION
+        RelativeRelationship-getY0(J-relativeRelationship)), FUNCTION BscArryLstUtl-gtImmtblInstnc0(jtemp5)))
+        END-PERFORM
+        COMPUTE J-RESULT = J-newList
+        GOBACK
+    GOBACK.
+END FUNCTION FtrdRsrcRltvRltnshpFctr-87969.
 

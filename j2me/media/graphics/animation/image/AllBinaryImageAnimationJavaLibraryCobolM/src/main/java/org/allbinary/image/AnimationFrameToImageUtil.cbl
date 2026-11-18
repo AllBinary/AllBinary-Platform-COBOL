@@ -1,95 +1,212 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.image
+*> Java class AnimationFrameToImageUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.image
-unit AnimationFrameToImageUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnmtnFrmTImgUtl-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AnimationFrameToImageUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 AnimationFrameToImageUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF AnimationFrameToImageUtil-jset-instance = 0
+        MOVE 1 TO AnimationFrameToImageUtil-jset-instance
+        COMPUTE AnimationFrameToImageUtil-jcell-instance = FUNCTION AnimationFrameToImageUtil-new0
+    END-IF
+    MOVE AnimationFrameToImageUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION AnmtnFrmTImgUtl-sttc-nstnc.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnmtnFrmTImgUtlsttcnS84761.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AnimationFrameToImageUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION AnmtnFrmTImgUtl-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO AnimationFrameToImageUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION AnmtnFrmTImgUtlsttcnS84761.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnimationFrameToImageUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("AnimationFrameToImageUtil")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION AnimationFrameToImageUtil-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Image, Animation;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnmtnFrmTImgUtl-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION AnmtnFrmTImgUtl-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION AnmtnFrmTImgUtl-getInstance0.
 
-type
-  {AB:TYPES}
-  TAnimationFrameToImageUtil = class(TObject)
-  public
-    class var instance: TAnimationFrameToImageUtil;
-    constructor Create;
-        class function getInstance: TAnimationFrameToImageUtil; static;
-        function getInstanceTranslate(width: Integer; height: Integer; animationInterface: TAnimation): TImage; virtual;
-        function getInstanceWH(width: Integer; height: Integer; animationInterface: TAnimation): TImage; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnmtnFrmTImgUtl-gtInstncT54998.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-image BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-tranlateX BINARY-DOUBLE.
+01 J-tranlateY BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-animationInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-width J-height J-animationInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION JR-CLASS-NAME(FUNCTION AnmtnFrmTImgUtl-sttc-nstnc)
+        COMPUTE jtemp3 = (FUNCTION JR-SHIFT(JFIVE, ((FUNCTION MOD((J-width * 3) + 2147483648, 4294967296) - 2147483648)), 1))
+        COMPUTE jtemp4 = (FUNCTION JR-SHIFT(JFIVE, ((FUNCTION MOD((J-height * 3) + 2147483648, 4294967296) - 2147483648)), 1))
+        COMPUTE jtemp1 = FUNCTION GmFtrImgCchFctry-getInstance0
+        COMPUTE J-image = FUNCTION GmFtrImgCchFctry-get3(jtemp1, jtemp2, jtemp3, jtemp4)
+        COMPUTE J-graphics = FUNCTION Image-getGraphics0(J-image)
+        COMPUTE J-tranlateX = (FUNCTION JR-SHIFT(JFIVE, J-width, 2))
+        COMPUTE J-tranlateY = (FUNCTION JR-SHIFT(JFIVE, J-height, 2))
+        COMPUTE JDISCARD = FUNCTION Graphics-translate2(J-graphics, J-tranlateX, J-tranlateY)
+        COMPUTE jtemp5 = 0
+        COMPUTE jtemp6 = 0
+        COMPUTE JDISCARD = FUNCTION Animation-paintXY3(J-animationInterface, J-graphics, jtemp5, jtemp6)
+        COMPUTE jtemp7 = (0 - J-tranlateX)
+        COMPUTE jtemp8 = (0 - J-tranlateY)
+        COMPUTE JDISCARD = FUNCTION Graphics-translate2(J-graphics, jtemp7, jtemp8)
+        COMPUTE J-RESULT = J-image
+        GOBACK
+    GOBACK.
+END FUNCTION AnmtnFrmTImgUtl-gtInstncT54998.
 
-implementation
-uses
-  GameFeatureImageCacheFactory, Graphics;
-
-
-{AB:CODE}
-
-constructor TAnimationFrameToImageUtil.Create;
-begin
-  inherited Create;
-end;
-    
-
-class function TAnimationFrameToImageUtil.getInstance: TAnimationFrameToImageUtil;
-begin
-        Exit(TAnimationFrameToImageUtil.instance);
-end;
-    
-
-// throws Exception
-function TAnimationFrameToImageUtil.getInstanceTranslate(width: Integer; height: Integer; animationInterface: TAnimation): TImage;
-var
-  image_: TImage;
-  graphics_: TGraphics;
-  tranlateX: Integer;
-  tranlateY: Integer;
-begin
-        image_ := TGameFeatureImageCacheFactory.getInstance().get(TJava.ToObject(TAnimationFrameToImageUtil.instance).ClassType.ClassName, (TJava.SignedRightShift(((width) * (3)), 1)), (TJava.SignedRightShift(((height) * (3)), 1)));
-        graphics_ := image_.getGraphics();
-        tranlateX := (TJava.SignedRightShift(width, 2));
-        tranlateY := (TJava.SignedRightShift(height, 2));
-        graphics_.translate(tranlateX, tranlateY);
-        animationInterface.paintXY(graphics_, 0, 0);
-        graphics_.translate(-tranlateX, -tranlateY);
-        Exit(image_);
-end;
-    
-
-// throws Exception
-function TAnimationFrameToImageUtil.getInstanceWH(width: Integer; height: Integer; animationInterface: TAnimation): TImage;
-var
-  image_: TImage;
-  graphics_: TGraphics;
-begin
-        image_ := TGameFeatureImageCacheFactory.getInstance().get(TJava.ToObject(TAnimationFrameToImageUtil.instance).ClassType.ClassName, width, height);
-        graphics_ := image_.getGraphics();
-        animationInterface.paintXY(graphics_, 0, 0);
-        Exit(image_);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TAnimationFrameToImageUtil.instance := TAnimationFrameToImageUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnmtnFrmTImgUtl-getInstanceWH3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-image BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-animationInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-width J-height J-animationInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp10 = FUNCTION JR-CLASS-NAME(FUNCTION AnmtnFrmTImgUtl-sttc-nstnc)
+        COMPUTE jtemp9 = FUNCTION GmFtrImgCchFctry-getInstance0
+        COMPUTE J-image = FUNCTION GmFtrImgCchFctry-get3(jtemp9, jtemp10, J-width, J-height)
+        COMPUTE J-graphics = FUNCTION Image-getGraphics0(J-image)
+        COMPUTE jtemp11 = 0
+        COMPUTE jtemp12 = 0
+        COMPUTE JDISCARD = FUNCTION Animation-paintXY3(J-animationInterface, J-graphics, jtemp11, jtemp12)
+        COMPUTE J-RESULT = J-image
+        GOBACK
+    GOBACK.
+END FUNCTION AnmtnFrmTImgUtl-getInstanceWH3.
 

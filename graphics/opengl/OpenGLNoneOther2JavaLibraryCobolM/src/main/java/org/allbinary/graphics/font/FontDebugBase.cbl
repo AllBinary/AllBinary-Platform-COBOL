@@ -1,71 +1,204 @@
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.font
-unit FontDebugBase;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.font
+*> Java class FontDebugBase
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FntDbgBs-static-instanceBase.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 FontDebugBase-jcell-instanceBase BINARY-DOUBLE EXTERNAL.
+01 FontDebugBase-jset-instanceBase BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF FontDebugBase-jset-instanceBase = 0
+        MOVE 1 TO FontDebugBase-jset-instanceBase
+        COMPUTE FontDebugBase-jcell-instanceBase = FUNCTION FontDebugBase-new0
+    END-IF
+    MOVE FontDebugBase-jcell-instanceBase TO J-RESULT
+    GOBACK.
+END FUNCTION FntDbgBs-static-instanceBase.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FntDbgBsstaticinstanS18576.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 FontDebugBase-jcell-instanceBase BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION FntDbgBs-static-instanceBase TO J-RESULT
+    MOVE J-VALUE TO FontDebugBase-jcell-instanceBase
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION FntDbgBsstaticinstanS18576.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Font, StringMaker;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FontDebugBase-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("FontDebugBase")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SET_FONT")
+    COMPUTE JVALUE = FUNCTION JR-STR("setFont")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SET_FONT", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION FontDebugBase-new0.
 
-type
-  {AB:TYPES}
-  // OpenGLNoneOther2JavaLibrary
-  TFontDebugBase = class(TObject)
-  public
-    SET_FONT: string;
-    class var instanceBase: TFontDebugBase;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TFontDebugBase; static;
-        procedure debugMetrics(currentFont: TFont; convertedTextSize: Single; displayMetrics: TObject; stringBuffer: TStringMaker); virtual;
-        procedure debugDpi(densityDpi: Integer; stringBuffer: TStringMaker); virtual;
-        procedure debugDimension(currentFont: TFont; convertedTextSize: Single; longestDimensionTotalPixels: Integer; stringBuffer: TStringMaker); virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FontDebugBase-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION FntDbgBs-static-instanceBase
+        GOBACK
+    GOBACK.
+END FUNCTION FontDebugBase-getInstance0.
 
-implementation
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FontDebugBase-debugMetrics4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-currentFont BINARY-DOUBLE.
+01 J-convertedTextSize COMP-2.
+01 J-displayMetrics BINARY-DOUBLE.
+01 J-stringBuffer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-currentFont J-convertedTextSize J-displayMetrics J-stringBuffer RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION FontDebugBase-debugMetrics4.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FontDebugBase-debugDpi2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-densityDpi BINARY-DOUBLE.
+01 J-stringBuffer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-densityDpi J-stringBuffer RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION FontDebugBase-debugDpi2.
 
-procedure TFontDebugBase.InitFields;
-begin
-  Self.SET_FONT := 'setFont';
-end;
-
-constructor TFontDebugBase.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TFontDebugBase.getInstance: TFontDebugBase;
-begin
-        Exit(TFontDebugBase.instanceBase);
-end;
-    
-
-procedure TFontDebugBase.debugMetrics(currentFont: TFont; convertedTextSize: Single; displayMetrics: TObject; stringBuffer: TStringMaker);
-begin
-end;
-    
-
-procedure TFontDebugBase.debugDpi(densityDpi: Integer; stringBuffer: TStringMaker);
-begin
-end;
-    
-
-procedure TFontDebugBase.debugDimension(currentFont: TFont; convertedTextSize: Single; longestDimensionTotalPixels: Integer; stringBuffer: TStringMaker);
-begin
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TFontDebugBase.instanceBase := TFontDebugBase.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FontDebugBase-debugDimension4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-currentFont BINARY-DOUBLE.
+01 J-convertedTextSize COMP-2.
+01 J-longestDimensionTotalPixels BINARY-DOUBLE.
+01 J-stringBuffer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-currentFont J-convertedTextSize J-longestDimensionTotalPixels J-stringBuffer RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION FontDebugBase-debugDimension4.
 

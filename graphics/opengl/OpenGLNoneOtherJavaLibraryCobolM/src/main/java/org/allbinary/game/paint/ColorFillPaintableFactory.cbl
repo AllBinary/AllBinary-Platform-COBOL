@@ -1,75 +1,149 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.paint
+*> Java class ColorFillPaintableFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.paint
-unit ColorFillPaintableFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClrFllPntblFctry-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ColorFillPaintableFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 ColorFillPaintableFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF ColorFillPaintableFactory-jset-instance = 0
+        MOVE 1 TO ColorFillPaintableFactory-jset-instance
+        COMPUTE ColorFillPaintableFactory-jcell-instance = FUNCTION ColorFillPaintableFactory-new0
+    END-IF
+    MOVE ColorFillPaintableFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION ClrFllPntblFctry-sttc-nstnc.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClrFllPntblFctrysttcS59315.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ColorFillPaintableFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION ClrFllPntblFctry-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO ColorFillPaintableFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION ClrFllPntblFctrysttcS59315.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ColorFillPaintableFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ColorFillPaintableFactory")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ColorFillPaintableFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, BasicColor, ColorFillBasePaintable;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClrFllPntblFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION ClrFllPntblFctry-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION ClrFllPntblFctry-getInstance0.
 
-type
-  {AB:TYPES}
-  TColorFillPaintableFactory = class(TObject)
-  public
-    class var instance: TColorFillPaintableFactory;
-    constructor Create;
-        class function getInstance: TColorFillPaintableFactory; overload; static;
-        function getInstance(basicColor_: TBasicColor; forThreedCanvas: Boolean): TColorFillBasePaintable; overload; virtual;
-  end;
-
-implementation
-uses
-  ColorFillPaintable, OverScanColorFillPaintable, GenericOperatingSystem, OperatingSystemFactory;
-
-
-{AB:CODE}
-
-constructor TColorFillPaintableFactory.Create;
-begin
-  inherited Create;
-end;
-    
-
-class function TColorFillPaintableFactory.getInstance: TColorFillPaintableFactory;
-begin
-        Exit(TColorFillPaintableFactory.instance);
-end;
-    
-
-function TColorFillPaintableFactory.getInstance(basicColor_: TBasicColor; forThreedCanvas: Boolean): TColorFillBasePaintable;
-var
-  operatingSystem: TGenericOperatingSystem;
-begin
-        operatingSystem := TOperatingSystemFactory.getInstance().getOperatingSystemInstance();
-        if operatingSystem.isOverScan() then begin
-            Exit(TOverScanColorFillPaintable.Create(basicColor_));
-        end else begin
-            Exit(TColorFillPaintable.Create(basicColor_));
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TColorFillPaintableFactory.instance := TColorFillPaintableFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClrFllPntblFctry-getInstance2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-operatingSystem BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-forThreedCanvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-basicColor J-forThreedCanvas RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = FUNCTION OprtngSystmFctry-getInstance0
+        COMPUTE J-operatingSystem = FUNCTION OprtngSystmFctry-gtOprtng62787(jtemp1)
+        IF (FUNCTION GnrcOprtngSystm-isOverScan0(J-operatingSystem) = 1)
+            COMPUTE J-RESULT = FUNCTION OvrScnClrFllPntbl-new1(J-basicColor)
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = FUNCTION ColorFillPaintable-new1(J-basicColor)
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION ClrFllPntblFctry-getInstance2.
 

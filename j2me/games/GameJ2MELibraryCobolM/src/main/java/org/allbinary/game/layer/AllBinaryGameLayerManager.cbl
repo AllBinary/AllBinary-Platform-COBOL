@@ -1,176 +1,536 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.layer
+*> Java class AllBinaryGameLayerManager
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.layer
-unit AllBinaryGameLayerManager;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryGmLyrMngr-sttc46450.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AllBinaryGameLayerManager-jcell-NULL_ALLBINARY_LAYER_MANAGER BINARY-DOUBLE EXTERNAL.
+01 AllBinaryGameLayerManager-jset-NULL_ALLBINARY_LAYER_MANAGER BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF AllBinaryGameLayerManager-jset-NULL_ALLBINARY_LAYER_MANAGER = 0
+        MOVE 1 TO AllBinaryGameLayerManager-jset-NULL_ALLBINARY_LAYER_MANAGER
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE AllBinaryGameLayerManager-jcell-NULL_ALLBINARY_LAYER_MANAGER = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+    END-IF
+    MOVE AllBinaryGameLayerManager-jcell-NULL_ALLBINARY_LAYER_MANAGER TO J-RESULT
+    GOBACK.
+END FUNCTION AllBnryGmLyrMngr-sttc46450.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryGmLyrMngrsttcS92904.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AllBinaryGameLayerManager-jcell-NULL_ALLBINARY_LAYER_MANAGER BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION AllBnryGmLyrMngr-sttc46450 TO J-RESULT
+    MOVE J-VALUE TO AllBinaryGameLayerManager-jcell-NULL_ALLBINARY_LAYER_MANAGER
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION AllBnryGmLyrMngrsttcS92904.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryGmLyrMngr-static-ID.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AllBinaryGameLayerManager-jcell-ID BINARY-DOUBLE EXTERNAL.
+01 AllBinaryGameLayerManager-jset-ID BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF AllBinaryGameLayerManager-jset-ID = 0
+        MOVE 1 TO AllBinaryGameLayerManager-jset-ID
+        COMPUTE jtemp6 = 22
+    COMPUTE jtemp5 = FUNCTION SmllIntgrSngltnFctry-gtInstnc0
+    COMPUTE AllBinaryGameLayerManager-jcell-ID = FUNCTION SmllIntgrSngltnFctry-getAt1(jtemp5, jtemp6)
+    END-IF
+    MOVE AllBinaryGameLayerManager-jcell-ID TO J-RESULT
+    GOBACK.
+END FUNCTION AllBnryGmLyrMngr-static-ID.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameInfo, PlayerGameInputCompositeInterface, BasicColor, AllBinaryLayerManager, BasicArrayList;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryGmLyrMngrstatS83130.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AllBinaryGameLayerManager-jcell-ID BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION AllBnryGmLyrMngr-static-ID TO J-RESULT
+    MOVE J-VALUE TO AllBinaryGameLayerManager-jcell-ID
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION AllBnryGmLyrMngrstatS83130.
 
-type
-  {AB:TYPES}
-  TAllBinaryGameLayerManager = class(TAllBinaryLayerManager)
-  public
-    backgroundBasicColor: TBasicColor;
-    foregroundBasicColor: TBasicColor;
-    gameInfo: TGameInfo;
-    playerGameInputCompositeInterface: IPlayerGameInputCompositeInterface;
-    class var NULL_ALLBINARY_LAYER_MANAGER: TObject;
-    class var ID: Integer;
-    procedure InitFields;
-        class function getNullInstance: TAllBinaryGameLayerManager; static;
-        constructor Create(backgroundBasicColor: TBasicColor; foregroundBasicColor: TBasicColor; gameInfo_: TGameInfo);
-        function getLayerManager: TAllBinaryLayerManager; virtual;
-        procedure init; virtual;
-        function getBackgroundBasicColor: TBasicColor; virtual;
-        procedure setBackgroundBasicColor(backgroundBasicColor: TBasicColor); virtual;
-        function getForegroundBasicColor: TBasicColor; virtual;
-        procedure setForegroundBasicColor(foregroundBasicColor: TBasicColor); virtual;
-        function getGameInfo: TGameInfo; virtual;
-        procedure setGameInfo(gameInfo_: TGameInfo); virtual;
-        procedure setLayerProcessorList(list: TBasicArrayList); virtual;
-        procedure setPlayerGameInputCompositeInterface(playerGameInputCompositeInterface_: IPlayerGameInputCompositeInterface); virtual;
-        function getPlayerGameInputCompositeInterface: IPlayerGameInputCompositeInterface; virtual;
-  end;
-
-implementation
-uses
-  NullPlayerGameInputComposite, ItemColorFactory, BasicColorFactory, LayerProcessor, NullUtil, SmallIntegerSingletonFactory;
-
-
-{AB:CODE}
-
-procedure TAllBinaryGameLayerManager.InitFields;
-begin
-  
-  
-  
-  Self.playerGameInputCompositeInterface := TNullPlayerGameInputComposite.NULL_PLAYER_GAME_INPUT_COMPOSITE;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBinaryGameLayerManager-new3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-itemColorFactory BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-backgroundBasicColor BINARY-DOUBLE.
+01 J-foregroundBasicColor BINARY-DOUBLE.
+01 J-gameInfo BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-backgroundBasicColor J-foregroundBasicColor J-gameInfo RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("AllBinaryGameLayerManager")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_backgroundBasicColor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_foregroundBasicColor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameInfo")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_playerGameInputCompositeInterface")
     
-
-class function TAllBinaryGameLayerManager.getNullInstance: TAllBinaryGameLayerManager;
-begin
-        if (TAllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER) = (TNullUtil.getInstance().NULL_OBJECT) then begin
-            TAllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER := TAllBinaryGameLayerManager.Create(TBasicColorFactory.getInstance().BLACK, TBasicColorFactory.getInstance().WHITE, TGameInfo.NONE);
-        end;
-        Exit(TAllBinaryGameLayerManager(TJava.ToObject(TAllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER)));
-end;
     
-
-constructor TAllBinaryGameLayerManager.Create(backgroundBasicColor: TBasicColor; foregroundBasicColor: TBasicColor; gameInfo_: TGameInfo);
-var
-  itemColorFactory_: TItemColorFactory;
-begin
-    inherited Create;
-    InitFields;
-        Self.backgroundBasicColor := backgroundBasicColor;
-        Self.foregroundBasicColor := foregroundBasicColor;
-        itemColorFactory_ := TItemColorFactory.getInstance();
-        itemColorFactory_.INVERT_PAINT := Self.backgroundBasicColor.intValue();
-        itemColorFactory_.PAINT := Self.foregroundBasicColor.intValue();
-        Self.gameInfo := gameInfo_;
-end;
     
+    COMPUTE JVALUE = FUNCTION NllPlyrGmInptCmpst-s70216
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_playerGameInputCompositeInterface", JVALUE)
+        COMPUTE JVALUE = J-backgroundBasicColor
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_backgroundBasicColor", JVALUE)
+        COMPUTE JVALUE = J-foregroundBasicColor
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_foregroundBasicColor", JVALUE)
+        COMPUTE J-itemColorFactory = FUNCTION ItemColorFactory-getInstance0
+        COMPUTE JVALUE = FUNCTION BasicColor-intValue0(FUNCTION JR-GET(J-THIS, "f_backgroundBasicColor"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-itemColorFactory, "f_INVERT_PAINT", JVALUE)
+        COMPUTE JVALUE = FUNCTION BasicColor-intValue0(FUNCTION JR-GET(J-THIS, "f_foregroundBasicColor"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-itemColorFactory, "f_PAINT", JVALUE)
+        COMPUTE JVALUE = J-gameInfo
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameInfo", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION AllBinaryGameLayerManager-new3.
 
-function TAllBinaryGameLayerManager.getLayerManager: TAllBinaryLayerManager;
-begin
-        Exit(Self);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryGmLyrMngr-gtNllInstnc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+        IF (FUNCTION AllBnryGmLyrMngr-sttc46450 = FUNCTION JR-GET(jtemp2, "f_NULL_OBJECT"))
+            COMPUTE jtemp3 = FUNCTION BasicColorFactory-getInstance0
+            COMPUTE jtemp4 = FUNCTION BasicColorFactory-getInstance0
+            COMPUTE JDISCARD = FUNCTION AllBnryGmLyrMngrsttcS92904(FUNCTION AllBinaryGameLayerManager-new3(FUNCTION JR-GET(jtemp3, "f_BLACK"), FUNCTION JR-GET(jtemp4, "f_WHITE"), FUNCTION GameInfo-static-NONE))
+        END-IF
+        COMPUTE J-RESULT = FUNCTION AllBnryGmLyrMngr-sttc46450
+        GOBACK
+    GOBACK.
+END FUNCTION AllBnryGmLyrMngr-gtNllInstnc0.
 
-procedure TAllBinaryGameLayerManager.init;
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryGmLyrMngr-gtLyrMngr0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = J-THIS
+        GOBACK
+    GOBACK.
+END FUNCTION AllBnryGmLyrMngr-gtLyrMngr0.
 
-function TAllBinaryGameLayerManager.getBackgroundBasicColor: TBasicColor;
-begin
-        Exit(Self.backgroundBasicColor);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryGmLyrMngr-init0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION AllBnryGmLyrMngr-init0.
 
-procedure TAllBinaryGameLayerManager.setBackgroundBasicColor(backgroundBasicColor: TBasicColor);
-begin
-        Self.backgroundBasicColor := backgroundBasicColor;
-        TItemColorFactory.getInstance().INVERT_PAINT := Self.backgroundBasicColor.intValue();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryGmLyrMngr-gtBckgrn74413.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_backgroundBasicColor")
+        GOBACK
+    GOBACK.
+END FUNCTION AllBnryGmLyrMngr-gtBckgrn74413.
 
-function TAllBinaryGameLayerManager.getForegroundBasicColor: TBasicColor;
-begin
-        Exit(Self.foregroundBasicColor);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryGmLyrMngr-stBckgrn53858.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-backgroundBasicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-backgroundBasicColor RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-backgroundBasicColor
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_backgroundBasicColor", JVALUE)
+        COMPUTE jtemp7 = FUNCTION ItemColorFactory-getInstance0
+        COMPUTE JVALUE = FUNCTION BasicColor-intValue0(FUNCTION JR-GET(J-THIS, "f_backgroundBasicColor"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(jtemp7, "f_INVERT_PAINT", JVALUE)
+    GOBACK.
+END FUNCTION AllBnryGmLyrMngr-stBckgrn53858.
 
-procedure TAllBinaryGameLayerManager.setForegroundBasicColor(foregroundBasicColor: TBasicColor);
-begin
-        Self.foregroundBasicColor := foregroundBasicColor;
-        TItemColorFactory.getInstance().PAINT := Self.foregroundBasicColor.intValue();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryGmLyrMngr-gtFrgrnd84733.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_foregroundBasicColor")
+        GOBACK
+    GOBACK.
+END FUNCTION AllBnryGmLyrMngr-gtFrgrnd84733.
 
-function TAllBinaryGameLayerManager.getGameInfo: TGameInfo;
-begin
-        Exit(Self.gameInfo);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryGmLyrMngr-stFrgrnd64178.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp8 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-foregroundBasicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-foregroundBasicColor RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-foregroundBasicColor
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_foregroundBasicColor", JVALUE)
+        COMPUTE jtemp8 = FUNCTION ItemColorFactory-getInstance0
+        COMPUTE JVALUE = FUNCTION BasicColor-intValue0(FUNCTION JR-GET(J-THIS, "f_foregroundBasicColor"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(jtemp8, "f_PAINT", JVALUE)
+    GOBACK.
+END FUNCTION AllBnryGmLyrMngr-stFrgrnd64178.
 
-procedure TAllBinaryGameLayerManager.setGameInfo(gameInfo_: TGameInfo);
-begin
-        Self.gameInfo := gameInfo_;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryGmLyrMngr-getGameInfo0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_gameInfo")
+        GOBACK
+    GOBACK.
+END FUNCTION AllBnryGmLyrMngr-getGameInfo0.
 
-procedure TAllBinaryGameLayerManager.setLayerProcessorList(list: TBasicArrayList);
-var
-  layerProcessorInterfaceArray: TArray<TLayerProcessor>;
-  size: Integer;
-  index: Integer;
-begin
-        layerProcessorInterfaceArray := TJava.NewArray<TLayerProcessor>(list.size());
-        size := System.Length(layerProcessorInterfaceArray);
-        for index := 0 to size - 1 do begin
-            layerProcessorInterfaceArray[index] := TLayerProcessor(TJava.ToObject(list.objectArray[index]));
-        end;
-        Self.setLayerProcessorArray(layerProcessorInterfaceArray);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryGmLyrMngr-setGameInfo1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameInfo BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gameInfo RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-gameInfo
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameInfo", JVALUE)
+    GOBACK.
+END FUNCTION AllBnryGmLyrMngr-setGameInfo1.
 
-procedure TAllBinaryGameLayerManager.setPlayerGameInputCompositeInterface(playerGameInputCompositeInterface_: IPlayerGameInputCompositeInterface);
-begin
-        Self.playerGameInputCompositeInterface := playerGameInputCompositeInterface_;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryGmLyrMngr-stLyrPrc12652.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-layerProcessorInterfaceArray BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-list RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-layerProcessorInterfaceArray = FUNCTION JR-NEW-ARRAY(FUNCTION BasicArrayList-size0(J-list))
+        COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(J-layerProcessorInterfaceArray)
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE JVALUE = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-layerProcessorInterfaceArray, J-index, JVALUE)
+        END-PERFORM
+        COMPUTE JDISCARD = FUNCTION AllBnryLyrMngr-stLyrPrcss86976(J-THIS, J-layerProcessorInterfaceArray)
+    GOBACK.
+END FUNCTION AllBnryGmLyrMngr-stLyrPrc12652.
 
-function TAllBinaryGameLayerManager.getPlayerGameInputCompositeInterface: IPlayerGameInputCompositeInterface;
-begin
-        Exit(Self.playerGameInputCompositeInterface);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryGmLyrMngr-stPlyrGm81485.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-playerGameInputCompositeInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-playerGameInputCompositeInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-playerGameInputCompositeInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_playerGameInputCompositeInterface", JVALUE)
+    GOBACK.
+END FUNCTION AllBnryGmLyrMngr-stPlyrGm81485.
 
-initialization
-  {AB:INITIALIZATION}
-  TAllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER := TJava.Box(TNullUtil.getInstance().NULL_OBJECT);
-  TAllBinaryGameLayerManager.ID := TSmallIntegerSingletonFactory.getInstance().getAt(22);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryGmLyrMngr-gtPlyrGm55302.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_playerGameInputCompositeInterface")
+        GOBACK
+    GOBACK.
+END FUNCTION AllBnryGmLyrMngr-gtPlyrGm55302.
 

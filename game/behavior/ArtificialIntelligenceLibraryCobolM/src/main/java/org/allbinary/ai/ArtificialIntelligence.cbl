@@ -1,81 +1,218 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.ai
+*> Java class ArtificialIntelligence
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.ai
-unit ArtificialIntelligence;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ArtfclIntllgnc-static-AI-ID.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ArtificialIntelligence-jcell-AI_ID BINARY-DOUBLE EXTERNAL.
+01 ArtificialIntelligence-jset-AI_ID BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF ArtificialIntelligence-jset-AI_ID = 0
+        MOVE 1 TO ArtificialIntelligence-jset-AI_ID
+        COMPUTE ArtificialIntelligence-jcell-AI_ID = 2
+    END-IF
+    MOVE ArtificialIntelligence-jcell-AI_ID TO J-RESULT
+    GOBACK.
+END FUNCTION ArtfclIntllgnc-static-AI-ID.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ArtfclIntllgncstaticS63272.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ArtificialIntelligence-jcell-AI_ID BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION ArtfclIntllgnc-static-AI-ID TO J-RESULT
+    MOVE J-VALUE TO ArtificialIntelligence-jcell-AI_ID
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION ArtfclIntllgncstaticS63272.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ArtfclIntllgnc-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ArtificialIntelligence-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 ArtificialIntelligence-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF ArtificialIntelligence-jset-instance = 0
+        MOVE 1 TO ArtificialIntelligence-jset-instance
+        COMPUTE ArtificialIntelligence-jcell-instance = FUNCTION ArtificialIntelligence-new0
+    END-IF
+    MOVE ArtificialIntelligence-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION ArtfclIntllgnc-sttc-nstnc.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AllBinaryLayerManager, ArtificialIntelligenceInterface, IdentifierInterface;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ArtfclIntllgncsttcnsS68990.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ArtificialIntelligence-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION ArtfclIntllgnc-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO ArtificialIntelligence-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION ArtfclIntllgncsttcnsS68990.
 
-type
-  {AB:TYPES}
-  TArtificialIntelligence = class(TInterfacedObject, IArtificialIntelligenceInterface, IIdentifierInterface)
-  public
-    class var AI_ID: Integer;
-    class var instance: TArtificialIntelligence;
-    function JavaObject: TObject;
-        class function getInstance: TArtificialIntelligence; static;
-        constructor Create;
-        procedure processAI(layerManager: TAllBinaryLayerManager); virtual;
-        function getId: Integer; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ArtificialIntelligence-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ArtificialIntelligence")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ArtificialIntelligence-new0.
 
-implementation
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ArtfclIntllgnc-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION ArtfclIntllgnc-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION ArtfclIntllgnc-getInstance0.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ArtfclIntllgnc-processAI1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerManager BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerManager RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION ArtfclIntllgnc-processAI1.
 
-function TArtificialIntelligence.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-    
-
-class function TArtificialIntelligence.getInstance: TArtificialIntelligence;
-begin
-        Exit(TArtificialIntelligence.instance);
-end;
-    
-
-constructor TArtificialIntelligence.Create;
-begin
-    inherited Create;
-end;
-    
-
-// throws Exception
-procedure TArtificialIntelligence.processAI(layerManager: TAllBinaryLayerManager);
-begin
-end;
-    
-
-function TArtificialIntelligence.getId: Integer;
-begin
-        Exit(1);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TArtificialIntelligence.AI_ID := 2;
-  TArtificialIntelligence.instance := TArtificialIntelligence.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ArtificialIntelligence-getId0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = 1
+        GOBACK
+    GOBACK.
+END FUNCTION ArtificialIntelligence-getId0.
 

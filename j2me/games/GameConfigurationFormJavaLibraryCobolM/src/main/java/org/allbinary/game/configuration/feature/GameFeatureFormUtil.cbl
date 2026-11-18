@@ -1,150 +1,315 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.configuration.feature
+*> Java class GameFeatureFormUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.configuration.feature
-unit GameFeatureFormUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmFtrFrmUtl-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameFeatureFormUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 GameFeatureFormUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GameFeatureFormUtil-jset-instance = 0
+        MOVE 1 TO GameFeatureFormUtil-jset-instance
+        COMPUTE GameFeatureFormUtil-jcell-instance = FUNCTION GameFeatureFormUtil-new0
+    END-IF
+    MOVE GameFeatureFormUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION GmFtrFrmUtl-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmFtrFrmUtlstaticinsS31568.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameFeatureFormUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GmFtrFrmUtl-static-instance TO J-RESULT
+    MOVE J-VALUE TO GameFeatureFormUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GmFtrFrmUtlstaticinsS31568.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameFeatureFormUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameFeatureFormUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_meUtil")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION MIDPUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_meUtil", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GameFeatureFormUtil-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, ChoiceGroup, MIDPUtil, CommandForm, LogUtil, ABHashtable;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmFtrFrmUtl-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION GmFtrFrmUtl-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION GmFtrFrmUtl-getInstance0.
 
-type
-  {AB:TYPES}
-  TGameFeatureFormUtil = class(TObject)
-  public
-    logUtil: TLogUtil;
-    meUtil: TMIDPUtil;
-    class var instance: TGameFeatureFormUtil;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TGameFeatureFormUtil; static;
-        function getChoiceGroup(hashtable: TABHashtable<TObject, TObject>; name: string; option: Integer): TChoiceGroup; virtual;
-        procedure addChoiceGroup(form: TCommandForm; hashtable: TABHashtable<TObject, TObject>; option: Integer); virtual;
-        procedure setDefault(form: TCommandForm); virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmFtrFrmUtl-getChoiceGroup3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringMaker BINARY-DOUBLE.
+01 J-choiceGroup BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-features BINARY-DOUBLE.
+01 J-ADD_CHOICE BINARY-DOUBLE.
+01 J-GET_CHOICE_GROUP BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-gameFeature BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-hashtable BINARY-DOUBLE.
+01 J-name BINARY-DOUBLE.
+01 J-option BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-hashtable J-name J-option RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringMaker = FUNCTION StringMaker-new0
+        COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+        COMPUTE J-choiceGroup = FUNCTION ChoiceGroup-new4(J-name, J-option, FUNCTION StringUtil-getArrayInstance0(jtemp1), FUNCTION NllImg-sttc-NULL-IMAGE88814)
+        COMPUTE jtemp2 = J-name
+        COMPUTE J-list = FUNCTION Hashtable-get1(J-hashtable, jtemp2)
+        COMPUTE J-features = FUNCTION Features-getInstance0
+        COMPUTE J-ADD_CHOICE = FUNCTION JR-STR(": Adding Choice: ")
+        COMPUTE J-GET_CHOICE_GROUP = FUNCTION JR-STR("getChoiceGroup")
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(J-list)
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-gameFeature = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
+            COMPUTE jtemp3 = 0
+            COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringMaker, jtemp3, FUNCTION StringMaker-length0(J-stringMaker))
+            COMPUTE jtemp6 = FUNCTION StringMaker-append1(J-stringMaker, J-name)
+            COMPUTE jtemp5 = FUNCTION StringMaker-append1(jtemp6, J-ADD_CHOICE)
+            COMPUTE jtemp4 = FUNCTION StringMaker-append1(jtemp5, FUNCTION JR-TO-STRING(J-gameFeature))
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp4), J-THIS, J-GET_CHOICE_GROUP)
+            COMPUTE JDISCARD = FUNCTION ChoiceGroup-append2(J-choiceGroup, FUNCTION JR-TO-STRING(J-gameFeature), FUNCTION NullImage-static-NULL-IMAGE)
+            IF (FUNCTION Features-isFeature1(J-features, J-gameFeature) = 1)
+                COMPUTE jtemp7 = 1
+                COMPUTE JDISCARD = FUNCTION ChoiceGroup-setSelectedIndex2(J-choiceGroup, J-index, jtemp7)
+            END-IF
+        END-PERFORM
+        COMPUTE J-RESULT = J-choiceGroup
+        GOBACK
+    GOBACK.
+END FUNCTION GmFtrFrmUtl-getChoiceGroup3.
 
-implementation
-uses
-  Features, Feature, GameFeatureUtil, Item, NullImage, GameConfigurationGauge, GameConfigurationUtil, StringMaker, StringUtil, BasicArrayList, HashtableUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmFtrFrmUtl-addChoiceGroup3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringMaker BINARY-DOUBLE.
+01 J-ADDING_CHOICE_GROUP BINARY-DOUBLE.
+01 J-ADD_CHOICE_GROUP BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-objectArray BINARY-DOUBLE.
+01 J-name BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-form BINARY-DOUBLE.
+01 J-hashtable BINARY-DOUBLE.
+01 J-option BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-form J-hashtable J-option RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringMaker = FUNCTION StringMaker-new0
+        COMPUTE J-ADDING_CHOICE_GROUP = FUNCTION JR-STR("Adding Choice Group: ")
+        COMPUTE J-ADD_CHOICE_GROUP = FUNCTION JR-STR("addChoiceGroup")
+        COMPUTE J-size = FUNCTION Hashtable-size0(J-hashtable)
+        COMPUTE jtemp8 = FUNCTION HashtableUtil-getInstance0
+        COMPUTE J-objectArray = FUNCTION HashtableUtil-getKeysAsArray1(jtemp8, J-hashtable)
+        CONTINUE
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST2
+        PERFORM FOREVER
+            IF JFIRST2 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST2
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-name = FUNCTION JR-ARRAY-GET(J-objectArray, J-index)
+            COMPUTE jtemp9 = 0
+            COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringMaker, jtemp9, FUNCTION StringMaker-length0(J-stringMaker))
+            COMPUTE jtemp11 = FUNCTION StringMaker-append1(J-stringMaker, J-ADDING_CHOICE_GROUP)
+            COMPUTE jtemp10 = FUNCTION StringMaker-append1(jtemp11, J-name)
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp10), J-THIS, J-ADD_CHOICE_GROUP)
+            COMPUTE JDISCARD = FUNCTION MIDPUtil-appendItem2(FUNCTION JR-GET(J-THIS, "f_meUtil"), J-form, FUNCTION GmFtrFrmUtl-getChoiceGroup3(J-THIS, J-hashtable, J-name, J-option))
+        END-PERFORM
+    GOBACK.
+END FUNCTION GmFtrFrmUtl-addChoiceGroup3.
 
-
-{AB:CODE}
-
-procedure TGameFeatureFormUtil.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.meUtil := TMIDPUtil.getInstance();
-end;
-
-constructor TGameFeatureFormUtil.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TGameFeatureFormUtil.getInstance: TGameFeatureFormUtil;
-begin
-        Exit(TGameFeatureFormUtil.instance);
-end;
-    
-
-function TGameFeatureFormUtil.getChoiceGroup(hashtable: TABHashtable<TObject, TObject>; name: string; option: Integer): TChoiceGroup;
-var
-  stringMaker_: TStringMaker;
-  choiceGroup_: TChoiceGroup;
-  list: TBasicArrayList;
-  features_: TFeatures;
-  ADD_CHOICE: string;
-  GET_CHOICE_GROUP: string;
-  size: Integer;
-  gameFeature: TFeature;
-  index: Integer;
-begin
-        stringMaker_ := TStringMaker.Create();
-        choiceGroup_ := TChoiceGroup.Create(name, option, TStringUtil.getInstance().getArrayInstance(), TNullImage.NULL_IMAGE_ARRAY);
-        list := TBasicArrayList(TJava.ToObject(hashtable.get(TJava.Box(TJava.Box(name)))));
-        features_ := TFeatures.getInstance();
-        ADD_CHOICE := ': Adding Choice: ';
-        GET_CHOICE_GROUP := 'getChoiceGroup';
-        size := list.size();
-        for index := 0 to size - 1 do begin
-            gameFeature := TFeature(TJava.ToObject(list.objectArray[index]));
-            stringMaker_.delete_(0, stringMaker_.length());
-            Self.logUtil.putF(stringMaker_.append(name).append(ADD_CHOICE).append(gameFeature.toString()).toString(), TJava.Box(Self), GET_CHOICE_GROUP);
-            choiceGroup_.append(gameFeature.toString(), TNullImage.NULL_IMAGE);
-            if features_.isFeature(gameFeature) then begin
-                choiceGroup_.setSelectedIndex(index, True);
-            end;
-        end;
-        Exit(choiceGroup_);
-end;
-    
-
-procedure TGameFeatureFormUtil.addChoiceGroup(form: TCommandForm; hashtable: TABHashtable<TObject, TObject>; option: Integer);
-var
-  stringMaker_: TStringMaker;
-  ADDING_CHOICE_GROUP: string;
-  ADD_CHOICE_GROUP: string;
-  size: Integer;
-  objectArray: TArray<TObject>;
-  name: string;
-  index: Integer;
-begin
-        stringMaker_ := TStringMaker.Create();
-        ADDING_CHOICE_GROUP := 'Adding Choice Group: ';
-        ADD_CHOICE_GROUP := 'addChoiceGroup';
-        size := hashtable.size();
-        objectArray := THashtableUtil.getInstance().getKeysAsArray(hashtable);
-        
-        for index := 0 to size - 1 do begin
-            name := TJava.UnboxString(TJava.ToObject(objectArray[index]));
-            stringMaker_.delete_(0, stringMaker_.length());
-            Self.logUtil.putF(stringMaker_.append(ADDING_CHOICE_GROUP).append(name).toString(), TJava.Box(Self), ADD_CHOICE_GROUP);
-            Self.meUtil.appendItem(form, Self.getChoiceGroup(hashtable, name, option));
-        end;
-end;
-    
-
-// throws Exception
-procedure TGameFeatureFormUtil.setDefault(form: TCommandForm);
-var
-  size: Integer;
-  item_: TItem;
-  index: Integer;
-begin
-        size := form.size();
-        for index := 0 to size - 1 do begin
-            item_ := form.get(index);
-            if (TJava.ToObject(item_) is TGameConfigurationGauge) then begin
-                TGameConfigurationUtil.getInstance().setDefault(TGameConfigurationGauge(TJava.ToObject(item_)));
-            end else if (TJava.ToObject(item_) is TChoiceGroup) then begin
-                TGameFeatureUtil.getInstance().setDefault(TChoiceGroup(TJava.ToObject(item_)));
-            end;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TGameFeatureFormUtil.instance := TGameFeatureFormUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmFtrFrmUtl-setDefault1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-size BINARY-DOUBLE.
+01 J-item BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 JFIRST3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-form BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-form RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-size = FUNCTION Form-size0(J-form)
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST3
+        PERFORM FOREVER
+            IF JFIRST3 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST3
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-item = FUNCTION Form-get1(J-form, J-index)
+            IF (FUNCTION JR-STR-EQUALS(FUNCTION JR-CLASS-NAME(J-item), FUNCTION JR-STR("GameConfigurationGauge")) = 1)
+                COMPUTE jtemp15 = J-item
+                COMPUTE jtemp14 = FUNCTION GmCnfgrtnUtl-getInstance0
+                COMPUTE JDISCARD = FUNCTION GmCnfgrtnUtl-setDefault1(jtemp14, jtemp15)
+            ELSE
+                IF (FUNCTION JR-STR-EQUALS(FUNCTION JR-CLASS-NAME(J-item), FUNCTION JR-STR("ChoiceGroup")) = 1)
+                COMPUTE jtemp13 = J-item
+                COMPUTE jtemp12 = FUNCTION GameFeatureUtil-getInstance0
+                COMPUTE JDISCARD = FUNCTION GameFeatureUtil-setDefault1(jtemp12, jtemp13)
+            END-IF
+            END-IF
+        END-PERFORM
+    GOBACK.
+END FUNCTION GmFtrFrmUtl-setDefault1.
 

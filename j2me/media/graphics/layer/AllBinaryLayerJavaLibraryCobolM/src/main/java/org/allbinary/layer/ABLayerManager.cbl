@@ -1,201 +1,412 @@
-// Generated Code Do Not Modify
-// package org.allbinary.layer
-unit ABLayerManager;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.layer
+*> Java class ABLayerManager
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, TsUtil, LogUtil, CommonStrings, SynchObject, BasicArrayList, ABSystemWrapper, LayerManagerLoggingBase, AllBinaryLayer, ABLayer;
-
-type
-  {AB:TYPES}
-  TABLayerManager = class(TObject)
-  public
-    logUtil: TLogUtil;
-    commonStrings: TCommonStrings;
-    systemWrapper: TABSystemWrapper;
-    tsUtil: TTsUtil;
-    layerManagerLogging: TLayerManagerLoggingBase;
-    list: TBasicArrayList;
-    anyType: TSynchObject;
-    procedure InitFields;
-        constructor Create(layerManagerLogging: TLayerManagerLoggingBase);
-        function contains(layerInterface: TAllBinaryLayer): Boolean; virtual;
-        procedure update(layerInterface: TAllBinaryLayer); virtual;
-        procedure insert(layerInterface: TAllBinaryLayer); virtual;
-        procedure append(layerInterface: TAllBinaryLayer); virtual;
-        procedure appendAt(layerInterface: TAllBinaryLayer; index: Integer); virtual;
-        procedure remove(layerInterface: TAllBinaryLayer); virtual;
-        function getLayerAt(index: Integer): TABLayer; virtual;
-        function getSize: Integer; virtual;
-        procedure cleanup; virtual;
-        procedure paint(g: TGraphics; x: Integer; y: Integer); virtual;
-  end;
-
-implementation
-uses
-  BasicArrayListD;
-
-
-{AB:CODE}
-
-procedure TABLayerManager.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.commonStrings := TCommonStrings.getInstance();
-  Self.systemWrapper := TABSystemWrapper.getInstance();
-  Self.tsUtil := TTsUtil.getInstance();
-  
-  Self.list := TBasicArrayListD.Create();
-  Self.anyType := TSynchObject.Create();
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ABLayerManager-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-layerManagerLogging BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-layerManagerLogging RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ABLayerManager")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_systemWrapper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_tsUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_layerManagerLogging")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_list")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_anyType")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
+    COMPUTE JVALUE = FUNCTION ABSystemWrapper-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_systemWrapper", JVALUE)
+    COMPUTE JVALUE = FUNCTION TsUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_tsUtil", JVALUE)
     
+    COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
+    COMPUTE JVALUE = FUNCTION SynchObject-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_anyType", JVALUE)
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_START"), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"),
+        "f_CONSTRUCTOR"))
+        COMPUTE JVALUE = J-layerManagerLogging
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_layerManagerLogging", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ABLayerManager-new1.
 
-constructor TABLayerManager.Create(layerManagerLogging: TLayerManagerLoggingBase);
-begin
-    inherited Create;
-    InitFields;
-        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_);
-        Self.layerManagerLogging := layerManagerLogging;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ABLayerManager-contains1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION BasicArrayList-contains1(FUNCTION JR-GET(J-THIS, "f_list"), J-layerInterface)
+        GOBACK
+    GOBACK.
+END FUNCTION ABLayerManager-contains1.
 
-function TABLayerManager.contains(layerInterface: TAllBinaryLayer): Boolean;
-begin
-        Exit(Self.list.contains(TJava.Box(layerInterface)));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ABLayerManager-update1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-had BINARY-DOUBLE.
+01 J-nextLayerInterface BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-had = FUNCTION BasicArrayList-remove1(FUNCTION JR-GET(J-THIS, "f_list"), J-layerInterface)
+        IF (J-had = 1)
+            CONTINUE
+            COMPUTE J-size = FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_list"))
+            COMPUTE J-index = 0
+            MOVE 1 TO JFIRST1
+            PERFORM FOREVER
+                IF JFIRST1 = 0
+                    COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+                END-IF
+                MOVE 0 TO JFIRST1
+                IF NOT (J-index < J-size) EXIT PERFORM END-IF
+                COMPUTE J-nextLayerInterface = FUNCTION BasicArrayList-get1(FUNCTION JR-GET(J-THIS, "f_list"), J-index)
+                IF (FUNCTION AllBinaryLayer-getZP0(J-layerInterface) > FUNCTION AllBinaryLayer-getZP0(J-nextLayerInterface))
+                    COMPUTE JDISCARD = FUNCTION BasicArrayList-addAt2(FUNCTION JR-GET(J-THIS, "f_list"), J-index, J-layerInterface)
+                    GOBACK
+                END-IF
+            END-PERFORM
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), J-layerInterface)
+        END-IF
+    GOBACK.
+END FUNCTION ABLayerManager-update1.
 
-// throws Exception
-procedure TABLayerManager.update(layerInterface: TAllBinaryLayer);
-var
-  had: Boolean;
-  nextLayerInterface: TAllBinaryLayer;
-  size: Integer;
-  index: Integer;
-begin
-        had := Self.list.remove(layerInterface);
-        if had then begin
-            
-            size := Self.list.size();
-            for index := 0 to size - 1 do begin
-                nextLayerInterface := TAllBinaryLayer(TJava.ToObject(Self.list.get(index)));
-                if (layerInterface.getZP()) > (nextLayerInterface.getZP()) then begin
-                    Self.list.addAt(index, TJava.Box(layerInterface));
-                    Exit;
-                end;
-            end;
-            Self.list.add(TJava.Box(layerInterface));
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ABLayerManager-insert1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-nextLayerInterface BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_list"))
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST2
+        PERFORM FOREVER
+            IF JFIRST2 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST2
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-nextLayerInterface = FUNCTION BasicArrayList-get1(FUNCTION JR-GET(J-THIS, "f_list"), J-index)
+            IF (FUNCTION AllBinaryLayer-getZP0(J-layerInterface) > FUNCTION AllBinaryLayer-getZP0(J-nextLayerInterface))
+                COMPUTE JDISCARD = FUNCTION ABLayerManager-appendAt2(J-THIS, J-layerInterface, J-index)
+                GOBACK
+            END-IF
+        END-PERFORM
+        COMPUTE JDISCARD = FUNCTION ABLayerManager-append1(J-THIS, J-layerInterface)
+    GOBACK.
+END FUNCTION ABLayerManager-insert1.
 
-// throws Exception
-procedure TABLayerManager.insert(layerInterface: TAllBinaryLayer);
-var
-  nextLayerInterface: TAllBinaryLayer;
-  size: Integer;
-  index: Integer;
-begin
-        
-        size := Self.list.size();
-        for index := 0 to size - 1 do begin
-            nextLayerInterface := TAllBinaryLayer(TJava.ToObject(Self.list.get(index)));
-            if (layerInterface.getZP()) > (nextLayerInterface.getZP()) then begin
-                Self.appendAt(layerInterface, index);
-                Exit;
-            end;
-        end;
-        Self.append(layerInterface);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ABLayerManager-append1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION LyrMngrLggngBs-append1(FUNCTION JR-GET(J-THIS, "f_layerManagerLogging"), J-layerInterface)
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), J-layerInterface)
+    GOBACK.
+END FUNCTION ABLayerManager-append1.
 
-// throws Exception
-procedure TABLayerManager.append(layerInterface: TAllBinaryLayer);
-begin
-        Self.layerManagerLogging.append(layerInterface);
-        Self.list.add(TJava.Box(layerInterface));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ABLayerManager-appendAt2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerInterface J-index RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION LyrMngrLggngBs-appendAt2(FUNCTION JR-GET(J-THIS, "f_layerManagerLogging"), J-layerInterface, J-index)
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-addAt2(FUNCTION JR-GET(J-THIS, "f_list"), J-index, J-layerInterface)
+    GOBACK.
+END FUNCTION ABLayerManager-appendAt2.
 
-// throws Exception
-procedure TABLayerManager.appendAt(layerInterface: TAllBinaryLayer; index: Integer);
-begin
-        Self.layerManagerLogging.appendAt(layerInterface, index);
-        Self.list.addAt(index, TJava.Box(layerInterface));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ABLayerManager-remove1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-result-L BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE JDISCARD = FUNCTION LyrMngrLggngBs-remove1(FUNCTION JR-GET(J-THIS, "f_layerManagerLogging"), J-layerInterface)
+            COMPUTE J-result-L = FUNCTION BasicArrayList-remove1(FUNCTION JR-GET(J-THIS, "f_list"), J-layerInterface)
+            COMPUTE JDISCARD = FUNCTION LyrMngrLggngBs-removeResult3(FUNCTION JR-GET(J-THIS, "f_layerManagerLogging"), J-THIS, J-layerInterface, J-result-L)
+    GOBACK.
+END FUNCTION ABLayerManager-remove1.
 
-// throws Exception
-procedure TABLayerManager.remove(layerInterface: TAllBinaryLayer);
-var
-  result_: Boolean;
-begin
-        TJava.MonitorEnter(Self.anyType);
-        try
-            Self.layerManagerLogging.remove(layerInterface);
-            result_ := Self.list.remove(layerInterface);
-            Self.layerManagerLogging.removeResult(Self, layerInterface, result_);
-        finally
-            TJava.MonitorExit(Self.anyType);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ABLayerManager-getLayerAt1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-index RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_list"), "f_objectArray"), J-index)
+        GOBACK
+    GOBACK.
+END FUNCTION ABLayerManager-getLayerAt1.
 
-function TABLayerManager.getLayerAt(index: Integer): TABLayer;
-begin
-        Exit(TABLayer(TJava.ToObject(Self.list.objectArray[index])));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ABLayerManager-getSize0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_list"))
+        GOBACK
+    GOBACK.
+END FUNCTION ABLayerManager-getSize0.
 
-function TABLayerManager.getSize: Integer;
-begin
-        Exit(Self.list.size());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ABLayerManager-cleanup0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-clear0(FUNCTION JR-GET(J-THIS, "f_list"))
+            COMPUTE JDISCARD = FUNCTION LayerManagerLoggingBase-clear0(FUNCTION JR-GET(J-THIS, "f_layerManagerLogging"))
+            COMPUTE JDISCARD = FUNCTION TsUtil-gc0(FUNCTION JR-GET(J-THIS, "f_tsUtil"))
+            COMPUTE JDISCARD = FUNCTION TsUtil-gc0(FUNCTION JR-GET(J-THIS, "f_tsUtil"))
+    GOBACK.
+END FUNCTION ABLayerManager-cleanup0.
 
-// throws Exception
-procedure TABLayerManager.cleanup;
-begin
-        TJava.MonitorEnter(Self.anyType);
-        try
-            Self.list.clear();
-            Self.layerManagerLogging.clear();
-            Self.tsUtil.gc();
-            Self.tsUtil.gc();
-        finally
-            TJava.MonitorExit(Self.anyType);
-        end;
-end;
-    
-
-procedure TABLayerManager.paint(g: TGraphics; x: Integer; y: Integer);
-var
-  comp: TABLayer;
-  index: Integer;
-begin
-        TJava.MonitorEnter(Self.anyType);
-        try
-            
-            index := Self.list.size();
-            while (TJava.PreDec(index)) >= (0) do begin
-                comp := TABLayer(TJava.ToObject(Self.list.objectArray[index]));
-                if ((comp) <> (nil)) and (comp.isVisible()) then begin
-                    comp.paint(g);
-                end;
-            end;
-        finally
-            TJava.MonitorExit(Self.anyType);
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ABLayerManager-paint3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-comp BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 JFIRST3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-g BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-g J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            CONTINUE
+            COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+            COMPUTE jtemp1 = J-index
+            COMPUTE J-index = FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_list"))
+            MOVE 1 TO JFIRST3
+            PERFORM FOREVER
+                MOVE 0 TO JFIRST3
+                IF NOT (jtemp1 >= 0) EXIT PERFORM END-IF
+                COMPUTE J-comp = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_list"), "f_objectArray"), J-index)
+                IF ((J-comp NOT = 0) AND (FUNCTION ABLayer-isVisible0(J-comp) = 1))
+                    COMPUTE JDISCARD = FUNCTION ABLayer-paint1(J-comp, J-g)
+                END-IF
+            END-PERFORM
+    GOBACK.
+END FUNCTION ABLayerManager-paint3.
 

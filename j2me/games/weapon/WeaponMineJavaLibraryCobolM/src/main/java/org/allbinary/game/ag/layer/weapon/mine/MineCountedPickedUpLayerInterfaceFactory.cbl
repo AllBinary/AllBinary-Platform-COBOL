@@ -1,104 +1,257 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.layer.weapon.mine
+*> Java class MineCountedPickedUpLayerInterfaceFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.layer.weapon.mine
-unit MineCountedPickedUpLayerInterfaceFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MnCntdPckdUpLyrIntrfcFc-19914.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 MineCountedPickedUpLayerInterfaceFactory-jcell-pickedUpLayerInterfaceFactoryInterface BINARY-DOUBLE EXTERNAL.
+01 MineCountedPickedUpLayerInterfaceFactory-jset-pickedUpLayerInterfaceFactoryInterface BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF MineCountedPickedUpLayerInterfaceFactory-jset-pickedUpLayerInterfaceFactoryInterface = 0
+        MOVE 1 TO MineCountedPickedUpLayerInterfaceFactory-jset-pickedUpLayerInterfaceFactoryInterface
+        COMPUTE MineCountedPickedUpLayerInterfaceFactory-jcell-pickedUpLayerInterfaceFactoryInterface = FUNCTION CntdPckdUpLyrIntrfcFctr-47319
+    END-IF
+    MOVE MineCountedPickedUpLayerInterfaceFactory-jcell-pickedUpLayerInterfaceFactoryInterface TO J-RESULT
+    GOBACK.
+END FUNCTION MnCntdPckdUpLyrIntrfcFc-19914.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MnCntdPckdUpLyrIntrfS37027.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 MineCountedPickedUpLayerInterfaceFactory-jcell-pickedUpLayerInterfaceFactoryInterface BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION MnCntdPckdUpLyrIntrfcFc-19914 TO J-RESULT
+    MOVE J-VALUE TO MineCountedPickedUpLayerInterfaceFactory-jcell-pickedUpLayerInterfaceFactoryInterface
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION MnCntdPckdUpLyrIntrfS37027.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MnCntdPckdUpLyrIntrfcFctry-nw0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("MineCountedPickedUpLayerInterfaceFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_weaponLayerCircularStaticPool")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_weaponProperties")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_smallIntegerSingletonFactory")
+    COMPUTE JVALUE = FUNCTION MnLyrCrclrSttcPl-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_weaponLayerCircularStaticPool", JVALUE)
+    COMPUTE jtemp12 = (0 - 1)
+    COMPUTE jtemp13 = (0 - 1)
+    COMPUTE jtemp14 = 0
+    COMPUTE jtemp15 = 8000
+    COMPUTE jtemp16 = (FUNCTION MOD(FUNCTION INTEGER-PART(10) + 32768, 65536) - 32768)
+    COMPUTE JVALUE = FUNCTION WeaponProperties-new5(jtemp12, jtemp13, jtemp14, jtemp15, jtemp16)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_weaponProperties", JVALUE)
+    COMPUTE JVALUE = FUNCTION SmllIntgrSngltnFctry-gtInstnc0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_smallIntegerSingletonFactory", JVALUE)
+        COMPUTE jtemp4 = FUNCTION MnWpnRsrcs-getInstance0
+        COMPUTE jtemp3 = FUNCTION FtrdAnmtnIntrfcFctryInt-53898
+        COMPUTE jtemp5 = 0
+        COMPUTE jtemp10 = FUNCTION MnWpnRsrcs-getInstance0
+        COMPUTE jtemp2 = FUNCTION FtrdAnmtnIntrfcFctryInt-13097(jtemp3, FUNCTION JR-GET(jtemp4, "f_DROP_ICON_RESOURCE"))
+        COMPUTE jtemp6 = 10
+        COMPUTE jtemp7 = 10
+        COMPUTE jtemp9 = FUNCTION FtrdAnmtnIntrfcFctryInt-53898
+        COMPUTE jtemp11 = 0
+        COMPUTE jtemp1 = FUNCTION PckdUpLyrTypFctry-getInstance0
+        COMPUTE jtemp8 = FUNCTION FtrdAnmtnIntrfcFctryInt-13097(jtemp9, FUNCTION JR-GET(jtemp10, "f_DROP_RESOURCE"))
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION MnCntdPckdUpLyrIntrfcFctry-nw0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, WeaponProperties, CountedPickedUpLayerInterfaceFactory, PickedUpLayerInterfaceFactoryInterface, WeaponLayerCircularPool, AllBinaryLayer, SmallIntegerSingletonFactory, ABHashtable;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MnCntdPckdUpLyrIntrfcFc-75646.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION MnCntdPckdUpLyrIntrfS37027(FUNCTION MnCntdPckdUpLyrIntrfcFctry-nw0)
+    GOBACK.
+END FUNCTION MnCntdPckdUpLyrIntrfcFc-75646.
 
-type
-  {AB:TYPES}
-  TMineCountedPickedUpLayerInterfaceFactory = class(TCountedPickedUpLayerInterfaceFactory)
-  public
-    weaponLayerCircularStaticPool: TWeaponLayerCircularPool;
-    weaponProperties: TWeaponProperties;
-    smallIntegerSingletonFactory: TSmallIntegerSingletonFactory;
-    class var pickedUpLayerInterfaceFactoryInterface: IPickedUpLayerInterfaceFactoryInterface;
-    procedure InitFields;
-        class procedure init; static;
-        constructor Create;
-        class function getInstance: IPickedUpLayerInterfaceFactoryInterface; static;
-        function getTotal: Integer; override;
-        function getNextInstance(hashtable: TABHashtable<TObject, TObject>; x: Integer; y: Integer; z: Integer): TAllBinaryLayer; override;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MnCntdPckdUpLyrIntrfcFc-60374.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION MnCntdPckdUpLyrIntrfcFc-19914
+        GOBACK
+    GOBACK.
+END FUNCTION MnCntdPckdUpLyrIntrfcFc-60374.
 
-implementation
-uses
-  MineLayerCircularStaticPool, MineWeaponResources, FeaturedAnimationInterfaceFactoryInterfaceFactory, IconLayerFactory, PickedUpLayerTypeFactory, ScoreableInterface;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MnCntdPckdUpLyrIntrfcFc-79532.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = 3
+        GOBACK
+    GOBACK.
+END FUNCTION MnCntdPckdUpLyrIntrfcFc-79532.
 
-
-{AB:CODE}
-
-procedure TMineCountedPickedUpLayerInterfaceFactory.InitFields;
-begin
-  Self.weaponLayerCircularStaticPool := TMineLayerCircularStaticPool.getInstance();
-  Self.weaponProperties := TWeaponProperties.Create(-1, -1, 0, 8000, SmallInt(10));
-  Self.smallIntegerSingletonFactory := TSmallIntegerSingletonFactory.getInstance();
-end;
-    
-
-// throws Exception
-class procedure TMineCountedPickedUpLayerInterfaceFactory.init;
-begin
-        TMineCountedPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface := TMineCountedPickedUpLayerInterfaceFactory.Create();
-end;
-    
-
-constructor TMineCountedPickedUpLayerInterfaceFactory.Create;
-begin
-        inherited Create(TPickedUpLayerTypeFactory.getInstance().MINE, TIconLayerFactory.getInstance(TFeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(TMineWeaponResources.getInstance().DROP_ICON_RESOURCE).getInstance(0), 10, 10), TFeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(TMineWeaponResources.getInstance().DROP_RESOURCE).getInstance(0));
-        InitFields;
-end;
-    
-
-class function TMineCountedPickedUpLayerInterfaceFactory.getInstance: IPickedUpLayerInterfaceFactoryInterface;
-begin
-        Exit(TMineCountedPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface);
-end;
-    
-
-function TMineCountedPickedUpLayerInterfaceFactory.getTotal: Integer;
-begin
-        Exit(3);
-end;
-    
-
-// throws Exception
-function TMineCountedPickedUpLayerInterfaceFactory.getNextInstance(hashtable: TABHashtable<TObject, TObject>; x: Integer; y: Integer; z: Integer): TAllBinaryLayer;
-var
-  sourceLayerInterface: TAllBinaryLayer;
-  angle: Integer;
-  scoreableInterface_: IScoreableInterface;
-begin
-        sourceLayerInterface := TAllBinaryLayer(TJava.ToObject(hashtable.get(TJava.Box(TJava.Box(Self.smallIntegerSingletonFactory.getAt(0))))));
-        angle := Integer(hashtable.get(TJava.Box(TJava.Box(Self.smallIntegerSingletonFactory.getAt(1)))));
-        scoreableInterface_ := (TJava.ToObject(sourceLayerInterface) as IScoreableInterface);
-        Exit(Self.weaponLayerCircularStaticPool.getInstanceWeaponLayer(sourceLayerInterface, x, y, z, (angle), 0, Self.weaponProperties, scoreableInterface_));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TMineCountedPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface := TCountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY;
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MnCntdPckdUpLyrIntrfcFc-63911.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-sourceLayerInterface BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-scoreableInterface BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+01 jtemp18 BINARY-DOUBLE.
+01 jtemp19 BINARY-DOUBLE.
+01 jtemp20 BINARY-DOUBLE.
+01 jtemp21 BINARY-DOUBLE.
+01 jtemp22 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-hashtable BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-z BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-hashtable J-x J-y J-z RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp18 = 0
+        COMPUTE jtemp17 = FUNCTION SmllIntgrSngltnFctry-getAt1(FUNCTION JR-GET(J-THIS, "f_smallIntegerSingletonFactory"), jtemp18)
+        COMPUTE J-sourceLayerInterface = FUNCTION Hashtable-get1(J-hashtable, jtemp17)
+        COMPUTE jtemp20 = 1
+        COMPUTE jtemp19 = FUNCTION SmllIntgrSngltnFctry-getAt1(FUNCTION JR-GET(J-THIS, "f_smallIntegerSingletonFactory"), jtemp20)
+        COMPUTE J-angle = FUNCTION Hashtable-get1(J-hashtable, jtemp19)
+        COMPUTE J-scoreableInterface = J-sourceLayerInterface
+        COMPUTE jtemp21 = J-angle
+        COMPUTE jtemp22 = 0
+        COMPUTE J-RESULT = FUNCTION WpnLyrCrclrPl-gtInstncWpnLyr8(FUNCTION JR-GET(J-THIS, "f_weaponLayerCircularStaticPool"), J-sourceLayerInterface, J-x, J-y, J-z, jtemp21, jtemp22, FUNCTION JR-GET(J-THIS, "f_weaponProperties"),
+        J-scoreableInterface)
+        GOBACK
+    GOBACK.
+END FUNCTION MnCntdPckdUpLyrIntrfcFc-63911.
 

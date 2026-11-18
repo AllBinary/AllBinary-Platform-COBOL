@@ -1,90 +1,162 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion.touch.action
+*> Java class ReleaseTouchInputToGameKeyEventAction
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion.touch.action
-unit ReleaseTouchInputToGameKeyEventAction;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RlsTchInptTGmKyEvntActn-99659.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ReleaseTouchInputToGameKeyEventAction-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 ReleaseTouchInputToGameKeyEventAction-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF ReleaseTouchInputToGameKeyEventAction-jset-instance = 0
+        MOVE 1 TO ReleaseTouchInputToGameKeyEventAction-jset-instance
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE ReleaseTouchInputToGameKeyEventAction-jcell-instance = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+    END-IF
+    MOVE ReleaseTouchInputToGameKeyEventAction-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION RlsTchInptTGmKyEvntActn-99659.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RlsTchInptTGmKyEvntAS95491.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ReleaseTouchInputToGameKeyEventAction-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION RlsTchInptTGmKyEvntActn-99659 TO J-RESULT
+    MOVE J-VALUE TO ReleaseTouchInputToGameKeyEventAction-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION RlsTchInptTGmKyEvntAS95491.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RlsTchInptTGmKyEvntActn-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-commonStrings BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ReleaseTouchInputToGameKeyEventAction")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NONE")
+    COMPUTE jtemp3 = FUNCTION GameKeyFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp3, "f_NONE")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NONE", JVALUE)
+        COMPUTE jtemp6 = FUNCTION PltfrmInptMppngFctry-gtInstnc0
+        COMPUTE jtemp4 = FUNCTION TchMtnGstrFctry-getInstance0
+        COMPUTE jtemp5 = FUNCTION PltfrmInptMppngFctry-gtPr75051(jtemp6)
+        CONTINUE
+        CONTINUE
+            COMPUTE JDISCARD = FUNCTION GmKyCmpltMtnGstrInptEvn-77333(J-THIS, FUNCTION JR-GET(J-THIS, "f_NONE"))
+            COMPUTE jtemp7 = FUNCTION GmKyEvntFctry-getInstance0
+            COMPUTE JDISCARD = FUNCTION GmKyCmpltMtnGstrInptEvn-58964(J-THIS, FUNCTION GmKyEvntFctry-gtInstncFrInpt2(jtemp7, J-THIS, FUNCTION JR-GET(J-THIS, "f_NONE")))
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION RlsTchInptTGmKyEvntActn-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameKey, GameKeyCompleteMotionGestureInputEvent;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RlsTchInptTGmKyEvntActn-g20500.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+        IF (FUNCTION RlsTchInptTGmKyEvntActn-99659 = FUNCTION JR-GET(jtemp2, "f_NULL_OBJECT"))
+            COMPUTE JDISCARD = FUNCTION RlsTchInptTGmKyEvntAS95491(FUNCTION RlsTchInptTGmKyEvntActn-new0)
+        END-IF
+        COMPUTE J-RESULT = FUNCTION RlsTchInptTGmKyEvntActn-99659
+        GOBACK
+    GOBACK.
+END FUNCTION RlsTchInptTGmKyEvntActn-g20500.
 
-type
-  {AB:TYPES}
-  TReleaseTouchInputToGameKeyEventAction = class(TGameKeyCompleteMotionGestureInputEvent)
-  public
-    NONE: TGameKey;
-    class var instance: TObject;
-    procedure InitFields;
-        class function getInstance: TGameKeyCompleteMotionGestureInputEvent; static;
-        constructor Create;
-        procedure update; override;
-  end;
-
-implementation
-uses
-  GameKeyFactory, PlatformInputMappingFactory, GameKeyEventFactory, TouchMotionGestureFactory, NullUtil, CommonStrings;
-
-
-{AB:CODE}
-
-procedure TReleaseTouchInputToGameKeyEventAction.InitFields;
-begin
-  Self.NONE := TGameKeyFactory.getInstance().NONE;
-end;
-    
-
-class function TReleaseTouchInputToGameKeyEventAction.getInstance: TGameKeyCompleteMotionGestureInputEvent;
-begin
-        if (TReleaseTouchInputToGameKeyEventAction.instance) = (TNullUtil.getInstance().NULL_OBJECT) then begin
-            TReleaseTouchInputToGameKeyEventAction.instance := TReleaseTouchInputToGameKeyEventAction.Create();
-        end;
-        Exit(TGameKeyCompleteMotionGestureInputEvent(TJava.ToObject(TReleaseTouchInputToGameKeyEventAction.instance)));
-end;
-    
-
-constructor TReleaseTouchInputToGameKeyEventAction.Create;
-var
-  commonStrings_: TCommonStrings;
-begin
-        inherited Create('Release Action', TTouchMotionGestureFactory.getInstance().RELEASED, TPlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping());
-        InitFields;
-        try
-            Self.setGameKey(Self.NONE);
-            Self.setGameKeyEvent(TGameKeyEventFactory.getInstance().getInstanceForInput(Self, Self.NONE));
-        except
-            on e: SysUtils.Exception do begin
-            commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.CONSTRUCTOR_, TJava.Box(e));
-            end;
-        end;
-end;
-    
-
-procedure TReleaseTouchInputToGameKeyEventAction.update;
-begin
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TReleaseTouchInputToGameKeyEventAction.instance := TJava.Box(TNullUtil.getInstance().NULL_OBJECT);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RlsTchInptTGmKyEvntActn-updt0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION RlsTchInptTGmKyEvntActn-updt0.
 

@@ -1,46 +1,69 @@
-// Generated Code Do Not Modify
-// package org.allbinary.game.collision
-unit CollisionThreedProcessor;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.collision
+*> Java class CollisionThreedProcessor
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CollisionThreedProcessor-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CollisionThreedProcessor")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CollisionThreedProcessor-new0.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AllBinaryLayer, CollisionProcessor;
-
-type
-  {AB:TYPES}
-  TCollisionThreedProcessor = class(TCollisionProcessor)
-  public
-    constructor Create;
-        function isCollision(myLayer: TAllBinaryLayer; myLayer2: TAllBinaryLayer): Boolean; override;
-  end;
-
-implementation
-
-{AB:CODE}
-
-constructor TCollisionThreedProcessor.Create;
-begin
-  inherited Create;
-end;
-    
-
-function TCollisionThreedProcessor.isCollision(myLayer: TAllBinaryLayer; myLayer2: TAllBinaryLayer): Boolean;
-begin
-        if ((((((myLayer2.getXP()) >= (myLayer.getX2())) or ((myLayer2.getYP()) >= (myLayer.getY2()))) or ((myLayer2.getX2()) <= (myLayer.getXP()))) or ((myLayer2.getY2()) <= (myLayer.getYP()))) or ((myLayer2.getZP()) < (myLayer.getZ2()))) or ((myLayer2.getZ2()) > (myLayer.getZP())) then begin
-            Exit(False);
-        end else begin
-            Exit(True);
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CllsnThrdPrcssr-isCollision2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-myLayer BINARY-DOUBLE.
+01 J-myLayer2 BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-myLayer J-myLayer2 RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF ((((((FUNCTION AllBinaryLayer-getXP0(J-myLayer2) >= FUNCTION AllBinaryLayer-getX20(J-myLayer)) OR (FUNCTION AllBinaryLayer-getYP0(J-myLayer2) >= FUNCTION AllBinaryLayer-getY20(J-myLayer))) OR (FUNCTION
+        AllBinaryLayer-getX20(J-myLayer2) <= FUNCTION AllBinaryLayer-getXP0(J-myLayer))) OR (FUNCTION AllBinaryLayer-getY20(J-myLayer2) <= FUNCTION AllBinaryLayer-getYP0(J-myLayer))) OR (FUNCTION AllBinaryLayer-getZP0(J-myLayer2) <
+        FUNCTION AllBinaryLayer-getZ20(J-myLayer))) OR (FUNCTION AllBinaryLayer-getZ20(J-myLayer2) > FUNCTION AllBinaryLayer-getZP0(J-myLayer)))
+            COMPUTE J-RESULT = 0
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = 1
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION CllsnThrdPrcssr-isCollision2.
 

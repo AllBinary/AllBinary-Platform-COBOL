@@ -1,84 +1,197 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.media.image
+*> Java class ImageCreationUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.media.image
-unit ImageCreationUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgCrtnUtl-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ImageCreationUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 ImageCreationUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF ImageCreationUtil-jset-instance = 0
+        MOVE 1 TO ImageCreationUtil-jset-instance
+        COMPUTE ImageCreationUtil-jcell-instance = FUNCTION ImageCreationUtil-new0
+    END-IF
+    MOVE ImageCreationUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION ImgCrtnUtl-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgCrtnUtlstaticinstS35247.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ImageCreationUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION ImgCrtnUtl-static-instance TO J-RESULT
+    MOVE J-VALUE TO ImageCreationUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION ImgCrtnUtlstaticinstS35247.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImageCreationUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ImageCreationUtil")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ImageCreationUtil-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Image;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImageCreationUtil-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION ImgCrtnUtl-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION ImageCreationUtil-getInstance0.
 
-type
-  {AB:TYPES}
-  TImageCreationUtil = class(TObject)
-  public
-    class var instance: TImageCreationUtil;
-        class function getInstance: TImageCreationUtil; static;
-        constructor Create;
-        function createImageWH(width: Integer; height: Integer): TImage; virtual;
-        function createImage(width: Integer; height: Integer; maxScaleX: Single; maxScaleY: Single): TImage; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgCrtnUtl-createImageWH2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-image BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-width J-height RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION JR-CLASS-NAME(J-THIS)
+        COMPUTE jtemp1 = FUNCTION GmFtrImgCchFctry-getInstance0
+        COMPUTE J-image = FUNCTION GmFtrImgCchFctry-get3(jtemp1, jtemp2, J-width, J-height)
+        COMPUTE J-RESULT = J-image
+        GOBACK
+    GOBACK.
+END FUNCTION ImgCrtnUtl-createImageWH2.
 
-implementation
-uses
-  GameFeatureImageCacheFactory;
-
-
-{AB:CODE}
-    
-
-class function TImageCreationUtil.getInstance: TImageCreationUtil;
-begin
-        Exit(TImageCreationUtil.instance);
-end;
-    
-
-constructor TImageCreationUtil.Create;
-begin
-    inherited Create;
-end;
-    
-
-// throws Exception
-function TImageCreationUtil.createImageWH(width: Integer; height: Integer): TImage;
-var
-  image_: TImage;
-begin
-        image_ := TGameFeatureImageCacheFactory.getInstance().get(Self.ClassType.ClassName, width, height);
-        Exit(image_);
-end;
-    
-
-// throws Exception
-function TImageCreationUtil.createImage(width: Integer; height: Integer; maxScaleX: Single; maxScaleY: Single): TImage;
-var
-  image_: TImage;
-begin
-        image_ := TGameFeatureImageCacheFactory.getInstance().get(Self.ClassType.ClassName, (Integer(Trunc(((width) * (maxScaleX))))) + (1), (Integer(Trunc(((height) * (maxScaleY))))) + (1));
-        Exit(image_);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TImageCreationUtil.instance := TImageCreationUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImageCreationUtil-createImage4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-image BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-maxScaleX COMP-2.
+01 J-maxScaleY COMP-2.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-width J-height J-maxScaleX J-maxScaleY RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp4 = FUNCTION JR-CLASS-NAME(J-THIS)
+        COMPUTE jtemp6 = FUNCTION JR-D2I(((J-width * J-maxScaleX)))
+        COMPUTE jtemp7 = 1
+        COMPUTE jtemp9 = FUNCTION JR-D2I(((J-height * J-maxScaleY)))
+        COMPUTE jtemp10 = 1
+        COMPUTE jtemp5 = (FUNCTION MOD((jtemp6 + jtemp7) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp8 = (FUNCTION MOD((jtemp9 + jtemp10) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp3 = FUNCTION GmFtrImgCchFctry-getInstance0
+        COMPUTE J-image = FUNCTION GmFtrImgCchFctry-get3(jtemp3, jtemp4, jtemp5, jtemp8)
+        COMPUTE J-RESULT = J-image
+        GOBACK
+    GOBACK.
+END FUNCTION ImageCreationUtil-createImage4.
 

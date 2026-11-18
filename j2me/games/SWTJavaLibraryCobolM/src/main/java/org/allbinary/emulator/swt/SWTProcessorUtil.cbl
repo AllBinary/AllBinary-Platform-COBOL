@@ -1,66 +1,113 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2022 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.emulator.swt
-unit SWTProcessorUtil;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.emulator.swt
+*> Java class SWTProcessorUtil
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SWTPrcssrUtl-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 SWTProcessorUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 SWTProcessorUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF SWTProcessorUtil-jset-instance = 0
+        MOVE 1 TO SWTProcessorUtil-jset-instance
+        COMPUTE SWTProcessorUtil-jcell-instance = FUNCTION SWTProcessorUtil-new0
+    END-IF
+    MOVE SWTProcessorUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION SWTPrcssrUtl-static-instance.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SWTPrcssrUtlstaticinS13374.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 SWTProcessorUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION SWTPrcssrUtl-static-instance TO J-RESULT
+    MOVE J-VALUE TO SWTProcessorUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION SWTPrcssrUtlstaticinS13374.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, SWTProcessor;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SWTProcessorUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("SWTProcessorUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_swtProcessor")
+    COMPUTE JVALUE = FUNCTION SWTProcessor-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_swtProcessor", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION SWTProcessorUtil-new0.
 
-type
-  {AB:TYPES}
-  TSWTProcessorUtil = class(TObject)
-  public
-    swtProcessor: TSWTProcessor;
-    class var instance: TSWTProcessorUtil;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TSWTProcessorUtil; static;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TSWTProcessorUtil.InitFields;
-begin
-  Self.swtProcessor := TSWTProcessor.getInstance();
-end;
-
-constructor TSWTProcessorUtil.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TSWTProcessorUtil.getInstance: TSWTProcessorUtil;
-begin
-        Exit(TSWTProcessorUtil.instance);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TSWTProcessorUtil.instance := TSWTProcessorUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SWTProcessorUtil-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION SWTPrcssrUtl-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION SWTProcessorUtil-getInstance0.
 

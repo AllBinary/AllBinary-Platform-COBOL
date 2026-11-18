@@ -1,74 +1,143 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2022 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.logic.system
-unit PlatformAssetManager;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.system
+*> Java class PlatformAssetManager
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PltfrmAsstMngr-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PlatformAssetManager-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 PlatformAssetManager-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF PlatformAssetManager-jset-instance = 0
+        MOVE 1 TO PlatformAssetManager-jset-instance
+        COMPUTE PlatformAssetManager-jcell-instance = FUNCTION PlatformAssetManager-new0
+    END-IF
+    MOVE PlatformAssetManager-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION PltfrmAsstMngr-sttc-nstnc.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PltfrmAsstMngrsttcnsS40745.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PlatformAssetManager-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION PltfrmAsstMngr-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO PlatformAssetManager-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION PltfrmAsstMngrsttcnsS40745.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlatformAssetManager-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("PlatformAssetManager")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION PlatformAssetManager-new0.
 
-type
-  {AB:TYPES}
-  TPlatformAssetManager = class(TObject)
-  public
-    class var instance: TPlatformAssetManager;
-    constructor Create;
-        class function getInstance: TPlatformAssetManager; static;
-        function getResourceAsStream(resource: string): TInputStream; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PltfrmAsstMngr-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION PltfrmAsstMngr-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION PltfrmAsstMngr-getInstance0.
 
-implementation
-uses
-  ResourceUtil;
-
-
-{AB:CODE}
-
-constructor TPlatformAssetManager.Create;
-begin
-  inherited Create;
-end;
-    
-
-class function TPlatformAssetManager.getInstance: TPlatformAssetManager;
-begin
-        Exit(TPlatformAssetManager.instance);
-end;
-    
-
-// throws Exception
-function TPlatformAssetManager.getResourceAsStream(resource: string): TInputStream;
-var
-  resourceUtil_: TResourceUtil;
-  inputStream_: TInputStream;
-begin
-        resourceUtil_ := TResourceUtil.getInstance();
-        inputStream_ := resourceUtil_.getResourceAsStream(resource);
-        Exit(inputStream_);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TPlatformAssetManager.instance := TPlatformAssetManager.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PltfrmAsstMngr-gtRsrcAsStrm1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-resourceUtil BINARY-DOUBLE.
+01 J-inputStream BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-resource BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-resource RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-resourceUtil = FUNCTION ResourceUtil-getInstance0
+        COMPUTE J-inputStream = FUNCTION RsrcUtl-getResourceAsStream1(J-resourceUtil, J-resource)
+        COMPUTE J-RESULT = J-inputStream
+        GOBACK
+    GOBACK.
+END FUNCTION PltfrmAsstMngr-gtRsrcAsStrm1.
 

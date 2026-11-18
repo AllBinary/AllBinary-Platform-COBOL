@@ -1,77 +1,107 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.collision.layer
+*> Java class CollidableInterfaceLayerProcessor
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.collision.layer
-unit CollidableInterfaceLayerProcessor;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblIntrfcLyrPrcssr-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CollidableInterfaceLayerProcessor")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ClldblIntrfcLyrPrcssr-new0.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblIntrfcLyrPrcssr-prcssAt3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-collidableInterfaceCompositeInterface BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryLayerManager BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager J-layerInterface J-index RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-collidableInterfaceCompositeInterface = J-layerInterface
+        COMPUTE jtemp2 = J-collidableInterfaceCompositeInterface
+        COMPUTE jtemp1 = FUNCTION ClldblIntrfcCmpstIntrfc-g91034(J-collidableInterfaceCompositeInterface)
+        IF (FUNCTION JR-CLASS-NAME(jtemp1) = 1)
+            COMPUTE jtemp3 = FUNCTION AllBnryCllsnMngr-getInstance0
+            COMPUTE JDISCARD = FUNCTION AllBnryCllsnMngr-process3(jtemp3, FUNCTION LyrPrcssr-getLayerManager0(J-THIS), J-collidableInterfaceCompositeInterface, J-index)
+        END-IF
+    GOBACK.
+END FUNCTION ClldblIntrfcLyrPrcssr-prcssAt3.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AllBinaryLayer, AllBinaryLayerManager, LayerProcessor;
-
-type
-  {AB:TYPES}
-  TCollidableInterfaceLayerProcessor = class(TLayerProcessor)
-  public
-        constructor Create;
-        procedure processAt(allBinaryLayerManager_: TAllBinaryLayerManager; layerInterface: TAllBinaryLayer; index: Integer); override;
-        function isProcessorLayer(layerInterface: TAllBinaryLayer): Boolean; override;
-  end;
-
-implementation
-uses
-  CollidableInterfaceLayerManager, AllBinaryCollisionManager, CollidableInterfaceCompositeInterface, CollidableCompositeLayer;
-
-
-{AB:CODE}
-    
-
-constructor TCollidableInterfaceLayerProcessor.Create;
-begin
-        inherited Create(TCollidableInterfaceLayerManager.Create());
-end;
-    
-
-// throws Exception
-procedure TCollidableInterfaceLayerProcessor.processAt(allBinaryLayerManager_: TAllBinaryLayerManager; layerInterface: TAllBinaryLayer; index: Integer);
-var
-  collidableInterfaceCompositeInterface_: ICollidableInterfaceCompositeInterface;
-begin
-        collidableInterfaceCompositeInterface_ := (TJava.ToObject(layerInterface) as ICollidableInterfaceCompositeInterface);
-        if collidableInterfaceCompositeInterface_.getCollidableInferface().isCollidable(TCollidableCompositeLayer(TJava.ToObject(collidableInterfaceCompositeInterface_))) then begin
-            TAllBinaryCollisionManager.getInstance().process(Self.getLayerManager(), collidableInterfaceCompositeInterface_, index);
-        end;
-end;
-    
-
-function TCollidableInterfaceLayerProcessor.isProcessorLayer(layerInterface: TAllBinaryLayer): Boolean;
-begin
-        if layerInterface.implmentsCollidableInterface() then begin
-            Exit(True);
-        end else begin
-            Exit(False);
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblIntrfcLyrPrcssr-isP76069.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION AllBnryLyr-implmntsClldbl84088(J-layerInterface) = 1)
+            COMPUTE J-RESULT = 1
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = 0
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION ClldblIntrfcLyrPrcssr-isP76069.
 

@@ -1,74 +1,74 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.ai.tactical
+*> Java class BasicRandomAIFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.ai.tactical
-unit BasicRandomAIFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicRandomAIFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("BasicRandomAIFactory")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION BasicRandomAIFactory-new0.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, ArtificialIntelligenceInterface, ArtificialIntelligenceInterfaceFactoryInterface, GameInput, AllBinaryLayer, ABHashtable;
-
-type
-  {AB:TYPES}
-  TBasicRandomAIFactory = class(TInterfacedObject, IArtificialIntelligenceInterfaceFactoryInterface)
-  public
-    function JavaObject: TObject;
-    constructor Create;
-        function getInstance(hashtable: TABHashtable<TObject, TObject>; ownerLayerInterface: TAllBinaryLayer; gameInput_: TGameInput): IArtificialIntelligenceInterface; virtual;
-  end;
-
-implementation
-uses
-  BasicRandomAI, BasicAI, InputProbability, Visitor;
-
-
-{AB:CODE}
-
-function TBasicRandomAIFactory.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-
-constructor TBasicRandomAIFactory.Create;
-begin
-  inherited Create;
-end;
-    
-
-// throws Exception
-function TBasicRandomAIFactory.getInstance(hashtable: TABHashtable<TObject, TObject>; ownerLayerInterface: TAllBinaryLayer; gameInput_: TGameInput): IArtificialIntelligenceInterface;
-var
-  visitor_: TVisitor;
-  inputProbability_: TInputProbability;
-begin
-        visitor_ := TVisitor(TJava.ToObject(hashtable.get(TJava.Box(TJava.Box(TBasicAI.AI_VISITOR)))));
-        if (visitor_) = (nil) then begin
-            raise SysUtils.Exception.Create('No Visitor Provided');
-        end;
-        inputProbability_ := TInputProbability(TJava.ToObject(hashtable.get(TJava.Box(TJava.Box(TInputProbability.INPUT_PROBABILITY)))));
-        Exit(TBasicRandomAI.Create(ownerLayerInterface, gameInput_, inputProbability_, visitor_));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscRndmAIFctry-getInstance3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-visitor BINARY-DOUBLE.
+01 J-inputProbability BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-hashtable BINARY-DOUBLE.
+01 J-ownerLayerInterface BINARY-DOUBLE.
+01 J-gameInput BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-hashtable J-ownerLayerInterface J-gameInput RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = FUNCTION BasicAI-static-AI-VISITOR
+        COMPUTE J-visitor = FUNCTION Hashtable-get1(J-hashtable, jtemp1)
+        IF (J-visitor = 0)
+            COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+        END-IF
+        COMPUTE jtemp2 = FUNCTION InptPrbblty-sttc-INPUT-49178
+        COMPUTE J-inputProbability = FUNCTION Hashtable-get1(J-hashtable, jtemp2)
+        COMPUTE J-RESULT = FUNCTION BasicRandomAI-new4(J-ownerLayerInterface, J-gameInput, J-inputProbability, J-visitor)
+        GOBACK
+    GOBACK.
+END FUNCTION BscRndmAIFctry-getInstance3.
 

@@ -1,65 +1,124 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion.gyro.action
+*> Java class RollRightOrientationInputToGameKeyEventAction
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion.gyro.action
-unit RollRightOrientationInputToGameKeyEventAction;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RllRghtOrnttnInptTGmKyE-28416.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 RollRightOrientationInputToGameKeyEventAction-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 RollRightOrientationInputToGameKeyEventAction-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF RollRightOrientationInputToGameKeyEventAction-jset-instance = 0
+        MOVE 1 TO RollRightOrientationInputToGameKeyEventAction-jset-instance
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE RollRightOrientationInputToGameKeyEventAction-jcell-instance = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+    END-IF
+    MOVE RollRightOrientationInputToGameKeyEventAction-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION RllRghtOrnttnInptTGmKyE-28416.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RllRghtOrnttnInptTGmS98980.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 RollRightOrientationInputToGameKeyEventAction-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION RllRghtOrnttnInptTGmKyE-28416 TO J-RESULT
+    MOVE J-VALUE TO RollRightOrientationInputToGameKeyEventAction-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION RllRghtOrnttnInptTGmS98980.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RllRghtOrnttnInptTGmKyE-92972.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("RollRightOrientationInputToGameKeyEventAction")
+        COMPUTE jtemp5 = FUNCTION PltfrmInptMppngFctry-gtInstnc0
+        COMPUTE jtemp3 = FUNCTION OrnttnMtnGstrFctry-gtInstnc0
+        COMPUTE jtemp4 = FUNCTION PltfrmInptMppngFctry-gtPr75051(jtemp5)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION RllRghtOrnttnInptTGmKyE-92972.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameKeyCompleteMotionGestureInputEvent;
-
-type
-  {AB:TYPES}
-  TRollRightOrientationInputToGameKeyEventAction = class(TGameKeyCompleteMotionGestureInputEvent)
-  public
-    class var instance: TObject;
-        class function getInstance: TGameKeyCompleteMotionGestureInputEvent; static;
-        constructor Create;
-  end;
-
-implementation
-uses
-  PlatformInputMappingFactory, OrientationMotionGestureFactory, NullUtil;
-
-
-{AB:CODE}
-    
-
-class function TRollRightOrientationInputToGameKeyEventAction.getInstance: TGameKeyCompleteMotionGestureInputEvent;
-begin
-        if (TRollRightOrientationInputToGameKeyEventAction.instance) = (TNullUtil.getInstance().NULL_OBJECT) then begin
-            TRollRightOrientationInputToGameKeyEventAction.instance := TRollRightOrientationInputToGameKeyEventAction.Create();
-        end;
-        Exit(TGameKeyCompleteMotionGestureInputEvent(TJava.ToObject(TRollRightOrientationInputToGameKeyEventAction.instance)));
-end;
-    
-
-constructor TRollRightOrientationInputToGameKeyEventAction.Create;
-begin
-        inherited Create('Roll Right Action', TOrientationMotionGestureFactory.getInstance().ROLL_RIGHT, TPlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TRollRightOrientationInputToGameKeyEventAction.instance := TJava.Box(TNullUtil.getInstance().NULL_OBJECT);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RllRghtOrnttnInptTGmKyE-18926.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+        IF (FUNCTION RllRghtOrnttnInptTGmKyE-28416 = FUNCTION JR-GET(jtemp2, "f_NULL_OBJECT"))
+            COMPUTE JDISCARD = FUNCTION RllRghtOrnttnInptTGmS98980(FUNCTION RllRghtOrnttnInptTGmKyE-92972)
+        END-IF
+        COMPUTE J-RESULT = FUNCTION RllRghtOrnttnInptTGmKyE-28416
+        GOBACK
+    GOBACK.
+END FUNCTION RllRghtOrnttnInptTGmKyE-18926.
 

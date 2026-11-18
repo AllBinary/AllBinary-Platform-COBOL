@@ -1,150 +1,294 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.score.displayable
+*> Java class HighScoreTextBox
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.score.displayable
-unit HighScoreTextBox;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, CommandListener, Graphics, GameInfo, HighScore, HighScoresHelperBaseInterface, HighScoresFactoryInterface, BasicColor, CustomTextBox, Paintable, VirtualKeyboardEventHandler, AbeClientInformationInterface, HighScoreUtil;
-
-type
-  {AB:TYPES}
-  THighScoreTextBox = class(TCustomTextBox)
-  public
-    virtualKeyboardEventHandler: TVirtualKeyboardEventHandler;
-    highScoreUtil: THighScoreUtil;
-    pleaseWait: TPaintable;
-    paintable: TPaintable;
-    submitted: Boolean;
-    procedure InitFields;
-        constructor Create(highScoresFactoryInterface_: IHighScoresFactoryInterface; highScoresHelper: IHighScoresHelperBaseInterface; abeClientInformation: IAbeClientInformationInterface; gameInfo_: TGameInfo; cmdListener: ICommandListener; name: string; highScore_: THighScore; backgrounBasicColor: TBasicColor; foregroundBasicColor: TBasicColor);
-        procedure initCommands(cmdListener: ICommandListener); override;
-        procedure open; override;
-        procedure close; override;
-        procedure update; override;
-        procedure paint(graphics_: TGraphics); override;
-        procedure saveHighScore; virtual;
-        procedure submit; override;
-  end;
-
-implementation
-uses
-  Font, TextField, PostGameCommandFactory, BasicColorFactory, NullPaintable, SimpleTextPaintable, GenericOperatingSystem, OperatingSystemFactory, InApplicationPurchaseFactory;
-
-
-{AB:CODE}
-
-procedure THighScoreTextBox.InitFields;
-begin
-  Self.virtualKeyboardEventHandler := TVirtualKeyboardEventHandler.getInstance();
-  
-  Self.pleaseWait := TSimpleTextPaintable.Create(Self.commonStrings.PLEASE_WAIT, TBasicColorFactory.getInstance().WHITE);
-  Self.paintable := TNullPaintable.getInstance();
-  Self.submitted := False;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HighScoreTextBox-new9.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-operatingSystemInterface BINARY-DOUBLE.
+01 J-username BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-highScoresFactoryInterface BINARY-DOUBLE.
+01 J-highScoresHelper BINARY-DOUBLE.
+01 J-abeClientInformation BINARY-DOUBLE.
+01 J-gameInfo BINARY-DOUBLE.
+01 J-cmdListener BINARY-DOUBLE.
+01 J-name BINARY-DOUBLE.
+01 J-highScore BINARY-DOUBLE.
+01 J-backgrounBasicColor BINARY-DOUBLE.
+01 J-foregroundBasicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-highScoresFactoryInterface J-highScoresHelper J-abeClientInformation J-gameInfo J-cmdListener J-name J-highScore J-backgrounBasicColor J-foregroundBasicColor RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("HighScoreTextBox")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_virtualKeyboardEventHandler")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_highScoreUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_pleaseWait")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_paintable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_submitted")
+    COMPUTE JVALUE = FUNCTION VrtlKybrdEvntHndlr-gtInstnc0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_virtualKeyboardEventHandler", JVALUE)
     
+    COMPUTE jtemp1 = FUNCTION BasicColorFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION SimpleTextPaintable-new2(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_PLEASE_WAIT"), FUNCTION JR-GET(jtemp1, "f_WHITE"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_pleaseWait", JVALUE)
+    COMPUTE JVALUE = FUNCTION NullPaintable-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_paintable", JVALUE)
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_submitted", JVALUE)
+        COMPUTE jtemp2 = 12
+        CONTINUE
+        COMPUTE JVALUE = FUNCTION HighScoreUtil-new7(J-highScoresFactoryInterface, J-highScoresHelper, J-abeClientInformation, J-gameInfo, J-cmdListener, J-name, J-highScore)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_highScoreUtil", JVALUE)
+        COMPUTE jtemp3 = FUNCTION OprtngSystmFctry-getInstance0
+        COMPUTE J-operatingSystemInterface = FUNCTION OprtngSystmFctry-gtOprtng62787(jtemp3)
+        IF (FUNCTION GnrcOprtngSystm-isOverScan0(J-operatingSystemInterface) = 1)
+            COMPUTE jtemp4 = FUNCTION InApplctnPrchsFctry-gtInstnc0
+            COMPUTE J-username = FUNCTION InApplctnPrchsFctry-gtUsrNm0(jtemp4)
+            COMPUTE jtemp5 = FUNCTION CstmTxtBx-getTextFieldItem0(J-THIS)
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp5)
+        END-IF
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION HighScoreTextBox-new9.
 
-constructor THighScoreTextBox.Create(highScoresFactoryInterface_: IHighScoresFactoryInterface; highScoresHelper: IHighScoresHelperBaseInterface; abeClientInformation: IAbeClientInformationInterface; gameInfo_: TGameInfo; cmdListener: ICommandListener; name: string; highScore_: THighScore; backgrounBasicColor: TBasicColor; foregroundBasicColor: TBasicColor);
-var
-  operatingSystemInterface: TGenericOperatingSystem;
-  username: string;
-begin
-        inherited Create(cmdListener, 'New High Score Enter Name:', name, 12, TTextField.ANY, TFont.getDefaultFont(), backgrounBasicColor, foregroundBasicColor);
-        InitFields;
-        Self.highScoreUtil := THighScoreUtil.Create(highScoresFactoryInterface_, highScoresHelper, abeClientInformation, gameInfo_, cmdListener, name, highScore_);
-        operatingSystemInterface := TOperatingSystemFactory.getInstance().getOperatingSystemInstance();
-        if operatingSystemInterface.isOverScan() then begin
-            username := TInApplicationPurchaseFactory.getInstance().getUserName();
-            Self.getTextFieldItem().setString(username);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HighScoreTextBox-initCommands1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-cmdListener BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-cmdListener RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION MyCanvas-removeAllCommands0(J-THIS)
+        COMPUTE jtemp6 = FUNCTION PstGmCmmndFctry-getInstance0
+        COMPUTE JDISCARD = FUNCTION PstGmCmmndFctry-addCommands1(jtemp6, J-THIS)
+        COMPUTE JDISCARD = FUNCTION MyCanvas-addCommand1(J-THIS, FUNCTION HghScrUtl-sttc-SUBMIT-88575)
+        COMPUTE JDISCARD = FUNCTION MyCanvas-setCommandListener1(J-THIS, J-cmdListener)
+    GOBACK.
+END FUNCTION HighScoreTextBox-initCommands1.
 
-procedure THighScoreTextBox.initCommands(cmdListener: ICommandListener);
-begin
-        Self.removeAllCommands();
-        TPostGameCommandFactory.getInstance().addCommands(Self);
-        Self.addCommand(THighScoreUtil.SUBMIT_TEXTBOX_COMMAND);
-        Self.setCommandListener(cmdListener);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HighScoreTextBox-open0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION VrtlKybrdEvntHndlr-open0(FUNCTION JR-GET(J-THIS, "f_virtualKeyboardEventHandler"))
+        COMPUTE JVALUE = FUNCTION NullPaintable-getInstance0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_paintable", JVALUE)
+        COMPUTE JDISCARD = FUNCTION GameCommandCanvas-open0(J-THIS)
+    GOBACK.
+END FUNCTION HighScoreTextBox-open0.
 
-procedure THighScoreTextBox.open;
-begin
-        Self.virtualKeyboardEventHandler.open();
-        Self.paintable := TNullPaintable.getInstance();
-        inherited open();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HighScoreTextBox-close0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION VrtlKybrdEvntHndlr-close0(FUNCTION JR-GET(J-THIS, "f_virtualKeyboardEventHandler"))
+        COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_pleaseWait")
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_paintable", JVALUE)
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_repaintBehavior"))
+        COMPUTE JDISCARD = FUNCTION GameCommandCanvas-close0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION MyCanvas-removeCommand1(J-THIS, FUNCTION HghScrUtl-sttc-SUBMIT-88575)
+        COMPUTE JDISCARD = FUNCTION HighScoreTextBox-update0(J-THIS)
+        IF (FUNCTION JR-GET(J-THIS, "f_submitted") = 1)
+            COMPUTE JDISCARD = FUNCTION HighScoreUtil-saveHighScore0(FUNCTION JR-GET(J-THIS, "f_highScoreUtil"))
+        ELSE
+            CONTINUE
+        END-IF
+        COMPUTE JVALUE = FUNCTION NullPaintable-getInstance0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_paintable", JVALUE)
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_repaintBehavior"))
+    GOBACK.
+END FUNCTION HighScoreTextBox-close0.
 
-// throws Exception
-procedure THighScoreTextBox.close;
-begin
-        Self.virtualKeyboardEventHandler.close();
-        Self.paintable := Self.pleaseWait;
-        Self.repaintBehavior.onChangeRepaint(Self);
-        inherited close();
-        Self.removeCommand(THighScoreUtil.SUBMIT_TEXTBOX_COMMAND);
-        Self.update();
-        if Self.submitted then begin
-            Self.highScoreUtil.saveHighScore();
-        end else begin
-        end;
-        Self.paintable := TNullPaintable.getInstance();
-        Self.repaintBehavior.onChangeRepaint(Self);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HighScoreTextBox-update0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-name BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp7 = FUNCTION CstmTxtBx-getTextFieldItem0(J-THIS)
+        COMPUTE J-name = FUNCTION JR-CLASS-NAME(jtemp7)
+        COMPUTE JDISCARD = FUNCTION HighScoreUtil-update1(FUNCTION JR-GET(J-THIS, "f_highScoreUtil"), J-name)
+        COMPUTE JDISCARD = FUNCTION GameCommandCanvas-update0(J-THIS)
+    GOBACK.
+END FUNCTION HighScoreTextBox-update0.
 
-// throws Exception
-procedure THighScoreTextBox.update;
-var
-  name: string;
-begin
-        name := Self.getTextFieldItem().getString();
-        Self.highScoreUtil.update(name);
-        inherited update();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HighScoreTextBox-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION CustomTextBox-paint1(J-THIS, J-graphics)
+        COMPUTE JDISCARD = FUNCTION Paintable-paint1(FUNCTION JR-GET(J-THIS, "f_paintable"), J-graphics)
+    GOBACK.
+END FUNCTION HighScoreTextBox-paint1.
 
-procedure THighScoreTextBox.paint(graphics_: TGraphics);
-begin
-        inherited paint(graphics_);
-        Self.paintable.paint(graphics_);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrTxtBx-saveHighScore0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION HighScoreUtil-saveHighScore0(FUNCTION JR-GET(J-THIS, "f_highScoreUtil"))
+    GOBACK.
+END FUNCTION HghScrTxtBx-saveHighScore0.
 
-procedure THighScoreTextBox.saveHighScore;
-begin
-        Self.highScoreUtil.saveHighScore();
-end;
-    
-
-procedure THighScoreTextBox.submit;
-begin
-        Self.highScoreUtil.submit(Self);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HighScoreTextBox-submit0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION HighScoreUtil-submit1(FUNCTION JR-GET(J-THIS, "f_highScoreUtil"), J-THIS)
+    GOBACK.
+END FUNCTION HighScoreTextBox-submit0.
 

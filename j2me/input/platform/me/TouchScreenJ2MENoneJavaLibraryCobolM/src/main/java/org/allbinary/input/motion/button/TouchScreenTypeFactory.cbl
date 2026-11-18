@@ -1,71 +1,141 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion.button
+*> Java class TouchScreenTypeFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion.button
-unit TouchScreenTypeFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchScrnTypFctry-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 TouchScreenTypeFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 TouchScreenTypeFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF TouchScreenTypeFactory-jset-instance = 0
+        MOVE 1 TO TouchScreenTypeFactory-jset-instance
+        COMPUTE TouchScreenTypeFactory-jcell-instance = FUNCTION TouchScreenTypeFactory-new0
+    END-IF
+    MOVE TouchScreenTypeFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION TchScrnTypFctry-sttc-nstnc.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchScrnTypFctrysttcnS52049.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 TouchScreenTypeFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION TchScrnTypFctry-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO TouchScreenTypeFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION TchScrnTypFctrysttcnS52049.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TouchScreenTypeFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("TouchScreenTypeFactory")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION TouchScreenTypeFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchScrnTypFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION TchScrnTypFctry-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION TchScrnTypFctry-getInstance0.
 
-type
-  {AB:TYPES}
-  TTouchScreenTypeFactory = class(TObject)
-  public
-    class var instance: TTouchScreenTypeFactory;
-    constructor Create;
-        class function getInstance: TTouchScreenTypeFactory; static;
-        procedure TouchScreenTypeFactory; virtual;
-  end;
-
-implementation
-uses
-  TouchScreenFactory;
-
-
-{AB:CODE}
-
-constructor TTouchScreenTypeFactory.Create;
-begin
-  inherited Create;
-end;
-    
-
-class function TTouchScreenTypeFactory.getInstance: TTouchScreenTypeFactory;
-begin
-        Exit(TTouchScreenTypeFactory.instance);
-end;
-    
-
-procedure TTouchScreenTypeFactory.TouchScreenTypeFactory;
-var
-  touchScreenFactory_: TTouchScreenFactory;
-begin
-        touchScreenFactory_ := TTouchScreenFactory.getInstance();
-        touchScreenFactory_.setTouch(False);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TTouchScreenTypeFactory.instance := TTouchScreenTypeFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchScrnTypFctry-TchScrnTy96581.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-touchScreenFactory BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-touchScreenFactory = FUNCTION TchScrnFctry-getInstance0
+        COMPUTE jtemp1 = 0
+        COMPUTE JDISCARD = FUNCTION TouchScreenFactory-setTouch1(J-touchScreenFactory, jtemp1)
+    GOBACK.
+END FUNCTION TchScrnTypFctry-TchScrnTy96581.
 

@@ -1,128 +1,280 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.input
+*> Java class CompleteMotionGestureInputEventHandler
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.input
-unit CompleteMotionGestureInputEventHandler;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpltMtnGstrInptEvntHnd-50280.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CompleteMotionGestureInputEventHandler-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+01 CompleteMotionGestureInputEventHandler-jset-SINGLETON BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF CompleteMotionGestureInputEventHandler-jset-SINGLETON = 0
+        MOVE 1 TO CompleteMotionGestureInputEventHandler-jset-SINGLETON
+        COMPUTE CompleteMotionGestureInputEventHandler-jcell-SINGLETON = FUNCTION CmpltMtnGstrInptEvntHndlr-new0
+    END-IF
+    MOVE CompleteMotionGestureInputEventHandler-jcell-SINGLETON TO J-RESULT
+    GOBACK.
+END FUNCTION CmpltMtnGstrInptEvntHnd-50280.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpltMtnGstrInptEvntS73985.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CompleteMotionGestureInputEventHandler-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION CmpltMtnGstrInptEvntHnd-50280 TO J-RESULT
+    MOVE J-VALUE TO CompleteMotionGestureInputEventHandler-jcell-SINGLETON
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION CmpltMtnGstrInptEvntS73985.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpltMtnGstrInptEvntHndlr-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CompleteMotionGestureInputEventHandler")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_list")
+    COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CmpltMtnGstrInptEvntHndlr-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AllBinaryEventObject, EventListenerInterface, BasicEventHandler, BasicArrayList, CompleteMotionGestureInputEventListener;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpltMtnGstrInptEvntHnd-61739.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION CmpltMtnGstrInptEvntHnd-50280
+        GOBACK
+    GOBACK.
+END FUNCTION CmpltMtnGstrInptEvntHnd-61739.
 
-type
-  {AB:TYPES}
-  TCompleteMotionGestureInputEventHandler = class(TBasicEventHandler)
-  public
-    list: TBasicArrayList;
-    class var SINGLETON: TCompleteMotionGestureInputEventHandler;
-    procedure InitFields;
-        class function getInstance: TCompleteMotionGestureInputEventHandler; static;
-        constructor Create;
-        procedure addListener(completeMotionGestureInputEventListener_: TCompleteMotionGestureInputEventListener); virtual;
-        procedure removeAllListeners; override;
-        procedure removeListener(eventListenerInterface_: IEventListenerInterface); override;
-        procedure fireEvent(eventObject: TAllBinaryEventObject); override;
-        procedure process(eventObject: TAllBinaryEventObject; eventListenerInterface_: IEventListenerInterface); override;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpltMtnGstrInptEvntHnd-71797.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-completeMotionGestureInputEventListener BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-completeMotionGestureInputEventListener RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (NOT (FUNCTION BasicArrayList-contains1(FUNCTION JR-GET(J-THIS, "f_list"), J-completeMotionGestureInputEventListener) = 1))
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), J-completeMotionGestureInputEventListener)
+        END-IF
+    GOBACK.
+END FUNCTION CmpltMtnGstrInptEvntHnd-71797.
 
-implementation
-uses
-  CompleteMotionGestureInputEvent, CompleteMotionGestureInputEventListenerInterface, EventStrings, BasicArrayListD;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpltMtnGstrInptEvntHnd-44820.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-clear0(FUNCTION JR-GET(J-THIS, "f_list"))
+        COMPUTE JDISCARD = FUNCTION BscEvntHndlr-rmvAllLstnrs0(J-THIS)
+    GOBACK.
+END FUNCTION CmpltMtnGstrInptEvntHnd-44820.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpltMtnGstrInptEvntHnd-72665.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventListenerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventListenerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-remove1(FUNCTION JR-GET(J-THIS, "f_list"), J-eventListenerInterface)
+        COMPUTE JDISCARD = FUNCTION BscEvntHndlr-removeListener1(J-THIS, J-eventListenerInterface)
+    GOBACK.
+END FUNCTION CmpltMtnGstrInptEvntHnd-72665.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpltMtnGstrInptEvntHnd-13746.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-completeMotionGestureInputEventListener BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp3 = J-index
+        COMPUTE J-index = FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_list"))
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            MOVE 0 TO JFIRST1
+            IF NOT (jtemp3 >= 0) EXIT PERFORM END-IF
+            CONTINUE
+                COMPUTE J-completeMotionGestureInputEventListener = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_list"), "f_objectArray"), J-index)
+                COMPUTE jtemp1 = J-eventObject
+                COMPUTE JDISCARD = FUNCTION CmpltMtnGstrInptEvntLst-44490(J-completeMotionGestureInputEventListener, jtemp1)
+        END-PERFORM
+        COMPUTE JDISCARD = FUNCTION BasicEventHandler-fireEvent1(J-THIS, J-eventObject)
+    GOBACK.
+END FUNCTION CmpltMtnGstrInptEvntHnd-13746.
 
-procedure TCompleteMotionGestureInputEventHandler.InitFields;
-begin
-  Self.list := TBasicArrayListD.Create();
-end;
-    
-
-class function TCompleteMotionGestureInputEventHandler.getInstance: TCompleteMotionGestureInputEventHandler;
-begin
-        Exit(TCompleteMotionGestureInputEventHandler.SINGLETON);
-end;
-    
-
-constructor TCompleteMotionGestureInputEventHandler.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
-
-procedure TCompleteMotionGestureInputEventHandler.addListener(completeMotionGestureInputEventListener_: TCompleteMotionGestureInputEventListener);
-begin
-        if not (Self.list.contains(TJava.Box(completeMotionGestureInputEventListener_))) then begin
-            Self.list.add(TJava.Box(completeMotionGestureInputEventListener_));
-        end;
-end;
-    
-
-procedure TCompleteMotionGestureInputEventHandler.removeAllListeners;
-begin
-        Self.list.clear();
-        inherited removeAllListeners();
-end;
-    
-
-procedure TCompleteMotionGestureInputEventHandler.removeListener(eventListenerInterface_: IEventListenerInterface);
-begin
-        Self.list.remove(TJava.ToObject(eventListenerInterface_));
-        inherited removeListener(eventListenerInterface_);
-end;
-    
-
-// throws Exception
-procedure TCompleteMotionGestureInputEventHandler.fireEvent(eventObject: TAllBinaryEventObject);
-var
-  completeMotionGestureInputEventListener_: TCompleteMotionGestureInputEventListener;
-  index: Integer;
-begin
-        index := Self.list.size();
-        while (TJava.PreDec(index)) >= (0) do begin
-            try
-                completeMotionGestureInputEventListener_ := TCompleteMotionGestureInputEventListener(TJava.ToObject(Self.list.objectArray[index]));
-                completeMotionGestureInputEventListener_.onCompleteMotionGestureInputEvent(TCompleteMotionGestureInputEvent(TJava.ToObject(eventObject)));
-            except
-                on e: SysUtils.Exception do begin
-                Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), TEventStrings.getInstance().FIRE_EVENT, TJava.Box(e));
-                end;
-            end;
-        end;
-        inherited fireEvent(eventObject);
-end;
-    
-
-// throws Exception
-procedure TCompleteMotionGestureInputEventHandler.process(eventObject: TAllBinaryEventObject; eventListenerInterface_: IEventListenerInterface);
-var
-  completeMotionGestureInputEventListenerInterface_: ICompleteMotionGestureInputEventListenerInterface;
-begin
-        completeMotionGestureInputEventListenerInterface_ := (TJava.ToObject(eventListenerInterface_) as ICompleteMotionGestureInputEventListenerInterface);
-        completeMotionGestureInputEventListenerInterface_.onCompleteMotionGestureInputEvent(TCompleteMotionGestureInputEvent(TJava.ToObject(eventObject)));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TCompleteMotionGestureInputEventHandler.SINGLETON := TCompleteMotionGestureInputEventHandler.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpltMtnGstrInptEvntHnd-88378.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-completeMotionGestureInputEventListenerInterface BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-eventListenerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject J-eventListenerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-completeMotionGestureInputEventListenerInterface = J-eventListenerInterface
+        COMPUTE jtemp4 = J-eventObject
+        COMPUTE JDISCARD = FUNCTION CmpltMtnGstrInptEvntLst-93089(J-completeMotionGestureInputEventListenerInterface, jtemp4)
+    GOBACK.
+END FUNCTION CmpltMtnGstrInptEvntHnd-88378.
 

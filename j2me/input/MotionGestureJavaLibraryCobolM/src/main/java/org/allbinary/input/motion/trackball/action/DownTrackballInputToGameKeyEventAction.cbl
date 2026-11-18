@@ -1,65 +1,124 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion.trackball.action
+*> Java class DownTrackballInputToGameKeyEventAction
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion.trackball.action
-unit DownTrackballInputToGameKeyEventAction;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DwnTrckbllInptTGmKyEvnt-17919.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 DownTrackballInputToGameKeyEventAction-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 DownTrackballInputToGameKeyEventAction-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF DownTrackballInputToGameKeyEventAction-jset-instance = 0
+        MOVE 1 TO DownTrackballInputToGameKeyEventAction-jset-instance
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE DownTrackballInputToGameKeyEventAction-jcell-instance = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+    END-IF
+    MOVE DownTrackballInputToGameKeyEventAction-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION DwnTrckbllInptTGmKyEvnt-17919.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DwnTrckbllInptTGmKyES82293.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 DownTrackballInputToGameKeyEventAction-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION DwnTrckbllInptTGmKyEvnt-17919 TO J-RESULT
+    MOVE J-VALUE TO DownTrackballInputToGameKeyEventAction-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION DwnTrckbllInptTGmKyES82293.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DwnTrckbllInptTGmKyEvnt-79160.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("DownTrackballInputToGameKeyEventAction")
+        COMPUTE jtemp5 = FUNCTION PltfrmInptMppngFctry-gtInstnc0
+        COMPUTE jtemp3 = FUNCTION TrckbllMtnGstrFctry-gtInstnc0
+        COMPUTE jtemp4 = FUNCTION PltfrmInptMppngFctry-gtPr75051(jtemp5)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION DwnTrckbllInptTGmKyEvnt-79160.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameKeyCompleteMotionGestureInputEvent;
-
-type
-  {AB:TYPES}
-  TDownTrackballInputToGameKeyEventAction = class(TGameKeyCompleteMotionGestureInputEvent)
-  public
-    class var instance: TObject;
-        class function getInstance: TGameKeyCompleteMotionGestureInputEvent; static;
-        constructor Create;
-  end;
-
-implementation
-uses
-  PlatformInputMappingFactory, TrackballMotionGestureFactory, NullUtil;
-
-
-{AB:CODE}
-    
-
-class function TDownTrackballInputToGameKeyEventAction.getInstance: TGameKeyCompleteMotionGestureInputEvent;
-begin
-        if (TDownTrackballInputToGameKeyEventAction.instance) = (TNullUtil.getInstance().NULL_OBJECT) then begin
-            TDownTrackballInputToGameKeyEventAction.instance := TDownTrackballInputToGameKeyEventAction.Create();
-        end;
-        Exit(TGameKeyCompleteMotionGestureInputEvent(TJava.ToObject(TDownTrackballInputToGameKeyEventAction.instance)));
-end;
-    
-
-constructor TDownTrackballInputToGameKeyEventAction.Create;
-begin
-        inherited Create('Down Action', TTrackballMotionGestureFactory.getInstance().DOWN, TPlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TDownTrackballInputToGameKeyEventAction.instance := TJava.Box(TNullUtil.getInstance().NULL_OBJECT);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DwnTrckbllInptTGmKyEvnt-81607.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+        IF (FUNCTION DwnTrckbllInptTGmKyEvnt-17919 = FUNCTION JR-GET(jtemp2, "f_NULL_OBJECT"))
+            COMPUTE JDISCARD = FUNCTION DwnTrckbllInptTGmKyES82293(FUNCTION DwnTrckbllInptTGmKyEvnt-79160)
+        END-IF
+        COMPUTE J-RESULT = FUNCTION DwnTrckbllInptTGmKyEvnt-17919
+        GOBACK
+    GOBACK.
+END FUNCTION DwnTrckbllInptTGmKyEvnt-81607.
 

@@ -1,131 +1,256 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.media.audio
+*> Java class PlayerQueue
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.media.audio
-unit PlayerQueue;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlayerQueue-static-TOTAL.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PlayerQueue-jcell-TOTAL BINARY-DOUBLE EXTERNAL.
+01 PlayerQueue-jset-TOTAL BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF PlayerQueue-jset-TOTAL = 0
+        MOVE 1 TO PlayerQueue-jset-TOTAL
+        COMPUTE PlayerQueue-jcell-TOTAL = FUNCTION JR-STR("Sounds In Queue: ")
+    END-IF
+    MOVE PlayerQueue-jcell-TOTAL TO J-RESULT
+    GOBACK.
+END FUNCTION PlayerQueue-static-TOTAL.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlayerQueuestaticTOTS96514.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PlayerQueue-jcell-TOTAL BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION PlayerQueue-static-TOTAL TO J-RESULT
+    MOVE J-VALUE TO PlayerQueue-jcell-TOTAL
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION PlayerQueuestaticTOTS96514.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, CommonStrings, BasicArrayList, Sound;
-
-type
-  {AB:TYPES}
-  TPlayerQueue = class(TObject)
-  public
-    commonStrings: TCommonStrings;
-    list: TBasicArrayList;
-    max: Integer;
-    class var TOTAL: string;
-    procedure InitFields;
-        constructor Create(max: Integer);
-        procedure add(sound_: TSound); virtual;
-        function process: Boolean; virtual;
-        procedure clear; virtual;
-        function toString: string; virtual;
-  end;
-
-implementation
-uses
-  NoSound, PreLogUtil, StringMaker, StringUtil, BasicArrayListD;
-
-
-{AB:CODE}
-
-procedure TPlayerQueue.InitFields;
-begin
-  Self.commonStrings := TCommonStrings.getInstance();
-  Self.list := TBasicArrayListD.Create();
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlayerQueue-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-max BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-max RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("PlayerQueue")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_list")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_max")
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
+    COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
     
+        COMPUTE JVALUE = J-max
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_max", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION PlayerQueue-new1.
 
-constructor TPlayerQueue.Create(max: Integer);
-begin
-    inherited Create;
-    InitFields;
-        Self.max := max;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlayerQueue-add1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-sound BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-sound RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            IF (NOT (FUNCTION BasicArrayList-contains1(FUNCTION JR-GET(J-THIS, "f_list"), J-sound) = 1))
+                COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), J-sound)
+            END-IF
+    GOBACK.
+END FUNCTION PlayerQueue-add1.
 
-procedure TPlayerQueue.add(sound_: TSound);
-begin
-        try
-            if not (Self.list.contains(TJava.Box(sound_))) then begin
-                Self.list.add(TJava.Box(sound_));
-            end;
-        except
-            on e: SysUtils.Exception do begin
-            TPreLogUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.ADD);
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlayerQueue-process0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-sound BINARY-DOUBLE.
+01 J-played BINARY-DOUBLE.
+01 J-resource BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-sound = FUNCTION NoSound-getInstance0
+        CONTINUE
+            COMPUTE J-played = 0
+            IF (FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_list")) > 0)
+                COMPUTE jtemp1 = 0
+                COMPUTE J-sound = FUNCTION BasicArrayList-removeAt1(FUNCTION JR-GET(J-THIS, "f_list"), jtemp1)
+                IF (J-sound NOT = 0)
+                    COMPUTE jtemp2 = FUNCTION Sound-getPlayerP0(J-sound)
+                    COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp2)
+                END-IF
+                PERFORM FOREVER
+                    IF NOT (FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_list")) > FUNCTION JR-GET(J-THIS, "f_max")) EXIT PERFORM END-IF
+                    COMPUTE jtemp3 = 0
+                    COMPUTE JDISCARD = FUNCTION BasicArrayList-removeAt1(FUNCTION JR-GET(J-THIS, "f_list"), jtemp3)
+                END-PERFORM
+                COMPUTE J-played = 1
+            END-IF
+            COMPUTE J-RESULT = J-played
+            GOBACK
+    GOBACK.
+END FUNCTION PlayerQueue-process0.
 
-function TPlayerQueue.process: Boolean;
-var
-  sound_: TSound;
-  played: Boolean;
-  resource: string;
-begin
-        sound_ := TNoSound.getInstance();
-        try
-            played := False;
-            if (Self.list.size()) > (0) then begin
-                sound_ := TSound(TJava.ToObject(Self.list.removeAt(0)));
-                if (sound_) <> (nil) then begin
-                    sound_.getPlayerP().start();
-                end;
-                while (Self.list.size()) > (Self.max) do begin
-                    Self.list.removeAt(0);
-                end;
-                played := True;
-            end;
-            Exit(played);
-        except
-            on e: SysUtils.Exception do begin
-            resource := TStringUtil.getInstance().EMPTY_STRING;
-            if (sound_) <> (nil) then begin
-                resource := sound_.getResource();
-            end;
-            TPreLogUtil.put(TStringMaker.Create().append(Self.commonStrings.EXCEPTION_LABEL).append(resource).toString(), TJava.Box(Self), Self.commonStrings.PROCESS);
-            Exit(False);
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlayerQueue-clear0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-clear0(FUNCTION JR-GET(J-THIS, "f_list"))
+    GOBACK.
+END FUNCTION PlayerQueue-clear0.
 
-procedure TPlayerQueue.clear;
-begin
-        Self.list.clear();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlayerQueue-toString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp10 = FUNCTION StringMaker-new0
+        COMPUTE jtemp9 = FUNCTION StringMaker-append1(jtemp10, FUNCTION PlayerQueue-static-TOTAL)
+        COMPUTE jtemp8 = FUNCTION StringMaker-appendint1(jtemp9, FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_list")))
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(jtemp8)
+        GOBACK
+    GOBACK.
+END FUNCTION PlayerQueue-toString0.
 
-function TPlayerQueue.toString: string;
-begin
-        Exit(TStringMaker.Create().append(TPlayerQueue.TOTAL).appendint(Self.list.size()).toString());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TPlayerQueue.TOTAL := 'Sounds In Queue: ';
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PlayerQueue-toString.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION PlayerQueue-toString0(J-THIS)
+    GOBACK.
+END PROGRAM PlayerQueue-toString.
 

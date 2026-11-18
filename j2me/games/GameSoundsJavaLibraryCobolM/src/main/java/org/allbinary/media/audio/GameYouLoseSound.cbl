@@ -1,60 +1,111 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.media.audio
+*> Java class GameYouLoseSound
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.media.audio
-unit GameYouLoseSound;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmYLsSnd-sttc-sndIntrfc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameYouLoseSound-jcell-soundInterface BINARY-DOUBLE EXTERNAL.
+01 GameYouLoseSound-jset-soundInterface BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GameYouLoseSound-jset-soundInterface = 0
+        MOVE 1 TO GameYouLoseSound-jset-soundInterface
+        COMPUTE GameYouLoseSound-jcell-soundInterface = FUNCTION GameYouLoseSound-new0
+    END-IF
+    MOVE GameYouLoseSound-jcell-soundInterface TO J-RESULT
+    GOBACK.
+END FUNCTION GmYLsSnd-sttc-sndIntrfc.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmYLsSndsttcsndIntrfS23640.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameYouLoseSound-jcell-soundInterface BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GmYLsSnd-sttc-sndIntrfc TO J-RESULT
+    MOVE J-VALUE TO GameYouLoseSound-jcell-soundInterface
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GmYLsSndsttcsndIntrfS23640.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameYouLoseSound-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameYouLoseSound")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GameYouLoseSound-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Sound, CompositeSound;
-
-type
-  {AB:TYPES}
-  // Use 8hz16bitmono for most J2ME
-  TGameYouLoseSound = class(TCompositeSound)
-  public
-    class var soundInterface: TSound;
-        constructor Create;
-        class function getInstance: TSound; static;
-  end;
-
-implementation
-
-{AB:CODE}
-    
-
-constructor TGameYouLoseSound.Create;
-begin
-        inherited Create('resource:/wav/youlose.wav');
-end;
-    
-
-class function TGameYouLoseSound.getInstance: TSound;
-begin
-        Exit(TGameYouLoseSound.soundInterface);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TGameYouLoseSound.soundInterface := TGameYouLoseSound.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameYouLoseSound-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION GmYLsSnd-sttc-sndIntrfc
+        GOBACK
+    GOBACK.
+END FUNCTION GameYouLoseSound-getInstance0.
 

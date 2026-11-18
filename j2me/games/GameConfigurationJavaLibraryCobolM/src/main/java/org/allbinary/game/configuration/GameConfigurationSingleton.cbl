@@ -1,102 +1,233 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.configuration
+*> Java class GameConfigurationSingleton
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.configuration
-unit GameConfigurationSingleton;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtnSngltn-sttc-SIN65490.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameConfigurationSingleton-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+01 GameConfigurationSingleton-jset-SINGLETON BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GameConfigurationSingleton-jset-SINGLETON = 0
+        MOVE 1 TO GameConfigurationSingleton-jset-SINGLETON
+        COMPUTE GameConfigurationSingleton-jcell-SINGLETON = FUNCTION GmCnfgrtnSngltn-new0
+    END-IF
+    MOVE GameConfigurationSingleton-jcell-SINGLETON TO J-RESULT
+    GOBACK.
+END FUNCTION GmCnfgrtnSngltn-sttc-SIN65490.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtnSngltnsttcSS58951.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameConfigurationSingleton-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GmCnfgrtnSngltn-sttc-SIN65490 TO J-RESULT
+    MOVE J-VALUE TO GameConfigurationSingleton-jcell-SINGLETON
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GmCnfgrtnSngltnsttcSS58951.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, ABHashtable, BasicArrayList, GameConfiguration;
-
-type
-  {AB:TYPES}
-  TGameConfigurationSingleton = class(TObject)
-  public
-    list: TBasicArrayList;
-    hashtable: TABHashtable<TObject, TObject>;
-    class var SINGLETON: TGameConfigurationSingleton;
-    procedure InitFields;
-        class function getInstance: TGameConfigurationSingleton; static;
-        constructor Create;
-        function getInstanceByName(name: string): TGameConfiguration; virtual;
-        function getOptionsBasicArrayList: TBasicArrayList; virtual;
-        procedure add(gameConfiguration_: TGameConfiguration); virtual;
-        function getHashtable: TABHashtable<TObject, TObject>; virtual;
-  end;
-
-implementation
-uses
-  StdUtil, BasicArrayListD;
-
-
-{AB:CODE}
-
-procedure TGameConfigurationSingleton.InitFields;
-begin
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtnSngltn-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameConfigurationSingleton")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_list")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_hashtable")
     
-
-class function TGameConfigurationSingleton.getInstance: TGameConfigurationSingleton;
-begin
-        Exit(TGameConfigurationSingleton.SINGLETON);
-end;
     
+        COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
+        COMPUTE jtemp1 = FUNCTION StdUtil-getInstance0
+        COMPUTE JVALUE = FUNCTION StdUtil-createHashtable0(jtemp1)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hashtable", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GmCnfgrtnSngltn-new0.
 
-constructor TGameConfigurationSingleton.Create;
-begin
-    inherited Create;
-    InitFields;
-        Self.list := TBasicArrayListD.Create();
-        Self.hashtable := TStdUtil.getInstance().createHashtable();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtnSngltn-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION GmCnfgrtnSngltn-sttc-SIN65490
+        GOBACK
+    GOBACK.
+END FUNCTION GmCnfgrtnSngltn-getInstance0.
 
-function TGameConfigurationSingleton.getInstanceByName(name: string): TGameConfiguration;
-begin
-        Exit(TGameConfiguration(TJava.ToObject(Self.hashtable.get(TJava.Box(name)))));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtnSngltn-gtInstncByNm1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-name BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-name RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION Hashtable-get1(FUNCTION JR-GET(J-THIS, "f_hashtable"), J-name)
+        GOBACK
+    GOBACK.
+END FUNCTION GmCnfgrtnSngltn-gtInstncByNm1.
 
-function TGameConfigurationSingleton.getOptionsBasicArrayList: TBasicArrayList;
-begin
-        Exit(Self.list);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtnSngltn-gtOptnsBs84511.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_list")
+        GOBACK
+    GOBACK.
+END FUNCTION GmCnfgrtnSngltn-gtOptnsBs84511.
 
-procedure TGameConfigurationSingleton.add(gameConfiguration_: TGameConfiguration);
-begin
-        Self.list.add(TJava.Box(gameConfiguration_));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtnSngltn-add1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameConfiguration BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gameConfiguration RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), J-gameConfiguration)
+    GOBACK.
+END FUNCTION GmCnfgrtnSngltn-add1.
 
-function TGameConfigurationSingleton.getHashtable: TABHashtable<TObject, TObject>;
-begin
-        Exit(Self.hashtable);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TGameConfigurationSingleton.SINGLETON := TGameConfigurationSingleton.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtnSngltn-getHashtable0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_hashtable")
+        GOBACK
+    GOBACK.
+END FUNCTION GmCnfgrtnSngltn-getHashtable0.
 

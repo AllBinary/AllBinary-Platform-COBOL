@@ -1,87 +1,203 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.math.vector
+*> Java class AxisMathVectorUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.logic.math.vector
-unit AxisMathVectorUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AxsMthVctrUtl-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AxisMathVectorUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 AxisMathVectorUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF AxisMathVectorUtil-jset-instance = 0
+        MOVE 1 TO AxisMathVectorUtil-jset-instance
+        COMPUTE AxisMathVectorUtil-jcell-instance = FUNCTION AxisMathVectorUtil-new0
+    END-IF
+    MOVE AxisMathVectorUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION AxsMthVctrUtl-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AxsMthVctrUtlstaticiS75090.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AxisMathVectorUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION AxsMthVctrUtl-static-instance TO J-RESULT
+    MOVE J-VALUE TO AxisMathVectorUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION AxsMthVctrUtlstaticiS75090.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AxisMathVectorUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("AxisMathVectorUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_noDecimalTrigTable")
+    COMPUTE JVALUE = FUNCTION NDcmlTrgTbl-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_noDecimalTrigTable", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION AxisMathVectorUtil-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, NoDecimalTrigTable;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AxsMthVctrUtl-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION AxsMthVctrUtl-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION AxsMthVctrUtl-getInstance0.
 
-type
-  {AB:TYPES}
-  TAxisMathVectorUtil = class(TObject)
-  public
-    noDecimalTrigTable: TNoDecimalTrigTable;
-    class var instance: TAxisMathVectorUtil;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TAxisMathVectorUtil; static;
-        function calculateX(magnitude: Int64; angle: Integer): Int64; virtual;
-        function calculateY(magnitude: Int64; angle: Integer): Int64; virtual;
-        function calculateZ(magnitude: Int64; otherAngle: Integer): Int64; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AxisMathVectorUtil-calculateX2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-magnitude BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-magnitude J-angle RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION INTEGER-PART((J-magnitude * FUNCTION NoDecimalTrigTable-cos1(FUNCTION JR-GET(J-THIS, "f_noDecimalTrigTable"), J-angle)) / 10)
+        GOBACK
+    GOBACK.
+END FUNCTION AxisMathVectorUtil-calculateX2.
 
-implementation
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AxisMathVectorUtil-calculateY2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-magnitude BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-magnitude J-angle RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION INTEGER-PART((J-magnitude * FUNCTION NoDecimalTrigTable-sin1(FUNCTION JR-GET(J-THIS, "f_noDecimalTrigTable"), J-angle)) / 10)
+        GOBACK
+    GOBACK.
+END FUNCTION AxisMathVectorUtil-calculateY2.
 
-{AB:CODE}
-
-procedure TAxisMathVectorUtil.InitFields;
-begin
-  Self.noDecimalTrigTable := TNoDecimalTrigTable.getInstance();
-end;
-
-constructor TAxisMathVectorUtil.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TAxisMathVectorUtil.getInstance: TAxisMathVectorUtil;
-begin
-        Exit(TAxisMathVectorUtil.instance);
-end;
-    
-
-function TAxisMathVectorUtil.calculateX(magnitude: Int64; angle: Integer): Int64;
-begin
-        Exit(((magnitude) * (Self.noDecimalTrigTable.cos(angle))) div (10));
-end;
-    
-
-function TAxisMathVectorUtil.calculateY(magnitude: Int64; angle: Integer): Int64;
-begin
-        Exit(((magnitude) * (Self.noDecimalTrigTable.sin(angle))) div (10));
-end;
-    
-
-function TAxisMathVectorUtil.calculateZ(magnitude: Int64; otherAngle: Integer): Int64;
-begin
-        Exit(((magnitude) * (Self.noDecimalTrigTable.sin(otherAngle))) div (10));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TAxisMathVectorUtil.instance := TAxisMathVectorUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AxisMathVectorUtil-calculateZ2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-magnitude BINARY-DOUBLE.
+01 J-otherAngle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-magnitude J-otherAngle RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION INTEGER-PART((J-magnitude * FUNCTION NoDecimalTrigTable-sin1(FUNCTION JR-GET(J-THIS, "f_noDecimalTrigTable"), J-otherAngle)) / 10)
+        GOBACK
+    GOBACK.
+END FUNCTION AxisMathVectorUtil-calculateZ2.
 

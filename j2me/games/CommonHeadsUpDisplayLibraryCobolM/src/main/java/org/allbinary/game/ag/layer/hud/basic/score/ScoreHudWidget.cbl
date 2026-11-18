@@ -1,73 +1,106 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.layer.hud.basic.score
+*> Java class ScoreHudWidget
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.layer.hud.basic.score
-unit ScoreHudWidget;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScoreHudWidget-new5.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-maxscore BINARY-DOUBLE.
+01 J-location BINARY-DOUBLE.
+01 J-direction BINARY-DOUBLE.
+01 J-bufferZone BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-maxscore J-location J-direction J-bufferZone J-basicColor RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ScoreHudWidget")
+        CONTINUE
+        COMPUTE JVALUE = 14
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_updateMaxHeight", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ScoreHudWidget-new5.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScoreHudWidget-getInstance3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-maxscore BINARY-DOUBLE.
+01 J-location BINARY-DOUBLE.
+01 J-direction BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-maxscore J-location J-direction RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION BasicColorFactory-getInstance0
+        COMPUTE jtemp1 = 2
+        COMPUTE J-RESULT = FUNCTION ScoreHudWidget-new5(J-maxscore, J-location, J-direction, jtemp1, FUNCTION JR-GET(jtemp2, "f_GREY"))
+        GOBACK
+    GOBACK.
+END FUNCTION ScoreHudWidget-getInstance3.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, NumberStringHud, BasicColor;
-
-type
-  {AB:TYPES}
-  TScoreHudWidget = class(TNumberStringHud)
-  public
-        class function getInstance(maxscore: Integer; location: Integer; direction: Integer): TScoreHudWidget; static;
-        constructor Create(maxscore: Integer; location: Integer; direction: Integer; bufferZone: Integer; basicColor_: TBasicColor);
-        procedure updateMeasurement(graphics_: TGraphics); override;
-  end;
-
-implementation
-uses
-  Font, BasicColorFactory;
-
-
-{AB:CODE}
-    
-
-// throws Exception
-class function TScoreHudWidget.getInstance(maxscore: Integer; location: Integer; direction: Integer): TScoreHudWidget;
-begin
-        Exit(TScoreHudWidget.Create(maxscore, location, direction, 2, TBasicColorFactory.getInstance().GREY));
-end;
-    
-
-constructor TScoreHudWidget.Create(maxscore: Integer; location: Integer; direction: Integer; bufferZone: Integer; basicColor_: TBasicColor);
-begin
-        inherited Create('Pts ', maxscore, location, direction, bufferZone, basicColor_);
-        Self.updateMaxHeight := 14;
-end;
-    
-
-procedure TScoreHudWidget.updateMeasurement(graphics_: TGraphics);
-var
-  font_: TFont;
-begin
-        font_ := graphics_.getFont();
-        Self.updateMaxWidth := (font_.getSize()) * (5);
-        inherited updateMeasurement(graphics_);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScrHdWdgt-updateMeasurement1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-font BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-font = FUNCTION Graphics-getFont0(J-graphics)
+        COMPUTE JVALUE = (FUNCTION MOD((FUNCTION Font-getSize0(J-font) * 5) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_updateMaxWidth", JVALUE)
+        COMPUTE JDISCARD = FUNCTION NmbrStrngHd-updateMeasurement1(J-THIS, J-graphics)
+    GOBACK.
+END FUNCTION ScrHdWdgt-updateMeasurement1.
 

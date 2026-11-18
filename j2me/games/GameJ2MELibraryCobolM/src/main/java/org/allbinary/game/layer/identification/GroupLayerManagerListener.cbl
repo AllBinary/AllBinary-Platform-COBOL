@@ -1,313 +1,738 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.layer.identification
+*> Java class GroupLayerManagerListener
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.layer.identification
-unit GroupLayerManagerListener;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GrpLyrMngrLstnr-sttc-SIN11312.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GroupLayerManagerListener-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+01 GroupLayerManagerListener-jset-SINGLETON BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GroupLayerManagerListener-jset-SINGLETON = 0
+        MOVE 1 TO GroupLayerManagerListener-jset-SINGLETON
+        COMPUTE GroupLayerManagerListener-jcell-SINGLETON = FUNCTION GroupLayerManagerListener-new0
+    END-IF
+    MOVE GroupLayerManagerListener-jcell-SINGLETON TO J-RESULT
+    GOBACK.
+END FUNCTION GrpLyrMngrLstnr-sttc-SIN11312.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GrpLyrMngrLstnrsttcSS81959.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GroupLayerManagerListener-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GrpLyrMngrLstnr-sttc-SIN11312 TO J-RESULT
+    MOVE J-VALUE TO GroupLayerManagerListener-jcell-SINGLETON
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GrpLyrMngrLstnrsttcSS81959.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GroupLayerManagerListener-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GroupLayerManagerListener")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_list")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
+        COMPUTE jtemp1 = FUNCTION LyrMngrEvntHndlr-getInstance0
+        COMPUTE JDISCARD = FUNCTION LyrMngrEvntHndlr-addListener1(jtemp1, J-THIS)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GroupLayerManagerListener-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Group, GroupInterfaceCompositeInterface, LayerManagerEvent, LayerManagerEventListener, LogUtil, AllBinaryEventObject, BasicArrayList;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GrpLyrMngrLstnr-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION GrpLyrMngrLstnr-sttc-SIN11312
+        GOBACK
+    GOBACK.
+END FUNCTION GrpLyrMngrLstnr-getInstance0.
 
-type
-  {AB:TYPES}
-  TGroupLayerManagerListener = class(TLayerManagerEventListener)
-  public
-    logUtil: TLogUtil;
-    list: TBasicArrayList;
-    class var SINGLETON: TGroupLayerManagerListener;
-    procedure InitFields;
-        class function getInstance: TGroupLayerManagerListener; static;
-        constructor Create;
-        procedure clear; virtual;
-        function getGroupSizeFromInterface(groupInterfaceCompositeInterface_: IGroupInterfaceCompositeInterface): Integer; virtual;
-        function getGroupSize(groupInterface: TGroup): Integer; virtual;
-        function getList(groupInterface: TGroup): TBasicArrayList; virtual;
-        function getListById(groupId: Integer): TBasicArrayList;
-        function getGroupSizeById(groupId: Integer): Integer;
-        function areAllOtherGroupsEmpty(groupInterface: TGroup): Boolean; virtual;
-        function isIdInList(id: Integer; excludeGroupList: TBasicArrayList): Boolean;
-        function areAllOtherGroupsLessThan(excludeGroupList: TBasicArrayList; maxSize: Integer): Boolean; virtual;
-        procedure init(total: Integer); virtual;
-        procedure onEvent(eventObject: TAllBinaryEventObject); override;
-        procedure onCreateLayerManagerEvent(layerManagerEvent_: TLayerManagerEvent); override;
-        procedure onDeleteLayerManagerEvent(layerManagerEvent_: TLayerManagerEvent); override;
-        procedure log; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GrpLyrMngrLstnr-clear0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-groupList BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_list"))
+        COMPUTE J-index = (FUNCTION MOD((J-size - 1) + 2147483648, 4294967296) - 2147483648)
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index >= 0) EXIT PERFORM END-IF
+            COMPUTE J-groupList = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_list"), "f_objectArray"), J-index)
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-clear0(J-groupList)
+        END-PERFORM
+    GOBACK.
+END FUNCTION GrpLyrMngrLstnr-clear0.
 
-implementation
-uses
-  AllBinaryLayer, LayerManagerEventHandler, ForcedLogUtil, StringMaker, EventStrings, CommonLabels, CommonSeps, BasicArrayListD;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GrpLyrMngrLstnr-gtGrpSzFr65451.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-groupInterfaceArray BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-groupInterfaceCompositeInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-groupInterfaceCompositeInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-groupInterfaceArray = FUNCTION GrpIntrfcCmpstIntrfc-gtGr31247(J-groupInterfaceCompositeInterface)
+        COMPUTE jtemp2 = 0
+        COMPUTE J-RESULT = FUNCTION GrpLyrMngrLstnr-getGroupSize1(J-THIS, FUNCTION JR-ARRAY-GET(J-groupInterfaceArray, jtemp2))
+        GOBACK
+    GOBACK.
+END FUNCTION GrpLyrMngrLstnr-gtGrpSzFr65451.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GrpLyrMngrLstnr-getGroupSize1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-id BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-groupInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-groupInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-id = FUNCTION Group-getGroupId0(J-groupInterface)
+        COMPUTE J-RESULT = FUNCTION GrpLyrMngrLstnr-gtGrpSzById1(J-THIS, J-id)
+        GOBACK
+    GOBACK.
+END FUNCTION GrpLyrMngrLstnr-getGroupSize1.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GrpLyrMngrLstnr-getList1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-id BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-groupInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-groupInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-id = FUNCTION Group-getGroupId0(J-groupInterface)
+        COMPUTE J-RESULT = FUNCTION GrpLyrMngrLstnr-getListById1(J-THIS, J-id)
+        GOBACK
+    GOBACK.
+END FUNCTION GrpLyrMngrLstnr-getList1.
 
-procedure TGroupLayerManagerListener.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.list := TBasicArrayListD.Create();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GrpLyrMngrLstnr-getListById1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-groupList BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-groupId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-groupId RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-groupList = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_list"), "f_objectArray"), J-groupId)
+        COMPUTE J-RESULT = J-groupList
+        GOBACK
+    GOBACK.
+END FUNCTION GrpLyrMngrLstnr-getListById1.
 
-class function TGroupLayerManagerListener.getInstance: TGroupLayerManagerListener;
-begin
-        Exit(TGroupLayerManagerListener.SINGLETON);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GrpLyrMngrLstnr-gtGrpSzById1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-groupList BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-groupId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-groupId RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-groupList = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_list"), "f_objectArray"), J-groupId)
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(J-groupList)
+        COMPUTE J-RESULT = J-size
+        GOBACK
+    GOBACK.
+END FUNCTION GrpLyrMngrLstnr-gtGrpSzById1.
 
-constructor TGroupLayerManagerListener.Create;
-begin
-    inherited Create;
-    InitFields;
-        TLayerManagerEventHandler.getInstance().addListener(Self);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GrpLyrMngrLstnr-arAllOthr52702.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-id BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-groupSize BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-groupInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-groupInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-id = FUNCTION Group-getGroupId0(J-groupInterface)
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_list"))
+        COMPUTE J-index = (FUNCTION MOD((J-size - 1) + 2147483648, 4294967296) - 2147483648)
+        MOVE 1 TO JFIRST2
+        PERFORM FOREVER
+            IF JFIRST2 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST2
+            IF NOT (J-index >= 0) EXIT PERFORM END-IF
+            IF (J-id NOT = J-index)
+                COMPUTE J-groupSize = FUNCTION GrpLyrMngrLstnr-gtGrpSzById1(J-THIS, J-index)
+                IF (J-groupSize NOT = 0)
+                    COMPUTE jtemp5 = FUNCTION StringMaker-new0
+                    COMPUTE jtemp4 = FUNCTION StringMaker-append1(jtemp5, FUNCTION JR-STR("Group Size: "))
+                    COMPUTE jtemp3 = FUNCTION StringMaker-appendint1(jtemp4, J-groupSize)
+                    COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp3), J-THIS, FUNCTION JR-STR("areAllOtherGroupsEmpty"))
+                    COMPUTE J-RESULT = 0
+                    GOBACK
+                END-IF
+            END-IF
+        END-PERFORM
+        COMPUTE J-RESULT = 1
+        GOBACK
+    GOBACK.
+END FUNCTION GrpLyrMngrLstnr-arAllOthr52702.
 
-procedure TGroupLayerManagerListener.clear;
-var
-  groupList: TBasicArrayList;
-  size: Integer;
-  index: Integer;
-begin
-        
-        size := Self.list.size();
-        for index := (size) - (1) downto 0 do begin
-            groupList := TBasicArrayList(TJava.ToObject(Self.list.objectArray[index]));
-            groupList.clear();
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GrpLyrMngrLstnr-isIdInList2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-size BINARY-DOUBLE.
+01 J-groupInterfaceArray BINARY-DOUBLE.
+01 J-groupInterface BINARY-DOUBLE.
+01 J-groupId BINARY-DOUBLE.
+01 J-size2 BINARY-DOUBLE.
+01 J-index2 BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 JFIRST3 BINARY-DOUBLE.
+01 JFIRST4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-id BINARY-DOUBLE.
+01 J-excludeGroupList BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-id J-excludeGroupList RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(J-excludeGroupList)
+        CONTINUE
+        CONTINUE
+        CONTINUE
+        COMPUTE J-index = (FUNCTION MOD((J-size - 1) + 2147483648, 4294967296) - 2147483648)
+        MOVE 1 TO JFIRST3
+        PERFORM FOREVER
+            IF JFIRST3 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST3
+            IF NOT (J-index >= 0) EXIT PERFORM END-IF
+            COMPUTE J-groupInterfaceArray = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-excludeGroupList, "f_objectArray"), J-index)
+            COMPUTE J-size2 = FUNCTION JR-ARRAY-LENGTH(J-groupInterfaceArray)
+            COMPUTE J-index2 = 0
+            MOVE 1 TO JFIRST4
+            PERFORM FOREVER
+                IF JFIRST4 = 0
+                    COMPUTE J-index2 = (FUNCTION MOD(J-index2 + 1 + 2147483648, 4294967296) - 2147483648)
+                END-IF
+                MOVE 0 TO JFIRST4
+                IF NOT (J-index2 < J-size2) EXIT PERFORM END-IF
+                COMPUTE J-groupInterface = FUNCTION JR-ARRAY-GET(J-groupInterfaceArray, J-index2)
+                COMPUTE J-groupId = FUNCTION Group-getGroupId0(J-groupInterface)
+                IF (J-groupId = J-id)
+                    COMPUTE J-RESULT = 1
+                    GOBACK
+                END-IF
+            END-PERFORM
+        END-PERFORM
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION GrpLyrMngrLstnr-isIdInList2.
 
-function TGroupLayerManagerListener.getGroupSizeFromInterface(groupInterfaceCompositeInterface_: IGroupInterfaceCompositeInterface): Integer;
-var
-  groupInterfaceArray: TArray<TGroup>;
-begin
-        groupInterfaceArray := groupInterfaceCompositeInterface_.getGroupInterface();
-        Exit(Self.getGroupSize(groupInterfaceArray[0]));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GrpLyrMngrLstnr-arAllOthr16020.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-size BINARY-DOUBLE.
+01 J-groupSize BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 JFIRST5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-excludeGroupList BINARY-DOUBLE.
+01 J-maxSize BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-excludeGroupList J-maxSize RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_list"))
+        COMPUTE J-index = (FUNCTION MOD((J-size - 1) + 2147483648, 4294967296) - 2147483648)
+        MOVE 1 TO JFIRST5
+        PERFORM FOREVER
+            IF JFIRST5 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST5
+            IF NOT (J-index >= 0) EXIT PERFORM END-IF
+            IF (NOT (FUNCTION GrpLyrMngrLstnr-isIdInList2(J-THIS, J-index, J-excludeGroupList) = 1))
+                COMPUTE J-groupSize = FUNCTION GrpLyrMngrLstnr-gtGrpSzById1(J-THIS, J-index)
+                IF (J-groupSize >= J-maxSize)
+                    COMPUTE J-RESULT = 0
+                    GOBACK
+                END-IF
+            END-IF
+        END-PERFORM
+        COMPUTE J-RESULT = 1
+        GOBACK
+    GOBACK.
+END FUNCTION GrpLyrMngrLstnr-arAllOthr16020.
 
-function TGroupLayerManagerListener.getGroupSize(groupInterface: TGroup): Integer;
-var
-  id: Integer;
-begin
-        id := Integer(Trunc(groupInterface.getGroupId()));
-        Exit(Self.getGroupSizeById(id));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GrpLyrMngrLstnr-init1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-total BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-total RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp6 = 1
+        PERFORM FOREVER
+            IF NOT (FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_list")) <= (FUNCTION MOD((J-total + jtemp6) + 2147483648, 4294967296) - 2147483648)) EXIT PERFORM END-IF
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), FUNCTION BasicArrayListD-new0)
+        END-PERFORM
+    GOBACK.
+END FUNCTION GrpLyrMngrLstnr-init1.
 
-function TGroupLayerManagerListener.getList(groupInterface: TGroup): TBasicArrayList;
-var
-  id: Integer;
-begin
-        id := Integer(Trunc(groupInterface.getGroupId()));
-        Exit(Self.getListById(id));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GrpLyrMngrLstnr-onEvent1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp7 = FUNCTION EventStrings-getInstance0
+        COMPUTE JDISCARD = FUNCTION ForcedLogUtil-log2(FUNCTION JR-GET(jtemp7, "f_PERFORMANCE_MESSAGE"), J-THIS)
+    GOBACK.
+END FUNCTION GrpLyrMngrLstnr-onEvent1.
 
-function TGroupLayerManagerListener.getListById(groupId: Integer): TBasicArrayList;
-var
-  groupList: TBasicArrayList;
-begin
-        groupList := TBasicArrayList(TJava.ToObject(Self.list.objectArray[groupId]));
-        Exit(groupList);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GrpLyrMngrLstnr-onCrtLyrM83108.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-groupInterfaceArray BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-id BINARY-DOUBLE.
+01 J-groupList BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 JFIRST6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerManagerEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerManagerEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-layerInterface = FUNCTION LyrMngrEvnt-getLayerInterface0(J-layerManagerEvent)
+        COMPUTE J-groupInterfaceArray = FUNCTION AllBnryLyr-getGroupInterface0(J-layerInterface)
+        COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(J-groupInterfaceArray)
+        CONTINUE
+        CONTINUE
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST6
+        PERFORM FOREVER
+            IF JFIRST6 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST6
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-id = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(J-groupInterfaceArray, J-index))
+            COMPUTE J-groupList = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_list"), "f_objectArray"), J-id)
+            IF (J-groupList = 0)
+                COMPUTE jtemp10 = FUNCTION StringMaker-new0
+                COMPUTE jtemp9 = FUNCTION StringMaker-append1(jtemp10, FUNCTION JR-STR("id: "))
+                COMPUTE jtemp8 = FUNCTION StringMaker-appendint1(jtemp9, J-id)
+                COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp8), J-THIS, FUNCTION JR-STR("onCreateLayerManagerEvent"))
+            END-IF
+            IF (NOT (FUNCTION BasicArrayList-contains1(J-groupList, J-layerInterface) = 1))
+                COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-groupList, J-layerInterface)
+            ELSE
+                CONTINUE
+            END-IF
+        END-PERFORM
+    GOBACK.
+END FUNCTION GrpLyrMngrLstnr-onCrtLyrM83108.
 
-function TGroupLayerManagerListener.getGroupSizeById(groupId: Integer): Integer;
-var
-  groupList: TBasicArrayList;
-  size: Integer;
-begin
-        groupList := TBasicArrayList(TJava.ToObject(Self.list.objectArray[groupId]));
-        size := groupList.size();
-        Exit(size);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GrpLyrMngrLstnr-onDltLyrM72185.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-groupInterfaceArray BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-id BINARY-DOUBLE.
+01 J-groupList BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 JFIRST7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerManagerEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerManagerEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-layerInterface = FUNCTION LyrMngrEvnt-getLayerInterface0(J-layerManagerEvent)
+        COMPUTE J-groupInterfaceArray = FUNCTION AllBnryLyr-getGroupInterface0(J-layerInterface)
+        COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(J-groupInterfaceArray)
+        CONTINUE
+        CONTINUE
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST7
+        PERFORM FOREVER
+            IF JFIRST7 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST7
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-id = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(J-groupInterfaceArray, J-index))
+            COMPUTE J-groupList = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_list"), "f_objectArray"), J-id)
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-remove1(J-groupList, J-layerInterface)
+        END-PERFORM
+    GOBACK.
+END FUNCTION GrpLyrMngrLstnr-onDltLyrM72185.
 
-function TGroupLayerManagerListener.areAllOtherGroupsEmpty(groupInterface: TGroup): Boolean;
-var
-  id: Integer;
-  size: Integer;
-  groupSize: Integer;
-  index: Integer;
-begin
-        id := Integer(Trunc(groupInterface.getGroupId()));
-        size := Self.list.size();
-        for index := (size) - (1) downto 0 do begin
-            if (id) <> (index) then begin
-                groupSize := Self.getGroupSizeById(index);
-                if (groupSize) <> (0) then begin
-                    Self.logUtil.putF(TStringMaker.Create().append('Group Size: ').appendint(groupSize).toString(), TJava.Box(Self), 'areAllOtherGroupsEmpty');
-                    Exit(False);
-                end;
-            end;
-        end;
-        Exit(True);
-end;
-    
-
-function TGroupLayerManagerListener.isIdInList(id: Integer; excludeGroupList: TBasicArrayList): Boolean;
-var
-  size: Integer;
-  groupInterfaceArray: TArray<TGroup>;
-  groupInterface: TGroup;
-  groupId: Integer;
-  size2: Integer;
-  index2: Integer;
-  index: Integer;
-begin
-        size := excludeGroupList.size();
-        
-        
-        
-        for index := (size) - (1) downto 0 do begin
-            groupInterfaceArray := TJava.UnboxArray<TGroup>(TJava.ToObject(excludeGroupList.objectArray[index]));
-            size2 := System.Length(groupInterfaceArray);
-            for index2 := 0 to size2 - 1 do begin
-                groupInterface := groupInterfaceArray[index2];
-                groupId := Integer(Trunc(groupInterface.getGroupId()));
-                if (groupId) = (id) then begin
-                    Exit(True);
-                end;
-            end;
-        end;
-        Exit(False);
-end;
-    
-
-function TGroupLayerManagerListener.areAllOtherGroupsLessThan(excludeGroupList: TBasicArrayList; maxSize: Integer): Boolean;
-var
-  size: Integer;
-  groupSize: Integer;
-  index: Integer;
-begin
-        size := Self.list.size();
-        for index := (size) - (1) downto 0 do begin
-            if not (Self.isIdInList(index, excludeGroupList)) then begin
-                groupSize := Self.getGroupSizeById(index);
-                if (groupSize) >= (maxSize) then begin
-                    Exit(False);
-                end;
-            end;
-        end;
-        Exit(True);
-end;
-    
-
-procedure TGroupLayerManagerListener.init(total: Integer);
-begin
-        while (Self.list.size()) <= ((total) + (1)) do begin
-            Self.list.add(TJava.Box(TBasicArrayListD.Create()));
-        end;
-end;
-    
-
-procedure TGroupLayerManagerListener.onEvent(eventObject: TAllBinaryEventObject);
-begin
-        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, TJava.Box(Self));
-end;
-    
-
-// throws Exception
-procedure TGroupLayerManagerListener.onCreateLayerManagerEvent(layerManagerEvent_: TLayerManagerEvent);
-var
-  layerInterface: TAllBinaryLayer;
-  groupInterfaceArray: TArray<TGroup>;
-  size: Integer;
-  id: Integer;
-  groupList: TBasicArrayList;
-  index: Integer;
-begin
-        layerInterface := layerManagerEvent_.getLayerInterface();
-        groupInterfaceArray := layerInterface.getGroupInterface();
-        size := System.Length(groupInterfaceArray);
-        
-        
-        for index := 0 to size - 1 do begin
-            id := Integer(Trunc(groupInterfaceArray[index].getGroupId()));
-            groupList := TBasicArrayList(TJava.ToObject(Self.list.objectArray[id]));
-            if (groupList) = (nil) then begin
-                Self.logUtil.putF(TStringMaker.Create().append('id: ').appendint(id).toString(), TJava.Box(Self), 'onCreateLayerManagerEvent');
-            end;
-            if not (groupList.contains(TJava.Box(layerInterface))) then begin
-                groupList.add(TJava.Box(layerInterface));
-            end else begin
-            end;
-        end;
-end;
-    
-
-// throws Exception
-procedure TGroupLayerManagerListener.onDeleteLayerManagerEvent(layerManagerEvent_: TLayerManagerEvent);
-var
-  layerInterface: TAllBinaryLayer;
-  groupInterfaceArray: TArray<TGroup>;
-  size: Integer;
-  id: Integer;
-  groupList: TBasicArrayList;
-  index: Integer;
-begin
-        layerInterface := layerManagerEvent_.getLayerInterface();
-        groupInterfaceArray := layerInterface.getGroupInterface();
-        size := System.Length(groupInterfaceArray);
-        
-        
-        for index := 0 to size - 1 do begin
-            id := Integer(Trunc(groupInterfaceArray[index].getGroupId()));
-            groupList := TBasicArrayList(TJava.ToObject(Self.list.objectArray[id]));
-            groupList.remove(layerInterface);
-        end;
-end;
-    
-
-procedure TGroupLayerManagerListener.log;
-var
-  stringBuffer: TStringMaker;
-  GROUP_: string;
-  SPACE: string;
-  TOTAL_LABEL: string;
-  size: Integer;
-  groupList: TBasicArrayList;
-  index: Integer;
-begin
-        stringBuffer := TStringMaker.Create();
-        GROUP_ := 'Group: ';
-        SPACE := TCommonSeps.getInstance().SPACE;
-        TOTAL_LABEL := TCommonLabels.getInstance().TOTAL_LABEL;
-        size := Self.list.size();
-        for index := (size) - (1) downto 0 do begin
-            groupList := TBasicArrayList(TJava.ToObject(Self.list.objectArray[index]));
-            stringBuffer.append(GROUP_);
-            stringBuffer.appendint(index);
-            stringBuffer.append(SPACE);
-            stringBuffer.append(TOTAL_LABEL);
-            stringBuffer.appendint(groupList.size());
-            stringBuffer.append(SPACE);
-        end;
-        Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), 'log');
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TGroupLayerManagerListener.SINGLETON := TGroupLayerManagerListener.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GroupLayerManagerListener-log0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringBuffer BINARY-DOUBLE.
+01 J-GROUP BINARY-DOUBLE.
+01 J-SPACE BINARY-DOUBLE.
+01 J-TOTAL_LABEL BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-groupList BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 JFIRST8 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE J-GROUP = FUNCTION JR-STR("Group: ")
+        COMPUTE jtemp11 = FUNCTION CommonSeps-getInstance0
+        COMPUTE J-SPACE = FUNCTION JR-GET(jtemp11, "f_SPACE")
+        COMPUTE jtemp12 = FUNCTION CommonLabels-getInstance0
+        COMPUTE J-TOTAL_LABEL = FUNCTION JR-GET(jtemp12, "f_TOTAL_LABEL")
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_list"))
+        COMPUTE J-index = (FUNCTION MOD((J-size - 1) + 2147483648, 4294967296) - 2147483648)
+        MOVE 1 TO JFIRST8
+        PERFORM FOREVER
+            IF JFIRST8 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST8
+            IF NOT (J-index >= 0) EXIT PERFORM END-IF
+            COMPUTE J-groupList = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_list"), "f_objectArray"), J-index)
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-GROUP)
+            COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, J-index)
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-SPACE)
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-TOTAL_LABEL)
+            COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, FUNCTION BasicArrayList-size0(J-groupList))
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-SPACE)
+        END-PERFORM
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-stringBuffer), J-THIS, FUNCTION JR-STR("log"))
+    GOBACK.
+END FUNCTION GroupLayerManagerListener-log0.
 

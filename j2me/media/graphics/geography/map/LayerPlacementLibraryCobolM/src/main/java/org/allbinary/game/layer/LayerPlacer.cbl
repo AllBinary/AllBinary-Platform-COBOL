@@ -1,152 +1,204 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.layer
+*> Java class LayerPlacer
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.layer
-unit LayerPlacer;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GPoint, LayerInterfaceVisitor, BasicArrayList, EnumerationUtil, LayerPlacementInterface;
-
-type
-  {AB:TYPES}
-  TLayerPlacer = class(TObject)
-  public
-    enumerationUtil: TEnumerationUtil;
-    layerInterfaceVisitor: ILayerInterfaceVisitor;
-    dimension: TGPoint;
-    procedure InitFields;
-        constructor Create(layerInterfaceVisitor_: ILayerInterfaceVisitor; dimension: TGPoint);
-        procedure processList(list: TBasicArrayList); virtual;
-        procedure process(layerPlacementInterface_: ILayerPlacementInterface); virtual;
-        function getPoint(layerPlacementInterface_: ILayerPlacementInterface): TGPoint; virtual;
-  end;
-
-implementation
-uses
-  LayerPlacementType, LayerPlacementTypeFactory, PointFactory, AllBinaryLayer, LayerInterfaceFactory, ABHashtable;
-
-
-{AB:CODE}
-
-procedure TLayerPlacer.InitFields;
-begin
-  Self.enumerationUtil := TEnumerationUtil.getInstance();
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LayerPlacer-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-layerInterfaceVisitor BINARY-DOUBLE.
+01 J-dimension BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-layerInterfaceVisitor J-dimension RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("LayerPlacer")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_enumerationUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_layerInterfaceVisitor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_dimension")
+    COMPUTE JVALUE = FUNCTION EnumerationUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_enumerationUtil", JVALUE)
     
-
-constructor TLayerPlacer.Create(layerInterfaceVisitor_: ILayerInterfaceVisitor; dimension: TGPoint);
-begin
-    inherited Create;
-    InitFields;
-        Self.layerInterfaceVisitor := layerInterfaceVisitor_;
-        Self.dimension := dimension;
-end;
     
+        COMPUTE JVALUE = J-layerInterfaceVisitor
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_layerInterfaceVisitor", JVALUE)
+        COMPUTE JVALUE = J-dimension
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_dimension", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION LayerPlacer-new2.
 
-// throws Exception
-procedure TLayerPlacer.processList(list: TBasicArrayList);
-var
-  size: Integer;
-  layerPlacementInterface_: ILayerPlacementInterface;
-  index: Integer;
-begin
-        size := list.size();
-        
-        for index := 0 to size - 1 do begin
-            layerPlacementInterface_ := (TJava.ToObject(list.objectArray[index]) as ILayerPlacementInterface);
-            Self.process(layerPlacementInterface_);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LayerPlacer-processList1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-size BINARY-DOUBLE.
+01 J-layerPlacementInterface BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-list RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(J-list)
+        CONTINUE
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-layerPlacementInterface = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
+            COMPUTE JDISCARD = FUNCTION LayerPlacer-process1(J-THIS, J-layerPlacementInterface)
+        END-PERFORM
+    GOBACK.
+END FUNCTION LayerPlacer-processList1.
 
-// throws Exception
-procedure TLayerPlacer.process(layerPlacementInterface_: ILayerPlacementInterface);
-var
-  relativePoint: TGPoint;
-  layerInterfaceFactory_: TLayerInterfaceFactory;
-  hashtable: TABHashtable<TObject, TObject>;
-  enumeration: TObject;
-  point: TGPoint;
-  layerHashtable: TABHashtable<TObject, TObject>;
-  x: Integer;
-  y: Integer;
-  z: Integer;
-  layerInterface: TAllBinaryLayer;
-begin
-        relativePoint := Self.getPoint(layerPlacementInterface_);
-        layerInterfaceFactory_ := TLayerInterfaceFactory.getInstance();
-        hashtable := layerPlacementInterface_.getInstance();
-        enumeration := hashtable.keys();
-        
-        
-        
-        
-        
-        
-        while Self.enumerationUtil.hasMoreElements(enumeration) do begin
-            point := TGPoint(TJava.ToObject(Self.enumerationUtil.nextElement(enumeration)));
-            layerHashtable := TABHashtable<TObject, TObject>(TJava.ToObject(hashtable.get(TJava.Box(point))));
-            x := (point.getX()) + (relativePoint.getX());
-            y := (point.getY()) + (relativePoint.getY());
-            z := (point.getZ()) + (relativePoint.getZ());
-            layerInterface := layerInterfaceFactory_.getNexInstance(layerHashtable, x, y, z);
-            Self.layerInterfaceVisitor.visit(layerInterface);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LayerPlacer-process1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-relativePoint BINARY-DOUBLE.
+01 J-layerInterfaceFactory BINARY-DOUBLE.
+01 J-hashtable BINARY-DOUBLE.
+01 J-enumeration BINARY-DOUBLE.
+01 J-point BINARY-DOUBLE.
+01 J-layerHashtable BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-z BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerPlacementInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerPlacementInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-relativePoint = FUNCTION LayerPlacer-getPoint1(J-THIS, J-layerPlacementInterface)
+        COMPUTE J-layerInterfaceFactory = FUNCTION LyrIntrfcFctry-getInstance0
+        COMPUTE J-hashtable = FUNCTION LyrPlcmntIntrfc-getInstance0(J-layerPlacementInterface)
+        COMPUTE J-enumeration = FUNCTION Hashtable-keys0(J-hashtable)
+        CONTINUE
+        CONTINUE
+        CONTINUE
+        CONTINUE
+        CONTINUE
+        CONTINUE
+        PERFORM FOREVER
+            IF NOT (FUNCTION EnmrtnUtl-hasMoreElements1(FUNCTION JR-GET(J-THIS, "f_enumerationUtil"), J-enumeration) = 1) EXIT PERFORM END-IF
+            COMPUTE J-point = FUNCTION EnumerationUtil-nextElement1(FUNCTION JR-GET(J-THIS, "f_enumerationUtil"), J-enumeration)
+            COMPUTE J-layerHashtable = FUNCTION Hashtable-get1(J-hashtable, J-point)
+            COMPUTE J-x = (FUNCTION MOD((FUNCTION GPoint-getX0(J-point) + FUNCTION GPoint-getX0(J-relativePoint)) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE J-y = (FUNCTION MOD((FUNCTION GPoint-getY0(J-point) + FUNCTION GPoint-getY0(J-relativePoint)) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE J-z = (FUNCTION MOD((FUNCTION GPoint-getZ0(J-point) + FUNCTION GPoint-getZ0(J-relativePoint)) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE J-layerInterface = FUNCTION LyrIntrfcFctry-getNexInstance4(J-layerInterfaceFactory, J-layerHashtable, J-x, J-y, J-z)
+            COMPUTE JDISCARD = FUNCTION LayerInterfaceVisitor-visit1(FUNCTION JR-GET(J-THIS, "f_layerInterfaceVisitor"), J-layerInterface)
+        END-PERFORM
+    GOBACK.
+END FUNCTION LayerPlacer-process1.
 
-// throws Exception
-function TLayerPlacer.getPoint(layerPlacementInterface_: ILayerPlacementInterface): TGPoint;
-var
-  pointFactory_: TPointFactory;
-  layerPlacementType_: TLayerPlacementType;
-  width: Integer;
-  height: Integer;
-  x: Integer;
-  y: Integer;
-begin
-        pointFactory_ := TPointFactory.getInstance();
-        layerPlacementType_ := layerPlacementInterface_.getLayerType();
-        if (layerPlacementType_) = (TLayerPlacementTypeFactory.getInstance().MAP) then begin
-            width := layerPlacementInterface_.getWidth();
-            height := layerPlacementInterface_.getHeight();
-            x := ((((Self.dimension.getX()) - (width))) div (2));
-            y := ((((Self.dimension.getY()) - (height))) div (2));
-            Exit(pointFactory_.createXY(x, y));
-        end else if (layerPlacementType_) = (TLayerPlacementTypeFactory.getInstance().UP) then begin
-            width := layerPlacementInterface_.getWidth();
-            height := layerPlacementInterface_.getHeight();
-            x := ((((Self.dimension.getX()) - (width))) div (2));
-            y := -height;
-            Exit(pointFactory_.createXY(x, y));
-        end else begin
-            raise SysUtils.Exception.Create('PlacementType Not Recognized');
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LayerPlacer-getPoint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-pointFactory BINARY-DOUBLE.
+01 J-layerPlacementType BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerPlacementInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerPlacementInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-pointFactory = FUNCTION PointFactory-getInstance0
+        COMPUTE J-layerPlacementType = FUNCTION LyrPlcmntIntrfc-getLayerType0(J-layerPlacementInterface)
+        COMPUTE jtemp1 = FUNCTION LyrPlcmntTypFctry-getInstance0
+        IF (J-layerPlacementType = FUNCTION JR-GET(jtemp1, "f_MAP"))
+            COMPUTE J-width = FUNCTION LyrPlcmntIntrfc-getWidth0(J-layerPlacementInterface)
+            COMPUTE J-height = FUNCTION LyrPlcmntIntrfc-getHeight0(J-layerPlacementInterface)
+            COMPUTE J-x = ((FUNCTION MOD(FUNCTION INTEGER-PART(((FUNCTION MOD((FUNCTION GPoint-getX0(FUNCTION JR-GET(J-THIS, "f_dimension")) - J-width) + 2147483648, 4294967296) - 2147483648)) / 2) + 2147483648, 4294967296) - 2147483648))
+            COMPUTE J-y = ((FUNCTION MOD(FUNCTION INTEGER-PART(((FUNCTION MOD((FUNCTION GPoint-getY0(FUNCTION JR-GET(J-THIS, "f_dimension")) - J-height) + 2147483648, 4294967296) - 2147483648)) / 2) + 2147483648, 4294967296) - 2147483648))
+            COMPUTE J-RESULT = FUNCTION PointFactory-createXY2(J-pointFactory, J-x, J-y)
+            GOBACK
+        ELSE
+            COMPUTE jtemp2 = FUNCTION LyrPlcmntTypFctry-getInstance0
+        IF (J-layerPlacementType = FUNCTION JR-GET(jtemp2, "f_UP"))
+            COMPUTE J-width = FUNCTION LyrPlcmntIntrfc-getWidth0(J-layerPlacementInterface)
+            COMPUTE J-height = FUNCTION LyrPlcmntIntrfc-getHeight0(J-layerPlacementInterface)
+            COMPUTE J-x = ((FUNCTION MOD(FUNCTION INTEGER-PART(((FUNCTION MOD((FUNCTION GPoint-getX0(FUNCTION JR-GET(J-THIS, "f_dimension")) - J-width) + 2147483648, 4294967296) - 2147483648)) / 2) + 2147483648, 4294967296) - 2147483648))
+            COMPUTE J-y = (0 - J-height)
+            COMPUTE J-RESULT = FUNCTION PointFactory-createXY2(J-pointFactory, J-x, J-y)
+            GOBACK
+        ELSE
+            COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+        END-IF
+        END-IF
+    GOBACK.
+END FUNCTION LayerPlacer-getPoint1.
 

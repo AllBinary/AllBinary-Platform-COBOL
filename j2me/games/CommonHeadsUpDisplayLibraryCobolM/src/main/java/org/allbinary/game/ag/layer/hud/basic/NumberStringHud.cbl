@@ -1,166 +1,349 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.layer.hud.basic
+*> Java class NumberStringHud
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NumberStringHud-new6.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-prependString BINARY-DOUBLE.
+01 J-max BINARY-DOUBLE.
+01 J-location BINARY-DOUBLE.
+01 J-direction BINARY-DOUBLE.
+01 J-bufferZone BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-prependString J-max J-location J-direction J-bufferZone J-basicColor RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("NumberStringHud")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_primitiveLongUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_prependString")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_PREPEND_STRING")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_value")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_max")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_offset")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_valueString")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_valueTotalDigits")
     
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.layer.hud.basic
-unit NumberStringHud;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, BasicHud, BasicColor, PaintableInterface, PrimitiveLongUtil;
-
-type
-  {AB:TYPES}
-  TNumberStringHud = class(TBasicHud, IPaintableInterface)
-  public
-    primitiveLongUtil: TPrimitiveLongUtil;
-    prependString: string;
-    PREPEND_STRING: TArray<WideChar>;
-    value: Integer;
-    max: Integer;
-    offset: Integer;
-    valueString: TArray<WideChar>;
-    valueTotalDigits: Integer;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(prependString: string; max: Integer; location: Integer; direction: Integer; bufferZone: Integer; basicColor_: TBasicColor);
-        procedure updateMeasurement(graphics_: TGraphics); virtual;
-        function get: Integer; virtual;
-        procedure add(value: Integer); virtual;
-        procedure set_(value: Integer); virtual;
-        procedure reduce(value: Integer); virtual;
-        procedure paint(graphics_: TGraphics); virtual;
-        procedure paintXY(graphics_: TGraphics; x: Integer; y: Integer); virtual;
-        procedure paintThreed(graphics_: TGraphics); virtual;
-  end;
-
-implementation
-uses
-  Font, BasicHudFactory, MyFontProcessor, PrimitiveLongSingleton;
-
-
-{AB:CODE}
-
-procedure TNumberStringHud.InitFields;
-begin
-  
-  
-  
-  
-  
-  
-  
-  
-end;
-
-function TNumberStringHud.JavaObject: TObject;
-begin
-  Result := Self;
-end;
     
-
-constructor TNumberStringHud.Create(prependString: string; max: Integer; location: Integer; direction: Integer; bufferZone: Integer; basicColor_: TBasicColor);
-begin
-        inherited Create(location, direction, bufferZone, basicColor_);
-        InitFields;
-        Self.prependString := prependString;
-        Self.PREPEND_STRING := TJava.ToCharArray(prependString);
-        Self.valueString := TPrimitiveLongSingleton.getInstance().NUMBER_CHAR_ARRAYS[0];
-        Self.primitiveLongUtil := TPrimitiveLongUtil.createPowerOfTen((max) + (1));
-        Self.max := max;
-        Self.value := 0;
-        if (direction) = (0) then begin
-            raise SysUtils.Exception.Create(TBasicHudFactory.getInstance().DIRECTION_EXCEPTION);
-        end;
-end;
     
-
-procedure TNumberStringHud.updateMeasurement(graphics_: TGraphics);
-var
-  font_: TFont;
-begin
-        font_ := graphics_.getFont();
-        Self.offset := (font_.stringWidth(Self.prependString)) + (TMyFontProcessor.defaultCharWidth(font_));
-        inherited updateMeasurement(graphics_);
-end;
     
-
-function TNumberStringHud.get: Integer;
-begin
-        Exit(Self.value);
-end;
     
-
-procedure TNumberStringHud.add(value: Integer);
-begin
-        Self.set_((Self.value) + (value));
-end;
     
-
-procedure TNumberStringHud.set_(value: Integer);
-begin
-        Self.value := value;
-        if (Self.value) > (Self.max) then begin
-            Self.value := 0;
-        end;
-        Self.valueString := Self.primitiveLongUtil.getCharArray(Self.value);
-        Self.valueTotalDigits := Self.primitiveLongUtil.getCurrentTotalDigits();
-end;
     
-
-procedure TNumberStringHud.reduce(value: Integer);
-begin
-        Self.set_((Self.value) - (value));
-end;
     
+        CONTINUE
+        COMPUTE JVALUE = J-prependString
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_prependString", JVALUE)
+        COMPUTE JVALUE = FUNCTION JR-TOCHARARRAY(J-prependString)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_PREPEND_STRING", JVALUE)
+        COMPUTE jtemp2 = FUNCTION PrmtvLngSngltn-getInstance0
+        COMPUTE jtemp1 = 0
+        COMPUTE JVALUE = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(jtemp2, "f_NUMBER_CHAR_ARRAYS"), jtemp1)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_valueString", JVALUE)
+        COMPUTE jtemp4 = 1
+        COMPUTE jtemp3 = (FUNCTION MOD((J-max + jtemp4) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION PrmtvLngUtl-createPowerOfTen1(jtemp3)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_primitiveLongUtil", JVALUE)
+        COMPUTE JVALUE = J-max
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_max", JVALUE)
+        COMPUTE JVALUE = 0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_value", JVALUE)
+        IF (J-direction = 0)
+            COMPUTE jtemp5 = FUNCTION BasicHudFactory-getInstance0
+            COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+        END-IF
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION NumberStringHud-new6.
 
-procedure TNumberStringHud.paint(graphics_: TGraphics);
-begin
-        inherited paintDX(graphics_, Self.PREPEND_STRING, 0, System.Length(Self.PREPEND_STRING), Self.valueString, 0, Self.valueTotalDigits, Self.offset);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NmbrStrngHd-updateMeasurement1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-font BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-font = FUNCTION Graphics-getFont0(J-graphics)
+        COMPUTE JVALUE = (FUNCTION MOD((FUNCTION Font-stringWidth1(J-font, FUNCTION JR-GET(J-THIS, "f_prependString")) + FUNCTION MyFntPrcssr-defaultCharWidth1(J-font)) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_offset", JVALUE)
+        COMPUTE JDISCARD = FUNCTION BasicHud-updateMeasurement1(J-THIS, J-graphics)
+    GOBACK.
+END FUNCTION NmbrStrngHd-updateMeasurement1.
 
-procedure TNumberStringHud.paintXY(graphics_: TGraphics; x: Integer; y: Integer);
-var
-  charArray: TArray<WideChar>;
-  len: Integer;
-  charArray2: TArray<WideChar>;
-  len2: Integer;
-begin
-        Self.myFontProcessor.process(graphics_);
-        charArray := Self.PREPEND_STRING;
-        len := System.Length(Self.PREPEND_STRING);
-        charArray2 := Self.valueString;
-        len2 := Self.valueTotalDigits;
-        Self.basicSetColorUtil.setBasicColorP(graphics_, Self.getBasicColorP());
-        graphics_.drawChars(charArray, 0, len, x, y, 0);
-        graphics_.drawChars(charArray2, 0, len2, (x) - (Self.offset), y, 0);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NumberStringHud-get0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_value")
+        GOBACK
+    GOBACK.
+END FUNCTION NumberStringHud-get0.
 
-procedure TNumberStringHud.paintThreed(graphics_: TGraphics);
-begin
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NumberStringHud-add1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-value BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-value RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp6 = (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_value") + J-value) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION NumberStringHud-set1(J-THIS, jtemp6)
+    GOBACK.
+END FUNCTION NumberStringHud-add1.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NumberStringHud-set1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-value BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-value RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-value
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_value", JVALUE)
+        IF (FUNCTION JR-GET(J-THIS, "f_value") > FUNCTION JR-GET(J-THIS, "f_max"))
+            COMPUTE JVALUE = 0
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_value", JVALUE)
+        END-IF
+        COMPUTE JVALUE = FUNCTION PrmtvLngUtl-getCharArray1(FUNCTION JR-GET(J-THIS, "f_primitiveLongUtil"), FUNCTION JR-GET(J-THIS, "f_value"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_valueString", JVALUE)
+        COMPUTE JVALUE = FUNCTION PrmtvLngUtl-gtCrrntTtlDgts0(FUNCTION JR-GET(J-THIS, "f_primitiveLongUtil"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_valueTotalDigits", JVALUE)
+    GOBACK.
+END FUNCTION NumberStringHud-set1.
 
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NumberStringHud-reduce1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-value BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-value RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp7 = (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_value") - J-value) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION NumberStringHud-set1(J-THIS, jtemp7)
+    GOBACK.
+END FUNCTION NumberStringHud-reduce1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NumberStringHud-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp8 = 0
+        COMPUTE jtemp9 = 0
+        COMPUTE JDISCARD = FUNCTION BasicHud-paintDX8(J-THIS, J-graphics, FUNCTION JR-GET(J-THIS, "f_PREPEND_STRING"), jtemp8, FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_PREPEND_STRING")), FUNCTION JR-GET(J-THIS, "f_valueString"),
+        jtemp9, FUNCTION JR-GET(J-THIS, "f_valueTotalDigits"), FUNCTION JR-GET(J-THIS, "f_offset"))
+    GOBACK.
+END FUNCTION NumberStringHud-paint1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NumberStringHud-paintXY3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-charArray BINARY-DOUBLE.
+01 J-len BINARY-DOUBLE.
+01 J-charArray2 BINARY-DOUBLE.
+01 J-len2 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_myFontProcessor"))
+        COMPUTE J-charArray = FUNCTION JR-GET(J-THIS, "f_PREPEND_STRING")
+        COMPUTE J-len = FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_PREPEND_STRING"))
+        COMPUTE J-charArray2 = FUNCTION JR-GET(J-THIS, "f_valueString")
+        COMPUTE J-len2 = FUNCTION JR-GET(J-THIS, "f_valueTotalDigits")
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_basicSetColorUtil"))
+        COMPUTE jtemp10 = 0
+        COMPUTE jtemp11 = 0
+        COMPUTE JDISCARD = FUNCTION Graphics-drawChars6(J-graphics, J-charArray, jtemp10, J-len, J-x, J-y, jtemp11)
+        COMPUTE jtemp12 = 0
+        COMPUTE jtemp13 = (FUNCTION MOD((J-x - FUNCTION JR-GET(J-THIS, "f_offset")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp14 = 0
+        COMPUTE JDISCARD = FUNCTION Graphics-drawChars6(J-graphics, J-charArray2, jtemp12, J-len2, jtemp13, J-y, jtemp14)
+    GOBACK.
+END FUNCTION NumberStringHud-paintXY3.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NumberStringHud-paintThreed1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION NumberStringHud-paintThreed1.
 

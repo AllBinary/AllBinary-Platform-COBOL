@@ -1,102 +1,165 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.vector
+*> Java class CircleAnimation
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.vector
-unit CircleAnimation;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, Animation, BasicColor, ColorCompositeInterface, BasicColorCompositeSetterInterface;
-
-type
-  {AB:TYPES}
-  TCircleAnimation = class(TAnimation, IColorCompositeInterface, IBasicColorCompositeSetterInterface)
-  public
-    TOTAL_ANGLE: Integer;
-    width: Integer;
-    height: Integer;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(width: Integer; height: Integer; basicColor_: TBasicColor);
-        procedure nextFrame; virtual;
-        procedure paintXY(graphics_: TGraphics; x: Integer; y: Integer); virtual;
-        function getBasicColorP: TBasicColor; virtual;
-        procedure setBasicColorP(basicColor_: TBasicColor); virtual;
-  end;
-
-implementation
-uses
-  AngleFactory;
-
-
-{AB:CODE}
-
-procedure TCircleAnimation.InitFields;
-begin
-  Self.TOTAL_ANGLE := Integer(Trunc(TAngleFactory.getInstance().TOTAL_ANGLE));
-  
-  
-end;
-
-function TCircleAnimation.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CircleAnimation-new3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-width J-height J-basicColor RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CircleAnimation")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_TOTAL_ANGLE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_width")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_height")
+    COMPUTE jtemp1 = FUNCTION AngleFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_TOTAL_ANGLE")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_TOTAL_ANGLE", JVALUE)
     
-
-constructor TCircleAnimation.Create(width: Integer; height: Integer; basicColor_: TBasicColor);
-begin
-    inherited Create;
-    InitFields;
-        Self.width := width;
-        Self.height := height;
-        Self.setBasicColorP(basicColor_);
-end;
     
+        COMPUTE JVALUE = J-width
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_width", JVALUE)
+        COMPUTE JVALUE = J-height
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_height", JVALUE)
+        COMPUTE JDISCARD = FUNCTION CrclAnmtn-setBasicColorP1(J-THIS, J-basicColor)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CircleAnimation-new3.
 
-procedure TCircleAnimation.nextFrame;
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CircleAnimation-nextFrame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION CircleAnimation-nextFrame0.
 
-procedure TCircleAnimation.paintXY(graphics_: TGraphics; x: Integer; y: Integer);
-begin
-        Self.basicSetColorUtil.setBasicColorP3(graphics_, Self.getBasicColorP(), Self.getColor());
-        graphics_.drawArc(x, y, Self.width, Self.height, 0, Self.TOTAL_ANGLE);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CircleAnimation-paintXY3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_basicSetColorUtil"))
+        COMPUTE jtemp2 = 0
+        COMPUTE JDISCARD = FUNCTION Graphics-drawArc6(J-graphics, J-x, J-y, FUNCTION JR-GET(J-THIS, "f_width"), FUNCTION JR-GET(J-THIS, "f_height"), jtemp2, FUNCTION JR-GET(J-THIS, "f_TOTAL_ANGLE"))
+    GOBACK.
+END FUNCTION CircleAnimation-paintXY3.
 
-function TCircleAnimation.getBasicColorP: TBasicColor;
-begin
-        Exit(inherited getBasicColorP());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CrclAnmtn-getBasicColorP0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION Animation-getBasicColorP0(J-THIS)
+        GOBACK
+    GOBACK.
+END FUNCTION CrclAnmtn-getBasicColorP0.
 
-procedure TCircleAnimation.setBasicColorP(basicColor_: TBasicColor);
-begin
-        inherited setBasicColorP(basicColor_);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CrclAnmtn-setBasicColorP1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-basicColor RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Animation-setBasicColorP1(J-THIS, J-basicColor)
+    GOBACK.
+END FUNCTION CrclAnmtn-setBasicColorP1.
 

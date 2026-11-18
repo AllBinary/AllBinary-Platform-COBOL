@@ -1,98 +1,192 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.configuration
+*> Java class SaveGameForm
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.configuration
-unit SaveGameForm;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SaveGameForm-static-FORM.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 SaveGameForm-jcell-FORM BINARY-DOUBLE EXTERNAL.
+01 SaveGameForm-jset-FORM BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF SaveGameForm-jset-FORM = 0
+        MOVE 1 TO SaveGameForm-jset-FORM
+        COMPUTE SaveGameForm-jcell-FORM = FUNCTION CmmndFrm-getNullCommandForm0
+    END-IF
+    MOVE SaveGameForm-jcell-FORM TO J-RESULT
+    GOBACK.
+END FUNCTION SaveGameForm-static-FORM.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SaveGameFormstaticFOS14654.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 SaveGameForm-jcell-FORM BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION SaveGameForm-static-FORM TO J-RESULT
+    MOVE J-VALUE TO SaveGameForm-jcell-FORM
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION SaveGameFormstaticFOS14654.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SaveGameForm-new4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-timeString BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-commandListener BINARY-DOUBLE.
+01 J-title BINARY-DOUBLE.
+01 J-backgrounBasicColor BINARY-DOUBLE.
+01 J-foregroundBasicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-commandListener J-title J-backgrounBasicColor J-foregroundBasicColor RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("SaveGameForm")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_meUtil")
+    COMPUTE JVALUE = FUNCTION MIDPUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_meUtil", JVALUE)
+        CONTINUE
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        COMPUTE jtemp1 = FUNCTION ABSystemWrapper-getInstance0
+        COMPUTE J-timeString = FUNCTION JR-INT-STRING(FUNCTION ABSystmWrppr-crrntTmMlls0(jtemp1))
+        COMPUTE jtemp2 = 30
+        COMPUTE JDISCARD = FUNCTION MIDPUtil-appendItem2(FUNCTION JR-GET(J-THIS, "f_meUtil"), J-THIS, FUNCTION TextField-new4(FUNCTION JR-STR("Name: "), J-timeString, jtemp2, FUNCTION TextField-static-ANY))
+        COMPUTE JDISCARD = FUNCTION SaveGameForm-initCommands1(J-THIS, J-commandListener)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION SaveGameForm-new4.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, CommandListener, MIDPUtil, BasicColor, CommandForm;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SaveGameForm-createForm4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-commandListener BINARY-DOUBLE.
+01 J-title BINARY-DOUBLE.
+01 J-backgrounBasicColor BINARY-DOUBLE.
+01 J-foregroundBasicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-commandListener J-title J-backgrounBasicColor J-foregroundBasicColor RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION SaveGameFormstaticFOS14654(FUNCTION SaveGameForm-new4(J-commandListener, J-title, J-backgrounBasicColor, J-foregroundBasicColor))
+        COMPUTE J-RESULT = FUNCTION SaveGameForm-static-FORM
+        GOBACK
+    GOBACK.
+END FUNCTION SaveGameForm-createForm4.
 
-type
-  {AB:TYPES}
-  TSaveGameForm = class(TCommandForm)
-  public
-    meUtil: TMIDPUtil;
-    class var FORM: TCommandForm;
-    procedure InitFields;
-        class function createForm(commandListener_: ICommandListener; title: string; backgrounBasicColor: TBasicColor; foregroundBasicColor: TBasicColor): TCommandForm; static;
-        class function getInstance: TCommandForm; static;
-        constructor Create(commandListener_: ICommandListener; title: string; backgrounBasicColor: TBasicColor; foregroundBasicColor: TBasicColor);
-        procedure initCommands(cmdListener: ICommandListener); override;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SaveGameForm-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION SaveGameForm-static-FORM
+        GOBACK
+    GOBACK.
+END FUNCTION SaveGameForm-getInstance0.
 
-implementation
-uses
-  TextField, GameCommandsFactory, ABSystemWrapper;
-
-
-{AB:CODE}
-
-procedure TSaveGameForm.InitFields;
-begin
-  Self.meUtil := TMIDPUtil.getInstance();
-end;
-    
-
-// throws Exception
-class function TSaveGameForm.createForm(commandListener_: ICommandListener; title: string; backgrounBasicColor: TBasicColor; foregroundBasicColor: TBasicColor): TCommandForm;
-begin
-        TSaveGameForm.FORM := TSaveGameForm.Create(commandListener_, title, backgrounBasicColor, foregroundBasicColor);
-        Exit(TSaveGameForm.FORM);
-end;
-    
-
-class function TSaveGameForm.getInstance: TCommandForm;
-begin
-        Exit(TSaveGameForm.FORM);
-end;
-    
-
-constructor TSaveGameForm.Create(commandListener_: ICommandListener; title: string; backgrounBasicColor: TBasicColor; foregroundBasicColor: TBasicColor);
-var
-  timeString: string;
-begin
-        inherited Create(commandListener_, title, backgrounBasicColor, foregroundBasicColor);
-        InitFields;
-        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_);
-        timeString := IntToStr(TABSystemWrapper.getInstance().currentTimeMillis());
-        Self.meUtil.appendItem(Self, TTextField.Create('Name: ', timeString, 30, TTextField.ANY));
-        Self.initCommands(commandListener_);
-end;
-    
-
-procedure TSaveGameForm.initCommands(cmdListener: ICommandListener);
-var
-  gameCommandsFactory_: TGameCommandsFactory;
-begin
-        gameCommandsFactory_ := TGameCommandsFactory.getInstance();
-        Self.removeAllCommands();
-        Self.addCommand(gameCommandsFactory_.SAVE);
-        Self.addCommand(gameCommandsFactory_.CLOSE_AND_SHOW_GAME_CANVAS);
-        Self.setCommandListener(cmdListener);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TSaveGameForm.FORM := TCommandForm.getNullCommandForm();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SaveGameForm-initCommands1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameCommandsFactory BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-cmdListener BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-cmdListener RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-gameCommandsFactory = FUNCTION GmCmmndsFctry-getInstance0
+        COMPUTE JDISCARD = FUNCTION CommandForm-removeAllCommands0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION CommandForm-addCommand1(J-THIS, FUNCTION JR-GET(J-gameCommandsFactory, "f_SAVE"))
+        COMPUTE JDISCARD = FUNCTION CommandForm-addCommand1(J-THIS, FUNCTION JR-GET(J-gameCommandsFactory, "f_CLOSE_AND_SHOW_GAME_CANVAS"))
+        COMPUTE JDISCARD = FUNCTION Form-setCommandListener1(J-THIS, J-cmdListener)
+    GOBACK.
+END FUNCTION SaveGameForm-initCommands1.
 

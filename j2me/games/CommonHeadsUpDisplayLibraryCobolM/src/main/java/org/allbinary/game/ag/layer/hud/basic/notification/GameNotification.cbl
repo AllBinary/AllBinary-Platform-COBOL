@@ -1,93 +1,194 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.layer.hud.basic.notification
+*> Java class GameNotification
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.layer.hud.basic.notification
-unit GameNotification;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmNtfctn-sttc-NULL-GA70599.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameNotification-jcell-NULL_GAME_NOTIFICATION_EVENT BINARY-DOUBLE EXTERNAL.
+01 GameNotification-jset-NULL_GAME_NOTIFICATION_EVENT BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GameNotification-jset-NULL_GAME_NOTIFICATION_EVENT = 0
+        MOVE 1 TO GameNotification-jset-NULL_GAME_NOTIFICATION_EVENT
+        COMPUTE jtemp3 = 0
+    COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE jtemp2 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp4 = FUNCTION BasicColorFactory-getInstance0
+    COMPUTE jtemp5 = FUNCTION BooleanFactory-getInstance0
+    COMPUTE GameNotification-jcell-NULL_GAME_NOTIFICATION_EVENT = FUNCTION GameNotificationEvent-new5(FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT"), FUNCTION JR-GET(jtemp2, "f_EMPTY_STRING"), jtemp3, FUNCTION JR-GET(jtemp4, "f_RED"), FUNCTION
+        JR-GET(jtemp5, "f_FALSE"))
+    END-IF
+    MOVE GameNotification-jcell-NULL_GAME_NOTIFICATION_EVENT TO J-RESULT
+    GOBACK.
+END FUNCTION GmNtfctn-sttc-NULL-GA70599.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmNtfctnsttcNULLGA70S10644.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameNotification-jcell-NULL_GAME_NOTIFICATION_EVENT BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GmNtfctn-sttc-NULL-GA70599 TO J-RESULT
+    MOVE J-VALUE TO GameNotification-jcell-NULL_GAME_NOTIFICATION_EVENT
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GmNtfctnsttcNULLGA70S10644.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameNotification-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameNotification")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_stringList")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_timeList")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_colorList")
+    COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_stringList", JVALUE)
+    COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_timeList", JVALUE)
+    COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_colorList", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GameNotification-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameNotificationEvent, BasicColor, BasicArrayList;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameNotification-add3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-string BINARY-DOUBLE.
+01 J-seconds BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-string J-seconds J-basicColor RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (NOT (FUNCTION BasicArrayList-contains1(FUNCTION JR-GET(J-THIS, "f_stringList"), J-string) = 1))
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_stringList"), J-string)
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_timeList"), J-seconds)
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_colorList"), J-basicColor)
+        END-IF
+    GOBACK.
+END FUNCTION GameNotification-add3.
 
-type
-  {AB:TYPES}
-  TGameNotification = class(TObject)
-  public
-    stringList: TBasicArrayList;
-    timeList: TBasicArrayList;
-    colorList: TBasicArrayList;
-    class var NULL_GAME_NOTIFICATION_EVENT: TGameNotificationEvent;
-    procedure InitFields;
-    constructor Create;
-        procedure add(string_: string; seconds: Integer; basicColor_: TBasicColor); virtual;
-        procedure clear; virtual;
-        function getSize: Integer; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameNotification-clear0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-clear0(FUNCTION JR-GET(J-THIS, "f_stringList"))
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-clear0(FUNCTION JR-GET(J-THIS, "f_timeList"))
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-clear0(FUNCTION JR-GET(J-THIS, "f_colorList"))
+    GOBACK.
+END FUNCTION GameNotification-clear0.
 
-implementation
-uses
-  BasicColorFactory, NullUtil, BooleanFactory, StringUtil, BasicArrayListD;
-
-
-{AB:CODE}
-
-procedure TGameNotification.InitFields;
-begin
-  Self.stringList := TBasicArrayListD.Create();
-  Self.timeList := TBasicArrayListD.Create();
-  Self.colorList := TBasicArrayListD.Create();
-end;
-
-constructor TGameNotification.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-procedure TGameNotification.add(string_: string; seconds: Integer; basicColor_: TBasicColor);
-begin
-        if not (Self.stringList.contains(TJava.Box(string_))) then begin
-            Self.stringList.add(TJava.Box(string_));
-            Self.timeList.add(TJava.Box(seconds));
-            Self.colorList.add(TJava.Box(basicColor_));
-        end;
-end;
-    
-
-procedure TGameNotification.clear;
-begin
-        Self.stringList.clear();
-        Self.timeList.clear();
-        Self.colorList.clear();
-end;
-    
-
-function TGameNotification.getSize: Integer;
-begin
-        Exit(Self.stringList.size());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TGameNotification.NULL_GAME_NOTIFICATION_EVENT := TGameNotificationEvent.Create(TJava.Box(TNullUtil.getInstance().NULL_OBJECT), TStringUtil.getInstance().EMPTY_STRING, 0, TBasicColorFactory.getInstance().RED, TBooleanFactory.getInstance().FALSE_);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameNotification-getSize0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_stringList"))
+        GOBACK
+    GOBACK.
+END FUNCTION GameNotification-getSize0.
 

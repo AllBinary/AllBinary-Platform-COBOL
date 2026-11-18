@@ -1,104 +1,128 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2022 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.text
+*> Java class CustomTextBoxIndexedAnimationFactory
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CstmTxtBxIndxdAnmtnFctry-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-fontSize BINARY-DOUBLE.
+01 J-maxLength BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-fontSize J-maxLength RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CustomTextBoxIndexedAnimationFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_scaleProperties")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_maxLength")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
     
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.text
-unit CustomTextBoxIndexedAnimationFactory;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Animation, AnimationInterfaceFactoryInterface, LogUtil, ScaleProperties, BasicAnimationInterfaceFactoryInterface;
-
-type
-  {AB:TYPES}
-  TCustomTextBoxIndexedAnimationFactory = class(TInterfacedObject, IAnimationInterfaceFactoryInterface, IBasicAnimationInterfaceFactoryInterface)
-  public
-    logUtil: TLogUtil;
-    scaleProperties: TScaleProperties;
-    maxLength: Integer;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(fontSize: Integer; maxLength: Integer);
-        function getInstance(instanceId: Integer): TAnimation; virtual;
-        procedure setInitialScale(scaleProperties_: TScaleProperties); virtual;
-  end;
-
-implementation
-uses
-  CustomTextBox2, CustomTextBoxIndexedAnimation, Font, TextField, CustomTextBox, ABToGBUtil, AllBinaryGameCanvas, CommonStrings, StringUtil;
-
-
-{AB:CODE}
-
-procedure TCustomTextBoxIndexedAnimationFactory.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  
-  
-end;
-
-function TCustomTextBoxIndexedAnimationFactory.JavaObject: TObject;
-begin
-  Result := Self;
-end;
     
+        COMPUTE JVALUE = FUNCTION ScaleProperties-new0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_scaleProperties", JVALUE)
+        COMPUTE JVALUE = J-fontSize
+        COMPUTE JDISCARD = FUNCTION JR-SET(FUNCTION JR-GET(J-THIS, "f_scaleProperties"), "f_scaleHeight", JVALUE)
+        COMPUTE JVALUE = J-maxLength
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_maxLength", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CstmTxtBxIndxdAnmtnFctry-new2.
 
-constructor TCustomTextBoxIndexedAnimationFactory.Create(fontSize: Integer; maxLength: Integer);
-begin
-    inherited Create;
-    InitFields;
-        Self.scaleProperties := TScaleProperties.Create();
-        Self.scaleProperties.scaleHeight := fontSize;
-        Self.maxLength := maxLength;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CstmTxtBxIndxdAnmtnFctr-13659.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-abToGBUtil BINARY-DOUBLE.
+01 J-abCanvas BINARY-DOUBLE.
+01 J-font BINARY-DOUBLE.
+01 J-customTextBox BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-instanceId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-instanceId RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-abToGBUtil = FUNCTION ABToGBUtil-getInstance0
+        COMPUTE J-abCanvas = FUNCTION JR-GET(J-abToGBUtil, "f_abCanvas")
+        COMPUTE J-font = FUNCTION Font-getFont3(FUNCTION Font-static-FACE-SYSTEM, FUNCTION Font-static-STYLE-PLAIN, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_scaleProperties"), "f_scaleHeight"))
+        COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+        COMPUTE jtemp2 = FUNCTION StringUtil-getInstance0
+        COMPUTE jtemp3 = FUNCTION AllBnryGmCnvs-getLayerManager0(J-abCanvas)
+        COMPUTE jtemp4 = FUNCTION AllBnryGmCnvs-getLayerManager0(J-abCanvas)
+        COMPUTE J-customTextBox = FUNCTION CustomTextBox2-new8(FUNCTION MyCnvs-gtCstmCmmndLstnr0(J-abCanvas), FUNCTION JR-GET(jtemp1, "f_EMPTY_STRING"), FUNCTION JR-GET(jtemp2, "f_EMPTY_STRING"), FUNCTION JR-GET(J-THIS, "f_maxLength"),
+        FUNCTION TextField-static-ANY, J-font, FUNCTION JR-CLASS-NAME(jtemp3), FUNCTION JR-CLASS-NAME(jtemp4))
+        COMPUTE J-RESULT = FUNCTION CstmTxtBxIndxdAnmtn-new1(J-customTextBox)
+        GOBACK
+    GOBACK.
+END FUNCTION CstmTxtBxIndxdAnmtnFctr-13659.
 
-// throws Exception
-function TCustomTextBoxIndexedAnimationFactory.getInstance(instanceId: Integer): TAnimation;
-var
-  abToGBUtil_: TABToGBUtil;
-  abCanvas: TAllBinaryGameCanvas;
-  font_: TFont;
-  customTextBox_: TCustomTextBox;
-begin
-        abToGBUtil_ := TABToGBUtil.getInstance();
-        abCanvas := TAllBinaryGameCanvas(TJava.ToObject(abToGBUtil_.abCanvas));
-        font_ := TFont.getFont(TFont.FACE_SYSTEM, TFont.STYLE_PLAIN, Self.scaleProperties.scaleHeight);
-        customTextBox_ := TCustomTextBox2.Create(abCanvas.getCustomCommandListener(), TStringUtil.getInstance().EMPTY_STRING, TStringUtil.getInstance().EMPTY_STRING, Self.maxLength, TTextField.ANY, font_, abCanvas.getLayerManager().getBackgroundBasicColor(), abCanvas.getLayerManager().getForegroundBasicColor());
-        Exit(TCustomTextBoxIndexedAnimation.Create(customTextBox_));
-end;
-    
-
-procedure TCustomTextBoxIndexedAnimationFactory.setInitialScale(scaleProperties_: TScaleProperties);
-var
-  fontSize: Integer;
-begin
-        fontSize := Self.scaleProperties.scaleHeight;
-        Self.scaleProperties := scaleProperties_;
-        if (Self.scaleProperties.scaleHeight) < (6) then begin
-            Self.scaleProperties.scaleHeight := fontSize;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CstmTxtBxIndxdAnmtnFctr-39629.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-fontSize BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-scaleProperties BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-scaleProperties RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-fontSize = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_scaleProperties"), "f_scaleHeight")
+        COMPUTE JVALUE = J-scaleProperties
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_scaleProperties", JVALUE)
+        IF (FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_scaleProperties"), "f_scaleHeight") < 6)
+            COMPUTE JVALUE = J-fontSize
+            COMPUTE JDISCARD = FUNCTION JR-SET(FUNCTION JR-GET(J-THIS, "f_scaleProperties"), "f_scaleHeight", JVALUE)
+        END-IF
+    GOBACK.
+END FUNCTION CstmTxtBxIndxdAnmtnFctr-39629.
 

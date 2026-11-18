@@ -1,76 +1,155 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2022 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.persistance
-unit PlatformRecordIdUtil;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.persistance
+*> Java class PlatformRecordIdUtil
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PltfrmRcrdIdUtl-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PlatformRecordIdUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 PlatformRecordIdUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF PlatformRecordIdUtil-jset-instance = 0
+        MOVE 1 TO PlatformRecordIdUtil-jset-instance
+        COMPUTE PlatformRecordIdUtil-jcell-instance = FUNCTION PlatformRecordIdUtil-new0
+    END-IF
+    MOVE PlatformRecordIdUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION PltfrmRcrdIdUtl-sttc-nstnc.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PltfrmRcrdIdUtlsttcnS67554.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PlatformRecordIdUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION PltfrmRcrdIdUtl-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO PlatformRecordIdUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION PltfrmRcrdIdUtlsttcnS67554.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AbeClientInformationInterface;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlatformRecordIdUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("PlatformRecordIdUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_PLATFORM_SHORT_NAME")
+    COMPUTE JVALUE = FUNCTION JR-STR("JSE")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_PLATFORM_SHORT_NAME", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION PlatformRecordIdUtil-new0.
 
-type
-  {AB:TYPES}
-  TPlatformRecordIdUtil = class(TObject)
-  public
-    PLATFORM_SHORT_NAME: string;
-    class var instance: TPlatformRecordIdUtil;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TPlatformRecordIdUtil; static;
-        function getRecordId(abeClientInformation: IAbeClientInformationInterface; baseRecordId: string): string; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PltfrmRcrdIdUtl-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION PltfrmRcrdIdUtl-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION PltfrmRcrdIdUtl-getInstance0.
 
-implementation
-uses
-  StringMaker, CommonSeps;
-
-
-{AB:CODE}
-
-procedure TPlatformRecordIdUtil.InitFields;
-begin
-  Self.PLATFORM_SHORT_NAME := 'JSE';
-end;
-
-constructor TPlatformRecordIdUtil.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TPlatformRecordIdUtil.getInstance: TPlatformRecordIdUtil;
-begin
-        Exit(TPlatformRecordIdUtil.instance);
-end;
-    
-
-function TPlatformRecordIdUtil.getRecordId(abeClientInformation: IAbeClientInformationInterface; baseRecordId: string): string;
-begin
-        Exit(TStringMaker.Create().append(abeClientInformation.toShortString()).append(TCommonSeps.getInstance().UNDERSCORE).append(Self.PLATFORM_SHORT_NAME).append(baseRecordId).toString());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TPlatformRecordIdUtil.instance := TPlatformRecordIdUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PltfrmRcrdIdUtl-getRecordId2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-abeClientInformation BINARY-DOUBLE.
+01 J-baseRecordId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-abeClientInformation J-baseRecordId RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp6 = FUNCTION CommonSeps-getInstance0
+        COMPUTE jtemp5 = FUNCTION StringMaker-new0
+        COMPUTE jtemp4 = FUNCTION StringMaker-append1(jtemp5, FUNCTION AbClntInfrmtnIntrfc-tShrt10636(J-abeClientInformation))
+        COMPUTE jtemp3 = FUNCTION StringMaker-append1(jtemp4, FUNCTION JR-GET(jtemp6, "f_UNDERSCORE"))
+        COMPUTE jtemp2 = FUNCTION StringMaker-append1(jtemp3, FUNCTION JR-GET(J-THIS, "f_PLATFORM_SHORT_NAME"))
+        COMPUTE jtemp1 = FUNCTION StringMaker-append1(jtemp2, J-baseRecordId)
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(jtemp1)
+        GOBACK
+    GOBACK.
+END FUNCTION PltfrmRcrdIdUtl-getRecordId2.
 

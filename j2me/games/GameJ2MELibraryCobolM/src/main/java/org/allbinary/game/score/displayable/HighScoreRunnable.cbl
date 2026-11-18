@@ -1,103 +1,122 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.score.displayable
+*> Java class HighScoreRunnable
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.score.displayable
-unit HighScoreRunnable;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, ARunnable, HighScoresCanvas;
-
-type
-  {AB:TYPES}
-  THighScoreRunnable = class(TARunnable)
-  public
-    highScoresCanvas: THighScoresCanvas;
-    procedure InitFields;
-        constructor Create(highScoresCanvas_: THighScoresCanvas);
-        procedure run; override;
-  end;
-
-implementation
-uses
-  J2MEUtil, ABSystemWrapper, LogUtil, StringMaker, CommonStrings;
-
-
-{AB:CODE}
-
-procedure THighScoreRunnable.InitFields;
-begin
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HighScoreRunnable-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-highScoresCanvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-highScoresCanvas RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("HighScoreRunnable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_highScoresCanvas")
     
+        COMPUTE JVALUE = J-highScoresCanvas
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_highScoresCanvas", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION HighScoreRunnable-new1.
 
-constructor THighScoreRunnable.Create(highScoresCanvas_: THighScoresCanvas);
-begin
-    inherited Create;
-    InitFields;
-        Self.highScoresCanvas := highScoresCanvas_;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HighScoreRunnable-run0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-commonStrings BINARY-DOUBLE.
+01 J-logUtil BINARY-DOUBLE.
+01 J-highScoresCanvas BINARY-DOUBLE.
+01 J-isHTML BINARY-DOUBLE.
+01 J-stringMaker BINARY-DOUBLE.
+01 J-systemWrapper BINARY-DOUBLE.
+01 J-currentTimeMillis BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-commonStrings = FUNCTION CommonStrings-getInstance0
+        COMPUTE J-logUtil = FUNCTION LogUtil-getInstance0
+        COMPUTE J-highScoresCanvas = FUNCTION JR-GET(J-THIS, "f_highScoresCanvas")
+        CONTINUE
+            COMPUTE J-isHTML = FUNCTION J2MEUtil-isHTML0
+            IF (NOT (J-isHTML = 1))
+                PERFORM FOREVER
+                    IF NOT (NOT (FUNCTION JR-GET(J-highScoresCanvas, "f_hasPainted") = 1)) EXIT PERFORM END-IF
+                    CONTINUE
+                END-PERFORM
+                COMPUTE JVALUE = 0
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-highScoresCanvas, "f_hasPainted", JVALUE)
+            END-IF
+            COMPUTE J-stringMaker = FUNCTION StringMaker-new0
+            COMPUTE J-systemWrapper = FUNCTION ABSystemWrapper-getInstance0
+            COMPUTE J-currentTimeMillis = FUNCTION ABSystmWrppr-crrntTmMlls0(J-systemWrapper)
+            COMPUTE jtemp2 = FUNCTION StringMaker-append1(J-stringMaker, FUNCTION JR-STR("HighScoresCanvas - Request repaint to be sure: "))
+            COMPUTE jtemp1 = FUNCTION StringMaker-appendlong1(jtemp2, J-currentTimeMillis)
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(J-logUtil, FUNCTION JR-TO-STRING(jtemp1), J-THIS, FUNCTION JR-GET(J-commonStrings, "f_RUN"))
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-highScoresCanvas, "f_repaintBehavior"))
+            IF (NOT (J-isHTML = 1))
+                PERFORM FOREVER
+                    IF NOT (NOT (FUNCTION JR-GET(J-highScoresCanvas, "f_hasPainted") = 1)) EXIT PERFORM END-IF
+                    CONTINUE
+                END-PERFORM
+            END-IF
+            COMPUTE jtemp3 = 0
+            COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringMaker, jtemp3, FUNCTION StringMaker-length0(J-stringMaker))
+            COMPUTE jtemp5 = FUNCTION StringMaker-append1(J-stringMaker, FUNCTION JR-STR("HighScoresCanvas - Now that the canvas has completed repaint go ahead and fetch the scores: "))
+            COMPUTE jtemp4 = FUNCTION StringMaker-appendlong1(jtemp5, J-currentTimeMillis)
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(J-logUtil, FUNCTION JR-TO-STRING(jtemp4), J-THIS, FUNCTION JR-GET(J-commonStrings, "f_RUN"))
+            COMPUTE JDISCARD = FUNCTION HghScrsCnvs-executeUpdate0(J-highScoresCanvas)
+    GOBACK.
+END FUNCTION HighScoreRunnable-run0.
 
-procedure THighScoreRunnable.run;
-var
-  commonStrings_: TCommonStrings;
-  logUtil_: TLogUtil;
-  highScoresCanvas_: THighScoresCanvas;
-  isHTML: Boolean;
-  stringMaker_: TStringMaker;
-  systemWrapper: TABSystemWrapper;
-  currentTimeMillis: Int64;
-begin
-        commonStrings_ := TCommonStrings.getInstance();
-        logUtil_ := TLogUtil.getInstance();
-        highScoresCanvas_ := Self.highScoresCanvas;
-        try
-            isHTML := TJ2MEUtil.isHTML();
-            if not (isHTML) then begin
-                while not (highScoresCanvas_.hasPainted) do begin
-                end;
-                highScoresCanvas_.hasPainted := False;
-            end;
-            stringMaker_ := TStringMaker.Create();
-            systemWrapper := TABSystemWrapper.getInstance();
-            currentTimeMillis := systemWrapper.currentTimeMillis();
-            logUtil_.putF(stringMaker_.append('HighScoresCanvas - Request repaint to be sure: ').appendlong(currentTimeMillis).toString(), TJava.Box(Self), commonStrings_.RUN);
-            highScoresCanvas_.repaintBehavior.onChangeRepaint(highScoresCanvas_);
-            if not (isHTML) then begin
-                while not (highScoresCanvas_.hasPainted) do begin
-                end;
-            end;
-            stringMaker_.delete_(0, stringMaker_.length());
-            logUtil_.putF(stringMaker_.append('HighScoresCanvas - Now that the canvas has completed repaint go ahead and fetch the scores: ').appendlong(currentTimeMillis).toString(), TJava.Box(Self), commonStrings_.RUN);
-            highScoresCanvas_.executeUpdate();
-        except
-            on e: SysUtils.Exception do begin
-            logUtil_.put(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.RUN, TJava.Box(e));
-            end;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+PROGRAM-ID. HighScoreRunnable-run.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION HighScoreRunnable-run0(J-THIS)
+    GOBACK.
+END PROGRAM HighScoreRunnable-run.
 

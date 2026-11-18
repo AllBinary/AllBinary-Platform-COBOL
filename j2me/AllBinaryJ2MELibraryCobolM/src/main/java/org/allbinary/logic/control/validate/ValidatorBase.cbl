@@ -1,96 +1,231 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.control.validate
+*> Java class ValidatorBase
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.logic.control.validate
-unit ValidatorBase;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ValidatorBase-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ValidatorBase-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 ValidatorBase-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF ValidatorBase-jset-instance = 0
+        MOVE 1 TO ValidatorBase-jset-instance
+        COMPUTE ValidatorBase-jcell-instance = FUNCTION ValidatorBase-new0
+    END-IF
+    MOVE ValidatorBase-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION ValidatorBase-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ValidatorBasestaticiS27921.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ValidatorBase-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION ValidatorBase-static-instance TO J-RESULT
+    MOVE J-VALUE TO ValidatorBase-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION ValidatorBasestaticiS27921.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ValidatorBase-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ValidatorBase")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ValidatorBase-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, BasicArrayList, ABHashtable, ValidatorBaseInterface;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ValidatorBase-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION ValidatorBase-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION ValidatorBase-getInstance0.
 
-type
-  {AB:TYPES}
-  TValidatorBase = class(TInterfacedObject, IValidatorBaseInterface)
-  public
-    class var instance: TValidatorBase;
-    function JavaObject: TObject;
-        class function getInstance: TValidatorBase; static;
-        constructor Create;
-        function isValid: Boolean; virtual;
-        function validationInfo: string; virtual;
-        function toHashtable: TABHashtable<TObject, TObject>; virtual;
-        function toList: TBasicArrayList; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ValidatorBase-isValid0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = FUNCTION BooleanFactory-getInstance0
+        COMPUTE J-RESULT = FUNCTION JR-GET(jtemp1, "f_TRUE")
+        GOBACK
+    GOBACK.
+END FUNCTION ValidatorBase-isValid0.
 
-implementation
-uses
-  StdUtil, BooleanFactory, StringUtil, BasicArrayListUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ValidatorBase-validationInfo0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION StringUtil-getInstance0
+        COMPUTE J-RESULT = FUNCTION JR-GET(jtemp2, "f_EMPTY_STRING")
+        GOBACK
+    GOBACK.
+END FUNCTION ValidatorBase-validationInfo0.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ValidatorBase-toHashtable0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp3 = FUNCTION StdUtil-getInstance0
+        COMPUTE J-RESULT = FUNCTION JR-GET(jtemp3, "f_NULL_TABLE")
+        GOBACK
+    GOBACK.
+END FUNCTION ValidatorBase-toHashtable0.
 
-{AB:CODE}
-
-function TValidatorBase.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-    
-
-class function TValidatorBase.getInstance: TValidatorBase;
-begin
-        Exit(TValidatorBase.instance);
-end;
-    
-
-constructor TValidatorBase.Create;
-begin
-    inherited Create;
-end;
-    
-
-function TValidatorBase.isValid: Boolean;
-begin
-        Exit(TBooleanFactory.getInstance().TRUE_);
-end;
-    
-
-function TValidatorBase.validationInfo: string;
-begin
-        Exit(TStringUtil.getInstance().EMPTY_STRING);
-end;
-    
-
-function TValidatorBase.toHashtable: TABHashtable<TObject, TObject>;
-begin
-        Exit(TStdUtil.getInstance().NULL_TABLE);
-end;
-    
-
-function TValidatorBase.toList: TBasicArrayList;
-begin
-        Exit(TBasicArrayListUtil.getInstance().getImmutableInstance());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TValidatorBase.instance := TValidatorBase.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ValidatorBase-toList0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp4 = FUNCTION BscArryLstUtl-getInstance0
+        COMPUTE J-RESULT = FUNCTION BscArryLstUtl-gtImmtblInstnc0(jtemp4)
+        GOBACK
+    GOBACK.
+END FUNCTION ValidatorBase-toList0.
 

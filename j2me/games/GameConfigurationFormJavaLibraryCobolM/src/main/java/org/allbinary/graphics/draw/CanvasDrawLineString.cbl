@@ -1,98 +1,176 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.draw
+*> Java class CanvasDrawLineString
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CnvsDrwLnStrng-sttc-65296.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CanvasDrawLineString-jcell-NULL_CANVAS_DRAW_LINE_STRING BINARY-DOUBLE EXTERNAL.
+01 CanvasDrawLineString-jset-NULL_CANVAS_DRAW_LINE_STRING BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF CanvasDrawLineString-jset-NULL_CANVAS_DRAW_LINE_STRING = 0
+        MOVE 1 TO CanvasDrawLineString-jset-NULL_CANVAS_DRAW_LINE_STRING
+        COMPUTE jtemp1 = 0
+    COMPUTE jtemp2 = 0
+    COMPUTE CanvasDrawLineString-jcell-NULL_CANVAS_DRAW_LINE_STRING = FUNCTION CanvasDrawLineString-new2(jtemp1, jtemp2)
+    END-IF
+    MOVE CanvasDrawLineString-jcell-NULL_CANVAS_DRAW_LINE_STRING TO J-RESULT
+    GOBACK.
+END FUNCTION CnvsDrwLnStrng-sttc-65296.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CnvsDrwLnStrngsttc65S92569.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CanvasDrawLineString-jcell-NULL_CANVAS_DRAW_LINE_STRING BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION CnvsDrwLnStrng-sttc-65296 TO J-RESULT
+    MOVE J-VALUE TO CanvasDrawLineString-jcell-NULL_CANVAS_DRAW_LINE_STRING
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION CnvsDrwLnStrngsttc65S92569.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CanvasDrawLineString-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-x J-y RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CanvasDrawLineString")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_drawStringUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_myFontProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_x")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_y")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_fontHeight")
+    COMPUTE JVALUE = FUNCTION DrawStringUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_drawStringUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION UpdateMyFontProcessor-new1(J-THIS)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
     
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.draw
-unit CanvasDrawLineString;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, MyFontProcessor, UpdateMyFontInterface, DrawStringUtil;
-
-type
-  {AB:TYPES}
-  TCanvasDrawLineString = class(TInterfacedObject, IUpdateMyFontInterface)
-  public
-    drawStringUtil: TDrawStringUtil;
-    myFontProcessor: TMyFontProcessor;
-    x: Integer;
-    y: Integer;
-    fontHeight: Integer;
-    class var NULL_CANVAS_DRAW_LINE_STRING: TCanvasDrawLineString;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(x: Integer; y: Integer);
-        procedure updateMeasurement(graphics_: TGraphics); virtual;
-        procedure paint(graphics_: TGraphics; string_: string; line: Integer); virtual;
-  end;
-
-implementation
-uses
-  Font, UpdateMyFontProcessor;
-
-
-{AB:CODE}
-
-procedure TCanvasDrawLineString.InitFields;
-begin
-  Self.drawStringUtil := TDrawStringUtil.getInstance();
-  Self.myFontProcessor := TUpdateMyFontProcessor.Create(Self);
-  
-  
-  Self.fontHeight := 0;
-end;
-
-function TCanvasDrawLineString.JavaObject: TObject;
-begin
-  Result := Self;
-end;
     
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_fontHeight", JVALUE)
+        COMPUTE JVALUE = J-x
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_x", JVALUE)
+        COMPUTE JVALUE = J-y
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_y", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CanvasDrawLineString-new2.
 
-constructor TCanvasDrawLineString.Create(x: Integer; y: Integer);
-begin
-    inherited Create;
-    InitFields;
-        Self.x := x;
-        Self.y := y;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CnvsDrwLnStrng-updtMsrmnt1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-font BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-font = FUNCTION Graphics-getFont0(J-graphics)
+        COMPUTE JVALUE = FUNCTION Font-getHeight0(J-font)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_fontHeight", JVALUE)
+        COMPUTE JVALUE = FUNCTION MyFontProcessor-getInstance0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
+    GOBACK.
+END FUNCTION CnvsDrwLnStrng-updtMsrmnt1.
 
-procedure TCanvasDrawLineString.updateMeasurement(graphics_: TGraphics);
-var
-  font_: TFont;
-begin
-        font_ := graphics_.getFont();
-        Self.fontHeight := font_.getHeight();
-        Self.myFontProcessor := TMyFontProcessor.getInstance();
-end;
-    
-
-procedure TCanvasDrawLineString.paint(graphics_: TGraphics; string_: string; line: Integer);
-begin
-        Self.myFontProcessor.process(graphics_);
-        Self.drawStringUtil.drawCenterString(graphics_, string_, 0, System.Length(string_), Self.x, (Self.y) + (((line) * (Self.fontHeight))));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TCanvasDrawLineString.NULL_CANVAS_DRAW_LINE_STRING := TCanvasDrawLineString.Create(0, 0);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CanvasDrawLineString-paint3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-string BINARY-DOUBLE.
+01 J-line BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-string J-line RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION MyFontProcessor-process1(FUNCTION JR-GET(J-THIS, "f_myFontProcessor"), J-graphics)
+        COMPUTE jtemp5 = ((FUNCTION MOD((J-line * FUNCTION JR-GET(J-THIS, "f_fontHeight")) + 2147483648, 4294967296) - 2147483648))
+        COMPUTE jtemp3 = 0
+        COMPUTE jtemp4 = (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_y") + jtemp5) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION DrwStrngUtl-drawCenterString6(FUNCTION JR-GET(J-THIS, "f_drawStringUtil"), J-graphics, J-string, jtemp3, FUNCTION JR-STR-LENGTH(J-string), FUNCTION JR-GET(J-THIS, "f_x"), jtemp4)
+    GOBACK.
+END FUNCTION CanvasDrawLineString-paint3.
 

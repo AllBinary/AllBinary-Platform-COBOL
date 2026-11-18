@@ -1,113 +1,230 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.input
+*> Java class InputFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.input
-unit InputFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InputFactory-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 InputFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 InputFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF InputFactory-jset-instance = 0
+        MOVE 1 TO InputFactory-jset-instance
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE InputFactory-jcell-instance = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+    END-IF
+    MOVE InputFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION InputFactory-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InputFactorystaticinS47419.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 InputFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION InputFactory-static-instance TO J-RESULT
+    MOVE J-VALUE TO InputFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION InputFactorystaticinS47419.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InputFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("InputFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_KEY_CODE_LABEL")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DEVICE_ID_LABEL")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_MAX")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_inputIntegerArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NO_INPUT")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("KeyCode: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_KEY_CODE_LABEL", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("DeviceId: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DEVICE_ID_LABEL", JVALUE)
+    COMPUTE jtemp3 = FUNCTION SmllIntgrSngltnFctry-gtInstnc0
+    COMPUTE JVALUE = FUNCTION SmllIntgrSngltnFctry-getMin0(jtemp3)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_MAX", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY(FUNCTION JR-GET(J-THIS, "f_MAX"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_inputIntegerArray", JVALUE)
+    COMPUTE jtemp4 = 0
+    COMPUTE JVALUE = FUNCTION Input-new2(jtemp4, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_UNKNOWN"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NO_INPUT", JVALUE)
+        COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_inputIntegerArray"))
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_NO_INPUT")
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_inputIntegerArray"), J-index, JVALUE)
+        END-PERFORM
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION InputFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LogUtil, CommonStrings, Input;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InputFactory-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+        IF (FUNCTION InputFactory-static-instance = FUNCTION JR-GET(jtemp2, "f_NULL_OBJECT"))
+            COMPUTE JDISCARD = FUNCTION InputFactorystaticinS47419(FUNCTION InputFactory-new0)
+        END-IF
+        COMPUTE J-RESULT = FUNCTION InputFactory-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION InputFactory-getInstance0.
 
-type
-  {AB:TYPES}
-  TInputFactory = class(TObject)
-  public
-    logUtil: TLogUtil;
-    commonStrings: TCommonStrings;
-    KEY_CODE_LABEL: string;
-    DEVICE_ID_LABEL: string;
-    MAX: Integer;
-    inputIntegerArray: TArray<TInput>;
-    NO_INPUT: TInput;
-    class var instance: TObject;
-    procedure InitFields;
-        class function getInstance: TInputFactory; static;
-        constructor Create;
-        procedure add(id: Integer; input_: TInput); virtual;
-        function getInstanceById(id: Integer): TInput; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InputFactory-add2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-id BINARY-DOUBLE.
+01 J-input BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-id J-input RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-input
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_inputIntegerArray"), J-id, JVALUE)
+    GOBACK.
+END FUNCTION InputFactory-add2.
 
-implementation
-uses
-  NullUtil, SmallIntegerSingletonFactory, StringMaker;
-
-
-{AB:CODE}
-
-procedure TInputFactory.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.commonStrings := TCommonStrings.getInstance();
-  Self.KEY_CODE_LABEL := 'KeyCode: ';
-  Self.DEVICE_ID_LABEL := 'DeviceId: ';
-  Self.MAX := TSmallIntegerSingletonFactory.getInstance().getMin();
-  Self.inputIntegerArray := TJava.NewArray<TInput>(Self.MAX);
-  Self.NO_INPUT := TInput.Create(0, Self.commonStrings.UNKNOWN);
-end;
-    
-
-class function TInputFactory.getInstance: TInputFactory;
-begin
-        if (TInputFactory.instance) = (TNullUtil.getInstance().NULL_OBJECT) then begin
-            TInputFactory.instance := TInputFactory.Create();
-        end;
-        Exit(TInputFactory(TJava.ToObject(TInputFactory.instance)));
-end;
-    
-
-constructor TInputFactory.Create;
-var
-  size: Integer;
-  index: Integer;
-begin
-    inherited Create;
-    InitFields;
-        size := System.Length(Self.inputIntegerArray);
-        for index := 0 to size - 1 do begin
-            Self.inputIntegerArray[index] := Self.NO_INPUT;
-        end;
-end;
-    
-
-procedure TInputFactory.add(id: Integer; input_: TInput);
-begin
-        Self.inputIntegerArray[id] := input_;
-end;
-    
-
-function TInputFactory.getInstanceById(id: Integer): TInput;
-begin
-        if (id) < (0) then begin
-            id := -id;
-        end;
-        if (id) > (System.Length(Self.inputIntegerArray)) then begin
-            Self.logUtil.putF(TStringMaker.Create().append('Warning id: ').appendint(id).toString(), TJava.Box(Self), Self.commonStrings.GET_INSTANCE);
-            Exit(Self.NO_INPUT);
-        end;
-        Exit(Self.inputIntegerArray[id]);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TInputFactory.instance := TJava.Box(TNullUtil.getInstance().NULL_OBJECT);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InputFactory-getInstanceById1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-id BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-id RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (J-id < 0)
+            COMPUTE J-id = (0 - J-id)
+        END-IF
+        IF (J-id > FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_inputIntegerArray")))
+            COMPUTE jtemp7 = FUNCTION StringMaker-new0
+            COMPUTE jtemp6 = FUNCTION StringMaker-append1(jtemp7, FUNCTION JR-STR("Warning id: "))
+            COMPUTE jtemp5 = FUNCTION StringMaker-appendint1(jtemp6, J-id)
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp5), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_GET_INSTANCE"))
+            COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_NO_INPUT")
+            GOBACK
+        END-IF
+        COMPUTE J-RESULT = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_inputIntegerArray"), J-id)
+        GOBACK
+    GOBACK.
+END FUNCTION InputFactory-getInstanceById1.
 

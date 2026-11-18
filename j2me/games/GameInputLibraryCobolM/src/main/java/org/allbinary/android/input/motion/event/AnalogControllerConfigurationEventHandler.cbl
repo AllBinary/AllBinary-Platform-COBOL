@@ -1,128 +1,280 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.android.input.motion.event
+*> Java class AnalogControllerConfigurationEventHandler
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.android.input.motion.event
-unit AnalogControllerConfigurationEventHandler;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnlgCntrllrCnfgrtnEvntH-57335.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AnalogControllerConfigurationEventHandler-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 AnalogControllerConfigurationEventHandler-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF AnalogControllerConfigurationEventHandler-jset-instance = 0
+        MOVE 1 TO AnalogControllerConfigurationEventHandler-jset-instance
+        COMPUTE AnalogControllerConfigurationEventHandler-jcell-instance = FUNCTION AnlgCntrllrCnfgrtnEvntH-52904
+    END-IF
+    MOVE AnalogControllerConfigurationEventHandler-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION AnlgCntrllrCnfgrtnEvntH-57335.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnlgCntrllrCnfgrtnEvS56702.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AnalogControllerConfigurationEventHandler-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION AnlgCntrllrCnfgrtnEvntH-57335 TO J-RESULT
+    MOVE J-VALUE TO AnalogControllerConfigurationEventHandler-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION AnlgCntrllrCnfgrtnEvS56702.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnlgCntrllrCnfgrtnEvntH-52904.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("AnalogControllerConfigurationEventHandler")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_list")
+    COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION AnlgCntrllrCnfgrtnEvntH-52904.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AllBinaryEventObject, EventListenerInterface, BasicEventHandler, BasicArrayList, AnalogControllerConfigurationEventListenerInterface;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnlgCntrllrCnfgrtnEvntH-24328.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION AnlgCntrllrCnfgrtnEvntH-57335
+        GOBACK
+    GOBACK.
+END FUNCTION AnlgCntrllrCnfgrtnEvntH-24328.
 
-type
-  {AB:TYPES}
-  TAnalogControllerConfigurationEventHandler = class(TBasicEventHandler)
-  public
-    list: TBasicArrayList;
-    class var instance: TAnalogControllerConfigurationEventHandler;
-    procedure InitFields;
-        class function getInstance: TAnalogControllerConfigurationEventHandler; static;
-        constructor Create;
-        procedure addListener(analogControllerConfigurationEventListenerInterface_: IAnalogControllerConfigurationEventListenerInterface); virtual;
-        procedure removeAllListeners; override;
-        procedure removeListener(eventListenerInterface_: IEventListenerInterface); override;
-        procedure fireEvent(eventObject: TAllBinaryEventObject); override;
-        procedure process(eventObject: TAllBinaryEventObject; eventListenerInterface_: IEventListenerInterface); override;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnlgCntrllrCnfgrtnEvntH-34386.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-analogControllerConfigurationEventListenerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-analogControllerConfigurationEventListenerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (NOT (FUNCTION BasicArrayList-contains1(FUNCTION JR-GET(J-THIS, "f_list"), J-analogControllerConfigurationEventListenerInterface) = 1))
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), J-analogControllerConfigurationEventListenerInterface)
+        END-IF
+    GOBACK.
+END FUNCTION AnlgCntrllrCnfgrtnEvntH-34386.
 
-implementation
-uses
-  AnalogControllerConfigurationEvent, EventStrings, BasicArrayListD;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnlgCntrllrCnfgrtnEvntH-61310.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-clear0(FUNCTION JR-GET(J-THIS, "f_list"))
+        COMPUTE JDISCARD = FUNCTION BscEvntHndlr-rmvAllLstnrs0(J-THIS)
+    GOBACK.
+END FUNCTION AnlgCntrllrCnfgrtnEvntH-61310.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnlgCntrllrCnfgrtnEvntH-23838.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventListenerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventListenerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-remove1(FUNCTION JR-GET(J-THIS, "f_list"), J-eventListenerInterface)
+        COMPUTE JDISCARD = FUNCTION BscEvntHndlr-removeListener1(J-THIS, J-eventListenerInterface)
+    GOBACK.
+END FUNCTION AnlgCntrllrCnfgrtnEvntH-23838.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnlgCntrllrCnfgrtnEvntH-19389.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-playerGameInput BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp3 = J-index
+        COMPUTE J-index = FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_list"))
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            MOVE 0 TO JFIRST1
+            IF NOT (jtemp3 >= 0) EXIT PERFORM END-IF
+            CONTINUE
+                COMPUTE J-playerGameInput = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_list"), "f_objectArray"), J-index)
+                COMPUTE jtemp1 = J-eventObject
+                COMPUTE JDISCARD = FUNCTION AnlgCntrllrCnfgrtnEvntL-95090(J-playerGameInput, jtemp1)
+        END-PERFORM
+        COMPUTE JDISCARD = FUNCTION BasicEventHandler-fireEvent1(J-THIS, J-eventObject)
+    GOBACK.
+END FUNCTION AnlgCntrllrCnfgrtnEvntH-19389.
 
-procedure TAnalogControllerConfigurationEventHandler.InitFields;
-begin
-  Self.list := TBasicArrayListD.Create();
-end;
-    
-
-class function TAnalogControllerConfigurationEventHandler.getInstance: TAnalogControllerConfigurationEventHandler;
-begin
-        Exit(TAnalogControllerConfigurationEventHandler.instance);
-end;
-    
-
-constructor TAnalogControllerConfigurationEventHandler.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
-
-procedure TAnalogControllerConfigurationEventHandler.addListener(analogControllerConfigurationEventListenerInterface_: IAnalogControllerConfigurationEventListenerInterface);
-begin
-        if not (Self.list.contains(TJava.Box(analogControllerConfigurationEventListenerInterface_))) then begin
-            Self.list.add(TJava.Box(analogControllerConfigurationEventListenerInterface_));
-        end;
-end;
-    
-
-procedure TAnalogControllerConfigurationEventHandler.removeAllListeners;
-begin
-        Self.list.clear();
-        inherited removeAllListeners();
-end;
-    
-
-procedure TAnalogControllerConfigurationEventHandler.removeListener(eventListenerInterface_: IEventListenerInterface);
-begin
-        Self.list.remove(TJava.ToObject(eventListenerInterface_));
-        inherited removeListener(eventListenerInterface_);
-end;
-    
-
-// throws Exception
-procedure TAnalogControllerConfigurationEventHandler.fireEvent(eventObject: TAllBinaryEventObject);
-var
-  playerGameInput: IAnalogControllerConfigurationEventListenerInterface;
-  index: Integer;
-begin
-        index := Self.list.size();
-        while (TJava.PreDec(index)) >= (0) do begin
-            try
-                playerGameInput := (TJava.ToObject(Self.list.objectArray[index]) as IAnalogControllerConfigurationEventListenerInterface);
-                playerGameInput.onAnalogControllerConfigurationEvent(TAnalogControllerConfigurationEvent(TJava.ToObject(eventObject)));
-            except
-                on e: SysUtils.Exception do begin
-                Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), TEventStrings.getInstance().FIRE_EVENT, TJava.Box(e));
-                end;
-            end;
-        end;
-        inherited fireEvent(eventObject);
-end;
-    
-
-// throws Exception
-procedure TAnalogControllerConfigurationEventHandler.process(eventObject: TAllBinaryEventObject; eventListenerInterface_: IEventListenerInterface);
-var
-  analogControllerConfigurationEventListenerInterface_: IAnalogControllerConfigurationEventListenerInterface;
-begin
-        analogControllerConfigurationEventListenerInterface_ := ((TJava.ToObject(eventListenerInterface_) as IAnalogControllerConfigurationEventListenerInterface));
-        analogControllerConfigurationEventListenerInterface_.onAnalogControllerConfigurationEvent(TAnalogControllerConfigurationEvent(TJava.ToObject(eventObject)));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TAnalogControllerConfigurationEventHandler.instance := TAnalogControllerConfigurationEventHandler.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnlgCntrllrCnfgrtnEvntH-63344.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-analogControllerConfigurationEventListenerInterface BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-eventListenerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject J-eventListenerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-analogControllerConfigurationEventListenerInterface = (J-eventListenerInterface)
+        COMPUTE jtemp4 = J-eventObject
+        COMPUTE JDISCARD = FUNCTION AnlgCntrllrCnfgrtnEvntL-95090(J-analogControllerConfigurationEventListenerInterface, jtemp4)
+    GOBACK.
+END FUNCTION AnlgCntrllrCnfgrtnEvntH-63344.
 

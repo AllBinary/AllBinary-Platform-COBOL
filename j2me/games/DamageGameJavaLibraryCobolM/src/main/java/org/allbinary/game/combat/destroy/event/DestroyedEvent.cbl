@@ -1,107 +1,207 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.combat.destroy.event
+*> Java class DestroyedEvent
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.combat.destroy.event
-unit DestroyedEvent;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DestroyedEvent-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-combatGameCanvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-combatGameCanvas RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("DestroyedEvent")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_allBinaryGameCanvas")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_allBinaryLayerInterface")
+    COMPUTE JVALUE = FUNCTION NullGameCanvas-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_allBinaryGameCanvas", JVALUE)
+    COMPUTE JVALUE = FUNCTION AllBnryLyr-sttc-NULL-A70567
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_allBinaryLayerInterface", JVALUE)
+        CONTINUE
+        COMPUTE JDISCARD = FUNCTION DstrydEvnt-stAllBnryGmCnvs1(J-THIS, J-combatGameCanvas)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION DestroyedEvent-new1.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DstrydEvnt-gtAllBnryGmCnvs0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_allBinaryGameCanvas")
+        GOBACK
+    GOBACK.
+END FUNCTION DstrydEvnt-gtAllBnryGmCnvs0.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DstrydEvnt-getLayerInterface0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_allBinaryLayerInterface")
+        GOBACK
+    GOBACK.
+END FUNCTION DstrydEvnt-getLayerInterface0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AllBinaryGameCanvas, AllBinaryLayer, AllBinaryEventObject;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DstrydEvnt-stAllBnryGmCnvs1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryGameCanvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryGameCanvas RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-allBinaryGameCanvas
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_allBinaryGameCanvas", JVALUE)
+    GOBACK.
+END FUNCTION DstrydEvnt-stAllBnryGmCnvs1.
 
-type
-  {AB:TYPES}
-  TDestroyedEvent = class(TAllBinaryEventObject)
-  public
-    allBinaryGameCanvas: TAllBinaryGameCanvas;
-    allBinaryLayerInterface: TAllBinaryLayer;
-    procedure InitFields;
-        constructor Create(combatGameCanvas: TAllBinaryGameCanvas);
-        function getAllBinaryGameCanvas: TAllBinaryGameCanvas; virtual;
-        function getLayerInterface: TAllBinaryLayer; virtual;
-        procedure setAllBinaryGameCanvas(allBinaryGameCanvas_: TAllBinaryGameCanvas);
-        procedure setLayerInterfaceForCircularStaticPool(allBinaryLayerInterface: TAllBinaryLayer); virtual;
-        function toString: string; override;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DstrydEvnt-stLyrIntrfcFrC21541.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryLayerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryLayerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-allBinaryLayerInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_allBinaryLayerInterface", JVALUE)
+    GOBACK.
+END FUNCTION DstrydEvnt-stLyrIntrfcFrC21541.
 
-implementation
-uses
-  DestroyedEventHandler, NullGameCanvas, StringMaker, StringUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DestroyedEvent-toString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringBuffer BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR("DestroyedEvent: \n"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR("AllBinaryLayerInterface: "))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-TO-STRING(FUNCTION JR-GET(J-THIS, "f_allBinaryLayerInterface")))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR("\nAllBinaryGameCanvas: "))
+        COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION StringUtil-toString1(jtemp1, FUNCTION DstrydEvnt-gtAllBnryGmCnvs0(J-THIS)))
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(J-stringBuffer)
+        GOBACK
+    GOBACK.
+END FUNCTION DestroyedEvent-toString0.
 
-
-{AB:CODE}
-
-procedure TDestroyedEvent.InitFields;
-begin
-  Self.allBinaryGameCanvas := TNullGameCanvas.getInstance();
-  Self.allBinaryLayerInterface := TAllBinaryLayer.NULL_ALLBINARY_LAYER;
-end;
-    
-
-constructor TDestroyedEvent.Create(combatGameCanvas: TAllBinaryGameCanvas);
-begin
-        inherited Create(TDestroyedEventHandler.getInstance());
-        InitFields;
-        Self.setAllBinaryGameCanvas(combatGameCanvas);
-end;
-    
-
-function TDestroyedEvent.getAllBinaryGameCanvas: TAllBinaryGameCanvas;
-begin
-        Exit(Self.allBinaryGameCanvas);
-end;
-    
-
-function TDestroyedEvent.getLayerInterface: TAllBinaryLayer;
-begin
-        Exit(Self.allBinaryLayerInterface);
-end;
-    
-
-procedure TDestroyedEvent.setAllBinaryGameCanvas(allBinaryGameCanvas_: TAllBinaryGameCanvas);
-begin
-        Self.allBinaryGameCanvas := allBinaryGameCanvas_;
-end;
-    
-
-procedure TDestroyedEvent.setLayerInterfaceForCircularStaticPool(allBinaryLayerInterface: TAllBinaryLayer);
-begin
-        Self.allBinaryLayerInterface := allBinaryLayerInterface;
-end;
-    
-
-function TDestroyedEvent.toString: string;
-var
-  stringBuffer: TStringMaker;
-begin
-        stringBuffer := TStringMaker.Create();
-        stringBuffer.append('DestroyedEvent: '#10'');
-        stringBuffer.append('AllBinaryLayerInterface: ');
-        stringBuffer.append(Self.allBinaryLayerInterface.toString());
-        stringBuffer.append(''#10'AllBinaryGameCanvas: ');
-        stringBuffer.append(TStringUtil.getInstance().toString(Self.getAllBinaryGameCanvas()));
-        Exit(stringBuffer.toString());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+PROGRAM-ID. DestroyedEvent-toString.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION DestroyedEvent-toString0(J-THIS)
+    GOBACK.
+END PROGRAM DestroyedEvent-toString.
 

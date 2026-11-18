@@ -1,245 +1,563 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.media.audio
+*> Java class PlayerComposite
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.media.audio
-unit PlayerComposite;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Control, Controllable, Player, PlayerListener, LogUtil, CommonStrings, GameTickTimeDelayHelper, TimeDelayHelper;
-
-type
-  {AB:TYPES}
-  // BasicPlayer
-  TPlayerComposite = class(TInterfacedObject, IControllable, IPlayer)
-  public
-    logUtil: TLogUtil;
-    commonStrings: TCommonStrings;
-    player: IPlayer;
-    timeElapsedHelper: TTimeDelayHelper;
-    gameTickTimeDelayHelper: TGameTickTimeDelayHelper;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(player_: IPlayer; repeatTime: Integer);
-        procedure addPlayerListener(playerListener_: IPlayerListener); virtual;
-        procedure removePlayerListener(playerListener_: IPlayerListener); virtual;
-        procedure close; virtual;
-        procedure deallocate; virtual;
-        function getContentType: string; virtual;
-        function getDuration: Int64; virtual;
-        function getMediaTime: Int64; virtual;
-        procedure prefetch; virtual;
-        procedure realize; virtual;
-        function getState: Integer; virtual;
-        procedure setLoopCount(count: Integer); virtual;
-        function setMediaTime(now: Int64): Int64; virtual;
-        procedure start; virtual;
-        procedure stop; virtual;
-        function getControl(controlType: string): TControl; virtual;
-        function getControls: TArray<TControl>; virtual;
-        procedure setVolume(leftVolume: Integer; rightVolume: Integer); virtual;
-        function getPlayerP: IPlayer; virtual;
-  end;
-
-implementation
-uses
-  Controllable2, GameTickTimeDelayHelperFactory;
-
-
-{AB:CODE}
-
-procedure TPlayerComposite.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.commonStrings := TCommonStrings.getInstance();
-  
-  Self.timeElapsedHelper := TTimeDelayHelper.Create(0);
-  Self.gameTickTimeDelayHelper := TGameTickTimeDelayHelperFactory.getInstance();
-end;
-
-function TPlayerComposite.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlayerComposite-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-player BINARY-DOUBLE.
+01 J-repeatTime BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-player J-repeatTime RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("PlayerComposite")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_player")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_timeElapsedHelper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameTickTimeDelayHelper")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
     
+    COMPUTE jtemp1 = 0
+    COMPUTE JVALUE = FUNCTION TimeDelayHelper-new1(jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_timeElapsedHelper", JVALUE)
+    COMPUTE JVALUE = FUNCTION GmTckTmDlyHlprFctry-gtInstnc0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameTickTimeDelayHelper", JVALUE)
+        COMPUTE JVALUE = J-player
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_player", JVALUE)
+        COMPUTE JVALUE = J-repeatTime
+        COMPUTE JDISCARD = FUNCTION JR-SET(FUNCTION JR-GET(J-THIS, "f_timeElapsedHelper"), "f_delay", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION PlayerComposite-new2.
 
-constructor TPlayerComposite.Create(player_: IPlayer; repeatTime: Integer);
-begin
-    inherited Create;
-    InitFields;
-        Self.player := player_;
-        Self.timeElapsedHelper.delay := repeatTime;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlyrCmpst-addPlayerListener1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-playerListener BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-playerListener RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Player-addPlayerListener1(FUNCTION JR-GET(J-THIS, "f_player"), J-playerListener)
+    GOBACK.
+END FUNCTION PlyrCmpst-addPlayerListener1.
 
-procedure TPlayerComposite.addPlayerListener(playerListener_: IPlayerListener);
-begin
-    TJava.MonitorEnter(Self);
-    try
-        Self.player.addPlayerListener(playerListener_);
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlyrCmpst-rmvPlyrLstnr1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-playerListener BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-playerListener RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Player-removePlayerListener1(FUNCTION JR-GET(J-THIS, "f_player"), J-playerListener)
+    GOBACK.
+END FUNCTION PlyrCmpst-rmvPlyrLstnr1.
 
-procedure TPlayerComposite.removePlayerListener(playerListener_: IPlayerListener);
-begin
-        Self.player.removePlayerListener(playerListener_);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlayerComposite-close0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Player-close0(FUNCTION JR-GET(J-THIS, "f_player"))
+    GOBACK.
+END FUNCTION PlayerComposite-close0.
 
-procedure TPlayerComposite.close;
-begin
-        Self.player.close();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlayerComposite-deallocate0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Player-deallocate0(FUNCTION JR-GET(J-THIS, "f_player"))
+    GOBACK.
+END FUNCTION PlayerComposite-deallocate0.
 
-procedure TPlayerComposite.deallocate;
-begin
-        Self.player.deallocate();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlyrCmpst-getContentType0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION Player-getContentType0(FUNCTION JR-GET(J-THIS, "f_player"))
+        GOBACK
+    GOBACK.
+END FUNCTION PlyrCmpst-getContentType0.
 
-function TPlayerComposite.getContentType: string;
-begin
-        Exit(Self.player.getContentType());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlayerComposite-getDuration0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION Player-getDuration0(FUNCTION JR-GET(J-THIS, "f_player"))
+        GOBACK
+    GOBACK.
+END FUNCTION PlayerComposite-getDuration0.
 
-function TPlayerComposite.getDuration: Int64;
-begin
-        Exit(Self.player.getDuration());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlayerComposite-getMediaTime0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION Player-getMediaTime0(FUNCTION JR-GET(J-THIS, "f_player"))
+        GOBACK
+    GOBACK.
+END FUNCTION PlayerComposite-getMediaTime0.
 
-function TPlayerComposite.getMediaTime: Int64;
-begin
-        Exit(Self.player.getMediaTime());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlayerComposite-prefetch0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE JDISCARD = FUNCTION Player-prefetch0(FUNCTION JR-GET(J-THIS, "f_player"))
+    GOBACK.
+END FUNCTION PlayerComposite-prefetch0.
 
-procedure TPlayerComposite.prefetch;
-begin
-        try
-            Self.player.prefetch();
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), 'prefetch', TJava.Box(e));
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlayerComposite-realize0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE JDISCARD = FUNCTION Player-realize0(FUNCTION JR-GET(J-THIS, "f_player"))
+    GOBACK.
+END FUNCTION PlayerComposite-realize0.
 
-procedure TPlayerComposite.realize;
-begin
-        try
-            Self.player.realize();
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), 'realize', TJava.Box(e));
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlayerComposite-getState0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION Player-getState0(FUNCTION JR-GET(J-THIS, "f_player"))
+        GOBACK
+    GOBACK.
+END FUNCTION PlayerComposite-getState0.
 
-function TPlayerComposite.getState: Integer;
-begin
-        Exit(Self.player.getState());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlayerComposite-setLoopCount1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-count BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-count RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Player-setLoopCount1(FUNCTION JR-GET(J-THIS, "f_player"), J-count)
+    GOBACK.
+END FUNCTION PlayerComposite-setLoopCount1.
 
-procedure TPlayerComposite.setLoopCount(count: Integer);
-begin
-        Self.player.setLoopCount(count);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlayerComposite-setMediaTime1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-now BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-now RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE J-RESULT = FUNCTION Player-setMediaTime1(FUNCTION JR-GET(J-THIS, "f_player"), J-now)
+            GOBACK
+    GOBACK.
+END FUNCTION PlayerComposite-setMediaTime1.
 
-function TPlayerComposite.setMediaTime(now: Int64): Int64;
-begin
-        try
-            Exit(Self.player.setMediaTime(now));
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), 'setMediaTime', TJava.Box(e));
-            Exit(Int64(-1));
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlayerComposite-start0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            IF (FUNCTION TimeDelayHelper-isTime1(FUNCTION JR-GET(J-THIS, "f_timeElapsedHelper"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameTickTimeDelayHelper"), "f_startTime")) = 1)
+                COMPUTE JDISCARD = FUNCTION Player-start0(FUNCTION JR-GET(J-THIS, "f_player"))
+            END-IF
+    GOBACK.
+END FUNCTION PlayerComposite-start0.
 
-procedure TPlayerComposite.start;
-begin
-        try
-            if Self.timeElapsedHelper.isTime(Self.gameTickTimeDelayHelper.startTime) then begin
-                Self.player.start();
-            end;
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.START_METHOD_NAME, TJava.Box(e));
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlayerComposite-stop0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE JDISCARD = FUNCTION Player-stop0(FUNCTION JR-GET(J-THIS, "f_player"))
+    GOBACK.
+END FUNCTION PlayerComposite-stop0.
 
-procedure TPlayerComposite.stop;
-begin
-        try
-            Self.player.stop();
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), 'stop', TJava.Box(e));
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlayerComposite-getControl1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-controlType BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-controlType RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION Player-getControl1(FUNCTION JR-GET(J-THIS, "f_player"), J-controlType)
+        GOBACK
+    GOBACK.
+END FUNCTION PlayerComposite-getControl1.
 
-function TPlayerComposite.getControl(controlType: string): TControl;
-begin
-        Exit(Self.player.getControl(controlType));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlayerComposite-getControls0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+    GOBACK.
+END FUNCTION PlayerComposite-getControls0.
 
-function TPlayerComposite.getControls: TArray<TControl>;
-begin
-        raise SysUtils.Exception.Create('');
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlayerComposite-setVolume2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-controllable2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-leftVolume BINARY-DOUBLE.
+01 J-rightVolume BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-leftVolume J-rightVolume RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-controllable2 = (FUNCTION JR-GET(J-THIS, "f_player"))
+        COMPUTE JDISCARD = FUNCTION Controllable2-setVolume2(J-controllable2, J-leftVolume, J-rightVolume)
+    GOBACK.
+END FUNCTION PlayerComposite-setVolume2.
 
-procedure TPlayerComposite.setVolume(leftVolume: Integer; rightVolume: Integer);
-var
-  controllable2_: IControllable2;
-begin
-        controllable2_ := ((TJava.ToObject(Self.player) as IControllable2));
-        controllable2_.setVolume(leftVolume, rightVolume);
-end;
-    
-
-function TPlayerComposite.getPlayerP: IPlayer;
-begin
-        Exit(Self.player);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlayerComposite-getPlayerP0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_player")
+        GOBACK
+    GOBACK.
+END FUNCTION PlayerComposite-getPlayerP0.
 

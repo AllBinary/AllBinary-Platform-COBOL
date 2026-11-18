@@ -1,97 +1,237 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2025 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.image
-unit ImageFactory;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.image
+*> Java class ImageFactory
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImageFactory-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ImageFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 ImageFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF ImageFactory-jset-instance = 0
+        MOVE 1 TO ImageFactory-jset-instance
+        COMPUTE ImageFactory-jcell-instance = FUNCTION ImageFactory-new0
+    END-IF
+    MOVE ImageFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION ImageFactory-static-instance.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImageFactorystaticinS84030.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ImageFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION ImageFactory-static-instance TO J-RESULT
+    MOVE J-VALUE TO ImageFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION ImageFactorystaticinS84030.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Image;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImageFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ImageFactory")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ImageFactory-new0.
 
-type
-  {AB:TYPES}
-  // ImageCacheBaseJavaLibrary - J2ME
-  TImageFactory = class(TObject)
-  public
-    class var instance: TImageFactory;
-    constructor Create;
-        class function getInstance: TImageFactory; static;
-        function createImageUrl(url: string): TImage; virtual;
-        function createImage(caller: string; width: Integer; height: Integer): TImage; virtual;
-        function createImageFromInputStream(key: TObject; inputStream_: TInputStream): TImage; overload; virtual;
-        function createImageFromInputStream(inputStream_: TInputStream): TImage; overload; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImageFactory-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION ImageFactory-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION ImageFactory-getInstance0.
 
-implementation
-uses
-  MIDPUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImageFactory-createImageUrl1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-url BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-url RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION Image-createImage1(J-url)
+        GOBACK
+    GOBACK.
+END FUNCTION ImageFactory-createImageUrl1.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImageFactory-createImage3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-caller BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-caller J-width J-height RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = FUNCTION MIDPUtil-getInstance0
+        COMPUTE J-RESULT = FUNCTION MIDPUtil-createImageWH2(jtemp1, J-width, J-height)
+        GOBACK
+    GOBACK.
+END FUNCTION ImageFactory-createImage3.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgFctry-crtImgFrmInptStrm2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-image BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-key BINARY-DOUBLE.
+01 J-inputStream BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-key J-inputStream RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION MIDPUtil-getInstance0
+        COMPUTE J-image = FUNCTION MIDPUtl-crtImgFrmInptStrm1(jtemp2, J-inputStream)
+        COMPUTE J-RESULT = J-image
+        GOBACK
+    GOBACK.
+END FUNCTION ImgFctry-crtImgFrmInptStrm2.
 
-constructor TImageFactory.Create;
-begin
-  inherited Create;
-end;
-    
-
-class function TImageFactory.getInstance: TImageFactory;
-begin
-        Exit(TImageFactory.instance);
-end;
-    
-
-// throws Exception
-function TImageFactory.createImageUrl(url: string): TImage;
-begin
-        Exit(TImage.createImage(url));
-end;
-    
-
-// throws Exception
-function TImageFactory.createImage(caller: string; width: Integer; height: Integer): TImage;
-begin
-        Exit(TMIDPUtil.getInstance().createImageWH(width, height));
-end;
-    
-
-// throws Exception
-function TImageFactory.createImageFromInputStream(key: TObject; inputStream_: TInputStream): TImage;
-var
-  image_: TImage;
-begin
-        image_ := TMIDPUtil.getInstance().createImageFromInputStream(inputStream_);
-        Exit(image_);
-end;
-    
-
-// throws Exception
-function TImageFactory.createImageFromInputStream(inputStream_: TInputStream): TImage;
-begin
-        Exit(TMIDPUtil.getInstance().createImageFromInputStream(inputStream_));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TImageFactory.instance := TImageFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgFctry-crtImgFrmInptStrm1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-inputStream BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-inputStream RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp3 = FUNCTION MIDPUtil-getInstance0
+        COMPUTE J-RESULT = FUNCTION MIDPUtl-crtImgFrmInptStrm1(jtemp3, J-inputStream)
+        GOBACK
+    GOBACK.
+END FUNCTION ImgFctry-crtImgFrmInptStrm1.
 

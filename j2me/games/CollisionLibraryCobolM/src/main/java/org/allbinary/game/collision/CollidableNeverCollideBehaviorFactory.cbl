@@ -1,73 +1,143 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.collision
+*> Java class CollidableNeverCollideBehaviorFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.collision
-unit CollidableNeverCollideBehaviorFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblNvrClldBhvrFctry-s58971.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CollidableNeverCollideBehaviorFactory-jcell-instanceC BINARY-DOUBLE EXTERNAL.
+01 CollidableNeverCollideBehaviorFactory-jset-instanceC BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF CollidableNeverCollideBehaviorFactory-jset-instanceC = 0
+        MOVE 1 TO CollidableNeverCollideBehaviorFactory-jset-instanceC
+        COMPUTE CollidableNeverCollideBehaviorFactory-jcell-instanceC = FUNCTION ClldblNvrClldBhvrFctry-new0
+    END-IF
+    MOVE CollidableNeverCollideBehaviorFactory-jcell-instanceC TO J-RESULT
+    GOBACK.
+END FUNCTION ClldblNvrClldBhvrFctry-s58971.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblNvrClldBhvrFctS41525.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CollidableNeverCollideBehaviorFactory-jcell-instanceC BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION ClldblNvrClldBhvrFctry-s58971 TO J-RESULT
+    MOVE J-VALUE TO CollidableNeverCollideBehaviorFactory-jcell-instanceC
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION ClldblNvrClldBhvrFctS41525.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblNvrClldBhvrFctry-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CollidableNeverCollideBehaviorFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_instance")
+    COMPUTE jtemp1 = 0
+    COMPUTE JVALUE = FUNCTION ClldblNvrClldBhvr-new1(jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_instance", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ClldblNvrClldBhvrFctry-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, CollidableNeverCollideBehavior, CollidableBaseBehavior, CollidableBaseBehaviorFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblNvrClldBhvrFctry-gt88989.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION ClldblNvrClldBhvrFctry-s58971
+        GOBACK
+    GOBACK.
+END FUNCTION ClldblNvrClldBhvrFctry-gt88989.
 
-type
-  {AB:TYPES}
-  TCollidableNeverCollideBehaviorFactory = class(TCollidableBaseBehaviorFactory)
-  public
-    instance: TCollidableNeverCollideBehavior;
-    class var instanceC: TCollidableNeverCollideBehaviorFactory;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TCollidableNeverCollideBehaviorFactory; static;
-        function createBehavior: TCollidableBaseBehavior; override;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TCollidableNeverCollideBehaviorFactory.InitFields;
-begin
-  Self.instance := TCollidableNeverCollideBehavior.Create(False);
-end;
-
-constructor TCollidableNeverCollideBehaviorFactory.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TCollidableNeverCollideBehaviorFactory.getInstance: TCollidableNeverCollideBehaviorFactory;
-begin
-        Exit(TCollidableNeverCollideBehaviorFactory.instanceC);
-end;
-    
-
-function TCollidableNeverCollideBehaviorFactory.createBehavior: TCollidableBaseBehavior;
-begin
-        Exit(Self.instance);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TCollidableNeverCollideBehaviorFactory.instanceC := TCollidableNeverCollideBehaviorFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblNvrClldBhvrFctry-cr19134.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_instance")
+        GOBACK
+    GOBACK.
+END FUNCTION ClldblNvrClldBhvrFctry-cr19134.
 

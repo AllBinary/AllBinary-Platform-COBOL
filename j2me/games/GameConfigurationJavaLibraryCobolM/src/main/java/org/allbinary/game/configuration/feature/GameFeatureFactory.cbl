@@ -1,97 +1,159 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.configuration.feature
+*> Java class GameFeatureFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.configuration.feature
-unit GameFeatureFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmFtrFctry-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameFeatureFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 GameFeatureFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GameFeatureFactory-jset-instance = 0
+        MOVE 1 TO GameFeatureFactory-jset-instance
+        COMPUTE GameFeatureFactory-jcell-instance = FUNCTION GameFeatureFactory-new0
+    END-IF
+    MOVE GameFeatureFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION GmFtrFctry-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmFtrFctrystaticinstS46947.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameFeatureFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GmFtrFctry-static-instance TO J-RESULT
+    MOVE J-VALUE TO GameFeatureFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GmFtrFctrystaticinstS46947.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameFeatureFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameFeatureFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SOUND")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_MUSIC")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SCREEN_SHAKE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_POST_IMAGE_LOADING_MODIFICATION")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_HEALTH_BARS")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DAMAGE_FLOATERS")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_GAME_INPUT_LAYER_PROCESSOR")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ARTIFICIAL_INTELLEGENCE_PROCESSOR")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_COLLIDABLE_INTERFACE_LAYER_PROCESSOR")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_TICKABLE_LAYER_PROCESSOR")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_CHEATING")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DROPPED_ITEMS")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DROPPED_ITEMS_FROM_DEATH")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_TEST_DESTROYED_LAYER_PROCESSOR")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_COLLISIONS_WITH_SOURCE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_COLLISIONS_FORCED_TWO_DIMENSIONAL")
+    COMPUTE JVALUE = FUNCTION GameFeature-new1(FUNCTION JR-STR("Sound"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SOUND", JVALUE)
+    COMPUTE JVALUE = FUNCTION GameFeature-new1(FUNCTION JR-STR("Music"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_MUSIC", JVALUE)
+    COMPUTE JVALUE = FUNCTION Feature-new1(FUNCTION JR-STR("Screen Shake"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SCREEN_SHAKE", JVALUE)
+    COMPUTE JVALUE = FUNCTION Feature-new1(FUNCTION JR-STR("Post Image Loading Modification (Scaling, Rotation, or Other)"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_POST_IMAGE_LOADING_MODIFICATION", JVALUE)
+    COMPUTE JVALUE = FUNCTION GameFeature-new1(FUNCTION JR-STR("Health Bars"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_HEALTH_BARS", JVALUE)
+    COMPUTE JVALUE = FUNCTION GameFeature-new1(FUNCTION JR-STR("Damage Floaters"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DAMAGE_FLOATERS", JVALUE)
+    COMPUTE JVALUE = FUNCTION GameFeature-new1(FUNCTION JR-STR("Game Input Layer Processor"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_GAME_INPUT_LAYER_PROCESSOR", JVALUE)
+    COMPUTE JVALUE = FUNCTION GameFeature-new1(FUNCTION JR-STR("Artificial Intelligence Layer Processor"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ARTIFICIAL_INTELLEGENCE_PROCESSOR", JVALUE)
+    COMPUTE JVALUE = FUNCTION GameFeature-new1(FUNCTION JR-STR("Collidable Interface Layer Processor"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_COLLIDABLE_INTERFACE_LAYER_PROCESSOR", JVALUE)
+    COMPUTE JVALUE = FUNCTION GameFeature-new1(FUNCTION JR-STR("Tickable Layer Processor"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_TICKABLE_LAYER_PROCESSOR", JVALUE)
+    COMPUTE JVALUE = FUNCTION GameFeature-new1(FUNCTION JR-STR("Cheating"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_CHEATING", JVALUE)
+    COMPUTE JVALUE = FUNCTION GameFeature-new1(FUNCTION JR-STR("Drops"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DROPPED_ITEMS", JVALUE)
+    COMPUTE JVALUE = FUNCTION GameFeature-new1(FUNCTION JR-STR("Drops from Dead"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DROPPED_ITEMS_FROM_DEATH", JVALUE)
+    COMPUTE JVALUE = FUNCTION GameFeature-new1(FUNCTION JR-STR("Destroyed Layer Processor"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_TEST_DESTROYED_LAYER_PROCESSOR", JVALUE)
+    COMPUTE JVALUE = FUNCTION GameFeature-new1(FUNCTION JR-STR("Allow Collisions With Source"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_COLLISIONS_WITH_SOURCE", JVALUE)
+    COMPUTE JVALUE = FUNCTION GameFeature-new1(FUNCTION JR-STR("Collisions Forced Two Dimensional"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_COLLISIONS_FORCED_TWO_DIMENSIONAL", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GameFeatureFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameFeature, Feature;
-
-type
-  {AB:TYPES}
-  TGameFeatureFactory = class(TObject)
-  public
-    SOUND: TGameFeature;
-    MUSIC: TGameFeature;
-    SCREEN_SHAKE: TFeature;
-    POST_IMAGE_LOADING_MODIFICATION: TFeature;
-    HEALTH_BARS: TGameFeature;
-    DAMAGE_FLOATERS: TGameFeature;
-    GAME_INPUT_LAYER_PROCESSOR: TGameFeature;
-    ARTIFICIAL_INTELLEGENCE_PROCESSOR: TGameFeature;
-    COLLIDABLE_INTERFACE_LAYER_PROCESSOR: TGameFeature;
-    TICKABLE_LAYER_PROCESSOR: TGameFeature;
-    CHEATING: TGameFeature;
-    DROPPED_ITEMS: TGameFeature;
-    DROPPED_ITEMS_FROM_DEATH: TGameFeature;
-    TEST_DESTROYED_LAYER_PROCESSOR: TGameFeature;
-    COLLISIONS_WITH_SOURCE: TGameFeature;
-    COLLISIONS_FORCED_TWO_DIMENSIONAL: TGameFeature;
-    class var instance: TGameFeatureFactory;
-    procedure InitFields;
-        class function getInstance: TGameFeatureFactory; static;
-        constructor Create;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TGameFeatureFactory.InitFields;
-begin
-  Self.SOUND := TGameFeature.Create('Sound');
-  Self.MUSIC := TGameFeature.Create('Music');
-  Self.SCREEN_SHAKE := TFeature.Create('Screen Shake');
-  Self.POST_IMAGE_LOADING_MODIFICATION := TFeature.Create('Post Image Loading Modification (Scaling, Rotation, or Other)');
-  Self.HEALTH_BARS := TGameFeature.Create('Health Bars');
-  Self.DAMAGE_FLOATERS := TGameFeature.Create('Damage Floaters');
-  Self.GAME_INPUT_LAYER_PROCESSOR := TGameFeature.Create('Game Input Layer Processor');
-  Self.ARTIFICIAL_INTELLEGENCE_PROCESSOR := TGameFeature.Create('Artificial Intelligence Layer Processor');
-  Self.COLLIDABLE_INTERFACE_LAYER_PROCESSOR := TGameFeature.Create('Collidable Interface Layer Processor');
-  Self.TICKABLE_LAYER_PROCESSOR := TGameFeature.Create('Tickable Layer Processor');
-  Self.CHEATING := TGameFeature.Create('Cheating');
-  Self.DROPPED_ITEMS := TGameFeature.Create('Drops');
-  Self.DROPPED_ITEMS_FROM_DEATH := TGameFeature.Create('Drops from Dead');
-  Self.TEST_DESTROYED_LAYER_PROCESSOR := TGameFeature.Create('Destroyed Layer Processor');
-  Self.COLLISIONS_WITH_SOURCE := TGameFeature.Create('Allow Collisions With Source');
-  Self.COLLISIONS_FORCED_TWO_DIMENSIONAL := TGameFeature.Create('Collisions Forced Two Dimensional');
-end;
-    
-
-class function TGameFeatureFactory.getInstance: TGameFeatureFactory;
-begin
-        Exit(TGameFeatureFactory.instance);
-end;
-    
-
-constructor TGameFeatureFactory.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TGameFeatureFactory.instance := TGameFeatureFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmFtrFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION GmFtrFctry-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION GmFtrFctry-getInstance0.
 

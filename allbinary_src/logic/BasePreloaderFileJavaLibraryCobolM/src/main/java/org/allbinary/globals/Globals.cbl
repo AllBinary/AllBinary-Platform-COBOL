@@ -1,107 +1,184 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.globals
+*> Java class Globals
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.globals
-unit Globals;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Globals-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 Globals-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 Globals-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF Globals-jset-instance = 0
+        MOVE 1 TO Globals-jset-instance
+        COMPUTE Globals-jcell-instance = FUNCTION Globals-new0
+    END-IF
+    MOVE Globals-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION Globals-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GlobalsstaticinstancS82938.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 Globals-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION Globals-static-instance TO J-RESULT
+    MOVE J-VALUE TO Globals-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GlobalsstaticinstancS82938.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Globals-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("Globals")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION Globals-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LogUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Globals-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION Globals-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION Globals-getInstance0.
 
-type
-  {AB:TYPES}
-  TGlobals = class(TObject)
-  public
-    logUtil: TLogUtil;
-    class var instance: TGlobals;
-    procedure InitFields;
-        class function getInstance: TGlobals; static;
-        constructor Create;
-        procedure init(classLoader: TClassLoader; pathString: string); virtual;
-  end;
-
-implementation
-uses
-  AppUrlGlobals, URLGLOBALS, StringMaker, WebappClassLoaderInfo, CommonSeps, CommonStrings;
-
-
-{AB:CODE}
-
-procedure TGlobals.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-end;
-    
-
-class function TGlobals.getInstance: TGlobals;
-begin
-        Exit(TGlobals.instance);
-end;
-    
-
-constructor TGlobals.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
-
-procedure TGlobals.init(classLoader: TClassLoader; pathString: string);
-var
-  commonStrings_: TCommonStrings;
-  appUrlGlobals_: TAppUrlGlobals;
-  stringBuffer: TStringMaker;
-  stringValidationUtil_: TObject;
-begin
-        commonStrings_ := TCommonStrings.getInstance();
-        appUrlGlobals_ := TAppUrlGlobals.Create();
-        appUrlGlobals_.setWebappPath(pathString);
-        TURLGLOBALS.init(appUrlGlobals_);
-        TWebappClassLoaderInfo.setLoader(classLoader);
-        stringBuffer := TStringMaker.Create();
-        stringBuffer.append('Setting Up AllBinary System Configuration Args: ');
-        stringBuffer.append(pathString);
-        stringBuffer.append(' ClassLoader: ');
-        stringBuffer.append(TJava.ToObject(classLoader).ClassType.ClassName);
-        Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), commonStrings_.INIT);
-        stringValidationUtil_ := nil;
-        if (pathString = '') then begin
-            stringBuffer.delete_(0, stringBuffer.length());
-            stringBuffer.append('No Path Provided. Using Process Path: ');
-            stringBuffer.append(pathString);
-            stringBuffer.append(TCommonSeps.getInstance().SPACE);
-            stringBuffer.append(TCommonSeps.getInstance().EQUALS);
-            stringBuffer.append(TCommonSeps.getInstance().SPACE);
-            stringBuffer.append(TURLGLOBALS.getWebappPath());
-            Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), commonStrings_.INIT);
-        end;
-        stringBuffer.delete_(0, stringBuffer.length());
-        stringBuffer.append('Webapp Path Set To: ');
-        stringBuffer.append(TURLGLOBALS.getWebappPath());
-        Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), commonStrings_.INIT);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TGlobals.instance := TGlobals.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Globals-init2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-commonStrings BINARY-DOUBLE.
+01 J-appUrlGlobals BINARY-DOUBLE.
+01 J-stringBuffer BINARY-DOUBLE.
+01 J-stringValidationUtil BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-classLoader BINARY-DOUBLE.
+01 J-pathString BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-classLoader J-pathString RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-commonStrings = FUNCTION CommonStrings-getInstance0
+        COMPUTE J-appUrlGlobals = FUNCTION AppUrlGlobals-new0
+        COMPUTE JDISCARD = FUNCTION AppUrlGlobals-setWebappPath1(J-appUrlGlobals, J-pathString)
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION -static-URLGLOBALS)
+        COMPUTE JDISCARD = FUNCTION WbppClssLdrInf-setLoader1(J-classLoader)
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR("Setting Up AllBinary System Configuration Args: "))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-pathString)
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR(" ClassLoader: "))
+        COMPUTE jtemp1 = FUNCTION JR-CLASS-NAME(J-classLoader)
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, jtemp1)
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-stringBuffer), J-THIS, FUNCTION JR-GET(J-commonStrings, "f_INIT"))
+        COMPUTE J-stringValidationUtil = FUNCTION StrngVldtnUtl-getInstance0
+        IF (FUNCTION StringValidationUtil-isEmpty1(J-stringValidationUtil, J-pathString) = 1)
+            COMPUTE jtemp2 = 0
+            COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringBuffer, jtemp2, FUNCTION StringMaker-length0(J-stringBuffer))
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR("No Path Provided. Using Process Path: "))
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-pathString)
+            COMPUTE jtemp3 = FUNCTION CommonSeps-getInstance0
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(jtemp3, "f_SPACE"))
+            COMPUTE jtemp4 = FUNCTION CommonSeps-getInstance0
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(jtemp4, "f_EQUALS"))
+            COMPUTE jtemp5 = FUNCTION CommonSeps-getInstance0
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(jtemp5, "f_SPACE"))
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-CLASS-NAME(FUNCTION -static-URLGLOBALS))
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-stringBuffer), J-THIS, FUNCTION JR-GET(J-commonStrings, "f_INIT"))
+        END-IF
+        COMPUTE jtemp6 = 0
+        COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringBuffer, jtemp6, FUNCTION StringMaker-length0(J-stringBuffer))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR("Webapp Path Set To: "))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-CLASS-NAME(FUNCTION -static-URLGLOBALS))
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-stringBuffer), J-THIS, FUNCTION JR-GET(J-commonStrings, "f_INIT"))
+    GOBACK.
+END FUNCTION Globals-init2.
 

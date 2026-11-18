@@ -1,146 +1,284 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.text
+*> Java class CustomTextAnimation
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CustomTextAnimation-new3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-text BINARY-DOUBLE.
+01 J-fontSize BINARY-DOUBLE.
+01 J-animationBehavior BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-text J-fontSize J-animationBehavior RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CustomTextAnimation")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_fontDebugFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_fontSize")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_font")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_lastText")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_hasChanged")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_textWidth")
+    COMPUTE JVALUE = FUNCTION FontDebugFactory-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_fontDebugFactory", JVALUE)
     
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.text
-unit CustomTextAnimation;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Font, Graphics, AnimationBehavior, FontDebugFactory, TextChangeListener, TextAnimation, TextInterface;
-
-type
-  {AB:TYPES}
-  TCustomTextAnimation = class(TTextAnimation, ITextInterface)
-  public
-    fontDebugFactory: TFontDebugFactory;
-    fontSize: Integer;
-    font: TFont;
-    lastText: string;
-    hasChanged: Boolean;
-    textWidth: Integer;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(text: string; fontSize: Integer; animationBehavior_: TAnimationBehavior);
-        procedure paintXY(graphics_: TGraphics; x: Integer; y: Integer); virtual;
-        procedure setScale(scaleX: Single; scaleY: Single); virtual;
-        procedure setTextWithOnMeasure(text: string; textChangeListener_: TTextChangeListener); virtual;
-        procedure setText(text: string); virtual;
-        function getText: string; virtual;
-        function getWidth: Integer; virtual;
-        function getFontHeight: Integer; virtual;
-  end;
-
-implementation
-uses
-  StringUtil;
-
-
-{AB:CODE}
-
-procedure TCustomTextAnimation.InitFields;
-begin
-  Self.fontDebugFactory := TFontDebugFactory.getInstance();
-  
-  
-  Self.lastText := TStringUtil.getInstance().INIT_STRING;
-  Self.hasChanged := True;
-  
-end;
-
-function TCustomTextAnimation.JavaObject: TObject;
-begin
-  Result := Self;
-end;
     
-
-constructor TCustomTextAnimation.Create(text: string; fontSize: Integer; animationBehavior_: TAnimationBehavior);
-begin
-        inherited Create(text, animationBehavior_);
-        InitFields;
-        Self.fontSize := fontSize;
-        Self.font := TFont.getFont(TFont.FACE_SYSTEM, TFont.STYLE_PLAIN, fontSize);
-end;
+    COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_INIT_STRING")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lastText", JVALUE)
+    COMPUTE JVALUE = 1
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hasChanged", JVALUE)
     
+        CONTINUE
+        COMPUTE JVALUE = J-fontSize
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_fontSize", JVALUE)
+        COMPUTE JVALUE = FUNCTION Font-getFont3(FUNCTION Font-static-FACE-SYSTEM, FUNCTION Font-static-STYLE-PLAIN, J-fontSize)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_font", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CustomTextAnimation-new3.
 
-procedure TCustomTextAnimation.paintXY(graphics_: TGraphics; x: Integer; y: Integer);
-var
-  existingFont: TFont;
-begin
-        Self.myFontProcessor.process(graphics_);
-        existingFont := graphics_.getFont();
-        Self.fontDebugFactory.setFont(Self.font, graphics_);
-        inherited paintXYNoUpdate(graphics_, x, y);
-        Self.fontDebugFactory.setFont(existingFont, graphics_);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CustomTextAnimation-paintXY3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-existingFont BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_myFontProcessor"))
+        COMPUTE J-existingFont = FUNCTION Graphics-getFont0(J-graphics)
+        COMPUTE JDISCARD = FUNCTION FontDebugFactory-setFont2(FUNCTION JR-GET(J-THIS, "f_fontDebugFactory"), FUNCTION JR-GET(J-THIS, "f_font"), J-graphics)
+        COMPUTE JDISCARD = FUNCTION TextAnimation-paintXYNoUpdate3(J-THIS, J-graphics, J-x, J-y)
+        COMPUTE JDISCARD = FUNCTION FontDebugFactory-setFont2(FUNCTION JR-GET(J-THIS, "f_fontDebugFactory"), J-existingFont, J-graphics)
+    GOBACK.
+END FUNCTION CustomTextAnimation-paintXY3.
 
-procedure TCustomTextAnimation.setScale(scaleX: Single; scaleY: Single);
-begin
-        if (scaleX) <> (scaleY) then begin
-            raise SysUtils.Exception.Create('');
-        end;
-        Self.hasChanged := True;
-        Self.font := TFont.getFont(TFont.FACE_SYSTEM, TFont.STYLE_PLAIN, Integer(Trunc(((Self.fontSize) * (scaleX)))));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CustomTextAnimation-setScale2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-scaleX COMP-2.
+01 J-scaleY COMP-2.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-scaleX J-scaleY RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (J-scaleX NOT = J-scaleY)
+            COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+        END-IF
+        COMPUTE JVALUE = 1
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hasChanged", JVALUE)
+        COMPUTE jtemp2 = FUNCTION JR-D2I(((FUNCTION JR-GET(J-THIS, "f_fontSize") * J-scaleX)))
+        COMPUTE JVALUE = FUNCTION Font-getFont3(FUNCTION Font-static-FACE-SYSTEM, FUNCTION Font-static-STYLE-PLAIN, jtemp2)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_font", JVALUE)
+    GOBACK.
+END FUNCTION CustomTextAnimation-setScale2.
 
-procedure TCustomTextAnimation.setTextWithOnMeasure(text: string; textChangeListener_: TTextChangeListener);
-begin
-        inherited setTextWithOnMeasure(text, textChangeListener_);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CstmTxtAnmtn-stTxtWthOnMsr2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-text BINARY-DOUBLE.
+01 J-textChangeListener BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-text J-textChangeListener RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION TxtAnmtn-setTextWithOnMeasure2(J-THIS, J-text, J-textChangeListener)
+    GOBACK.
+END FUNCTION CstmTxtAnmtn-stTxtWthOnMsr2.
 
-procedure TCustomTextAnimation.setText(text: string);
-begin
-        if (Self.lastText) <> (text) then begin
-            Self.hasChanged := True;
-            Self.lastText := text;
-            inherited setText(text);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CustomTextAnimation-setText1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-text BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-text RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION JR-GET(J-THIS, "f_lastText") NOT = J-text)
+            COMPUTE JVALUE = 1
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hasChanged", JVALUE)
+            COMPUTE JVALUE = J-text
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lastText", JVALUE)
+            COMPUTE JDISCARD = FUNCTION TextAnimation-setText1(J-THIS, J-text)
+        END-IF
+    GOBACK.
+END FUNCTION CustomTextAnimation-setText1.
 
-function TCustomTextAnimation.getText: string;
-begin
-        Exit(Self.lastText);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CustomTextAnimation-getText0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_lastText")
+        GOBACK
+    GOBACK.
+END FUNCTION CustomTextAnimation-getText0.
 
-function TCustomTextAnimation.getWidth: Integer;
-begin
-        if Self.hasChanged then begin
-            Self.textWidth := Self.font.stringWidth(Self.textArrayP[0]);
-            Self.hasChanged := False;
-        end;
-        Exit(Self.textWidth);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CustomTextAnimation-getWidth0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION JR-GET(J-THIS, "f_hasChanged") = 1)
+            COMPUTE jtemp3 = 0
+            COMPUTE JVALUE = FUNCTION Font-stringWidth1(FUNCTION JR-GET(J-THIS, "f_font"), FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_textArrayP"), jtemp3))
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_textWidth", JVALUE)
+            COMPUTE JVALUE = 0
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hasChanged", JVALUE)
+        END-IF
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_textWidth")
+        GOBACK
+    GOBACK.
+END FUNCTION CustomTextAnimation-getWidth0.
 
-function TCustomTextAnimation.getFontHeight: Integer;
-begin
-        Exit(Self.font.getHeight());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CstmTxtAnmtn-getFontHeight0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION Font-getHeight0(FUNCTION JR-GET(J-THIS, "f_font"))
+        GOBACK
+    GOBACK.
+END FUNCTION CstmTxtAnmtn-getFontHeight0.
 

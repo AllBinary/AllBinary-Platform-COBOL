@@ -1,196 +1,392 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2011 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.layer
-unit AllBinaryLayerManager;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.layer
+*> Java class AllBinaryLayerManager
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBinaryLayerManager-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("AllBinaryLayerManager")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_layerManagerEventHandler")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_createLayerManagerEvent")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_deleteLayerManagerEvent")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_basicLayerProcessorArray")
+    COMPUTE JVALUE = FUNCTION LyrMngrEvntHndlr-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_layerManagerEventHandler", JVALUE)
+    COMPUTE JVALUE = FUNCTION LayerManagerEvent-new2(J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_layerManagerEventHandler"), "f_CREATE"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_createLayerManagerEvent", JVALUE)
+    COMPUTE JVALUE = FUNCTION LayerManagerEvent-new2(J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_layerManagerEventHandler"), "f_DELETE"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_deleteLayerManagerEvent", JVALUE)
+    COMPUTE jtemp1 = 0
+    COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY(jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicLayerProcessorArray", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION AllBinaryLayerManager-new0.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryLyrMngr-gtLyrPrcss27110.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_basicLayerProcessorArray")
+        GOBACK
+    GOBACK.
+END FUNCTION AllBnryLyrMngr-gtLyrPrcss27110.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LayerManagerEvent, LayerManagerEventHandler, AllBinaryLayer, LayerProcessor, ABLayerManager;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryLyrMngr-stLyrPrcss86976.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerProcessorArray BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerProcessorArray RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-layerProcessorArray
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicLayerProcessorArray", JVALUE)
+    GOBACK.
+END FUNCTION AllBnryLyrMngr-stLyrPrcss86976.
 
-type
-  {AB:TYPES}
-  TAllBinaryLayerManager = class(TABLayerManager)
-  public
-    layerManagerEventHandler: TLayerManagerEventHandler;
-    createLayerManagerEvent: TLayerManagerEvent;
-    deleteLayerManagerEvent: TLayerManagerEvent;
-    basicLayerProcessorArray: TArray<TLayerProcessor>;
-    procedure InitFields;
-        constructor Create;
-        function getLayerProcessorArray: TArray<TLayerProcessor>; virtual;
-        procedure setLayerProcessorArray(layerProcessorArray: TArray<TLayerProcessor>); virtual;
-        procedure log;
-        procedure append(layerInterface: TAllBinaryLayer); override;
-        procedure appendAt(layerInterface: TAllBinaryLayer; index: Integer); override;
-        procedure appendProcessors(layerInterface: TAllBinaryLayer);
-        procedure remove(layerInterface: TAllBinaryLayer); override;
-        procedure process; virtual;
-        procedure cleanup; override;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBinaryLayerManager-log0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-size BINARY-DOUBLE.
+01 J-layerProcessorInterface BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_basicLayerProcessorArray"))
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-layerProcessorInterface = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_basicLayerProcessorArray"), J-index)
+        END-PERFORM
+    GOBACK.
+END FUNCTION AllBinaryLayerManager-log0.
 
-implementation
-uses
-  LayerManagerNoDebug;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBinaryLayerManager-append1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (NOT (FUNCTION ABLayerManager-contains1(J-THIS, J-layerInterface) = 1))
+            COMPUTE JDISCARD = FUNCTION AllBnryLyrMngr-appndPrcssrs1(J-THIS, J-layerInterface)
+            COMPUTE JDISCARD = FUNCTION ABLayerManager-append1(J-THIS, J-layerInterface)
+        END-IF
+    GOBACK.
+END FUNCTION AllBinaryLayerManager-append1.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryLyrMngr-appendAt2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerInterface J-index RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (NOT (FUNCTION ABLayerManager-contains1(J-THIS, J-layerInterface) = 1))
+            COMPUTE JDISCARD = FUNCTION AllBnryLyrMngr-appndPrcssrs1(J-THIS, J-layerInterface)
+            COMPUTE JDISCARD = FUNCTION ABLayerManager-appendAt2(J-THIS, J-layerInterface, J-index)
+        END-IF
+    GOBACK.
+END FUNCTION AllBnryLyrMngr-appendAt2.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryLyrMngr-appndPrcssrs1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-layerProcessorInterface BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION LyrMngrEvnt-setLayerInterface1(FUNCTION JR-GET(J-THIS, "f_createLayerManagerEvent"), J-layerInterface)
+        COMPUTE JDISCARD = FUNCTION LyrMngrEvntHndlr-fireEvent1(FUNCTION JR-GET(J-THIS, "f_layerManagerEventHandler"), FUNCTION JR-GET(J-THIS, "f_createLayerManagerEvent"))
+        CONTINUE
+        COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp3 = J-index
+        COMPUTE J-index = FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_basicLayerProcessorArray"))
+        MOVE 1 TO JFIRST2
+        PERFORM FOREVER
+            MOVE 0 TO JFIRST2
+            IF NOT (jtemp3 >= 0) EXIT PERFORM END-IF
+            COMPUTE J-layerProcessorInterface = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_basicLayerProcessorArray"), J-index)
+            IF (FUNCTION LyrPrcssr-isProcessorLayer1(J-layerProcessorInterface, J-layerInterface) = 1)
+                COMPUTE jtemp2 = FUNCTION LyrPrcssr-getLayerManager0(J-layerProcessorInterface)
+                COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp2)
+            END-IF
+        END-PERFORM
+    GOBACK.
+END FUNCTION AllBnryLyrMngr-appndPrcssrs1.
 
-procedure TAllBinaryLayerManager.InitFields;
-begin
-  Self.layerManagerEventHandler := TLayerManagerEventHandler.getInstance();
-  Self.createLayerManagerEvent := TLayerManagerEvent.Create(Self, Self.layerManagerEventHandler.CREATE_);
-  Self.deleteLayerManagerEvent := TLayerManagerEvent.Create(Self, Self.layerManagerEventHandler.DELETE_);
-  Self.basicLayerProcessorArray := nil;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBinaryLayerManager-remove1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-layerProcessorInterface BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 JFIRST3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION LyrMngrEvnt-setLayerInterface1(FUNCTION JR-GET(J-THIS, "f_deleteLayerManagerEvent"), J-layerInterface)
+        COMPUTE JDISCARD = FUNCTION LyrMngrEvntHndlr-frDltEvnt1(FUNCTION JR-GET(J-THIS, "f_layerManagerEventHandler"), FUNCTION JR-GET(J-THIS, "f_deleteLayerManagerEvent"))
+        CONTINUE
+        COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp5 = J-index
+        COMPUTE J-index = FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_basicLayerProcessorArray"))
+        MOVE 1 TO JFIRST3
+        PERFORM FOREVER
+            MOVE 0 TO JFIRST3
+            IF NOT (jtemp5 >= 0) EXIT PERFORM END-IF
+            COMPUTE J-layerProcessorInterface = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_basicLayerProcessorArray"), J-index)
+            COMPUTE jtemp4 = FUNCTION LyrPrcssr-getLayerManager0(J-layerProcessorInterface)
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp4)
+        END-PERFORM
+        COMPUTE JDISCARD = FUNCTION ABLayerManager-remove1(J-THIS, J-layerInterface)
+    GOBACK.
+END FUNCTION AllBinaryLayerManager-remove1.
 
-constructor TAllBinaryLayerManager.Create;
-begin
-        inherited Create(TLayerManagerNoDebug.getInstance());
-        InitFields;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBinaryLayerManager-process0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-layerProcessorInterface BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 JFIRST4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+        COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_basicLayerProcessorArray"))
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST4
+        PERFORM FOREVER
+            IF JFIRST4 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST4
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-layerProcessorInterface = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_basicLayerProcessorArray"), J-index)
+            COMPUTE JDISCARD = FUNCTION LayerProcessor-process1(J-layerProcessorInterface, J-THIS)
+        END-PERFORM
+    GOBACK.
+END FUNCTION AllBinaryLayerManager-process0.
 
-function TAllBinaryLayerManager.getLayerProcessorArray: TArray<TLayerProcessor>;
-begin
-        Exit(Self.basicLayerProcessorArray);
-end;
-    
-
-procedure TAllBinaryLayerManager.setLayerProcessorArray(layerProcessorArray: TArray<TLayerProcessor>);
-begin
-        Self.basicLayerProcessorArray := layerProcessorArray;
-end;
-    
-
-procedure TAllBinaryLayerManager.log;
-var
-  size: Integer;
-  layerProcessorInterface: TLayerProcessor;
-  index: Integer;
-begin
-        size := System.Length(Self.basicLayerProcessorArray);
-        for index := 0 to size - 1 do begin
-            layerProcessorInterface := Self.basicLayerProcessorArray[index];
-        end;
-end;
-    
-
-// throws Exception
-procedure TAllBinaryLayerManager.append(layerInterface: TAllBinaryLayer);
-begin
-        if not (Self.contains(layerInterface)) then begin
-            Self.appendProcessors(layerInterface);
-            inherited append(layerInterface);
-        end;
-end;
-    
-
-// throws Exception
-procedure TAllBinaryLayerManager.appendAt(layerInterface: TAllBinaryLayer; index: Integer);
-begin
-        if not (Self.contains(layerInterface)) then begin
-            Self.appendProcessors(layerInterface);
-            inherited appendAt(layerInterface, index);
-        end;
-end;
-    
-
-// throws Exception
-procedure TAllBinaryLayerManager.appendProcessors(layerInterface: TAllBinaryLayer);
-var
-  layerProcessorInterface: TLayerProcessor;
-  index: Integer;
-begin
-        Self.createLayerManagerEvent.setLayerInterface(layerInterface);
-        Self.layerManagerEventHandler.fireEvent(Self.createLayerManagerEvent);
-        
-        index := System.Length(Self.basicLayerProcessorArray);
-        while (TJava.PreDec(index)) >= (0) do begin
-            layerProcessorInterface := Self.basicLayerProcessorArray[index];
-            if layerProcessorInterface.isProcessorLayer(layerInterface) then begin
-                layerProcessorInterface.getLayerManager().append(layerInterface);
-            end;
-        end;
-end;
-    
-
-// throws Exception
-procedure TAllBinaryLayerManager.remove(layerInterface: TAllBinaryLayer);
-var
-  layerProcessorInterface: TLayerProcessor;
-  index: Integer;
-begin
-    TJava.MonitorEnter(Self);
-    try
-        Self.deleteLayerManagerEvent.setLayerInterface(layerInterface);
-        Self.layerManagerEventHandler.fireDeleteEvent(Self.deleteLayerManagerEvent);
-        
-        index := System.Length(Self.basicLayerProcessorArray);
-        while (TJava.PreDec(index)) >= (0) do begin
-            layerProcessorInterface := Self.basicLayerProcessorArray[index];
-            layerProcessorInterface.getLayerManager().remove(layerInterface);
-        end;
-        inherited remove(layerInterface);
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
-
-// throws Exception
-procedure TAllBinaryLayerManager.process;
-var
-  layerProcessorInterface: TLayerProcessor;
-  size: Integer;
-  index: Integer;
-begin
-        
-        size := System.Length(Self.basicLayerProcessorArray);
-        for index := 0 to size - 1 do begin
-            layerProcessorInterface := Self.basicLayerProcessorArray[index];
-            layerProcessorInterface.process(Self);
-        end;
-end;
-    
-
-// throws Exception
-procedure TAllBinaryLayerManager.cleanup;
-var
-  layerProcessorInterface: TLayerProcessor;
-  size: Integer;
-  index: Integer;
-begin
-        
-        size := System.Length(Self.basicLayerProcessorArray);
-        for index := 0 to size - 1 do begin
-            layerProcessorInterface := Self.basicLayerProcessorArray[index];
-            layerProcessorInterface.getLayerManager().cleanup();
-        end;
-        inherited cleanup();
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBinaryLayerManager-cleanup0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-layerProcessorInterface BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 JFIRST5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+        COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_basicLayerProcessorArray"))
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST5
+        PERFORM FOREVER
+            IF JFIRST5 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST5
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-layerProcessorInterface = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_basicLayerProcessorArray"), J-index)
+            COMPUTE jtemp6 = FUNCTION LyrPrcssr-getLayerManager0(J-layerProcessorInterface)
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp6)
+        END-PERFORM
+        COMPUTE JDISCARD = FUNCTION ABLayerManager-cleanup0(J-THIS)
+    GOBACK.
+END FUNCTION AllBinaryLayerManager-cleanup0.
 

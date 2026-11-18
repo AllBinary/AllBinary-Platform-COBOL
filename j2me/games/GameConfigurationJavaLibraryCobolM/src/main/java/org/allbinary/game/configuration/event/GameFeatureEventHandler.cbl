@@ -1,73 +1,144 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.configuration.event
+*> Java class GameFeatureEventHandler
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.configuration.event
-unit GameFeatureEventHandler;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmFtrEvntHndlr-sttc-gmKy97983.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameFeatureEventHandler-jcell-gameKeyEventHandler BINARY-DOUBLE EXTERNAL.
+01 GameFeatureEventHandler-jset-gameKeyEventHandler BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GameFeatureEventHandler-jset-gameKeyEventHandler = 0
+        MOVE 1 TO GameFeatureEventHandler-jset-gameKeyEventHandler
+        COMPUTE GameFeatureEventHandler-jcell-gameKeyEventHandler = FUNCTION GameFeatureEventHandler-new0
+    END-IF
+    MOVE GameFeatureEventHandler-jcell-gameKeyEventHandler TO J-RESULT
+    GOBACK.
+END FUNCTION GmFtrEvntHndlr-sttc-gmKy97983.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmFtrEvntHndlrsttcgmS58316.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameFeatureEventHandler-jcell-gameKeyEventHandler BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GmFtrEvntHndlr-sttc-gmKy97983 TO J-RESULT
+    MOVE J-VALUE TO GameFeatureEventHandler-jcell-gameKeyEventHandler
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GmFtrEvntHndlrsttcgmS58316.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameFeatureEventHandler-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameFeatureEventHandler")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GameFeatureEventHandler-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AllBinaryEventObject, EventListenerInterface, BasicEventHandler;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmFtrEvntHndlr-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION GmFtrEvntHndlr-sttc-gmKy97983
+        GOBACK
+    GOBACK.
+END FUNCTION GmFtrEvntHndlr-getInstance0.
 
-type
-  {AB:TYPES}
-  TGameFeatureEventHandler = class(TBasicEventHandler)
-  public
-    class var gameKeyEventHandler: TGameFeatureEventHandler;
-        constructor Create;
-        class function getInstance: TGameFeatureEventHandler; static;
-        procedure process(eventObject: TAllBinaryEventObject; eventListenerInterface_: IEventListenerInterface); override;
-  end;
-
-implementation
-uses
-  GameFeatureListenerInterface, GameFeatureEvent;
-
-
-{AB:CODE}
-    
-
-constructor TGameFeatureEventHandler.Create;
-begin
-    inherited Create;
-end;
-    
-
-class function TGameFeatureEventHandler.getInstance: TGameFeatureEventHandler;
-begin
-        Exit(TGameFeatureEventHandler.gameKeyEventHandler);
-end;
-    
-
-// throws Exception
-procedure TGameFeatureEventHandler.process(eventObject: TAllBinaryEventObject; eventListenerInterface_: IEventListenerInterface);
-var
-  gameFeatureListenerInterface_: IGameFeatureListenerInterface;
-begin
-        gameFeatureListenerInterface_ := ((TJava.ToObject(eventListenerInterface_) as IGameFeatureListenerInterface));
-        gameFeatureListenerInterface_.onGameFeatureChange(TGameFeatureEvent(TJava.ToObject(eventObject)));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TGameFeatureEventHandler.gameKeyEventHandler := TGameFeatureEventHandler.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmFtrEvntHndlr-process2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameFeatureListenerInterface BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-eventListenerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject J-eventListenerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-gameFeatureListenerInterface = (J-eventListenerInterface)
+        COMPUTE jtemp1 = J-eventObject
+        COMPUTE JDISCARD = FUNCTION GmFtrLstnrIntrfc-onGmFtrChng1(J-gameFeatureListenerInterface, jtemp1)
+    GOBACK.
+END FUNCTION GmFtrEvntHndlr-process2.
 

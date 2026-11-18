@@ -1,72 +1,98 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion.button
+*> Java class TouchButtonResourceOpenGLESAnimationInterfaceFactoryInterfaceFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion.button
-unit TouchButtonResourceOpenGLESAnimationInterfaceFactoryInterfaceFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchBttnRsrcOpnGLESAnmtn-69705.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("TouchButtonResourceOpenGLESAnimationInterfaceFactoryInterfaceFactory")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION TchBttnRsrcOpnGLESAnmtn-69705.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchBttnRsrcOpnGLESAnmtn-13244.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-level BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-level RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION TchBttnRsrcAnmtnIntrfcF-91721(J-THIS, FUNCTION OpnGLImgCchFctry-getInstance0, J-level)
+    GOBACK.
+END FUNCTION TchBttnRsrcOpnGLESAnmtn-13244.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory;
-
-type
-  {AB:TYPES}
-  TTouchButtonResourceOpenGLESAnimationInterfaceFactoryInterfaceFactory = class(TTouchButtonResourceAnimationInterfaceFactoryInterfaceFactory)
-  public
-        constructor Create;
-        procedure init(level: Integer); override;
-        function isFeature: Boolean; override;
-  end;
-
-implementation
-uses
-  Features, OpenGLFeatureFactory, OpenGLImageCacheFactory;
-
-
-{AB:CODE}
-    
-
-constructor TTouchButtonResourceOpenGLESAnimationInterfaceFactoryInterfaceFactory.Create;
-begin
-        inherited Create('OpenGL TouchButton Animations');
-end;
-    
-
-// throws Exception
-procedure TTouchButtonResourceOpenGLESAnimationInterfaceFactoryInterfaceFactory.init(level: Integer);
-begin
-        inherited initImageCache(TOpenGLImageCacheFactory.getInstance(), level);
-end;
-    
-
-function TTouchButtonResourceOpenGLESAnimationInterfaceFactoryInterfaceFactory.isFeature: Boolean;
-begin
-        if TFeatures.getInstance().isDefault(TOpenGLFeatureFactory.getInstance().OPENGL) then begin
-            Exit(True);
-        end else begin
-            Exit(False);
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchBttnRsrcOpnGLESAnmtn-79531.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION OpnGLFtrFctry-getInstance0
+        COMPUTE jtemp1 = FUNCTION Features-getInstance0
+        IF (FUNCTION Features-isDefault1(jtemp1, FUNCTION JR-GET(jtemp2, "f_OPENGL")) = 1)
+            COMPUTE J-RESULT = 1
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = 0
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION TchBttnRsrcOpnGLESAnmtn-79531.
 

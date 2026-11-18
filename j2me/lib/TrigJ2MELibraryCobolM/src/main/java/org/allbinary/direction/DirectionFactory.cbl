@@ -1,108 +1,253 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.direction
+*> Java class DirectionFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.direction
-unit DirectionFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DrctnFctry-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 DirectionFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 DirectionFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF DirectionFactory-jset-instance = 0
+        MOVE 1 TO DirectionFactory-jset-instance
+        COMPUTE DirectionFactory-jcell-instance = FUNCTION DirectionFactory-new0
+    END-IF
+    MOVE DirectionFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION DrctnFctry-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DrctnFctrystaticinstS44713.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 DirectionFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION DrctnFctry-static-instance TO J-RESULT
+    MOVE J-VALUE TO DirectionFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION DrctnFctrystaticinstS44713.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Direction;
-
-type
-  {AB:TYPES}
-  TDirectionFactory = class(TObject)
-  public
-    NAME: string;
-    LEFT: TDirection;
-    RIGHT: TDirection;
-    DOWN: TDirection;
-    UP: TDirection;
-    UP_LEFT: TDirection;
-    UP_RIGHT: TDirection;
-    DOWN_LEFT: TDirection;
-    DOWN_RIGHT: TDirection;
-    NOT_BORDERED_WITH: TDirection;
-    NO_DIRECTION: TDirection;
-    TOP: TDirection;
-    BOTTOM: TDirection;
-    ALL_DIRECTION: TDirection;
-    class var instance: TDirectionFactory;
-    procedure InitFields;
-        class function getInstance: TDirectionFactory; static;
-        constructor Create;
-  end;
-
-implementation
-uses
-  StringMaker, CommonPhoneStrings, CommonSeps;
-
-
-{AB:CODE}
-
-procedure TDirectionFactory.InitFields;
-begin
-  Self.NAME := 'DIRECTION';
-  Self.LEFT := TDirection.Create(TCommonPhoneStrings.getInstance().LEFT, 'WEST', 0, 1);
-  Self.RIGHT := TDirection.Create(TCommonPhoneStrings.getInstance().RIGHT, 'EAST', 1, 0);
-  Self.DOWN := TDirection.Create(TCommonPhoneStrings.getInstance().DOWN, 'SOUTH', 2, 0);
-  Self.UP := TDirection.Create(TCommonPhoneStrings.getInstance().UP, 'NORTH', 3, 0);
-  
-  
-  
-  
-  Self.NOT_BORDERED_WITH := TDirection.Create('NOT_BORDERED_WITH', 'NOT_BORDERED_WITH', 8, 0);
-  Self.NO_DIRECTION := TDirection.Create('NO_DIRECTION', 'NO_DIRECTION', 9, 0);
-  Self.TOP := TDirection.Create('TOP', 'TOP', 10, 0);
-  Self.BOTTOM := TDirection.Create('BOTTOM', 'BOTTOM', 11, 0);
-  Self.ALL_DIRECTION := TDirection.Create('ALL_DIRECTION', 'ALL_DIRECTION', 12, 0);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DirectionFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-stringBuffer BINARY-DOUBLE.
+01 J-commonSeps BINARY-DOUBLE.
+01 jtemp23 BINARY-DOUBLE.
+01 jtemp24 BINARY-DOUBLE.
+01 jtemp25 BINARY-DOUBLE.
+01 jtemp26 BINARY-DOUBLE.
+01 jtemp27 BINARY-DOUBLE.
+01 jtemp28 BINARY-DOUBLE.
+01 jtemp29 BINARY-DOUBLE.
+01 jtemp30 BINARY-DOUBLE.
+01 jtemp31 BINARY-DOUBLE.
+01 jtemp32 BINARY-DOUBLE.
+01 jtemp33 BINARY-DOUBLE.
+01 jtemp34 BINARY-DOUBLE.
+01 jtemp35 BINARY-DOUBLE.
+01 jtemp36 BINARY-DOUBLE.
+01 jtemp37 BINARY-DOUBLE.
+01 jtemp38 BINARY-DOUBLE.
+01 jtemp39 BINARY-DOUBLE.
+01 jtemp40 BINARY-DOUBLE.
+01 jtemp41 BINARY-DOUBLE.
+01 jtemp42 BINARY-DOUBLE.
+01 jtemp43 BINARY-DOUBLE.
+01 jtemp44 BINARY-DOUBLE.
+01 jtemp45 BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+01 jtemp18 BINARY-DOUBLE.
+01 jtemp19 BINARY-DOUBLE.
+01 jtemp20 BINARY-DOUBLE.
+01 jtemp21 BINARY-DOUBLE.
+01 jtemp22 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("DirectionFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NAME")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_LEFT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_RIGHT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DOWN")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_UP")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_UP_LEFT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_UP_RIGHT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DOWN_LEFT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DOWN_RIGHT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NOT_BORDERED_WITH")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NO_DIRECTION")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_TOP")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_BOTTOM")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ALL_DIRECTION")
+    COMPUTE JVALUE = FUNCTION JR-STR("DIRECTION")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NAME", JVALUE)
+    COMPUTE jtemp1 = FUNCTION CmmnPhnStrngs-getInstance0
+    COMPUTE jtemp2 = 0
+    COMPUTE jtemp3 = 1
+    COMPUTE JVALUE = FUNCTION Direction-new4(FUNCTION JR-GET(jtemp1, "f_LEFT"), FUNCTION JR-STR("WEST"), jtemp2, jtemp3)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_LEFT", JVALUE)
+    COMPUTE jtemp4 = FUNCTION CmmnPhnStrngs-getInstance0
+    COMPUTE jtemp5 = 1
+    COMPUTE jtemp6 = 0
+    COMPUTE JVALUE = FUNCTION Direction-new4(FUNCTION JR-GET(jtemp4, "f_RIGHT"), FUNCTION JR-STR("EAST"), jtemp5, jtemp6)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_RIGHT", JVALUE)
+    COMPUTE jtemp7 = FUNCTION CmmnPhnStrngs-getInstance0
+    COMPUTE jtemp8 = 2
+    COMPUTE jtemp9 = 0
+    COMPUTE JVALUE = FUNCTION Direction-new4(FUNCTION JR-GET(jtemp7, "f_DOWN"), FUNCTION JR-STR("SOUTH"), jtemp8, jtemp9)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DOWN", JVALUE)
+    COMPUTE jtemp10 = FUNCTION CmmnPhnStrngs-getInstance0
+    COMPUTE jtemp11 = 3
+    COMPUTE jtemp12 = 0
+    COMPUTE JVALUE = FUNCTION Direction-new4(FUNCTION JR-GET(jtemp10, "f_UP"), FUNCTION JR-STR("NORTH"), jtemp11, jtemp12)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_UP", JVALUE)
     
-
-class function TDirectionFactory.getInstance: TDirectionFactory;
-begin
-        Exit(TDirectionFactory.instance);
-end;
     
+    
+    
+    COMPUTE jtemp13 = 8
+    COMPUTE jtemp14 = 0
+    COMPUTE JVALUE = FUNCTION Direction-new4(FUNCTION JR-STR("NOT_BORDERED_WITH"), FUNCTION JR-STR("NOT_BORDERED_WITH"), jtemp13, jtemp14)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NOT_BORDERED_WITH", JVALUE)
+    COMPUTE jtemp15 = 9
+    COMPUTE jtemp16 = 0
+    COMPUTE JVALUE = FUNCTION Direction-new4(FUNCTION JR-STR("NO_DIRECTION"), FUNCTION JR-STR("NO_DIRECTION"), jtemp15, jtemp16)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NO_DIRECTION", JVALUE)
+    COMPUTE jtemp17 = 10
+    COMPUTE jtemp18 = 0
+    COMPUTE JVALUE = FUNCTION Direction-new4(FUNCTION JR-STR("TOP"), FUNCTION JR-STR("TOP"), jtemp17, jtemp18)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_TOP", JVALUE)
+    COMPUTE jtemp19 = 11
+    COMPUTE jtemp20 = 0
+    COMPUTE JVALUE = FUNCTION Direction-new4(FUNCTION JR-STR("BOTTOM"), FUNCTION JR-STR("BOTTOM"), jtemp19, jtemp20)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_BOTTOM", JVALUE)
+    COMPUTE jtemp21 = 12
+    COMPUTE jtemp22 = 0
+    COMPUTE JVALUE = FUNCTION Direction-new4(FUNCTION JR-STR("ALL_DIRECTION"), FUNCTION JR-STR("ALL_DIRECTION"), jtemp21, jtemp22)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ALL_DIRECTION", JVALUE)
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE J-commonSeps = FUNCTION CommonSeps-getInstance0
+        COMPUTE jtemp25 = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION Direction-getOtherName0(FUNCTION JR-GET(J-THIS, "f_UP")))
+        COMPUTE jtemp24 = FUNCTION StringMaker-append1(jtemp25, FUNCTION JR-GET(J-commonSeps, "f_SPACE"))
+        COMPUTE jtemp23 = FUNCTION StringMaker-append1(jtemp24, FUNCTION Direction-getOtherName0(FUNCTION JR-GET(J-THIS, "f_LEFT")))
+        COMPUTE jtemp26 = 4
+        COMPUTE jtemp27 = 0
+        COMPUTE JVALUE = FUNCTION Direction-new4(FUNCTION JR-STR("UP LEFT"), FUNCTION JR-TO-STRING(jtemp23), jtemp26, jtemp27)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_UP_LEFT", JVALUE)
+        COMPUTE jtemp28 = 0
+        COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringBuffer, jtemp28, FUNCTION StringMaker-length0(J-stringBuffer))
+        COMPUTE jtemp31 = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION Direction-getOtherName0(FUNCTION JR-GET(J-THIS, "f_UP")))
+        COMPUTE jtemp30 = FUNCTION StringMaker-append1(jtemp31, FUNCTION JR-GET(J-commonSeps, "f_SPACE"))
+        COMPUTE jtemp29 = FUNCTION StringMaker-append1(jtemp30, FUNCTION Direction-getOtherName0(FUNCTION JR-GET(J-THIS, "f_RIGHT")))
+        COMPUTE jtemp32 = 5
+        COMPUTE jtemp33 = 0
+        COMPUTE JVALUE = FUNCTION Direction-new4(FUNCTION JR-STR("UP RIGHT"), FUNCTION JR-TO-STRING(jtemp29), jtemp32, jtemp33)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_UP_RIGHT", JVALUE)
+        COMPUTE jtemp34 = 0
+        COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringBuffer, jtemp34, FUNCTION StringMaker-length0(J-stringBuffer))
+        COMPUTE jtemp37 = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION Direction-getOtherName0(FUNCTION JR-GET(J-THIS, "f_DOWN")))
+        COMPUTE jtemp36 = FUNCTION StringMaker-append1(jtemp37, FUNCTION JR-GET(J-commonSeps, "f_SPACE"))
+        COMPUTE jtemp35 = FUNCTION StringMaker-append1(jtemp36, FUNCTION Direction-getOtherName0(FUNCTION JR-GET(J-THIS, "f_LEFT")))
+        COMPUTE jtemp38 = 6
+        COMPUTE jtemp39 = 0
+        COMPUTE JVALUE = FUNCTION Direction-new4(FUNCTION JR-STR("DOWN LEFT"), FUNCTION JR-TO-STRING(jtemp35), jtemp38, jtemp39)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DOWN_LEFT", JVALUE)
+        COMPUTE jtemp40 = 0
+        COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringBuffer, jtemp40, FUNCTION StringMaker-length0(J-stringBuffer))
+        COMPUTE jtemp43 = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION Direction-getOtherName0(FUNCTION JR-GET(J-THIS, "f_DOWN")))
+        COMPUTE jtemp42 = FUNCTION StringMaker-append1(jtemp43, FUNCTION JR-GET(J-commonSeps, "f_SPACE"))
+        COMPUTE jtemp41 = FUNCTION StringMaker-append1(jtemp42, FUNCTION Direction-getOtherName0(FUNCTION JR-GET(J-THIS, "f_RIGHT")))
+        COMPUTE jtemp44 = 7
+        COMPUTE jtemp45 = 0
+        COMPUTE JVALUE = FUNCTION Direction-new4(FUNCTION JR-STR("DOWN RIGHT"), FUNCTION JR-TO-STRING(jtemp41), jtemp44, jtemp45)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DOWN_RIGHT", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION DirectionFactory-new0.
 
-constructor TDirectionFactory.Create;
-var
-  stringBuffer: TStringMaker;
-  commonSeps_: TCommonSeps;
-begin
-    inherited Create;
-    InitFields;
-        stringBuffer := TStringMaker.Create();
-        commonSeps_ := TCommonSeps.getInstance();
-        Self.UP_LEFT := TDirection.Create('UP LEFT', stringBuffer.append(Self.UP.getOtherName()).append(commonSeps_.SPACE).append(Self.LEFT.getOtherName()).toString(), 4, 0);
-        stringBuffer.delete_(0, stringBuffer.length());
-        Self.UP_RIGHT := TDirection.Create('UP RIGHT', stringBuffer.append(Self.UP.getOtherName()).append(commonSeps_.SPACE).append(Self.RIGHT.getOtherName()).toString(), 5, 0);
-        stringBuffer.delete_(0, stringBuffer.length());
-        Self.DOWN_LEFT := TDirection.Create('DOWN LEFT', stringBuffer.append(Self.DOWN.getOtherName()).append(commonSeps_.SPACE).append(Self.LEFT.getOtherName()).toString(), 6, 0);
-        stringBuffer.delete_(0, stringBuffer.length());
-        Self.DOWN_RIGHT := TDirection.Create('DOWN RIGHT', stringBuffer.append(Self.DOWN.getOtherName()).append(commonSeps_.SPACE).append(Self.RIGHT.getOtherName()).toString(), 7, 0);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TDirectionFactory.instance := TDirectionFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DirectionFactory-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION DrctnFctry-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION DirectionFactory-getInstance0.
 

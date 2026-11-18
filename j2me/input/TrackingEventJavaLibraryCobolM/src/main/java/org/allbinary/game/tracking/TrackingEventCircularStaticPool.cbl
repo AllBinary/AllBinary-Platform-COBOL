@@ -1,93 +1,174 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.tracking
+*> Java class TrackingEventCircularStaticPool
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.tracking
-unit TrackingEventCircularStaticPool;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TrckngEvntCrclrSttcPl-st26265.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 TrackingEventCircularStaticPool-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 TrackingEventCircularStaticPool-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF TrackingEventCircularStaticPool-jset-instance = 0
+        MOVE 1 TO TrackingEventCircularStaticPool-jset-instance
+        COMPUTE TrackingEventCircularStaticPool-jcell-instance = FUNCTION TrckngEvntCrclrSttcPl-new0
+    END-IF
+    MOVE TrackingEventCircularStaticPool-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION TrckngEvntCrclrSttcPl-st26265.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TrckngEvntCrclrSttcPS84193.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 TrackingEventCircularStaticPool-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION TrckngEvntCrclrSttcPl-st26265 TO J-RESULT
+    MOVE J-VALUE TO TrackingEventCircularStaticPool-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION TrckngEvntCrclrSttcPS84193.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TrckngEvntCrclrSttcPl-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("TrackingEventCircularStaticPool")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_EVENT_POOL")
+    COMPUTE jtemp1 = 20
+    COMPUTE JVALUE = FUNCTION AllBnryEvntCrclrPl-new1(jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_EVENT_POOL", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION TrckngEvntCrclrSttcPl-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AllBinaryLayer, AllBinaryEventCircularPool, TrackingEvent;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TrckngEvntCrclrSttcPl-gtI21442.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION TrckngEvntCrclrSttcPl-st26265
+        GOBACK
+    GOBACK.
+END FUNCTION TrckngEvntCrclrSttcPl-gtI21442.
 
-type
-  {AB:TYPES}
-  TTrackingEventCircularStaticPool = class(TObject)
-  public
-    EVENT_POOL: TAllBinaryEventCircularPool;
-    class var instance: TTrackingEventCircularStaticPool;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TTrackingEventCircularStaticPool; static;
-        procedure init; virtual;
-        function getNextInstance(layerInterface: TAllBinaryLayer): TTrackingEvent; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TrckngEvntCrclrSttcPl-init0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION AllBnryEvntCrclrPl-intAll51988(FUNCTION JR-GET(J-THIS, "f_EVENT_POOL"), FUNCTION TrackingEventFactory-new0)
+    GOBACK.
+END FUNCTION TrckngEvntCrclrSttcPl-init0.
 
-implementation
-uses
-  TrackingEventFactory;
-
-
-{AB:CODE}
-
-procedure TTrackingEventCircularStaticPool.InitFields;
-begin
-  Self.EVENT_POOL := TAllBinaryEventCircularPool.Create(20);
-end;
-
-constructor TTrackingEventCircularStaticPool.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TTrackingEventCircularStaticPool.getInstance: TTrackingEventCircularStaticPool;
-begin
-        Exit(TTrackingEventCircularStaticPool.instance);
-end;
-    
-
-procedure TTrackingEventCircularStaticPool.init;
-begin
-        Self.EVENT_POOL.initAllBinaryEventCircularPool(TTrackingEventFactory.Create());
-end;
-    
-
-// throws Exception
-function TTrackingEventCircularStaticPool.getNextInstance(layerInterface: TAllBinaryLayer): TTrackingEvent;
-var
-  trackingEvent_: TTrackingEvent;
-begin
-    TJava.MonitorEnter(Self);
-    try
-        trackingEvent_ := TTrackingEvent(TJava.ToObject(Self.EVENT_POOL.getNextInstance()));
-        trackingEvent_.setLayerInterfaceForCircularStaticPool(layerInterface);
-        Exit(trackingEvent_);
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TTrackingEventCircularStaticPool.instance := TTrackingEventCircularStaticPool.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TrckngEvntCrclrSttcPl-gtN34901.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-trackingEvent BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-trackingEvent = FUNCTION BsCrclrPl-getNextInstance0(FUNCTION JR-GET(J-THIS, "f_EVENT_POOL"))
+        COMPUTE JDISCARD = FUNCTION TrckngEvnt-stLyrIntrfcFrC90977(J-trackingEvent, J-layerInterface)
+        COMPUTE J-RESULT = J-trackingEvent
+        GOBACK
+    GOBACK.
+END FUNCTION TrckngEvntCrclrSttcPl-gtN34901.
 

@@ -1,111 +1,208 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.part
+*> Java class MakeCountedPartsSingletonArrayFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.part
-unit MakeCountedPartsSingletonArrayFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MkCntdPrtsSngltnArryFct-50447.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 MakeCountedPartsSingletonArrayFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 MakeCountedPartsSingletonArrayFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF MakeCountedPartsSingletonArrayFactory-jset-instance = 0
+        MOVE 1 TO MakeCountedPartsSingletonArrayFactory-jset-instance
+        COMPUTE MakeCountedPartsSingletonArrayFactory-jcell-instance = FUNCTION MkCntdPrtsSngltnArryFctry-new0
+    END-IF
+    MOVE MakeCountedPartsSingletonArrayFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION MkCntdPrtsSngltnArryFct-50447.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MkCntdPrtsSngltnArryS34472.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 MakeCountedPartsSingletonArrayFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION MkCntdPrtsSngltnArryFct-50447 TO J-RESULT
+    MOVE J-VALUE TO MakeCountedPartsSingletonArrayFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION MkCntdPrtsSngltnArryS34472.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MkCntdPrtsSngltnArryFctry-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("MakeCountedPartsSingletonArrayFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_list")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE jtemp1 = FUNCTION BscArryLstUtl-getInstance0
+    COMPUTE JVALUE = FUNCTION BscArryLstUtl-gtImmtblInstnc0(jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION MkCntdPrtsSngltnArryFctry-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LogUtil, BasicArrayList, PartInterface;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MkCntdPrtsSngltnArryFct-47348.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION MkCntdPrtsSngltnArryFct-50447
+        GOBACK
+    GOBACK.
+END FUNCTION MkCntdPrtsSngltnArryFct-47348.
 
-type
-  {AB:TYPES}
-  TMakeCountedPartsSingletonArrayFactory = class(TObject)
-  public
-    logUtil: TLogUtil;
-    list: TBasicArrayList;
-    class var instance: TMakeCountedPartsSingletonArrayFactory;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TMakeCountedPartsSingletonArrayFactory; static;
-        function getUpdated(partInterfaceArray: TArray<IPartInterface>): TArray<IPartInterface>; virtual;
-  end;
-
-implementation
-uses
-  CountedLayerInterfaceFactoryPart, CountedPickedUpLayerInterfaceFactory, CountedPickedUpLayerInterfaceFactoryPool, StringMaker, CommonStrings, BasicArrayListD, BasicArrayListUtil;
-
-
-{AB:CODE}
-
-procedure TMakeCountedPartsSingletonArrayFactory.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.list := TBasicArrayListUtil.getInstance().getImmutableInstance();
-end;
-
-constructor TMakeCountedPartsSingletonArrayFactory.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TMakeCountedPartsSingletonArrayFactory.getInstance: TMakeCountedPartsSingletonArrayFactory;
-begin
-        Exit(TMakeCountedPartsSingletonArrayFactory.instance);
-end;
-    
-
-// throws Exception
-function TMakeCountedPartsSingletonArrayFactory.getUpdated(partInterfaceArray: TArray<IPartInterface>): TArray<IPartInterface>;
-var
-  index: Integer;
-  countedBasicArrayList: TBasicArrayList;
-  layerInterfaceFactoryInterface: TCountedPickedUpLayerInterfaceFactory;
-  size: Integer;
-  stringBuffer: TStringMaker;
-  commonStrings_: TCommonStrings;
-  newPartInterfaceArray: TArray<IPartInterface>;
-  newSize: Integer;
-begin
-        Self.list := TBasicArrayListD.Create();
-        for index := 0 to System.Length(partInterfaceArray) - 1 do begin
-            Self.list.add(TJava.Box(partInterfaceArray[index]));
-        end;
-        countedBasicArrayList := TCountedPickedUpLayerInterfaceFactoryPool.getInstance().getList();
-        
-        size := countedBasicArrayList.size();
-        for index := 0 to size - 1 do begin
-            layerInterfaceFactoryInterface := TCountedPickedUpLayerInterfaceFactory(TJava.ToObject(countedBasicArrayList.objectArray[index]));
-            Self.list.add(TJava.Box(TCountedLayerInterfaceFactoryPart.Create(0, layerInterfaceFactoryInterface)));
-        end;
-        stringBuffer := TStringMaker.Create();
-        stringBuffer.append('Total Parts: ');
-        stringBuffer.appendint(Self.list.size());
-        stringBuffer.append(' Counted: ');
-        stringBuffer.appendint(countedBasicArrayList.size());
-        commonStrings_ := TCommonStrings.getInstance();
-        Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), commonStrings_.GET_INSTANCE);
-        newPartInterfaceArray := TJava.NewArray<IPartInterface>(Self.list.size());
-        newSize := System.Length(newPartInterfaceArray);
-        for index := 0 to newSize - 1 do begin
-            newPartInterfaceArray[index] := (TJava.ToObject(Self.list.get(index)) as IPartInterface);
-        end;
-        Exit(newPartInterfaceArray);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TMakeCountedPartsSingletonArrayFactory.instance := TMakeCountedPartsSingletonArrayFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MkCntdPrtsSngltnArryFct-84380.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-index BINARY-DOUBLE.
+01 J-countedBasicArrayList BINARY-DOUBLE.
+01 J-layerInterfaceFactoryInterface BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-stringBuffer BINARY-DOUBLE.
+01 J-commonStrings BINARY-DOUBLE.
+01 J-newPartInterfaceArray BINARY-DOUBLE.
+01 J-newSize BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+01 JFIRST3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-partInterfaceArray BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-partInterfaceArray RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < FUNCTION JR-ARRAY-LENGTH(J-partInterfaceArray)) EXIT PERFORM END-IF
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), FUNCTION JR-ARRAY-GET(J-partInterfaceArray, J-index))
+        END-PERFORM
+        COMPUTE jtemp2 = FUNCTION CntdPckdUpLyrIntrfcFctr-76924
+        COMPUTE J-countedBasicArrayList = FUNCTION CntdPckdUpLyrIntrfcFctr-12081(jtemp2)
+        CONTINUE
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(J-countedBasicArrayList)
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST2
+        PERFORM FOREVER
+            IF JFIRST2 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST2
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-layerInterfaceFactoryInterface = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-countedBasicArrayList, "f_objectArray"), J-index)
+            COMPUTE jtemp3 = 0
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), FUNCTION CntdLyrIntrfcFctryPrt-new2(jtemp3, J-layerInterfaceFactoryInterface))
+        END-PERFORM
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR("Total Parts: "))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_list")))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR(" Counted: "))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, FUNCTION BasicArrayList-size0(J-countedBasicArrayList))
+        COMPUTE J-commonStrings = FUNCTION CommonStrings-getInstance0
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-stringBuffer), J-THIS, FUNCTION JR-GET(J-commonStrings, "f_GET_INSTANCE"))
+        COMPUTE J-newPartInterfaceArray = FUNCTION JR-NEW-ARRAY(FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_list")))
+        COMPUTE J-newSize = FUNCTION JR-ARRAY-LENGTH(J-newPartInterfaceArray)
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST3
+        PERFORM FOREVER
+            IF JFIRST3 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST3
+            IF NOT (J-index < J-newSize) EXIT PERFORM END-IF
+            COMPUTE JVALUE = FUNCTION BasicArrayList-get1(FUNCTION JR-GET(J-THIS, "f_list"), J-index)
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-newPartInterfaceArray, J-index, JVALUE)
+        END-PERFORM
+        COMPUTE J-RESULT = J-newPartInterfaceArray
+        GOBACK
+    GOBACK.
+END FUNCTION MkCntdPrtsSngltnArryFct-84380.
 

@@ -1,105 +1,204 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.tracking
+*> Java class TrackingEvent
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.tracking
-unit TrackingEvent;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TrackingEvent-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-allBinaryLayerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-allBinaryLayerInterface RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("TrackingEvent")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_layerInterface")
+    COMPUTE JVALUE = FUNCTION AllBnryLyr-sttc-NULL-A70567
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_layerInterface", JVALUE)
+        CONTINUE
+        IF (J-allBinaryLayerInterface NOT = FUNCTION TrckngEvntHndlr-getInstance0)
+            COMPUTE jtemp1 = J-allBinaryLayerInterface
+            COMPUTE JDISCARD = FUNCTION TrckngEvnt-setLayerInterface1(J-THIS, jtemp1)
+        END-IF
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION TrackingEvent-new1.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TrackingEvent-init1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-anyType BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-anyType RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION AllBnryEvntObjct-setSource1(J-THIS, J-anyType)
+    GOBACK.
+END FUNCTION TrackingEvent-init1.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TrckngEvnt-getLayerInterface0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_layerInterface")
+        GOBACK
+    GOBACK.
+END FUNCTION TrckngEvnt-getLayerInterface0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AllBinaryLayer, AllBinaryEventObject;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TrckngEvnt-setLayerInterface1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-layerInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_layerInterface", JVALUE)
+    GOBACK.
+END FUNCTION TrckngEvnt-setLayerInterface1.
 
-type
-  {AB:TYPES}
-  TTrackingEvent = class(TAllBinaryEventObject)
-  public
-    layerInterface: TAllBinaryLayer;
-    procedure InitFields;
-        constructor Create(allBinaryLayerInterface: TObject);
-        procedure init(anyType: TObject); virtual;
-        function getLayerInterface: TAllBinaryLayer; virtual;
-        procedure setLayerInterface(layerInterface: TAllBinaryLayer);
-        procedure setLayerInterfaceForCircularStaticPool(layerInterface: TAllBinaryLayer); virtual;
-        function toString: string; override;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TrckngEvnt-stLyrIntrfcFrC90977.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-layerInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_layerInterface", JVALUE)
+    GOBACK.
+END FUNCTION TrckngEvnt-stLyrIntrfcFrC90977.
 
-implementation
-uses
-  TrackingEventHandler, StringMaker;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TrackingEvent-toString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringBuffer BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR("TrackingEvent: \n"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR("LayerInterface: "))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-TO-STRING(FUNCTION JR-GET(J-THIS, "f_layerInterface")))
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(J-stringBuffer)
+        GOBACK
+    GOBACK.
+END FUNCTION TrackingEvent-toString0.
 
-
-{AB:CODE}
-
-procedure TTrackingEvent.InitFields;
-begin
-  Self.layerInterface := TAllBinaryLayer.NULL_ALLBINARY_LAYER;
-end;
-    
-
-constructor TTrackingEvent.Create(allBinaryLayerInterface: TObject);
-begin
-        inherited Create(allBinaryLayerInterface);
-        InitFields;
-        if (allBinaryLayerInterface) <> (TTrackingEventHandler.getInstance()) then begin
-            Self.setLayerInterface(TAllBinaryLayer(TJava.ToObject(allBinaryLayerInterface)));
-        end;
-end;
-    
-
-procedure TTrackingEvent.init(anyType: TObject);
-begin
-        Self.setSource(TJava.Box(anyType));
-end;
-    
-
-function TTrackingEvent.getLayerInterface: TAllBinaryLayer;
-begin
-        Exit(Self.layerInterface);
-end;
-    
-
-procedure TTrackingEvent.setLayerInterface(layerInterface: TAllBinaryLayer);
-begin
-        Self.layerInterface := layerInterface;
-end;
-    
-
-procedure TTrackingEvent.setLayerInterfaceForCircularStaticPool(layerInterface: TAllBinaryLayer);
-begin
-        Self.layerInterface := layerInterface;
-end;
-    
-
-function TTrackingEvent.toString: string;
-var
-  stringBuffer: TStringMaker;
-begin
-        stringBuffer := TStringMaker.Create();
-        stringBuffer.append('TrackingEvent: '#10'');
-        stringBuffer.append('LayerInterface: ');
-        stringBuffer.append(Self.layerInterface.toString());
-        Exit(stringBuffer.toString());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+PROGRAM-ID. TrackingEvent-toString.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION TrackingEvent-toString0(J-THIS)
+    GOBACK.
+END PROGRAM TrackingEvent-toString.
 

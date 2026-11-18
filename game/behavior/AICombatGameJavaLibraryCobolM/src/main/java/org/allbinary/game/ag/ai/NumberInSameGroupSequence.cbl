@@ -1,102 +1,128 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.ai
+*> Java class NumberInSameGroupSequence
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.ai
-unit NumberInSameGroupSequence;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
-
-type
-  {AB:TYPES}
-  TNumberInSameGroupSequence = class(TObject)
-  public
-    NUMBER_ON_SAME_TEAM_SEQUENCE_ZERO: Integer;
-    NUMBER_ON_SAME_TEAM_SEQUENCE_ONE: Integer;
-    NUMBER_ON_SAME_TEAM_SEQUENCE_TWO: Integer;
-    NUMBER_ON_SAME_TEAM_SEQUENCE_THREE: Integer;
-    NUMBER_ON_SAME_TEAM_SEQUENCE_FOUR: Integer;
-    NUMBER_ON_SAME_TEAM_SEQUENCE_FIVE: Integer;
-    NUMBER_ON_SAME_TEAM_SEQUENCE_SIX: Integer;
-    NUMBER_ON_SAME_TEAM_SEQUENCE_SEVEN: Integer;
-    NUMBER_ON_SAME_TEAM_SEQUENCE_EIGHT: Integer;
-    NUMBER_ON_SAME_TEAM_SEQUENCE_NINE: Integer;
-    NUMBER_ON_SAME_TEAM_SEQUENCE: TArray<Integer>;
-    procedure InitFields;
-        class function getInstance: TNumberInSameGroupSequence; static;
-        constructor Create;
-  end;
-
-implementation
-uses
-  SmallIntegerSingletonFactory;
-
-
-{AB:CODE}
-
-procedure TNumberInSameGroupSequence.InitFields;
-begin
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NumberInSameGroupSequence-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-smallIntegerSingletonFactory BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("NumberInSameGroupSequence")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NUMBER_ON_SAME_TEAM_SEQUENCE_ZERO")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NUMBER_ON_SAME_TEAM_SEQUENCE_ONE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NUMBER_ON_SAME_TEAM_SEQUENCE_TWO")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NUMBER_ON_SAME_TEAM_SEQUENCE_THREE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NUMBER_ON_SAME_TEAM_SEQUENCE_FOUR")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NUMBER_ON_SAME_TEAM_SEQUENCE_FIVE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NUMBER_ON_SAME_TEAM_SEQUENCE_SIX")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NUMBER_ON_SAME_TEAM_SEQUENCE_SEVEN")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NUMBER_ON_SAME_TEAM_SEQUENCE_EIGHT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NUMBER_ON_SAME_TEAM_SEQUENCE_NINE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NUMBER_ON_SAME_TEAM_SEQUENCE")
     
-
-class function TNumberInSameGroupSequence.getInstance: TNumberInSameGroupSequence;
-begin
-        Exit(TNumberInSameGroupSequence.Create());
-end;
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        COMPUTE J-smallIntegerSingletonFactory = FUNCTION SmllIntgrSngltnFctry-gtInstnc0
+        COMPUTE jtemp1 = 100
+        COMPUTE JVALUE = FUNCTION SmllIntgrSngltnFctry-getAt1(J-smallIntegerSingletonFactory, jtemp1)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NUMBER_ON_SAME_TEAM_SEQUENCE_ZERO", JVALUE)
+        COMPUTE jtemp2 = 101
+        COMPUTE JVALUE = FUNCTION SmllIntgrSngltnFctry-getAt1(J-smallIntegerSingletonFactory, jtemp2)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NUMBER_ON_SAME_TEAM_SEQUENCE_ONE", JVALUE)
+        COMPUTE jtemp3 = 102
+        COMPUTE JVALUE = FUNCTION SmllIntgrSngltnFctry-getAt1(J-smallIntegerSingletonFactory, jtemp3)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NUMBER_ON_SAME_TEAM_SEQUENCE_TWO", JVALUE)
+        COMPUTE jtemp4 = 103
+        COMPUTE JVALUE = FUNCTION SmllIntgrSngltnFctry-getAt1(J-smallIntegerSingletonFactory, jtemp4)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NUMBER_ON_SAME_TEAM_SEQUENCE_THREE", JVALUE)
+        COMPUTE jtemp5 = 104
+        COMPUTE JVALUE = FUNCTION SmllIntgrSngltnFctry-getAt1(J-smallIntegerSingletonFactory, jtemp5)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NUMBER_ON_SAME_TEAM_SEQUENCE_FOUR", JVALUE)
+        COMPUTE jtemp6 = 105
+        COMPUTE JVALUE = FUNCTION SmllIntgrSngltnFctry-getAt1(J-smallIntegerSingletonFactory, jtemp6)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NUMBER_ON_SAME_TEAM_SEQUENCE_FIVE", JVALUE)
+        COMPUTE jtemp7 = 106
+        COMPUTE JVALUE = FUNCTION SmllIntgrSngltnFctry-getAt1(J-smallIntegerSingletonFactory, jtemp7)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NUMBER_ON_SAME_TEAM_SEQUENCE_SIX", JVALUE)
+        COMPUTE jtemp8 = 107
+        COMPUTE JVALUE = FUNCTION SmllIntgrSngltnFctry-getAt1(J-smallIntegerSingletonFactory, jtemp8)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NUMBER_ON_SAME_TEAM_SEQUENCE_SEVEN", JVALUE)
+        COMPUTE jtemp9 = 108
+        COMPUTE JVALUE = FUNCTION SmllIntgrSngltnFctry-getAt1(J-smallIntegerSingletonFactory, jtemp9)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NUMBER_ON_SAME_TEAM_SEQUENCE_EIGHT", JVALUE)
+        COMPUTE jtemp10 = 109
+        COMPUTE JVALUE = FUNCTION SmllIntgrSngltnFctry-getAt1(J-smallIntegerSingletonFactory, jtemp10)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NUMBER_ON_SAME_TEAM_SEQUENCE_NINE", JVALUE)
+        COMPUTE JVALUE = FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION
+        JR-NEW-ARRAY(JZERO), FUNCTION JR-GET(J-THIS, "f_NUMBER_ON_SAME_TEAM_SEQUENCE_ZERO")), FUNCTION JR-GET(J-THIS, "f_NUMBER_ON_SAME_TEAM_SEQUENCE_ONE")), FUNCTION JR-GET(J-THIS, "f_NUMBER_ON_SAME_TEAM_SEQUENCE_THREE")), FUNCTION
+        JR-GET(J-THIS, "f_NUMBER_ON_SAME_TEAM_SEQUENCE_FOUR")), FUNCTION JR-GET(J-THIS, "f_NUMBER_ON_SAME_TEAM_SEQUENCE_FIVE")), FUNCTION JR-GET(J-THIS, "f_NUMBER_ON_SAME_TEAM_SEQUENCE_SIX")), FUNCTION JR-GET(J-THIS,
+        "f_NUMBER_ON_SAME_TEAM_SEQUENCE_SEVEN")), FUNCTION JR-GET(J-THIS, "f_NUMBER_ON_SAME_TEAM_SEQUENCE_EIGHT")), FUNCTION JR-GET(J-THIS, "f_NUMBER_ON_SAME_TEAM_SEQUENCE_NINE"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NUMBER_ON_SAME_TEAM_SEQUENCE", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION NumberInSameGroupSequence-new0.
 
-constructor TNumberInSameGroupSequence.Create;
-var
-  smallIntegerSingletonFactory_: TSmallIntegerSingletonFactory;
-begin
-    inherited Create;
-    InitFields;
-        smallIntegerSingletonFactory_ := TSmallIntegerSingletonFactory.getInstance();
-        Self.NUMBER_ON_SAME_TEAM_SEQUENCE_ZERO := smallIntegerSingletonFactory_.getAt(100);
-        Self.NUMBER_ON_SAME_TEAM_SEQUENCE_ONE := smallIntegerSingletonFactory_.getAt(101);
-        Self.NUMBER_ON_SAME_TEAM_SEQUENCE_TWO := smallIntegerSingletonFactory_.getAt(102);
-        Self.NUMBER_ON_SAME_TEAM_SEQUENCE_THREE := smallIntegerSingletonFactory_.getAt(103);
-        Self.NUMBER_ON_SAME_TEAM_SEQUENCE_FOUR := smallIntegerSingletonFactory_.getAt(104);
-        Self.NUMBER_ON_SAME_TEAM_SEQUENCE_FIVE := smallIntegerSingletonFactory_.getAt(105);
-        Self.NUMBER_ON_SAME_TEAM_SEQUENCE_SIX := smallIntegerSingletonFactory_.getAt(106);
-        Self.NUMBER_ON_SAME_TEAM_SEQUENCE_SEVEN := smallIntegerSingletonFactory_.getAt(107);
-        Self.NUMBER_ON_SAME_TEAM_SEQUENCE_EIGHT := smallIntegerSingletonFactory_.getAt(108);
-        Self.NUMBER_ON_SAME_TEAM_SEQUENCE_NINE := smallIntegerSingletonFactory_.getAt(109);
-        Self.NUMBER_ON_SAME_TEAM_SEQUENCE := TArray<Integer>.Create(Self.NUMBER_ON_SAME_TEAM_SEQUENCE_ZERO, Self.NUMBER_ON_SAME_TEAM_SEQUENCE_ONE, Self.NUMBER_ON_SAME_TEAM_SEQUENCE_THREE, Self.NUMBER_ON_SAME_TEAM_SEQUENCE_FOUR, Self.NUMBER_ON_SAME_TEAM_SEQUENCE_FIVE, Self.NUMBER_ON_SAME_TEAM_SEQUENCE_SIX, Self.NUMBER_ON_SAME_TEAM_SEQUENCE_SEVEN, Self.NUMBER_ON_SAME_TEAM_SEQUENCE_EIGHT, Self.NUMBER_ON_SAME_TEAM_SEQUENCE_NINE);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NmbrInSmGrpSqnc-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION NumberInSameGroupSequence-new0
+        GOBACK
+    GOBACK.
+END FUNCTION NmbrInSmGrpSqnc-getInstance0.
 

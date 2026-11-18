@@ -1,61 +1,136 @@
-// Generated Code Do Not Modify
-// package org.allbinary.logic.util.cache
-unit CacheTypeFactory;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.util.cache
+*> Java class CacheTypeFactory
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CchTypFctry-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CacheTypeFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 CacheTypeFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF CacheTypeFactory-jset-instance = 0
+        MOVE 1 TO CacheTypeFactory-jset-instance
+        COMPUTE CacheTypeFactory-jcell-instance = FUNCTION CacheTypeFactory-new0
+    END-IF
+    MOVE CacheTypeFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION CchTypFctry-static-instance.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CchTypFctrystaticinsS59353.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CacheTypeFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION CchTypFctry-static-instance TO J-RESULT
+    MOVE J-VALUE TO CacheTypeFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION CchTypFctrystaticinsS59353.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, CacheType;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CacheTypeFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CacheTypeFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NO_CACHE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_CACHE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SET")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_CACHE_VECTOR")
+    COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp2 = FUNCTION StringUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION CacheType-new2(FUNCTION JR-GET(jtemp1, "f_EMPTY_STRING"), FUNCTION JR-GET(jtemp2, "f_EMPTY_STRING"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NO_CACHE", JVALUE)
+    COMPUTE jtemp3 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp4 = FUNCTION StringUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION CacheType-new2(FUNCTION JR-GET(jtemp3, "f_EMPTY_STRING"), FUNCTION JR-GET(jtemp4, "f_EMPTY_STRING"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_CACHE", JVALUE)
+    COMPUTE jtemp5 = FUNCTION StringUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION CacheType-new2(FUNCTION JR-GET(jtemp5, "f_EMPTY_STRING"), FUNCTION JR-STR("Set"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SET", JVALUE)
+    COMPUTE jtemp6 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp7 = FUNCTION StringUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION CacheType-new2(FUNCTION JR-GET(jtemp6, "f_EMPTY_STRING"), FUNCTION JR-GET(jtemp7, "f_EMPTY_STRING"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_CACHE_VECTOR", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CacheTypeFactory-new0.
 
-type
-  {AB:TYPES}
-  TCacheTypeFactory = class(TObject)
-  public
-    NO_CACHE: TCacheType;
-    CACHE: TCacheType;
-    SET_: TCacheType;
-    CACHE_VECTOR: TCacheType;
-    class var instance: TCacheTypeFactory;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TCacheTypeFactory; static;
-  end;
-
-implementation
-uses
-  StringUtil;
-
-
-{AB:CODE}
-
-procedure TCacheTypeFactory.InitFields;
-begin
-  Self.NO_CACHE := TCacheType.Create(TStringUtil.getInstance().EMPTY_STRING, TStringUtil.getInstance().EMPTY_STRING);
-  Self.CACHE := TCacheType.Create(TStringUtil.getInstance().EMPTY_STRING, TStringUtil.getInstance().EMPTY_STRING);
-  Self.SET_ := TCacheType.Create(TStringUtil.getInstance().EMPTY_STRING, 'Set');
-  Self.CACHE_VECTOR := TCacheType.Create(TStringUtil.getInstance().EMPTY_STRING, TStringUtil.getInstance().EMPTY_STRING);
-end;
-
-constructor TCacheTypeFactory.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TCacheTypeFactory.getInstance: TCacheTypeFactory;
-begin
-        Exit(TCacheTypeFactory.instance);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TCacheTypeFactory.instance := TCacheTypeFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CacheTypeFactory-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION CchTypFctry-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION CacheTypeFactory-getInstance0.
 

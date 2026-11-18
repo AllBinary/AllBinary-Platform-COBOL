@@ -1,167 +1,359 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2011 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.logic.math.permutations
-unit OrderedIntArrayPermutationUtil;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.math.permutations
+*> Java class OrderedIntArrayPermutationUtil
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OrdrdIntArryPrmttnUtl-st11281.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 OrderedIntArrayPermutationUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 OrderedIntArrayPermutationUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF OrderedIntArrayPermutationUtil-jset-instance = 0
+        MOVE 1 TO OrderedIntArrayPermutationUtil-jset-instance
+        COMPUTE OrderedIntArrayPermutationUtil-jcell-instance = FUNCTION OrdrdIntArryPrmttnUtl-new0
+    END-IF
+    MOVE OrderedIntArrayPermutationUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION OrdrdIntArryPrmttnUtl-st11281.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OrdrdIntArryPrmttnUtS65119.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 OrderedIntArrayPermutationUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION OrdrdIntArryPrmttnUtl-st11281 TO J-RESULT
+    MOVE J-VALUE TO OrderedIntArrayPermutationUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION OrdrdIntArryPrmttnUtS65119.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Visitor;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OrdrdIntArryPrmttnUtl-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("OrderedIntArrayPermutationUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_TOTAL_ITERATIONS_TABLE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_FINISHED")
+    COMPUTE JVALUE = FUNCTION JR-STR("Total Iterations: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_TOTAL_ITERATIONS_TABLE", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("\nFINISHED")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_FINISHED", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION OrdrdIntArryPrmttnUtl-new0.
 
-type
-  {AB:TYPES}
-  TOrderedIntArrayPermutationUtil = class(TObject)
-  public
-    TOTAL_ITERATIONS_TABLE: string;
-    FINISHED: string;
-    class var instance: TOrderedIntArrayPermutationUtil;
-    procedure InitFields;
-        class function getInstance: TOrderedIntArrayPermutationUtil; static;
-        constructor Create;
-        procedure getNext(data: TArray<Integer>); virtual;
-        procedure swap(data: TArray<Integer>; a: Integer; b: Integer); virtual;
-        function factorial(dataLength: Integer): Int64; virtual;
-        procedure generate(data: TArray<Integer>; visitor_: TVisitor); virtual;
-        class procedure main(args: TArray<string>); static;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OrdrdIntArryPrmttnUtl-gtI63111.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION OrdrdIntArryPrmttnUtl-st11281
+        GOBACK
+    GOBACK.
+END FUNCTION OrdrdIntArryPrmttnUtl-gtI63111.
 
-implementation
-uses
-  IntPermutationVisitor, StringMaker;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OrdrdIntArryPrmttnUtl-getNext1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-length BINARY-DOUBLE.
+01 J-i BINARY-DOUBLE.
+01 J-j BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-data BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-data RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-length = FUNCTION JR-ARRAY-LENGTH(J-data)
+        COMPUTE J-i = (FUNCTION MOD((J-length - 1) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp1 = (FUNCTION MOD((J-i - 1) + 2147483648, 4294967296) - 2147483648)
+        PERFORM FOREVER
+            IF NOT (FUNCTION JR-ARRAY-GET(J-data, jtemp1) >= FUNCTION JR-ARRAY-GET(J-data, J-i)) EXIT PERFORM END-IF
+            COMPUTE J-i = (FUNCTION MOD((J-i - 1) + 2147483648, 4294967296) - 2147483648)
+        END-PERFORM
+        COMPUTE J-j = J-length
+        COMPUTE jtemp2 = (FUNCTION MOD((J-j - 1) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp3 = (FUNCTION MOD((J-i - 1) + 2147483648, 4294967296) - 2147483648)
+        PERFORM FOREVER
+            IF NOT (FUNCTION JR-ARRAY-GET(J-data, jtemp2) <= FUNCTION JR-ARRAY-GET(J-data, jtemp3)) EXIT PERFORM END-IF
+            COMPUTE J-j = (FUNCTION MOD((J-j - 1) + 2147483648, 4294967296) - 2147483648)
+        END-PERFORM
+        COMPUTE jtemp4 = (FUNCTION MOD((J-i - 1) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp5 = (FUNCTION MOD((J-j - 1) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION OrdrdIntArryPrmttnUtl-swap3(J-THIS, J-data, jtemp4, jtemp5)
+        COMPUTE J-i = (FUNCTION MOD(J-i + 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE J-j = J-length
+        PERFORM FOREVER
+            IF NOT (J-i < J-j) EXIT PERFORM END-IF
+            COMPUTE jtemp6 = (FUNCTION MOD((J-i - 1) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE jtemp7 = (FUNCTION MOD((J-j - 1) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JDISCARD = FUNCTION OrdrdIntArryPrmttnUtl-swap3(J-THIS, J-data, jtemp6, jtemp7)
+            COMPUTE J-i = (FUNCTION MOD(J-i + 1 + 2147483648, 4294967296) - 2147483648)
+            COMPUTE J-j = (FUNCTION MOD(J-j - 1 + 2147483648, 4294967296) - 2147483648)
+        END-PERFORM
+    GOBACK.
+END FUNCTION OrdrdIntArryPrmttnUtl-getNext1.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OrdrdIntArryPrmttnUtl-swap3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-temp BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-data BINARY-DOUBLE.
+01 J-a BINARY-DOUBLE.
+01 J-b BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-data J-a J-b RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-temp = FUNCTION JR-ARRAY-GET(J-data, J-a)
+        COMPUTE JVALUE = FUNCTION JR-ARRAY-GET(J-data, J-b)
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-data, J-a, JVALUE)
+        COMPUTE JVALUE = J-temp
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-data, J-b, JVALUE)
+    GOBACK.
+END FUNCTION OrdrdIntArryPrmttnUtl-swap3.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OrdrdIntArryPrmttnUtl-fctrl1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-temp BINARY-DOUBLE.
+01 J-i BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-dataLength BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-dataLength RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-temp = 1
+        IF (J-dataLength > 1)
+            COMPUTE J-i = 1
+            MOVE 1 TO JFIRST1
+            PERFORM FOREVER
+                IF JFIRST1 = 0
+                    COMPUTE J-i = (FUNCTION MOD(J-i + 1 + 2147483648, 4294967296) - 2147483648)
+                END-IF
+                MOVE 0 TO JFIRST1
+                IF NOT (J-i <= J-dataLength) EXIT PERFORM END-IF
+                COMPUTE J-temp = (J-temp * J-i)
+            END-PERFORM
+        END-IF
+        COMPUTE J-RESULT = J-temp
+        GOBACK
+    GOBACK.
+END FUNCTION OrdrdIntArryPrmttnUtl-fctrl1.
 
-procedure TOrderedIntArrayPermutationUtil.InitFields;
-begin
-  Self.TOTAL_ITERATIONS_TABLE := 'Total Iterations: ';
-  Self.FINISHED := ''#10'FINISHED';
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OrdrdIntArryPrmttnUtl-gnrt2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-iterations BINARY-DOUBLE.
+01 J-count BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-data BINARY-DOUBLE.
+01 J-visitor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-data J-visitor RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-iterations = FUNCTION OrdrdIntArryPrmttnUtl-fctrl1(J-THIS, FUNCTION JR-ARRAY-LENGTH(J-data))
+        COMPUTE JDISCARD = FUNCTION JR-PRINTLN(FUNCTION JR-GET(J-THIS, "f_TOTAL_ITERATIONS_TABLE"))
+        COMPUTE JDISCARD = FUNCTION JR-PRINTLN(FUNCTION JR-INT-STRING(J-iterations))
+        COMPUTE J-count = 0
+        MOVE 1 TO JFIRST2
+        PERFORM FOREVER
+            IF JFIRST2 = 0
+                COMPUTE J-count = J-count + 1
+            END-IF
+            MOVE 0 TO JFIRST2
+            IF NOT (J-count < (J-iterations - 1)) EXIT PERFORM END-IF
+            COMPUTE JDISCARD = FUNCTION OrdrdIntArryPrmttnUtl-getNext1(J-THIS, J-data)
+            COMPUTE JDISCARD = FUNCTION Visitor-visit1(J-visitor, J-THIS)
+        END-PERFORM
+        COMPUTE JDISCARD = FUNCTION JR-PRINTLN(FUNCTION JR-GET(J-THIS, "f_FINISHED"))
+    GOBACK.
+END FUNCTION OrdrdIntArryPrmttnUtl-gnrt2.
 
-class function TOrderedIntArrayPermutationUtil.getInstance: TOrderedIntArrayPermutationUtil;
-begin
-        Exit(TOrderedIntArrayPermutationUtil.instance);
-end;
-    
-
-constructor TOrderedIntArrayPermutationUtil.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
-
-procedure TOrderedIntArrayPermutationUtil.getNext(data: TArray<Integer>);
-var
-  length: Integer;
-  i: Integer;
-  j: Integer;
-begin
-        length := System.Length(data);
-        i := (length) - (1);
-        while (data[(i) - (1)]) >= (data[i]) do begin
-            i := (i) - (1);
-        end;
-        j := length;
-        while (data[(j) - (1)]) <= (data[(i) - (1)]) do begin
-            j := (j) - (1);
-        end;
-        Self.swap(data, (i) - (1), (j) - (1));
-        Inc(i);
-        j := length;
-        while (i) < (j) do begin
-            Self.swap(data, (i) - (1), (j) - (1));
-            Inc(i);
-            Dec(j);
-        end;
-end;
-    
-
-procedure TOrderedIntArrayPermutationUtil.swap(data: TArray<Integer>; a: Integer; b: Integer);
-var
-  temp: Integer;
-begin
-        temp := data[a];
-        data[a] := data[b];
-        data[b] := temp;
-end;
-    
-
-function TOrderedIntArrayPermutationUtil.factorial(dataLength: Integer): Int64;
-var
-  temp: Int64;
-  i: Integer;
-begin
-        temp := 1;
-        if (dataLength) > (1) then begin
-            for i := 1 to dataLength do begin
-                temp := (temp) * (Int64(i));
-            end;
-        end;
-        Exit(temp);
-end;
-    
-
-procedure TOrderedIntArrayPermutationUtil.generate(data: TArray<Integer>; visitor_: TVisitor);
-var
-  iterations: Int64;
-  count: Int64;
-begin
-        iterations := Self.factorial(System.Length(data));
-        Write(Self.TOTAL_ITERATIONS_TABLE);
-        WriteLn(iterations);
-        count := 0;
-        while (count) < ((iterations) - (1)) do begin
-            Self.getNext(data);
-            visitor_.visit(Self);
-            Inc(count);
-        end;
-        WriteLn(Self.FINISHED);
-end;
-    
-
-class procedure TOrderedIntArrayPermutationUtil.main(args: TArray<string>);
-var
-  TOTAL: Integer;
-  data: TArray<Integer>;
-  i: Integer;
-  permutationVisitor: TIntPermutationVisitor;
-  ORIGINAL_DATA_LABEL: string;
-begin
-        TOTAL := 3;
-        data := TJava.NewArray<Integer>(TOTAL);
-        for i := 0 to TOTAL - 1 do begin
-            data[i] := i;
-        end;
-        permutationVisitor := TIntPermutationVisitor.Create(data);
-        ORIGINAL_DATA_LABEL := 'Original Data: ';
-        Write(ORIGINAL_DATA_LABEL);
-        permutationVisitor.print(data, TStringMaker.Create());
-        TOrderedIntArrayPermutationUtil.getInstance().generate(data, permutationVisitor);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TOrderedIntArrayPermutationUtil.instance := TOrderedIntArrayPermutationUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OrdrdIntArryPrmttnUtl-main1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-TOTAL BINARY-DOUBLE.
+01 J-data BINARY-DOUBLE.
+01 J-i BINARY-DOUBLE.
+01 J-permutationVisitor BINARY-DOUBLE.
+01 J-ORIGINAL_DATA_LABEL BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 JFIRST3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-args BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-args RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-TOTAL = 3
+        COMPUTE J-data = FUNCTION JR-NEW-ARRAY(J-TOTAL)
+        COMPUTE J-i = 0
+        MOVE 1 TO JFIRST3
+        PERFORM FOREVER
+            IF JFIRST3 = 0
+                COMPUTE J-i = (FUNCTION MOD(J-i + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST3
+            IF NOT (J-i < J-TOTAL) EXIT PERFORM END-IF
+            COMPUTE JVALUE = J-i
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-data, J-i, JVALUE)
+        END-PERFORM
+        COMPUTE J-permutationVisitor = FUNCTION IntPermutationVisitor-new1(J-data)
+        COMPUTE J-ORIGINAL_DATA_LABEL = FUNCTION JR-STR("Original Data: ")
+        COMPUTE JDISCARD = FUNCTION JR-PRINTLN(J-ORIGINAL_DATA_LABEL)
+        COMPUTE JDISCARD = FUNCTION IntPermutationVisitor-print2(J-permutationVisitor, J-data, FUNCTION StringMaker-new0)
+        COMPUTE jtemp8 = FUNCTION OrdrdIntArryPrmttnUtl-gtI63111
+        COMPUTE JDISCARD = FUNCTION OrdrdIntArryPrmttnUtl-gnrt2(jtemp8, J-data, J-permutationVisitor)
+    GOBACK.
+END FUNCTION OrdrdIntArryPrmttnUtl-main1.
 

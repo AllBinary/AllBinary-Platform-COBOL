@@ -1,118 +1,231 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.input
+*> Java class GameKeyFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.input
-unit GameKeyFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmKyFctry-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameKeyFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 GameKeyFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GameKeyFactory-jset-instance = 0
+        MOVE 1 TO GameKeyFactory-jset-instance
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE GameKeyFactory-jcell-instance = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+    END-IF
+    MOVE GameKeyFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION GmKyFctry-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmKyFctrystaticinstaS76015.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameKeyFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GmKyFctry-static-instance TO J-RESULT
+    MOVE J-VALUE TO GameKeyFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GmKyFctrystaticinstaS76015.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameKeyFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+01 jtemp18 BINARY-DOUBLE.
+01 jtemp19 BINARY-DOUBLE.
+01 jtemp20 BINARY-DOUBLE.
+01 jtemp21 BINARY-DOUBLE.
+01 jtemp22 BINARY-DOUBLE.
+01 jtemp23 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameKeyFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NONE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_UP")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DOWN")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_LEFT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_RIGHT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_KEY_POUND")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_KEY_STAR")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_KEY_NUM0")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_KEY_NUM1")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_KEY_NUM2")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_KEY_NUM3")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_KEY_NUM4")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_KEY_NUM5")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_KEY_NUM6")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_KEY_NUM7")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_KEY_NUM8")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_KEY_NUM9")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_GAME_A")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_GAME_B")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_GAME_C")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_GAME_D")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_FIRE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_LEVEL_DOWN")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_LEVEL_UP")
+    COMPUTE jtemp4 = FUNCTION InputFactory-getInstance0
+    COMPUTE jtemp3 = (FUNCTION MOD((FUNCTION JR-GET(jtemp4, "f_MAX") - 1) + 2147483648, 4294967296) - 2147483648)
+    COMPUTE JVALUE = FUNCTION GameKey-new2(jtemp3, FUNCTION JR-STR("None"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NONE", JVALUE)
+    COMPUTE jtemp5 = FUNCTION CmmnPhnStrngs-getInstance0
+    COMPUTE JVALUE = FUNCTION GameKey-new2(FUNCTION Canvas-static-UP, FUNCTION JR-GET(jtemp5, "f_UP"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_UP", JVALUE)
+    COMPUTE jtemp6 = FUNCTION CmmnPhnStrngs-getInstance0
+    COMPUTE JVALUE = FUNCTION GameKey-new2(FUNCTION Canvas-static-DOWN, FUNCTION JR-GET(jtemp6, "f_DOWN"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DOWN", JVALUE)
+    COMPUTE jtemp7 = FUNCTION CmmnPhnStrngs-getInstance0
+    COMPUTE JVALUE = FUNCTION GameKey-new2(FUNCTION Canvas-static-LEFT, FUNCTION JR-GET(jtemp7, "f_LEFT"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_LEFT", JVALUE)
+    COMPUTE jtemp8 = FUNCTION CmmnPhnStrngs-getInstance0
+    COMPUTE JVALUE = FUNCTION GameKey-new2(FUNCTION Canvas-static-RIGHT, FUNCTION JR-GET(jtemp8, "f_RIGHT"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_RIGHT", JVALUE)
+    COMPUTE JVALUE = FUNCTION GameKey-new2(FUNCTION Canvas-static-KEY-POUND, FUNCTION JR-STR("POUND"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_KEY_POUND", JVALUE)
+    COMPUTE JVALUE = FUNCTION GameKey-new2(FUNCTION Canvas-static-KEY-STAR, FUNCTION JR-STR("STAR"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_KEY_STAR", JVALUE)
+    COMPUTE jtemp9 = FUNCTION CmmnPhnStrngs-getInstance0
+    COMPUTE JVALUE = FUNCTION GameKey-new2(FUNCTION Canvas-static-KEY-NUM0, FUNCTION JR-GET(jtemp9, "f_ZERO"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_KEY_NUM0", JVALUE)
+    COMPUTE jtemp10 = FUNCTION CmmnPhnStrngs-getInstance0
+    COMPUTE JVALUE = FUNCTION GameKey-new2(FUNCTION Canvas-static-KEY-NUM1, FUNCTION JR-GET(jtemp10, "f_ONE"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_KEY_NUM1", JVALUE)
+    COMPUTE jtemp11 = FUNCTION CmmnPhnStrngs-getInstance0
+    COMPUTE JVALUE = FUNCTION GameKey-new2(FUNCTION Canvas-static-KEY-NUM2, FUNCTION JR-GET(jtemp11, "f_TWO"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_KEY_NUM2", JVALUE)
+    COMPUTE jtemp12 = FUNCTION CmmnPhnStrngs-getInstance0
+    COMPUTE JVALUE = FUNCTION GameKey-new2(FUNCTION Canvas-static-KEY-NUM3, FUNCTION JR-GET(jtemp12, "f_THREE"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_KEY_NUM3", JVALUE)
+    COMPUTE jtemp13 = FUNCTION CmmnPhnStrngs-getInstance0
+    COMPUTE JVALUE = FUNCTION GameKey-new2(FUNCTION Canvas-static-KEY-NUM4, FUNCTION JR-GET(jtemp13, "f_FOUR"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_KEY_NUM4", JVALUE)
+    COMPUTE jtemp14 = FUNCTION CmmnPhnStrngs-getInstance0
+    COMPUTE JVALUE = FUNCTION GameKey-new2(FUNCTION Canvas-static-KEY-NUM5, FUNCTION JR-GET(jtemp14, "f_FIVE"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_KEY_NUM5", JVALUE)
+    COMPUTE jtemp15 = FUNCTION CmmnPhnStrngs-getInstance0
+    COMPUTE JVALUE = FUNCTION GameKey-new2(FUNCTION Canvas-static-KEY-NUM6, FUNCTION JR-GET(jtemp15, "f_SIX"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_KEY_NUM6", JVALUE)
+    COMPUTE jtemp16 = FUNCTION CmmnPhnStrngs-getInstance0
+    COMPUTE JVALUE = FUNCTION GameKey-new2(FUNCTION Canvas-static-KEY-NUM7, FUNCTION JR-GET(jtemp16, "f_SEVEN"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_KEY_NUM7", JVALUE)
+    COMPUTE jtemp17 = FUNCTION CmmnPhnStrngs-getInstance0
+    COMPUTE JVALUE = FUNCTION GameKey-new2(FUNCTION Canvas-static-KEY-NUM8, FUNCTION JR-GET(jtemp17, "f_EIGHT"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_KEY_NUM8", JVALUE)
+    COMPUTE jtemp18 = FUNCTION CmmnPhnStrngs-getInstance0
+    COMPUTE JVALUE = FUNCTION GameKey-new2(FUNCTION Canvas-static-KEY-NUM9, FUNCTION JR-GET(jtemp18, "f_NINE"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_KEY_NUM9", JVALUE)
+    COMPUTE JVALUE = FUNCTION GameKey-new2(FUNCTION Canvas-static-GAME-A, FUNCTION JR-STR("Game A"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_GAME_A", JVALUE)
+    COMPUTE JVALUE = FUNCTION GameKey-new2(FUNCTION Canvas-static-GAME-B, FUNCTION JR-STR("Game B"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_GAME_B", JVALUE)
+    COMPUTE JVALUE = FUNCTION GameKey-new2(FUNCTION Canvas-static-GAME-C, FUNCTION JR-STR("Game C"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_GAME_C", JVALUE)
+    COMPUTE JVALUE = FUNCTION GameKey-new2(FUNCTION Canvas-static-GAME-D, FUNCTION JR-STR("Game D"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_GAME_D", JVALUE)
+    COMPUTE jtemp19 = FUNCTION CmmnPhnStrngs-getInstance0
+    COMPUTE JVALUE = FUNCTION GameKey-new2(FUNCTION Canvas-static-FIRE, FUNCTION JR-GET(jtemp19, "f_FIRE"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_FIRE", JVALUE)
+    COMPUTE jtemp21 = 1
+    COMPUTE jtemp20 = (FUNCTION MOD((FUNCTION Canvas-static-KEY-NUM9 + jtemp21) + 2147483648, 4294967296) - 2147483648)
+    COMPUTE JVALUE = FUNCTION GameKey-new2(jtemp20, FUNCTION JR-STR("Cheat Level Up"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_LEVEL_DOWN", JVALUE)
+    COMPUTE jtemp23 = 2
+    COMPUTE jtemp22 = (FUNCTION MOD((FUNCTION Canvas-static-KEY-NUM9 + jtemp23) + 2147483648, 4294967296) - 2147483648)
+    COMPUTE JVALUE = FUNCTION GameKey-new2(jtemp22, FUNCTION JR-STR("Cheat Level Down"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_LEVEL_UP", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GameKeyFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameKey;
-
-type
-  {AB:TYPES}
-  TGameKeyFactory = class(TObject)
-  public
-    NONE: TGameKey;
-    UP: TGameKey;
-    DOWN: TGameKey;
-    LEFT: TGameKey;
-    RIGHT: TGameKey;
-    KEY_POUND: TGameKey;
-    KEY_STAR: TGameKey;
-    KEY_NUM0: TGameKey;
-    KEY_NUM1: TGameKey;
-    KEY_NUM2: TGameKey;
-    KEY_NUM3: TGameKey;
-    KEY_NUM4: TGameKey;
-    KEY_NUM5: TGameKey;
-    KEY_NUM6: TGameKey;
-    KEY_NUM7: TGameKey;
-    KEY_NUM8: TGameKey;
-    KEY_NUM9: TGameKey;
-    GAME_A: TGameKey;
-    GAME_B: TGameKey;
-    GAME_C: TGameKey;
-    GAME_D: TGameKey;
-    FIRE: TGameKey;
-    LEVEL_DOWN: TGameKey;
-    LEVEL_UP: TGameKey;
-    class var instance: TObject;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TGameKeyFactory; static;
-  end;
-
-implementation
-uses
-  InputFactory, Canvas, NullUtil, CommonPhoneStrings;
-
-
-{AB:CODE}
-
-procedure TGameKeyFactory.InitFields;
-begin
-  Self.NONE := TGameKey.Create((TInputFactory.getInstance().MAX) - (1), 'None');
-  Self.UP := TGameKey.Create(TCanvas.UP, TCommonPhoneStrings.getInstance().UP);
-  Self.DOWN := TGameKey.Create(TCanvas.DOWN, TCommonPhoneStrings.getInstance().DOWN);
-  Self.LEFT := TGameKey.Create(TCanvas.LEFT, TCommonPhoneStrings.getInstance().LEFT);
-  Self.RIGHT := TGameKey.Create(TCanvas.RIGHT, TCommonPhoneStrings.getInstance().RIGHT);
-  Self.KEY_POUND := TGameKey.Create(TCanvas.KEY_POUND, 'POUND');
-  Self.KEY_STAR := TGameKey.Create(TCanvas.KEY_STAR, 'STAR');
-  Self.KEY_NUM0 := TGameKey.Create(TCanvas.KEY_NUM0, TCommonPhoneStrings.getInstance().ZERO);
-  Self.KEY_NUM1 := TGameKey.Create(TCanvas.KEY_NUM1, TCommonPhoneStrings.getInstance().ONE);
-  Self.KEY_NUM2 := TGameKey.Create(TCanvas.KEY_NUM2, TCommonPhoneStrings.getInstance().TWO);
-  Self.KEY_NUM3 := TGameKey.Create(TCanvas.KEY_NUM3, TCommonPhoneStrings.getInstance().THREE);
-  Self.KEY_NUM4 := TGameKey.Create(TCanvas.KEY_NUM4, TCommonPhoneStrings.getInstance().FOUR);
-  Self.KEY_NUM5 := TGameKey.Create(TCanvas.KEY_NUM5, TCommonPhoneStrings.getInstance().FIVE);
-  Self.KEY_NUM6 := TGameKey.Create(TCanvas.KEY_NUM6, TCommonPhoneStrings.getInstance().SIX);
-  Self.KEY_NUM7 := TGameKey.Create(TCanvas.KEY_NUM7, TCommonPhoneStrings.getInstance().SEVEN);
-  Self.KEY_NUM8 := TGameKey.Create(TCanvas.KEY_NUM8, TCommonPhoneStrings.getInstance().EIGHT);
-  Self.KEY_NUM9 := TGameKey.Create(TCanvas.KEY_NUM9, TCommonPhoneStrings.getInstance().NINE);
-  Self.GAME_A := TGameKey.Create(TCanvas.GAME_A, 'Game A');
-  Self.GAME_B := TGameKey.Create(TCanvas.GAME_B, 'Game B');
-  Self.GAME_C := TGameKey.Create(TCanvas.GAME_C, 'Game C');
-  Self.GAME_D := TGameKey.Create(TCanvas.GAME_D, 'Game D');
-  Self.FIRE := TGameKey.Create(TCanvas.FIRE, TCommonPhoneStrings.getInstance().FIRE);
-  Self.LEVEL_DOWN := TGameKey.Create((TCanvas.KEY_NUM9) + (1), 'Cheat Level Up');
-  Self.LEVEL_UP := TGameKey.Create((TCanvas.KEY_NUM9) + (2), 'Cheat Level Down');
-end;
-
-constructor TGameKeyFactory.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TGameKeyFactory.getInstance: TGameKeyFactory;
-begin
-        if (TGameKeyFactory.instance) = (TNullUtil.getInstance().NULL_OBJECT) then begin
-            TGameKeyFactory.instance := TGameKeyFactory.Create();
-        end;
-        Exit(TGameKeyFactory(TJava.ToObject(TGameKeyFactory.instance)));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TGameKeyFactory.instance := TJava.Box(TNullUtil.getInstance().NULL_OBJECT);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameKeyFactory-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+        IF (FUNCTION GmKyFctry-static-instance = FUNCTION JR-GET(jtemp2, "f_NULL_OBJECT"))
+            COMPUTE JDISCARD = FUNCTION GmKyFctrystaticinstaS76015(FUNCTION GameKeyFactory-new0)
+        END-IF
+        COMPUTE J-RESULT = FUNCTION GmKyFctry-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION GameKeyFactory-getInstance0.
 

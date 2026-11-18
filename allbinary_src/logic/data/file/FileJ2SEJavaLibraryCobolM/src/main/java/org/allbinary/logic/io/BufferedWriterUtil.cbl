@@ -1,146 +1,289 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.io
+*> Java class BufferedWriterUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.logic.io
-unit BufferedWriterUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BffrdWrtrUtl-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BufferedWriterUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 BufferedWriterUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF BufferedWriterUtil-jset-instance = 0
+        MOVE 1 TO BufferedWriterUtil-jset-instance
+        COMPUTE BufferedWriterUtil-jcell-instance = FUNCTION BufferedWriterUtil-new0
+    END-IF
+    MOVE BufferedWriterUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION BffrdWrtrUtl-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BffrdWrtrUtlstaticinS61803.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BufferedWriterUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION BffrdWrtrUtl-static-instance TO J-RESULT
+    MOVE J-VALUE TO BufferedWriterUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION BffrdWrtrUtlstaticinS61803.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BufferedWriterUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("BufferedWriterUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonLabels")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_REMOVING_OLD")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonLabels-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonLabels", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Remove old for overwriting: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_REMOVING_OLD", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION BufferedWriterUtil-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LogUtil, AbFile, CommonLabels, CommonStrings;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BffrdWrtrUtl-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION BffrdWrtrUtl-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION BffrdWrtrUtl-getInstance0.
 
-type
-  {AB:TYPES}
-  TBufferedWriterUtil = class(TObject)
-  public
-    logUtil: TLogUtil;
-    commonStrings: TCommonStrings;
-    commonLabels: TCommonLabels;
-    REMOVING_OLD: string;
-    class var instance: TBufferedWriterUtil;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TBufferedWriterUtil; static;
-        procedure overwrite(path: string; data: string); overload; virtual;
-        procedure overwrite(abFile_: TAbFile; data: string); overload; virtual;
-        procedure write(abFile_: TAbFile; data: string); virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BufferedWriterUtil-overwrite2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-abFile BINARY-DOUBLE.
+01 J-name BINARY-DOUBLE.
+01 J-abFileDirectory BINARY-DOUBLE.
+01 J-stringBuilder BINARY-DOUBLE.
+01 J-result-L BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-path BINARY-DOUBLE.
+01 J-data BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-path J-data RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-abFile = FUNCTION AbFile-createAbFile1(J-path)
+        IF (FUNCTION AbFile-exists0(J-abFile) = 1)
+            COMPUTE jtemp8 = FUNCTION JR-CONCAT(FUNCTION JR-GET(J-THIS, "f_REMOVING_OLD"), J-path)
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), jtemp8, J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_CREATE"))
+            COMPUTE JDISCARD = FUNCTION AbFile-delete0(J-abFile)
+        ELSE
+            COMPUTE jtemp1 = FUNCTION AbPathData-getInstance0
+            COMPUTE J-name = FUNCTION AbPathData-removeNameFromPath1(jtemp1, J-path)
+            COMPUTE J-abFileDirectory = FUNCTION AbFile-createAbFile1(J-name)
+            IF (FUNCTION AbFile-exists0(J-abFileDirectory) = 1)
+                CONTINUE
+            ELSE
+                COMPUTE J-stringBuilder = FUNCTION StringMaker-new0
+                COMPUTE jtemp4 = FUNCTION StringMaker-append1(J-stringBuilder, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_CREATE"))
+                COMPUTE jtemp3 = FUNCTION StringMaker-append1(jtemp4, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonLabels"), "f_COLON_SEP"))
+                COMPUTE jtemp2 = FUNCTION StringMaker-append1(jtemp3, J-name)
+                COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp2), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_CREATE"))
+                COMPUTE J-result-L = FUNCTION AbFile-mkdirs0(J-abFileDirectory)
+                COMPUTE jtemp5 = 0
+                COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringBuilder, jtemp5, FUNCTION StringMaker-length0(J-stringBuilder))
+                COMPUTE jtemp7 = FUNCTION StringMaker-append1(J-stringBuilder, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonLabels"), "f_RESULT_"))
+                COMPUTE jtemp6 = FUNCTION StringMaker-appendboolean1(jtemp7, J-result-L)
+                COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp6), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_CREATE"))
+            END-IF
+        END-IF
+        COMPUTE JDISCARD = FUNCTION BufferedWriterUtil-write2(J-THIS, J-abFile, J-data)
+    GOBACK.
+END FUNCTION BufferedWriterUtil-overwrite2.
 
-implementation
-uses
-  AbFileNativeUtil, AbPathData, StringMaker;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BufferedWriterUtil-overwrite2b.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-name BINARY-DOUBLE.
+01 J-abFileDirectory BINARY-DOUBLE.
+01 J-stringBuilder BINARY-DOUBLE.
+01 J-result-L BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-abFile BINARY-DOUBLE.
+01 J-data BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-abFile J-data RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION AbFile-exists0(J-abFile) = 1)
+            COMPUTE jtemp16 = FUNCTION JR-CONCAT(FUNCTION JR-GET(J-THIS, "f_REMOVING_OLD"), FUNCTION AbFile-getPath0(J-abFile))
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), jtemp16, J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_CREATE"))
+            COMPUTE JDISCARD = FUNCTION AbFile-delete0(J-abFile)
+        ELSE
+            COMPUTE jtemp9 = FUNCTION AbPathData-getInstance0
+            COMPUTE J-name = FUNCTION AbPathData-removeNameFromPath1(jtemp9, FUNCTION AbFile-getAbsolutePath0(J-abFile))
+            COMPUTE J-abFileDirectory = FUNCTION AbFile-createAbFile1(J-name)
+            IF (FUNCTION AbFile-exists0(J-abFileDirectory) = 1)
+                CONTINUE
+            ELSE
+                COMPUTE J-stringBuilder = FUNCTION StringMaker-new0
+                COMPUTE jtemp12 = FUNCTION StringMaker-append1(J-stringBuilder, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_CREATE"))
+                COMPUTE jtemp11 = FUNCTION StringMaker-append1(jtemp12, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonLabels"), "f_COLON_SEP"))
+                COMPUTE jtemp10 = FUNCTION StringMaker-append1(jtemp11, J-name)
+                COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp10), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_CREATE"))
+                COMPUTE J-result-L = FUNCTION AbFile-mkdirs0(J-abFileDirectory)
+                COMPUTE jtemp13 = 0
+                COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringBuilder, jtemp13, FUNCTION StringMaker-length0(J-stringBuilder))
+                COMPUTE jtemp15 = FUNCTION StringMaker-append1(J-stringBuilder, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonLabels"), "f_RESULT_"))
+                COMPUTE jtemp14 = FUNCTION StringMaker-appendboolean1(jtemp15, J-result-L)
+                COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp14), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_CREATE"))
+            END-IF
+        END-IF
+        COMPUTE JDISCARD = FUNCTION BufferedWriterUtil-write2(J-THIS, J-abFile, J-data)
+    GOBACK.
+END FUNCTION BufferedWriterUtil-overwrite2b.
 
-
-{AB:CODE}
-
-procedure TBufferedWriterUtil.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.commonStrings := TCommonStrings.getInstance();
-  Self.commonLabels := TCommonLabels.getInstance();
-  Self.REMOVING_OLD := 'Remove old for overwriting: ';
-end;
-
-constructor TBufferedWriterUtil.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TBufferedWriterUtil.getInstance: TBufferedWriterUtil;
-begin
-        Exit(TBufferedWriterUtil.instance);
-end;
-    
-
-// throws Exception
-procedure TBufferedWriterUtil.overwrite(path: string; data: string);
-var
-  abFile_: TAbFile;
-  name: string;
-  abFileDirectory: TAbFile;
-  stringBuilder: TStringMaker;
-  result_: Boolean;
-begin
-        abFile_ := TAbFile.createAbFile(path);
-        if abFile_.exists() then begin
-            Self.logUtil.putF(Self.REMOVING_OLD + path, TJava.Box(Self), Self.commonStrings.CREATE_);
-            abFile_.delete_();
-        end else begin
-            name := TAbPathData.getInstance().removeNameFromPath(path);
-            abFileDirectory := TAbFile.createAbFile(name);
-            if abFileDirectory.exists() then begin
-            end else begin
-                stringBuilder := TStringMaker.Create();
-                Self.logUtil.putF(stringBuilder.append(Self.commonStrings.CREATE_).append(Self.commonLabels.COLON_SEP).append(name).toString(), TJava.Box(Self), Self.commonStrings.CREATE_);
-                result_ := abFileDirectory.mkdirs();
-                stringBuilder.delete_(0, stringBuilder.length());
-                Self.logUtil.putF(stringBuilder.append(Self.commonLabels.RESULT_).appendboolean(result_).toString(), TJava.Box(Self), Self.commonStrings.CREATE_);
-            end;
-        end;
-        Self.write(abFile_, data);
-end;
-    
-
-// throws Exception
-procedure TBufferedWriterUtil.overwrite(abFile_: TAbFile; data: string);
-var
-  name: string;
-  abFileDirectory: TAbFile;
-  stringBuilder: TStringMaker;
-  result_: Boolean;
-begin
-        if abFile_.exists() then begin
-            Self.logUtil.putF(Self.REMOVING_OLD + TJava.ToString(abFile_.getPath()), TJava.Box(Self), Self.commonStrings.CREATE_);
-            abFile_.delete_();
-        end else begin
-            name := TAbPathData.getInstance().removeNameFromPath(abFile_.getAbsolutePath());
-            abFileDirectory := TAbFile.createAbFile(name);
-            if abFileDirectory.exists() then begin
-            end else begin
-                stringBuilder := TStringMaker.Create();
-                Self.logUtil.putF(stringBuilder.append(Self.commonStrings.CREATE_).append(Self.commonLabels.COLON_SEP).append(name).toString(), TJava.Box(Self), Self.commonStrings.CREATE_);
-                result_ := abFileDirectory.mkdirs();
-                stringBuilder.delete_(0, stringBuilder.length());
-                Self.logUtil.putF(stringBuilder.append(Self.commonLabels.RESULT_).appendboolean(result_).toString(), TJava.Box(Self), Self.commonStrings.CREATE_);
-            end;
-        end;
-        Self.write(abFile_, data);
-end;
-    
-
-// throws Exception
-procedure TBufferedWriterUtil.write(abFile_: TAbFile; data: string);
-var
-  fileOut: TBufferedWriter;
-begin
-        fileOut := TBufferedWriter.Create(TFileWriter.Create(TAbFileNativeUtil.get(abFile_)));
-        fileOut.write(data, 0, System.Length(data));
-        fileOut.newLine();
-        fileOut.flush();
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TBufferedWriterUtil.instance := TBufferedWriterUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BufferedWriterUtil-write2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-fileOut BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-abFile BINARY-DOUBLE.
+01 J-data BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-abFile J-data RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-fileOut = FUNCTION BufferedWriter-new1(FUNCTION FileWriter-new1(FUNCTION AbFileNativeUtil-get1(J-abFile)))
+        COMPUTE jtemp17 = 0
+        COMPUTE JDISCARD = FUNCTION BufferedWriter-write3(J-fileOut, J-data, jtemp17, FUNCTION JR-STR-LENGTH(J-data))
+        COMPUTE JDISCARD = FUNCTION BufferedWriter-newLine0(J-fileOut)
+        COMPUTE JDISCARD = FUNCTION BufferedWriter-flush0(J-fileOut)
+    GOBACK.
+END FUNCTION BufferedWriterUtil-write2.
 

@@ -1,171 +1,306 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.displayable.canvas
+*> Java class StartIntermissionPaintable
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.displayable.canvas
-unit StartIntermissionPaintable;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Font, Graphics, BasicColor, BasicColorSetUtil, FontDebugFactory, MyFontProcessor, UpdateMyFontInterface, InitUpdatePaintable, AllBinaryGameCanvas;
-
-type
-  {AB:TYPES}
-  TStartIntermissionPaintable = class(TInitUpdatePaintable, IUpdateMyFontInterface)
-  public
-    fontDebugFactory: TFontDebugFactory;
-    basicSetColorUtil: TBasicColorSetUtil;
-    gameCanvas: TAllBinaryGameCanvas;
-    stringArray: TArray<string>;
-    fontSize: Integer;
-    font: TFont;
-    lastWidth: TArray<Integer>;
-    updateMyFontProcessor: TMyFontProcessor;
-    myFontProcessor: TMyFontProcessor;
-    basicColor: TBasicColor;
-    color: Integer;
-    lineYOffsetArray: TArray<Integer>;
-    hasChanged: Boolean;
-    anchor: Integer;
-    fontHeightP: Integer;
-    BEGIN_LEVEL: string;
-    EMPTY_STRING: string;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(gameCanvas: TAllBinaryGameCanvas; stringArray: TArray<string>; basicColor_: TBasicColor; font_: TFont);
-        procedure updateMeasurement(graphics_: TGraphics); virtual;
-        procedure paint(graphics_: TGraphics); virtual;
-        procedure update; virtual;
-        procedure setBasicColorP(basicColor_: TBasicColor); virtual;
-        function getBasicColorP: TBasicColor; virtual;
-  end;
-
-implementation
-uses
-  Anchor, BasicColorFactory, DisplayInfoSingleton, UpdateMyFontProcessor, NullUtil, StringMaker, StringUtil;
-
-
-{AB:CODE}
-
-procedure TStartIntermissionPaintable.InitFields;
-begin
-  Self.fontDebugFactory := TFontDebugFactory.getInstance();
-  Self.basicSetColorUtil := TBasicColorSetUtil.getInstance();
-  
-  
-  
-  
-  
-  Self.updateMyFontProcessor := TUpdateMyFontProcessor.Create(Self);
-  Self.myFontProcessor := Self.updateMyFontProcessor;
-  Self.basicColor := TBasicColorFactory.getInstance().BLACK;
-  
-  Self.lineYOffsetArray := TNullUtil.getInstance().NULL_INT_ARRAY;
-  Self.hasChanged := True;
-  Self.anchor := TAnchor.TOP_LEFT;
-  
-  Self.BEGIN_LEVEL := 'Begin Level ';
-  Self.EMPTY_STRING := TStringUtil.getInstance().EMPTY_STRING;
-end;
-
-function TStartIntermissionPaintable.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrtIntrmssnPntbl-new4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-gameCanvas BINARY-DOUBLE.
+01 J-stringArray BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-font BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-gameCanvas J-stringArray J-basicColor J-font RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("StartIntermissionPaintable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_fontDebugFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_basicSetColorUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameCanvas")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_stringArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_fontSize")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_font")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_lastWidth")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_updateMyFontProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_myFontProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_basicColor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_color")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_lineYOffsetArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_hasChanged")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_anchor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_fontHeightP")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_BEGIN_LEVEL")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_EMPTY_STRING")
+    COMPUTE JVALUE = FUNCTION FontDebugFactory-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_fontDebugFactory", JVALUE)
+    COMPUTE JVALUE = FUNCTION BasicColorSetUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicSetColorUtil", JVALUE)
     
-
-constructor TStartIntermissionPaintable.Create(gameCanvas: TAllBinaryGameCanvas; stringArray: TArray<string>; basicColor_: TBasicColor; font_: TFont);
-begin
-    inherited Create;
-    InitFields;
-        Self.gameCanvas := gameCanvas;
-        Self.stringArray := stringArray;
-        Self.lastWidth := TJava.NewArray<Integer>(System.Length(Self.stringArray));
-        Self.setBasicColorP(basicColor_);
-        Self.color := basicColor_.intValue();
-        Self.fontSize := font_.getSize();
-        Self.font := font_;
-end;
     
-
-procedure TStartIntermissionPaintable.updateMeasurement(graphics_: TGraphics);
-var
-  font_: TFont;
-begin
-        font_ := graphics_.getFont();
-        Self.fontHeightP := font_.getHeight();
-        Self.myFontProcessor := TMyFontProcessor.getInstance();
-end;
     
-
-procedure TStartIntermissionPaintable.paint(graphics_: TGraphics);
-var
-  existingFont: TFont;
-  displayInfo: TDisplayInfoSingleton;
-  beginWidth: Integer;
-  index: Integer;
-begin
-        Self.myFontProcessor.process(graphics_);
-        existingFont := graphics_.getFont();
-        Self.fontDebugFactory.setFont(Self.font, graphics_);
-        displayInfo := TDisplayInfoSingleton.getInstance();
-        Self.basicSetColorUtil.setBasicColorP3(graphics_, Self.basicColor, Self.color);
-        
-        for index := (System.Length(Self.lineYOffsetArray)) - (1) downto 0 do begin
-            if Self.hasChanged then begin
-                Self.lastWidth[index] := (TJava.SignedRightShift(graphics_.getFont().stringWidth(Self.stringArray[index]), 1));
-            end;
-            beginWidth := Self.lastWidth[index];
-            graphics_.drawString(Self.stringArray[index], (displayInfo.getLastHalfWidth()) - (beginWidth), (displayInfo.getLastHalfHeight()) - (Self.lineYOffsetArray[index]), Self.anchor);
-        end;
-        Self.hasChanged := False;
-        Self.fontDebugFactory.setFont(existingFont, graphics_);
-end;
     
-
-procedure TStartIntermissionPaintable.update;
-var
-  level: Integer;
-  index: Integer;
-begin
-        level := Self.gameCanvas.getLayerManager().getGameInfo().getCurrentLevel();
-        Self.stringArray[0] := TStringMaker.Create().append(Self.BEGIN_LEVEL).appendint(level).toString();
-        for index := (System.Length(Self.stringArray)) - (1) downto 1 do begin
-            Self.stringArray[index] := Self.EMPTY_STRING;
-        end;
-end;
     
-
-procedure TStartIntermissionPaintable.setBasicColorP(basicColor_: TBasicColor);
-begin
-        Self.basicColor := basicColor_;
-end;
+    COMPUTE JVALUE = FUNCTION UpdateMyFontProcessor-new1(J-THIS)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_updateMyFontProcessor", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_updateMyFontProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
+    COMPUTE jtemp1 = FUNCTION BasicColorFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_BLACK")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicColor", JVALUE)
     
+    COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp2, "f_NULL_INT_ARRAY")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lineYOffsetArray", JVALUE)
+    COMPUTE JVALUE = 1
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hasChanged", JVALUE)
+    COMPUTE JVALUE = FUNCTION Anchor-static-TOP-LEFT
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_anchor", JVALUE)
+    
+    COMPUTE JVALUE = FUNCTION JR-STR("Begin Level ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_BEGIN_LEVEL", JVALUE)
+    COMPUTE jtemp6 = FUNCTION StringUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp6, "f_EMPTY_STRING")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_EMPTY_STRING", JVALUE)
+        COMPUTE JVALUE = J-gameCanvas
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameCanvas", JVALUE)
+        COMPUTE JVALUE = J-stringArray
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_stringArray", JVALUE)
+        COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY(FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_stringArray")))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lastWidth", JVALUE)
+        COMPUTE JDISCARD = FUNCTION StrtIntrmssnPntbl-stBscClrP1(J-THIS, J-basicColor)
+        COMPUTE JVALUE = FUNCTION BasicColor-intValue0(J-basicColor)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_color", JVALUE)
+        COMPUTE JVALUE = FUNCTION Font-getSize0(J-font)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_fontSize", JVALUE)
+        COMPUTE JVALUE = J-font
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_font", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION StrtIntrmssnPntbl-new4.
 
-function TStartIntermissionPaintable.getBasicColorP: TBasicColor;
-begin
-        Exit(Self.basicColor);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrtIntrmssnPntbl-updtMsrmnt1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-font BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-font = FUNCTION Graphics-getFont0(J-graphics)
+        COMPUTE JVALUE = FUNCTION Font-getHeight0(J-font)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_fontHeightP", JVALUE)
+        COMPUTE JVALUE = FUNCTION MyFontProcessor-getInstance0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
+    GOBACK.
+END FUNCTION StrtIntrmssnPntbl-updtMsrmnt1.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrtIntrmssnPntbl-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-existingFont BINARY-DOUBLE.
+01 J-displayInfo BINARY-DOUBLE.
+01 J-beginWidth BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION MyFontProcessor-process1(FUNCTION JR-GET(J-THIS, "f_myFontProcessor"), J-graphics)
+        COMPUTE J-existingFont = FUNCTION Graphics-getFont0(J-graphics)
+        COMPUTE JDISCARD = FUNCTION FontDebugFactory-setFont2(FUNCTION JR-GET(J-THIS, "f_fontDebugFactory"), FUNCTION JR-GET(J-THIS, "f_font"), J-graphics)
+        COMPUTE J-displayInfo = FUNCTION DsplyInfSngltn-getInstance0
+        COMPUTE JDISCARD = FUNCTION BscClrStUtl-setBasicColorP33(FUNCTION JR-GET(J-THIS, "f_basicSetColorUtil"), J-graphics, FUNCTION JR-GET(J-THIS, "f_basicColor"), FUNCTION JR-GET(J-THIS, "f_color"))
+        CONTINUE
+        COMPUTE J-index = (FUNCTION MOD((FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_lineYOffsetArray")) - 1) + 2147483648, 4294967296) - 2147483648)
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index >= 0) EXIT PERFORM END-IF
+            IF (FUNCTION JR-GET(J-THIS, "f_hasChanged") = 1)
+                COMPUTE jtemp3 = FUNCTION Graphics-getFont0(J-graphics)
+                COMPUTE JVALUE = (FUNCTION JR-SHIFT(JFIVE, FUNCTION JR-CLASS-NAME(jtemp3), 1))
+                COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_lastWidth"), J-index, JVALUE)
+            END-IF
+            COMPUTE J-beginWidth = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_lastWidth"), J-index)
+            COMPUTE jtemp4 = (FUNCTION MOD((FUNCTION DsplyInfSngltn-gtLstHlfWdth0(J-displayInfo) - J-beginWidth) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE jtemp5 = (FUNCTION MOD((FUNCTION DsplyInfSngltn-gtLstHlfHght0(J-displayInfo) - FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_lineYOffsetArray"), J-index)) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JDISCARD = FUNCTION Graphics-drawString4(J-graphics, FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_stringArray"), J-index), jtemp4, jtemp5, FUNCTION JR-GET(J-THIS, "f_anchor"))
+        END-PERFORM
+        COMPUTE JVALUE = 0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hasChanged", JVALUE)
+        COMPUTE JDISCARD = FUNCTION FontDebugFactory-setFont2(FUNCTION JR-GET(J-THIS, "f_fontDebugFactory"), J-existingFont, J-graphics)
+    GOBACK.
+END FUNCTION StrtIntrmssnPntbl-paint1.
 
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrtIntrmssnPntbl-update0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-level BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp8 = FUNCTION AllBnryGmCnvs-getLayerManager0(FUNCTION JR-GET(J-THIS, "f_gameCanvas"))
+        COMPUTE jtemp7 = FUNCTION JR-CLASS-NAME(jtemp8)
+        COMPUTE J-level = FUNCTION JR-CLASS-NAME(jtemp7)
+        COMPUTE jtemp12 = FUNCTION StringMaker-new0
+        COMPUTE jtemp11 = FUNCTION StringMaker-append1(jtemp12, FUNCTION JR-GET(J-THIS, "f_BEGIN_LEVEL"))
+        COMPUTE jtemp9 = 0
+        COMPUTE jtemp10 = FUNCTION StringMaker-appendint1(jtemp11, J-level)
+        COMPUTE JVALUE = FUNCTION JR-TO-STRING(jtemp10)
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_stringArray"), jtemp9, JVALUE)
+        COMPUTE J-index = (FUNCTION MOD((FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_stringArray")) - 1) + 2147483648, 4294967296) - 2147483648)
+        MOVE 1 TO JFIRST2
+        PERFORM FOREVER
+            IF JFIRST2 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST2
+            IF NOT (J-index >= 1) EXIT PERFORM END-IF
+            COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_EMPTY_STRING")
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_stringArray"), J-index, JVALUE)
+        END-PERFORM
+    GOBACK.
+END FUNCTION StrtIntrmssnPntbl-update0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrtIntrmssnPntbl-stBscClrP1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-basicColor RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-basicColor
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicColor", JVALUE)
+    GOBACK.
+END FUNCTION StrtIntrmssnPntbl-stBscClrP1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrtIntrmssnPntbl-gtBscClrP0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_basicColor")
+        GOBACK
+    GOBACK.
+END FUNCTION StrtIntrmssnPntbl-gtBscClrP0.
 

@@ -1,97 +1,194 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2022 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.text
+*> Java class AdjustCustomTextAnimation
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AdjustCustomTextAnimation-new5.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-text BINARY-DOUBLE.
+01 J-fontSize BINARY-DOUBLE.
+01 J-dx BINARY-DOUBLE.
+01 J-dy BINARY-DOUBLE.
+01 J-animationBehavior BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-text J-fontSize J-dx J-dy J-animationBehavior RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("AdjustCustomTextAnimation")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_dx")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_dy")
     
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.text
-unit AdjustCustomTextAnimation;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, AnimationBehavior, CustomTextAnimation;
-
-type
-  {AB:TYPES}
-  TAdjustCustomTextAnimation = class(TCustomTextAnimation)
-  public
-    dx: Integer;
-    dy: Integer;
-    procedure InitFields;
-        constructor Create(text: string; fontSize: Integer; dx: Integer; dy: Integer; animationBehavior_: TAnimationBehavior);
-        function getDx: Integer; override;
-        procedure setDx(dx: Integer); override;
-        function getDy: Integer; override;
-        procedure setDy(dy: Integer); override;
-        procedure paintXY(graphics_: TGraphics; x: Integer; y: Integer); override;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TAdjustCustomTextAnimation.InitFields;
-begin
-  
-  
-end;
     
+        CONTINUE
+        COMPUTE JVALUE = J-dx
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_dx", JVALUE)
+        COMPUTE JVALUE = J-dy
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_dy", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION AdjustCustomTextAnimation-new5.
 
-constructor TAdjustCustomTextAnimation.Create(text: string; fontSize: Integer; dx: Integer; dy: Integer; animationBehavior_: TAnimationBehavior);
-begin
-        inherited Create(text, fontSize, animationBehavior_);
-        InitFields;
-        Self.dx := dx;
-        Self.dy := dy;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AdjstCstmTxtAnmtn-getDx0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_dx")
+        GOBACK
+    GOBACK.
+END FUNCTION AdjstCstmTxtAnmtn-getDx0.
 
-function TAdjustCustomTextAnimation.getDx: Integer;
-begin
-        Exit(Self.dx);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AdjstCstmTxtAnmtn-setDx1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-dx BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-dx RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-dx
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_dx", JVALUE)
+    GOBACK.
+END FUNCTION AdjstCstmTxtAnmtn-setDx1.
 
-procedure TAdjustCustomTextAnimation.setDx(dx: Integer);
-begin
-        Self.dx := dx;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AdjstCstmTxtAnmtn-getDy0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_dy")
+        GOBACK
+    GOBACK.
+END FUNCTION AdjstCstmTxtAnmtn-getDy0.
 
-function TAdjustCustomTextAnimation.getDy: Integer;
-begin
-        Exit(Self.dy);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AdjstCstmTxtAnmtn-setDy1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-dy BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-dy RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-dy
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_dy", JVALUE)
+    GOBACK.
+END FUNCTION AdjstCstmTxtAnmtn-setDy1.
 
-procedure TAdjustCustomTextAnimation.setDy(dy: Integer);
-begin
-        Self.dy := dy;
-end;
-    
-
-procedure TAdjustCustomTextAnimation.paintXY(graphics_: TGraphics; x: Integer; y: Integer);
-begin
-        inherited paintXY(graphics_, (x) + (Self.dx), (y) + (Self.dy));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AdjstCstmTxtAnmtn-paintXY3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = (FUNCTION MOD((J-x + FUNCTION JR-GET(J-THIS, "f_dx")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp2 = (FUNCTION MOD((J-y + FUNCTION JR-GET(J-THIS, "f_dy")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION CustomTextAnimation-paintXY3(J-THIS, J-graphics, jtemp1, jtemp2)
+    GOBACK.
+END FUNCTION AdjstCstmTxtAnmtn-paintXY3.
 

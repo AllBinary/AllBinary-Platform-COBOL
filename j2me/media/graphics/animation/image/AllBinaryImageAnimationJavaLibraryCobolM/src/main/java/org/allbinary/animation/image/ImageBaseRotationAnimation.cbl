@@ -1,129 +1,304 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.image
+*> Java class ImageBaseRotationAnimation
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.image
-unit ImageBaseRotationAnimation;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, Image, AnimationBehavior, RotationAnimation, AngleInfo;
-
-type
-  {AB:TYPES}
-  TImageBaseRotationAnimation = class(TRotationAnimation)
-  public
-    image: TImage;
-    anchor: Integer;
-    procedure InitFields;
-        constructor Create(image_: TImage; angleInfo_: TAngleInfo; totalAngle: SmallInt; animationBehavior_: TAnimationBehavior);
-        function getAnimationSize: Integer; override;
-        procedure setSequence(sequence: TArray<Integer>); override;
-        function getSequence: TArray<Integer>; override;
-        procedure paintXY(graphics_: TGraphics; x: Integer; y: Integer); override;
-        function getImage: TImage; virtual;
-        function getWidth: Integer; override;
-        function getHeight: Integer; override;
-        procedure close; virtual;
-        procedure finalize; virtual;
-  end;
-
-implementation
-uses
-  DisposalUtil, Anchor, PrimitiveIntUtil, CircularIndexUtil;
-
-
-{AB:CODE}
-
-procedure TImageBaseRotationAnimation.InitFields;
-begin
-  
-  Self.anchor := TAnchor.TOP_LEFT;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgBsRttnAnmtn-new4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-image BINARY-DOUBLE.
+01 J-angleInfo BINARY-DOUBLE.
+01 J-totalAngle BINARY-DOUBLE.
+01 J-animationBehavior BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-image J-angleInfo J-totalAngle J-animationBehavior RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ImageBaseRotationAnimation")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_image")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_anchor")
     
+    COMPUTE JVALUE = FUNCTION Anchor-static-TOP-LEFT
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_anchor", JVALUE)
+        COMPUTE jtemp2 = FUNCTION AnglInf-getAngleIncrementInfo0(J-angleInfo)
+        COMPUTE jtemp1 = (FUNCTION MOD(FUNCTION INTEGER-PART(J-totalAngle / FUNCTION JR-CLASS-NAME(jtemp2)) + 2147483648, 4294967296) - 2147483648)
+        CONTINUE
+        COMPUTE JVALUE = J-image
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_image", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ImgBsRttnAnmtn-new4.
 
-constructor TImageBaseRotationAnimation.Create(image_: TImage; angleInfo_: TAngleInfo; totalAngle: SmallInt; animationBehavior_: TAnimationBehavior);
-begin
-        inherited Create(angleInfo_, TCircularIndexUtil.createInstance(TJava.Divide(totalAngle, angleInfo_.getAngleIncrementInfo().getAngleIncrement())), animationBehavior_);
-        InitFields;
-        Self.image := image_;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgBsRttnAnmtn-gtAnmtnSz0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION RotationAnimation-getSize0(J-THIS)
+        GOBACK
+    GOBACK.
+END FUNCTION ImgBsRttnAnmtn-gtAnmtnSz0.
 
-// throws Exception
-function TImageBaseRotationAnimation.getAnimationSize: Integer;
-begin
-        Exit(Self.getSize());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgBsRttnAnmtn-setSequence1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-sequence BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-sequence RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION ImgBsRttnAnmtn-setSequence1.
 
-procedure TImageBaseRotationAnimation.setSequence(sequence: TArray<Integer>);
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgBsRttnAnmtn-getSequence0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION PrmtvIntUtl-getArrayInstance0
+        GOBACK
+    GOBACK.
+END FUNCTION ImgBsRttnAnmtn-getSequence0.
 
-function TImageBaseRotationAnimation.getSequence: TArray<Integer>;
-begin
-        Exit(TPrimitiveIntUtil.getArrayInstance());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgBsRttnAnmtn-paintXY3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Graphics-drawImage4(J-graphics, FUNCTION JR-GET(J-THIS, "f_image"), J-x, J-y, FUNCTION JR-GET(J-THIS, "f_anchor"))
+    GOBACK.
+END FUNCTION ImgBsRttnAnmtn-paintXY3.
 
-procedure TImageBaseRotationAnimation.paintXY(graphics_: TGraphics; x: Integer; y: Integer);
-begin
-        graphics_.drawImage(Self.image, x, y, Self.anchor);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgBsRttnAnmtn-getImage0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_image")
+        GOBACK
+    GOBACK.
+END FUNCTION ImgBsRttnAnmtn-getImage0.
 
-function TImageBaseRotationAnimation.getImage: TImage;
-begin
-        Exit(Self.image);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgBsRttnAnmtn-getWidth0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION Image-getWidth0(FUNCTION JR-GET(J-THIS, "f_image"))
+        GOBACK
+    GOBACK.
+END FUNCTION ImgBsRttnAnmtn-getWidth0.
 
-function TImageBaseRotationAnimation.getWidth: Integer;
-begin
-        Exit(Self.image.getWidth());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgBsRttnAnmtn-getHeight0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION Image-getHeight0(FUNCTION JR-GET(J-THIS, "f_image"))
+        GOBACK
+    GOBACK.
+END FUNCTION ImgBsRttnAnmtn-getHeight0.
 
-function TImageBaseRotationAnimation.getHeight: Integer;
-begin
-        Exit(Self.image.getHeight());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgBsRttnAnmtn-close0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp3 = FUNCTION DisposalUtil-getInstance0
+        COMPUTE JDISCARD = FUNCTION DisposalUtil-disposeImage1(jtemp3, FUNCTION JR-GET(J-THIS, "f_image"))
+    GOBACK.
+END FUNCTION ImgBsRttnAnmtn-close0.
 
-// throws Exception
-procedure TImageBaseRotationAnimation.close;
-begin
-        TDisposalUtil.getInstance().disposeImage(Self.image);
-end;
-    
-
-// throws Throwable
-procedure TImageBaseRotationAnimation.finalize;
-begin
-        TDisposalUtil.getInstance().disposeImage(Self.image);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgBsRttnAnmtn-finalize0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp4 = FUNCTION DisposalUtil-getInstance0
+        COMPUTE JDISCARD = FUNCTION DisposalUtil-disposeImage1(jtemp4, FUNCTION JR-GET(J-THIS, "f_image"))
+    GOBACK.
+END FUNCTION ImgBsRttnAnmtn-finalize0.
 

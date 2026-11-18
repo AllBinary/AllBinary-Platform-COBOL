@@ -1,45 +1,60 @@
-// Generated Code Do Not Modify
-// package org.allbinary.device
-unit OpenGLESGraphicsFactory;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.device
+*> Java class OpenGLESGraphicsFactory
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OpenGLESGraphicsFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("OpenGLESGraphicsFactory")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION OpenGLESGraphicsFactory-new0.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, OpenGLESGraphics;
-
-type
-  {AB:TYPES}
-  TOpenGLESGraphicsFactory = class(TObject)
-  public
-    constructor Create;
-        function getOpenGLESGraphicsInstance: TOpenGLESGraphics; virtual;
-  end;
-
-implementation
-uses
-  OpenGLESNullGraphicsFactory;
-
-
-{AB:CODE}
-
-constructor TOpenGLESGraphicsFactory.Create;
-begin
-  inherited Create;
-end;
-    
-
-function TOpenGLESGraphicsFactory.getOpenGLESGraphicsInstance: TOpenGLESGraphics;
-begin
-        Exit(TOpenGLESNullGraphicsFactory.getInstance());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OpnGLESGrphcsFctry-gtOpnG91922.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION OpnGLESNllGrphcsFctry-gtI44641
+        GOBACK
+    GOBACK.
+END FUNCTION OpnGLESGrphcsFctry-gtOpnG91922.
 

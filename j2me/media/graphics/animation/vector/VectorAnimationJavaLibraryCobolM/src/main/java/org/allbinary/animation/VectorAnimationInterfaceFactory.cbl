@@ -1,102 +1,164 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation
+*> Java class VectorAnimationInterfaceFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrAnmtnIntrfcFctry-new3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-currentPoints BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-animationBehaviorFactory BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-currentPoints J-basicColor J-animationBehaviorFactory RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("VectorAnimationInterfaceFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_currentPoints")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_basicColor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_animationBehaviorFactory")
     
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation
-unit VectorAnimationInterfaceFactory;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, BasicColor, ScaleProperties, AnimationBehaviorFactory, Animation, AnimationInterfaceFactoryInterface, BasicAnimationInterfaceFactoryInterface;
-
-type
-  {AB:TYPES}
-  TVectorAnimationInterfaceFactory = class(TInterfacedObject, IAnimationInterfaceFactoryInterface, IBasicAnimationInterfaceFactoryInterface)
-  public
-    currentPoints: TArray<TArray<TArray<Integer>>>;
-    basicColor: TBasicColor;
-    animationBehaviorFactory: TAnimationBehaviorFactory;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(currentPoints: TArray<TArray<TArray<Integer>>>; basicColor_: TBasicColor; animationBehaviorFactory_: TAnimationBehaviorFactory);
-        function getInstance(instanceId: Integer): TAnimation; virtual;
-        procedure setBasicColorP(basicColor_: TBasicColor); virtual;
-        function getBasicColorP: TBasicColor; virtual;
-        procedure setInitialScale(scaleProperties_: TScaleProperties); virtual;
-  end;
-
-implementation
-uses
-  VectorAnimation, BasicColorFactory;
-
-
-{AB:CODE}
-
-procedure TVectorAnimationInterfaceFactory.InitFields;
-begin
-  
-  Self.basicColor := TBasicColorFactory.getInstance().WHITE;
-  
-end;
-
-function TVectorAnimationInterfaceFactory.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+    COMPUTE jtemp1 = FUNCTION BasicColorFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_WHITE")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicColor", JVALUE)
     
+        COMPUTE JVALUE = J-currentPoints
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_currentPoints", JVALUE)
+        COMPUTE JDISCARD = FUNCTION VctrAnmtnIntrfcFctry-stBs49924(J-THIS, J-basicColor)
+        COMPUTE JVALUE = J-animationBehaviorFactory
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animationBehaviorFactory", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION VctrAnmtnIntrfcFctry-new3.
 
-constructor TVectorAnimationInterfaceFactory.Create(currentPoints: TArray<TArray<TArray<Integer>>>; basicColor_: TBasicColor; animationBehaviorFactory_: TAnimationBehaviorFactory);
-begin
-    inherited Create;
-    InitFields;
-        Self.currentPoints := currentPoints;
-        Self.setBasicColorP(basicColor_);
-        Self.animationBehaviorFactory := animationBehaviorFactory_;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrAnmtnIntrfcFctry-gtInstnc1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-instanceId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-instanceId RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION VectorAnimation-new3(FUNCTION JR-GET(J-THIS, "f_currentPoints"), FUNCTION VctrAnmtnIntrfcFctry-gtBs56304(J-THIS), FUNCTION AnmtnBhvrFctry-gtOrCrtInstnc0(FUNCTION JR-GET(J-THIS,
+        "f_animationBehaviorFactory")))
+        GOBACK
+    GOBACK.
+END FUNCTION VctrAnmtnIntrfcFctry-gtInstnc1.
 
-// throws Exception
-function TVectorAnimationInterfaceFactory.getInstance(instanceId: Integer): TAnimation;
-begin
-        Exit(TVectorAnimation.Create(Self.currentPoints, Self.getBasicColorP(), Self.animationBehaviorFactory.getOrCreateInstance()));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrAnmtnIntrfcFctry-stBs49924.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-basicColor RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-basicColor
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicColor", JVALUE)
+    GOBACK.
+END FUNCTION VctrAnmtnIntrfcFctry-stBs49924.
 
-procedure TVectorAnimationInterfaceFactory.setBasicColorP(basicColor_: TBasicColor);
-begin
-        Self.basicColor := basicColor_;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrAnmtnIntrfcFctry-gtBs56304.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_basicColor")
+        GOBACK
+    GOBACK.
+END FUNCTION VctrAnmtnIntrfcFctry-gtBs56304.
 
-function TVectorAnimationInterfaceFactory.getBasicColorP: TBasicColor;
-begin
-        Exit(Self.basicColor);
-end;
-    
-
-procedure TVectorAnimationInterfaceFactory.setInitialScale(scaleProperties_: TScaleProperties);
-begin
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrAnmtnIntrfcFctry-stIn16731.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-scaleProperties BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-scaleProperties RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION VctrAnmtnIntrfcFctry-stIn16731.
 

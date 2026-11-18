@@ -1,85 +1,141 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.graphics.hud
+*> Java class BasicHudFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.graphics.hud
-unit BasicHudFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscHdFctry-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BasicHudFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 BasicHudFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF BasicHudFactory-jset-instance = 0
+        MOVE 1 TO BasicHudFactory-jset-instance
+        COMPUTE BasicHudFactory-jcell-instance = FUNCTION BasicHudFactory-new0
+    END-IF
+    MOVE BasicHudFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION BscHdFctry-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscHdFctrystaticinstS88638.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BasicHudFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION BscHdFctry-static-instance TO J-RESULT
+    MOVE J-VALUE TO BasicHudFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION BscHdFctrystaticinstS88638.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicHudFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("BasicHudFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DIRECTION_EXCEPTION")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_VERTICAL")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_HORIZONTAL")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_BOTTOMLEFT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_BOTTOMRIGHT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_TOPLEFT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_TOPRIGHT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_BOTTOMCENTER")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_TOPCENTER")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ABSOLUTE")
+    COMPUTE JVALUE = FUNCTION JR-STR("Only Horizontal Direction is Allowed Currently")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DIRECTION_EXCEPTION", JVALUE)
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_VERTICAL", JVALUE)
+    COMPUTE JVALUE = 1
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_HORIZONTAL", JVALUE)
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_BOTTOMLEFT", JVALUE)
+    COMPUTE JVALUE = 1
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_BOTTOMRIGHT", JVALUE)
+    COMPUTE JVALUE = 2
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_TOPLEFT", JVALUE)
+    COMPUTE JVALUE = 3
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_TOPRIGHT", JVALUE)
+    COMPUTE JVALUE = 4
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_BOTTOMCENTER", JVALUE)
+    COMPUTE JVALUE = 5
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_TOPCENTER", JVALUE)
+    COMPUTE JVALUE = 6
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ABSOLUTE", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION BasicHudFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
-
-type
-  {AB:TYPES}
-  TBasicHudFactory = class(TObject)
-  public
-    DIRECTION_EXCEPTION: string;
-    VERTICAL: Integer;
-    HORIZONTAL: Integer;
-    BOTTOMLEFT: Integer;
-    BOTTOMRIGHT: Integer;
-    TOPLEFT: Integer;
-    TOPRIGHT: Integer;
-    BOTTOMCENTER: Integer;
-    TOPCENTER: Integer;
-    ABSOLUTE_: Integer;
-    class var instance: TBasicHudFactory;
-    procedure InitFields;
-        class function getInstance: TBasicHudFactory; static;
-        constructor Create;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TBasicHudFactory.InitFields;
-begin
-  Self.DIRECTION_EXCEPTION := 'Only Horizontal Direction is Allowed Currently';
-  Self.VERTICAL := 0;
-  Self.HORIZONTAL := 1;
-  Self.BOTTOMLEFT := 0;
-  Self.BOTTOMRIGHT := 1;
-  Self.TOPLEFT := 2;
-  Self.TOPRIGHT := 3;
-  Self.BOTTOMCENTER := 4;
-  Self.TOPCENTER := 5;
-  Self.ABSOLUTE_ := 6;
-end;
-    
-
-class function TBasicHudFactory.getInstance: TBasicHudFactory;
-begin
-        Exit(TBasicHudFactory.instance);
-end;
-    
-
-constructor TBasicHudFactory.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TBasicHudFactory.instance := TBasicHudFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicHudFactory-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION BscHdFctry-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION BasicHudFactory-getInstance0.
 

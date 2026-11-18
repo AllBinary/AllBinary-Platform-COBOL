@@ -1,71 +1,150 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.canvas.transition.progress
+*> Java class ProgressCanvasFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.canvas.transition.progress
-unit ProgressCanvasFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrgrssCnvsFctry-sttc-P19220.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ProgressCanvasFactory-jcell-PROGRESS_FORM_SCREEN BINARY-DOUBLE EXTERNAL.
+01 ProgressCanvasFactory-jset-PROGRESS_FORM_SCREEN BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF ProgressCanvasFactory-jset-PROGRESS_FORM_SCREEN = 0
+        MOVE 1 TO ProgressCanvasFactory-jset-PROGRESS_FORM_SCREEN
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE ProgressCanvasFactory-jcell-PROGRESS_FORM_SCREEN = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+    END-IF
+    MOVE ProgressCanvasFactory-jcell-PROGRESS_FORM_SCREEN TO J-RESULT
+    GOBACK.
+END FUNCTION PrgrssCnvsFctry-sttc-P19220.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrgrssCnvsFctrysttcPS24130.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ProgressCanvasFactory-jcell-PROGRESS_FORM_SCREEN BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION PrgrssCnvsFctry-sttc-P19220 TO J-RESULT
+    MOVE J-VALUE TO ProgressCanvasFactory-jcell-PROGRESS_FORM_SCREEN
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION PrgrssCnvsFctrysttcPS24130.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ProgressCanvasFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ProgressCanvasFactory")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ProgressCanvasFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, PaintableInterface, ProgressCanvas;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrgrssCnvsFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+        IF (FUNCTION PrgrssCnvsFctry-sttc-P19220 = FUNCTION JR-GET(jtemp2, "f_NULL_OBJECT"))
+            COMPUTE jtemp3 = FUNCTION StringUtil-getInstance0
+            COMPUTE jtemp4 = FUNCTION BasicColorFactory-getInstance0
+            COMPUTE jtemp5 = FUNCTION BasicColorFactory-getInstance0
+            COMPUTE JDISCARD = FUNCTION PrgrssCnvsFctrysttcPS24130(FUNCTION ProgressCanvas-new3(FUNCTION JR-GET(jtemp3, "f_EMPTY_STRING"), FUNCTION JR-GET(jtemp4, "f_BLACK"), FUNCTION JR-GET(jtemp5, "f_WHITE")))
+        END-IF
+        COMPUTE J-RESULT = FUNCTION PrgrssCnvsFctry-sttc-P19220
+        GOBACK
+    GOBACK.
+END FUNCTION PrgrssCnvsFctry-getInstance0.
 
-type
-  {AB:TYPES}
-  TProgressCanvasFactory = class(TObject)
-  public
-    class var PROGRESS_FORM_SCREEN: TObject;
-    constructor Create;
-        class function getInstance: TProgressCanvas; static;
-        class function getLazyInstance: IPaintableInterface; static;
-  end;
-
-implementation
-uses
-  BasicColorFactory, NullPaintable, NullUtil, StringUtil;
-
-
-{AB:CODE}
-
-constructor TProgressCanvasFactory.Create;
-begin
-  inherited Create;
-end;
-    
-
-class function TProgressCanvasFactory.getInstance: TProgressCanvas;
-begin
-        if (TProgressCanvasFactory.PROGRESS_FORM_SCREEN) = (TNullUtil.getInstance().NULL_OBJECT) then begin
-            TProgressCanvasFactory.PROGRESS_FORM_SCREEN := TProgressCanvas.Create(TStringUtil.getInstance().EMPTY_STRING, TBasicColorFactory.getInstance().BLACK, TBasicColorFactory.getInstance().WHITE);
-        end;
-        Exit(TProgressCanvas(TJava.ToObject(TProgressCanvasFactory.PROGRESS_FORM_SCREEN)));
-end;
-    
-
-class function TProgressCanvasFactory.getLazyInstance: IPaintableInterface;
-begin
-        Exit(TNullPaintable.getInstance());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TProgressCanvasFactory.PROGRESS_FORM_SCREEN := TJava.Box(TNullUtil.getInstance().NULL_OBJECT);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrgrssCnvsFctry-gtLzyInstnc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION NullPaintable-getInstance0
+        GOBACK
+    GOBACK.
+END FUNCTION PrgrssCnvsFctry-gtLzyInstnc0.
 

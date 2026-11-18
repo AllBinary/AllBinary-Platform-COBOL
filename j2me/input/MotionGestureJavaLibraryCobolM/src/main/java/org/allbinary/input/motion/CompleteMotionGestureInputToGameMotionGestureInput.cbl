@@ -1,117 +1,175 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion
+*> Java class CompleteMotionGestureInputToGameMotionGestureInput
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion
-unit CompleteMotionGestureInputToGameMotionGestureInput;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpltMtnGstrInptTGmMtnG-31630.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CompleteMotionGestureInputToGameMotionGestureInput-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 CompleteMotionGestureInputToGameMotionGestureInput-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF CompleteMotionGestureInputToGameMotionGestureInput-jset-instance = 0
+        MOVE 1 TO CompleteMotionGestureInputToGameMotionGestureInput-jset-instance
+        COMPUTE CompleteMotionGestureInputToGameMotionGestureInput-jcell-instance = FUNCTION CmpltMtnGstrInptTGmMtnG-34485
+    END-IF
+    MOVE CompleteMotionGestureInputToGameMotionGestureInput-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION CmpltMtnGstrInptTGmMtnG-31630.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpltMtnGstrInptTGmMS71206.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CompleteMotionGestureInputToGameMotionGestureInput-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION CmpltMtnGstrInptTGmMtnG-31630 TO J-RESULT
+    MOVE J-VALUE TO CompleteMotionGestureInputToGameMotionGestureInput-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION CmpltMtnGstrInptTGmMS71206.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpltMtnGstrInptTGmMtnG-34485.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CompleteMotionGestureInputToGameMotionGestureInput")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CmpltMtnGstrInptTGmMtnG-34485.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LogUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpltMtnGstrInptTGmMtnG-90323.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION CmpltMtnGstrInptTGmMtnG-31630
+        GOBACK
+    GOBACK.
+END FUNCTION CmpltMtnGstrInptTGmMtnG-90323.
 
-type
-  {AB:TYPES}
-  TCompleteMotionGestureInputToGameMotionGestureInput = class(TObject)
-  public
-    logUtil: TLogUtil;
-    class var instance: TCompleteMotionGestureInputToGameMotionGestureInput;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TCompleteMotionGestureInputToGameMotionGestureInput; static;
-        procedure init; virtual;
-  end;
-
-implementation
-uses
-  TouchMotionGestureFactory, MotionGestureConfiguration, MotionGestureConfigurationFactory, DiagonalDownLeftTouchInputToGameKeyEventAction, DiagonalDownRightTouchInputToGameKeyEventAction, DiagonalUpLeftTouchInputToGameKeyEventAction, DiagonalUpRightTouchInputToGameKeyEventAction, DownTouchInputToGameKeyEventAction, LeftTouchInputToGameKeyEventAction, ReleaseTouchInputToGameKeyEventAction, RightTouchInputToGameKeyEventAction, UpTouchInputToGameKeyEventAction, PreLogUtil, CommonStrings, BasicArrayList, BasicArrayListD;
-
-
-{AB:CODE}
-
-procedure TCompleteMotionGestureInputToGameMotionGestureInput.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-end;
-
-constructor TCompleteMotionGestureInputToGameMotionGestureInput.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TCompleteMotionGestureInputToGameMotionGestureInput.getInstance: TCompleteMotionGestureInputToGameMotionGestureInput;
-begin
-        Exit(TCompleteMotionGestureInputToGameMotionGestureInput.instance);
-end;
-    
-
-procedure TCompleteMotionGestureInputToGameMotionGestureInput.init;
-var
-  commonStrings_: TCommonStrings;
-  motionGestureConfiguration_: TMotionGestureConfiguration;
-  touchMotionGestureFactory_: TTouchMotionGestureFactory;
-  list: TBasicArrayList;
-begin
-        commonStrings_ := TCommonStrings.getInstance();
-        try
-            TPreLogUtil.put('Compound Motion Gestures', TJava.Box(Self), commonStrings_.INIT);
-            motionGestureConfiguration_ := TMotionGestureConfigurationFactory.getInstance();
-            touchMotionGestureFactory_ := TTouchMotionGestureFactory.getInstance();
-            list := TBasicArrayListD.Create();
-            list.add(TJava.Box(touchMotionGestureFactory_.DIAGONAL_DOWN_LEFT));
-            motionGestureConfiguration_.addMotionGestureAction(list, TDiagonalDownLeftTouchInputToGameKeyEventAction.getInstance());
-            list := TBasicArrayListD.Create();
-            list.add(TJava.Box(touchMotionGestureFactory_.DIAGONAL_DOWN_RIGHT));
-            motionGestureConfiguration_.addMotionGestureAction(list, TDiagonalDownRightTouchInputToGameKeyEventAction.getInstance());
-            list := TBasicArrayListD.Create();
-            list.add(TJava.Box(touchMotionGestureFactory_.DIAGONAL_UP_LEFT));
-            motionGestureConfiguration_.addMotionGestureAction(list, TDiagonalUpLeftTouchInputToGameKeyEventAction.getInstance());
-            list := TBasicArrayListD.Create();
-            list.add(TJava.Box(touchMotionGestureFactory_.DIAGONAL_UP_RIGHT));
-            motionGestureConfiguration_.addMotionGestureAction(list, TDiagonalUpRightTouchInputToGameKeyEventAction.getInstance());
-            list := TBasicArrayListD.Create();
-            list.add(TJava.Box(touchMotionGestureFactory_.LEFT));
-            motionGestureConfiguration_.addMotionGestureAction(list, TLeftTouchInputToGameKeyEventAction.getInstance());
-            list := TBasicArrayListD.Create();
-            list.add(TJava.Box(touchMotionGestureFactory_.RIGHT));
-            motionGestureConfiguration_.addMotionGestureAction(list, TRightTouchInputToGameKeyEventAction.getInstance());
-            list := TBasicArrayListD.Create();
-            list.add(TJava.Box(touchMotionGestureFactory_.DOWN));
-            motionGestureConfiguration_.addMotionGestureAction(list, TDownTouchInputToGameKeyEventAction.getInstance());
-            list := TBasicArrayListD.Create();
-            list.add(TJava.Box(touchMotionGestureFactory_.UP));
-            motionGestureConfiguration_.addMotionGestureAction(list, TUpTouchInputToGameKeyEventAction.getInstance());
-            list := TBasicArrayListD.Create();
-            list.add(TJava.Box(touchMotionGestureFactory_.RELEASED));
-            motionGestureConfiguration_.addMotionGestureAction(list, TReleaseTouchInputToGameKeyEventAction.getInstance());
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.INIT, TJava.Box(e));
-            end;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TCompleteMotionGestureInputToGameMotionGestureInput.instance := TCompleteMotionGestureInputToGameMotionGestureInput.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpltMtnGstrInptTGmMtnG-84333.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-commonStrings BINARY-DOUBLE.
+01 J-motionGestureConfiguration BINARY-DOUBLE.
+01 J-touchMotionGestureFactory BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-commonStrings = FUNCTION CommonStrings-getInstance0
+        CONTINUE
+            COMPUTE JDISCARD = FUNCTION PreLogUtil-put3(FUNCTION JR-STR("Compound Motion Gestures"), J-THIS, FUNCTION JR-GET(J-commonStrings, "f_INIT"))
+            COMPUTE J-motionGestureConfiguration = FUNCTION MtnGstrCnfgrtnFctry-gtInstnc0
+            COMPUTE J-touchMotionGestureFactory = FUNCTION TchMtnGstrFctry-getInstance0
+            COMPUTE J-list = FUNCTION BasicArrayListD-new0
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-list, FUNCTION JR-GET(J-touchMotionGestureFactory, "f_DIAGONAL_DOWN_LEFT"))
+            COMPUTE JDISCARD = FUNCTION MtnGstrCnfgrtn-addMtnGstrActn2(J-motionGestureConfiguration, J-list, FUNCTION DgnlDwnLftTchInptTGmKyE-58814)
+            COMPUTE J-list = FUNCTION BasicArrayListD-new0
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-list, FUNCTION JR-GET(J-touchMotionGestureFactory, "f_DIAGONAL_DOWN_RIGHT"))
+            COMPUTE JDISCARD = FUNCTION MtnGstrCnfgrtn-addMtnGstrActn2(J-motionGestureConfiguration, J-list, FUNCTION DgnlDwnRghtTchInptTGmKy-29897)
+            COMPUTE J-list = FUNCTION BasicArrayListD-new0
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-list, FUNCTION JR-GET(J-touchMotionGestureFactory, "f_DIAGONAL_UP_LEFT"))
+            COMPUTE JDISCARD = FUNCTION MtnGstrCnfgrtn-addMtnGstrActn2(J-motionGestureConfiguration, J-list, FUNCTION DgnlUpLftTchInptTGmKyEv-35177)
+            COMPUTE J-list = FUNCTION BasicArrayListD-new0
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-list, FUNCTION JR-GET(J-touchMotionGestureFactory, "f_DIAGONAL_UP_RIGHT"))
+            COMPUTE JDISCARD = FUNCTION MtnGstrCnfgrtn-addMtnGstrActn2(J-motionGestureConfiguration, J-list, FUNCTION DgnlUpRghtTchInptTGmKyE-88522)
+            COMPUTE J-list = FUNCTION BasicArrayListD-new0
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-list, FUNCTION JR-GET(J-touchMotionGestureFactory, "f_LEFT"))
+            COMPUTE JDISCARD = FUNCTION MtnGstrCnfgrtn-addMtnGstrActn2(J-motionGestureConfiguration, J-list, FUNCTION LftTchInptTGmKyEvntActn-g37353)
+            COMPUTE J-list = FUNCTION BasicArrayListD-new0
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-list, FUNCTION JR-GET(J-touchMotionGestureFactory, "f_RIGHT"))
+            COMPUTE JDISCARD = FUNCTION MtnGstrCnfgrtn-addMtnGstrActn2(J-motionGestureConfiguration, J-list, FUNCTION RghtTchInptTGmKyEvntAct-83581)
+            COMPUTE J-list = FUNCTION BasicArrayListD-new0
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-list, FUNCTION JR-GET(J-touchMotionGestureFactory, "f_DOWN"))
+            COMPUTE JDISCARD = FUNCTION MtnGstrCnfgrtn-addMtnGstrActn2(J-motionGestureConfiguration, J-list, FUNCTION DwnTchInptTGmKyEvntActn-g36552)
+            COMPUTE J-list = FUNCTION BasicArrayListD-new0
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-list, FUNCTION JR-GET(J-touchMotionGestureFactory, "f_UP"))
+            COMPUTE JDISCARD = FUNCTION MtnGstrCnfgrtn-addMtnGstrActn2(J-motionGestureConfiguration, J-list, FUNCTION UpTchInptTGmKyEvntActn-gt94715)
+            COMPUTE J-list = FUNCTION BasicArrayListD-new0
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-list, FUNCTION JR-GET(J-touchMotionGestureFactory, "f_RELEASED"))
+            COMPUTE JDISCARD = FUNCTION MtnGstrCnfgrtn-addMtnGstrActn2(J-motionGestureConfiguration, J-list, FUNCTION RlsTchInptTGmKyEvntActn-g20500)
+    GOBACK.
+END FUNCTION CmpltMtnGstrInptTGmMtnG-84333.
 

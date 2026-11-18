@@ -1,115 +1,279 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.layer.hud.basic.notification
+*> Java class GameNotificationHud
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.layer.hud.basic.notification
-unit GameNotificationHud;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmNtfctnHd-sttc-NULL-G28590.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameNotificationHud-jcell-NULL_GAME_NOTIFICATION BINARY-DOUBLE EXTERNAL.
+01 GameNotificationHud-jset-NULL_GAME_NOTIFICATION BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GameNotificationHud-jset-NULL_GAME_NOTIFICATION = 0
+        MOVE 1 TO GameNotificationHud-jset-NULL_GAME_NOTIFICATION
+        COMPUTE jtemp1 = FUNCTION BasicHudFactory-getInstance0
+    COMPUTE jtemp2 = FUNCTION BasicHudFactory-getInstance0
+    COMPUTE jtemp4 = FUNCTION BasicColorFactory-getInstance0
+    COMPUTE jtemp3 = 0
+    COMPUTE GameNotificationHud-jcell-NULL_GAME_NOTIFICATION = FUNCTION GameNotificationHud-new4(FUNCTION JR-GET(jtemp1, "f_TOPCENTER"), FUNCTION JR-GET(jtemp2, "f_HORIZONTAL"), jtemp3, FUNCTION JR-GET(jtemp4, "f_RED"))
+    END-IF
+    MOVE GameNotificationHud-jcell-NULL_GAME_NOTIFICATION TO J-RESULT
+    GOBACK.
+END FUNCTION GmNtfctnHd-sttc-NULL-G28590.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmNtfctnHdsttcNULLG2S15697.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameNotificationHud-jcell-NULL_GAME_NOTIFICATION BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GmNtfctnHd-sttc-NULL-G28590 TO J-RESULT
+    MOVE J-VALUE TO GameNotificationHud-jcell-NULL_GAME_NOTIFICATION
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GmNtfctnHdsttcNULLG2S15697.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameNotificationHud-new4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-location BINARY-DOUBLE.
+01 J-direction BINARY-DOUBLE.
+01 J-bufferZone BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-location J-direction J-bufferZone J-basicColor RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameNotificationHud")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_METHOD_NAME")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_lastGameNotificationEvent")
+    COMPUTE JVALUE = FUNCTION JR-STR("onGameNotificationEvent")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_METHOD_NAME", JVALUE)
+    COMPUTE JVALUE = FUNCTION GmNtfctn-sttc-NULL-GA70599
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lastGameNotificationEvent", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GameNotificationHud-new4.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, BasicHud, GameNotificationEvent, GameNotificationListenerInterface, BasicColor, AllBinaryEventObject, EventListenerInterface;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameNotificationHud-onEvent1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp5 = FUNCTION EventStrings-getInstance0
+        COMPUTE JDISCARD = FUNCTION ForcedLogUtil-log2(FUNCTION JR-GET(jtemp5, "f_PERFORMANCE_MESSAGE"), J-THIS)
+    GOBACK.
+END FUNCTION GameNotificationHud-onEvent1.
 
-type
-  {AB:TYPES}
-  TGameNotificationHud = class(TBasicHud, IGameNotificationListenerInterface, IEventListenerInterface)
-  public
-    METHOD_NAME: string;
-    lastGameNotificationEvent: TGameNotificationEvent;
-    class var NULL_GAME_NOTIFICATION: TGameNotificationHud;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(location: Integer; direction: Integer; bufferZone: Integer; basicColor_: TBasicColor);
-        procedure onEvent(eventObject: TAllBinaryEventObject); virtual;
-        procedure onGameNotificationEvent(gameNotificationEvent_: TGameNotificationEvent); virtual;
-        procedure add(string_: string; seconds: Integer; basicColor_: TBasicColor; permanent: Boolean); virtual;
-        procedure processTick; virtual;
-        procedure paint(graphics_: TGraphics); virtual;
-        procedure clear; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmNtfctnHd-onGmNtfctnEvnt1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameNotificationEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gameNotificationEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION JR-GET(J-THIS, "f_lastGameNotificationEvent") NOT = J-gameNotificationEvent)
+            COMPUTE JVALUE = J-gameNotificationEvent
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lastGameNotificationEvent", JVALUE)
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        END-IF
+        COMPUTE JDISCARD = FUNCTION GameNotificationHud-add4(J-THIS, FUNCTION GmNtfctnEvnt-getString0(J-gameNotificationEvent), FUNCTION GmNtfctnEvnt-getSeconds0(J-gameNotificationEvent), FUNCTION
+        GmNtfctnEvnt-getBasicColorP0(J-gameNotificationEvent), FUNCTION GmNtfctnEvnt-getPermanent0(J-gameNotificationEvent))
+    GOBACK.
+END FUNCTION GmNtfctnHd-onGmNtfctnEvnt1.
 
-implementation
-uses
-  GameNotification, BasicHudFactory, BasicColorFactory, ForcedLogUtil, EventStrings;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameNotificationHud-add4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-string BINARY-DOUBLE.
+01 J-seconds BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-permanent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-string J-seconds J-basicColor J-permanent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION GameNotificationHud-add4.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmNtfctnHd-processTick0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION GmNtfctnHd-processTick0.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameNotificationHud-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION GameNotificationHud-paint1.
 
-procedure TGameNotificationHud.InitFields;
-begin
-  Self.METHOD_NAME := 'onGameNotificationEvent';
-  Self.lastGameNotificationEvent := TGameNotification.NULL_GAME_NOTIFICATION_EVENT;
-end;
-
-function TGameNotificationHud.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-    
-
-constructor TGameNotificationHud.Create(location: Integer; direction: Integer; bufferZone: Integer; basicColor_: TBasicColor);
-begin
-        inherited Create(location, direction, bufferZone, basicColor_);
-        InitFields;
-end;
-    
-
-procedure TGameNotificationHud.onEvent(eventObject: TAllBinaryEventObject);
-begin
-        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, TJava.Box(Self));
-end;
-    
-
-// throws Exception
-procedure TGameNotificationHud.onGameNotificationEvent(gameNotificationEvent_: TGameNotificationEvent);
-begin
-        if (Self.lastGameNotificationEvent) <> (gameNotificationEvent_) then begin
-            Self.lastGameNotificationEvent := gameNotificationEvent_;
-            Self.logUtil.putF(gameNotificationEvent_.getString(), TJava.Box(Self), Self.METHOD_NAME);
-        end;
-        Self.add(gameNotificationEvent_.getString(), gameNotificationEvent_.getSeconds(), gameNotificationEvent_.getBasicColorP(), gameNotificationEvent_.getPermanent());
-end;
-    
-
-procedure TGameNotificationHud.add(string_: string; seconds: Integer; basicColor_: TBasicColor; permanent: Boolean);
-begin
-end;
-    
-
-// throws Exception
-procedure TGameNotificationHud.processTick;
-begin
-end;
-    
-
-procedure TGameNotificationHud.paint(graphics_: TGraphics);
-begin
-end;
-    
-
-procedure TGameNotificationHud.clear;
-begin
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TGameNotificationHud.NULL_GAME_NOTIFICATION := TGameNotificationHud.Create(TBasicHudFactory.getInstance().TOPCENTER, TBasicHudFactory.getInstance().HORIZONTAL, 0, TBasicColorFactory.getInstance().RED);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameNotificationHud-clear0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION GameNotificationHud-clear0.
 

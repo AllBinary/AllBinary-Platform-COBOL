@@ -1,126 +1,184 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.displayable.canvas
+*> Java class CheatGameInputProcessor
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.displayable.canvas
-unit CheatGameInputProcessor;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ChtGmInptPrcssr-sttc-npt80359.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CheatGameInputProcessor-jcell-inputProcessor BINARY-DOUBLE EXTERNAL.
+01 CheatGameInputProcessor-jset-inputProcessor BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF CheatGameInputProcessor-jset-inputProcessor = 0
+        MOVE 1 TO CheatGameInputProcessor-jset-inputProcessor
+        COMPUTE CheatGameInputProcessor-jcell-inputProcessor = FUNCTION SpclGmInptFctry-sttc-41428
+    END-IF
+    MOVE CheatGameInputProcessor-jcell-inputProcessor TO J-RESULT
+    GOBACK.
+END FUNCTION ChtGmInptPrcssr-sttc-npt80359.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ChtGmInptPrcssrsttcnS85467.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CheatGameInputProcessor-jcell-inputProcessor BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION ChtGmInptPrcssr-sttc-npt80359 TO J-RESULT
+    MOVE J-VALUE TO CheatGameInputProcessor-jcell-inputProcessor
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION ChtGmInptPrcssrsttcnS85467.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameKeyFactory, PlayerGameInput, SpecialGameInputInterface, AllBinaryGameCanvas;
-
-type
-  {AB:TYPES}
-  TCheatGameInputProcessor = class(TPlayerGameInput)
-  public
-    PROCESS_GAME: string;
-    gameCanvas: TAllBinaryGameCanvas;
-    gameKeyFactory: TGameKeyFactory;
-    class var inputProcessor: ISpecialGameInputInterface;
-    procedure InitFields;
-        constructor Create(gameCanvas: TAllBinaryGameCanvas);
-        procedure update; override;
-  end;
-
-implementation
-uses
-  GameKeyEvent, GameKeyEventUtil, AllBinaryGameLayerManager, SpecialGameInputFactory, StringMaker, BasicArrayList, BasicArrayListD;
-
-
-{AB:CODE}
-
-procedure TCheatGameInputProcessor.InitFields;
-begin
-  Self.PROCESS_GAME := 'processGame';
-  
-  Self.gameKeyFactory := TGameKeyFactory.getInstance();
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CheatGameInputProcessor-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-gameCanvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-gameCanvas RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CheatGameInputProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_PROCESS_GAME")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameCanvas")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameKeyFactory")
+    COMPUTE JVALUE = FUNCTION JR-STR("processGame")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_PROCESS_GAME", JVALUE)
     
+    COMPUTE JVALUE = FUNCTION GameKeyFactory-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameKeyFactory", JVALUE)
+        COMPUTE jtemp1 = (0 - 1)
+        CONTINUE
+        COMPUTE JVALUE = J-gameCanvas
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameCanvas", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CheatGameInputProcessor-new1.
 
-constructor TCheatGameInputProcessor.Create(gameCanvas: TAllBinaryGameCanvas);
-begin
-        inherited Create(TBasicArrayListD.Create(), TBasicArrayListD.Create(), -1);
-        InitFields;
-        Self.gameCanvas := gameCanvas;
-end;
-    
-
-procedure TCheatGameInputProcessor.update;
-var
-  gameLayerManager: TAllBinaryGameLayerManager;
-  list: TBasicArrayList;
-  size: Integer;
-  anyType: TObject;
-  key: Integer;
-  index: Integer;
-begin
-    TJava.MonitorEnter(Self);
-    try
-        try
-            gameLayerManager := Self.gameCanvas.getLayerManager();
-            list := Self.getGameKeyEventList();
-            size := list.size();
-            for index := 0 to size - 1 do begin
-                anyType := TJava.Box(list.objectArray[index]);
-                key := TGameKeyEventUtil.getKey(TJava.Box(anyType));
-                if (key) = (Self.gameKeyFactory.LEVEL_DOWN.getId()) then begin
-                    TCheatGameInputProcessor.inputProcessor.strafeLeft();
-                    Break;
-                end else if (key) = (Self.gameKeyFactory.LEVEL_UP.getId()) then begin
-                    TCheatGameInputProcessor.inputProcessor.strafeRight();
-                    Break;
-                end;
-                if (key) = (Self.gameKeyFactory.LEFT.getId()) then begin
-                    TCheatGameInputProcessor.inputProcessor.left();
-                    Break;
-                end else if (key) = (Self.gameKeyFactory.RIGHT.getId()) then begin
-                    TCheatGameInputProcessor.inputProcessor.right();
-                    Break;
-                end else if (key) = (Self.gameKeyFactory.UP.getId()) then begin
-                    TCheatGameInputProcessor.inputProcessor.up();
-                    Break;
-                end else if (key) = (Self.gameKeyFactory.DOWN.getId()) then begin
-                    TCheatGameInputProcessor.inputProcessor.down();
-                    Break;
-                end else if (key) = (Self.gameKeyFactory.KEY_NUM1.getId()) then begin
-                    TCheatGameInputProcessor.inputProcessor.special1(gameLayerManager, TGameKeyEvent.NONE);
-                    Break;
-                end else if (key) = (Self.gameKeyFactory.KEY_NUM3.getId()) then begin
-                    TCheatGameInputProcessor.inputProcessor.special2(gameLayerManager, TGameKeyEvent.NONE);
-                    Break;
-                end;
-            end;
-            list.clear();
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.UPDATE, TJava.Box(e));
-            end;
-        end;
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TCheatGameInputProcessor.inputProcessor := TSpecialGameInputFactory.NO_SPECIAL_GAME_INPUT;
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ChtGmInptPrcssr-update0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameLayerManager BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-anyType BINARY-DOUBLE.
+01 J-key BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE J-gameLayerManager = FUNCTION AllBnryGmCnvs-getLayerManager0(FUNCTION JR-GET(J-THIS, "f_gameCanvas"))
+            COMPUTE J-list = FUNCTION GameInput-getGameKeyEventList0(J-THIS)
+            COMPUTE J-size = FUNCTION BasicArrayList-size0(J-list)
+            COMPUTE J-index = 0
+            MOVE 1 TO JFIRST1
+            PERFORM FOREVER
+                IF JFIRST1 = 0
+                    COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+                END-IF
+                MOVE 0 TO JFIRST1
+                IF NOT (J-index < J-size) EXIT PERFORM END-IF
+                COMPUTE J-anyType = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
+                COMPUTE J-key = FUNCTION GameKeyEventUtil-getKey1(J-anyType)
+                IF (J-key = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_LEVEL_DOWN")))
+                    COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION ChtGmInptPrcssr-sttc-npt80359)
+                    EXIT PERFORM
+                ELSE
+                    IF (J-key = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_LEVEL_UP")))
+                    COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION ChtGmInptPrcssr-sttc-npt80359)
+                    EXIT PERFORM
+                END-IF
+                END-IF
+                IF (J-key = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_LEFT")))
+                    COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION ChtGmInptPrcssr-sttc-npt80359)
+                    EXIT PERFORM
+                ELSE
+                    IF (J-key = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_RIGHT")))
+                    COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION ChtGmInptPrcssr-sttc-npt80359)
+                    EXIT PERFORM
+                ELSE
+                    IF (J-key = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_UP")))
+                    COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION ChtGmInptPrcssr-sttc-npt80359)
+                    EXIT PERFORM
+                ELSE
+                    IF (J-key = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_DOWN")))
+                    COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION ChtGmInptPrcssr-sttc-npt80359)
+                    EXIT PERFORM
+                ELSE
+                    IF (J-key = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_KEY_NUM1")))
+                    COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION ChtGmInptPrcssr-sttc-npt80359)
+                    EXIT PERFORM
+                ELSE
+                    IF (J-key = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_KEY_NUM3")))
+                    COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION ChtGmInptPrcssr-sttc-npt80359)
+                    EXIT PERFORM
+                END-IF
+                END-IF
+                END-IF
+                END-IF
+                END-IF
+                END-IF
+            END-PERFORM
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-clear0(J-list)
+    GOBACK.
+END FUNCTION ChtGmInptPrcssr-update0.
 

@@ -1,78 +1,147 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.terrain
+*> Java class BasicTerrainInfo
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.terrain
-unit BasicTerrainInfo;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscTrrnInf-sttc-NULL-43958.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BasicTerrainInfo-jcell-NULL_BASIC_TERRAIN_INFO BINARY-DOUBLE EXTERNAL.
+01 BasicTerrainInfo-jset-NULL_BASIC_TERRAIN_INFO BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF BasicTerrainInfo-jset-NULL_BASIC_TERRAIN_INFO = 0
+        MOVE 1 TO BasicTerrainInfo-jset-NULL_BASIC_TERRAIN_INFO
+        COMPUTE jtemp1 = FUNCTION AngleFactory-getInstance0
+    COMPUTE BasicTerrainInfo-jcell-NULL_BASIC_TERRAIN_INFO = FUNCTION BasicTerrainInfo-new1(FUNCTION JR-GET(jtemp1, "f_NOT_ANGLE"))
+    END-IF
+    MOVE BasicTerrainInfo-jcell-NULL_BASIC_TERRAIN_INFO TO J-RESULT
+    GOBACK.
+END FUNCTION BscTrrnInf-sttc-NULL-43958.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscTrrnInfsttcNULL43S54474.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BasicTerrainInfo-jcell-NULL_BASIC_TERRAIN_INFO BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION BscTrrnInf-sttc-NULL-43958 TO J-RESULT
+    MOVE J-VALUE TO BasicTerrainInfo-jcell-NULL_BASIC_TERRAIN_INFO
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION BscTrrnInfsttcNULL43S54474.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Angle;
-
-type
-  {AB:TYPES}
-  TBasicTerrainInfo = class(TObject)
-  public
-    angle: TAngle;
-    class var NULL_BASIC_TERRAIN_INFO: TBasicTerrainInfo;
-    procedure InitFields;
-        constructor Create(angle_: TAngle);
-        function getAngle: TAngle; virtual;
-        procedure setAngle(angle_: TAngle); virtual;
-  end;
-
-implementation
-uses
-  AngleFactory;
-
-
-{AB:CODE}
-
-procedure TBasicTerrainInfo.InitFields;
-begin
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicTerrainInfo-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-angle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-angle RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("BasicTerrainInfo")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_angle")
     
+        COMPUTE JVALUE = J-angle
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_angle", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION BasicTerrainInfo-new1.
 
-constructor TBasicTerrainInfo.Create(angle_: TAngle);
-begin
-    inherited Create;
-    InitFields;
-        Self.angle := angle_;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicTerrainInfo-getAngle0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_angle")
+        GOBACK
+    GOBACK.
+END FUNCTION BasicTerrainInfo-getAngle0.
 
-function TBasicTerrainInfo.getAngle: TAngle;
-begin
-        Exit(Self.angle);
-end;
-    
-
-procedure TBasicTerrainInfo.setAngle(angle_: TAngle);
-begin
-        Self.angle := angle_;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TBasicTerrainInfo.NULL_BASIC_TERRAIN_INFO := TBasicTerrainInfo.Create(TAngleFactory.getInstance().NOT_ANGLE);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicTerrainInfo-setAngle1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-angle RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-angle
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_angle", JVALUE)
+    GOBACK.
+END FUNCTION BasicTerrainInfo-setAngle1.
 

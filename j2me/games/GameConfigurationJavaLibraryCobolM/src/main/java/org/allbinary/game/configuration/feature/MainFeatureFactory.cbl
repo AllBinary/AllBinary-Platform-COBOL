@@ -1,74 +1,125 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.configuration.feature
+*> Java class MainFeatureFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.configuration.feature
-unit MainFeatureFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MnFtrFctry-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 MainFeatureFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 MainFeatureFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF MainFeatureFactory-jset-instance = 0
+        MOVE 1 TO MainFeatureFactory-jset-instance
+        COMPUTE MainFeatureFactory-jcell-instance = FUNCTION MainFeatureFactory-new0
+    END-IF
+    MOVE MainFeatureFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION MnFtrFctry-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MnFtrFctrystaticinstS63260.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 MainFeatureFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION MnFtrFctry-static-instance TO J-RESULT
+    MOVE J-VALUE TO MainFeatureFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION MnFtrFctrystaticinstS63260.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MainFeatureFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("MainFeatureFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_FULL_SCREEN")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_TITLE_BAR")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_STATIC")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_LOAD_ONDEMAND")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_LOAD_ALL")
+    COMPUTE JVALUE = FUNCTION Feature-new1(FUNCTION JR-STR("Full Screen"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_FULL_SCREEN", JVALUE)
+    COMPUTE JVALUE = FUNCTION Feature-new1(FUNCTION JR-STR("Title Bar"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_TITLE_BAR", JVALUE)
+    COMPUTE JVALUE = FUNCTION Feature-new1(FUNCTION JR-STR("Static Dependent Feature"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_STATIC", JVALUE)
+    COMPUTE JVALUE = FUNCTION Feature-new1(FUNCTION JR-STR("Load OnDemand"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_LOAD_ONDEMAND", JVALUE)
+    COMPUTE JVALUE = FUNCTION Feature-new1(FUNCTION JR-STR("Load All"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_LOAD_ALL", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION MainFeatureFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Feature;
-
-type
-  {AB:TYPES}
-  TMainFeatureFactory = class(TObject)
-  public
-    FULL_SCREEN: TFeature;
-    TITLE_BAR: TFeature;
-    STATIC_: TFeature;
-    LOAD_ONDEMAND: TFeature;
-    LOAD_ALL: TFeature;
-    class var instance: TMainFeatureFactory;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TMainFeatureFactory; static;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TMainFeatureFactory.InitFields;
-begin
-  Self.FULL_SCREEN := TFeature.Create('Full Screen');
-  Self.TITLE_BAR := TFeature.Create('Title Bar');
-  Self.STATIC_ := TFeature.Create('Static Dependent Feature');
-  Self.LOAD_ONDEMAND := TFeature.Create('Load OnDemand');
-  Self.LOAD_ALL := TFeature.Create('Load All');
-end;
-
-constructor TMainFeatureFactory.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TMainFeatureFactory.getInstance: TMainFeatureFactory;
-begin
-        Exit(TMainFeatureFactory.instance);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TMainFeatureFactory.instance := TMainFeatureFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MnFtrFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION MnFtrFctry-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION MnFtrFctry-getInstance0.
 

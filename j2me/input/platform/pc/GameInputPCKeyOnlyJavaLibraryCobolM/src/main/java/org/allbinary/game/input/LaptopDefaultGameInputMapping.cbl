@@ -1,107 +1,88 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.input
+*> Java class LaptopDefaultGameInputMapping
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.input
-unit LaptopDefaultGameInputMapping;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, PersistentInputMapping;
-
-type
-  {AB:TYPES}
-  TLaptopDefaultGameInputMapping = class(TPersistentInputMapping)
-  public
-        constructor Create;
-  end;
-
-implementation
-uses
-  PCKeyFactory, GameKeyFactory, GamePersistanceStrings, InputToGameKeyMapping;
-
-
-{AB:CODE}
-    
-
-constructor TLaptopDefaultGameInputMapping.Create;
-var
-  inputToGameKeyMapping_: TInputToGameKeyMapping;
-  pcKeyFactory_: TPCKeyFactory;
-  gameKeyFactory_: TGameKeyFactory;
-begin
-        inherited Create(TGamePersistanceStrings.getInstance().DEFAULT_INPUT_MAPPING_RECORD_ID);
-        inputToGameKeyMapping_ := Self.getInputMapping();
-        pcKeyFactory_ := TPCKeyFactory.getInstance();
-        gameKeyFactory_ := TGameKeyFactory.getInstance();
-        inputToGameKeyMapping_.add(gameKeyFactory_.FIRE, pcKeyFactory_.ENTER);
-        inputToGameKeyMapping_.add(gameKeyFactory_.KEY_NUM1, pcKeyFactory_.FOUR);
-        inputToGameKeyMapping_.add(gameKeyFactory_.KEY_NUM1, pcKeyFactory_._P);
-        inputToGameKeyMapping_.add(gameKeyFactory_.KEY_NUM1, pcKeyFactory_.p);
-        inputToGameKeyMapping_.add(gameKeyFactory_.UP, pcKeyFactory_.DPAD_UP);
-        inputToGameKeyMapping_.add(gameKeyFactory_.DOWN, pcKeyFactory_.DPAD_DOWN);
-        inputToGameKeyMapping_.add(gameKeyFactory_.LEFT, pcKeyFactory_.DPAD_LEFT);
-        inputToGameKeyMapping_.add(gameKeyFactory_.RIGHT, pcKeyFactory_.DPAD_RIGHT);
-        inputToGameKeyMapping_.add(gameKeyFactory_.KEY_NUM1, pcKeyFactory_.FIVE);
-        inputToGameKeyMapping_.add(gameKeyFactory_.KEY_NUM7, pcKeyFactory_._Y);
-        inputToGameKeyMapping_.add(gameKeyFactory_.KEY_NUM9, pcKeyFactory_._I);
-        inputToGameKeyMapping_.add(gameKeyFactory_.UP, pcKeyFactory_._U);
-        inputToGameKeyMapping_.add(gameKeyFactory_.LEFT, pcKeyFactory_._H);
-        inputToGameKeyMapping_.add(gameKeyFactory_.RIGHT, pcKeyFactory_._J);
-        inputToGameKeyMapping_.add(gameKeyFactory_.DOWN, pcKeyFactory_._N);
-        inputToGameKeyMapping_.add(gameKeyFactory_.KEY_NUM5, pcKeyFactory_._M);
-        inputToGameKeyMapping_.add(gameKeyFactory_.KEY_NUM7, pcKeyFactory_.y);
-        inputToGameKeyMapping_.add(gameKeyFactory_.KEY_NUM9, pcKeyFactory_.i);
-        inputToGameKeyMapping_.add(gameKeyFactory_.UP, pcKeyFactory_.u);
-        inputToGameKeyMapping_.add(gameKeyFactory_.LEFT, pcKeyFactory_.h);
-        inputToGameKeyMapping_.add(gameKeyFactory_.RIGHT, pcKeyFactory_.j);
-        inputToGameKeyMapping_.add(gameKeyFactory_.DOWN, pcKeyFactory_.n);
-        inputToGameKeyMapping_.add(gameKeyFactory_.KEY_NUM5, pcKeyFactory_.m);
-        inputToGameKeyMapping_.add(gameKeyFactory_.KEY_NUM7, pcKeyFactory_._Q);
-        inputToGameKeyMapping_.add(gameKeyFactory_.KEY_NUM9, pcKeyFactory_._E);
-        inputToGameKeyMapping_.add(gameKeyFactory_.UP, pcKeyFactory_._W);
-        inputToGameKeyMapping_.add(gameKeyFactory_.LEFT, pcKeyFactory_._A);
-        inputToGameKeyMapping_.add(gameKeyFactory_.RIGHT, pcKeyFactory_._D);
-        inputToGameKeyMapping_.add(gameKeyFactory_.DOWN, pcKeyFactory_._S);
-        inputToGameKeyMapping_.add(gameKeyFactory_.KEY_NUM5, pcKeyFactory_._X);
-        inputToGameKeyMapping_.add(gameKeyFactory_.KEY_NUM7, pcKeyFactory_.q);
-        inputToGameKeyMapping_.add(gameKeyFactory_.KEY_NUM9, pcKeyFactory_.e);
-        inputToGameKeyMapping_.add(gameKeyFactory_.UP, pcKeyFactory_.w);
-        inputToGameKeyMapping_.add(gameKeyFactory_.LEFT, pcKeyFactory_.a);
-        inputToGameKeyMapping_.add(gameKeyFactory_.RIGHT, pcKeyFactory_.d);
-        inputToGameKeyMapping_.add(gameKeyFactory_.DOWN, pcKeyFactory_.s);
-        inputToGameKeyMapping_.add(gameKeyFactory_.KEY_NUM5, pcKeyFactory_.x);
-        inputToGameKeyMapping_.add(gameKeyFactory_.KEY_NUM3, pcKeyFactory_.THREE);
-        inputToGameKeyMapping_.add(gameKeyFactory_.KEY_NUM0, pcKeyFactory_.ZERO);
-        inputToGameKeyMapping_.add(gameKeyFactory_.KEY_NUM0, pcKeyFactory_.ONE);
-        inputToGameKeyMapping_.add(gameKeyFactory_.KEY_NUM0, pcKeyFactory_.SPACE);
-        inputToGameKeyMapping_.add(gameKeyFactory_.KEY_POUND, pcKeyFactory_.DEL);
-        inputToGameKeyMapping_.add(gameKeyFactory_.KEY_POUND, pcKeyFactory_.TWO);
-        inputToGameKeyMapping_.add(gameKeyFactory_.KEY_STAR, pcKeyFactory_.ESCAPE);
-        inputToGameKeyMapping_.add(gameKeyFactory_.KEY_STAR, pcKeyFactory_.STAR);
-        inputToGameKeyMapping_.add(gameKeyFactory_.LEVEL_DOWN, pcKeyFactory_.COMMA);
-        inputToGameKeyMapping_.add(gameKeyFactory_.LEVEL_UP, pcKeyFactory_.PERIOD);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LptpDfltGmInptMppng-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-inputToGameKeyMapping BINARY-DOUBLE.
+01 J-pcKeyFactory BINARY-DOUBLE.
+01 J-gameKeyFactory BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("LaptopDefaultGameInputMapping")
+        COMPUTE jtemp1 = FUNCTION GmPrsstncStrngs-getInstance0
+        CONTINUE
+        COMPUTE J-inputToGameKeyMapping = FUNCTION PrsstntInptMppng-gtInptMppng0(J-THIS)
+        COMPUTE J-pcKeyFactory = FUNCTION PCKeyFactory-getInstance0
+        COMPUTE J-gameKeyFactory = FUNCTION GameKeyFactory-getInstance0
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_FIRE"), FUNCTION JR-GET(J-pcKeyFactory, "f_ENTER"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM1"), FUNCTION JR-GET(J-pcKeyFactory, "f_FOUR"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM1"), FUNCTION JR-GET(J-pcKeyFactory, "f__P"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM1"), FUNCTION JR-GET(J-pcKeyFactory, "f_p"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_UP"), FUNCTION JR-GET(J-pcKeyFactory, "f_DPAD_UP"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_DOWN"), FUNCTION JR-GET(J-pcKeyFactory, "f_DPAD_DOWN"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_LEFT"), FUNCTION JR-GET(J-pcKeyFactory, "f_DPAD_LEFT"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_RIGHT"), FUNCTION JR-GET(J-pcKeyFactory, "f_DPAD_RIGHT"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM1"), FUNCTION JR-GET(J-pcKeyFactory, "f_FIVE"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM7"), FUNCTION JR-GET(J-pcKeyFactory, "f__Y"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM9"), FUNCTION JR-GET(J-pcKeyFactory, "f__I"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_UP"), FUNCTION JR-GET(J-pcKeyFactory, "f__U"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_LEFT"), FUNCTION JR-GET(J-pcKeyFactory, "f__H"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_RIGHT"), FUNCTION JR-GET(J-pcKeyFactory, "f__J"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_DOWN"), FUNCTION JR-GET(J-pcKeyFactory, "f__N"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM5"), FUNCTION JR-GET(J-pcKeyFactory, "f__M"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM7"), FUNCTION JR-GET(J-pcKeyFactory, "f_y"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM9"), FUNCTION JR-GET(J-pcKeyFactory, "f_i"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_UP"), FUNCTION JR-GET(J-pcKeyFactory, "f_u"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_LEFT"), FUNCTION JR-GET(J-pcKeyFactory, "f_h"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_RIGHT"), FUNCTION JR-GET(J-pcKeyFactory, "f_j"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_DOWN"), FUNCTION JR-GET(J-pcKeyFactory, "f_n"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM5"), FUNCTION JR-GET(J-pcKeyFactory, "f_m"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM7"), FUNCTION JR-GET(J-pcKeyFactory, "f__Q"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM9"), FUNCTION JR-GET(J-pcKeyFactory, "f__E"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_UP"), FUNCTION JR-GET(J-pcKeyFactory, "f__W"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_LEFT"), FUNCTION JR-GET(J-pcKeyFactory, "f__A"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_RIGHT"), FUNCTION JR-GET(J-pcKeyFactory, "f__D"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_DOWN"), FUNCTION JR-GET(J-pcKeyFactory, "f__S"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM5"), FUNCTION JR-GET(J-pcKeyFactory, "f__X"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM7"), FUNCTION JR-GET(J-pcKeyFactory, "f_q"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM9"), FUNCTION JR-GET(J-pcKeyFactory, "f_e"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_UP"), FUNCTION JR-GET(J-pcKeyFactory, "f_w"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_LEFT"), FUNCTION JR-GET(J-pcKeyFactory, "f_a"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_RIGHT"), FUNCTION JR-GET(J-pcKeyFactory, "f_d"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_DOWN"), FUNCTION JR-GET(J-pcKeyFactory, "f_s"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM5"), FUNCTION JR-GET(J-pcKeyFactory, "f_x"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM3"), FUNCTION JR-GET(J-pcKeyFactory, "f_THREE"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM0"), FUNCTION JR-GET(J-pcKeyFactory, "f_ZERO"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM0"), FUNCTION JR-GET(J-pcKeyFactory, "f_ONE"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM0"), FUNCTION JR-GET(J-pcKeyFactory, "f_SPACE"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_POUND"), FUNCTION JR-GET(J-pcKeyFactory, "f_DEL"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_POUND"), FUNCTION JR-GET(J-pcKeyFactory, "f_TWO"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_STAR"), FUNCTION JR-GET(J-pcKeyFactory, "f_ESCAPE"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_STAR"), FUNCTION JR-GET(J-pcKeyFactory, "f_STAR"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_LEVEL_DOWN"), FUNCTION JR-GET(J-pcKeyFactory, "f_COMMA"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_LEVEL_UP"), FUNCTION JR-GET(J-pcKeyFactory, "f_PERIOD"))
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION LptpDfltGmInptMppng-new0.
 

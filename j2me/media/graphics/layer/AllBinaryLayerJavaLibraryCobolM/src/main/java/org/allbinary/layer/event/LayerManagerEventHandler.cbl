@@ -1,178 +1,350 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.layer.event
+*> Java class LayerManagerEventHandler
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.layer.event
-unit LayerManagerEventHandler;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LyrMngrEvntHndlr-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 LayerManagerEventHandler-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 LayerManagerEventHandler-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF LayerManagerEventHandler-jset-instance = 0
+        MOVE 1 TO LayerManagerEventHandler-jset-instance
+        COMPUTE LayerManagerEventHandler-jcell-instance = FUNCTION LayerManagerEventHandler-new0
+    END-IF
+    MOVE LayerManagerEventHandler-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION LyrMngrEvntHndlr-sttc-nstnc.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LyrMngrEvntHndlrsttcS92103.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 LayerManagerEventHandler-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION LyrMngrEvntHndlr-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO LayerManagerEventHandler-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION LyrMngrEvntHndlrsttcS92103.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LayerManagerEventHandler-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("LayerManagerEventHandler")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_list")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_CREATE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DELETE")
+    COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Create")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_CREATE", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Delete")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DELETE", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION LayerManagerEventHandler-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AllBinaryEventObject, EventListenerInterface, BasicEventHandler, BasicArrayList, LayerManagerEventListener;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LyrMngrEvntHndlr-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION LyrMngrEvntHndlr-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION LyrMngrEvntHndlr-getInstance0.
 
-type
-  {AB:TYPES}
-  TLayerManagerEventHandler = class(TBasicEventHandler)
-  public
-    list: TBasicArrayList;
-    CREATE_: string;
-    DELETE_: string;
-    class var instance: TLayerManagerEventHandler;
-    procedure InitFields;
-        class function getInstance: TLayerManagerEventHandler; static;
-        constructor Create;
-        procedure addListener(layerManagerEventListener_: TLayerManagerEventListener); virtual;
-        procedure removeAllListeners; override;
-        procedure removeListener(eventListenerInterface_: IEventListenerInterface); override;
-        procedure fireEvent(eventObject: TAllBinaryEventObject); override;
-        procedure fireDeleteEvent(eventObject: TAllBinaryEventObject); virtual;
-        procedure process(eventObject: TAllBinaryEventObject; eventListenerInterface_: IEventListenerInterface); override;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LyrMngrEvntHndlr-addListener1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerManagerEventListener BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerManagerEventListener RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (NOT (FUNCTION BasicArrayList-contains1(FUNCTION JR-GET(J-THIS, "f_list"), J-layerManagerEventListener) = 1))
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), J-layerManagerEventListener)
+        END-IF
+    GOBACK.
+END FUNCTION LyrMngrEvntHndlr-addListener1.
 
-implementation
-uses
-  LayerManagerEvent, LayerManagerEventListenerInterface, EventStrings, BasicArrayListD;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LyrMngrEvntHndlr-rmvAllLstnrs0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-clear0(FUNCTION JR-GET(J-THIS, "f_list"))
+        COMPUTE JDISCARD = FUNCTION BscEvntHndlr-rmvAllLstnrs0(J-THIS)
+    GOBACK.
+END FUNCTION LyrMngrEvntHndlr-rmvAllLstnrs0.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LyrMngrEvntHndlr-rmvLstnr1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventListenerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventListenerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-remove1(FUNCTION JR-GET(J-THIS, "f_list"), J-eventListenerInterface)
+        COMPUTE JDISCARD = FUNCTION BscEvntHndlr-removeListener1(J-THIS, J-eventListenerInterface)
+    GOBACK.
+END FUNCTION LyrMngrEvntHndlr-rmvLstnr1.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LyrMngrEvntHndlr-fireEvent1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-layerManagerEventListener BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp3 = J-index
+        COMPUTE J-index = FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_list"))
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            MOVE 0 TO JFIRST1
+            IF NOT (jtemp3 >= 0) EXIT PERFORM END-IF
+            CONTINUE
+                COMPUTE J-layerManagerEventListener = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_list"), "f_objectArray"), J-index)
+                COMPUTE jtemp1 = J-eventObject
+                COMPUTE JDISCARD = FUNCTION LyrMngrEvntLstnr-onCrtLyr16096(J-layerManagerEventListener, jtemp1)
+        END-PERFORM
+        COMPUTE JDISCARD = FUNCTION BasicEventHandler-fireEvent1(J-THIS, J-eventObject)
+    GOBACK.
+END FUNCTION LyrMngrEvntHndlr-fireEvent1.
 
-procedure TLayerManagerEventHandler.InitFields;
-begin
-  Self.list := TBasicArrayListD.Create();
-  Self.CREATE_ := 'Create';
-  Self.DELETE_ := 'Delete';
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LyrMngrEvntHndlr-frDltEvnt1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-layerManagerEventListener BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-eventListenerInterfaceList BINARY-DOUBLE.
+01 J-eventListenerInterface BINARY-DOUBLE.
+01 J-layerManagerEventListenerInterface BINARY-DOUBLE.
+01 J-listenerIndex BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp6 = J-index
+        COMPUTE J-index = FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_list"))
+        MOVE 1 TO JFIRST2
+        PERFORM FOREVER
+            MOVE 0 TO JFIRST2
+            IF NOT (jtemp6 >= 0) EXIT PERFORM END-IF
+            CONTINUE
+                COMPUTE J-layerManagerEventListener = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_list"), "f_objectArray"), J-index)
+                COMPUTE jtemp4 = J-eventObject
+                COMPUTE JDISCARD = FUNCTION LyrMngrEvntLstnr-onDltLyr95162(J-layerManagerEventListener, jtemp4)
+        END-PERFORM
+        COMPUTE J-eventListenerInterfaceList = FUNCTION JR-GET(J-THIS, "f_eventListenerInterfaceList")
+        CONTINUE
+        CONTINUE
+        COMPUTE J-listenerIndex = 0
+        PERFORM FOREVER
+            IF NOT (J-listenerIndex < FUNCTION BasicArrayList-size0(J-eventListenerInterfaceList)) EXIT PERFORM END-IF
+            CONTINUE
+                COMPUTE J-eventListenerInterface = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-eventListenerInterfaceList, "f_objectArray"), J-listenerIndex)
+                COMPUTE J-layerManagerEventListenerInterface = (J-eventListenerInterface)
+                COMPUTE jtemp7 = J-eventObject
+                COMPUTE JDISCARD = FUNCTION LyrMngrEvntLstnrIntrfc-on11668(J-layerManagerEventListenerInterface, jtemp7)
+            COMPUTE J-listenerIndex = (FUNCTION MOD(J-listenerIndex + 1 + 2147483648, 4294967296) - 2147483648)
+        END-PERFORM
+    GOBACK.
+END FUNCTION LyrMngrEvntHndlr-frDltEvnt1.
 
-class function TLayerManagerEventHandler.getInstance: TLayerManagerEventHandler;
-begin
-        Exit(TLayerManagerEventHandler.instance);
-end;
-    
-
-constructor TLayerManagerEventHandler.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
-
-procedure TLayerManagerEventHandler.addListener(layerManagerEventListener_: TLayerManagerEventListener);
-begin
-        if not (Self.list.contains(TJava.Box(layerManagerEventListener_))) then begin
-            Self.list.add(TJava.Box(layerManagerEventListener_));
-        end;
-end;
-    
-
-procedure TLayerManagerEventHandler.removeAllListeners;
-begin
-        Self.list.clear();
-        inherited removeAllListeners();
-end;
-    
-
-procedure TLayerManagerEventHandler.removeListener(eventListenerInterface_: IEventListenerInterface);
-begin
-        Self.list.remove(TJava.ToObject(eventListenerInterface_));
-        inherited removeListener(eventListenerInterface_);
-end;
-    
-
-// throws Exception
-procedure TLayerManagerEventHandler.fireEvent(eventObject: TAllBinaryEventObject);
-var
-  layerManagerEventListener_: TLayerManagerEventListener;
-  index: Integer;
-begin
-        index := Self.list.size();
-        while (TJava.PreDec(index)) >= (0) do begin
-            try
-                layerManagerEventListener_ := TLayerManagerEventListener(TJava.ToObject(Self.list.objectArray[index]));
-                layerManagerEventListener_.onCreateLayerManagerEvent(TLayerManagerEvent(TJava.ToObject(eventObject)));
-            except
-                on e: SysUtils.Exception do begin
-                Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), TEventStrings.getInstance().FIRE_EVENT, TJava.Box(e));
-                end;
-            end;
-        end;
-        inherited fireEvent(eventObject);
-end;
-    
-
-// throws Exception
-procedure TLayerManagerEventHandler.fireDeleteEvent(eventObject: TAllBinaryEventObject);
-var
-  layerManagerEventListener_: TLayerManagerEventListener;
-  index: Integer;
-  eventListenerInterfaceList: TBasicArrayList;
-  eventListenerInterface_: IEventListenerInterface;
-  layerManagerEventListenerInterface_: ILayerManagerEventListenerInterface;
-  listenerIndex: Integer;
-begin
-    TJava.MonitorEnter(Self);
-    try
-        index := Self.list.size();
-        while (TJava.PreDec(index)) >= (0) do begin
-            try
-                layerManagerEventListener_ := TLayerManagerEventListener(TJava.ToObject(Self.list.objectArray[index]));
-                layerManagerEventListener_.onDeleteLayerManagerEvent(TLayerManagerEvent(TJava.ToObject(eventObject)));
-            except
-                on e: SysUtils.Exception do begin
-                Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), TEventStrings.getInstance().FIRE_EVENT, TJava.Box(e));
-                end;
-            end;
-        end;
-        eventListenerInterfaceList := Self.eventListenerInterfaceList;
-        
-        
-        listenerIndex := 0;
-        while (listenerIndex) < (eventListenerInterfaceList.size()) do begin
-            try
-                eventListenerInterface_ := (TJava.ToObject(eventListenerInterfaceList.objectArray[listenerIndex]) as IEventListenerInterface);
-                layerManagerEventListenerInterface_ := ((TJava.ToObject(eventListenerInterface_) as ILayerManagerEventListenerInterface));
-                layerManagerEventListenerInterface_.onDeleteLayerManagerEvent(TLayerManagerEvent(TJava.ToObject(eventObject)));
-            except
-                on e: SysUtils.Exception do begin
-                Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), TEventStrings.getInstance().FIRE_EVENT, TJava.Box(e));
-                end;
-            end;
-            Inc(listenerIndex);
-        end;
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
-
-// throws Exception
-procedure TLayerManagerEventHandler.process(eventObject: TAllBinaryEventObject; eventListenerInterface_: IEventListenerInterface);
-var
-  layerManagerEventListenerInterface_: ILayerManagerEventListenerInterface;
-begin
-        layerManagerEventListenerInterface_ := ((TJava.ToObject(eventListenerInterface_) as ILayerManagerEventListenerInterface));
-        layerManagerEventListenerInterface_.onCreateLayerManagerEvent(TLayerManagerEvent(TJava.ToObject(eventObject)));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TLayerManagerEventHandler.instance := TLayerManagerEventHandler.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LyrMngrEvntHndlr-process2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-layerManagerEventListenerInterface BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-eventListenerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject J-eventListenerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-layerManagerEventListenerInterface = (J-eventListenerInterface)
+        COMPUTE jtemp9 = J-eventObject
+        COMPUTE JDISCARD = FUNCTION LyrMngrEvntLstnrIntrfc-on32715(J-layerManagerEventListenerInterface, jtemp9)
+    GOBACK.
+END FUNCTION LyrMngrEvntHndlr-process2.
 

@@ -1,215 +1,388 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.business.init
+*> Java class LicenseInitInfoUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.business.init
-unit LicenseInitInfoUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LcnsIntInfUtl-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 LicenseInitInfoUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 LicenseInitInfoUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF LicenseInitInfoUtil-jset-instance = 0
+        MOVE 1 TO LicenseInitInfoUtil-jset-instance
+        COMPUTE LicenseInitInfoUtil-jcell-instance = FUNCTION LicenseInitInfoUtil-new0
+    END-IF
+    MOVE LicenseInitInfoUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION LcnsIntInfUtl-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LcnsIntInfUtlstaticiS11001.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 LicenseInitInfoUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION LcnsIntInfUtl-static-instance TO J-RESULT
+    MOVE J-VALUE TO LicenseInitInfoUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION LcnsIntInfUtlstaticiS11001.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LicenseInitInfoUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("LicenseInitInfoUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_stringUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_INITFILENAME")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ABOUT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_PRIVACY_POLICY")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_filePath")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION StringUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_stringUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("licenseinitdata.dat")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_INITFILENAME", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("about")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ABOUT", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("privacy_policy")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_PRIVACY_POLICY", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_stringUtil"), "f_EMPTY_STRING")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_filePath", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION LicenseInitInfoUtil-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LogUtil, StringUtil, LicenseInitInfo;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LcnsIntInfUtl-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION LcnsIntInfUtl-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION LcnsIntInfUtl-getInstance0.
 
-type
-  {AB:TYPES}
-  TLicenseInitInfoUtil = class(TObject)
-  public
-    logUtil: TLogUtil;
-    stringUtil: TStringUtil;
-    INITFILENAME: string;
-    ABOUT: string;
-    PRIVACY_POLICY: string;
-    filePath: string;
-    class var instance: TLicenseInitInfoUtil;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TLicenseInitInfoUtil; static;
-        procedure setFilePath(filePath: string); virtual;
-        procedure write(initData: TLicenseInitInfo); virtual;
-        function read: TLicenseInitInfo; virtual;
-        function readAgain(initializeCounter: Integer): TLicenseInitInfo; virtual;
-        function getFilePath: string; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LcnsIntInfUtl-setFilePath1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-filePath BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-filePath RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-filePath
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_filePath", JVALUE)
+    GOBACK.
+END FUNCTION LcnsIntInfUtl-setFilePath1.
 
-implementation
-uses
-  TsUtil, PATH_GLOBALS, URLGLOBALS, AbDataInputStream, AbDataOutputStream, AbFileInputStream, DataOutputStreamFactory, FileStreamFactory, StringMaker, DatabaseEncoder, WeakCrypt, CommonLabels;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LicenseInitInfoUtil-write1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-tsUtil BINARY-DOUBLE.
+01 J-dataOutputStream BINARY-DOUBLE.
+01 J-licenseIdCrypted BINARY-DOUBLE.
+01 J-numberOfLicenseServers BINARY-DOUBLE.
+01 J-licenseServerCrypted BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-initData BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-initData RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION JR-GET(J-THIS, "f_filePath") = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_stringUtil"), "f_EMPTY_STRING"))
+            COMPUTE jtemp1 = FUNCTION PATH-GLOBALS-getInstance0
+            COMPUTE JVALUE = FUNCTION JR-CONCAT(FUNCTION URLGLOBALS-getMainPath0, FUNCTION JR-GET(jtemp1, "f_INIT_PATH"))
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_filePath", JVALUE)
+        END-IF
+        CONTINUE
+            COMPUTE J-tsUtil = FUNCTION TsUtil-getInstance0
+            COMPUTE jtemp2 = FUNCTION DtOtptStrmFctry-getInstance0
+            COMPUTE J-dataOutputStream = FUNCTION DtOtptStrmFctry-getInstance2(jtemp2, FUNCTION JR-GET(J-THIS, "f_filePath"), FUNCTION JR-GET(J-THIS, "f_INITFILENAME"))
+            COMPUTE jtemp4 = 1
+            COMPUTE jtemp3 = FUNCTION WeakCrypt-new1(jtemp4)
+            COMPUTE J-licenseIdCrypted = FUNCTION TsUtil-getByteArray1(J-tsUtil, FUNCTION WeakCrypt-encrypt1(jtemp3, FUNCTION LicenseInitInfo-getLicenseId0(J-initData)))
+            COMPUTE JDISCARD = FUNCTION DataOutputStream-writeUTF1(J-dataOutputStream, FUNCTION DatabaseEncoder-encode1(J-licenseIdCrypted))
+            COMPUTE J-numberOfLicenseServers = FUNCTION LcnsIntInf-getNumberOfServers0(J-initData)
+            COMPUTE JDISCARD = FUNCTION DataOutputStream-writeInt1(J-dataOutputStream, J-numberOfLicenseServers)
+            CONTINUE
+            COMPUTE J-index = 0
+            MOVE 1 TO JFIRST1
+            PERFORM FOREVER
+                IF JFIRST1 = 0
+                    COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+                END-IF
+                MOVE 0 TO JFIRST1
+                IF NOT (J-index < J-numberOfLicenseServers) EXIT PERFORM END-IF
+                COMPUTE jtemp6 = 3
+                COMPUTE jtemp5 = FUNCTION WeakCrypt-new1(jtemp6)
+                COMPUTE J-licenseServerCrypted = FUNCTION TsUtil-getByteArray1(J-tsUtil, FUNCTION WeakCrypt-encrypt1(jtemp5, FUNCTION LicenseInitInfo-getServer1(J-initData, J-index)))
+                COMPUTE JDISCARD = FUNCTION DataOutputStream-writeUTF1(J-dataOutputStream, FUNCTION DatabaseEncoder-encode1(J-licenseServerCrypted))
+            END-PERFORM
+    GOBACK.
+END FUNCTION LicenseInitInfoUtil-write1.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LicenseInitInfoUtil-read0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp9 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp9 = 0
+        COMPUTE J-RESULT = FUNCTION LicenseInitInfoUtil-readAgain1(J-THIS, jtemp9)
+        GOBACK
+    GOBACK.
+END FUNCTION LicenseInitInfoUtil-read0.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LicenseInitInfoUtil-readAgain1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-METHOD_NAME BINARY-DOUBLE.
+01 J-fileStreamFactory BINARY-DOUBLE.
+01 J-iFile BINARY-DOUBLE.
+01 J-iData BINARY-DOUBLE.
+01 J-initInfo BINARY-DOUBLE.
+01 J-decodedByteArray BINARY-DOUBLE.
+01 J-licenseIdDecoded BINARY-DOUBLE.
+01 J-numberOfLicenseServers BINARY-DOUBLE.
+01 J-NEXT_FILE BINARY-DOUBLE.
+01 J-licenseServerDecoded BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+01 jtemp18 BINARY-DOUBLE.
+01 jtemp19 BINARY-DOUBLE.
+01 jtemp20 BINARY-DOUBLE.
+01 jtemp21 BINARY-DOUBLE.
+01 jtemp22 BINARY-DOUBLE.
+01 jtemp23 BINARY-DOUBLE.
+01 jtemp24 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-initializeCounter BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-initializeCounter RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-METHOD_NAME = FUNCTION JR-STR("readAgain")
+        IF (FUNCTION JR-GET(J-THIS, "f_filePath") = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_stringUtil"), "f_EMPTY_STRING"))
+            COMPUTE jtemp10 = FUNCTION PATH-GLOBALS-getInstance0
+            COMPUTE JVALUE = FUNCTION JR-CONCAT(FUNCTION URLGLOBALS-getMainPath0, FUNCTION JR-GET(jtemp10, "f_INIT_PATH"))
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_filePath", JVALUE)
+        END-IF
+        CONTINUE
+            COMPUTE jtemp11 = FUNCTION JR-CONCAT(FUNCTION JR-STR("LicenseInitInfo File: "), FUNCTION JR-GET(J-THIS, "f_INITFILENAME"))
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), jtemp11, J-THIS, J-METHOD_NAME)
+            COMPUTE J-fileStreamFactory = FUNCTION FileStreamFactory-getInstance0
+            COMPUTE J-iFile = FUNCTION FlStrmFctry-gtFlInptStrmI54889(J-fileStreamFactory, FUNCTION JR-GET(J-THIS, "f_filePath"), FUNCTION JR-GET(J-THIS, "f_INITFILENAME"))
+            IF (J-iFile NOT = 0)
+                COMPUTE J-iData = FUNCTION AbDataInputStream-new1(J-iFile)
+                COMPUTE J-initInfo = FUNCTION LicenseInitInfo-new0
+                COMPUTE J-decodedByteArray = FUNCTION DatabaseEncoder-decode1(FUNCTION DataInputStream-readUTF0(J-iData))
+                COMPUTE J-licenseIdDecoded = J-decodedByteArray
+                COMPUTE jtemp14 = 1
+                COMPUTE jtemp13 = FUNCTION WeakCrypt-new1(jtemp14)
+                COMPUTE JDISCARD = FUNCTION LicenseInitInfo-setLicenseId1(J-initInfo, FUNCTION WeakCrypt-decrypt1(jtemp13, J-licenseIdDecoded))
+                COMPUTE J-numberOfLicenseServers = FUNCTION DataInputStream-readInt0(J-iData)
+                COMPUTE jtemp18 = FUNCTION CommonLabels-getInstance0
+                COMPUTE jtemp17 = FUNCTION StringMaker-new0
+                COMPUTE jtemp16 = FUNCTION StringMaker-append1(jtemp17, FUNCTION JR-GET(jtemp18, "f_NEXT"))
+                COMPUTE jtemp15 = FUNCTION StringMaker-append1(jtemp16, FUNCTION JR-STR(" License Server From File: "))
+                COMPUTE J-NEXT_FILE = FUNCTION JR-TO-STRING(jtemp15)
+                CONTINUE
+                COMPUTE J-index = 0
+                MOVE 1 TO JFIRST2
+                PERFORM FOREVER
+                    IF JFIRST2 = 0
+                        COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+                    END-IF
+                    MOVE 0 TO JFIRST2
+                    IF NOT (J-index < J-numberOfLicenseServers) EXIT PERFORM END-IF
+                    COMPUTE J-decodedByteArray = FUNCTION DatabaseEncoder-decode1(FUNCTION DataInputStream-readUTF0(J-iData))
+                    COMPUTE J-licenseServerDecoded = J-decodedByteArray
+                    COMPUTE jtemp20 = 3
+                    COMPUTE jtemp19 = FUNCTION WeakCrypt-new1(jtemp20)
+                    COMPUTE JDISCARD = FUNCTION LicenseInitInfo-setServer2(J-initInfo, FUNCTION WeakCrypt-decrypt1(jtemp19, J-licenseServerDecoded), J-index)
+                    COMPUTE jtemp21 = FUNCTION JR-CONCAT(J-NEXT_FILE, FUNCTION LicenseInitInfo-getServer1(J-initInfo, J-index))
+                    COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), jtemp21, J-THIS, J-METHOD_NAME)
+                END-PERFORM
+                COMPUTE J-RESULT = J-initInfo
+                GOBACK
+            ELSE
+                COMPUTE jtemp12 = FUNCTION JR-CONCAT(FUNCTION JR-STR("Could Not Load License InitInfo: "), FUNCTION JR-GET(J-THIS, "f_INITFILENAME"))
+                COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+            END-IF
+    GOBACK.
+END FUNCTION LicenseInitInfoUtil-readAgain1.
 
-procedure TLicenseInitInfoUtil.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.stringUtil := TStringUtil.getInstance();
-  Self.INITFILENAME := 'licenseinitdata.dat';
-  Self.ABOUT := 'about';
-  Self.PRIVACY_POLICY := 'privacy_policy';
-  Self.filePath := Self.stringUtil.EMPTY_STRING;
-end;
-
-constructor TLicenseInitInfoUtil.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TLicenseInitInfoUtil.getInstance: TLicenseInitInfoUtil;
-begin
-        Exit(TLicenseInitInfoUtil.instance);
-end;
-    
-
-procedure TLicenseInitInfoUtil.setFilePath(filePath: string);
-begin
-    TJava.MonitorEnter(Self);
-    try
-        Self.filePath := filePath;
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
-
-// throws Exception
-procedure TLicenseInitInfoUtil.write(initData: TLicenseInitInfo);
-var
-  tsUtil_: TTsUtil;
-  dataOutputStream: TAbDataOutputStream;
-  licenseIdCrypted: TArray<ShortInt>;
-  numberOfLicenseServers: Integer;
-  licenseServerCrypted: TArray<ShortInt>;
-  index: Integer;
-begin
-    TJava.MonitorEnter(Self);
-    try
-        if TJava.Equals(Self.filePath, Self.stringUtil.EMPTY_STRING) then begin
-            Self.filePath := (TURLGLOBALS.getMainPath()) + (TPATH_GLOBALS.getInstance().INIT_PATH);
-        end;
-        try
-            tsUtil_ := TTsUtil.getInstance();
-            dataOutputStream := TDataOutputStreamFactory.getInstance().getInstance(Self.filePath, Self.INITFILENAME);
-            licenseIdCrypted := tsUtil_.getByteArray(TWeakCrypt.Create(1).encrypt(initData.getLicenseId()));
-            dataOutputStream.writeUTF(TDatabaseEncoder.encode(licenseIdCrypted));
-            numberOfLicenseServers := initData.getNumberOfServers();
-            dataOutputStream.writeInt(numberOfLicenseServers);
-            
-            for index := 0 to numberOfLicenseServers - 1 do begin
-                licenseServerCrypted := tsUtil_.getByteArray(TWeakCrypt.Create(3).encrypt(initData.getServer(index)));
-                dataOutputStream.writeUTF(TDatabaseEncoder.encode(licenseServerCrypted));
-            end;
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put('Command Failed: ' + Self.INITFILENAME, TJava.Box(Self), 'write', TJava.Box(e));
-            TFileStreamFactory.getInstance().delete_(Self.filePath, Self.INITFILENAME);
-            raise e;
-            end;
-        end;
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
-
-// throws Exception
-function TLicenseInitInfoUtil.read: TLicenseInitInfo;
-begin
-    TJava.MonitorEnter(Self);
-    try
-        Exit(Self.readAgain(0));
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
-
-// throws Exception
-function TLicenseInitInfoUtil.readAgain(initializeCounter: Integer): TLicenseInitInfo;
-var
-  METHOD_NAME: string;
-  fileStreamFactory_: TFileStreamFactory;
-  iFile: TAbFileInputStream;
-  iData: TAbDataInputStream;
-  initInfo: TLicenseInitInfo;
-  decodedByteArray: TArray<ShortInt>;
-  licenseIdDecoded: string;
-  numberOfLicenseServers: Integer;
-  NEXT_FILE: string;
-  licenseServerDecoded: string;
-  index: Integer;
-begin
-    TJava.MonitorEnter(Self);
-    try
-        METHOD_NAME := 'readAgain';
-        if TJava.Equals(Self.filePath, Self.stringUtil.EMPTY_STRING) then begin
-            Self.filePath := (TURLGLOBALS.getMainPath()) + (TPATH_GLOBALS.getInstance().INIT_PATH);
-        end;
-        try
-            Self.logUtil.putF('LicenseInitInfo File: ' + Self.INITFILENAME, TJava.Box(Self), METHOD_NAME);
-            fileStreamFactory_ := TFileStreamFactory.getInstance();
-            iFile := fileStreamFactory_.getFileInputStreamInstance(Self.filePath, Self.INITFILENAME);
-            if (iFile) <> (nil) then begin
-                iData := TAbDataInputStream.Create(iFile);
-                initInfo := TLicenseInitInfo.Create();
-                decodedByteArray := TDatabaseEncoder.decode(iData.readUTF());
-                licenseIdDecoded := TJava.NewString(decodedByteArray);
-                initInfo.setLicenseId(TWeakCrypt.Create(1).decrypt(licenseIdDecoded));
-                numberOfLicenseServers := iData.readInt();
-                NEXT_FILE := TStringMaker.Create().append(TCommonLabels.getInstance().NEXT).append(' License Server From File: ').toString();
-                
-                for index := 0 to numberOfLicenseServers - 1 do begin
-                    decodedByteArray := TDatabaseEncoder.decode(iData.readUTF());
-                    licenseServerDecoded := TJava.NewString(decodedByteArray);
-                    initInfo.setServer(TWeakCrypt.Create(3).decrypt(licenseServerDecoded), index);
-                    Self.logUtil.putF(NEXT_FILE + TJava.ToString(initInfo.getServer(index)), TJava.Box(Self), METHOD_NAME);
-                end;
-                Exit(initInfo);
-            end else begin
-                raise SysUtils.Exception.Create('Could Not Load License InitInfo: ' + Self.INITFILENAME);
-            end;
-        except
-            on e: SysUtils.Exception do begin
-            try
-                Self.logUtil.put('Command Failed: ' + Self.INITFILENAME, TJava.Box(Self), METHOD_NAME, TJava.Box(e));
-            except
-                on e2: SysUtils.Exception do begin
-                Self.logUtil.put('LicenseInitInfo Read Retry: ' + Self.INITFILENAME, TJava.Box(Self), 'readAgain()', TJava.Box(e2));
-                end;
-            end;
-            raise SysUtils.Exception.Create('LicenseInitInfo Read Error: ' + Self.INITFILENAME);
-            end;
-        end;
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
-
-function TLicenseInitInfoUtil.getFilePath: string;
-begin
-        Exit(Self.filePath);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TLicenseInitInfoUtil.instance := TLicenseInitInfoUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LcnsIntInfUtl-getFilePath0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_filePath")
+        GOBACK
+    GOBACK.
+END FUNCTION LcnsIntInfUtl-getFilePath0.
 

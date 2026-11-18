@@ -1,86 +1,207 @@
-// Generated Code Do Not Modify
-// package org.allbinary.game.input.analog
-unit AnalogLocationInputFactory;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.input.analog
+*> Java class AnalogLocationInputFactory
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnlgLctnInptFctry-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AnalogLocationInputFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 AnalogLocationInputFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF AnalogLocationInputFactory-jset-instance = 0
+        MOVE 1 TO AnalogLocationInputFactory-jset-instance
+        COMPUTE AnalogLocationInputFactory-jcell-instance = FUNCTION AnlgLctnInptFctry-new0
+    END-IF
+    MOVE AnalogLocationInputFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION AnlgLctnInptFctry-sttc-nstnc.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnlgLctnInptFctrysttS66540.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AnalogLocationInputFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION AnlgLctnInptFctry-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO AnalogLocationInputFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION AnlgLctnInptFctrysttS66540.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, BasicArrayList, AnalogLocationInput;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnlgLctnInptFctry-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("AnalogLocationInputFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_list")
+    COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION AnlgLctnInptFctry-new0.
 
-type
-  {AB:TYPES}
-  TAnalogLocationInputFactory = class(TObject)
-  public
-    list: TBasicArrayList;
-    class var instance: TAnalogLocationInputFactory;
-    procedure InitFields;
-        class function getInstance: TAnalogLocationInputFactory; static;
-        constructor Create;
-        procedure addPlayer(playerInputId: Integer); virtual;
-        function getInstanceForPlayer(playerInputId: Integer): TAnalogLocationInput; virtual;
-        function getList: TBasicArrayList; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnlgLctnInptFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION AnlgLctnInptFctry-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION AnlgLctnInptFctry-getInstance0.
 
-implementation
-uses
-  BasicArrayListD;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnlgLctnInptFctry-addPlayer1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-analogLocationInput BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-playerInputId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-playerInputId RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-analogLocationInput = FUNCTION AnlgLctnInpt-sttc-NUL85567
+        IF (J-playerInputId < FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_list")))
+            COMPUTE J-analogLocationInput = FUNCTION BasicArrayList-get1(FUNCTION JR-GET(J-THIS, "f_list"), J-playerInputId)
+        END-IF
+        IF (J-analogLocationInput = FUNCTION AnlgLctnInpt-sttc-NUL85567)
+            COMPUTE J-analogLocationInput = FUNCTION AnalogLocationInput-new1(J-playerInputId)
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), J-analogLocationInput)
+        END-IF
+    GOBACK.
+END FUNCTION AnlgLctnInptFctry-addPlayer1.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnlgLctnInptFctry-gtInstn96234.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-playerInputId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-playerInputId RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION BasicArrayList-get1(FUNCTION JR-GET(J-THIS, "f_list"), J-playerInputId)
+        GOBACK
+    GOBACK.
+END FUNCTION AnlgLctnInptFctry-gtInstn96234.
 
-{AB:CODE}
-
-procedure TAnalogLocationInputFactory.InitFields;
-begin
-  Self.list := TBasicArrayListD.Create();
-end;
-    
-
-class function TAnalogLocationInputFactory.getInstance: TAnalogLocationInputFactory;
-begin
-        Exit(TAnalogLocationInputFactory.instance);
-end;
-    
-
-constructor TAnalogLocationInputFactory.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
-
-procedure TAnalogLocationInputFactory.addPlayer(playerInputId: Integer);
-var
-  analogLocationInput_: TAnalogLocationInput;
-begin
-        analogLocationInput_ := TAnalogLocationInput.NULL_ANALOG_LOCATION_INPUT;
-        if (playerInputId) < (Self.list.size()) then begin
-            analogLocationInput_ := TAnalogLocationInput(TJava.ToObject(Self.list.get(playerInputId)));
-        end;
-        if (analogLocationInput_) = (TAnalogLocationInput.NULL_ANALOG_LOCATION_INPUT) then begin
-            analogLocationInput_ := TAnalogLocationInput.Create(playerInputId);
-            Self.list.add(TJava.Box(analogLocationInput_));
-        end;
-end;
-    
-
-function TAnalogLocationInputFactory.getInstanceForPlayer(playerInputId: Integer): TAnalogLocationInput;
-begin
-        Exit(TAnalogLocationInput(TJava.ToObject(Self.list.get(playerInputId))));
-end;
-    
-
-function TAnalogLocationInputFactory.getList: TBasicArrayList;
-begin
-        Exit(Self.list);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TAnalogLocationInputFactory.instance := TAnalogLocationInputFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnlgLctnInptFctry-getList0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_list")
+        GOBACK
+    GOBACK.
+END FUNCTION AnlgLctnInptFctry-getList0.
 

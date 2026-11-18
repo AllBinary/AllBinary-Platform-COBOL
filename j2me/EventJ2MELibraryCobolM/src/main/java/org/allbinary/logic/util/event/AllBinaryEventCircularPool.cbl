@@ -36,7 +36,7 @@ PROCEDURE DIVISION USING J-max RETURNING J-RESULT.
 END FUNCTION AllBnryEvntCrclrPl-new1.
 
 IDENTIFICATION DIVISION.
-FUNCTION-ID. AllBnryEvntCrclrPl-intAllBnrl1.
+FUNCTION-ID. AllBnryEvntCrclrPl-intAll51988.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
 REPOSITORY.
@@ -74,9 +74,9 @@ PROCEDURE DIVISION USING J-THIS J-allBinaryEventObjectFactoryInterface RETURNING
             END-IF
             MOVE 0 TO JFIRST1
             IF NOT (J-index < J-size) EXIT PERFORM END-IF
-            COMPUTE JVALUE = FUNCTION AllBnryEvntObjctFctryIntrfc-c0(J-allBinaryEventObjectFactoryInterface)
+            COMPUTE JVALUE = FUNCTION AllBnryEvntObjctFctryIn-67671(J-allBinaryEventObjectFactoryInterface)
             COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_OBJECT_ARRAY"), J-index, JVALUE)
         END-PERFORM
     GOBACK.
-END FUNCTION AllBnryEvntCrclrPl-intAllBnrl1.
+END FUNCTION AllBnryEvntCrclrPl-intAll51988.
 

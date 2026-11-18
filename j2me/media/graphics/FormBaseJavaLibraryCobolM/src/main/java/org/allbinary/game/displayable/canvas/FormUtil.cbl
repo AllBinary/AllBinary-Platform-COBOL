@@ -1,75 +1,152 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.displayable.canvas
+*> Java class FormUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.displayable.canvas
-unit FormUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FormUtil-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 FormUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 FormUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF FormUtil-jset-instance = 0
+        MOVE 1 TO FormUtil-jset-instance
+        COMPUTE FormUtil-jcell-instance = FUNCTION FormUtil-new0
+    END-IF
+    MOVE FormUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION FormUtil-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FormUtilstaticinstanS13111.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 FormUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION FormUtil-static-instance TO J-RESULT
+    MOVE J-VALUE TO FormUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION FormUtilstaticinstanS13111.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FormUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("FormUtil")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION FormUtil-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Rectangle;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FormUtil-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION FormUtil-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION FormUtil-getInstance0.
 
-type
-  {AB:TYPES}
-  TFormUtil = class(TObject)
-  public
-    class var instance: TFormUtil;
-    constructor Create;
-        class function getInstance: TFormUtil; static;
-        function createFormRectangle: TRectangle; virtual;
-  end;
-
-implementation
-uses
-  PointFactory, DisplayInfoSingleton, LogUtil;
-
-
-{AB:CODE}
-
-constructor TFormUtil.Create;
-begin
-  inherited Create;
-end;
-    
-
-class function TFormUtil.getInstance: TFormUtil;
-begin
-        Exit(TFormUtil.instance);
-end;
-    
-
-function TFormUtil.createFormRectangle: TRectangle;
-var
-  displayInfo: TDisplayInfoSingleton;
-  pointFactory_: TPointFactory;
-  rectangle_: TRectangle;
-begin
-        displayInfo := TDisplayInfoSingleton.getInstance();
-        pointFactory_ := TPointFactory.getInstance();
-        rectangle_ := TRectangle.Create(pointFactory_.createXY(30, 10), (displayInfo.getLastWidth()) - (30), (displayInfo.getLastHeight()) - (35));
-        Exit(rectangle_);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TFormUtil.instance := TFormUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FormUtil-createFormRectangle0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-displayInfo BINARY-DOUBLE.
+01 J-pointFactory BINARY-DOUBLE.
+01 J-rectangle BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-displayInfo = FUNCTION DsplyInfSngltn-getInstance0
+        COMPUTE J-pointFactory = FUNCTION PointFactory-getInstance0
+        COMPUTE jtemp1 = 30
+        COMPUTE jtemp2 = 10
+        COMPUTE jtemp3 = (FUNCTION MOD((FUNCTION DsplyInfSngltn-getLastWidth0(J-displayInfo) - 30) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp4 = (FUNCTION MOD((FUNCTION DsplyInfSngltn-getLastHeight0(J-displayInfo) - 35) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE J-rectangle = FUNCTION Rectangle-new3(FUNCTION PointFactory-createXY2(J-pointFactory, jtemp1, jtemp2), jtemp3, jtemp4)
+        COMPUTE J-RESULT = J-rectangle
+        GOBACK
+    GOBACK.
+END FUNCTION FormUtil-createFormRectangle0.
 

@@ -1,155 +1,272 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.string.tokens
+*> Java class Tokenizer
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Tokenizer-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-sep BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-sep RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("Tokenizer")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_sep")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_endSep")
     
-}
-// Generated Code Do Not Modify
-// package org.allbinary.logic.string.tokens
-unit Tokenizer;
+    COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_EMPTY_STRING")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_endSep", JVALUE)
+        COMPUTE jtemp3 = FUNCTION StringUtil-getInstance0
+        COMPUTE jtemp2 = FUNCTION TsUtil-getInstance0
+        IF (FUNCTION TsUtil-compareTo2(jtemp2, J-sep, FUNCTION JR-GET(jtemp3, "f_EMPTY_STRING")) = 0)
+            COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+        END-IF
+        COMPUTE JVALUE = J-sep
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_sep", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION Tokenizer-new1.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Tokenizer-setSep1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-sep BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-sep RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-sep
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_sep", JVALUE)
+    GOBACK.
+END FUNCTION Tokenizer-setSep1.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Tokenizer-setEndSep1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-endSep BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-endSep RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-endSep
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_endSep", JVALUE)
+    GOBACK.
+END FUNCTION Tokenizer-setEndSep1.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, ABHashtable, BasicArrayList;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Tokenizer-getInsideSep1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-tokenList BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-end BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-string BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-string RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-tokenList = FUNCTION BasicArrayListD-new0
+        COMPUTE J-index = 0
+        COMPUTE J-size = FUNCTION JR-STR-LENGTH(J-string)
+        PERFORM FOREVER
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-index = FUNCTION JR-INDEX-OF(J-string, FUNCTION JR-GET(J-THIS, "f_sep"), J-index)
+            IF (J-index NOT = (0 - 1))
+                COMPUTE jtemp4 = (FUNCTION MOD((J-index + FUNCTION JR-STR-LENGTH(FUNCTION JR-GET(J-THIS, "f_sep"))) + 2147483648, 4294967296) - 2147483648)
+                COMPUTE J-end = FUNCTION JR-INDEX-OF(J-string, FUNCTION JR-GET(J-THIS, "f_endSep"), jtemp4)
+                IF (J-end NOT = (0 - 1))
+                    COMPUTE jtemp5 = (FUNCTION MOD((J-index + FUNCTION JR-STR-LENGTH(FUNCTION JR-GET(J-THIS, "f_sep"))) + 2147483648, 4294967296) - 2147483648)
+                    COMPUTE jtemp6 = (FUNCTION MOD((J-end - ((FUNCTION MOD((FUNCTION JR-STR-LENGTH(FUNCTION JR-GET(J-THIS, "f_endSep")) - 1) + 2147483648, 4294967296) - 2147483648))) + 2147483648, 4294967296) - 2147483648)
+                    COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-tokenList, FUNCTION JR-SUBSTRING(J-string, jtemp5, jtemp6))
+                    COMPUTE J-index = (FUNCTION MOD((J-end + FUNCTION JR-STR-LENGTH(FUNCTION JR-GET(J-THIS, "f_endSep"))) + 2147483648, 4294967296) - 2147483648)
+                ELSE
+                    CONTINUE
+                END-IF
+            ELSE
+                EXIT PERFORM
+            END-IF
+        END-PERFORM
+        COMPUTE J-RESULT = J-tokenList
+        GOBACK
+    GOBACK.
+END FUNCTION Tokenizer-getInsideSep1.
 
-type
-  {AB:TYPES}
-  TTokenizer = class(TObject)
-  public
-    sep: string;
-    endSep: string;
-    procedure InitFields;
-        constructor Create(sep: string);
-        procedure setSep(sep: string); virtual;
-        procedure setEndSep(endSep: string); virtual;
-        function getInsideSep(string_: string): TBasicArrayList; virtual;
-        function getTokensFromString(string_: string; tokenVector: TBasicArrayList): TBasicArrayList; virtual;
-        function getTokens(stringVector: TBasicArrayList): TABHashtable<TObject, TObject>; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Tokenizer-getTokensFromString2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-index BINARY-DOUBLE.
+01 J-end BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-string BINARY-DOUBLE.
+01 J-tokenVector BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-string J-tokenVector RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-index = 0
+        COMPUTE J-end = 0
+        PERFORM FOREVER
+            IF NOT (J-index < FUNCTION JR-STR-LENGTH(J-string)) EXIT PERFORM END-IF
+            COMPUTE J-end = FUNCTION JR-INDEX-OF(J-string, FUNCTION JR-GET(J-THIS, "f_sep"), J-index)
+            IF (J-end NOT = (0 - 1))
+                COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-tokenVector, FUNCTION JR-SUBSTRING(J-string, J-index, J-end))
+                COMPUTE J-index = (FUNCTION MOD((J-end + FUNCTION JR-STR-LENGTH(FUNCTION JR-GET(J-THIS, "f_sep"))) + 2147483648, 4294967296) - 2147483648)
+            ELSE
+                COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-tokenVector, FUNCTION JR-SUBSTRING(J-string, J-index, FUNCTION JR-STR-LENGTH(J-string)))
+                EXIT PERFORM
+            END-IF
+        END-PERFORM
+        COMPUTE J-RESULT = J-tokenVector
+        GOBACK
+    GOBACK.
+END FUNCTION Tokenizer-getTokensFromString2.
 
-implementation
-uses
-  TsUtil, StdUtil, StringUtil, BasicArrayListD;
-
-
-{AB:CODE}
-
-procedure TTokenizer.InitFields;
-begin
-  
-  Self.endSep := TStringUtil.getInstance().EMPTY_STRING;
-end;
-    
-
-constructor TTokenizer.Create(sep: string);
-begin
-    inherited Create;
-    InitFields;
-        if (TTsUtil.getInstance().compareTo(sep, TStringUtil.getInstance().EMPTY_STRING)) = (0) then begin
-            raise SysUtils.Exception.Create('Sep provided is not valid');
-        end;
-        Self.sep := sep;
-end;
-    
-
-procedure TTokenizer.setSep(sep: string);
-begin
-        Self.sep := sep;
-end;
-    
-
-procedure TTokenizer.setEndSep(endSep: string);
-begin
-        Self.endSep := endSep;
-end;
-    
-
-function TTokenizer.getInsideSep(string_: string): TBasicArrayList;
-var
-  tokenList: TBasicArrayList;
-  index: Integer;
-  size: Integer;
-  end_: Integer;
-begin
-        tokenList := TBasicArrayListD.Create();
-        index := 0;
-        size := System.Length(string_);
-        while (index) < (size) do begin
-            index := string_.indexOf(Self.sep, index);
-            if (index) <> (-1) then begin
-                end_ := string_.indexOf(Self.endSep, (index) + (System.Length(Self.sep)));
-                if (end_) <> (-1) then begin
-                    tokenList.add(TJava.Box(Copy(string_, ((index) + (System.Length(Self.sep))) + 1, ((end_) - (((System.Length(Self.endSep)) - (1)))) - ((index) + (System.Length(Self.sep))))));
-                    index := (end_) + (System.Length(Self.endSep));
-                end else begin
-                end;
-            end else begin
-                Break;
-            end;
-        end;
-        Exit(tokenList);
-end;
-    
-
-function TTokenizer.getTokensFromString(string_: string; tokenVector: TBasicArrayList): TBasicArrayList;
-var
-  index: Integer;
-  end_: Integer;
-begin
-        index := 0;
-        end_ := 0;
-        while (index) < (System.Length(string_)) do begin
-            end_ := string_.indexOf(Self.sep, index);
-            if (end_) <> (-1) then begin
-                tokenVector.add(TJava.Box(Copy(string_, (index) + 1, (end_) - (index))));
-                index := (end_) + (System.Length(Self.sep));
-            end else begin
-                tokenVector.add(TJava.Box(Copy(string_, (index) + 1, (System.Length(string_)) - (index))));
-                Break;
-            end;
-        end;
-        Exit(tokenVector);
-end;
-    
-
-function TTokenizer.getTokens(stringVector: TBasicArrayList): TABHashtable<TObject, TObject>;
-var
-  tokenHashtable: TABHashtable<TObject, TObject>;
-  string_: string;
-  end_: Integer;
-  size: Integer;
-  index: Integer;
-begin
-        tokenHashtable := TStdUtil.getInstance().createHashtable();
-        string_ := TStringUtil.getInstance().EMPTY_STRING;
-        end_ := 0;
-        size := stringVector.size();
-        for index := 0 to size - 1 do begin
-            string_ := TJava.UnboxString(TJava.ToObject(stringVector.objectArray[index]));
-            end_ := (Pos(TJava.ToString(Self.sep), string_) - 1);
-            if (end_) >= (0) then begin
-                tokenHashtable.put(TJava.Box(Copy(string_, (0) + 1, (end_) - (0))), TJava.Box(Copy(string_, ((end_) + (1)) + 1, (System.Length(string_)) - ((end_) + (1)))));
-            end;
-        end;
-        Exit(tokenHashtable);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Tokenizer-getTokens1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-tokenHashtable BINARY-DOUBLE.
+01 J-string BINARY-DOUBLE.
+01 J-end BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-stringVector BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-stringVector RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp7 = FUNCTION StdUtil-getInstance0
+        COMPUTE J-tokenHashtable = FUNCTION StdUtil-createHashtable0(jtemp7)
+        COMPUTE jtemp8 = FUNCTION StringUtil-getInstance0
+        COMPUTE J-string = FUNCTION JR-GET(jtemp8, "f_EMPTY_STRING")
+        COMPUTE J-end = 0
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(J-stringVector)
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-string = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-stringVector, "f_objectArray"), J-index)
+            COMPUTE J-end = FUNCTION JR-INDEX-OF(J-string, FUNCTION JR-GET(J-THIS, "f_sep"))
+            IF (J-end >= 0)
+                COMPUTE jtemp11 = 1
+                COMPUTE jtemp9 = 0
+                COMPUTE jtemp10 = (FUNCTION MOD((J-end + jtemp11) + 2147483648, 4294967296) - 2147483648)
+                COMPUTE JDISCARD = FUNCTION Hashtable-put2(J-tokenHashtable, FUNCTION JR-SUBSTRING(J-string, jtemp9, J-end), FUNCTION JR-SUBSTRING(J-string, jtemp10, FUNCTION JR-STR-LENGTH(J-string)))
+            END-IF
+        END-PERFORM
+        COMPUTE J-RESULT = J-tokenHashtable
+        GOBACK
+    GOBACK.
+END FUNCTION Tokenizer-getTokens1.
 

@@ -1,80 +1,113 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.part.weapon
+*> Java class BasicProjectileWeaponPart
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.part.weapon
-unit BasicProjectileWeaponPart;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Animation, WeaponProperties, WeaponLayerCircularPool, ScoreableInterface, RelativeRelationship, AllBinaryLayer, AllBinaryLayerManager, BasicWeaponPart;
-
-type
-  {AB:TYPES}
-  TBasicProjectileWeaponPart = class(TBasicWeaponPart)
-  public
-    weaponLayerCircularStaticPool: TWeaponLayerCircularPool;
-    procedure InitFields;
-        class function createBasicProjectileWeaponPart(animationInterface: TAnimation; weaponLayerCircularStaticPool: TWeaponLayerCircularPool): TBasicProjectileWeaponPart; static;
-        constructor Create(animationInterface: TAnimation; sourceLayerInterface: TAllBinaryLayer; weaponLayerCircularStaticPool: TWeaponLayerCircularPool; weaponProperties_: TWeaponProperties; scoreableInterface_: IScoreableInterface; relativeRelationship_: TRelativeRelationship);
-        procedure processScore(allbinaryLayerManager_: TAllBinaryLayerManager; angle: SmallInt; otherAngle: SmallInt; weaponProperties_: TWeaponProperties; scoreableInterface_: IScoreableInterface); override;
-  end;
-
-implementation
-uses
-  WeaponLayer, NoScoreable;
-
-
-{AB:CODE}
-
-procedure TBasicProjectileWeaponPart.InitFields;
-begin
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicProjectileWeaponPart-new6.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-animationInterface BINARY-DOUBLE.
+01 J-sourceLayerInterface BINARY-DOUBLE.
+01 J-weaponLayerCircularStaticPool BINARY-DOUBLE.
+01 J-weaponProperties BINARY-DOUBLE.
+01 J-scoreableInterface BINARY-DOUBLE.
+01 J-relativeRelationship BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-animationInterface J-sourceLayerInterface J-weaponLayerCircularStaticPool J-weaponProperties J-scoreableInterface J-relativeRelationship RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("BasicProjectileWeaponPart")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_weaponLayerCircularStaticPool")
     
+        CONTINUE
+        COMPUTE JVALUE = J-weaponLayerCircularStaticPool
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_weaponLayerCircularStaticPool", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION BasicProjectileWeaponPart-new6.
 
-class function TBasicProjectileWeaponPart.createBasicProjectileWeaponPart(animationInterface: TAnimation; weaponLayerCircularStaticPool: TWeaponLayerCircularPool): TBasicProjectileWeaponPart;
-begin
-        Exit(TBasicProjectileWeaponPart.Create(animationInterface, TAllBinaryLayer.NULL_ALLBINARY_LAYER, weaponLayerCircularStaticPool, TWeaponProperties.NULL_WEAPON_PROPERTIES, TNoScoreable.getInstance(), TRelativeRelationship.NULL_RELATIVE_RELATIONSHIP));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscPrjctlWpnPrt-crtBscPrj80670.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-animationInterface BINARY-DOUBLE.
+01 J-weaponLayerCircularStaticPool BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-animationInterface J-weaponLayerCircularStaticPool RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION BasicProjectileWeaponPart-new6(J-animationInterface, FUNCTION AllBnryLyr-sttc-NULL-A70567, J-weaponLayerCircularStaticPool, FUNCTION WpnPrprts-sttc-NULL-WE36388, FUNCTION NoScoreable-getInstance0,
+        FUNCTION RltvRltnshp-sttc-NULL-65023)
+        GOBACK
+    GOBACK.
+END FUNCTION BscPrjctlWpnPrt-crtBscPrj80670.
 
-constructor TBasicProjectileWeaponPart.Create(animationInterface: TAnimation; sourceLayerInterface: TAllBinaryLayer; weaponLayerCircularStaticPool: TWeaponLayerCircularPool; weaponProperties_: TWeaponProperties; scoreableInterface_: IScoreableInterface; relativeRelationship_: TRelativeRelationship);
-begin
-        inherited Create(animationInterface, sourceLayerInterface, weaponProperties_, scoreableInterface_, relativeRelationship_);
-        InitFields;
-        Self.weaponLayerCircularStaticPool := weaponLayerCircularStaticPool;
-end;
-    
-
-// throws Exception
-procedure TBasicProjectileWeaponPart.processScore(allbinaryLayerManager_: TAllBinaryLayerManager; angle: SmallInt; otherAngle: SmallInt; weaponProperties_: TWeaponProperties; scoreableInterface_: IScoreableInterface);
-var
-  weaponLayer_: TWeaponLayer;
-begin
-        weaponLayer_ := Self.weaponLayerCircularStaticPool.getInstanceWeaponLayer(Self.getOwnerLayerInterface(), Self.relativeRelationship.getX(), Self.relativeRelationship.getY(), Self.relativeRelationship.getZ(), Integer(angle), Integer(otherAngle), weaponProperties_, scoreableInterface_);
-        allbinaryLayerManager_.append(weaponLayer_);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscPrjctlWpnPrt-processScore5.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-weaponLayer BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allbinaryLayerManager BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-otherAngle BINARY-DOUBLE.
+01 J-weaponProperties BINARY-DOUBLE.
+01 J-scoreableInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allbinaryLayerManager J-angle J-otherAngle J-weaponProperties J-scoreableInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = J-angle
+        COMPUTE jtemp2 = J-otherAngle
+        COMPUTE J-weaponLayer = FUNCTION WpnLyrCrclrPl-gtInstncWpnLyr8(FUNCTION JR-GET(J-THIS, "f_weaponLayerCircularStaticPool"), FUNCTION BscWpnPrt-gtOwnrLyrIntrfc0(J-THIS), FUNCTION RelativeRelationship-getX0(FUNCTION JR-GET(J-THIS,
+        "f_relativeRelationship")), FUNCTION RelativeRelationship-getY0(FUNCTION JR-GET(J-THIS, "f_relativeRelationship")), FUNCTION RelativeRelationship-getZ0(FUNCTION JR-GET(J-THIS, "f_relativeRelationship")), jtemp1, jtemp2,
+        J-weaponProperties, J-scoreableInterface)
+        COMPUTE JDISCARD = FUNCTION AllBinaryLayerManager-append1(J-allbinaryLayerManager, J-weaponLayer)
+    GOBACK.
+END FUNCTION BscPrjctlWpnPrt-processScore5.
 

@@ -1,112 +1,271 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2022 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.displayable
-unit GameTickDisplayInfoSingleton;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.displayable
+*> Java class GameTickDisplayInfoSingleton
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmTckDsplyInfSngltn-sttc51982.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameTickDisplayInfoSingleton-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 GameTickDisplayInfoSingleton-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GameTickDisplayInfoSingleton-jset-instance = 0
+        MOVE 1 TO GameTickDisplayInfoSingleton-jset-instance
+        COMPUTE GameTickDisplayInfoSingleton-jcell-instance = FUNCTION GmTckDsplyInfSngltn-new0
+    END-IF
+    MOVE GameTickDisplayInfoSingleton-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION GmTckDsplyInfSngltn-sttc51982.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmTckDsplyInfSngltnsS54257.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameTickDisplayInfoSingleton-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GmTckDsplyInfSngltn-sttc51982 TO J-RESULT
+    MOVE J-VALUE TO GameTickDisplayInfoSingleton-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GmTckDsplyInfSngltnsS54257.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, DisplayInfoSingleton;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmTckDsplyInfSngltn-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameTickDisplayInfoSingleton")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_displayInfoSingleton")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_lastWidth")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_lastHeight")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_lastHalfWidth")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_lastHalfHeight")
+    COMPUTE JVALUE = FUNCTION DsplyInfSngltn-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_displayInfoSingleton", JVALUE)
+    COMPUTE JVALUE = FUNCTION DsplyInfSngltn-getLastWidth0(FUNCTION JR-GET(J-THIS, "f_displayInfoSingleton"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lastWidth", JVALUE)
+    COMPUTE JVALUE = FUNCTION DsplyInfSngltn-getLastHeight0(FUNCTION JR-GET(J-THIS, "f_displayInfoSingleton"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lastHeight", JVALUE)
+    COMPUTE JVALUE = FUNCTION DsplyInfSngltn-gtLstHlfWdth0(FUNCTION JR-GET(J-THIS, "f_displayInfoSingleton"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lastHalfWidth", JVALUE)
+    COMPUTE JVALUE = FUNCTION DsplyInfSngltn-gtLstHlfHght0(FUNCTION JR-GET(J-THIS, "f_displayInfoSingleton"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lastHalfHeight", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GmTckDsplyInfSngltn-new0.
 
-type
-  {AB:TYPES}
-  TGameTickDisplayInfoSingleton = class(TObject)
-  public
-    displayInfoSingleton: TDisplayInfoSingleton;
-    lastWidth: Integer;
-    lastHeight: Integer;
-    lastHalfWidth: Integer;
-    lastHalfHeight: Integer;
-    class var instance: TGameTickDisplayInfoSingleton;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TGameTickDisplayInfoSingleton; static;
-        procedure update; virtual;
-        function getLastWidth: Integer; virtual;
-        function getLastHeight: Integer; virtual;
-        function getLastHalfWidth: Integer; virtual;
-        function getLastHalfHeight: Integer; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmTckDsplyInfSngltn-gtInstnc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION GmTckDsplyInfSngltn-sttc51982
+        GOBACK
+    GOBACK.
+END FUNCTION GmTckDsplyInfSngltn-gtInstnc0.
 
-implementation
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmTckDsplyInfSngltn-update0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = FUNCTION DsplyInfSngltn-getLastWidth0(FUNCTION JR-GET(J-THIS, "f_displayInfoSingleton"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lastWidth", JVALUE)
+        COMPUTE JVALUE = FUNCTION DsplyInfSngltn-getLastHeight0(FUNCTION JR-GET(J-THIS, "f_displayInfoSingleton"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lastHeight", JVALUE)
+        COMPUTE JVALUE = FUNCTION DsplyInfSngltn-gtLstHlfWdth0(FUNCTION JR-GET(J-THIS, "f_displayInfoSingleton"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lastHalfWidth", JVALUE)
+        COMPUTE JVALUE = FUNCTION DsplyInfSngltn-gtLstHlfHght0(FUNCTION JR-GET(J-THIS, "f_displayInfoSingleton"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lastHalfHeight", JVALUE)
+    GOBACK.
+END FUNCTION GmTckDsplyInfSngltn-update0.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmTckDsplyInfSngltn-gtLstWdth0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_lastWidth")
+        GOBACK
+    GOBACK.
+END FUNCTION GmTckDsplyInfSngltn-gtLstWdth0.
 
-procedure TGameTickDisplayInfoSingleton.InitFields;
-begin
-  Self.displayInfoSingleton := TDisplayInfoSingleton.getInstance();
-  Self.lastWidth := Self.displayInfoSingleton.getLastWidth();
-  Self.lastHeight := Self.displayInfoSingleton.getLastHeight();
-  Self.lastHalfWidth := Self.displayInfoSingleton.getLastHalfWidth();
-  Self.lastHalfHeight := Self.displayInfoSingleton.getLastHalfHeight();
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmTckDsplyInfSngltn-gtLstHght0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_lastHeight")
+        GOBACK
+    GOBACK.
+END FUNCTION GmTckDsplyInfSngltn-gtLstHght0.
 
-constructor TGameTickDisplayInfoSingleton.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmTckDsplyInfSngltn-gtLst92998.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_lastHalfWidth")
+        GOBACK
+    GOBACK.
+END FUNCTION GmTckDsplyInfSngltn-gtLst92998.
 
-class function TGameTickDisplayInfoSingleton.getInstance: TGameTickDisplayInfoSingleton;
-begin
-        Exit(TGameTickDisplayInfoSingleton.instance);
-end;
-    
-
-procedure TGameTickDisplayInfoSingleton.update;
-begin
-        Self.lastWidth := Self.displayInfoSingleton.getLastWidth();
-        Self.lastHeight := Self.displayInfoSingleton.getLastHeight();
-        Self.lastHalfWidth := Self.displayInfoSingleton.getLastHalfWidth();
-        Self.lastHalfHeight := Self.displayInfoSingleton.getLastHalfHeight();
-end;
-    
-
-function TGameTickDisplayInfoSingleton.getLastWidth: Integer;
-begin
-        Exit(Self.lastWidth);
-end;
-    
-
-function TGameTickDisplayInfoSingleton.getLastHeight: Integer;
-begin
-        Exit(Self.lastHeight);
-end;
-    
-
-function TGameTickDisplayInfoSingleton.getLastHalfWidth: Integer;
-begin
-        Exit(Self.lastHalfWidth);
-end;
-    
-
-function TGameTickDisplayInfoSingleton.getLastHalfHeight: Integer;
-begin
-        Exit(Self.lastHalfHeight);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TGameTickDisplayInfoSingleton.instance := TGameTickDisplayInfoSingleton.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmTckDsplyInfSngltn-gtLst24453.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_lastHalfHeight")
+        GOBACK
+    GOBACK.
+END FUNCTION GmTckDsplyInfSngltn-gtLst24453.
 

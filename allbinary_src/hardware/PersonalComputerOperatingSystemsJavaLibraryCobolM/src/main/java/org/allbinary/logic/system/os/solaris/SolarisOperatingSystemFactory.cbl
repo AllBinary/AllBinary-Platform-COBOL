@@ -4,7 +4,7 @@
 *> Java class SolarisOperatingSystemFactory
 
 IDENTIFICATION DIVISION.
-FUNCTION-ID. SlrsOprtngSystmFctry-sttc-nnc.
+FUNCTION-ID. SlrsOprtngSystmFctry-stt29891.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
 REPOSITORY.
@@ -33,7 +33,26 @@ PROCEDURE DIVISION RETURNING J-RESULT.
     END-IF
     MOVE SolarisOperatingSystemFactory-jcell-instance TO J-RESULT
     GOBACK.
-END FUNCTION SlrsOprtngSystmFctry-sttc-nnc.
+END FUNCTION SlrsOprtngSystmFctry-stt29891.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SlrsOprtngSystmFctryS73913.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 SolarisOperatingSystemFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION SlrsOprtngSystmFctry-stt29891 TO J-RESULT
+    MOVE J-VALUE TO SolarisOperatingSystemFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION SlrsOprtngSystmFctryS73913.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. SlrsOprtngSystmFctry-new0.
@@ -88,13 +107,13 @@ LINKAGE SECTION.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
-        COMPUTE J-RESULT = FUNCTION SlrsOprtngSystmFctry-sttc-nnc
+        COMPUTE J-RESULT = FUNCTION SlrsOprtngSystmFctry-stt29891
         GOBACK
     GOBACK.
 END FUNCTION SlrsOprtngSystmFctry-gtInstnc0.
 
 IDENTIFICATION DIVISION.
-FUNCTION-ID. SlrsOprtngSystmFctry-gtOprtnc0.
+FUNCTION-ID. SlrsOprtngSystmFctry-gtOp85472.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
 REPOSITORY.
@@ -131,7 +150,7 @@ PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
             IF (FUNCTION JR-COMPARETO(J-osName, FUNCTION JR-GET(J-operatingSystems, "f_SOLARIS")) = 0)
                 COMPUTE J-operatingSystemInterface = FUNCTION SolarisOS-new0
             ELSE
-                IF (FUNCTION OprtngSystms-isUnknwnSpcfcOSd0(J-operatingSystems) = 1)
+                IF (FUNCTION OprtngSystms-isUnknwnSpcf59109(J-operatingSystems) = 1)
                     COMPUTE J-operatingSystemInterface = FUNCTION SolarisOS-new0
                 ELSE
                     COMPUTE jtemp2 = FUNCTION JR-CONCAT(FUNCTION JR-STR("Specific Solaris OS Not Supported: "), J-osName)
@@ -141,5 +160,5 @@ PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
             COMPUTE J-RESULT = J-operatingSystemInterface
             GOBACK
     GOBACK.
-END FUNCTION SlrsOprtngSystmFctry-gtOprtnc0.
+END FUNCTION SlrsOprtngSystmFctry-gtOp85472.
 

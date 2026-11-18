@@ -1,92 +1,157 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.gyro
+*> Java class OrientationMotionGestureFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.gyro
-unit OrientationMotionGestureFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OrnttnMtnGstrFctry-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 OrientationMotionGestureFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 OrientationMotionGestureFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF OrientationMotionGestureFactory-jset-instance = 0
+        MOVE 1 TO OrientationMotionGestureFactory-jset-instance
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE OrientationMotionGestureFactory-jcell-instance = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+    END-IF
+    MOVE OrientationMotionGestureFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION OrnttnMtnGstrFctry-sttc-nstnc.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OrnttnMtnGstrFctrystS62374.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 OrientationMotionGestureFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION OrnttnMtnGstrFctry-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO OrientationMotionGestureFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION OrnttnMtnGstrFctrystS62374.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, MotionGestureInput;
-
-type
-  {AB:TYPES}
-  TOrientationMotionGestureFactory = class(TObject)
-  public
-    LEFT: TMotionGestureInput;
-    RIGHT: TMotionGestureInput;
-    UP: TMotionGestureInput;
-    DOWN: TMotionGestureInput;
-    ROLL_LEFT: TMotionGestureInput;
-    ROLL_RIGHT: TMotionGestureInput;
-    class var instance: TObject;
-    procedure InitFields;
-        class function getInstance: TOrientationMotionGestureFactory; static;
-        constructor Create;
-  end;
-
-implementation
-uses
-  InputFactory, NullUtil;
-
-
-{AB:CODE}
-
-procedure TOrientationMotionGestureFactory.InitFields;
-begin
-  
-  
-  
-  
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OrnttnMtnGstrFctry-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-MAX BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("OrientationMotionGestureFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_LEFT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_RIGHT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_UP")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DOWN")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ROLL_LEFT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ROLL_RIGHT")
     
-
-class function TOrientationMotionGestureFactory.getInstance: TOrientationMotionGestureFactory;
-begin
-        if (TOrientationMotionGestureFactory.instance) = (TNullUtil.getInstance().NULL_OBJECT) then begin
-            TOrientationMotionGestureFactory.instance := TOrientationMotionGestureFactory.Create();
-        end;
-        Exit(TOrientationMotionGestureFactory(TJava.ToObject(TOrientationMotionGestureFactory.instance)));
-end;
     
+    
+    
+    
+    
+        COMPUTE jtemp3 = FUNCTION InputFactory-getInstance0
+        COMPUTE J-MAX = FUNCTION JR-GET(jtemp3, "f_MAX")
+        COMPUTE jtemp4 = (FUNCTION MOD((J-MAX - 20) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION MotionGestureInput-new2(jtemp4, FUNCTION JR-STR("Left Orient"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_LEFT", JVALUE)
+        COMPUTE jtemp5 = (FUNCTION MOD((J-MAX - 21) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION MotionGestureInput-new2(jtemp5, FUNCTION JR-STR("Right Orient"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_RIGHT", JVALUE)
+        COMPUTE jtemp6 = (FUNCTION MOD((J-MAX - 22) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION MotionGestureInput-new2(jtemp6, FUNCTION JR-STR("Up Orient"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_UP", JVALUE)
+        COMPUTE jtemp7 = (FUNCTION MOD((J-MAX - 23) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION MotionGestureInput-new2(jtemp7, FUNCTION JR-STR("Down Orient"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DOWN", JVALUE)
+        COMPUTE jtemp8 = (FUNCTION MOD((J-MAX - 24) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION MotionGestureInput-new2(jtemp8, FUNCTION JR-STR("Roll Left"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ROLL_LEFT", JVALUE)
+        COMPUTE jtemp9 = (FUNCTION MOD((J-MAX - 25) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION MotionGestureInput-new2(jtemp9, FUNCTION JR-STR("Roll Right"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ROLL_RIGHT", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION OrnttnMtnGstrFctry-new0.
 
-constructor TOrientationMotionGestureFactory.Create;
-var
-  MAX: Integer;
-begin
-    inherited Create;
-    InitFields;
-        MAX := TInputFactory.getInstance().MAX;
-        Self.LEFT := TMotionGestureInput.Create((MAX) - (20), 'Left Orient');
-        Self.RIGHT := TMotionGestureInput.Create((MAX) - (21), 'Right Orient');
-        Self.UP := TMotionGestureInput.Create((MAX) - (22), 'Up Orient');
-        Self.DOWN := TMotionGestureInput.Create((MAX) - (23), 'Down Orient');
-        Self.ROLL_LEFT := TMotionGestureInput.Create((MAX) - (24), 'Roll Left');
-        Self.ROLL_RIGHT := TMotionGestureInput.Create((MAX) - (25), 'Roll Right');
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TOrientationMotionGestureFactory.instance := TJava.Box(TNullUtil.getInstance().NULL_OBJECT);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OrnttnMtnGstrFctry-gtInstnc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+        IF (FUNCTION OrnttnMtnGstrFctry-sttc-nstnc = FUNCTION JR-GET(jtemp2, "f_NULL_OBJECT"))
+            COMPUTE JDISCARD = FUNCTION OrnttnMtnGstrFctrystS62374(FUNCTION OrnttnMtnGstrFctry-new0)
+        END-IF
+        COMPUTE J-RESULT = FUNCTION OrnttnMtnGstrFctry-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION OrnttnMtnGstrFctry-gtInstnc0.
 

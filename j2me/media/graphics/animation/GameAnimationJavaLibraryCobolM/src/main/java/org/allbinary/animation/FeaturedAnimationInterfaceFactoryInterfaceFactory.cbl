@@ -1,193 +1,433 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2011 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation
-unit FeaturedAnimationInterfaceFactoryInterfaceFactory;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation
+*> Java class FeaturedAnimationInterfaceFactoryInterfaceFactory
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FtrdAnmtnIntrfcFctryInt-22227.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 FeaturedAnimationInterfaceFactoryInterfaceFactory-jcell-INSTANCE BINARY-DOUBLE EXTERNAL.
+01 FeaturedAnimationInterfaceFactoryInterfaceFactory-jset-INSTANCE BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF FeaturedAnimationInterfaceFactoryInterfaceFactory-jset-INSTANCE = 0
+        MOVE 1 TO FeaturedAnimationInterfaceFactoryInterfaceFactory-jset-INSTANCE
+        COMPUTE FeaturedAnimationInterfaceFactoryInterfaceFactory-jcell-INSTANCE = FUNCTION FtrdAnmtnIntrfcFctryInt-28643
+    END-IF
+    MOVE FeaturedAnimationInterfaceFactoryInterfaceFactory-jcell-INSTANCE TO J-RESULT
+    GOBACK.
+END FUNCTION FtrdAnmtnIntrfcFctryInt-22227.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FtrdAnmtnIntrfcFctryS24653.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 FeaturedAnimationInterfaceFactoryInterfaceFactory-jcell-INSTANCE BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION FtrdAnmtnIntrfcFctryInt-22227 TO J-RESULT
+    MOVE J-VALUE TO FeaturedAnimationInterfaceFactoryInterfaceFactory-jcell-INSTANCE
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION FtrdAnmtnIntrfcFctryS24653.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, FeaturedResourceFactory, Rectangle, ProceduralAnimationInterfaceFactoryInterface, AnimationInterfaceFactoryInterface, BasicAnimationInterfaceFactoryInterface;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FtrdAnmtnIntrfcFctryInt-28643.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("FeaturedAnimationInterfaceFactoryInterfaceFactory")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION FtrdAnmtnIntrfcFctryInt-28643.
 
-type
-  {AB:TYPES}
-  TFeaturedAnimationInterfaceFactoryInterfaceFactory = class(TFeaturedResourceFactory)
-  public
-    class var INSTANCE: TFeaturedAnimationInterfaceFactoryInterfaceFactory;
-        constructor Create;
-        class function getInstance: TFeaturedAnimationInterfaceFactoryInterfaceFactory; static;
-        function getRectangle(resource: string): TRectangle; virtual;
-        function getRectangleXY(resource: string; x: Integer; y: Integer): TRectangle; virtual;
-        function getProcedural(resource: string): IProceduralAnimationInterfaceFactoryInterface; virtual;
-        function get(resource: string): IAnimationInterfaceFactoryInterface; virtual;
-        function getBasicAnimationInterfaceFactoryInstance(resource: string): IBasicAnimationInterfaceFactoryInterface;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FtrdAnmtnIntrfcFctryInt-53898.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION FtrdAnmtnIntrfcFctryInt-22227
+        GOBACK
+    GOBACK.
+END FUNCTION FtrdAnmtnIntrfcFctryInt-53898.
 
-implementation
-uses
-  NullAnimationFactory, FeatureResourceAnimationInterfaceFactoryInterface, GameConfigurationCentral, PointFactory, RectangleFactory, StringMaker, StringUtil, CommonSeps, BasicArrayList, BasicArrayListD;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FtrdAnmtnIntrfcFctryInt-52819.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-resource BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-resource RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = 0
+        COMPUTE jtemp2 = 0
+        COMPUTE J-RESULT = FUNCTION FtrdAnmtnIntrfcFctryInt-46339(J-THIS, J-resource, jtemp1, jtemp2)
+        GOBACK
+    GOBACK.
+END FUNCTION FtrdAnmtnIntrfcFctryInt-52819.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FtrdAnmtnIntrfcFctryInt-46339.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-pointFactory BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-scale BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-featureInterface BINARY-DOUBLE.
+01 J-rectangle BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-resource BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-resource J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-pointFactory = FUNCTION PointFactory-getInstance0
+        COMPUTE J-list = FUNCTION FtrdRsrcFctry-getList0(J-THIS)
+        COMPUTE jtemp4 = FUNCTION GmCnfgrtnCntrl-getInstance0
+        COMPUTE jtemp3 = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(jtemp4, "f_SCALE"))
+        COMPUTE J-scale = FUNCTION JR-CLASS-NAME(jtemp3)
+        COMPUTE jtemp5 = FUNCTION FtrdRsrcFctry-getList0(J-THIS)
+        COMPUTE J-size = FUNCTION JR-CLASS-NAME(jtemp5)
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-featureInterface = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
+            IF (FUNCTION FtrRsrcAnmtnIntrfcFctry-73049(J-featureInterface) = 1)
+                COMPUTE J-rectangle = FUNCTION FtrRsrcAnmtnIntrfcFctry-16113(J-featureInterface, J-resource)
+                IF (J-rectangle NOT = FUNCTION RctnglFctry-static-SINGLETON)
+                    COMPUTE jtemp6 = (FUNCTION JR-SHIFT(JFIVE, ((FUNCTION MOD((FUNCTION Rectangle-getWidth0(J-rectangle) * J-scale) + 2147483648, 4294967296) - 2147483648)), 1))
+                    COMPUTE jtemp7 = (FUNCTION JR-SHIFT(JFIVE, ((FUNCTION MOD((FUNCTION Rectangle-getHeight0(J-rectangle) * J-scale) + 2147483648, 4294967296) - 2147483648)), 1))
+                    COMPUTE J-RESULT = FUNCTION Rectangle-new3(FUNCTION PointFactory-createXY2(J-pointFactory, J-x, J-y), jtemp6, jtemp7)
+                    GOBACK
+                END-IF
+            END-IF
+        END-PERFORM
+        COMPUTE jtemp10 = FUNCTION StringMaker-new0
+        COMPUTE jtemp9 = FUNCTION StringMaker-append1(jtemp10, FUNCTION JR-STR("No rectangle available for current feature selection or Resource: "))
+        COMPUTE jtemp8 = FUNCTION StringMaker-append1(jtemp9, J-resource)
+        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+    GOBACK.
+END FUNCTION FtrdAnmtnIntrfcFctryInt-46339.
 
-{AB:CODE}
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FtrdAnmtnIntrfcFctryInt-17476.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-resource BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-resource RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION FtrdAnmtnIntrfcFctryInt-93280(J-THIS, J-resource)
+        GOBACK
+    GOBACK.
+END FUNCTION FtrdAnmtnIntrfcFctryInt-17476.
 
-constructor TFeaturedAnimationInterfaceFactoryInterfaceFactory.Create;
-begin
-    inherited Create;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FtrdAnmtnIntrfcFctryInt-13097.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-resource BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-resource RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION FtrdAnmtnIntrfcFctryInt-93280(J-THIS, J-resource)
+        GOBACK
+    GOBACK.
+END FUNCTION FtrdAnmtnIntrfcFctryInt-13097.
 
-class function TFeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance: TFeaturedAnimationInterfaceFactoryInterfaceFactory;
-begin
-        Exit(TFeaturedAnimationInterfaceFactoryInterfaceFactory.INSTANCE);
-end;
-    
-
-// throws Exception
-function TFeaturedAnimationInterfaceFactoryInterfaceFactory.getRectangle(resource: string): TRectangle;
-begin
-        Exit(Self.getRectangleXY(resource, 0, 0));
-end;
-    
-
-// throws Exception
-function TFeaturedAnimationInterfaceFactoryInterfaceFactory.getRectangleXY(resource: string; x: Integer; y: Integer): TRectangle;
-var
-  pointFactory_: TPointFactory;
-  list: TBasicArrayList;
-  scale: Integer;
-  size: Integer;
-  featureInterface: IFeatureResourceAnimationInterfaceFactoryInterface;
-  rectangle_: TRectangle;
-  index: Integer;
-begin
-        pointFactory_ := TPointFactory.getInstance();
-        list := Self.getList();
-        scale := TGameConfigurationCentral.getInstance().SCALE.getValue().intValue();
-        size := Self.getList().size();
-        for index := 0 to size - 1 do begin
-            featureInterface := (TJava.ToObject(list.objectArray[index]) as IFeatureResourceAnimationInterfaceFactoryInterface);
-            if featureInterface.isFeature() then begin
-                rectangle_ := featureInterface.getRectangle(resource);
-                if (rectangle_) <> (TRectangleFactory.SINGLETON) then begin
-                    Exit(TRectangle.Create(pointFactory_.createXY(x, y), (TJava.SignedRightShift(((rectangle_.getWidth()) * (scale)), 1)), (TJava.SignedRightShift(((rectangle_.getHeight()) * (scale)), 1))));
-                end;
-            end;
-        end;
-        raise SysUtils.Exception.Create(TStringMaker.Create().append('No rectangle available for current feature selection or Resource: ').append(resource).toString());
-end;
-    
-
-// throws Exception
-function TFeaturedAnimationInterfaceFactoryInterfaceFactory.getProcedural(resource: string): IProceduralAnimationInterfaceFactoryInterface;
-begin
-        Exit((TJava.ToObject(Self.getBasicAnimationInterfaceFactoryInstance(resource)) as IProceduralAnimationInterfaceFactoryInterface));
-end;
-    
-
-// throws Exception
-function TFeaturedAnimationInterfaceFactoryInterfaceFactory.get(resource: string): IAnimationInterfaceFactoryInterface;
-begin
-        Exit((TJava.ToObject(Self.getBasicAnimationInterfaceFactoryInstance(resource)) as IAnimationInterfaceFactoryInterface));
-end;
-    
-
-// throws Exception
-function TFeaturedAnimationInterfaceFactoryInterfaceFactory.getBasicAnimationInterfaceFactoryInstance(resource: string): IBasicAnimationInterfaceFactoryInterface;
-var
-  list: TBasicArrayList;
-  resourceTypeAvailableList: TBasicArrayList;
-  size: Integer;
-  featureInterface: IFeatureResourceAnimationInterfaceFactoryInterface;
-  animationInterfaceFactoryInterface_: IBasicAnimationInterfaceFactoryInterface;
-  index: Integer;
-  stringBuffer: TStringMaker;
-  result_: string;
-  NO_ANIMATION_AVAILABLE_FROM: string;
-  FOR_FACTORIES: string;
-  FOR_RESOURCE: string;
-  HAS_KEY: string;
-  RESOURCES_LABEL: string;
-  size2: Integer;
-begin
-        list := Self.getList();
-        resourceTypeAvailableList := TBasicArrayListD.Create();
-        size := Self.getList().size();
-        
-        
-        for index := 0 to size - 1 do begin
-            featureInterface := (TJava.ToObject(list.objectArray[index]) as IFeatureResourceAnimationInterfaceFactoryInterface);
-            if featureInterface.isFeature() then begin
-                resourceTypeAvailableList.add(TJava.Box(featureInterface));
-                animationInterfaceFactoryInterface_ := featureInterface.getBasicAnimationInterfaceFactoryInstance(resource);
-                if TJava.ToObject(animationInterfaceFactoryInterface_) <> TJava.ToObject(TNullAnimationFactory.NULL_NOT_FOR_USE_ANIMATION_FACTORY) then begin
-                    Exit(animationInterfaceFactoryInterface_);
-                end;
-            end;
-        end;
-        if (resourceTypeAvailableList.size()) > (0) then begin
-            NO_ANIMATION_AVAILABLE_FROM := 'No animation available from: ';
-            FOR_FACTORIES := ' factories: ';
-            FOR_RESOURCE := ' for Resource: ';
-            HAS_KEY := ' has: ';
-            RESOURCES_LABEL := ' resources ';
-            stringBuffer := TStringMaker.Create();
-            stringBuffer.append(NO_ANIMATION_AVAILABLE_FROM);
-            stringBuffer.appendint(resourceTypeAvailableList.size());
-            stringBuffer.append(TCommonSeps.getInstance().FORWARD_SLASH);
-            stringBuffer.appendint(size);
-            stringBuffer.append(FOR_FACTORIES);
-            size2 := resourceTypeAvailableList.size();
-            for index := 0 to size2 - 1 do begin
-                stringBuffer.append(resourceTypeAvailableList.get(index).toString());
-                stringBuffer.append(TCommonSeps.getInstance().COMMA_SEP);
-            end;
-            stringBuffer.append(FOR_RESOURCE);
-            stringBuffer.append(resource);
-            for index := 0 to size - 1 do begin
-                stringBuffer.append(TCommonSeps.getInstance().NEW_LINE);
-                featureInterface := (TJava.ToObject(list.objectArray[index]) as IFeatureResourceAnimationInterfaceFactoryInterface);
-                if featureInterface.isFeature() then begin
-                    stringBuffer.append(TStringUtil.getInstance().toString(TJava.ToObject(featureInterface)));
-                    stringBuffer.append(HAS_KEY);
-                    stringBuffer.appendint(featureInterface.getHashtable().size());
-                    stringBuffer.append(RESOURCES_LABEL);
-                end;
-            end;
-            raise SysUtils.Exception.Create(stringBuffer.toString());
-        end else begin
-            stringBuffer := TStringMaker.Create();
-            for index := 0 to size - 1 do begin
-                featureInterface := (TJava.ToObject(list.objectArray[index]) as IFeatureResourceAnimationInterfaceFactoryInterface);
-                stringBuffer.append(TJava.ToString(TJava.ToObject(featureInterface)));
-                stringBuffer.append(TCommonSeps.getInstance().SPACE);
-            end;
-            result_ := stringBuffer.toString();
-            stringBuffer.delete_(0, stringBuffer.length());
-            raise SysUtils.Exception.Create(stringBuffer.append('No feature resource type available for Resource: ').append(resource).append(' Resource Factories Available: ').append(result_).toString());
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TFeaturedAnimationInterfaceFactoryInterfaceFactory.INSTANCE := TFeaturedAnimationInterfaceFactoryInterfaceFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FtrdAnmtnIntrfcFctryInt-93280.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-list BINARY-DOUBLE.
+01 J-resourceTypeAvailableList BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-featureInterface BINARY-DOUBLE.
+01 J-animationInterfaceFactoryInterface BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-stringBuffer BINARY-DOUBLE.
+01 J-result-L BINARY-DOUBLE.
+01 J-NO_ANIMATION_AVAILABLE_FROM BINARY-DOUBLE.
+01 J-FOR_FACTORIES BINARY-DOUBLE.
+01 J-FOR_RESOURCE BINARY-DOUBLE.
+01 J-HAS_KEY BINARY-DOUBLE.
+01 J-RESOURCES_LABEL BINARY-DOUBLE.
+01 J-size2 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+01 jtemp18 BINARY-DOUBLE.
+01 jtemp19 BINARY-DOUBLE.
+01 jtemp20 BINARY-DOUBLE.
+01 jtemp21 BINARY-DOUBLE.
+01 jtemp22 BINARY-DOUBLE.
+01 jtemp23 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+01 JFIRST3 BINARY-DOUBLE.
+01 JFIRST4 BINARY-DOUBLE.
+01 JFIRST5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-resource BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-resource RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-list = FUNCTION FtrdRsrcFctry-getList0(J-THIS)
+        COMPUTE J-resourceTypeAvailableList = FUNCTION BasicArrayListD-new0
+        COMPUTE jtemp11 = FUNCTION FtrdRsrcFctry-getList0(J-THIS)
+        COMPUTE J-size = FUNCTION JR-CLASS-NAME(jtemp11)
+        CONTINUE
+        CONTINUE
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST2
+        PERFORM FOREVER
+            IF JFIRST2 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST2
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-featureInterface = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
+            IF (FUNCTION FtrRsrcAnmtnIntrfcFctry-73049(J-featureInterface) = 1)
+                COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-resourceTypeAvailableList, J-featureInterface)
+                COMPUTE J-animationInterfaceFactoryInterface = FUNCTION FtrRsrcAnmtnIntrfcFctry-47398(J-featureInterface, J-resource)
+                IF (J-animationInterfaceFactoryInterface NOT = FUNCTION NllAnmtnFctry-sttc-68402)
+                    COMPUTE J-RESULT = J-animationInterfaceFactoryInterface
+                    GOBACK
+                END-IF
+            END-IF
+        END-PERFORM
+        IF (FUNCTION BasicArrayList-size0(J-resourceTypeAvailableList) > 0)
+            COMPUTE J-NO_ANIMATION_AVAILABLE_FROM = FUNCTION JR-STR("No animation available from: ")
+            COMPUTE J-FOR_FACTORIES = FUNCTION JR-STR(" factories: ")
+            COMPUTE J-FOR_RESOURCE = FUNCTION JR-STR(" for Resource: ")
+            COMPUTE J-HAS_KEY = FUNCTION JR-STR(" has: ")
+            COMPUTE J-RESOURCES_LABEL = FUNCTION JR-STR(" resources ")
+            COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-NO_ANIMATION_AVAILABLE_FROM)
+            COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, FUNCTION BasicArrayList-size0(J-resourceTypeAvailableList))
+            COMPUTE jtemp18 = FUNCTION CommonSeps-getInstance0
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(jtemp18, "f_FORWARD_SLASH"))
+            COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, J-size)
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-FOR_FACTORIES)
+            COMPUTE J-size2 = FUNCTION BasicArrayList-size0(J-resourceTypeAvailableList)
+            COMPUTE J-index = 0
+            MOVE 1 TO JFIRST4
+            PERFORM FOREVER
+                IF JFIRST4 = 0
+                    COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+                END-IF
+                MOVE 0 TO JFIRST4
+                IF NOT (J-index < J-size2) EXIT PERFORM END-IF
+                COMPUTE jtemp19 = FUNCTION BasicArrayList-get1(J-resourceTypeAvailableList, J-index)
+                COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-TO-STRING(jtemp19))
+                COMPUTE jtemp20 = FUNCTION CommonSeps-getInstance0
+                COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(jtemp20, "f_COMMA_SEP"))
+            END-PERFORM
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-FOR_RESOURCE)
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-resource)
+            COMPUTE J-index = 0
+            MOVE 1 TO JFIRST5
+            PERFORM FOREVER
+                IF JFIRST5 = 0
+                    COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+                END-IF
+                MOVE 0 TO JFIRST5
+                IF NOT (J-index < J-size) EXIT PERFORM END-IF
+                COMPUTE jtemp21 = FUNCTION CommonSeps-getInstance0
+                COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(jtemp21, "f_NEW_LINE"))
+                COMPUTE J-featureInterface = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
+                IF (FUNCTION FtrRsrcAnmtnIntrfcFctry-73049(J-featureInterface) = 1)
+                    COMPUTE jtemp22 = FUNCTION StringUtil-getInstance0
+                    COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION StringUtil-toString1(jtemp22, J-featureInterface))
+                    COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-HAS_KEY)
+                    COMPUTE jtemp23 = FUNCTION FtrRsrcAnmtnIntrfcFctry-35657(J-featureInterface)
+                    COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, FUNCTION JR-CLASS-NAME(jtemp23))
+                    COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-RESOURCES_LABEL)
+                END-IF
+            END-PERFORM
+            COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+        ELSE
+            COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+            COMPUTE J-index = 0
+            MOVE 1 TO JFIRST3
+            PERFORM FOREVER
+                IF JFIRST3 = 0
+                    COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+                END-IF
+                MOVE 0 TO JFIRST3
+                IF NOT (J-index < J-size) EXIT PERFORM END-IF
+                COMPUTE J-featureInterface = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
+                COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-TO-STRING(J-featureInterface))
+                COMPUTE jtemp12 = FUNCTION CommonSeps-getInstance0
+                COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(jtemp12, "f_SPACE"))
+            END-PERFORM
+            COMPUTE J-result-L = FUNCTION JR-TO-STRING(J-stringBuffer)
+            COMPUTE jtemp13 = 0
+            COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringBuffer, jtemp13, FUNCTION StringMaker-length0(J-stringBuffer))
+            COMPUTE jtemp17 = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR("No feature resource type available for Resource: "))
+            COMPUTE jtemp16 = FUNCTION StringMaker-append1(jtemp17, J-resource)
+            COMPUTE jtemp15 = FUNCTION StringMaker-append1(jtemp16, FUNCTION JR-STR(" Resource Factories Available: "))
+            COMPUTE jtemp14 = FUNCTION StringMaker-append1(jtemp15, J-result-L)
+            COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+        END-IF
+    GOBACK.
+END FUNCTION FtrdAnmtnIntrfcFctryInt-93280.
 

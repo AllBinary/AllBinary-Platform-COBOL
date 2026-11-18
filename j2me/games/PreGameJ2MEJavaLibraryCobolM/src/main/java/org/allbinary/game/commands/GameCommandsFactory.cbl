@@ -1,125 +1,315 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.commands
+*> Java class GameCommandsFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.commands
-unit GameCommandsFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCmmndsFctry-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameCommandsFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 GameCommandsFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GameCommandsFactory-jset-instance = 0
+        MOVE 1 TO GameCommandsFactory-jset-instance
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE GameCommandsFactory-jcell-instance = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+    END-IF
+    MOVE GameCommandsFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION GmCmmndsFctry-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCmmndsFctrystaticiS84245.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameCommandsFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GmCmmndsFctry-static-instance TO J-RESULT
+    MOVE J-VALUE TO GameCommandsFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GmCmmndsFctrystaticiS84245.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameCommandsFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+01 jtemp18 BINARY-DOUBLE.
+01 jtemp19 BINARY-DOUBLE.
+01 jtemp20 BINARY-DOUBLE.
+01 jtemp21 BINARY-DOUBLE.
+01 jtemp22 BINARY-DOUBLE.
+01 jtemp23 BINARY-DOUBLE.
+01 jtemp24 BINARY-DOUBLE.
+01 jtemp25 BINARY-DOUBLE.
+01 jtemp26 BINARY-DOUBLE.
+01 jtemp27 BINARY-DOUBLE.
+01 jtemp28 BINARY-DOUBLE.
+01 jtemp29 BINARY-DOUBLE.
+01 jtemp30 BINARY-DOUBLE.
+01 jtemp31 BINARY-DOUBLE.
+01 jtemp32 BINARY-DOUBLE.
+01 jtemp33 BINARY-DOUBLE.
+01 jtemp34 BINARY-DOUBLE.
+01 jtemp35 BINARY-DOUBLE.
+01 jtemp36 BINARY-DOUBLE.
+01 jtemp37 BINARY-DOUBLE.
+01 jtemp38 BINARY-DOUBLE.
+01 jtemp39 BINARY-DOUBLE.
+01 jtemp40 BINARY-DOUBLE.
+01 jtemp41 BINARY-DOUBLE.
+01 jtemp42 BINARY-DOUBLE.
+01 jtemp43 BINARY-DOUBLE.
+01 jtemp44 BINARY-DOUBLE.
+01 jtemp45 BINARY-DOUBLE.
+01 jtemp46 BINARY-DOUBLE.
+01 jtemp47 BINARY-DOUBLE.
+01 jtemp48 BINARY-DOUBLE.
+01 jtemp49 BINARY-DOUBLE.
+01 jtemp50 BINARY-DOUBLE.
+01 jtemp51 BINARY-DOUBLE.
+01 jtemp52 BINARY-DOUBLE.
+01 jtemp53 BINARY-DOUBLE.
+01 jtemp54 BINARY-DOUBLE.
+01 jtemp55 BINARY-DOUBLE.
+01 jtemp56 BINARY-DOUBLE.
+01 jtemp57 BINARY-DOUBLE.
+01 jtemp58 BINARY-DOUBLE.
+01 jtemp59 BINARY-DOUBLE.
+01 jtemp60 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameCommandsFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_TOGGLE_FULLSCREEN")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_TOGGLE_KEYBOARD")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SET_MENU_DISPLAYABLE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_APPLICATION_UPDATE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DISPLAY_ABOUT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_OPEN_WEB_URL")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_CLOSE_OPTIONS")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DISPLAY_OPTIONS")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_START_TRACE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_STOP_TRACE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DEFAULT_OPTIONS")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SHOW_GAME_CANVAS")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_CLOSE_AND_SHOW_GAME_CANVAS")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_QUIT_COMMAND")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_RESTART_COMMAND")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DISPLAY_SAVE_FORM")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SAVE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DISPLAY_LOAD_FORM")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_LOAD_FILE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DELETE_FILE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_EXIT_COMMAND")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_EXIT_WITHOUT_PROGRESS_COMMAND")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_START_COMMAND")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_CONTINUE_COMMAND")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SELECT_COMMAND")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_FEATURE_UPDATE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_BUY_COMMAND")
+    COMPUTE jtemp3 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp4 = 1
+    COMPUTE JVALUE = FUNCTION Command-new4(FUNCTION JR-STR("Toggle FullScreen"), FUNCTION JR-GET(jtemp3, "f_EMPTY_STRING"), FUNCTION Command-static-SCREEN, jtemp4)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_TOGGLE_FULLSCREEN", JVALUE)
+    COMPUTE jtemp5 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp6 = 1
+    COMPUTE JVALUE = FUNCTION Command-new4(FUNCTION JR-STR("Keyboard"), FUNCTION JR-GET(jtemp5, "f_EMPTY_STRING"), FUNCTION Command-static-SCREEN, jtemp6)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_TOGGLE_KEYBOARD", JVALUE)
+    COMPUTE jtemp7 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp8 = 1
+    COMPUTE JVALUE = FUNCTION Command-new4(FUNCTION JR-STR("Set Menu Displayable"), FUNCTION JR-GET(jtemp7, "f_EMPTY_STRING"), FUNCTION Command-static-SCREEN, jtemp8)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SET_MENU_DISPLAYABLE", JVALUE)
+    COMPUTE jtemp9 = FUNCTION CommonStrings-getInstance0
+    COMPUTE jtemp10 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp11 = 1
+    COMPUTE JVALUE = FUNCTION Command-new4(FUNCTION JR-GET(jtemp9, "f_UPDATE"), FUNCTION JR-GET(jtemp10, "f_EMPTY_STRING"), FUNCTION Command-static-SCREEN, jtemp11)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_APPLICATION_UPDATE", JVALUE)
+    COMPUTE jtemp12 = FUNCTION CanvasStrings-getInstance0
+    COMPUTE jtemp13 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp14 = 2
+    COMPUTE JVALUE = FUNCTION Command-new4(FUNCTION JR-GET(jtemp12, "f_ABOUT"), FUNCTION JR-GET(jtemp13, "f_EMPTY_STRING"), FUNCTION Command-static-SCREEN, jtemp14)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DISPLAY_ABOUT", JVALUE)
+    COMPUTE jtemp15 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp16 = 2
+    COMPUTE JVALUE = FUNCTION Command-new4(FUNCTION JR-STR("Open Web URL"), FUNCTION JR-GET(jtemp15, "f_EMPTY_STRING"), FUNCTION Command-static-SCREEN, jtemp16)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_OPEN_WEB_URL", JVALUE)
+    COMPUTE jtemp17 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp18 = 1
+    COMPUTE JVALUE = FUNCTION Command-new4(FUNCTION JR-STR("Back"), FUNCTION JR-GET(jtemp17, "f_EMPTY_STRING"), FUNCTION Command-static-SCREEN, jtemp18)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_CLOSE_OPTIONS", JVALUE)
+    COMPUTE jtemp19 = FUNCTION CanvasStrings-getInstance0
+    COMPUTE jtemp20 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp21 = 2
+    COMPUTE JVALUE = FUNCTION Command-new4(FUNCTION JR-GET(jtemp19, "f_OPTIONS"), FUNCTION JR-GET(jtemp20, "f_EMPTY_STRING"), FUNCTION Command-static-SCREEN, jtemp21)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DISPLAY_OPTIONS", JVALUE)
+    COMPUTE jtemp22 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp23 = 1
+    COMPUTE JVALUE = FUNCTION Command-new4(FUNCTION JR-STR("Start Trace"), FUNCTION JR-GET(jtemp22, "f_EMPTY_STRING"), FUNCTION Command-static-SCREEN, jtemp23)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_START_TRACE", JVALUE)
+    COMPUTE jtemp24 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp25 = 1
+    COMPUTE JVALUE = FUNCTION Command-new4(FUNCTION JR-STR("Stop Trace"), FUNCTION JR-GET(jtemp24, "f_EMPTY_STRING"), FUNCTION Command-static-SCREEN, jtemp25)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_STOP_TRACE", JVALUE)
+    COMPUTE jtemp26 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp27 = 1
+    COMPUTE JVALUE = FUNCTION Command-new4(FUNCTION JR-STR("Default"), FUNCTION JR-GET(jtemp26, "f_EMPTY_STRING"), FUNCTION Command-static-SCREEN, jtemp27)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DEFAULT_OPTIONS", JVALUE)
+    COMPUTE jtemp28 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp29 = 1
+    COMPUTE JVALUE = FUNCTION Command-new4(FUNCTION JR-STR("Back to Game"), FUNCTION JR-GET(jtemp28, "f_EMPTY_STRING"), FUNCTION Command-static-SCREEN, jtemp29)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SHOW_GAME_CANVAS", JVALUE)
+    COMPUTE jtemp30 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp31 = 1
+    COMPUTE JVALUE = FUNCTION Command-new4(FUNCTION JR-STR("Back"), FUNCTION JR-GET(jtemp30, "f_EMPTY_STRING"), FUNCTION Command-static-SCREEN, jtemp31)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_CLOSE_AND_SHOW_GAME_CANVAS", JVALUE)
+    COMPUTE jtemp32 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp33 = 1
+    COMPUTE JVALUE = FUNCTION Command-new4(FUNCTION JR-STR("Quit"), FUNCTION JR-GET(jtemp32, "f_EMPTY_STRING"), FUNCTION Command-static-STOP, jtemp33)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_QUIT_COMMAND", JVALUE)
+    COMPUTE jtemp34 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp35 = 0
+    COMPUTE JVALUE = FUNCTION Command-new4(FUNCTION JR-STR("Restart"), FUNCTION JR-GET(jtemp34, "f_EMPTY_STRING"), FUNCTION Command-static-SCREEN, jtemp35)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_RESTART_COMMAND", JVALUE)
+    COMPUTE jtemp36 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp37 = 3
+    COMPUTE JVALUE = FUNCTION Command-new4(FUNCTION JR-STR("Save To"), FUNCTION JR-GET(jtemp36, "f_EMPTY_STRING"), FUNCTION Command-static-SCREEN, jtemp37)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DISPLAY_SAVE_FORM", JVALUE)
+    COMPUTE jtemp38 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp39 = 3
+    COMPUTE JVALUE = FUNCTION Command-new4(FUNCTION JR-STR("Save"), FUNCTION JR-GET(jtemp38, "f_EMPTY_STRING"), FUNCTION Command-static-SCREEN, jtemp39)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SAVE", JVALUE)
+    COMPUTE jtemp40 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp41 = 3
+    COMPUTE JVALUE = FUNCTION Command-new4(FUNCTION JR-STR("Load"), FUNCTION JR-GET(jtemp40, "f_EMPTY_STRING"), FUNCTION Command-static-SCREEN, jtemp41)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DISPLAY_LOAD_FORM", JVALUE)
+    COMPUTE jtemp42 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp43 = 3
+    COMPUTE JVALUE = FUNCTION Command-new4(FUNCTION JR-STR("Load File"), FUNCTION JR-GET(jtemp42, "f_EMPTY_STRING"), FUNCTION Command-static-SCREEN, jtemp43)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_LOAD_FILE", JVALUE)
+    COMPUTE jtemp44 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp45 = 1
+    COMPUTE JVALUE = FUNCTION Command-new4(FUNCTION JR-STR("Delete File"), FUNCTION JR-GET(jtemp44, "f_EMPTY_STRING"), FUNCTION Command-static-SCREEN, jtemp45)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DELETE_FILE", JVALUE)
+    COMPUTE jtemp46 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp47 = 2
+    COMPUTE JVALUE = FUNCTION Command-new4(FUNCTION JR-STR("Exit"), FUNCTION JR-GET(jtemp46, "f_EMPTY_STRING"), FUNCTION Command-static-EXIT, jtemp47)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_EXIT_COMMAND", JVALUE)
+    COMPUTE jtemp48 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp49 = 2
+    COMPUTE JVALUE = FUNCTION Command-new4(FUNCTION JR-STR("Exit Without Progress"), FUNCTION JR-GET(jtemp48, "f_EMPTY_STRING"), FUNCTION Command-static-EXIT, jtemp49)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_EXIT_WITHOUT_PROGRESS_COMMAND", JVALUE)
+    COMPUTE jtemp50 = FUNCTION CommonStrings-getInstance0
+    COMPUTE jtemp51 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp52 = 1
+    COMPUTE JVALUE = FUNCTION Command-new4(FUNCTION JR-GET(jtemp50, "f_START"), FUNCTION JR-GET(jtemp51, "f_EMPTY_STRING"), FUNCTION Command-static-SCREEN, jtemp52)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_START_COMMAND", JVALUE)
+    COMPUTE jtemp53 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp54 = 1
+    COMPUTE JVALUE = FUNCTION Command-new4(FUNCTION JR-STR("Continue"), FUNCTION JR-GET(jtemp53, "f_EMPTY_STRING"), FUNCTION Command-static-SCREEN, jtemp54)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_CONTINUE_COMMAND", JVALUE)
+    COMPUTE jtemp55 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp56 = 1
+    COMPUTE JVALUE = FUNCTION Command-new4(FUNCTION JR-STR("Select"), FUNCTION JR-GET(jtemp55, "f_EMPTY_STRING"), FUNCTION Command-static-SCREEN, jtemp56)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SELECT_COMMAND", JVALUE)
+    COMPUTE jtemp57 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp58 = 1
+    COMPUTE JVALUE = FUNCTION Command-new4(FUNCTION JR-STR("Feature Update"), FUNCTION JR-GET(jtemp57, "f_EMPTY_STRING"), FUNCTION Command-static-SCREEN, jtemp58)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_FEATURE_UPDATE", JVALUE)
+    COMPUTE jtemp59 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp60 = 1
+    COMPUTE JVALUE = FUNCTION Command-new4(FUNCTION JR-STR("BUY"), FUNCTION JR-GET(jtemp59, "f_EMPTY_STRING"), FUNCTION Command-static-SCREEN, jtemp60)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_BUY_COMMAND", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GameCommandsFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Command;
-
-type
-  {AB:TYPES}
-  TGameCommandsFactory = class(TObject)
-  public
-    TOGGLE_FULLSCREEN: TCommand;
-    TOGGLE_KEYBOARD: TCommand;
-    SET_MENU_DISPLAYABLE: TCommand;
-    APPLICATION_UPDATE: TCommand;
-    DISPLAY_ABOUT: TCommand;
-    OPEN_WEB_URL: TCommand;
-    CLOSE_OPTIONS: TCommand;
-    DISPLAY_OPTIONS: TCommand;
-    START_TRACE: TCommand;
-    STOP_TRACE: TCommand;
-    DEFAULT_OPTIONS: TCommand;
-    SHOW_GAME_CANVAS: TCommand;
-    CLOSE_AND_SHOW_GAME_CANVAS: TCommand;
-    QUIT_COMMAND: TCommand;
-    RESTART_COMMAND: TCommand;
-    DISPLAY_SAVE_FORM: TCommand;
-    SAVE: TCommand;
-    DISPLAY_LOAD_FORM: TCommand;
-    LOAD_FILE: TCommand;
-    DELETE_FILE: TCommand;
-    EXIT_COMMAND: TCommand;
-    EXIT_WITHOUT_PROGRESS_COMMAND: TCommand;
-    START_COMMAND: TCommand;
-    CONTINUE_COMMAND: TCommand;
-    SELECT_COMMAND: TCommand;
-    FEATURE_UPDATE: TCommand;
-    BUY_COMMAND: TCommand;
-    class var instance: TObject;
-    procedure InitFields;
-        class function getInstance: TGameCommandsFactory; static;
-        constructor Create;
-  end;
-
-implementation
-uses
-  CanvasStrings, NullUtil, StringUtil, CommonStrings;
-
-
-{AB:CODE}
-
-procedure TGameCommandsFactory.InitFields;
-begin
-  Self.TOGGLE_FULLSCREEN := TCommand.Create('Toggle FullScreen', TStringUtil.getInstance().EMPTY_STRING, TCommand.SCREEN, 1);
-  Self.TOGGLE_KEYBOARD := TCommand.Create('Keyboard', TStringUtil.getInstance().EMPTY_STRING, TCommand.SCREEN, 1);
-  Self.SET_MENU_DISPLAYABLE := TCommand.Create('Set Menu Displayable', TStringUtil.getInstance().EMPTY_STRING, TCommand.SCREEN, 1);
-  Self.APPLICATION_UPDATE := TCommand.Create(TCommonStrings.getInstance().UPDATE, TStringUtil.getInstance().EMPTY_STRING, TCommand.SCREEN, 1);
-  Self.DISPLAY_ABOUT := TCommand.Create(TCanvasStrings.getInstance().ABOUT, TStringUtil.getInstance().EMPTY_STRING, TCommand.SCREEN, 2);
-  Self.OPEN_WEB_URL := TCommand.Create('Open Web URL', TStringUtil.getInstance().EMPTY_STRING, TCommand.SCREEN, 2);
-  Self.CLOSE_OPTIONS := TCommand.Create('Back', TStringUtil.getInstance().EMPTY_STRING, TCommand.SCREEN, 1);
-  Self.DISPLAY_OPTIONS := TCommand.Create(TCanvasStrings.getInstance().OPTIONS, TStringUtil.getInstance().EMPTY_STRING, TCommand.SCREEN, 2);
-  Self.START_TRACE := TCommand.Create('Start Trace', TStringUtil.getInstance().EMPTY_STRING, TCommand.SCREEN, 1);
-  Self.STOP_TRACE := TCommand.Create('Stop Trace', TStringUtil.getInstance().EMPTY_STRING, TCommand.SCREEN, 1);
-  Self.DEFAULT_OPTIONS := TCommand.Create('Default', TStringUtil.getInstance().EMPTY_STRING, TCommand.SCREEN, 1);
-  Self.SHOW_GAME_CANVAS := TCommand.Create('Back to Game', TStringUtil.getInstance().EMPTY_STRING, TCommand.SCREEN, 1);
-  Self.CLOSE_AND_SHOW_GAME_CANVAS := TCommand.Create('Back', TStringUtil.getInstance().EMPTY_STRING, TCommand.SCREEN, 1);
-  Self.QUIT_COMMAND := TCommand.Create('Quit', TStringUtil.getInstance().EMPTY_STRING, TCommand.STOP, 1);
-  Self.RESTART_COMMAND := TCommand.Create('Restart', TStringUtil.getInstance().EMPTY_STRING, TCommand.SCREEN, 0);
-  Self.DISPLAY_SAVE_FORM := TCommand.Create('Save To', TStringUtil.getInstance().EMPTY_STRING, TCommand.SCREEN, 3);
-  Self.SAVE := TCommand.Create('Save', TStringUtil.getInstance().EMPTY_STRING, TCommand.SCREEN, 3);
-  Self.DISPLAY_LOAD_FORM := TCommand.Create('Load', TStringUtil.getInstance().EMPTY_STRING, TCommand.SCREEN, 3);
-  Self.LOAD_FILE := TCommand.Create('Load File', TStringUtil.getInstance().EMPTY_STRING, TCommand.SCREEN, 3);
-  Self.DELETE_FILE := TCommand.Create('Delete File', TStringUtil.getInstance().EMPTY_STRING, TCommand.SCREEN, 1);
-  Self.EXIT_COMMAND := TCommand.Create('Exit', TStringUtil.getInstance().EMPTY_STRING, TCommand.EXIT_, 2);
-  Self.EXIT_WITHOUT_PROGRESS_COMMAND := TCommand.Create('Exit Without Progress', TStringUtil.getInstance().EMPTY_STRING, TCommand.EXIT_, 2);
-  Self.START_COMMAND := TCommand.Create(TCommonStrings.getInstance().START, TStringUtil.getInstance().EMPTY_STRING, TCommand.SCREEN, 1);
-  Self.CONTINUE_COMMAND := TCommand.Create('Continue', TStringUtil.getInstance().EMPTY_STRING, TCommand.SCREEN, 1);
-  Self.SELECT_COMMAND := TCommand.Create('Select', TStringUtil.getInstance().EMPTY_STRING, TCommand.SCREEN, 1);
-  Self.FEATURE_UPDATE := TCommand.Create('Feature Update', TStringUtil.getInstance().EMPTY_STRING, TCommand.SCREEN, 1);
-  Self.BUY_COMMAND := TCommand.Create('BUY', TStringUtil.getInstance().EMPTY_STRING, TCommand.SCREEN, 1);
-end;
-    
-
-class function TGameCommandsFactory.getInstance: TGameCommandsFactory;
-begin
-        if (TGameCommandsFactory.instance) = (TNullUtil.getInstance().NULL_OBJECT) then begin
-            TGameCommandsFactory.instance := TGameCommandsFactory.Create();
-        end;
-        Exit(TGameCommandsFactory(TJava.ToObject(TGameCommandsFactory.instance)));
-end;
-    
-
-constructor TGameCommandsFactory.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TGameCommandsFactory.instance := TJava.Box(TNullUtil.getInstance().NULL_OBJECT);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCmmndsFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+        IF (FUNCTION GmCmmndsFctry-static-instance = FUNCTION JR-GET(jtemp2, "f_NULL_OBJECT"))
+            COMPUTE JDISCARD = FUNCTION GmCmmndsFctrystaticiS84245(FUNCTION GameCommandsFactory-new0)
+        END-IF
+        COMPUTE J-RESULT = FUNCTION GmCmmndsFctry-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION GmCmmndsFctry-getInstance0.
 

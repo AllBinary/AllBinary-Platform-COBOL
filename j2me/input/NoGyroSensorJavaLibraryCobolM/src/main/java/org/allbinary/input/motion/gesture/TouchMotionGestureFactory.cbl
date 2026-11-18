@@ -1,116 +1,205 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion.gesture
+*> Java class TouchMotionGestureFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion.gesture
-unit TouchMotionGestureFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchMtnGstrFctry-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 TouchMotionGestureFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 TouchMotionGestureFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF TouchMotionGestureFactory-jset-instance = 0
+        MOVE 1 TO TouchMotionGestureFactory-jset-instance
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE TouchMotionGestureFactory-jcell-instance = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+    END-IF
+    MOVE TouchMotionGestureFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION TchMtnGstrFctry-sttc-nstnc.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchMtnGstrFctrysttcnS26008.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 TouchMotionGestureFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION TchMtnGstrFctry-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO TouchMotionGestureFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION TchMtnGstrFctrysttcnS26008.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, MotionGestureInput;
-
-type
-  {AB:TYPES}
-  TTouchMotionGestureFactory = class(TObject)
-  public
-    LEFT: TMotionGestureInput;
-    RIGHT: TMotionGestureInput;
-    UP: TMotionGestureInput;
-    DOWN: TMotionGestureInput;
-    PRESSED: TMotionGestureInput;
-    RELEASED: TMotionGestureInput;
-    DIAGONAL_DOWN_RIGHT: TMotionGestureInput;
-    DIAGONAL_DOWN_LEFT: TMotionGestureInput;
-    DIAGONAL_UP_RIGHT: TMotionGestureInput;
-    DIAGONAL_UP_LEFT: TMotionGestureInput;
-    SCROLL_UP: TMotionGestureInput;
-    SCROLL_DOWN: TMotionGestureInput;
-    NO_MOTION: TMotionGestureInput;
-    LAST_MOTION: TMotionGestureInput;
-    class var instance: TObject;
-    procedure InitFields;
-        class function getInstance: TTouchMotionGestureFactory; static;
-        constructor Create;
-  end;
-
-implementation
-uses
-  InputFactory, NullUtil;
-
-
-{AB:CODE}
-
-procedure TTouchMotionGestureFactory.InitFields;
-begin
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TouchMotionGestureFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-MAX BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("TouchMotionGestureFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_LEFT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_RIGHT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_UP")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DOWN")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_PRESSED")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_RELEASED")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DIAGONAL_DOWN_RIGHT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DIAGONAL_DOWN_LEFT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DIAGONAL_UP_RIGHT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DIAGONAL_UP_LEFT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SCROLL_UP")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SCROLL_DOWN")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NO_MOTION")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_LAST_MOTION")
     
-
-class function TTouchMotionGestureFactory.getInstance: TTouchMotionGestureFactory;
-begin
-        if (TTouchMotionGestureFactory.instance) = (TNullUtil.getInstance().NULL_OBJECT) then begin
-            TTouchMotionGestureFactory.instance := TTouchMotionGestureFactory.Create();
-        end;
-        Exit(TTouchMotionGestureFactory(TJava.ToObject(TTouchMotionGestureFactory.instance)));
-end;
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        COMPUTE jtemp3 = FUNCTION InputFactory-getInstance0
+        COMPUTE J-MAX = FUNCTION JR-GET(jtemp3, "f_MAX")
+        COMPUTE jtemp4 = (FUNCTION MOD((J-MAX - 3) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION MotionGestureInput-new2(jtemp4, FUNCTION JR-STR("Left Touch"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_LEFT", JVALUE)
+        COMPUTE jtemp5 = (FUNCTION MOD((J-MAX - 4) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION MotionGestureInput-new2(jtemp5, FUNCTION JR-STR("Right Touch"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_RIGHT", JVALUE)
+        COMPUTE jtemp6 = (FUNCTION MOD((J-MAX - 5) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION MotionGestureInput-new2(jtemp6, FUNCTION JR-STR("Up Touch"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_UP", JVALUE)
+        COMPUTE jtemp7 = (FUNCTION MOD((J-MAX - 6) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION MotionGestureInput-new2(jtemp7, FUNCTION JR-STR("Down Touch"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DOWN", JVALUE)
+        COMPUTE jtemp8 = (FUNCTION MOD((J-MAX - 7) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION MotionGestureInput-new2(jtemp8, FUNCTION JR-STR("Screen Press"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_PRESSED", JVALUE)
+        COMPUTE jtemp9 = (FUNCTION MOD((J-MAX - 8) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION MotionGestureInput-new2(jtemp9, FUNCTION JR-STR("Released"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_RELEASED", JVALUE)
+        COMPUTE jtemp10 = (FUNCTION MOD((J-MAX - 9) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION MotionGestureInput-new2(jtemp10, FUNCTION JR-STR("Diagonal Dn R"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DIAGONAL_DOWN_RIGHT", JVALUE)
+        COMPUTE jtemp11 = (FUNCTION MOD((J-MAX - 10) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION MotionGestureInput-new2(jtemp11, FUNCTION JR-STR("Diagonal Dn L"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DIAGONAL_DOWN_LEFT", JVALUE)
+        COMPUTE jtemp12 = (FUNCTION MOD((J-MAX - 11) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION MotionGestureInput-new2(jtemp12, FUNCTION JR-STR("Diagonal Up R"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DIAGONAL_UP_RIGHT", JVALUE)
+        COMPUTE jtemp13 = (FUNCTION MOD((J-MAX - 12) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION MotionGestureInput-new2(jtemp13, FUNCTION JR-STR("Diagonal Up L"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DIAGONAL_UP_LEFT", JVALUE)
+        COMPUTE jtemp14 = (FUNCTION MOD((J-MAX - 13) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION MotionGestureInput-new2(jtemp14, FUNCTION JR-STR("Scroll Up"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SCROLL_UP", JVALUE)
+        COMPUTE jtemp15 = (FUNCTION MOD((J-MAX - 14) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION MotionGestureInput-new2(jtemp15, FUNCTION JR-STR("Scroll Down"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SCROLL_DOWN", JVALUE)
+        COMPUTE jtemp16 = (FUNCTION MOD((J-MAX - 2) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION MotionGestureInput-new2(jtemp16, FUNCTION JR-STR("No Motion"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NO_MOTION", JVALUE)
+        COMPUTE jtemp17 = (FUNCTION MOD((J-MAX - 19) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION MotionGestureInput-new2(jtemp17, FUNCTION JR-STR("Last Motion"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_LAST_MOTION", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION TouchMotionGestureFactory-new0.
 
-constructor TTouchMotionGestureFactory.Create;
-var
-  MAX: Integer;
-begin
-    inherited Create;
-    InitFields;
-        MAX := TInputFactory.getInstance().MAX;
-        Self.LEFT := TMotionGestureInput.Create((MAX) - (3), 'Left Touch');
-        Self.RIGHT := TMotionGestureInput.Create((MAX) - (4), 'Right Touch');
-        Self.UP := TMotionGestureInput.Create((MAX) - (5), 'Up Touch');
-        Self.DOWN := TMotionGestureInput.Create((MAX) - (6), 'Down Touch');
-        Self.PRESSED := TMotionGestureInput.Create((MAX) - (7), 'Screen Press');
-        Self.RELEASED := TMotionGestureInput.Create((MAX) - (8), 'Released');
-        Self.DIAGONAL_DOWN_RIGHT := TMotionGestureInput.Create((MAX) - (9), 'Diagonal Dn R');
-        Self.DIAGONAL_DOWN_LEFT := TMotionGestureInput.Create((MAX) - (10), 'Diagonal Dn L');
-        Self.DIAGONAL_UP_RIGHT := TMotionGestureInput.Create((MAX) - (11), 'Diagonal Up R');
-        Self.DIAGONAL_UP_LEFT := TMotionGestureInput.Create((MAX) - (12), 'Diagonal Up L');
-        Self.SCROLL_UP := TMotionGestureInput.Create((MAX) - (13), 'Scroll Up');
-        Self.SCROLL_DOWN := TMotionGestureInput.Create((MAX) - (14), 'Scroll Down');
-        Self.NO_MOTION := TMotionGestureInput.Create((MAX) - (2), 'No Motion');
-        Self.LAST_MOTION := TMotionGestureInput.Create((MAX) - (19), 'Last Motion');
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TTouchMotionGestureFactory.instance := TJava.Box(TNullUtil.getInstance().NULL_OBJECT);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchMtnGstrFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+        IF (FUNCTION TchMtnGstrFctry-sttc-nstnc = FUNCTION JR-GET(jtemp2, "f_NULL_OBJECT"))
+            COMPUTE JDISCARD = FUNCTION TchMtnGstrFctrysttcnS26008(FUNCTION TouchMotionGestureFactory-new0)
+        END-IF
+        COMPUTE J-RESULT = FUNCTION TchMtnGstrFctry-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION TchMtnGstrFctry-getInstance0.
 

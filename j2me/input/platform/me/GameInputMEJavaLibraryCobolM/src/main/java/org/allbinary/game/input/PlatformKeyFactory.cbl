@@ -1,127 +1,394 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.input
+*> Java class PlatformKeyFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.input
-unit PlatformKeyFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PltfrmKyFctry-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PlatformKeyFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 PlatformKeyFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF PlatformKeyFactory-jset-instance = 0
+        MOVE 1 TO PlatformKeyFactory-jset-instance
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE PlatformKeyFactory-jcell-instance = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+    END-IF
+    MOVE PlatformKeyFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION PltfrmKyFctry-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PltfrmKyFctrystaticiS36983.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PlatformKeyFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION PltfrmKyFctry-static-instance TO J-RESULT
+    MOVE J-VALUE TO PlatformKeyFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION PltfrmKyFctrystaticiS36983.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlatformKeyFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("PlatformKeyFactory")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION PlatformKeyFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Input;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PltfrmKyFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+        IF (FUNCTION PltfrmKyFctry-static-instance = FUNCTION JR-GET(jtemp2, "f_NULL_OBJECT"))
+            COMPUTE JDISCARD = FUNCTION PltfrmKyFctrystaticiS36983(FUNCTION PlatformKeyFactory-new0)
+        END-IF
+        COMPUTE J-RESULT = FUNCTION PltfrmKyFctry-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION PltfrmKyFctry-getInstance0.
 
-type
-  {AB:TYPES}
-  TPlatformKeyFactory = class(TObject)
-  public
-    class var instance: TObject;
-    constructor Create;
-        class function getInstance: TPlatformKeyFactory; static;
-        function getString(keyCode: Integer): string; virtual;
-        function isSubmission(input_: TInput): Boolean; virtual;
-        function isDelete(input_: TInput): Boolean; virtual;
-        function isBackSpace(input_: TInput): Boolean; virtual;
-        function isLeft(input_: TInput): Boolean; virtual;
-        function isRight(input_: TInput): Boolean; virtual;
-        function isUp(input_: TInput): Boolean; virtual;
-        function isDown(input_: TInput): Boolean; virtual;
-        function isEnter(input_: TInput): Boolean; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlatformKeyFactory-getString1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-keyCode BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-keyCode RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION J2MEGameKey-getString1(J-keyCode)
+        GOBACK
+    GOBACK.
+END FUNCTION PlatformKeyFactory-getString1.
 
-implementation
-uses
-  J2MEGameKey, J2MEKeyFactory, NullUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PltfrmKyFctry-isSubmission1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-input BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-input RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp3 = FUNCTION J2MEKeyFactory-getInstance0
+        COMPUTE J-RESULT = FUNCTION J2MEKeyFactory-isSubmission1(jtemp3, J-input)
+        GOBACK
+    GOBACK.
+END FUNCTION PltfrmKyFctry-isSubmission1.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlatformKeyFactory-isDelete1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-input BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-input RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp4 = FUNCTION J2MEKeyFactory-getInstance0
+        COMPUTE J-RESULT = FUNCTION J2MEKeyFactory-isDelete1(jtemp4, J-input)
+        GOBACK
+    GOBACK.
+END FUNCTION PlatformKeyFactory-isDelete1.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PltfrmKyFctry-isBackSpace1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-input BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-input RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp5 = FUNCTION J2MEKeyFactory-getInstance0
+        COMPUTE J-RESULT = FUNCTION J2MEKeyFactory-isBackSpace1(jtemp5, J-input)
+        GOBACK
+    GOBACK.
+END FUNCTION PltfrmKyFctry-isBackSpace1.
 
-constructor TPlatformKeyFactory.Create;
-begin
-  inherited Create;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlatformKeyFactory-isLeft1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-input BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-input RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp6 = FUNCTION J2MEKeyFactory-getInstance0
+        COMPUTE J-RESULT = FUNCTION J2MEKeyFactory-isLeft1(jtemp6, J-input)
+        GOBACK
+    GOBACK.
+END FUNCTION PlatformKeyFactory-isLeft1.
 
-class function TPlatformKeyFactory.getInstance: TPlatformKeyFactory;
-begin
-        if (TPlatformKeyFactory.instance) = (TNullUtil.getInstance().NULL_OBJECT) then begin
-            TPlatformKeyFactory.instance := TPlatformKeyFactory.Create();
-        end;
-        Exit(TPlatformKeyFactory(TJava.ToObject(TPlatformKeyFactory.instance)));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlatformKeyFactory-isRight1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-input BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-input RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp7 = FUNCTION J2MEKeyFactory-getInstance0
+        COMPUTE J-RESULT = FUNCTION J2MEKeyFactory-isRight1(jtemp7, J-input)
+        GOBACK
+    GOBACK.
+END FUNCTION PlatformKeyFactory-isRight1.
 
-function TPlatformKeyFactory.getString(keyCode: Integer): string;
-begin
-        Exit(TJ2MEGameKey.getString(keyCode));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlatformKeyFactory-isUp1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp8 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-input BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-input RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp8 = FUNCTION J2MEKeyFactory-getInstance0
+        COMPUTE J-RESULT = FUNCTION J2MEKeyFactory-isUp1(jtemp8, J-input)
+        GOBACK
+    GOBACK.
+END FUNCTION PlatformKeyFactory-isUp1.
 
-function TPlatformKeyFactory.isSubmission(input_: TInput): Boolean;
-begin
-        Exit(TJ2MEKeyFactory.getInstance().isSubmission(input_));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlatformKeyFactory-isDown1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp9 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-input BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-input RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp9 = FUNCTION J2MEKeyFactory-getInstance0
+        COMPUTE J-RESULT = FUNCTION J2MEKeyFactory-isDown1(jtemp9, J-input)
+        GOBACK
+    GOBACK.
+END FUNCTION PlatformKeyFactory-isDown1.
 
-function TPlatformKeyFactory.isDelete(input_: TInput): Boolean;
-begin
-        Exit(TJ2MEKeyFactory.getInstance().isDelete(input_));
-end;
-    
-
-function TPlatformKeyFactory.isBackSpace(input_: TInput): Boolean;
-begin
-        Exit(TJ2MEKeyFactory.getInstance().isBackSpace(input_));
-end;
-    
-
-function TPlatformKeyFactory.isLeft(input_: TInput): Boolean;
-begin
-        Exit(TJ2MEKeyFactory.getInstance().isLeft(input_));
-end;
-    
-
-function TPlatformKeyFactory.isRight(input_: TInput): Boolean;
-begin
-        Exit(TJ2MEKeyFactory.getInstance().isRight(input_));
-end;
-    
-
-function TPlatformKeyFactory.isUp(input_: TInput): Boolean;
-begin
-        Exit(TJ2MEKeyFactory.getInstance().isUp(input_));
-end;
-    
-
-function TPlatformKeyFactory.isDown(input_: TInput): Boolean;
-begin
-        Exit(TJ2MEKeyFactory.getInstance().isDown(input_));
-end;
-    
-
-function TPlatformKeyFactory.isEnter(input_: TInput): Boolean;
-begin
-        Exit(TJ2MEKeyFactory.getInstance().isEnter(input_));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TPlatformKeyFactory.instance := TJava.Box(TNullUtil.getInstance().NULL_OBJECT);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlatformKeyFactory-isEnter1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp10 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-input BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-input RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp10 = FUNCTION J2MEKeyFactory-getInstance0
+        COMPUTE J-RESULT = FUNCTION J2MEKeyFactory-isEnter1(jtemp10, J-input)
+        GOBACK
+    GOBACK.
+END FUNCTION PlatformKeyFactory-isEnter1.
 

@@ -1,76 +1,128 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2025 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.media.audio
-unit SoundStrings;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.media.audio
+*> Java class SoundStrings
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SoundStrings-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 SoundStrings-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 SoundStrings-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF SoundStrings-jset-instance = 0
+        MOVE 1 TO SoundStrings-jset-instance
+        COMPUTE SoundStrings-jcell-instance = FUNCTION SoundStrings-new0
+    END-IF
+    MOVE SoundStrings-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION SoundStrings-static-instance.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SoundStringsstaticinS18426.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 SoundStrings-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION SoundStrings-static-instance TO J-RESULT
+    MOVE J-VALUE TO SoundStrings-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION SoundStringsstaticinS18426.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SoundStrings-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("SoundStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_STOP_ALL")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_CLOSE_ALL")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SOUND")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_INIT_SOUND")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_STOPPING_SOUND")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_CLOSING_SOUND")
+    COMPUTE JVALUE = FUNCTION JR-STR("stopAll")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_STOP_ALL", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("closeAll")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_CLOSE_ALL", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR(" Sound: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SOUND", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Initializing Sound: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_INIT_SOUND", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Stopping Sound: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_STOPPING_SOUND", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Closing Sound: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_CLOSING_SOUND", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION SoundStrings-new0.
 
-type
-  {AB:TYPES}
-  TSoundStrings = class(TObject)
-  public
-    STOP_ALL: string;
-    CLOSE_ALL: string;
-    SOUND: string;
-    INIT_SOUND: string;
-    STOPPING_SOUND: string;
-    CLOSING_SOUND: string;
-    class var instance: TSoundStrings;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TSoundStrings; static;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TSoundStrings.InitFields;
-begin
-  Self.STOP_ALL := 'stopAll';
-  Self.CLOSE_ALL := 'closeAll';
-  Self.SOUND := ' Sound: ';
-  Self.INIT_SOUND := 'Initializing Sound: ';
-  Self.STOPPING_SOUND := 'Stopping Sound: ';
-  Self.CLOSING_SOUND := 'Closing Sound: ';
-end;
-
-constructor TSoundStrings.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TSoundStrings.getInstance: TSoundStrings;
-begin
-        Exit(TSoundStrings.instance);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TSoundStrings.instance := TSoundStrings.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SoundStrings-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION SoundStrings-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION SoundStrings-getInstance0.
 

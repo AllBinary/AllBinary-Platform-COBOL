@@ -1,189 +1,333 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.ai.scroller
+*> Java class PacePatrolAI
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.ai.scroller
-unit PacePatrolAI;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Direction, GameInput, TrackingEvent, TrackingEventListenerInterface, AllBinaryLayer, AllBinaryLayerManager, AllBinaryEventObject, ABHashtable, BasicArrayList, BasePatrolAI, EventListenerInterface;
-
-type
-  {AB:TYPES}
-  TPacePatrolAI = class(TBasePatrolAI, ITrackingEventListenerInterface, IEventListenerInterface)
-  public
-    trackingList: TBasicArrayList;
-    firingDistance: Integer;
-    isFollowLimitedByTerrain: Boolean;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(hashtable: TABHashtable<TObject, TObject>; ownerLayerInterface: TAllBinaryLayer; gameInput_: TGameInput);
-        procedure processAI(allBinaryLayerManager_: TAllBinaryLayerManager); virtual;
-        function setFiringDirectionForTargetIfInRange: TDirection;
-        procedure disable; virtual;
-        procedure onEvent(eventObject: TAllBinaryEventObject); virtual;
-        procedure onMovement(trackingEvent_: TTrackingEvent); virtual;
-        function getFiringDistance: Integer; virtual;
-        procedure setFiringDistance(firingDistance: Integer); virtual;
-  end;
-
-implementation
-uses
-  Canvas, DirectionCompositeInterface, DirectionFactory, TrackingEventHandler, LayerInterface, ForcedLogUtil, EventStrings, BasicArrayListD;
-
-
-{AB:CODE}
-
-procedure TPacePatrolAI.InitFields;
-begin
-  
-  
-  Self.isFollowLimitedByTerrain := False;
-end;
-
-function TPacePatrolAI.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PacePatrolAI-new3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-hashtable BINARY-DOUBLE.
+01 J-ownerLayerInterface BINARY-DOUBLE.
+01 J-gameInput BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-hashtable J-ownerLayerInterface J-gameInput RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("PacePatrolAI")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_trackingList")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_firingDistance")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_isFollowLimitedByTerrain")
     
-
-constructor TPacePatrolAI.Create(hashtable: TABHashtable<TObject, TObject>; ownerLayerInterface: TAllBinaryLayer; gameInput_: TGameInput);
-begin
-        inherited Create(hashtable, ownerLayerInterface, gameInput_);
-        InitFields;
-        TTrackingEventHandler.getInstance().addListenerInterface(Self);
-        Self.trackingList := TBasicArrayListD.Create();
-end;
     
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_isFollowLimitedByTerrain", JVALUE)
+        CONTINUE
+        COMPUTE jtemp1 = FUNCTION TrckngEvntHndlr-getInstance0
+        COMPUTE JDISCARD = FUNCTION BscEvntHndlr-addLstnrIntrfc1(jtemp1, J-THIS)
+        COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_trackingList", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION PacePatrolAI-new3.
 
-// throws Exception
-procedure TPacePatrolAI.processAI(allBinaryLayerManager_: TAllBinaryLayerManager);
-var
-  direction_: TDirection;
-  directionFactory_: TDirectionFactory;
-begin
-        Self.update();
-        direction_ := Self.setFiringDirectionForTargetIfInRange();
-        directionFactory_ := TDirectionFactory.getInstance();
-        if (direction_) = (directionFactory_.LEFT) then begin
-            if ((Self.lastKeyDirection) <> (Self.keyDirection)) or (not (Self.isFollowLimitedByTerrain)) then begin
-                inherited processKeyAI(TCanvas.LEFT);
-            end;
-            Self.keyDirection := TCanvas.LEFT;
-            Self.lastKeyDirection := Self.keyDirection;
-            Self.xTotalDistance := 0;
-            inherited processKeyAI(TCanvas.KEY_NUM1);
-        end else if (direction_) = (directionFactory_.RIGHT) then begin
-            if ((Self.lastKeyDirection) <> (Self.keyDirection)) or (not (Self.isFollowLimitedByTerrain)) then begin
-                inherited processKeyAI(TCanvas.RIGHT);
-            end;
-            Self.keyDirection := TCanvas.RIGHT;
-            Self.lastKeyDirection := Self.keyDirection;
-            Self.xTotalDistance := 0;
-            inherited processKeyAI(TCanvas.KEY_NUM1);
-        end else begin
-            inherited processKeyAI(Self.keyDirection);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PacePatrolAI-processAI1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-direction BINARY-DOUBLE.
+01 J-directionFactory BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryLayerManager BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasePatrolAI-update0(J-THIS)
+        COMPUTE J-direction = FUNCTION PcPtrlAI-stFrngDrctnFrTrg21325(J-THIS)
+        COMPUTE J-directionFactory = FUNCTION DirectionFactory-getInstance0
+        IF (J-direction = FUNCTION JR-GET(J-directionFactory, "f_LEFT"))
+            IF ((FUNCTION JR-GET(J-THIS, "f_lastKeyDirection") NOT = FUNCTION JR-GET(J-THIS, "f_keyDirection")) OR (NOT (FUNCTION JR-GET(J-THIS, "f_isFollowLimitedByTerrain") = 1)))
+                COMPUTE JDISCARD = FUNCTION BasicAI-processKeyAI1(J-THIS, FUNCTION Canvas-static-LEFT)
+            END-IF
+            COMPUTE JVALUE = FUNCTION Canvas-static-LEFT
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_keyDirection", JVALUE)
+            COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_keyDirection")
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lastKeyDirection", JVALUE)
+            COMPUTE JVALUE = 0
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_xTotalDistance", JVALUE)
+            COMPUTE JDISCARD = FUNCTION BasicAI-processKeyAI1(J-THIS, FUNCTION Canvas-static-KEY-NUM1)
+        ELSE
+            IF (J-direction = FUNCTION JR-GET(J-directionFactory, "f_RIGHT"))
+            IF ((FUNCTION JR-GET(J-THIS, "f_lastKeyDirection") NOT = FUNCTION JR-GET(J-THIS, "f_keyDirection")) OR (NOT (FUNCTION JR-GET(J-THIS, "f_isFollowLimitedByTerrain") = 1)))
+                COMPUTE JDISCARD = FUNCTION BasicAI-processKeyAI1(J-THIS, FUNCTION Canvas-static-RIGHT)
+            END-IF
+            COMPUTE JVALUE = FUNCTION Canvas-static-RIGHT
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_keyDirection", JVALUE)
+            COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_keyDirection")
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lastKeyDirection", JVALUE)
+            COMPUTE JVALUE = 0
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_xTotalDistance", JVALUE)
+            COMPUTE JDISCARD = FUNCTION BasicAI-processKeyAI1(J-THIS, FUNCTION Canvas-static-KEY-NUM1)
+        ELSE
+            COMPUTE JDISCARD = FUNCTION BasicAI-processKeyAI1(J-THIS, FUNCTION JR-GET(J-THIS, "f_keyDirection"))
+        END-IF
+        END-IF
+    GOBACK.
+END FUNCTION PacePatrolAI-processAI1.
 
-function TPacePatrolAI.setFiringDirectionForTargetIfInRange: TDirection;
-var
-  directionFactory_: TDirectionFactory;
-  ownerLayerInterface: TAllBinaryLayer;
-  direction_: TDirection;
-  lastTrackingEvent: TTrackingEvent;
-  lastTrackingLayerInterface: ILayerInterface;
-  directionCompositeInterface_: IDirectionCompositeInterface;
-  size: Integer;
-  x: Integer;
-  y: Integer;
-  yDistance: Integer;
-  xDistance: Integer;
-  absXDistance: Integer;
-  absYDistance: Integer;
-  index: Integer;
-begin
-        directionFactory_ := TDirectionFactory.getInstance();
-        ownerLayerInterface := Self.getOwnerLayerInterface();
-        direction_ := directionFactory_.NOT_BORDERED_WITH;
-        
-        
-        
-        size := Self.trackingList.size();
-        for index := 0 to size - 1 do begin
-            lastTrackingEvent := TTrackingEvent(TJava.ToObject(Self.trackingList.get(0)));
-            lastTrackingLayerInterface := lastTrackingEvent.getLayerInterface();
-            x := lastTrackingLayerInterface.getXP();
-            y := lastTrackingLayerInterface.getYP();
-            yDistance := ((ownerLayerInterface.getYP()) - (y)) - (ownerLayerInterface.getHeight());
-            xDistance := ((ownerLayerInterface.getXP()) - (x)) - (ownerLayerInterface.getWidth());
-            absXDistance := Abs(xDistance);
-            absYDistance := Abs(yDistance);
-            if (absYDistance) <= (100) then begin
-                if (absXDistance) < ((Self.getFiringDistance()) div (2)) then begin
-                    directionCompositeInterface_ := (TJava.ToObject(Self.getOwnerLayerInterface()) as IDirectionCompositeInterface);
-                    if ((xDistance) < (0)) and ((directionCompositeInterface_.getDirection()) = (directionFactory_.RIGHT)) then begin
-                        direction_ := directionFactory_.RIGHT;
-                    end else if ((xDistance) > (0)) and ((directionCompositeInterface_.getDirection()) = (directionFactory_.LEFT)) then begin
-                        direction_ := directionFactory_.LEFT;
-                    end;
-                end;
-            end;
-        end;
-        Exit(direction_);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PcPtrlAI-stFrngDrctnFrTrg21325.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-directionFactory BINARY-DOUBLE.
+01 J-ownerLayerInterface BINARY-DOUBLE.
+01 J-direction BINARY-DOUBLE.
+01 J-lastTrackingEvent BINARY-DOUBLE.
+01 J-lastTrackingLayerInterface BINARY-DOUBLE.
+01 J-directionCompositeInterface BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-yDistance BINARY-DOUBLE.
+01 J-xDistance BINARY-DOUBLE.
+01 J-absXDistance BINARY-DOUBLE.
+01 J-absYDistance BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-directionFactory = FUNCTION DirectionFactory-getInstance0
+        COMPUTE J-ownerLayerInterface = FUNCTION BscAI-getOwnerLayerInterface0(J-THIS)
+        COMPUTE J-direction = FUNCTION JR-GET(J-directionFactory, "f_NOT_BORDERED_WITH")
+        CONTINUE
+        CONTINUE
+        CONTINUE
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_trackingList"))
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE jtemp2 = 0
+            COMPUTE J-lastTrackingEvent = FUNCTION BasicArrayList-get1(FUNCTION JR-GET(J-THIS, "f_trackingList"), jtemp2)
+            COMPUTE J-lastTrackingLayerInterface = FUNCTION TrckngEvnt-getLayerInterface0(J-lastTrackingEvent)
+            COMPUTE J-x = FUNCTION LayerInterface-getXP0(J-lastTrackingLayerInterface)
+            COMPUTE J-y = FUNCTION LayerInterface-getYP0(J-lastTrackingLayerInterface)
+            COMPUTE J-yDistance = (FUNCTION MOD(((FUNCTION MOD((FUNCTION AllBinaryLayer-getYP0(J-ownerLayerInterface) - J-y) + 2147483648, 4294967296) - 2147483648) - FUNCTION AllBinaryLayer-getHeight0(J-ownerLayerInterface)) + 2147483648,
+        4294967296) - 2147483648)
+            COMPUTE J-xDistance = (FUNCTION MOD(((FUNCTION MOD((FUNCTION AllBinaryLayer-getXP0(J-ownerLayerInterface) - J-x) + 2147483648, 4294967296) - 2147483648) - FUNCTION AllBinaryLayer-getWidth0(J-ownerLayerInterface)) + 2147483648,
+        4294967296) - 2147483648)
+            COMPUTE J-absXDistance = FUNCTION ABS(J-xDistance)
+            COMPUTE J-absYDistance = FUNCTION ABS(J-yDistance)
+            IF (J-absYDistance <= 100)
+                IF (J-absXDistance < (FUNCTION MOD(FUNCTION INTEGER-PART(FUNCTION PcPtrlAI-getFiringDistance0(J-THIS) / 2) + 2147483648, 4294967296) - 2147483648))
+                    COMPUTE J-directionCompositeInterface = FUNCTION BscAI-getOwnerLayerInterface0(J-THIS)
+                    IF ((J-xDistance < 0) AND (FUNCTION DrctnCmpstIntrfc-getDirection0(J-directionCompositeInterface) = FUNCTION JR-GET(J-directionFactory, "f_RIGHT")))
+                        COMPUTE J-direction = FUNCTION JR-GET(J-directionFactory, "f_RIGHT")
+                    ELSE
+                        IF ((J-xDistance > 0) AND (FUNCTION DrctnCmpstIntrfc-getDirection0(J-directionCompositeInterface) = FUNCTION JR-GET(J-directionFactory, "f_LEFT")))
+                        COMPUTE J-direction = FUNCTION JR-GET(J-directionFactory, "f_LEFT")
+                    END-IF
+                    END-IF
+                END-IF
+            END-IF
+        END-PERFORM
+        COMPUTE J-RESULT = J-direction
+        GOBACK
+    GOBACK.
+END FUNCTION PcPtrlAI-stFrngDrctnFrTrg21325.
 
-procedure TPacePatrolAI.disable;
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PacePatrolAI-disable0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION PacePatrolAI-disable0.
 
-procedure TPacePatrolAI.onEvent(eventObject: TAllBinaryEventObject);
-begin
-        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, TJava.Box(Self));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PacePatrolAI-onEvent1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp3 = FUNCTION EventStrings-getInstance0
+        COMPUTE JDISCARD = FUNCTION ForcedLogUtil-log2(FUNCTION JR-GET(jtemp3, "f_PERFORMANCE_MESSAGE"), J-THIS)
+    GOBACK.
+END FUNCTION PacePatrolAI-onEvent1.
 
-procedure TPacePatrolAI.onMovement(trackingEvent_: TTrackingEvent);
-begin
-        Self.trackingList.clear();
-        Self.trackingList.add(TJava.Box(trackingEvent_));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PacePatrolAI-onMovement1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-trackingEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-trackingEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-clear0(FUNCTION JR-GET(J-THIS, "f_trackingList"))
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_trackingList"), J-trackingEvent)
+    GOBACK.
+END FUNCTION PacePatrolAI-onMovement1.
 
-function TPacePatrolAI.getFiringDistance: Integer;
-begin
-        Exit(Self.firingDistance);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PcPtrlAI-getFiringDistance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_firingDistance")
+        GOBACK
+    GOBACK.
+END FUNCTION PcPtrlAI-getFiringDistance0.
 
-procedure TPacePatrolAI.setFiringDistance(firingDistance: Integer);
-begin
-        Self.firingDistance := firingDistance;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PcPtrlAI-setFiringDistance1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-firingDistance BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-firingDistance RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-firingDistance
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_firingDistance", JVALUE)
+    GOBACK.
+END FUNCTION PcPtrlAI-setFiringDistance1.
 

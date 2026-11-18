@@ -1,241 +1,455 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.score
+*> Java class HighScoreNamePersistanceSingleton
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.score
-unit HighScoreNamePersistanceSingleton;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrNmPrsstncSngltn-st39111.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 HighScoreNamePersistanceSingleton-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+01 HighScoreNamePersistanceSingleton-jset-SINGLETON BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF HighScoreNamePersistanceSingleton-jset-SINGLETON = 0
+        MOVE 1 TO HighScoreNamePersistanceSingleton-jset-SINGLETON
+        COMPUTE HighScoreNamePersistanceSingleton-jcell-SINGLETON = FUNCTION HghScrNmPrsstncSngltn-new0
+    END-IF
+    MOVE HighScoreNamePersistanceSingleton-jcell-SINGLETON TO J-RESULT
+    GOBACK.
+END FUNCTION HghScrNmPrsstncSngltn-st39111.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrNmPrsstncSngltS85455.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 HighScoreNamePersistanceSingleton-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION HghScrNmPrsstncSngltn-st39111 TO J-RESULT
+    MOVE J-VALUE TO HighScoreNamePersistanceSingleton-jcell-SINGLETON
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION HghScrNmPrsstncSngltS85455.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrNmPrsstncSngltn-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("HighScoreNamePersistanceSingleton")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_tsUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_platformRecordIdUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_RECORD_ID")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_name")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_nameBasicArrayList")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION TsUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_tsUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
+    COMPUTE JVALUE = FUNCTION PltfrmRcrdIdUtl-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_platformRecordIdUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("_SN")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_RECORD_ID", JVALUE)
+    COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_EMPTY_STRING")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_name", JVALUE)
+    COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_nameBasicArrayList", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION HghScrNmPrsstncSngltn-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, TsUtil, GameInfo, LogUtil, AbeClientInformationInterface, PlatformRecordIdUtil, CommonStrings, BasicArrayList;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrNmPrsstncSngltn-gtI97948.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION HghScrNmPrsstncSngltn-st39111
+        GOBACK
+    GOBACK.
+END FUNCTION HghScrNmPrsstncSngltn-gtI97948.
 
-type
-  {AB:TYPES}
-  THighScoreNamePersistanceSingleton = class(TObject)
-  public
-    logUtil: TLogUtil;
-    tsUtil: TTsUtil;
-    commonStrings: TCommonStrings;
-    platformRecordIdUtil: TPlatformRecordIdUtil;
-    RECORD_ID: string;
-    name: string;
-    nameBasicArrayList: TBasicArrayList;
-    class var SINGLETON: THighScoreNamePersistanceSingleton;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: THighScoreNamePersistanceSingleton; static;
-        procedure clear; virtual;
-        procedure deleteAll(abeClientInformation: IAbeClientInformationInterface; gameInfo_: TGameInfo); virtual;
-        function getRecordId(abeClientInformation: IAbeClientInformationInterface): string;
-        procedure delete_(abeClientInformation: IAbeClientInformationInterface; gameInfo_: TGameInfo; deleteId: Integer); virtual;
-        function getIds: TBasicArrayList; virtual;
-        function load(abeClientInformation: IAbeClientInformationInterface; gameInfo_: TGameInfo): string; virtual;
-        procedure save(abeClientInformation: IAbeClientInformationInterface; gameInfo_: TGameInfo; name: string); virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrNmPrsstncSngltn-clear0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION StringUtil-getInstance0
+        COMPUTE JVALUE = FUNCTION JR-GET(jtemp2, "f_EMPTY_STRING")
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_name", JVALUE)
+    GOBACK.
+END FUNCTION HghScrNmPrsstncSngltn-clear0.
 
-implementation
-uses
-  RecordEnumeration, RecordStore, RecordStoreException, NullRecordComparator, NullRecordFilter, NullRecordStore, PreLogUtil, ExceptionUtil, SmallIntegerSingletonFactory, StringMaker, StringUtil, BasicArrayListD;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrNmPrsstncSngltn-dltAll2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-size BINARY-DOUBLE.
+01 J-integer BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-abeClientInformation BINARY-DOUBLE.
+01 J-gameInfo BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-abeClientInformation J-gameInfo RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_nameBasicArrayList"))
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-integer = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_nameBasicArrayList"), "f_objectArray"), J-index)
+            COMPUTE JDISCARD = FUNCTION HghScrNmPrsstncSngltn-delete3(J-THIS, J-abeClientInformation, J-gameInfo, J-integer)
+        END-PERFORM
+        COMPUTE JDISCARD = FUNCTION HghScrNmPrsstncSngltn-clear0(J-THIS)
+    GOBACK.
+END FUNCTION HghScrNmPrsstncSngltn-dltAll2.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrNmPrsstncSngltn-gtR46638.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-abeClientInformation BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-abeClientInformation RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION PltfrmRcrdIdUtl-getRecordId2(FUNCTION JR-GET(J-THIS, "f_platformRecordIdUtil"), J-abeClientInformation, FUNCTION JR-GET(J-THIS, "f_RECORD_ID"))
+        GOBACK
+    GOBACK.
+END FUNCTION HghScrNmPrsstncSngltn-gtR46638.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrNmPrsstncSngltn-delete3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-recordStore BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-abeClientInformation BINARY-DOUBLE.
+01 J-gameInfo BINARY-DOUBLE.
+01 J-deleteId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-abeClientInformation J-gameInfo J-deleteId RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-recordStore = FUNCTION NllRcrdStr-sttc-NULL-R57789
+        CONTINUE
+            COMPUTE jtemp5 = FUNCTION StringMaker-new0
+            COMPUTE jtemp4 = FUNCTION StringMaker-append1(jtemp5, FUNCTION JR-STR("Deleting: "))
+            COMPUTE jtemp3 = FUNCTION StringMaker-appendint1(jtemp4, J-deleteId)
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp3), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_delete"))
+            COMPUTE jtemp6 = 1
+            COMPUTE J-recordStore = FUNCTION RecordStore-openRecordStore2(FUNCTION HghScrNmPrsstncSngltn-gtR46638(J-THIS, J-abeClientInformation), jtemp6)
+            COMPUTE JDISCARD = FUNCTION RecordStore-deleteRecord1(J-recordStore, J-deleteId)
+            IF (J-recordStore NOT = 0)
+                COMPUTE JDISCARD = FUNCTION PreLogUtil-put3(FUNCTION JR-STR("Closing RecordStore"), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_delete"))
+                COMPUTE JDISCARD = FUNCTION RecordStore-closeRecordStore0(J-recordStore)
+            END-IF
+    GOBACK.
+END FUNCTION HghScrNmPrsstncSngltn-delete3.
 
-procedure THighScoreNamePersistanceSingleton.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.tsUtil := TTsUtil.getInstance();
-  Self.commonStrings := TCommonStrings.getInstance();
-  Self.platformRecordIdUtil := TPlatformRecordIdUtil.getInstance();
-  Self.RECORD_ID := '_SN';
-  Self.name := TStringUtil.getInstance().EMPTY_STRING;
-  Self.nameBasicArrayList := TBasicArrayListD.Create();
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrNmPrsstncSngltn-getIds0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_nameBasicArrayList")
+        GOBACK
+    GOBACK.
+END FUNCTION HghScrNmPrsstncSngltn-getIds0.
 
-constructor THighScoreNamePersistanceSingleton.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrNmPrsstncSngltn-load2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-recordStore BINARY-DOUBLE.
+01 J-LOADING_ID BINARY-DOUBLE.
+01 J-recordEnum BINARY-DOUBLE.
+01 J-smallIntegerSingletonFactory BINARY-DOUBLE.
+01 J-recordAsBytes BINARY-DOUBLE.
+01 J-byteArrayInputStream BINARY-DOUBLE.
+01 J-inputStream BINARY-DOUBLE.
+01 J-id BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-abeClientInformation BINARY-DOUBLE.
+01 J-gameInfo BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-abeClientInformation J-gameInfo RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-recordStore = FUNCTION NllRcrdStr-sttc-NULL-R57789
+        CONTINUE
+            COMPUTE jtemp7 = FUNCTION StringUtil-getInstance0
+            IF (FUNCTION JR-GET(J-THIS, "f_name") = FUNCTION JR-GET(jtemp7, "f_EMPTY_STRING"))
+                COMPUTE J-LOADING_ID = FUNCTION JR-STR("Loading id: ")
+                COMPUTE jtemp8 = 1
+                COMPUTE J-recordStore = FUNCTION RecordStore-openRecordStore2(FUNCTION HghScrNmPrsstncSngltn-gtR46638(J-THIS, J-abeClientInformation), jtemp8)
+                COMPUTE jtemp9 = 1
+                COMPUTE J-recordEnum = FUNCTION RecordStore-enumerateRecords3(J-recordStore, FUNCTION NllRcrdFltr-sttc-NULL-79613, FUNCTION NllRcrdCmprtr-sttc-NUL41497, jtemp9)
+                COMPUTE J-smallIntegerSingletonFactory = FUNCTION SmllIntgrSngltnFctry-gtInstnc0
+                CONTINUE
+                CONTINUE
+                CONTINUE
+                PERFORM FOREVER
+                    IF NOT (FUNCTION RcrdEnmrtn-hasNextElement0(J-recordEnum) = 1) EXIT PERFORM END-IF
+                    COMPUTE J-id = FUNCTION RcrdEnmrtn-nextRecordId0(J-recordEnum)
+                    COMPUTE jtemp12 = FUNCTION StringMaker-new0
+                    COMPUTE jtemp11 = FUNCTION StringMaker-append1(jtemp12, J-LOADING_ID)
+                    COMPUTE jtemp10 = FUNCTION StringMaker-appendint1(jtemp11, J-id)
+                    COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp10), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_LOAD"))
+                    COMPUTE J-recordAsBytes = FUNCTION TsUtil-getRecord2(FUNCTION JR-GET(J-THIS, "f_tsUtil"), J-recordStore, J-id)
+                    COMPUTE J-byteArrayInputStream = FUNCTION ByteArrayInputStream-new1(J-recordAsBytes)
+                    COMPUTE J-inputStream = FUNCTION DataInputStream-new1(J-byteArrayInputStream)
+                    PERFORM FOREVER
+                        IF NOT (FUNCTION DataInputStream-available0(J-inputStream) > 0) EXIT PERFORM END-IF
+                        COMPUTE JVALUE = FUNCTION DataInputStream-readUTF0(J-inputStream)
+                        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_name", JVALUE)
+                    END-PERFORM
+                    COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_nameBasicArrayList"), FUNCTION SmllIntgrSngltnFctry-getAt1(J-smallIntegerSingletonFactory, J-id))
+                END-PERFORM
+            END-IF
+            CONTINUE
+                IF (J-recordStore NOT = 0)
+                    COMPUTE JDISCARD = FUNCTION PreLogUtil-put3(FUNCTION JR-STR("Closing RecordStore"), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_LOAD"))
+                    COMPUTE JDISCARD = FUNCTION RecordStore-closeRecordStore0(J-recordStore)
+                END-IF
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_name")
+        GOBACK
+    GOBACK.
+END FUNCTION HghScrNmPrsstncSngltn-load2.
 
-class function THighScoreNamePersistanceSingleton.getInstance: THighScoreNamePersistanceSingleton;
-begin
-        Exit(THighScoreNamePersistanceSingleton.SINGLETON);
-end;
-    
-
-procedure THighScoreNamePersistanceSingleton.clear;
-begin
-        Self.name := TStringUtil.getInstance().EMPTY_STRING;
-end;
-    
-
-// throws Exception
-procedure THighScoreNamePersistanceSingleton.deleteAll(abeClientInformation: IAbeClientInformationInterface; gameInfo_: TGameInfo);
-var
-  size: Integer;
-  integer_: Integer;
-  index: Integer;
-begin
-        size := Self.nameBasicArrayList.size();
-        for index := 0 to size - 1 do begin
-            integer_ := Integer(Self.nameBasicArrayList.objectArray[index]);
-            Self.delete_(abeClientInformation, gameInfo_, (integer_));
-        end;
-        Self.clear();
-end;
-    
-
-function THighScoreNamePersistanceSingleton.getRecordId(abeClientInformation: IAbeClientInformationInterface): string;
-begin
-        Exit(Self.platformRecordIdUtil.getRecordId(abeClientInformation, Self.RECORD_ID));
-end;
-    
-
-// throws Exception
-procedure THighScoreNamePersistanceSingleton.delete_(abeClientInformation: IAbeClientInformationInterface; gameInfo_: TGameInfo; deleteId: Integer);
-var
-  recordStore_: TRecordStore;
-begin
-        recordStore_ := TNullRecordStore.NULL_RECORD_STORE;
-        try
-        try
-            Self.logUtil.putF(TStringMaker.Create().append('Deleting: ').appendint(deleteId).toString(), TJava.Box(Self), Self.commonStrings.delete_);
-            recordStore_ := TRecordStore.openRecordStore(Self.getRecordId(abeClientInformation), True);
-            recordStore_.deleteRecord(deleteId);
-        except
-            on e: SysUtils.Exception do begin
-            raise e;
-            end;
-        end;
-        finally
-            if (recordStore_) <> (nil) then begin
-                TPreLogUtil.put('Closing RecordStore', TJava.Box(Self), Self.commonStrings.delete_);
-                recordStore_.closeRecordStore();
-            end;
-        end;
-end;
-    
-
-function THighScoreNamePersistanceSingleton.getIds: TBasicArrayList;
-begin
-        Exit(Self.nameBasicArrayList);
-end;
-    
-
-function THighScoreNamePersistanceSingleton.load(abeClientInformation: IAbeClientInformationInterface; gameInfo_: TGameInfo): string;
-var
-  recordStore_: TRecordStore;
-  LOADING_ID: string;
-  recordEnum: IRecordEnumeration;
-  smallIntegerSingletonFactory_: TSmallIntegerSingletonFactory;
-  recordAsBytes: TArray<ShortInt>;
-  byteArrayInputStream_: TByteArrayInputStream;
-  inputStream: TDataInputStream;
-  id: Integer;
-begin
-        recordStore_ := TNullRecordStore.NULL_RECORD_STORE;
-        try
-        try
-            if TJava.Equals(Self.name, TStringUtil.getInstance().EMPTY_STRING) then begin
-                LOADING_ID := 'Loading id: ';
-                recordStore_ := TRecordStore.openRecordStore(Self.getRecordId(abeClientInformation), True);
-                recordEnum := recordStore_.enumerateRecords(TNullRecordFilter.NULL_RECORD_FILTER, TNullRecordComparator.NULL_RECORD_COMPARATOR, True);
-                smallIntegerSingletonFactory_ := TSmallIntegerSingletonFactory.getInstance();
-                
-                
-                
-                while recordEnum.hasNextElement() do begin
-                    id := recordEnum.nextRecordId();
-                    Self.logUtil.putF(TStringMaker.Create().append(LOADING_ID).appendint(id).toString(), TJava.Box(Self), Self.commonStrings.LOAD);
-                    recordAsBytes := Self.tsUtil.getRecord(TJava.Box(recordStore_), id);
-                    byteArrayInputStream_ := TByteArrayInputStream.Create(recordAsBytes);
-                    inputStream := TDataInputStream.Create(byteArrayInputStream_);
-                    while (inputStream.available()) > (0) do begin
-                        Self.name := inputStream.readUTF();
-                    end;
-                    Self.nameBasicArrayList.add(TJava.Box(smallIntegerSingletonFactory_.getAt(id)));
-                end;
-            end;
-        except
-            on e: SysUtils.Exception do begin
-            Self.save(abeClientInformation, gameInfo_, Self.name);
-            Self.logUtil.putF(TStringMaker.Create().append(Self.commonStrings.EXCEPTION_LABEL).append(TExceptionUtil.getInstance().getStackTrace(e)).toString(), TJava.Box(Self), Self.commonStrings.LOAD);
-            end;
-        end;
-        finally
-            try
-                if (recordStore_) <> (nil) then begin
-                    TPreLogUtil.put('Closing RecordStore', TJava.Box(Self), Self.commonStrings.LOAD);
-                    recordStore_.closeRecordStore();
-                end;
-            except
-                on e: TRecordStoreException do begin
-                Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.LOAD, TJava.Box(e));
-                end;
-            end;
-        end;
-        Exit(Self.name);
-end;
-    
-
-procedure THighScoreNamePersistanceSingleton.save(abeClientInformation: IAbeClientInformationInterface; gameInfo_: TGameInfo; name: string);
-var
-  recordStore_: TRecordStore;
-  byteArrayOutputStream: TByteArrayOutputStream;
-  outputStream: TDataOutputStream;
-  savedGameBytes: TArray<ShortInt>;
-begin
-        recordStore_ := TNullRecordStore.NULL_RECORD_STORE;
-        try
-        try
-            Self.logUtil.putF(TStringMaker.Create().append('Saving: ').append(name).toString(), TJava.Box(Self), Self.commonStrings.SAVE);
-            recordStore_ := TRecordStore.openRecordStore(Self.getRecordId(abeClientInformation), True);
-            byteArrayOutputStream := TByteArrayOutputStream.Create;
-            outputStream := TDataOutputStream.Create(byteArrayOutputStream);
-            outputStream.writeUTF(name);
-            savedGameBytes := byteArrayOutputStream.toByteArray();
-            recordStore_.addRecord(savedGameBytes, 0, System.Length(savedGameBytes));
-            Self.name := name;
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.SAVE, TJava.Box(e));
-            end;
-        end;
-        finally
-            try
-                if (recordStore_) <> (nil) then begin
-                    TPreLogUtil.put('Closing RecordStore', TJava.Box(Self), Self.commonStrings.SAVE);
-                    recordStore_.closeRecordStore();
-                end;
-            except
-                on e: TRecordStoreException do begin
-                Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.SAVE, TJava.Box(e));
-                end;
-            end;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  THighScoreNamePersistanceSingleton.SINGLETON := THighScoreNamePersistanceSingleton.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrNmPrsstncSngltn-save3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-recordStore BINARY-DOUBLE.
+01 J-byteArrayOutputStream BINARY-DOUBLE.
+01 J-outputStream BINARY-DOUBLE.
+01 J-savedGameBytes BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+01 jtemp18 BINARY-DOUBLE.
+01 jtemp19 BINARY-DOUBLE.
+01 jtemp20 BINARY-DOUBLE.
+01 jtemp21 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-abeClientInformation BINARY-DOUBLE.
+01 J-gameInfo BINARY-DOUBLE.
+01 J-name BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-abeClientInformation J-gameInfo J-name RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-recordStore = FUNCTION NllRcrdStr-sttc-NULL-R57789
+        CONTINUE
+            COMPUTE jtemp19 = FUNCTION StringMaker-new0
+            COMPUTE jtemp18 = FUNCTION StringMaker-append1(jtemp19, FUNCTION JR-STR("Saving: "))
+            COMPUTE jtemp17 = FUNCTION StringMaker-append1(jtemp18, J-name)
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp17), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_SAVE"))
+            COMPUTE jtemp20 = 1
+            COMPUTE J-recordStore = FUNCTION RecordStore-openRecordStore2(FUNCTION HghScrNmPrsstncSngltn-gtR46638(J-THIS, J-abeClientInformation), jtemp20)
+            COMPUTE J-byteArrayOutputStream = FUNCTION ByteArrayOutputStream-new0
+            COMPUTE J-outputStream = FUNCTION DataOutputStream-new1(J-byteArrayOutputStream)
+            COMPUTE JDISCARD = FUNCTION DataOutputStream-writeUTF1(J-outputStream, J-name)
+            COMPUTE J-savedGameBytes = FUNCTION BytArryOtptStrm-toByteArray0(J-byteArrayOutputStream)
+            COMPUTE jtemp21 = 0
+            COMPUTE JDISCARD = FUNCTION RecordStore-addRecord3(J-recordStore, J-savedGameBytes, jtemp21, FUNCTION JR-ARRAY-LENGTH(J-savedGameBytes))
+            COMPUTE JVALUE = J-name
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_name", JVALUE)
+            CONTINUE
+                IF (J-recordStore NOT = 0)
+                    COMPUTE JDISCARD = FUNCTION PreLogUtil-put3(FUNCTION JR-STR("Closing RecordStore"), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_SAVE"))
+                    COMPUTE JDISCARD = FUNCTION RecordStore-closeRecordStore0(J-recordStore)
+                END-IF
+    GOBACK.
+END FUNCTION HghScrNmPrsstncSngltn-save3.
 

@@ -1,58 +1,110 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2025 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.opengles.shader
-unit SimpleShaderInitializer;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.opengles.shader
+*> Java class SimpleShaderInitializer
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SmplShdrIntlzr-sttc-nstncC.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 SimpleShaderInitializer-jcell-instanceC BINARY-DOUBLE EXTERNAL.
+01 SimpleShaderInitializer-jset-instanceC BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF SimpleShaderInitializer-jset-instanceC = 0
+        MOVE 1 TO SimpleShaderInitializer-jset-instanceC
+        COMPUTE SimpleShaderInitializer-jcell-instanceC = FUNCTION SimpleShaderInitializer-new0
+    END-IF
+    MOVE SimpleShaderInitializer-jcell-instanceC TO J-RESULT
+    GOBACK.
+END FUNCTION SmplShdrIntlzr-sttc-nstncC.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SmplShdrIntlzrsttcnsS38862.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 SimpleShaderInitializer-jcell-instanceC BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION SmplShdrIntlzr-sttc-nstncC TO J-RESULT
+    MOVE J-VALUE TO SimpleShaderInitializer-jcell-instanceC
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION SmplShdrIntlzrsttcnsS38862.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, ShaderInitializer;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SimpleShaderInitializer-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("SimpleShaderInitializer")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION SimpleShaderInitializer-new0.
 
-type
-  {AB:TYPES}
-  TSimpleShaderInitializer = class(TShaderInitializer)
-  public
-    class var instanceC: TSimpleShaderInitializer;
-    constructor Create;
-        class function getInstance: TSimpleShaderInitializer; static;
-  end;
-
-implementation
-
-{AB:CODE}
-
-constructor TSimpleShaderInitializer.Create;
-begin
-  inherited Create;
-end;
-    
-
-class function TSimpleShaderInitializer.getInstance: TSimpleShaderInitializer;
-begin
-        Exit(TSimpleShaderInitializer.instanceC);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TSimpleShaderInitializer.instanceC := TSimpleShaderInitializer.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SmplShdrIntlzr-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION SmplShdrIntlzr-sttc-nstncC
+        GOBACK
+    GOBACK.
+END FUNCTION SmplShdrIntlzr-getInstance0.
 

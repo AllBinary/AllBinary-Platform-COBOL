@@ -1,88 +1,139 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2022 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.logic.communication.log.config.type
-unit LogConfigTypeFactory;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.communication.log.config.type
+*> Java class LogConfigTypeFactory
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LgCnfgTypFctry-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 LogConfigTypeFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 LogConfigTypeFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF LogConfigTypeFactory-jset-instance = 0
+        MOVE 1 TO LogConfigTypeFactory-jset-instance
+        COMPUTE LogConfigTypeFactory-jcell-instance = FUNCTION LogConfigTypeFactory-new0
+    END-IF
+    MOVE LogConfigTypeFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION LgCnfgTypFctry-sttc-nstnc.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LgCnfgTypFctrysttcnsS16343.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 LogConfigTypeFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION LgCnfgTypFctry-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO LogConfigTypeFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION LgCnfgTypFctrysttcnsS16343.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LogConfigType;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LogConfigTypeFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("LogConfigTypeFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NO_DESCRIPTION")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_OS")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_FACTORYERROR")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_FILE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_FILEERROR")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_IDLOGGING")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_REPLACE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_REPLACE_INFO")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_REPLACEERROR")
+    COMPUTE JVALUE = FUNCTION JR-STR("No Description")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NO_DESCRIPTION", JVALUE)
+    COMPUTE JVALUE = FUNCTION LogConfigType-new2(FUNCTION JR-STR("Operating System"), FUNCTION JR-GET(J-THIS, "f_NO_DESCRIPTION"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_OS", JVALUE)
+    COMPUTE JVALUE = FUNCTION LogConfigType-new2(FUNCTION JR-STR("Factory Error"), FUNCTION JR-GET(J-THIS, "f_NO_DESCRIPTION"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_FACTORYERROR", JVALUE)
+    COMPUTE JVALUE = FUNCTION LogConfigType-new2(FUNCTION JR-STR("File"), FUNCTION JR-GET(J-THIS, "f_NO_DESCRIPTION"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_FILE", JVALUE)
+    COMPUTE JVALUE = FUNCTION LogConfigType-new2(FUNCTION JR-STR("File Error"), FUNCTION JR-GET(J-THIS, "f_NO_DESCRIPTION"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_FILEERROR", JVALUE)
+    COMPUTE JVALUE = FUNCTION LogConfigType-new2(FUNCTION JR-STR("ID Logging"), FUNCTION JR-GET(J-THIS, "f_NO_DESCRIPTION"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_IDLOGGING", JVALUE)
+    COMPUTE JVALUE = FUNCTION LogConfigType-new2(FUNCTION JR-STR("Replace"), FUNCTION JR-GET(J-THIS, "f_NO_DESCRIPTION"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_REPLACE", JVALUE)
+    COMPUTE JVALUE = FUNCTION LogConfigType-new2(FUNCTION JR-STR("Replace Info"), FUNCTION JR-GET(J-THIS, "f_NO_DESCRIPTION"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_REPLACE_INFO", JVALUE)
+    COMPUTE JVALUE = FUNCTION LogConfigType-new2(FUNCTION JR-STR("Replace Error"), FUNCTION JR-GET(J-THIS, "f_NO_DESCRIPTION"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_REPLACEERROR", JVALUE)
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION LogConfigTypes-static-LOGGING)
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION LogConfigTypes-static-LOGGING)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION LogConfigTypeFactory-new0.
 
-type
-  {AB:TYPES}
-  TLogConfigTypeFactory = class(TObject)
-  public
-    NO_DESCRIPTION: string;
-    OS: TLogConfigType;
-    FACTORYERROR: TLogConfigType;
-    FILE_: TLogConfigType;
-    FILEERROR: TLogConfigType;
-    IDLOGGING: TLogConfigType;
-    REPLACE: TLogConfigType;
-    REPLACE_INFO: TLogConfigType;
-    REPLACEERROR: TLogConfigType;
-    class var instance: TLogConfigTypeFactory;
-    procedure InitFields;
-        class function getInstance: TLogConfigTypeFactory; static;
-        constructor Create;
-  end;
-
-implementation
-uses
-  LogConfigTypes;
-
-
-{AB:CODE}
-
-procedure TLogConfigTypeFactory.InitFields;
-begin
-  Self.NO_DESCRIPTION := 'No Description';
-  Self.OS := TLogConfigType.Create('Operating System', Self.NO_DESCRIPTION);
-  Self.FACTORYERROR := TLogConfigType.Create('Factory Error', Self.NO_DESCRIPTION);
-  Self.FILE_ := TLogConfigType.Create('File', Self.NO_DESCRIPTION);
-  Self.FILEERROR := TLogConfigType.Create('File Error', Self.NO_DESCRIPTION);
-  Self.IDLOGGING := TLogConfigType.Create('ID Logging', Self.NO_DESCRIPTION);
-  Self.REPLACE := TLogConfigType.Create('Replace', Self.NO_DESCRIPTION);
-  Self.REPLACE_INFO := TLogConfigType.Create('Replace Info', Self.NO_DESCRIPTION);
-  Self.REPLACEERROR := TLogConfigType.Create('Replace Error', Self.NO_DESCRIPTION);
-end;
-    
-
-class function TLogConfigTypeFactory.getInstance: TLogConfigTypeFactory;
-begin
-        Exit(TLogConfigTypeFactory.instance);
-end;
-    
-
-constructor TLogConfigTypeFactory.Create;
-begin
-    inherited Create;
-    InitFields;
-        TLogConfigTypes.LOGGING.add(Self.OS);
-        TLogConfigTypes.LOGGING.add(Self.FACTORYERROR);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TLogConfigTypeFactory.instance := TLogConfigTypeFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LgCnfgTypFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION LgCnfgTypFctry-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION LgCnfgTypFctry-getInstance0.
 

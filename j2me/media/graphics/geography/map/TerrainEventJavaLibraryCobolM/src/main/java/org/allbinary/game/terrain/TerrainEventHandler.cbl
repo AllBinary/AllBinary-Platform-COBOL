@@ -1,142 +1,317 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.terrain
+*> Java class TerrainEventHandler
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.terrain
-unit TerrainEventHandler;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TrrnEvntHndlr-sttc-hshtbl.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 TerrainEventHandler-jcell-hashtable BINARY-DOUBLE EXTERNAL.
+01 TerrainEventHandler-jset-hashtable BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF TerrainEventHandler-jset-hashtable = 0
+        MOVE 1 TO TerrainEventHandler-jset-hashtable
+        COMPUTE jtemp1 = FUNCTION StdUtil-getInstance0
+    COMPUTE TerrainEventHandler-jcell-hashtable = FUNCTION JR-GET(jtemp1, "f_NULL_TABLE")
+    END-IF
+    MOVE TerrainEventHandler-jcell-hashtable TO J-RESULT
+    GOBACK.
+END FUNCTION TrrnEvntHndlr-sttc-hshtbl.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TrrnEvntHndlrsttchshS32113.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 TerrainEventHandler-jcell-hashtable BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION TrrnEvntHndlr-sttc-hshtbl TO J-RESULT
+    MOVE J-VALUE TO TerrainEventHandler-jcell-hashtable
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION TrrnEvntHndlrsttchshS32113.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TerrainEventHandler-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("TerrainEventHandler")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_list")
+    COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION TerrainEventHandler-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AllBinaryEventObject, EventListenerInterface, BasicEventHandler, ABHashtable, BasicArrayList, TerrainEventListener;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TerrainEventHandler-init0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION StdUtil-getInstance0
+        COMPUTE JDISCARD = FUNCTION TrrnEvntHndlrsttchshS32113(FUNCTION StdUtil-createHashtable0(jtemp2))
+    GOBACK.
+END FUNCTION TerrainEventHandler-init0.
 
-type
-  {AB:TYPES}
-  TTerrainEventHandler = class(TBasicEventHandler)
-  public
-    list: TBasicArrayList;
-    class var hashtable: TABHashtable<TObject, TObject>;
-    procedure InitFields;
-        class procedure init; static;
-        class function getInstance(anyType: TObject): TTerrainEventHandler; static;
-        constructor Create;
-        procedure addListener(terrainEventListener_: TTerrainEventListener); virtual;
-        procedure removeAllListeners; override;
-        procedure removeListener(eventListenerInterface_: IEventListenerInterface); override;
-        procedure fireEvent(eventObject: TAllBinaryEventObject); override;
-        procedure process(eventObject: TAllBinaryEventObject; eventListenerInterface_: IEventListenerInterface); override;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TrrnEvntHndlr-getInstance1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-eventHandlerCanBeNull BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-anyType BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-anyType RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-eventHandlerCanBeNull = FUNCTION JR-CLASS-NAME(FUNCTION TrrnEvntHndlr-sttc-hshtbl)
+        IF (J-eventHandlerCanBeNull = 0)
+            COMPUTE J-eventHandlerCanBeNull = FUNCTION TerrainEventHandler-new0
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION TrrnEvntHndlr-sttc-hshtbl)
+        END-IF
+        COMPUTE J-RESULT = J-eventHandlerCanBeNull
+        GOBACK
+    GOBACK.
+END FUNCTION TrrnEvntHndlr-getInstance1.
 
-implementation
-uses
-  TerrainEvent, TerrainEventListenerInterface, StdUtil, EventStrings, BasicArrayListD;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TrrnEvntHndlr-addListener1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-terrainEventListener BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-terrainEventListener RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (NOT (FUNCTION BasicArrayList-contains1(FUNCTION JR-GET(J-THIS, "f_list"), J-terrainEventListener) = 1))
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), J-terrainEventListener)
+        END-IF
+    GOBACK.
+END FUNCTION TrrnEvntHndlr-addListener1.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TrrnEvntHndlr-rmvAllLstnrs0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-clear0(FUNCTION JR-GET(J-THIS, "f_list"))
+        COMPUTE JDISCARD = FUNCTION BscEvntHndlr-rmvAllLstnrs0(J-THIS)
+    GOBACK.
+END FUNCTION TrrnEvntHndlr-rmvAllLstnrs0.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TrrnEvntHndlr-removeListener1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventListenerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventListenerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-remove1(FUNCTION JR-GET(J-THIS, "f_list"), J-eventListenerInterface)
+        COMPUTE JDISCARD = FUNCTION BscEvntHndlr-removeListener1(J-THIS, J-eventListenerInterface)
+    GOBACK.
+END FUNCTION TrrnEvntHndlr-removeListener1.
 
-procedure TTerrainEventHandler.InitFields;
-begin
-  Self.list := TBasicArrayListD.Create();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TerrainEventHandler-fireEvent1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-terrainEventListener BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp5 = J-index
+        COMPUTE J-index = FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_list"))
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            MOVE 0 TO JFIRST1
+            IF NOT (jtemp5 >= 0) EXIT PERFORM END-IF
+            CONTINUE
+                COMPUTE J-terrainEventListener = FUNCTION BasicArrayList-get1(FUNCTION JR-GET(J-THIS, "f_list"), J-index)
+                COMPUTE jtemp3 = J-eventObject
+                COMPUTE JDISCARD = FUNCTION TrrnEvntLstnr-onTerrainEvent1(J-terrainEventListener, jtemp3)
+        END-PERFORM
+        COMPUTE JDISCARD = FUNCTION BasicEventHandler-fireEvent1(J-THIS, J-eventObject)
+    GOBACK.
+END FUNCTION TerrainEventHandler-fireEvent1.
 
-class procedure TTerrainEventHandler.init;
-begin
-        TTerrainEventHandler.hashtable := TStdUtil.getInstance().createHashtable();
-end;
-    
-
-class function TTerrainEventHandler.getInstance(anyType: TObject): TTerrainEventHandler;
-var
-  eventHandlerCanBeNull: TObject;
-begin
-        eventHandlerCanBeNull := TJava.Box(TTerrainEventHandler.hashtable.get(TJava.Box(anyType)));
-        if (eventHandlerCanBeNull) = (nil) then begin
-            eventHandlerCanBeNull := TJava.Box(TTerrainEventHandler.Create());
-            TTerrainEventHandler.hashtable.put(TJava.Box(anyType), TJava.Box(eventHandlerCanBeNull));
-        end;
-        Exit(TTerrainEventHandler(TJava.ToObject(eventHandlerCanBeNull)));
-end;
-    
-
-constructor TTerrainEventHandler.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
-
-procedure TTerrainEventHandler.addListener(terrainEventListener_: TTerrainEventListener);
-begin
-        if not (Self.list.contains(TJava.Box(terrainEventListener_))) then begin
-            Self.list.add(TJava.Box(terrainEventListener_));
-        end;
-end;
-    
-
-procedure TTerrainEventHandler.removeAllListeners;
-begin
-        Self.list.clear();
-        inherited removeAllListeners();
-end;
-    
-
-procedure TTerrainEventHandler.removeListener(eventListenerInterface_: IEventListenerInterface);
-begin
-        Self.list.remove(TJava.ToObject(eventListenerInterface_));
-        inherited removeListener(eventListenerInterface_);
-end;
-    
-
-// throws Exception
-procedure TTerrainEventHandler.fireEvent(eventObject: TAllBinaryEventObject);
-var
-  terrainEventListener_: TTerrainEventListener;
-  index: Integer;
-begin
-        index := Self.list.size();
-        while (TJava.PreDec(index)) >= (0) do begin
-            try
-                terrainEventListener_ := TTerrainEventListener(TJava.ToObject(Self.list.get(index)));
-                terrainEventListener_.onTerrainEvent(TTerrainEvent(TJava.ToObject(eventObject)));
-            except
-                on e: SysUtils.Exception do begin
-                Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), TEventStrings.getInstance().FIRE_EVENT, TJava.Box(e));
-                end;
-            end;
-        end;
-        inherited fireEvent(eventObject);
-end;
-    
-
-// throws Exception
-procedure TTerrainEventHandler.process(eventObject: TAllBinaryEventObject; eventListenerInterface_: IEventListenerInterface);
-var
-  terrainEventListenerInterface_: ITerrainEventListenerInterface;
-begin
-        terrainEventListenerInterface_ := (TJava.ToObject(eventListenerInterface_) as ITerrainEventListenerInterface);
-        terrainEventListenerInterface_.onTerrainEvent(TTerrainEvent(TJava.ToObject(eventObject)));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TTerrainEventHandler.hashtable := TStdUtil.getInstance().NULL_TABLE;
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TerrainEventHandler-process2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-terrainEventListenerInterface BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-eventListenerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject J-eventListenerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-terrainEventListenerInterface = J-eventListenerInterface
+        COMPUTE jtemp6 = J-eventObject
+        COMPUTE JDISCARD = FUNCTION TrrnEvntLstnrIntrfc-onTrr36290(J-terrainEventListenerInterface, jtemp6)
+    GOBACK.
+END FUNCTION TerrainEventHandler-process2.
 

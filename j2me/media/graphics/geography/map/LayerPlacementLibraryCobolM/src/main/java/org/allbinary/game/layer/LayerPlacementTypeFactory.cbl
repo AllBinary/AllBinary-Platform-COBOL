@@ -1,77 +1,133 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.layer
+*> Java class LayerPlacementTypeFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.layer
-unit LayerPlacementTypeFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LyrPlcmntTypFctry-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 LayerPlacementTypeFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 LayerPlacementTypeFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF LayerPlacementTypeFactory-jset-instance = 0
+        MOVE 1 TO LayerPlacementTypeFactory-jset-instance
+        COMPUTE LayerPlacementTypeFactory-jcell-instance = FUNCTION LayerPlacementTypeFactory-new0
+    END-IF
+    MOVE LayerPlacementTypeFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION LyrPlcmntTypFctry-sttc-nstnc.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LyrPlcmntTypFctrysttS36118.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 LayerPlacementTypeFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION LyrPlcmntTypFctry-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO LayerPlacementTypeFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION LyrPlcmntTypFctrysttS36118.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LayerPlacementTypeFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("LayerPlacementTypeFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_MAP")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_LEFT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DOWN")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_UP")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_RIGHT")
+    COMPUTE JVALUE = FUNCTION LayerPlacementType-new1(FUNCTION Integer-static-MAX-VALUE)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_MAP", JVALUE)
+    COMPUTE jtemp1 = FUNCTION DirectionFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION LayerPlacementType-new1(FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(jtemp1, "f_LEFT")))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_LEFT", JVALUE)
+    COMPUTE jtemp2 = FUNCTION DirectionFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION LayerPlacementType-new1(FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(jtemp2, "f_DOWN")))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DOWN", JVALUE)
+    COMPUTE jtemp3 = FUNCTION DirectionFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION LayerPlacementType-new1(FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(jtemp3, "f_UP")))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_UP", JVALUE)
+    COMPUTE jtemp4 = FUNCTION DirectionFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION LayerPlacementType-new1(FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(jtemp4, "f_RIGHT")))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_RIGHT", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION LayerPlacementTypeFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LayerPlacementType;
-
-type
-  {AB:TYPES}
-  TLayerPlacementTypeFactory = class(TObject)
-  public
-    MAP: TLayerPlacementType;
-    LEFT: TLayerPlacementType;
-    DOWN: TLayerPlacementType;
-    UP: TLayerPlacementType;
-    RIGHT: TLayerPlacementType;
-    class var instance: TLayerPlacementTypeFactory;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TLayerPlacementTypeFactory; static;
-  end;
-
-implementation
-uses
-  DirectionFactory;
-
-
-{AB:CODE}
-
-procedure TLayerPlacementTypeFactory.InitFields;
-begin
-  Self.MAP := TLayerPlacementType.Create(High(Integer));
-  Self.LEFT := TLayerPlacementType.Create(TDirectionFactory.getInstance().LEFT.getValue());
-  Self.DOWN := TLayerPlacementType.Create(TDirectionFactory.getInstance().DOWN.getValue());
-  Self.UP := TLayerPlacementType.Create(TDirectionFactory.getInstance().UP.getValue());
-  Self.RIGHT := TLayerPlacementType.Create(TDirectionFactory.getInstance().RIGHT.getValue());
-end;
-
-constructor TLayerPlacementTypeFactory.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TLayerPlacementTypeFactory.getInstance: TLayerPlacementTypeFactory;
-begin
-        Exit(TLayerPlacementTypeFactory.instance);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TLayerPlacementTypeFactory.instance := TLayerPlacementTypeFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LyrPlcmntTypFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION LyrPlcmntTypFctry-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION LyrPlcmntTypFctry-getInstance0.
 

@@ -1,231 +1,393 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.displayable.canvas
+*> Java class CommandFormInputProcessor
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.displayable.canvas
-unit CommandFormInputProcessor;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, MyCanvas, ScrollSelectionForm, MotionGestureEvent, TimeDelayHelper, BasicArrayList, BasicMenuInputProcessor;
-
-type
-  {AB:TYPES}
-  // In general allow scrolling of the menu and selection the center item
-  TCommandFormInputProcessor = class(TBasicMenuInputProcessor)
-  public
-    MOTION_GESTURE_SOURCE_ID: Integer;
-    CLICK_DELAY: Integer;
-    clickTimeHelper: TTimeDelayHelper;
-    DOUBLE_CLICK_DELAY: Integer;
-    doubleClickTimeHelper: TTimeDelayHelper;
-    isSingleKeyProcessing: Boolean;
-    form: TScrollSelectionForm;
-    hasPressed: Boolean;
-    PROCESS_COMMAND: string;
-    NAME_LABEL: string;
-    procedure InitFields;
-        constructor Create(gameKeyEventList: TBasicArrayList; playerInputId: Integer; gameCanvas: TMyCanvas; form: TScrollSelectionForm);
-        function processInput(key: Integer): Integer; virtual;
-        function processCommand: Integer;
-        function processInputList: Integer; override;
-        function processMotionInputs: Integer; virtual;
-        procedure processMotionInput(motionGestureEvent_: TMotionGestureEvent); virtual;
-        function toString: string; override;
-  end;
-
-implementation
-uses
-  CommandRunnable, Canvas, Command, GameCommandsFactory, Features, InputFeatureFactory, GameKeyEvent, GameKeyEventFactory, SWTUtil, GPoint, CommandCurrentSelectionForm, OpenGLFeatureFactory, MotionGestureInput, TouchMotionGestureFactory, StringMaker, PrimaryPlayerQueueFactory, SelectSound, PrimaryThreadPool;
-
-
-{AB:CODE}
-
-procedure TCommandFormInputProcessor.InitFields;
-begin
-  Self.MOTION_GESTURE_SOURCE_ID := TGameKeyEventFactory.getInstance().MOTION_GESTURE_SOURCE_ID;
-  Self.CLICK_DELAY := 150;
-  Self.clickTimeHelper := TTimeDelayHelper.Create(Self.CLICK_DELAY);
-  Self.DOUBLE_CLICK_DELAY := 1200;
-  Self.doubleClickTimeHelper := TTimeDelayHelper.Create(Self.DOUBLE_CLICK_DELAY);
-  Self.isSingleKeyProcessing := TInputFeatureFactory.getInstance().isSingleKeyProcessing();
-  
-  Self.hasPressed := False;
-  Self.PROCESS_COMMAND := 'processCommand';
-  Self.NAME_LABEL := ' ScrollSelectionForm: ';
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CommandFormInputProcessor-new4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-gameKeyEventList BINARY-DOUBLE.
+01 J-playerInputId BINARY-DOUBLE.
+01 J-gameCanvas BINARY-DOUBLE.
+01 J-form BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-gameKeyEventList J-playerInputId J-gameCanvas J-form RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CommandFormInputProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_MOTION_GESTURE_SOURCE_ID")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_CLICK_DELAY")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_clickTimeHelper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DOUBLE_CLICK_DELAY")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_doubleClickTimeHelper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_isSingleKeyProcessing")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_form")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_hasPressed")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_PROCESS_COMMAND")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NAME_LABEL")
+    COMPUTE jtemp1 = FUNCTION GmKyEvntFctry-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_MOTION_GESTURE_SOURCE_ID")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_MOTION_GESTURE_SOURCE_ID", JVALUE)
+    COMPUTE JVALUE = 150
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_CLICK_DELAY", JVALUE)
+    COMPUTE JVALUE = FUNCTION TimeDelayHelper-new1(FUNCTION JR-GET(J-THIS, "f_CLICK_DELAY"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_clickTimeHelper", JVALUE)
+    COMPUTE JVALUE = 1200
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DOUBLE_CLICK_DELAY", JVALUE)
+    COMPUTE JVALUE = FUNCTION TimeDelayHelper-new1(FUNCTION JR-GET(J-THIS, "f_DOUBLE_CLICK_DELAY"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_doubleClickTimeHelper", JVALUE)
+    COMPUTE jtemp2 = FUNCTION InptFtrFctry-getInstance0
+    COMPUTE JVALUE = FUNCTION InptFtrFctry-isSnglKyPrcssng0(jtemp2)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_isSingleKeyProcessing", JVALUE)
     
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hasPressed", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("processCommand")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_PROCESS_COMMAND", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR(" ScrollSelectionForm: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NAME_LABEL", JVALUE)
+        CONTINUE
+        COMPUTE JVALUE = J-form
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_form", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CommandFormInputProcessor-new4.
 
-constructor TCommandFormInputProcessor.Create(gameKeyEventList: TBasicArrayList; playerInputId: Integer; gameCanvas: TMyCanvas; form: TScrollSelectionForm);
-begin
-        inherited Create(gameKeyEventList, playerInputId, gameCanvas);
-        InitFields;
-        Self.form := form;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmmndFrmInptPrcssr-prcssInpt1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-key BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-key RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF ((((J-key = FUNCTION Canvas-static-LEFT) OR (J-key = FUNCTION Canvas-static-RIGHT)) OR (J-key = FUNCTION Canvas-static-UP)) OR (J-key = FUNCTION Canvas-static-DOWN))
+            COMPUTE jtemp4 = FUNCTION PrmryPlyrQFctry-getInstance0
+            COMPUTE JDISCARD = FUNCTION PrimaryPlayerQueueFactory-add1(jtemp4, FUNCTION SelectSound-getInstance0)
+            COMPUTE JDISCARD = FUNCTION ScrllSlctnFrm-processInputKey1(FUNCTION JR-GET(J-THIS, "f_form"), J-key)
+            COMPUTE J-RESULT = 1
+            GOBACK
+        ELSE
+            IF (J-key = FUNCTION Canvas-static-FIRE)
+            COMPUTE jtemp3 = FUNCTION PrmryPlyrQFctry-getInstance0
+            COMPUTE JDISCARD = FUNCTION PrimaryPlayerQueueFactory-add1(jtemp3, FUNCTION SelectSound-getInstance0)
+            COMPUTE J-RESULT = FUNCTION CmmndFrmInptPrcssr-prcssCmmnd0(J-THIS)
+            GOBACK
+        END-IF
+        END-IF
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION CmmndFrmInptPrcssr-prcssInpt1.
 
-// throws Exception
-function TCommandFormInputProcessor.processInput(key: Integer): Integer;
-begin
-        if ((((key) = (TCanvas.LEFT)) or ((key) = (TCanvas.RIGHT))) or ((key) = (TCanvas.UP))) or ((key) = (TCanvas.DOWN)) then begin
-            TPrimaryPlayerQueueFactory.getInstance().add(TSelectSound.getInstance());
-            Self.form.processInputKey(key);
-            Exit(1);
-        end else if (key) = (TCanvas.FIRE) then begin
-            TPrimaryPlayerQueueFactory.getInstance().add(TSelectSound.getInstance());
-            Exit(Self.processCommand());
-        end;
-        Exit(0);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmmndFrmInptPrcssr-prcssCmmnd0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-commandCurrentSelectionForm BINARY-DOUBLE.
+01 J-command BINARY-DOUBLE.
+01 J-features BINARY-DOUBLE.
+01 J-openGLFeatureFactory BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-commandCurrentSelectionForm = FUNCTION JR-GET(J-THIS, "f_form")
+        COMPUTE J-command = FUNCTION CmmndCrrntSlctnFrm-gtSlct80049(J-commandCurrentSelectionForm)
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        COMPUTE J-features = FUNCTION Features-getInstance0
+        COMPUTE J-openGLFeatureFactory = FUNCTION OpnGLFtrFctry-getInstance0
+        COMPUTE jtemp5 = FUNCTION GmCmmndsFctry-getInstance0
+        IF (((FUNCTION SWTUtil-static-isSWT = 1) AND (FUNCTION Features-isFeature1(J-features, FUNCTION JR-GET(J-openGLFeatureFactory, "f_OPENGL")) = 1)) AND (J-command NOT = FUNCTION JR-GET(jtemp5, "f_EXIT_COMMAND")))
+            COMPUTE jtemp7 = FUNCTION CommandRunnable-new2(J-THIS, J-command)
+            COMPUTE JDISCARD = FUNCTION CommandRunnable-run0(jtemp7)
+        ELSE
+            COMPUTE jtemp6 = FUNCTION PrimaryThreadPool-getInstance0
+            COMPUTE JDISCARD = FUNCTION PrimaryThreadPool-runTask1(jtemp6, FUNCTION CommandRunnable-new2(J-THIS, J-command))
+        END-IF
+        COMPUTE jtemp8 = FUNCTION GmCmmndsFctry-getInstance0
+        IF (J-command = FUNCTION JR-GET(jtemp8, "f_QUIT_COMMAND"))
+            COMPUTE J-RESULT = (0 - 1)
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = 1
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION CmmndFrmInptPrcssr-prcssCmmnd0.
 
-function TCommandFormInputProcessor.processCommand: Integer;
-var
-  commandCurrentSelectionForm_: TCommandCurrentSelectionForm;
-  command_: TCommand;
-  features_: TFeatures;
-  openGLFeatureFactory_: TOpenGLFeatureFactory;
-begin
-        commandCurrentSelectionForm_ := TCommandCurrentSelectionForm(TJava.ToObject(Self.form));
-        command_ := commandCurrentSelectionForm_.getSelectedCommand();
-        Self.logUtil.putF(command_.toString(), TJava.Box(Self), Self.PROCESS_COMMAND);
-        features_ := TFeatures.getInstance();
-        openGLFeatureFactory_ := TOpenGLFeatureFactory.getInstance();
-        if ((TSWTUtil.isSWT) and (features_.isFeature(openGLFeatureFactory_.OPENGL))) and ((command_) <> (TGameCommandsFactory.getInstance().EXIT_COMMAND)) then begin
-            TCommandRunnable.Create(Self, command_).run();
-        end else begin
-            TPrimaryThreadPool.getInstance().runTask(TCommandRunnable.Create(Self, command_));
-        end;
-        if (command_) = (TGameCommandsFactory.getInstance().QUIT_COMMAND) then begin
-            Exit(-1);
-        end else begin
-            Exit(1);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmmndFrmInptPrcssr-prcssI61415.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-motionInputsIndex BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-key BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE J-motionInputsIndex = FUNCTION CmmndFrmInptPrcssr-prcssM69289(J-THIS)
+            COMPUTE J-list = FUNCTION GameInput-getGameKeyEventList0(J-THIS)
+            COMPUTE J-size = FUNCTION BasicArrayList-size0(J-list)
+            COMPUTE J-key = 0
+            CONTINUE
+            COMPUTE J-index = 0
+            MOVE 1 TO JFIRST1
+            PERFORM FOREVER
+                IF JFIRST1 = 0
+                    COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+                END-IF
+                MOVE 0 TO JFIRST1
+                IF NOT (J-index < J-size) EXIT PERFORM END-IF
+                COMPUTE J-gameKeyEvent = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
+                COMPUTE J-key = FUNCTION GameKeyEvent-getKey0(J-gameKeyEvent)
+                IF (FUNCTION GameKeyEvent-getSourceId0(J-gameKeyEvent) NOT = FUNCTION JR-GET(J-THIS, "f_MOTION_GESTURE_SOURCE_ID"))
+                    IF (FUNCTION CmmndFrmInptPrcssr-prcssInpt1(J-THIS, J-key) = 1)
+                        EXIT PERFORM
+                    END-IF
+                END-IF
+            END-PERFORM
+            COMPUTE JDISCARD = FUNCTION GameInput-clear0(J-THIS)
+            IF ((J-size > 0) OR (J-motionInputsIndex >= 0))
+                COMPUTE J-RESULT = 1
+                GOBACK
+            ELSE
+                COMPUTE J-RESULT = (0 - 1)
+                GOBACK
+            END-IF
+    GOBACK.
+END FUNCTION CmmndFrmInptPrcssr-prcssI61415.
 
-// throws Exception
-function TCommandFormInputProcessor.processInputList: Integer;
-var
-  motionInputsIndex: Integer;
-  list: TBasicArrayList;
-  size: Integer;
-  key: Integer;
-  gameKeyEvent_: TGameKeyEvent;
-  index: Integer;
-begin
-        try
-            motionInputsIndex := Self.processMotionInputs();
-            list := Self.getGameKeyEventList();
-            size := list.size();
-            key := 0;
-            
-            for index := 0 to size - 1 do begin
-                gameKeyEvent_ := TGameKeyEvent(TJava.ToObject(list.objectArray[index]));
-                key := gameKeyEvent_.getKey();
-                if (gameKeyEvent_.getSourceId()) <> (Self.MOTION_GESTURE_SOURCE_ID) then begin
-                    if (Self.processInput(key)) = (1) then begin
-                        Break;
-                    end;
-                end;
-            end;
-            Self.clear();
-            if ((size) > (0)) or ((motionInputsIndex) >= (0)) then begin
-                Exit(1);
-            end else begin
-                Exit(-1);
-            end;
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.gameInputStrings.PROCESS_INPUT, TJava.Box(e));
-            Exit(-1);
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmmndFrmInptPrcssr-prcssM69289.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-lastIndex BINARY-DOUBLE.
+01 J-motionGestureEvent BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-lastIndex = (FUNCTION MOD((FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_motionGestureEventList")) - 1) + 2147483648, 4294967296) - 2147483648)
+        IF (J-lastIndex >= 0)
+            COMPUTE J-motionGestureEvent = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_motionGestureEventList"), "f_objectArray"), J-lastIndex)
+            COMPUTE JDISCARD = FUNCTION CmmndFrmInptPrcssr-prcssM17676(J-THIS, J-motionGestureEvent)
+        END-IF
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_motionGestureEventList"))
+        COMPUTE J-RESULT = J-lastIndex
+        GOBACK
+    GOBACK.
+END FUNCTION CmmndFrmInptPrcssr-prcssM69289.
 
-// throws Exception
-function TCommandFormInputProcessor.processMotionInputs: Integer;
-var
-  lastIndex: Integer;
-  motionGestureEvent_: TMotionGestureEvent;
-begin
-        lastIndex := (Self.motionGestureEventList.size()) - (1);
-        if (lastIndex) >= (0) then begin
-            motionGestureEvent_ := TMotionGestureEvent(TJava.ToObject(Self.motionGestureEventList.objectArray[lastIndex]));
-            Self.processMotionInput(motionGestureEvent_);
-        end;
-        Self.motionGestureEventList.clear();
-        Exit(lastIndex);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmmndFrmInptPrcssr-prcssM17676.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-touchMotionGestureFactory BINARY-DOUBLE.
+01 J-motionGestureInput BINARY-DOUBLE.
+01 J-point BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-motionGestureEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-motionGestureEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-touchMotionGestureFactory = FUNCTION TchMtnGstrFctry-getInstance0
+        COMPUTE J-motionGestureInput = FUNCTION MtnGstrEvnt-getMotionGesture0(J-motionGestureEvent)
+        IF (J-motionGestureInput = FUNCTION JR-GET(J-touchMotionGestureFactory, "f_RELEASED"))
+            COMPUTE J-point = FUNCTION MtnGstrEvnt-getCurrentPoint0(J-motionGestureEvent)
+            IF (FUNCTION ScrollSelectionForm-isInForm1(FUNCTION JR-GET(J-THIS, "f_form"), J-point) = 1)
+                COMPUTE J-index = FUNCTION ScrllSlctnFrm-gtSlctdIndx57022(FUNCTION JR-GET(J-THIS, "f_form"), J-point)
+                IF (J-index NOT = (0 - 1))
+                    COMPUTE jtemp9 = FUNCTION PrmryPlyrQFctry-getInstance0
+                    COMPUTE JDISCARD = FUNCTION PrimaryPlayerQueueFactory-add1(jtemp9, FUNCTION SelectSound-getInstance0)
+                    IF (J-index = FUNCTION ABCustomForm-getSelectedIndex0(FUNCTION JR-GET(J-THIS, "f_form")))
+                        IF (FUNCTION TimeDelayHelper-isTimeTNT0(FUNCTION JR-GET(J-THIS, "f_clickTimeHelper")) = 1)
+                            COMPUTE JDISCARD = FUNCTION CmmndFrmInptPrcssr-prcssCmmnd0(J-THIS)
+                        END-IF
+                    ELSE
+                        COMPUTE JDISCARD = FUNCTION ABCustomForm-setSelectedIndex1(FUNCTION JR-GET(J-THIS, "f_form"), J-index)
+                    END-IF
+                ELSE
+                    CONTINUE
+                END-IF
+            END-IF
+            IF (FUNCTION JR-GET(J-THIS, "f_hasPressed") = 1)
+                IF (NOT (FUNCTION TimeDelayHelper-isTimeTNT0(FUNCTION JR-GET(J-THIS, "f_doubleClickTimeHelper")) = 1))
+                    COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+                    COMPUTE JDISCARD = FUNCTION CmmndFrmInptPrcssr-prcssCmmnd0(J-THIS)
+                END-IF
+                COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_DOUBLE_CLICK_DELAY")
+                COMPUTE JDISCARD = FUNCTION JR-SET(FUNCTION JR-GET(J-THIS, "f_doubleClickTimeHelper"), "f_delay", JVALUE)
+                COMPUTE JDISCARD = FUNCTION TmDlyHlpr-setStartTimeTNT0(FUNCTION JR-GET(J-THIS, "f_doubleClickTimeHelper"))
+            END-IF
+            COMPUTE JVALUE = 0
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hasPressed", JVALUE)
+        ELSE
+            IF (J-motionGestureInput = FUNCTION JR-GET(J-touchMotionGestureFactory, "f_PRESSED"))
+            COMPUTE JVALUE = 0
+            COMPUTE JDISCARD = FUNCTION JR-SET(FUNCTION JR-GET(J-THIS, "f_doubleClickTimeHelper"), "f_delay", JVALUE)
+            COMPUTE JVALUE = 1
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hasPressed", JVALUE)
+        END-IF
+        END-IF
+    GOBACK.
+END FUNCTION CmmndFrmInptPrcssr-prcssM17676.
 
-// throws Exception
-procedure TCommandFormInputProcessor.processMotionInput(motionGestureEvent_: TMotionGestureEvent);
-var
-  touchMotionGestureFactory_: TTouchMotionGestureFactory;
-  motionGestureInput_: TMotionGestureInput;
-  point: TGPoint;
-  index: Integer;
-begin
-        touchMotionGestureFactory_ := TTouchMotionGestureFactory.getInstance();
-        motionGestureInput_ := motionGestureEvent_.getMotionGesture();
-        if (motionGestureInput_) = (touchMotionGestureFactory_.RELEASED) then begin
-            point := motionGestureEvent_.getCurrentPoint();
-            if Self.form.isInForm(point) then begin
-                index := Self.form.getSelectedIndexForPoint(point);
-                if (index) <> (-1) then begin
-                    TPrimaryPlayerQueueFactory.getInstance().add(TSelectSound.getInstance());
-                    if (index) = (Self.form.getSelectedIndex()) then begin
-                        if Self.clickTimeHelper.isTimeTNT() then begin
-                            Self.processCommand();
-                        end;
-                    end else begin
-                        Self.form.setSelectedIndex(index);
-                    end;
-                end else begin
-                end;
-            end;
-            if Self.hasPressed then begin
-                if not (Self.doubleClickTimeHelper.isTimeTNT()) then begin
-                    Self.logUtil.putF('Double Press', TJava.Box(Self), Self.gameInputStrings.PROCESS_MOTION_INPUT);
-                    Self.processCommand();
-                end;
-                Self.doubleClickTimeHelper.delay := Self.DOUBLE_CLICK_DELAY;
-                Self.doubleClickTimeHelper.setStartTimeTNT();
-            end;
-            Self.hasPressed := False;
-        end else if (motionGestureInput_) = (touchMotionGestureFactory_.PRESSED) then begin
-            Self.doubleClickTimeHelper.delay := 0;
-            Self.hasPressed := True;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmmndFrmInptPrcssr-toString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp13 = FUNCTION StringMaker-new0
+        COMPUTE jtemp12 = FUNCTION StringMaker-append1(jtemp13, FUNCTION GameInput-toString0(J-THIS))
+        COMPUTE jtemp11 = FUNCTION StringMaker-append1(jtemp12, FUNCTION JR-GET(J-THIS, "f_NAME_LABEL"))
+        COMPUTE jtemp10 = FUNCTION StringMaker-append1(jtemp11, FUNCTION JR-TO-STRING(FUNCTION JR-GET(J-THIS, "f_form")))
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(jtemp10)
+        GOBACK
+    GOBACK.
+END FUNCTION CmmndFrmInptPrcssr-toString0.
 
-function TCommandFormInputProcessor.toString: string;
-begin
-        Exit(TStringMaker.Create().append(inherited toString()).append(Self.NAME_LABEL).append(Self.form.toString()).toString());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+PROGRAM-ID. CommandFormInputProce-toString.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION CmmndFrmInptPrcssr-toString0(J-THIS)
+    GOBACK.
+END PROGRAM CommandFormInputProce-toString.
 

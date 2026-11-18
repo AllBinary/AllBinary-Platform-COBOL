@@ -1,77 +1,102 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.physics.movement
+*> Java class DelayedConstantVelocityMovement
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.physics.movement
-unit DelayedConstantVelocityMovement;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DlydCnstntVlctyMvmnt-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-basicDecimal BINARY-DOUBLE.
+01 J-velocityProperties BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-basicDecimal J-velocityProperties RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("DelayedConstantVelocityMovement")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_timeDelayHelper")
+    COMPUTE jtemp1 = 60
+    COMPUTE JVALUE = FUNCTION TimeDelayHelper-new1(jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_timeDelayHelper", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION DlydCnstntVlctyMvmnt-new2.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DlydCnstntVlctyMvmnt-init3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-speedBasicDecimal BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-otherAngle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-speedBasicDecimal J-angle J-otherAngle RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION DlydCnstntVlctyMvmnt-init3.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AllBinaryGameLayer, BasicVelocityProperties, BasicDecimal, TimeDelayHelper, BasicConstantVelocityMovement;
-
-type
-  {AB:TYPES}
-  TDelayedConstantVelocityMovement = class(TBasicConstantVelocityMovement)
-  public
-    timeDelayHelper: TTimeDelayHelper;
-    procedure InitFields;
-        constructor Create(basicDecimal_: TBasicDecimal; velocityProperties: TBasicVelocityProperties);
-        procedure init(speedBasicDecimal: TBasicDecimal; angle: Integer; otherAngle: Integer); override;
-        procedure process(layer: TAllBinaryGameLayer); override;
-  end;
-
-implementation
-uses
-  GameTickTimeDelayHelperFactory;
-
-
-{AB:CODE}
-
-procedure TDelayedConstantVelocityMovement.InitFields;
-begin
-  Self.timeDelayHelper := TTimeDelayHelper.Create(60);
-end;
-    
-
-constructor TDelayedConstantVelocityMovement.Create(basicDecimal_: TBasicDecimal; velocityProperties: TBasicVelocityProperties);
-begin
-        inherited Create(basicDecimal_, velocityProperties);
-        InitFields;
-end;
-    
-
-procedure TDelayedConstantVelocityMovement.init(speedBasicDecimal: TBasicDecimal; angle: Integer; otherAngle: Integer);
-begin
-end;
-    
-
-// throws Exception
-procedure TDelayedConstantVelocityMovement.process(layer: TAllBinaryGameLayer);
-begin
-        if Self.timeDelayHelper.isTime(TGameTickTimeDelayHelperFactory.getInstance().startTime) then begin
-            inherited process(layer);
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DlydCnstntVlctyMvmnt-process1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layer RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION GmTckTmDlyHlprFctry-gtInstnc0
+        IF (FUNCTION TimeDelayHelper-isTime1(FUNCTION JR-GET(J-THIS, "f_timeDelayHelper"), FUNCTION JR-GET(jtemp2, "f_startTime")) = 1)
+            COMPUTE JDISCARD = FUNCTION BscCnstntVlctyMvmnt-process1(J-THIS, J-layer)
+        END-IF
+    GOBACK.
+END FUNCTION DlydCnstntVlctyMvmnt-process1.
 

@@ -1,122 +1,259 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.layer.weapon
+*> Java class WeaponLayerArrayLayerCircularStaticPool
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.layer.weapon
-unit WeaponLayerArrayLayerCircularStaticPool;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WpnLyrArryLyrCrclrSttcP-67277.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 WeaponLayerArrayLayerCircularStaticPool-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 WeaponLayerArrayLayerCircularStaticPool-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF WeaponLayerArrayLayerCircularStaticPool-jset-instance = 0
+        MOVE 1 TO WeaponLayerArrayLayerCircularStaticPool-jset-instance
+        COMPUTE WeaponLayerArrayLayerCircularStaticPool-jcell-instance = FUNCTION WpnLyrArryLyrCrclrSttcPl-new0
+    END-IF
+    MOVE WeaponLayerArrayLayerCircularStaticPool-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION WpnLyrArryLyrCrclrSttcP-67277.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WpnLyrArryLyrCrclrStS76388.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 WeaponLayerArrayLayerCircularStaticPool-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION WpnLyrArryLyrCrclrSttcP-67277 TO J-RESULT
+    MOVE J-VALUE TO WeaponLayerArrayLayerCircularStaticPool-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION WpnLyrArryLyrCrclrStS76388.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, CircularIndexUtil, WeaponLayer;
-
-type
-  {AB:TYPES}
-  TWeaponLayerArrayLayerCircularStaticPool = class(TObject)
-  public
-    MAX: Integer;
-    circularIndexUtil: TCircularIndexUtil;
-    WEAPONLAYER_ARRAY: TArray<TArray<TWeaponLayer>>;
-    TWO_WEAPONLAYER_ARRAY: TArray<TArray<TWeaponLayer>>;
-    THREE_WEAPONLAYER_ARRAY: TArray<TArray<TWeaponLayer>>;
-    class var instance: TWeaponLayerArrayLayerCircularStaticPool;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TWeaponLayerArrayLayerCircularStaticPool; static;
-        procedure init; virtual;
-        function getWeaponLayerArrays(size: Integer): TArray<TArray<TWeaponLayer>>;
-        function getInstanceArray(size: Integer): TArray<TWeaponLayer>; virtual;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TWeaponLayerArrayLayerCircularStaticPool.InitFields;
-begin
-  Self.MAX := 5;
-  Self.circularIndexUtil := TCircularIndexUtil.createInstance(Self.MAX);
-  
-  
-  
-end;
-
-constructor TWeaponLayerArrayLayerCircularStaticPool.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WpnLyrArryLyrCrclrSttcPl-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("WeaponLayerArrayLayerCircularStaticPool")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_MAX")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_circularIndexUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_WEAPONLAYER_ARRAY")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_TWO_WEAPONLAYER_ARRAY")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_THREE_WEAPONLAYER_ARRAY")
+    COMPUTE JVALUE = 5
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_MAX", JVALUE)
+    COMPUTE JVALUE = FUNCTION CrclrIndxUtl-createInstance1(FUNCTION JR-GET(J-THIS, "f_MAX"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_circularIndexUtil", JVALUE)
     
-
-class function TWeaponLayerArrayLayerCircularStaticPool.getInstance: TWeaponLayerArrayLayerCircularStaticPool;
-begin
-        Exit(TWeaponLayerArrayLayerCircularStaticPool.instance);
-end;
     
-
-procedure TWeaponLayerArrayLayerCircularStaticPool.init;
-var
-  WEAPONLAYER_ARRAY: TArray<TArray<TWeaponLayer>>;
-  TWO_WEAPONLAYER_ARRAY: TArray<TArray<TWeaponLayer>>;
-  THREE_WEAPONLAYER_ARRAY: TArray<TArray<TWeaponLayer>>;
-  index: Integer;
-begin
-        WEAPONLAYER_ARRAY := TJava.NewArray2<TWeaponLayer>((Self.MAX) * (2), 0);
-        TWO_WEAPONLAYER_ARRAY := TJava.NewArray2<TWeaponLayer>(Self.MAX, 0);
-        THREE_WEAPONLAYER_ARRAY := TJava.NewArray2<TWeaponLayer>(Self.MAX, 0);
-        for index := 0 to Self.MAX - 1 do begin
-            WEAPONLAYER_ARRAY[index] := TJava.NewArray<TWeaponLayer>(1);
-            TWO_WEAPONLAYER_ARRAY[index] := TJava.NewArray<TWeaponLayer>(2);
-            THREE_WEAPONLAYER_ARRAY[index] := TJava.NewArray<TWeaponLayer>(3);
-        end;
-        Self.WEAPONLAYER_ARRAY := WEAPONLAYER_ARRAY;
-        Self.TWO_WEAPONLAYER_ARRAY := TWO_WEAPONLAYER_ARRAY;
-        Self.THREE_WEAPONLAYER_ARRAY := THREE_WEAPONLAYER_ARRAY;
-end;
     
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION WpnLyrArryLyrCrclrSttcPl-new0.
 
-function TWeaponLayerArrayLayerCircularStaticPool.getWeaponLayerArrays(size: Integer): TArray<TArray<TWeaponLayer>>;
-begin
-        if (size) = (1) then begin
-            Exit(Self.WEAPONLAYER_ARRAY);
-        end else if (size) = (2) then begin
-            Exit(Self.TWO_WEAPONLAYER_ARRAY);
-        end else if (size) = (3) then begin
-            Exit(Self.THREE_WEAPONLAYER_ARRAY);
-        end;
-        raise SysUtils.Exception.Create('');
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WpnLyrArryLyrCrclrSttcP-23008.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION WpnLyrArryLyrCrclrSttcP-67277
+        GOBACK
+    GOBACK.
+END FUNCTION WpnLyrArryLyrCrclrSttcP-23008.
 
-// throws Exception
-function TWeaponLayerArrayLayerCircularStaticPool.getInstanceArray(size: Integer): TArray<TWeaponLayer>;
-var
-  weaponLayerArray: TArray<TWeaponLayer>;
-begin
-        weaponLayerArray := Self.getWeaponLayerArrays(size)[Self.circularIndexUtil.getIndex()];
-        Self.circularIndexUtil.next();
-        Exit(weaponLayerArray);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WpnLyrArryLyrCrclrSttcPl-init0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-WEAPONLAYER_ARRAY BINARY-DOUBLE.
+01 J-TWO_WEAPONLAYER_ARRAY BINARY-DOUBLE.
+01 J-THREE_WEAPONLAYER_ARRAY BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_MAX") * 2) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE J-WEAPONLAYER_ARRAY = FUNCTION JR-NEW-ARRAY(jtemp1)
+        COMPUTE J-TWO_WEAPONLAYER_ARRAY = FUNCTION JR-NEW-ARRAY(FUNCTION JR-GET(J-THIS, "f_MAX"))
+        COMPUTE J-THREE_WEAPONLAYER_ARRAY = FUNCTION JR-NEW-ARRAY(FUNCTION JR-GET(J-THIS, "f_MAX"))
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < FUNCTION JR-GET(J-THIS, "f_MAX")) EXIT PERFORM END-IF
+            COMPUTE jtemp2 = 1
+            COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY(jtemp2)
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-WEAPONLAYER_ARRAY, J-index, JVALUE)
+            COMPUTE jtemp3 = 2
+            COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY(jtemp3)
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-TWO_WEAPONLAYER_ARRAY, J-index, JVALUE)
+            COMPUTE jtemp4 = 3
+            COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY(jtemp4)
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-THREE_WEAPONLAYER_ARRAY, J-index, JVALUE)
+        END-PERFORM
+        COMPUTE JVALUE = J-WEAPONLAYER_ARRAY
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_WEAPONLAYER_ARRAY", JVALUE)
+        COMPUTE JVALUE = J-TWO_WEAPONLAYER_ARRAY
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_TWO_WEAPONLAYER_ARRAY", JVALUE)
+        COMPUTE JVALUE = J-THREE_WEAPONLAYER_ARRAY
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_THREE_WEAPONLAYER_ARRAY", JVALUE)
+    GOBACK.
+END FUNCTION WpnLyrArryLyrCrclrSttcPl-init0.
 
-initialization
-  {AB:INITIALIZATION}
-  TWeaponLayerArrayLayerCircularStaticPool.instance := TWeaponLayerArrayLayerCircularStaticPool.Create();
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WpnLyrArryLyrCrclrSttcP-74356.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-size RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (J-size = 1)
+            COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_WEAPONLAYER_ARRAY")
+            GOBACK
+        ELSE
+            IF (J-size = 2)
+            COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_TWO_WEAPONLAYER_ARRAY")
+            GOBACK
+        ELSE
+            IF (J-size = 3)
+            COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_THREE_WEAPONLAYER_ARRAY")
+            GOBACK
+        END-IF
+        END-IF
+        END-IF
+        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+    GOBACK.
+END FUNCTION WpnLyrArryLyrCrclrSttcP-74356.
 
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WpnLyrArryLyrCrclrSttcP-64702.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-weaponLayerArray BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-size RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-weaponLayerArray = FUNCTION JR-ARRAY-GET(FUNCTION WpnLyrArryLyrCrclrSttcP-74356(J-THIS, J-size), FUNCTION CircularIndexUtil-getIndex0(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil")))
+        COMPUTE JDISCARD = FUNCTION CircularIndexUtil-next0(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil"))
+        COMPUTE J-RESULT = J-weaponLayerArray
+        GOBACK
+    GOBACK.
+END FUNCTION WpnLyrArryLyrCrclrSttcP-64702.
 

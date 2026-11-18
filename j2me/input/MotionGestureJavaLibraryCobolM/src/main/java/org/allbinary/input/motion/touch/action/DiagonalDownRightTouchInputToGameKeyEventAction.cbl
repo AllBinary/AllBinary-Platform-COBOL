@@ -1,65 +1,124 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion.touch.action
+*> Java class DiagonalDownRightTouchInputToGameKeyEventAction
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion.touch.action
-unit DiagonalDownRightTouchInputToGameKeyEventAction;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DgnlDwnRghtTchInptTGmKy-49024.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 DiagonalDownRightTouchInputToGameKeyEventAction-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 DiagonalDownRightTouchInputToGameKeyEventAction-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF DiagonalDownRightTouchInputToGameKeyEventAction-jset-instance = 0
+        MOVE 1 TO DiagonalDownRightTouchInputToGameKeyEventAction-jset-instance
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE DiagonalDownRightTouchInputToGameKeyEventAction-jcell-instance = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+    END-IF
+    MOVE DiagonalDownRightTouchInputToGameKeyEventAction-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION DgnlDwnRghtTchInptTGmKy-49024.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DgnlDwnRghtTchInptTGS10079.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 DiagonalDownRightTouchInputToGameKeyEventAction-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION DgnlDwnRghtTchInptTGmKy-49024 TO J-RESULT
+    MOVE J-VALUE TO DiagonalDownRightTouchInputToGameKeyEventAction-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION DgnlDwnRghtTchInptTGS10079.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DgnlDwnRghtTchInptTGmKy-33965.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("DiagonalDownRightTouchInputToGameKeyEventAction")
+        COMPUTE jtemp5 = FUNCTION PltfrmInptMppngFctry-gtInstnc0
+        COMPUTE jtemp3 = FUNCTION TchMtnGstrFctry-getInstance0
+        COMPUTE jtemp4 = FUNCTION PltfrmInptMppngFctry-gtPr75051(jtemp5)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION DgnlDwnRghtTchInptTGmKy-33965.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameKeyCompleteMotionGestureInputEvent;
-
-type
-  {AB:TYPES}
-  TDiagonalDownRightTouchInputToGameKeyEventAction = class(TGameKeyCompleteMotionGestureInputEvent)
-  public
-    class var instance: TObject;
-        class function getInstance: TGameKeyCompleteMotionGestureInputEvent; static;
-        constructor Create;
-  end;
-
-implementation
-uses
-  PlatformInputMappingFactory, TouchMotionGestureFactory, NullUtil;
-
-
-{AB:CODE}
-    
-
-class function TDiagonalDownRightTouchInputToGameKeyEventAction.getInstance: TGameKeyCompleteMotionGestureInputEvent;
-begin
-        if (TDiagonalDownRightTouchInputToGameKeyEventAction.instance) = (TNullUtil.getInstance().NULL_OBJECT) then begin
-            TDiagonalDownRightTouchInputToGameKeyEventAction.instance := TDiagonalDownRightTouchInputToGameKeyEventAction.Create();
-        end;
-        Exit(TGameKeyCompleteMotionGestureInputEvent(TJava.ToObject(TDiagonalDownRightTouchInputToGameKeyEventAction.instance)));
-end;
-    
-
-constructor TDiagonalDownRightTouchInputToGameKeyEventAction.Create;
-begin
-        inherited Create('Diagonal Down Right Action', TTouchMotionGestureFactory.getInstance().DIAGONAL_DOWN_RIGHT, TPlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TDiagonalDownRightTouchInputToGameKeyEventAction.instance := TJava.Box(TNullUtil.getInstance().NULL_OBJECT);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DgnlDwnRghtTchInptTGmKy-29897.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+        IF (FUNCTION DgnlDwnRghtTchInptTGmKy-49024 = FUNCTION JR-GET(jtemp2, "f_NULL_OBJECT"))
+            COMPUTE JDISCARD = FUNCTION DgnlDwnRghtTchInptTGS10079(FUNCTION DgnlDwnRghtTchInptTGmKy-33965)
+        END-IF
+        COMPUTE J-RESULT = FUNCTION DgnlDwnRghtTchInptTGmKy-49024
+        GOBACK
+    GOBACK.
+END FUNCTION DgnlDwnRghtTchInptTGmKy-29897.
 

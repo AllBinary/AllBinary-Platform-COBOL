@@ -1,105 +1,185 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.displayable.canvas
+*> Java class BasicMenuInputProcessor
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.displayable.canvas
-unit BasicMenuInputProcessor;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicMenuInputProcessor-new3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-gameKeyEventList BINARY-DOUBLE.
+01 J-playerInputId BINARY-DOUBLE.
+01 J-gameCanvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-gameKeyEventList J-playerInputId J-gameCanvas RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("BasicMenuInputProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_motionGestureEventList")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_canvas")
+    COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_motionGestureEventList", JVALUE)
+    COMPUTE JVALUE = FUNCTION NllCnvs-static-NULL-CANVAS
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_canvas", JVALUE)
+        CONTINUE
+        COMPUTE JVALUE = J-gameCanvas
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_canvas", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION BasicMenuInputProcessor-new3.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscMnInptPrcssr-onMtnGstrEvnt1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-motionGestureEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-motionGestureEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_motionGestureEventList"), J-motionGestureEvent)
+    GOBACK.
+END FUNCTION BscMnInptPrcssr-onMtnGstrEvnt1.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscMnInptPrcssr-onScrlldM43172.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-motionGestureEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-motionGestureEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION BscMnInptPrcssr-onScrlldM43172.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Canvas, PlayerGameInput, MyCanvas, BaseMotionGestureEventListener, MotionGestureEvent, BasicArrayList, EventListenerInterface;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscMnInptPrcssr-setCanvas1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-canvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-canvas RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-canvas
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_canvas", JVALUE)
+    GOBACK.
+END FUNCTION BscMnInptPrcssr-setCanvas1.
 
-type
-  {AB:TYPES}
-  TBasicMenuInputProcessor = class(TPlayerGameInput, IBaseMotionGestureEventListener, IEventListenerInterface)
-  public
-    motionGestureEventList: TBasicArrayList;
-    canvas: TCanvas;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(gameKeyEventList: TBasicArrayList; playerInputId: Integer; gameCanvas: TCanvas);
-        procedure onMotionGestureEvent(motionGestureEvent_: TMotionGestureEvent); virtual;
-        procedure onScrolledMotionGestureEvent(motionGestureEvent_: TMotionGestureEvent); virtual;
-        procedure setCanvas(canvas_: TMyCanvas);
-        function getCanvas: TMyCanvas; virtual;
-        function processInputList: Integer; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscMnInptPrcssr-getCanvas0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_canvas")
+        GOBACK
+    GOBACK.
+END FUNCTION BscMnInptPrcssr-getCanvas0.
 
-implementation
-uses
-  NullCanvas, BasicArrayListD;
-
-
-{AB:CODE}
-
-procedure TBasicMenuInputProcessor.InitFields;
-begin
-  Self.motionGestureEventList := TBasicArrayListD.Create();
-  Self.canvas := TNullCanvas.NULL_CANVAS;
-end;
-
-function TBasicMenuInputProcessor.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-    
-
-constructor TBasicMenuInputProcessor.Create(gameKeyEventList: TBasicArrayList; playerInputId: Integer; gameCanvas: TCanvas);
-begin
-        inherited Create(gameKeyEventList, TBasicArrayListD.Create(), playerInputId);
-        InitFields;
-        Self.canvas := gameCanvas;
-end;
-    
-
-procedure TBasicMenuInputProcessor.onMotionGestureEvent(motionGestureEvent_: TMotionGestureEvent);
-begin
-        Self.motionGestureEventList.add(TJava.Box(motionGestureEvent_));
-end;
-    
-
-procedure TBasicMenuInputProcessor.onScrolledMotionGestureEvent(motionGestureEvent_: TMotionGestureEvent);
-begin
-end;
-    
-
-procedure TBasicMenuInputProcessor.setCanvas(canvas_: TMyCanvas);
-begin
-        Self.canvas := canvas_;
-end;
-    
-
-function TBasicMenuInputProcessor.getCanvas: TMyCanvas;
-begin
-        Exit(TMyCanvas(TJava.ToObject(Self.canvas)));
-end;
-    
-
-// throws Exception
-function TBasicMenuInputProcessor.processInputList: Integer;
-begin
-        Exit(-1);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscMnInptPrcssr-prcssInptLst0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = (0 - 1)
+        GOBACK
+    GOBACK.
+END FUNCTION BscMnInptPrcssr-prcssInptLst0.
 

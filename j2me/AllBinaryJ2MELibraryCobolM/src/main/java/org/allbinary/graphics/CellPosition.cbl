@@ -1,120 +1,243 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics
+*> Java class CellPosition
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics
-unit CellPosition;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, V;
-
-type
-  {AB:TYPES}
-  TCellPosition = class(TV)
-  public
-    id: Integer;
-    column: Integer;
-    row: Integer;
-    procedure InitFields;
-        constructor Create(column: Integer; row: Integer; columns: Integer; rows: Integer);
-        function getColumn: Integer; virtual;
-        function getRow: Integer; virtual;
-        function toString: string; override;
-        class function toStringCellPosition(basicGeographicMapCellPosition: TCellPosition): string; static;
-        class function toStringColRow(i_column: Integer; i_row: Integer): string; static;
-        function getId: Integer; override;
-  end;
-
-implementation
-uses
-  StringMaker, CommonSeps;
-
-
-{AB:CODE}
-
-procedure TCellPosition.InitFields;
-begin
-  
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CellPosition-new4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-column BINARY-DOUBLE.
+01 J-row BINARY-DOUBLE.
+01 J-columns BINARY-DOUBLE.
+01 J-rows BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-column J-row J-columns J-rows RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CellPosition")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_id")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_column")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_row")
     
-
-constructor TCellPosition.Create(column: Integer; row: Integer; columns: Integer; rows: Integer);
-begin
-    inherited Create;
-    InitFields;
-        Self.column := column;
-        Self.row := row;
-        Self.id := (((row) * (columns))) + (column);
-end;
     
-
-function TCellPosition.getColumn: Integer;
-begin
-        Exit(Self.column);
-end;
     
+        COMPUTE JVALUE = J-column
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_column", JVALUE)
+        COMPUTE JVALUE = J-row
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_row", JVALUE)
+        COMPUTE jtemp1 = ((FUNCTION MOD((J-row * J-columns) + 2147483648, 4294967296) - 2147483648))
+        COMPUTE JVALUE = (FUNCTION MOD((jtemp1 + J-column) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_id", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CellPosition-new4.
 
-function TCellPosition.getRow: Integer;
-begin
-        Exit(Self.row);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CellPosition-getColumn0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_column")
+        GOBACK
+    GOBACK.
+END FUNCTION CellPosition-getColumn0.
 
-function TCellPosition.toString: string;
-begin
-        Exit(TCellPosition.toStringColRow(Self.getColumn(), Self.getRow()));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CellPosition-getRow0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_row")
+        GOBACK
+    GOBACK.
+END FUNCTION CellPosition-getRow0.
 
-class function TCellPosition.toStringCellPosition(basicGeographicMapCellPosition: TCellPosition): string;
-begin
-        Exit(TCellPosition.toStringColRow(basicGeographicMapCellPosition.getColumn(), basicGeographicMapCellPosition.getRow()));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CellPosition-toString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION CellPosition-toStringColRow2(FUNCTION CellPosition-getColumn0(J-THIS), FUNCTION CellPosition-getRow0(J-THIS))
+        GOBACK
+    GOBACK.
+END FUNCTION CellPosition-toString0.
 
-class function TCellPosition.toStringColRow(i_column: Integer; i_row: Integer): string;
-var
-  stringBuffer: TStringMaker;
-  commonSeps_: TCommonSeps;
-begin
-        stringBuffer := TStringMaker.Create();
-        commonSeps_ := TCommonSeps.getInstance();
-        stringBuffer.append(commonSeps_.PARENTHESIS_OPEN);
-        stringBuffer.appendint(i_column);
-        stringBuffer.append(commonSeps_.COMMA);
-        stringBuffer.appendint(i_row);
-        stringBuffer.append(commonSeps_.PARENTHESIS_CLOSE);
-        Exit(stringBuffer.toString());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CllPstn-toStringCellPosition1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-basicGeographicMapCellPosition BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-basicGeographicMapCellPosition RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION CellPosition-toStringColRow2(FUNCTION CellPosition-getColumn0(J-basicGeographicMapCellPosition), FUNCTION CellPosition-getRow0(J-basicGeographicMapCellPosition))
+        GOBACK
+    GOBACK.
+END FUNCTION CllPstn-toStringCellPosition1.
 
-function TCellPosition.getId: Integer;
-begin
-        Exit(Self.id);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CellPosition-toStringColRow2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringBuffer BINARY-DOUBLE.
+01 J-commonSeps BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-i_column BINARY-DOUBLE.
+01 J-i_row BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-i_column J-i_row RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE J-commonSeps = FUNCTION CommonSeps-getInstance0
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-commonSeps, "f_PARENTHESIS_OPEN"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, J-i_column)
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-commonSeps, "f_COMMA"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, J-i_row)
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-commonSeps, "f_PARENTHESIS_CLOSE"))
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(J-stringBuffer)
+        GOBACK
+    GOBACK.
+END FUNCTION CellPosition-toStringColRow2.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CellPosition-getId0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_id")
+        GOBACK
+    GOBACK.
+END FUNCTION CellPosition-getId0.
 
-end.
+IDENTIFICATION DIVISION.
+PROGRAM-ID. CellPosition-toString.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION CellPosition-toString0(J-THIS)
+    GOBACK.
+END PROGRAM CellPosition-toString.
 

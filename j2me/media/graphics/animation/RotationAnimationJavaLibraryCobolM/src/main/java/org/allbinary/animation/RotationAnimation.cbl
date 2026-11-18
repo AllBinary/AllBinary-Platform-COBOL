@@ -1,183 +1,500 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation
+*> Java class RotationAnimation
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation
-unit RotationAnimation;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Direction, DirectionUtil, Angle, AngleInfo, FrameUtil, CircularIndexUtil, AnimationBehavior, IndexedAnimation, RotationAnimationInterface, AnimationInterface, DirectionalInterface, IndexedAnimationInterface, LocationPaintableInterface, SequenceInterface, SequentialAnimationInterface;
-
-type
-  {AB:TYPES}
-  TRotationAnimation = class(TIndexedAnimation, IRotationAnimationInterface, IAnimationInterface, IDirectionalInterface, IIndexedAnimationInterface, ILocationPaintableInterface, ISequenceInterface, ISequentialAnimationInterface)
-  public
-    frameUtil: TFrameUtil;
-    directionUtil: TDirectionUtil;
-    angleInfo: TAngleInfo;
-    circularIndexUtil: TCircularIndexUtil;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(angleInfo_: TAngleInfo; circularIndexUtil_: TCircularIndexUtil; animationBehavior_: TAnimationBehavior);
-        procedure nextRotationX; virtual;
-        procedure previousRotationX; virtual;
-        procedure nextRotation; virtual;
-        procedure previousRotation; virtual;
-        procedure nextRotationZ; virtual;
-        procedure previousRotationZ; virtual;
-        procedure setFrame(index: Integer); virtual;
-        procedure setFrameByDirection(direction_: TDirection); virtual;
-        procedure setFrameToAngle(angle_: TAngle); virtual;
-        procedure adjustFrameToAngle(angle_: TAngle); virtual;
-        procedure adjustFrame(angle_: SmallInt); virtual;
-        function getFrame: Integer; virtual;
-        function getSize: Integer; virtual;
-        function getAngleInfoP: TAngleInfo; virtual;
-        function toString: string; override;
-  end;
-
-implementation
-uses
-  StringMaker;
-
-
-{AB:CODE}
-
-procedure TRotationAnimation.InitFields;
-begin
-  Self.frameUtil := TFrameUtil.getInstance();
-  Self.directionUtil := TDirectionUtil.getInstance();
-  
-  
-end;
-
-function TRotationAnimation.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RotationAnimation-new3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-angleInfo BINARY-DOUBLE.
+01 J-circularIndexUtil BINARY-DOUBLE.
+01 J-animationBehavior BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-angleInfo J-circularIndexUtil J-animationBehavior RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("RotationAnimation")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_frameUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_directionUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_angleInfo")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_circularIndexUtil")
+    COMPUTE JVALUE = FUNCTION FrameUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_frameUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION DirectionUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_directionUtil", JVALUE)
     
-
-constructor TRotationAnimation.Create(angleInfo_: TAngleInfo; circularIndexUtil_: TCircularIndexUtil; animationBehavior_: TAnimationBehavior);
-begin
-        inherited Create(animationBehavior_);
-        InitFields;
-        Self.angleInfo := angleInfo_;
-        Self.circularIndexUtil := circularIndexUtil_;
-end;
     
+        CONTINUE
+        COMPUTE JVALUE = J-angleInfo
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_angleInfo", JVALUE)
+        COMPUTE JVALUE = J-circularIndexUtil
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_circularIndexUtil", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION RotationAnimation-new3.
 
-procedure TRotationAnimation.nextRotationX;
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RttnAnmtn-nextRotationX0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION RttnAnmtn-nextRotationX0.
 
-procedure TRotationAnimation.previousRotationX;
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RttnAnmtn-previousRotationX0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION RttnAnmtn-previousRotationX0.
 
-procedure TRotationAnimation.nextRotation;
-begin
-        Self.angleInfo.adjustAngle(Self.circularIndexUtil.next());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RttnAnmtn-nextRotation0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION AngleInfo-adjustAngle1(FUNCTION JR-GET(J-THIS, "f_angleInfo"), FUNCTION CircularIndexUtil-next0(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil")))
+    GOBACK.
+END FUNCTION RttnAnmtn-nextRotation0.
 
-procedure TRotationAnimation.previousRotation;
-begin
-        Self.angleInfo.adjustAngle(Self.circularIndexUtil.previous());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RttnAnmtn-previousRotation0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION AngleInfo-adjustAngle1(FUNCTION JR-GET(J-THIS, "f_angleInfo"), FUNCTION CircularIndexUtil-previous0(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil")))
+    GOBACK.
+END FUNCTION RttnAnmtn-previousRotation0.
 
-procedure TRotationAnimation.nextRotationZ;
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RttnAnmtn-nextRotationZ0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION RttnAnmtn-nextRotationZ0.
 
-procedure TRotationAnimation.previousRotationZ;
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RttnAnmtn-previousRotationZ0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION RttnAnmtn-previousRotationZ0.
 
-procedure TRotationAnimation.setFrame(index: Integer);
-var
-  newFrame: Integer;
-begin
-        Self.circularIndexUtil.setIndex(index);
-        newFrame := Self.circularIndexUtil.getIndex();
-        Self.angleInfo.adjustAngle(newFrame);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RotationAnimation-setFrame1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-newFrame BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-index RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION CircularIndexUtil-setIndex1(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil"), J-index)
+        COMPUTE J-newFrame = FUNCTION CircularIndexUtil-getIndex0(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil"))
+        COMPUTE JDISCARD = FUNCTION AngleInfo-adjustAngle1(FUNCTION JR-GET(J-THIS, "f_angleInfo"), J-newFrame)
+    GOBACK.
+END FUNCTION RotationAnimation-setFrame1.
 
-procedure TRotationAnimation.setFrameByDirection(direction_: TDirection);
-var
-  angle_: TAngle;
-begin
-        angle_ := Self.directionUtil.getFrameAngle(direction_);
-        Self.adjustFrameToAngle(angle_);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RttnAnmtn-setFrameByDirection1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-angle BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-direction BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-direction RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-angle = FUNCTION DirectionUtil-getFrameAngle1(FUNCTION JR-GET(J-THIS, "f_directionUtil"), J-direction)
+        COMPUTE JDISCARD = FUNCTION RttnAnmtn-adjustFrameToAngle1(J-THIS, J-angle)
+    GOBACK.
+END FUNCTION RttnAnmtn-setFrameByDirection1.
 
-procedure TRotationAnimation.setFrameToAngle(angle_: TAngle);
-begin
-        Self.adjustFrameToAngle(angle_);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RttnAnmtn-setFrameToAngle1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-angle RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION RttnAnmtn-adjustFrameToAngle1(J-THIS, J-angle)
+    GOBACK.
+END FUNCTION RttnAnmtn-setFrameToAngle1.
 
-procedure TRotationAnimation.adjustFrameToAngle(angle_: TAngle);
-begin
-        Self.adjustFrame(angle_.getValue());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RttnAnmtn-adjustFrameToAngle1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-angle RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION RotationAnimation-adjustFrame1(J-THIS, FUNCTION Angle-getValue0(J-angle))
+    GOBACK.
+END FUNCTION RttnAnmtn-adjustFrameToAngle1.
 
-procedure TRotationAnimation.adjustFrame(angle_: SmallInt);
-begin
-        Self.setFrame(Self.frameUtil.getFrameForAngle(angle_, Integer(Trunc(Self.angleInfo.getAngleIncrementInfo().getAngleIncrement()))));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RotationAnimation-adjustFrame1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-angle RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION AnglInf-getAngleIncrementInfo0(FUNCTION JR-GET(J-THIS, "f_angleInfo"))
+        COMPUTE jtemp1 = FUNCTION JR-CLASS-NAME(jtemp2)
+        COMPUTE JDISCARD = FUNCTION RotationAnimation-setFrame1(J-THIS, FUNCTION FrameUtil-getFrameForAngle2(FUNCTION JR-GET(J-THIS, "f_frameUtil"), J-angle, jtemp1))
+    GOBACK.
+END FUNCTION RotationAnimation-adjustFrame1.
 
-function TRotationAnimation.getFrame: Integer;
-begin
-        Exit(Self.circularIndexUtil.getIndex());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RotationAnimation-getFrame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION CircularIndexUtil-getIndex0(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil"))
+        GOBACK
+    GOBACK.
+END FUNCTION RotationAnimation-getFrame0.
 
-function TRotationAnimation.getSize: Integer;
-begin
-        Exit(Self.circularIndexUtil.getSize());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RotationAnimation-getSize0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION CircularIndexUtil-getSize0(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil"))
+        GOBACK
+    GOBACK.
+END FUNCTION RotationAnimation-getSize0.
 
-function TRotationAnimation.getAngleInfoP: TAngleInfo;
-begin
-        Exit(Self.angleInfo);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RttnAnmtn-getAngleInfoP0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_angleInfo")
+        GOBACK
+    GOBACK.
+END FUNCTION RttnAnmtn-getAngleInfoP0.
 
-function TRotationAnimation.toString: string;
-begin
-        Exit(TStringMaker.Create().append(inherited toString()).append('circularIndexUtil: ').append(Self.circularIndexUtil.toString()).append('angleInfo: ').append(Self.angleInfo.toString()).toString());
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RotationAnimation-toString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp8 = FUNCTION StringMaker-new0
+        COMPUTE jtemp7 = FUNCTION StringMaker-append1(jtemp8, FUNCTION Animation-toString0(J-THIS))
+        COMPUTE jtemp6 = FUNCTION StringMaker-append1(jtemp7, FUNCTION JR-STR("circularIndexUtil: "))
+        COMPUTE jtemp5 = FUNCTION StringMaker-append1(jtemp6, FUNCTION JR-TO-STRING(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil")))
+        COMPUTE jtemp4 = FUNCTION StringMaker-append1(jtemp5, FUNCTION JR-STR("angleInfo: "))
+        COMPUTE jtemp3 = FUNCTION StringMaker-append1(jtemp4, FUNCTION JR-TO-STRING(FUNCTION JR-GET(J-THIS, "f_angleInfo")))
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(jtemp3)
+        GOBACK
+    GOBACK.
+END FUNCTION RotationAnimation-toString0.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+PROGRAM-ID. RotationAnimation-toString.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION RotationAnimation-toString0(J-THIS)
+    GOBACK.
+END PROGRAM RotationAnimation-toString.
 

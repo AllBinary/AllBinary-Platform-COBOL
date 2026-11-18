@@ -1,74 +1,101 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.displayable.canvas
+*> Java class DemoCanvasBasicStartInputProcessor
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.displayable.canvas
-unit DemoCanvasBasicStartInputProcessor;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DmCnvsBscStrtInptPrcssr-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-gameKeyEventList BINARY-DOUBLE.
+01 J-gameCanvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-gameKeyEventList J-gameCanvas RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("DemoCanvasBasicStartInputProcessor")
+        COMPUTE jtemp1 = (0 - 1)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION DmCnvsBscStrtInptPrcssr-new2.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, RunnableCanvas, BasicArrayList, BasicMenuInputProcessor;
-
-type
-  {AB:TYPES}
-  TDemoCanvasBasicStartInputProcessor = class(TBasicMenuInputProcessor)
-  public
-        constructor Create(gameKeyEventList: TBasicArrayList; gameCanvas: TRunnableCanvas);
-        function processInputList: Integer; override;
-  end;
-
-implementation
-uses
-  NullCanvas, GameCommandsFactory, GameInputStrings, GameKeyEvent, StringMaker, StringUtil;
-
-
-{AB:CODE}
-    
-
-constructor TDemoCanvasBasicStartInputProcessor.Create(gameKeyEventList: TBasicArrayList; gameCanvas: TRunnableCanvas);
-begin
-        inherited Create(gameKeyEventList, -1, gameCanvas);
-end;
-    
-
-// throws Exception
-function TDemoCanvasBasicStartInputProcessor.processInputList: Integer;
-var
-  list: TBasicArrayList;
-  size: Integer;
-  gameKeyEvent_: TGameKeyEvent;
-  index: Integer;
-begin
-        list := Self.getGameKeyEventList();
-        size := list.size();
-        
-        for index := 0 to size - 1 do begin
-            gameKeyEvent_ := TGameKeyEvent(TJava.ToObject(list.objectArray[index]));
-            Self.logUtil.putF(TStringMaker.Create().append('Start GameKey: ').append(TStringUtil.getInstance().toString(gameKeyEvent_)).toString(), TJava.Box(Self), TGameInputStrings.getInstance().PROCESS_INPUT);
-        end;
-        Self.getCanvas().getCustomCommandListener().commandAction(TGameCommandsFactory.getInstance().START_COMMAND, TNullCanvas.NULL_CANVAS);
-        Exit(size);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DmCnvsBscStrtInptPrcssr-p48077.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-list BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-list = FUNCTION GameInput-getGameKeyEventList0(J-THIS)
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(J-list)
+        CONTINUE
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-gameKeyEvent = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
+            COMPUTE jtemp5 = FUNCTION StringUtil-getInstance0
+            COMPUTE jtemp4 = FUNCTION StringMaker-new0
+            COMPUTE jtemp3 = FUNCTION StringMaker-append1(jtemp4, FUNCTION JR-STR("Start GameKey: "))
+            COMPUTE jtemp2 = FUNCTION StringMaker-append1(jtemp3, FUNCTION StringUtil-toString1(jtemp5, J-gameKeyEvent))
+            COMPUTE jtemp6 = FUNCTION GameInputStrings-getInstance0
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        END-PERFORM
+        COMPUTE jtemp9 = FUNCTION GmCmmndsFctry-getInstance0
+        COMPUTE jtemp8 = FUNCTION BscMnInptPrcssr-getCanvas0(J-THIS)
+        COMPUTE jtemp7 = FUNCTION JR-CLASS-NAME(jtemp8)
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp7)
+        COMPUTE J-RESULT = J-size
+        GOBACK
+    GOBACK.
+END FUNCTION DmCnvsBscStrtInptPrcssr-p48077.
 

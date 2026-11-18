@@ -1,64 +1,112 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2025 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.configuration.persistance
-unit NullRecordFilter;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.configuration.persistance
+*> Java class NullRecordFilter
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NllRcrdFltr-sttc-NULL-79613.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 NullRecordFilter-jcell-NULL_RECORD_FILTER BINARY-DOUBLE EXTERNAL.
+01 NullRecordFilter-jset-NULL_RECORD_FILTER BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF NullRecordFilter-jset-NULL_RECORD_FILTER = 0
+        MOVE 1 TO NullRecordFilter-jset-NULL_RECORD_FILTER
+        COMPUTE NullRecordFilter-jcell-NULL_RECORD_FILTER = FUNCTION NullRecordFilter-new0
+    END-IF
+    MOVE NullRecordFilter-jcell-NULL_RECORD_FILTER TO J-RESULT
+    GOBACK.
+END FUNCTION NllRcrdFltr-sttc-NULL-79613.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NllRcrdFltrsttcNULL7S92496.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 NullRecordFilter-jcell-NULL_RECORD_FILTER BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION NllRcrdFltr-sttc-NULL-79613 TO J-RESULT
+    MOVE J-VALUE TO NullRecordFilter-jcell-NULL_RECORD_FILTER
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION NllRcrdFltrsttcNULL7S92496.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, RecordFilter;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullRecordFilter-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("NullRecordFilter")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION NullRecordFilter-new0.
 
-type
-  {AB:TYPES}
-  TNullRecordFilter = class(TInterfacedObject, IRecordFilter)
-  public
-    class var NULL_RECORD_FILTER: TNullRecordFilter;
-    function JavaObject: TObject;
-    constructor Create;
-        function matches(candidate: TArray<ShortInt>): Boolean; virtual;
-  end;
-
-implementation
-
-{AB:CODE}
-
-function TNullRecordFilter.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-
-constructor TNullRecordFilter.Create;
-begin
-  inherited Create;
-end;
-    
-
-function TNullRecordFilter.matches(candidate: TArray<ShortInt>): Boolean;
-begin
-        Exit(True);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TNullRecordFilter.NULL_RECORD_FILTER := TNullRecordFilter.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullRecordFilter-matches1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-candidate BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-candidate RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = 1
+        GOBACK
+    GOBACK.
+END FUNCTION NullRecordFilter-matches1.
 

@@ -1,227 +1,543 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.input.mapping
+*> Java class PersistentInputMapping
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.input.mapping
-unit PersistentInputMapping;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrsstntInptMppng-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PersistentInputMapping-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 PersistentInputMapping-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF PersistentInputMapping-jset-instance = 0
+        MOVE 1 TO PersistentInputMapping-jset-instance
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE PersistentInputMapping-jcell-instance = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+    END-IF
+    MOVE PersistentInputMapping-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION PrsstntInptMppng-sttc-nstnc.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrsstntInptMppngsttcS46574.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PersistentInputMapping-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION PrsstntInptMppng-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO PersistentInputMapping-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION PrsstntInptMppngsttcS46574.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Input, InputPersistance, InputMappingEvent, InputMappingEventListenerInterface, LogUtil, AbeClientInformationInterface, CommonStrings, EnumerationUtil, InputToGameKeyMapping;
-
-type
-  {AB:TYPES}
-  // GameInputPersistanceLibrary
-  TPersistentInputMapping = class(TObject)
-  public
-    logUtil: TLogUtil;
-    commonStrings: TCommonStrings;
-    enumerationUtil: TEnumerationUtil;
-    inputMapping: TInputToGameKeyMapping;
-    inputMappingEventListenerInterface: IInputMappingEventListenerInterface;
-    inputPersistance: TInputPersistance;
-    inputMappingEvent: TInputMappingEvent;
-    class var instance: TObject;
-    procedure InitFields;
-        class function getNullInstance: TPersistentInputMapping; static;
-        constructor Create(name: string);
-        function getTotalMapped: Integer; virtual;
-        function isDefaultNew: Boolean; virtual;
-        function getDefault: TInputToGameKeyMapping; virtual;
-        procedure setDefault(abeClientInformation: IAbeClientInformationInterface); virtual;
-        procedure update(abeClientInformation: IAbeClientInformationInterface); virtual;
-        procedure save(abeClientInformation: IAbeClientInformationInterface); virtual;
-        procedure init(abeClientInformation: IAbeClientInformationInterface); virtual;
-        procedure setInputMappingEventListenerInterface(inputMappingEventListenerInterface_: IInputMappingEventListenerInterface); virtual;
-        function getInputMappingEventListenerInterface: IInputMappingEventListenerInterface;
-        function getInputMapping: TInputToGameKeyMapping; virtual;
-        function isDelete(input_: TInput): Boolean; virtual;
-        function isSystemInput(input_: TInput): Boolean; virtual;
-  end;
-
-implementation
-uses
-  GamePersistanceStrings, NullInputMappingEventListener, NullUtil, PreLogUtil, StringMaker, ABHashtable, BasicArrayList;
-
-
-{AB:CODE}
-
-procedure TPersistentInputMapping.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.commonStrings := TCommonStrings.getInstance();
-  Self.enumerationUtil := TEnumerationUtil.getInstance();
-  Self.inputMapping := TInputToGameKeyMapping.Create();
-  Self.inputMappingEventListenerInterface := TNullInputMappingEventListener.NULL_INPUT_MAPPING_EVENT_LISTENER;
-  
-  Self.inputMappingEvent := TInputMappingEvent.Create(TJava.Box(Self));
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PersistentInputMapping-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-name BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-name RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("PersistentInputMapping")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_enumerationUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_inputMapping")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_inputMappingEventListenerInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_inputPersistance")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_inputMappingEvent")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
+    COMPUTE JVALUE = FUNCTION EnumerationUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_enumerationUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION InputToGameKeyMapping-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_inputMapping", JVALUE)
+    COMPUTE JVALUE = FUNCTION NllInptMppngEvntLstnr-24529
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_inputMappingEventListenerInterface", JVALUE)
     
+    COMPUTE JVALUE = FUNCTION InputMappingEvent-new1(J-THIS)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_inputMappingEvent", JVALUE)
+        COMPUTE JVALUE = FUNCTION InputPersistance-new1(J-name)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_inputPersistance", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION PersistentInputMapping-new1.
 
-class function TPersistentInputMapping.getNullInstance: TPersistentInputMapping;
-begin
-        if (TPersistentInputMapping.instance) = (TNullUtil.getInstance().NULL_OBJECT) then begin
-            TPersistentInputMapping.instance := TPersistentInputMapping.Create(TGamePersistanceStrings.getInstance().SAVED_INPUT_CONFIGURATION_RECORD_ID);
-        end;
-        Exit(TPersistentInputMapping(TJava.ToObject(TPersistentInputMapping.instance)));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrsstntInptMppng-gtNllInstnc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+        IF (FUNCTION PrsstntInptMppng-sttc-nstnc = FUNCTION JR-GET(jtemp2, "f_NULL_OBJECT"))
+            COMPUTE jtemp3 = FUNCTION GmPrsstncStrngs-getInstance0
+            COMPUTE JDISCARD = FUNCTION PrsstntInptMppngsttcS46574(FUNCTION PersistentInputMapping-new1(FUNCTION JR-GET(jtemp3, "f_SAVED_INPUT_CONFIGURATION_RECORD_ID")))
+        END-IF
+        COMPUTE J-RESULT = FUNCTION PrsstntInptMppng-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION PrsstntInptMppng-gtNllInstnc0.
 
-constructor TPersistentInputMapping.Create(name: string);
-begin
-    inherited Create;
-    InitFields;
-        Self.inputPersistance := TInputPersistance.Create(name);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrsstntInptMppng-gtTtlMppd0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp5 = FUNCTION PrsstntInptMppng-gtInptMppng0(J-THIS)
+        COMPUTE jtemp4 = FUNCTION InputMapping-getHashtable0(jtemp5)
+        COMPUTE J-RESULT = FUNCTION JR-CLASS-NAME(jtemp4)
+        GOBACK
+    GOBACK.
+END FUNCTION PrsstntInptMppng-gtTtlMppd0.
 
-function TPersistentInputMapping.getTotalMapped: Integer;
-begin
-        Exit(Self.getInputMapping().getHashtable().size());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrsstntInptMppng-isDefaultNew0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION PrsstntInptMppng-isDefaultNew0.
 
-function TPersistentInputMapping.isDefaultNew: Boolean;
-begin
-        Exit(False);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrsstntInptMppng-getDefault0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION InptTGmKyMppng-gtNllInstnc0
+        GOBACK
+    GOBACK.
+END FUNCTION PrsstntInptMppng-getDefault0.
 
-function TPersistentInputMapping.getDefault: TInputToGameKeyMapping;
-begin
-        Exit(TInputToGameKeyMapping.getNullInstance());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrsstntInptMppng-setDefault1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-abeClientInformation BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-abeClientInformation RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp6 = FUNCTION PrsstntInptMppng-gtInptMppng0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION InptTGmKyMppng-removeAll0(jtemp6)
+        COMPUTE jtemp7 = FUNCTION PrsstntInptMppng-gtInptMppng0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION InptTGmKyMppng-addMapping1(jtemp7, FUNCTION PrsstntInptMppng-getDefault0(J-THIS))
+        COMPUTE JDISCARD = FUNCTION PersistentInputMapping-save1(J-THIS, J-abeClientInformation)
+    GOBACK.
+END FUNCTION PrsstntInptMppng-setDefault1.
 
-// throws Exception
-procedure TPersistentInputMapping.setDefault(abeClientInformation: IAbeClientInformationInterface);
-begin
-        Self.getInputMapping().removeAll();
-        Self.getInputMapping().addMapping(Self.getDefault());
-        Self.save(abeClientInformation);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PersistentInputMapping-update1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-abeClientInformation BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-abeClientInformation RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicPersitance-deleteAll1(FUNCTION JR-GET(J-THIS, "f_inputPersistance"), J-abeClientInformation)
+        COMPUTE JDISCARD = FUNCTION PersistentInputMapping-save1(J-THIS, J-abeClientInformation)
+    GOBACK.
+END FUNCTION PersistentInputMapping-update1.
 
-// throws Exception
-procedure TPersistentInputMapping.update(abeClientInformation: IAbeClientInformationInterface);
-begin
-        Self.inputPersistance.deleteAll(abeClientInformation);
-        Self.save(abeClientInformation);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PersistentInputMapping-save1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-abeClientInformation BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-abeClientInformation RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp8 = FUNCTION PrsstntInptMppng-gtInptMppng0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION InputPersistance-save2(FUNCTION JR-GET(J-THIS, "f_inputPersistance"), J-abeClientInformation, FUNCTION InputMapping-getHashtable0(jtemp8))
+        COMPUTE JDISCARD = FUNCTION InptMppngEvnt-stInptTGmKy50756(FUNCTION JR-GET(J-THIS, "f_inputMappingEvent"), FUNCTION PrsstntInptMppng-gtInptMppng0(J-THIS))
+        IF (FUNCTION PrsstntInptMppng-gtInptMp89131(J-THIS) NOT = 0)
+            COMPUTE jtemp9 = FUNCTION PrsstntInptMppng-gtInptMp89131(J-THIS)
+            COMPUTE JDISCARD = FUNCTION InptMppngEvntLstnrIntrf-67106(jtemp9, FUNCTION JR-GET(J-THIS, "f_inputMappingEvent"))
+        END-IF
+    GOBACK.
+END FUNCTION PersistentInputMapping-save1.
 
-// throws Exception
-procedure TPersistentInputMapping.save(abeClientInformation: IAbeClientInformationInterface);
-begin
-        Self.inputPersistance.save(abeClientInformation, Self.getInputMapping().getHashtable());
-        Self.inputMappingEvent.setInputToGameKeyMapping(Self.getInputMapping());
-        if (Self.getInputMappingEventListenerInterface()) <> (nil) then begin
-            Self.getInputMappingEventListenerInterface().onInputMappingEvent(Self.inputMappingEvent);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PersistentInputMapping-init1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-list BINARY-DOUBLE.
+01 J-totalMappedTo BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-hashtable BINARY-DOUBLE.
+01 J-enumeration BINARY-DOUBLE.
+01 J-mappedToInput BINARY-DOUBLE.
+01 J-gameActionInput BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-stringBuffer BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-abeClientInformation BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-abeClientInformation RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_START"), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_INIT"))
+        CONTINUE
+            COMPUTE JDISCARD = FUNCTION InputPersistance-loadAll1(FUNCTION JR-GET(J-THIS, "f_inputPersistance"), J-abeClientInformation)
+        COMPUTE J-list = FUNCTION BasicPersitance-getList0(FUNCTION JR-GET(J-THIS, "f_inputPersistance"))
+        COMPUTE J-totalMappedTo = 0
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(J-list)
+        CONTINUE
+        CONTINUE
+        CONTINUE
+        CONTINUE
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-hashtable = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
+            COMPUTE J-enumeration = FUNCTION Hashtable-keys0(J-hashtable)
+            PERFORM FOREVER
+                IF NOT (FUNCTION EnmrtnUtl-hasMoreElements1(FUNCTION JR-GET(J-THIS, "f_enumerationUtil"), J-enumeration) = 1) EXIT PERFORM END-IF
+                COMPUTE J-mappedToInput = FUNCTION EnumerationUtil-nextElement1(FUNCTION JR-GET(J-THIS, "f_enumerationUtil"), J-enumeration)
+                COMPUTE J-gameActionInput = FUNCTION Hashtable-get1(J-hashtable, J-mappedToInput)
+                COMPUTE J-totalMappedTo = (FUNCTION MOD(J-totalMappedTo + 1 + 2147483648, 4294967296) - 2147483648)
+                COMPUTE jtemp10 = FUNCTION PrsstntInptMppng-gtInptMppng0(J-THIS)
+                COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(jtemp10, J-gameActionInput, J-mappedToInput)
+            END-PERFORM
+        END-PERFORM
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR("End - Total Loaded Keys Mapped: "))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, FUNCTION PrsstntInptMppng-gtTtlMppd0(J-THIS))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR(" to: "))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, J-totalMappedTo)
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-stringBuffer), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_INIT"))
+    GOBACK.
+END FUNCTION PersistentInputMapping-init1.
 
-// throws Exception
-procedure TPersistentInputMapping.init(abeClientInformation: IAbeClientInformationInterface);
-var
-  list: TBasicArrayList;
-  totalMappedTo: Integer;
-  size: Integer;
-  hashtable: TABHashtable<TObject, TObject>;
-  enumeration: TObject;
-  mappedToInput: TInput;
-  gameActionInput: TInput;
-  index: Integer;
-  stringBuffer: TStringMaker;
-begin
-        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.INIT);
-        try
-            Self.inputPersistance.loadAll(abeClientInformation);
-        except
-            on e: SysUtils.Exception do begin
-            TPreLogUtil.putOE(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.INIT, TJava.Box(e));
-            Self.inputPersistance.deleteRecoreStore(abeClientInformation);
-            Self.setDefault(abeClientInformation);
-            Self.inputPersistance.loadAll(abeClientInformation);
-            end;
-        end;
-        list := Self.inputPersistance.getList();
-        totalMappedTo := 0;
-        size := list.size();
-        
-        
-        
-        
-        for index := 0 to size - 1 do begin
-            hashtable := TABHashtable<TObject, TObject>(TJava.ToObject(list.objectArray[index]));
-            enumeration := hashtable.keys();
-            while Self.enumerationUtil.hasMoreElements(enumeration) do begin
-                mappedToInput := TInput(TJava.ToObject(Self.enumerationUtil.nextElement(enumeration)));
-                gameActionInput := TInput(TJava.ToObject(hashtable.get(TJava.Box(mappedToInput))));
-                Inc(totalMappedTo);
-                Self.getInputMapping().add(gameActionInput, mappedToInput);
-            end;
-        end;
-        stringBuffer := TStringMaker.Create();
-        stringBuffer.append('End - Total Loaded Keys Mapped: ');
-        stringBuffer.appendint(Self.getTotalMapped());
-        stringBuffer.append(' to: ');
-        stringBuffer.appendint(totalMappedTo);
-        Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), Self.commonStrings.INIT);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrsstntInptMppng-stInptMp84042.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-inputMappingEventListenerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-inputMappingEventListenerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-inputMappingEventListenerInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_inputMappingEventListenerInterface", JVALUE)
+    GOBACK.
+END FUNCTION PrsstntInptMppng-stInptMp84042.
 
-procedure TPersistentInputMapping.setInputMappingEventListenerInterface(inputMappingEventListenerInterface_: IInputMappingEventListenerInterface);
-begin
-        Self.inputMappingEventListenerInterface := inputMappingEventListenerInterface_;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrsstntInptMppng-gtInptMp89131.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_inputMappingEventListenerInterface")
+        GOBACK
+    GOBACK.
+END FUNCTION PrsstntInptMppng-gtInptMp89131.
 
-function TPersistentInputMapping.getInputMappingEventListenerInterface: IInputMappingEventListenerInterface;
-begin
-        Exit(Self.inputMappingEventListenerInterface);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrsstntInptMppng-gtInptMppng0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_inputMapping")
+        GOBACK
+    GOBACK.
+END FUNCTION PrsstntInptMppng-gtInptMppng0.
 
-function TPersistentInputMapping.getInputMapping: TInputToGameKeyMapping;
-begin
-        Exit(Self.inputMapping);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrsstntInptMppng-isDelete1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-input BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-input RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+    GOBACK.
+END FUNCTION PrsstntInptMppng-isDelete1.
 
-// throws Exception
-function TPersistentInputMapping.isDelete(input_: TInput): Boolean;
-begin
-        raise SysUtils.Exception.Create(Self.commonStrings.NOT_IMPLEMENTED);
-end;
-    
-
-// throws Exception
-function TPersistentInputMapping.isSystemInput(input_: TInput): Boolean;
-begin
-        raise SysUtils.Exception.Create(Self.commonStrings.NOT_IMPLEMENTED);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TPersistentInputMapping.instance := TJava.Box(TNullUtil.getInstance().NULL_OBJECT);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrsstntInptMppng-isSystmInpt1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-input BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-input RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+    GOBACK.
+END FUNCTION PrsstntInptMppng-isSystmInpt1.
 

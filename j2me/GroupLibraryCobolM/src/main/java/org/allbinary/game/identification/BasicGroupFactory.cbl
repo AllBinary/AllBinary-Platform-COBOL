@@ -1,90 +1,155 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.identification
+*> Java class BasicGroupFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.identification
-unit BasicGroupFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscGrpFctry-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BasicGroupFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 BasicGroupFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF BasicGroupFactory-jset-instance = 0
+        MOVE 1 TO BasicGroupFactory-jset-instance
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE BasicGroupFactory-jcell-instance = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+    END-IF
+    MOVE BasicGroupFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION BscGrpFctry-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscGrpFctrystaticinsS96380.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BasicGroupFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION BscGrpFctry-static-instance TO J-RESULT
+    MOVE J-VALUE TO BasicGroupFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION BscGrpFctrystaticinsS96380.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicGroupFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("BasicGroupFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NAME")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NO_SUCH_GROUP")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_GOOD")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ENEMY")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ENEMY_ON_LEVEL")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NONE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_GOOD_ARRAY")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ENEMY_ARRAY")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ENEMY_ON_LEVEL_ARRAY")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NONE_ARRAY")
+    COMPUTE JVALUE = FUNCTION JR-STR("GROUP_NAME")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NAME", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("No Such Group: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NO_SUCH_GROUP", JVALUE)
+    COMPUTE jtemp3 = (FUNCTION MOD(FUNCTION INTEGER-PART(0) + 32768, 65536) - 32768)
+    COMPUTE JVALUE = FUNCTION Group-new2(FUNCTION JR-STR("Good Guys"), jtemp3)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_GOOD", JVALUE)
+    COMPUTE jtemp4 = (FUNCTION MOD(FUNCTION INTEGER-PART(1) + 32768, 65536) - 32768)
+    COMPUTE JVALUE = FUNCTION Group-new2(FUNCTION JR-STR("Bad Guys"), jtemp4)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ENEMY", JVALUE)
+    COMPUTE jtemp5 = (FUNCTION MOD(FUNCTION INTEGER-PART(2) + 32768, 65536) - 32768)
+    COMPUTE JVALUE = FUNCTION Group-new2(FUNCTION JR-STR("Bad Guys on Level"), jtemp5)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ENEMY_ON_LEVEL", JVALUE)
+    COMPUTE jtemp6 = (FUNCTION MOD(FUNCTION INTEGER-PART(3) + 32768, 65536) - 32768)
+    COMPUTE JVALUE = FUNCTION Group-new2(FUNCTION JR-STR("Not On A Team"), jtemp6)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NONE", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-ARRAY-ADD(FUNCTION JR-NEW-ARRAY(JZERO), FUNCTION JR-GET(J-THIS, "f_GOOD"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_GOOD_ARRAY", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-ARRAY-ADD(FUNCTION JR-NEW-ARRAY(JZERO), FUNCTION JR-GET(J-THIS, "f_ENEMY"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ENEMY_ARRAY", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-NEW-ARRAY(JZERO), FUNCTION JR-GET(J-THIS, "f_ENEMY")), FUNCTION JR-GET(J-THIS, "f_ENEMY_ON_LEVEL"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ENEMY_ON_LEVEL_ARRAY", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-ARRAY-ADD(FUNCTION JR-NEW-ARRAY(JZERO), FUNCTION JR-GET(J-THIS, "f_NONE"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NONE_ARRAY", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION BasicGroupFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Group;
-
-type
-  {AB:TYPES}
-  TBasicGroupFactory = class(TObject)
-  public
-    NAME: string;
-    NO_SUCH_GROUP: string;
-    GOOD: TGroup;
-    ENEMY: TGroup;
-    ENEMY_ON_LEVEL: TGroup;
-    NONE: TGroup;
-    GOOD_ARRAY: TArray<TGroup>;
-    ENEMY_ARRAY: TArray<TGroup>;
-    ENEMY_ON_LEVEL_ARRAY: TArray<TGroup>;
-    NONE_ARRAY: TArray<TGroup>;
-    class var instance: TObject;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TBasicGroupFactory; static;
-  end;
-
-implementation
-uses
-  NullUtil;
-
-
-{AB:CODE}
-
-procedure TBasicGroupFactory.InitFields;
-begin
-  Self.NAME := 'GROUP_NAME';
-  Self.NO_SUCH_GROUP := 'No Such Group: ';
-  Self.GOOD := TGroup.Create('Good Guys', SmallInt(0));
-  Self.ENEMY := TGroup.Create('Bad Guys', SmallInt(1));
-  Self.ENEMY_ON_LEVEL := TGroup.Create('Bad Guys on Level', SmallInt(2));
-  Self.NONE := TGroup.Create('Not On A Team', SmallInt(3));
-  Self.GOOD_ARRAY := TArray<TGroup>.Create(Self.GOOD);
-  Self.ENEMY_ARRAY := TArray<TGroup>.Create(Self.ENEMY);
-  Self.ENEMY_ON_LEVEL_ARRAY := TArray<TGroup>.Create(Self.ENEMY, Self.ENEMY_ON_LEVEL);
-  Self.NONE_ARRAY := TArray<TGroup>.Create(Self.NONE);
-end;
-
-constructor TBasicGroupFactory.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TBasicGroupFactory.getInstance: TBasicGroupFactory;
-begin
-        if (TBasicGroupFactory.instance) = (TNullUtil.getInstance().NULL_OBJECT) then begin
-            TBasicGroupFactory.instance := TBasicGroupFactory.Create();
-        end;
-        Exit(TBasicGroupFactory(TJava.ToObject(TBasicGroupFactory.instance)));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TBasicGroupFactory.instance := TJava.Box(TNullUtil.getInstance().NULL_OBJECT);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicGroupFactory-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+        IF (FUNCTION BscGrpFctry-static-instance = FUNCTION JR-GET(jtemp2, "f_NULL_OBJECT"))
+            COMPUTE JDISCARD = FUNCTION BscGrpFctrystaticinsS96380(FUNCTION BasicGroupFactory-new0)
+        END-IF
+        COMPUTE J-RESULT = FUNCTION BscGrpFctry-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION BasicGroupFactory-getInstance0.
 

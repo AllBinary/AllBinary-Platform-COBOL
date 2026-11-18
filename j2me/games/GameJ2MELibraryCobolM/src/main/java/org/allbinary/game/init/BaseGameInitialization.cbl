@@ -1,228 +1,529 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.init
+*> Java class BaseGameInitialization
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.init
-unit BaseGameInitialization;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsGmIntlztn-sttc-NULL29988.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BaseGameInitialization-jcell-NULL_BASE_GAME_INITIALIZATION BINARY-DOUBLE EXTERNAL.
+01 BaseGameInitialization-jset-NULL_BASE_GAME_INITIALIZATION BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF BaseGameInitialization-jset-NULL_BASE_GAME_INITIALIZATION = 0
+        MOVE 1 TO BaseGameInitialization-jset-NULL_BASE_GAME_INITIALIZATION
+        COMPUTE jtemp2 = 0
+    COMPUTE jtemp1 = FUNCTION JR-NEW-ARRAY(jtemp2)
+    COMPUTE jtemp3 = 0
+    COMPUTE BaseGameInitialization-jcell-NULL_BASE_GAME_INITIALIZATION = FUNCTION BaseGameInitialization-new2(jtemp1, jtemp3)
+    END-IF
+    MOVE BaseGameInitialization-jcell-NULL_BASE_GAME_INITIALIZATION TO J-RESULT
+    GOBACK.
+END FUNCTION BsGmIntlztn-sttc-NULL29988.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsGmIntlztnsttcNULL2S73148.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BaseGameInitialization-jcell-NULL_BASE_GAME_INITIALIZATION BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION BsGmIntlztn-sttc-NULL29988 TO J-RESULT
+    MOVE J-VALUE TO BaseGameInitialization-jcell-NULL_BASE_GAME_INITIALIZATION
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION BsGmIntlztnsttcNULL2S73148.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, CommandListener, ResourceInitialization, AbeClientInformationInterface, GameInitializationInterface;
-
-type
-  {AB:TYPES}
-  TBaseGameInitialization = class(TInterfacedObject, IGameInitializationInterface)
-  public
-    resourceInitializationArray: TArray<TResourceInitialization>;
-    portion: Integer;
-    initialized: Boolean;
-    EARLY_RESOURCES: Integer;
-    GAME_RESOURCES: Integer;
-    EARLY_CHANGABLE_RESOURCES: Integer;
-    GAME_CHANGABLE_RESOURCES: Integer;
-    gameInitialized: Boolean;
-    allLoaded: Boolean;
-    class var NULL_BASE_GAME_INITIALIZATION: TBaseGameInitialization;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(resourceInitializationArray: TArray<TResourceInitialization>; portion: Integer);
-        procedure initKey(portion: Integer); virtual;
-        procedure initKeyMapping(abeClientInformation: IAbeClientInformationInterface; portion: Integer); virtual;
-        procedure init(abeClientInformation: IAbeClientInformationInterface; commandListener_: ICommandListener; level: Integer); virtual;
-        procedure resourceInitialization(level: Integer); virtual;
-        function resourceAnimationChange: Boolean; virtual;
-        procedure clearResources;
-        procedure setGameInitialized(gameInitialized: Boolean); virtual;
-        function isGameInitialized: Boolean; virtual;
-        function getPortion: Integer; virtual;
-        procedure setInitialized(initialized: Boolean); virtual;
-        function isInitialized: Boolean; virtual;
-  end;
-
-implementation
-uses
-  FeaturedAnimationInterfaceFactoryInterfaceFactory, GameConfigurationCentral, ChangedGameFeatureListener, InputFeatureFactory, MainFeatureFactory, PlatformInputMappingFactory, GameKeyEventFactory, FeaturedResourceRelativeRelationshipFactory, ResourceLoadingLevelFactory, ProgressCanvas, ProgressCanvasFactory, GameFeatureImageCacheFactory, CompleteMotionGestureInputToGameMotionGestureInput, BasicTouchInputFactory, CancelTouchButtonInputFactory;
-
-
-{AB:CODE}
-
-procedure TBaseGameInitialization.InitFields;
-begin
-  
-  
-  
-  Self.EARLY_RESOURCES := 0;
-  Self.GAME_RESOURCES := 1;
-  Self.EARLY_CHANGABLE_RESOURCES := 2;
-  Self.GAME_CHANGABLE_RESOURCES := 3;
-  
-  
-end;
-
-function TBaseGameInitialization.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BaseGameInitialization-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-resourceInitializationArray BINARY-DOUBLE.
+01 J-portion BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-resourceInitializationArray J-portion RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("BaseGameInitialization")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_resourceInitializationArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_portion")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_initialized")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_EARLY_RESOURCES")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_GAME_RESOURCES")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_EARLY_CHANGABLE_RESOURCES")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_GAME_CHANGABLE_RESOURCES")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameInitialized")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_allLoaded")
     
-
-constructor TBaseGameInitialization.Create(resourceInitializationArray: TArray<TResourceInitialization>; portion: Integer);
-begin
-    inherited Create;
-    InitFields;
-        Self.resourceInitializationArray := resourceInitializationArray;
-        Self.portion := portion;
-end;
     
-
-// throws Exception
-procedure TBaseGameInitialization.initKey(portion: Integer);
-begin
-end;
     
-
-// throws Exception
-procedure TBaseGameInitialization.initKeyMapping(abeClientInformation: IAbeClientInformationInterface; portion: Integer);
-begin
-        if TChangedGameFeatureListener.getInstance().isChangedFeature(TInputFeatureFactory.getInstance().INPUT_MAPPING) then begin
-            TPlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().init(abeClientInformation);
-            TProgressCanvasFactory.getInstance().addNormalPortion(50, 'Game Keys');
-            TChangedGameFeatureListener.getInstance().remove(TInputFeatureFactory.getInstance().INPUT_MAPPING);
-        end;
-end;
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_EARLY_RESOURCES", JVALUE)
+    COMPUTE JVALUE = 1
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_GAME_RESOURCES", JVALUE)
+    COMPUTE JVALUE = 2
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_EARLY_CHANGABLE_RESOURCES", JVALUE)
+    COMPUTE JVALUE = 3
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_GAME_CHANGABLE_RESOURCES", JVALUE)
     
-
-// throws Exception
-procedure TBaseGameInitialization.init(abeClientInformation: IAbeClientInformationInterface; commandListener_: ICommandListener; level: Integer);
-var
-  resourceLoadingLevelFactory_: TResourceLoadingLevelFactory;
-  localPortion: Integer;
-  progressCanvas_: TProgressCanvas;
-begin
-        resourceLoadingLevelFactory_ := TResourceLoadingLevelFactory.getInstance();
-        if (not (Self.isInitialized())) and ((((level) = (resourceLoadingLevelFactory_.LOAD_ALL.getLevel())) or ((level) = (resourceLoadingLevelFactory_.LOAD_EARLY.getLevel())))) then begin
-            localPortion := 40;
-            if (level) = (resourceLoadingLevelFactory_.LOAD_EARLY.getLevel()) then begin
-                localPortion := 8;
-            end;
-            Self.setInitialized(True);
-            Self.initKey(Self.getPortion());
-            Self.initKeyMapping(abeClientInformation, Self.getPortion());
-            TGameKeyEventFactory.getInstance().init();
-            progressCanvas_ := TProgressCanvasFactory.getInstance();
-            progressCanvas_.addNormalPortion(localPortion, 'Game Key Events');
-            TBasicTouchInputFactory.getInstance().init(TPlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping());
-            TCancelTouchButtonInputFactory.getInstance();
-            progressCanvas_.addNormalPortion(localPortion, 'Touch Input');
-            TCompleteMotionGestureInputToGameMotionGestureInput.getInstance().init();
-            progressCanvas_.addNormalPortion(localPortion, 'Motion Input');
-            TGameFeatureImageCacheFactory.init();
-            progressCanvas_.addNormalPortion(localPortion, 'Image Cache');
-            Self.resourceInitializationArray[Self.EARLY_RESOURCES].init();
-        end;
-end;
     
+        COMPUTE JVALUE = J-resourceInitializationArray
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_resourceInitializationArray", JVALUE)
+        COMPUTE JVALUE = J-portion
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_portion", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION BaseGameInitialization-new2.
 
-// throws Exception
-procedure TBaseGameInitialization.resourceInitialization(level: Integer);
-var
-  resourceLoadingLevelFactory_: TResourceLoadingLevelFactory;
-begin
-        resourceLoadingLevelFactory_ := TResourceLoadingLevelFactory.getInstance();
-        if (Self.resourceAnimationChange()) and ((level) = (resourceLoadingLevelFactory_.LOAD_EARLY.getLevel())) then begin
-            Self.clearResources();
-            Self.resourceInitializationArray[Self.EARLY_CHANGABLE_RESOURCES].init();
-        end;
-        if (Self.resourceAnimationChange()) and ((level) = (resourceLoadingLevelFactory_.LOAD_ALL.getLevel())) then begin
-            if Self.allLoaded then begin
-                Self.clearResources();
-            end;
-            if (TFeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().getList().size()) = (0) then begin
-                Self.resourceInitializationArray[Self.EARLY_CHANGABLE_RESOURCES].init();
-            end;
-            Self.resourceInitializationArray[Self.GAME_CHANGABLE_RESOURCES].init();
-            Self.allLoaded := True;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsGmIntlztn-initKey1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-portion BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-portion RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION BsGmIntlztn-initKey1.
 
-function TBaseGameInitialization.resourceAnimationChange: Boolean;
-var
-  changedGameFeatureListener_: TChangedGameFeatureListener;
-  gameConfigurationCentral_: TGameConfigurationCentral;
-begin
-        changedGameFeatureListener_ := TChangedGameFeatureListener.getInstance();
-        gameConfigurationCentral_ := TGameConfigurationCentral.getInstance();
-        if changedGameFeatureListener_.isChangedGameConfiguration(gameConfigurationCentral_.SCALE) then begin
-            Exit(True);
-        end;
-        if TChangedGameFeatureListener.getInstance().isChangedFeature(TMainFeatureFactory.getInstance().STATIC_) then begin
-            Exit(True);
-        end;
-        Exit(False);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsGmIntlztn-initKeyMapping2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-abeClientInformation BINARY-DOUBLE.
+01 J-portion BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-abeClientInformation J-portion RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp5 = FUNCTION InptFtrFctry-getInstance0
+        COMPUTE jtemp4 = FUNCTION ChngdGmFtrLstnr-getInstance0
+        IF (FUNCTION BsChngdGmFtrLstnr-isChngdFtr1(jtemp4, FUNCTION JR-GET(jtemp5, "f_INPUT_MAPPING")) = 1)
+            COMPUTE jtemp7 = FUNCTION PltfrmInptMppngFctry-gtInstnc0
+            COMPUTE jtemp6 = FUNCTION PltfrmInptMppngFctry-gtPr75051(jtemp7)
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp6)
+            COMPUTE jtemp9 = 50
+            COMPUTE jtemp8 = FUNCTION PrgrssCnvsFctry-getInstance0
+            COMPUTE JDISCARD = FUNCTION PrgrssCnvsFctry-addNrmlPrtn2(jtemp8, jtemp9, FUNCTION JR-STR("Game Keys"))
+            COMPUTE jtemp11 = FUNCTION InptFtrFctry-getInstance0
+            COMPUTE jtemp10 = FUNCTION ChngdGmFtrLstnr-getInstance0
+            COMPUTE JDISCARD = FUNCTION BsChngdGmFtrLstnr-remove1(jtemp10, FUNCTION JR-GET(jtemp11, "f_INPUT_MAPPING"))
+        END-IF
+    GOBACK.
+END FUNCTION BsGmIntlztn-initKeyMapping2.
 
-procedure TBaseGameInitialization.clearResources;
-var
-  featuredAnimationInterfaceFactoryInterfaceFactory_: TFeaturedAnimationInterfaceFactoryInterfaceFactory;
-begin
-        Self.allLoaded := False;
-        TGameFeatureImageCacheFactory.releaseAll();
-        featuredAnimationInterfaceFactoryInterfaceFactory_ := TFeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance();
-        featuredAnimationInterfaceFactoryInterfaceFactory_.clear();
-        TFeaturedResourceRelativeRelationshipFactory.getInstance().clear();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BaseGameInitialization-init3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-resourceLoadingLevelFactory BINARY-DOUBLE.
+01 J-localPortion BINARY-DOUBLE.
+01 J-progressCanvas BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-abeClientInformation BINARY-DOUBLE.
+01 J-commandListener BINARY-DOUBLE.
+01 J-level BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-abeClientInformation J-commandListener J-level RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-resourceLoadingLevelFactory = FUNCTION RsrcLdngLvlFctry-getInstance0
+        IF ((NOT (FUNCTION BsGmIntlztn-isInitialized0(J-THIS) = 1)) AND (((J-level = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-resourceLoadingLevelFactory, "f_LOAD_ALL"))) OR (J-level = FUNCTION JR-CLASS-NAME(FUNCTION
+        JR-GET(J-resourceLoadingLevelFactory, "f_LOAD_EARLY"))))))
+            COMPUTE J-localPortion = 40
+            IF (J-level = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-resourceLoadingLevelFactory, "f_LOAD_EARLY")))
+                COMPUTE J-localPortion = 8
+            END-IF
+            COMPUTE jtemp12 = 1
+            COMPUTE JDISCARD = FUNCTION BsGmIntlztn-setInitialized1(J-THIS, jtemp12)
+            COMPUTE JDISCARD = FUNCTION BsGmIntlztn-initKey1(J-THIS, FUNCTION BsGmIntlztn-getPortion0(J-THIS))
+            COMPUTE JDISCARD = FUNCTION BsGmIntlztn-initKeyMapping2(J-THIS, J-abeClientInformation, FUNCTION BsGmIntlztn-getPortion0(J-THIS))
+            COMPUTE jtemp13 = FUNCTION GmKyEvntFctry-getInstance0
+            COMPUTE JDISCARD = FUNCTION GameKeyEventFactory-init0(jtemp13)
+            COMPUTE J-progressCanvas = FUNCTION PrgrssCnvsFctry-getInstance0
+            COMPUTE JDISCARD = FUNCTION PrgrssCnvs-addNormalPortion2(J-progressCanvas, J-localPortion, FUNCTION JR-STR("Game Key Events"))
+            COMPUTE jtemp16 = FUNCTION PltfrmInptMppngFctry-gtInstnc0
+            COMPUTE jtemp15 = FUNCTION PltfrmInptMppngFctry-gtPr75051(jtemp16)
+            COMPUTE jtemp14 = FUNCTION BscTchInptFctry-getInstance0
+            COMPUTE JDISCARD = FUNCTION BasicTouchInputFactory-init1(jtemp14, FUNCTION JR-CLASS-NAME(jtemp15))
+            COMPUTE JDISCARD = FUNCTION CnclTchBttnInptFctry-gtInstnc0
+            COMPUTE JDISCARD = FUNCTION PrgrssCnvs-addNormalPortion2(J-progressCanvas, J-localPortion, FUNCTION JR-STR("Touch Input"))
+            COMPUTE jtemp17 = FUNCTION CmpltMtnGstrInptTGmMtnG-90323
+            COMPUTE JDISCARD = FUNCTION CmpltMtnGstrInptTGmMtnG-84333(jtemp17)
+            COMPUTE JDISCARD = FUNCTION PrgrssCnvs-addNormalPortion2(J-progressCanvas, J-localPortion, FUNCTION JR-STR("Motion Input"))
+            COMPUTE JDISCARD = FUNCTION GmFtrImgCchFctry-init0
+            COMPUTE JDISCARD = FUNCTION PrgrssCnvs-addNormalPortion2(J-progressCanvas, J-localPortion, FUNCTION JR-STR("Image Cache"))
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_resourceInitializationArray"), FUNCTION JR-GET(J-THIS, "f_EARLY_RESOURCES")))
+        END-IF
+    GOBACK.
+END FUNCTION BaseGameInitialization-init3.
 
-procedure TBaseGameInitialization.setGameInitialized(gameInitialized: Boolean);
-begin
-        Self.gameInitialized := gameInitialized;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsGmIntlztn-rsrcIntlztn1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-resourceLoadingLevelFactory BINARY-DOUBLE.
+01 jtemp18 BINARY-DOUBLE.
+01 jtemp19 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-level BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-level RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-resourceLoadingLevelFactory = FUNCTION RsrcLdngLvlFctry-getInstance0
+        IF ((FUNCTION BsGmIntlztn-rsrcAnmtnChng0(J-THIS) = 1) AND (J-level = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-resourceLoadingLevelFactory, "f_LOAD_EARLY"))))
+            COMPUTE JDISCARD = FUNCTION BsGmIntlztn-clearResources0(J-THIS)
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_resourceInitializationArray"), FUNCTION JR-GET(J-THIS, "f_EARLY_CHANGABLE_RESOURCES")))
+        END-IF
+        IF ((FUNCTION BsGmIntlztn-rsrcAnmtnChng0(J-THIS) = 1) AND (J-level = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-resourceLoadingLevelFactory, "f_LOAD_ALL"))))
+            IF (FUNCTION JR-GET(J-THIS, "f_allLoaded") = 1)
+                COMPUTE JDISCARD = FUNCTION BsGmIntlztn-clearResources0(J-THIS)
+            END-IF
+            COMPUTE jtemp19 = FUNCTION FtrdAnmtnIntrfcFctryInt-53898
+            COMPUTE jtemp18 = FUNCTION FtrdRsrcFctry-getList0(jtemp19)
+            IF (FUNCTION JR-CLASS-NAME(jtemp18) = 0)
+                COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_resourceInitializationArray"), FUNCTION JR-GET(J-THIS, "f_EARLY_CHANGABLE_RESOURCES")))
+            END-IF
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_resourceInitializationArray"), FUNCTION JR-GET(J-THIS, "f_GAME_CHANGABLE_RESOURCES")))
+            COMPUTE JVALUE = 1
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_allLoaded", JVALUE)
+        END-IF
+    GOBACK.
+END FUNCTION BsGmIntlztn-rsrcIntlztn1.
 
-function TBaseGameInitialization.isGameInitialized: Boolean;
-begin
-        Exit(Self.gameInitialized);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsGmIntlztn-rsrcAnmtnChng0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-changedGameFeatureListener BINARY-DOUBLE.
+01 J-gameConfigurationCentral BINARY-DOUBLE.
+01 jtemp20 BINARY-DOUBLE.
+01 jtemp21 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-changedGameFeatureListener = FUNCTION ChngdGmFtrLstnr-getInstance0
+        COMPUTE J-gameConfigurationCentral = FUNCTION GmCnfgrtnCntrl-getInstance0
+        IF (FUNCTION ChngdGmFtrLstnr-isChngdGm39803(J-changedGameFeatureListener, FUNCTION JR-GET(J-gameConfigurationCentral, "f_SCALE")) = 1)
+            COMPUTE J-RESULT = 1
+            GOBACK
+        END-IF
+        COMPUTE jtemp21 = FUNCTION MnFtrFctry-getInstance0
+        COMPUTE jtemp20 = FUNCTION ChngdGmFtrLstnr-getInstance0
+        IF (FUNCTION BsChngdGmFtrLstnr-isChngdFtr1(jtemp20, FUNCTION JR-GET(jtemp21, "f_STATIC")) = 1)
+            COMPUTE J-RESULT = 1
+            GOBACK
+        END-IF
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION BsGmIntlztn-rsrcAnmtnChng0.
 
-function TBaseGameInitialization.getPortion: Integer;
-begin
-        Exit(Self.portion);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsGmIntlztn-clearResources0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-featuredAnimationInterfaceFactoryInterfaceFactory BINARY-DOUBLE.
+01 jtemp22 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = 0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_allLoaded", JVALUE)
+        COMPUTE JDISCARD = FUNCTION GmFtrImgCchFctry-releaseAll0
+        COMPUTE J-featuredAnimationInterfaceFactoryInterfaceFactory = FUNCTION FtrdAnmtnIntrfcFctryInt-53898
+        COMPUTE JDISCARD = FUNCTION FeaturedResourceFactory-clear0(J-featuredAnimationInterfaceFactoryInterfaceFactory)
+        COMPUTE jtemp22 = FUNCTION FtrdRsrcRltvRltnshpFctr-94721
+        COMPUTE JDISCARD = FUNCTION FeaturedResourceFactory-clear0(jtemp22)
+    GOBACK.
+END FUNCTION BsGmIntlztn-clearResources0.
 
-procedure TBaseGameInitialization.setInitialized(initialized: Boolean);
-begin
-        Self.initialized := initialized;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsGmIntlztn-stGmIntlzd1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameInitialized BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gameInitialized RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-gameInitialized
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameInitialized", JVALUE)
+    GOBACK.
+END FUNCTION BsGmIntlztn-stGmIntlzd1.
 
-function TBaseGameInitialization.isInitialized: Boolean;
-begin
-        Exit(Self.initialized);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsGmIntlztn-isGameInitialized0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_gameInitialized")
+        GOBACK
+    GOBACK.
+END FUNCTION BsGmIntlztn-isGameInitialized0.
 
-initialization
-  {AB:INITIALIZATION}
-  TBaseGameInitialization.NULL_BASE_GAME_INITIALIZATION := TBaseGameInitialization.Create(nil, 0);
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsGmIntlztn-getPortion0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_portion")
+        GOBACK
+    GOBACK.
+END FUNCTION BsGmIntlztn-getPortion0.
 
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsGmIntlztn-setInitialized1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-initialized BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-initialized RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-initialized
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_initialized", JVALUE)
+    GOBACK.
+END FUNCTION BsGmIntlztn-setInitialized1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsGmIntlztn-isInitialized0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_initialized")
+        GOBACK
+    GOBACK.
+END FUNCTION BsGmIntlztn-isInitialized0.
 

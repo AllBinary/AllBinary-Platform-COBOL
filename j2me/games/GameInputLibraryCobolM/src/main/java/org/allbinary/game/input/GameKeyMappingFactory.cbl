@@ -1,114 +1,206 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.input
+*> Java class GameKeyMappingFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.input
-unit GameKeyMappingFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmKyMppngFctry-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameKeyMappingFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 GameKeyMappingFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GameKeyMappingFactory-jset-instance = 0
+        MOVE 1 TO GameKeyMappingFactory-jset-instance
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE GameKeyMappingFactory-jcell-instance = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+    END-IF
+    MOVE GameKeyMappingFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION GmKyMppngFctry-sttc-nstnc.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmKyMppngFctrysttcnsS27866.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameKeyMappingFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GmKyMppngFctry-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO GameKeyMappingFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GmKyMppngFctrysttcnsS27866.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameKeyMappingFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameKeyFactory BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameKeyMappingFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_intKeyToGameKey")
+    COMPUTE jtemp3 = FUNCTION InputFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY(FUNCTION JR-GET(jtemp3, "f_MAX"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_intKeyToGameKey", JVALUE)
+        COMPUTE J-gameKeyFactory = FUNCTION GameKeyFactory-getInstance0
+        COMPUTE JDISCARD = FUNCTION GmKyMppngFctry-setGameKey1(J-THIS, FUNCTION JR-GET(J-gameKeyFactory, "f_NONE"))
+        COMPUTE JDISCARD = FUNCTION GmKyMppngFctry-setGameKey1(J-THIS, FUNCTION JR-GET(J-gameKeyFactory, "f_UP"))
+        COMPUTE JDISCARD = FUNCTION GmKyMppngFctry-setGameKey1(J-THIS, FUNCTION JR-GET(J-gameKeyFactory, "f_DOWN"))
+        COMPUTE JDISCARD = FUNCTION GmKyMppngFctry-setGameKey1(J-THIS, FUNCTION JR-GET(J-gameKeyFactory, "f_LEFT"))
+        COMPUTE JDISCARD = FUNCTION GmKyMppngFctry-setGameKey1(J-THIS, FUNCTION JR-GET(J-gameKeyFactory, "f_RIGHT"))
+        COMPUTE JDISCARD = FUNCTION GmKyMppngFctry-setGameKey1(J-THIS, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_POUND"))
+        COMPUTE JDISCARD = FUNCTION GmKyMppngFctry-setGameKey1(J-THIS, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_STAR"))
+        COMPUTE JDISCARD = FUNCTION GmKyMppngFctry-setGameKey1(J-THIS, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM0"))
+        COMPUTE JDISCARD = FUNCTION GmKyMppngFctry-setGameKey1(J-THIS, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM1"))
+        COMPUTE JDISCARD = FUNCTION GmKyMppngFctry-setGameKey1(J-THIS, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM2"))
+        COMPUTE JDISCARD = FUNCTION GmKyMppngFctry-setGameKey1(J-THIS, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM3"))
+        COMPUTE JDISCARD = FUNCTION GmKyMppngFctry-setGameKey1(J-THIS, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM4"))
+        COMPUTE JDISCARD = FUNCTION GmKyMppngFctry-setGameKey1(J-THIS, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM5"))
+        COMPUTE JDISCARD = FUNCTION GmKyMppngFctry-setGameKey1(J-THIS, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM6"))
+        COMPUTE JDISCARD = FUNCTION GmKyMppngFctry-setGameKey1(J-THIS, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM7"))
+        COMPUTE JDISCARD = FUNCTION GmKyMppngFctry-setGameKey1(J-THIS, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM8"))
+        COMPUTE JDISCARD = FUNCTION GmKyMppngFctry-setGameKey1(J-THIS, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM9"))
+        COMPUTE JDISCARD = FUNCTION GmKyMppngFctry-setGameKey1(J-THIS, FUNCTION JR-GET(J-gameKeyFactory, "f_GAME_A"))
+        COMPUTE JDISCARD = FUNCTION GmKyMppngFctry-setGameKey1(J-THIS, FUNCTION JR-GET(J-gameKeyFactory, "f_GAME_B"))
+        COMPUTE JDISCARD = FUNCTION GmKyMppngFctry-setGameKey1(J-THIS, FUNCTION JR-GET(J-gameKeyFactory, "f_GAME_C"))
+        COMPUTE JDISCARD = FUNCTION GmKyMppngFctry-setGameKey1(J-THIS, FUNCTION JR-GET(J-gameKeyFactory, "f_GAME_D"))
+        COMPUTE JDISCARD = FUNCTION GmKyMppngFctry-setGameKey1(J-THIS, FUNCTION JR-GET(J-gameKeyFactory, "f_FIRE"))
+        COMPUTE JDISCARD = FUNCTION GmKyMppngFctry-setGameKey1(J-THIS, FUNCTION JR-GET(J-gameKeyFactory, "f_LEVEL_DOWN"))
+        COMPUTE JDISCARD = FUNCTION GmKyMppngFctry-setGameKey1(J-THIS, FUNCTION JR-GET(J-gameKeyFactory, "f_LEVEL_UP"))
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GameKeyMappingFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameKey;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmKyMppngFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+        IF (FUNCTION GmKyMppngFctry-sttc-nstnc = FUNCTION JR-GET(jtemp2, "f_NULL_OBJECT"))
+            COMPUTE JDISCARD = FUNCTION GmKyMppngFctrysttcnsS27866(FUNCTION GameKeyMappingFactory-new0)
+        END-IF
+        COMPUTE J-RESULT = FUNCTION GmKyMppngFctry-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION GmKyMppngFctry-getInstance0.
 
-type
-  {AB:TYPES}
-  TGameKeyMappingFactory = class(TObject)
-  public
-    intKeyToGameKey: TArray<TGameKey>;
-    class var instance: TObject;
-    procedure InitFields;
-        class function getInstance: TGameKeyMappingFactory; static;
-        constructor Create;
-        function getGameKey(key: Integer): TGameKey; virtual;
-        procedure setGameKey(gameKey_: TGameKey);
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmKyMppngFctry-getGameKey1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-key BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-key RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_intKeyToGameKey"), J-key)
+        GOBACK
+    GOBACK.
+END FUNCTION GmKyMppngFctry-getGameKey1.
 
-implementation
-uses
-  InputFactory, GameKeyFactory, NullUtil;
-
-
-{AB:CODE}
-
-procedure TGameKeyMappingFactory.InitFields;
-begin
-  Self.intKeyToGameKey := TJava.NewArray<TGameKey>(TInputFactory.getInstance().MAX);
-end;
-    
-
-class function TGameKeyMappingFactory.getInstance: TGameKeyMappingFactory;
-begin
-        if (TGameKeyMappingFactory.instance) = (TNullUtil.getInstance().NULL_OBJECT) then begin
-            TGameKeyMappingFactory.instance := TGameKeyMappingFactory.Create();
-        end;
-        Exit(TGameKeyMappingFactory(TJava.ToObject(TGameKeyMappingFactory.instance)));
-end;
-    
-
-constructor TGameKeyMappingFactory.Create;
-var
-  gameKeyFactory_: TGameKeyFactory;
-begin
-    inherited Create;
-    InitFields;
-        gameKeyFactory_ := TGameKeyFactory.getInstance();
-        Self.setGameKey(gameKeyFactory_.NONE);
-        Self.setGameKey(gameKeyFactory_.UP);
-        Self.setGameKey(gameKeyFactory_.DOWN);
-        Self.setGameKey(gameKeyFactory_.LEFT);
-        Self.setGameKey(gameKeyFactory_.RIGHT);
-        Self.setGameKey(gameKeyFactory_.KEY_POUND);
-        Self.setGameKey(gameKeyFactory_.KEY_STAR);
-        Self.setGameKey(gameKeyFactory_.KEY_NUM0);
-        Self.setGameKey(gameKeyFactory_.KEY_NUM1);
-        Self.setGameKey(gameKeyFactory_.KEY_NUM2);
-        Self.setGameKey(gameKeyFactory_.KEY_NUM3);
-        Self.setGameKey(gameKeyFactory_.KEY_NUM4);
-        Self.setGameKey(gameKeyFactory_.KEY_NUM5);
-        Self.setGameKey(gameKeyFactory_.KEY_NUM6);
-        Self.setGameKey(gameKeyFactory_.KEY_NUM7);
-        Self.setGameKey(gameKeyFactory_.KEY_NUM8);
-        Self.setGameKey(gameKeyFactory_.KEY_NUM9);
-        Self.setGameKey(gameKeyFactory_.GAME_A);
-        Self.setGameKey(gameKeyFactory_.GAME_B);
-        Self.setGameKey(gameKeyFactory_.GAME_C);
-        Self.setGameKey(gameKeyFactory_.GAME_D);
-        Self.setGameKey(gameKeyFactory_.FIRE);
-        Self.setGameKey(gameKeyFactory_.LEVEL_DOWN);
-        Self.setGameKey(gameKeyFactory_.LEVEL_UP);
-end;
-    
-
-function TGameKeyMappingFactory.getGameKey(key: Integer): TGameKey;
-begin
-        Exit(Self.intKeyToGameKey[key]);
-end;
-    
-
-procedure TGameKeyMappingFactory.setGameKey(gameKey_: TGameKey);
-begin
-        Self.intKeyToGameKey[gameKey_.getId()] := gameKey_;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TGameKeyMappingFactory.instance := TJava.Box(TNullUtil.getInstance().NULL_OBJECT);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmKyMppngFctry-setGameKey1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameKey BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gameKey RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-gameKey
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_intKeyToGameKey"), FUNCTION Input-getId0(J-gameKey), JVALUE)
+    GOBACK.
+END FUNCTION GmKyMppngFctry-setGameKey1.
 

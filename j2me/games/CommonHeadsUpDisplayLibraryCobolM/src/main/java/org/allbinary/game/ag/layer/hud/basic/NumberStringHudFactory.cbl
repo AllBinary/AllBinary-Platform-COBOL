@@ -1,91 +1,159 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2025 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.layer.hud.basic
-unit NumberStringHudFactory;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.layer.hud.basic
+*> Java class NumberStringHudFactory
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NmbrStrngHdFctry-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 NumberStringHudFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 NumberStringHudFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF NumberStringHudFactory-jset-instance = 0
+        MOVE 1 TO NumberStringHudFactory-jset-instance
+        COMPUTE NumberStringHudFactory-jcell-instance = FUNCTION NullUtil-getInstance0
+    END-IF
+    MOVE NumberStringHudFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION NmbrStrngHdFctry-sttc-nstnc.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NmbrStrngHdFctrysttcS64572.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 NumberStringHudFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION NmbrStrngHdFctry-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO NumberStringHudFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION NmbrStrngHdFctrysttcS64572.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, NumberStringHud;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NumberStringHudFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("NumberStringHudFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NULL_NUMBER_STRING_HUD")
+    COMPUTE JVALUE = FUNCTION NmbrStrngHdFctry-createHud0(J-THIS)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NULL_NUMBER_STRING_HUD", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION NumberStringHudFactory-new0.
 
-type
-  {AB:TYPES}
-  TNumberStringHudFactory = class(TObject)
-  public
-    NULL_NUMBER_STRING_HUD: TNumberStringHud;
-    class var instance: TObject;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TNumberStringHudFactory; static;
-        function createHud: TNumberStringHud; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NmbrStrngHdFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION NmbrStrngHdFctry-sttc-nstnc = FUNCTION NullUtil-getInstance0)
+            COMPUTE JDISCARD = FUNCTION NmbrStrngHdFctrysttcS64572(FUNCTION NumberStringHudFactory-new0)
+        END-IF
+        COMPUTE J-RESULT = FUNCTION NmbrStrngHdFctry-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION NmbrStrngHdFctry-getInstance0.
 
-implementation
-uses
-  BasicHudFactory, BasicColorFactory, NullUtil, LogUtil, StringUtil, CommonStrings;
-
-
-{AB:CODE}
-
-procedure TNumberStringHudFactory.InitFields;
-begin
-  Self.NULL_NUMBER_STRING_HUD := Self.createHud();
-end;
-
-constructor TNumberStringHudFactory.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TNumberStringHudFactory.getInstance: TNumberStringHudFactory;
-begin
-        if (TNumberStringHudFactory.instance) = (TNullUtil.getInstance()) then begin
-            TNumberStringHudFactory.instance := TNumberStringHudFactory.Create();
-        end;
-        Exit(TNumberStringHudFactory(TJava.ToObject(TNumberStringHudFactory.instance)));
-end;
-    
-
-function TNumberStringHudFactory.createHud: TNumberStringHud;
-var
-  logUtil_: TLogUtil;
-  commonStrings_: TCommonStrings;
-begin
-        try
-            Exit(TNumberStringHud.Create(TStringUtil.getInstance().EMPTY_STRING, 9, TBasicHudFactory.getInstance().ABSOLUTE_, 1, 0, TBasicColorFactory.getInstance().NULL_COLOR));
-        except
-            on e: SysUtils.Exception do begin
-            logUtil_ := TLogUtil.getInstance();
-            commonStrings_ := TCommonStrings.getInstance();
-            logUtil_.put(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.CONSTRUCTOR_, TJava.Box(e));
-            raise SysUtils.Exception.Create('');
-            end;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TNumberStringHudFactory.instance := TJava.Box(TNullUtil.getInstance());
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NmbrStrngHdFctry-createHud0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-logUtil BINARY-DOUBLE.
+01 J-commonStrings BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+            COMPUTE jtemp3 = FUNCTION BasicHudFactory-getInstance0
+            COMPUTE jtemp6 = FUNCTION BasicColorFactory-getInstance0
+            COMPUTE jtemp2 = 9
+            COMPUTE jtemp4 = 1
+            COMPUTE jtemp5 = 0
+            COMPUTE J-RESULT = FUNCTION NumberStringHud-new6(FUNCTION JR-GET(jtemp1, "f_EMPTY_STRING"), jtemp2, FUNCTION JR-GET(jtemp3, "f_ABSOLUTE"), jtemp4, jtemp5, FUNCTION JR-GET(jtemp6, "f_NULL_COLOR"))
+            GOBACK
+    GOBACK.
+END FUNCTION NmbrStrngHdFctry-createHud0.
 

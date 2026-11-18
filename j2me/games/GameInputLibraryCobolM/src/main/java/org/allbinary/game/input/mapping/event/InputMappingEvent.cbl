@@ -1,72 +1,94 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.input.mapping.event
+*> Java class InputMappingEvent
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.input.mapping.event
-unit InputMappingEvent;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InputMappingEvent-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-anyType BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-anyType RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("InputMappingEvent")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_inputToGameKeyMapping")
+    COMPUTE JVALUE = FUNCTION InptTGmKyMppng-gtNllInstnc0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_inputToGameKeyMapping", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION InputMappingEvent-new1.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InptMppngEvnt-stInptTGmKy50756.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-inputToGameKeyMapping BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-inputToGameKeyMapping RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-inputToGameKeyMapping
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_inputToGameKeyMapping", JVALUE)
+    GOBACK.
+END FUNCTION InptMppngEvnt-stInptTGmKy50756.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, InputToGameKeyMapping, AllBinaryEventObject;
-
-type
-  {AB:TYPES}
-  TInputMappingEvent = class(TAllBinaryEventObject)
-  public
-    inputToGameKeyMapping: TInputToGameKeyMapping;
-    procedure InitFields;
-        constructor Create(anyType: TObject);
-        procedure setInputToGameKeyMapping(inputToGameKeyMapping_: TInputToGameKeyMapping); virtual;
-        function getInputToGameKeyMapping: TInputToGameKeyMapping; virtual;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TInputMappingEvent.InitFields;
-begin
-  Self.inputToGameKeyMapping := TInputToGameKeyMapping.getNullInstance();
-end;
-    
-
-constructor TInputMappingEvent.Create(anyType: TObject);
-begin
-        inherited Create(anyType);
-        InitFields;
-end;
-    
-
-procedure TInputMappingEvent.setInputToGameKeyMapping(inputToGameKeyMapping_: TInputToGameKeyMapping);
-begin
-        Self.inputToGameKeyMapping := inputToGameKeyMapping_;
-end;
-    
-
-function TInputMappingEvent.getInputToGameKeyMapping: TInputToGameKeyMapping;
-begin
-        Exit(Self.inputToGameKeyMapping);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InptMppngEvnt-gtInptTGmKy38803.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_inputToGameKeyMapping")
+        GOBACK
+    GOBACK.
+END FUNCTION InptMppngEvnt-gtInptTGmKy38803.
 

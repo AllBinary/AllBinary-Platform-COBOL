@@ -1,78 +1,148 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.image
+*> Java class ImageArrayRotationAnimationPool
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.image
-unit ImageArrayRotationAnimationPool;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArryRttnAnmtnPl-st68459.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ImageArrayRotationAnimationPool-jcell-IMAGE_ROTATION_ANIMATION_POOL BINARY-DOUBLE EXTERNAL.
+01 ImageArrayRotationAnimationPool-jset-IMAGE_ROTATION_ANIMATION_POOL BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF ImageArrayRotationAnimationPool-jset-IMAGE_ROTATION_ANIMATION_POOL = 0
+        MOVE 1 TO ImageArrayRotationAnimationPool-jset-IMAGE_ROTATION_ANIMATION_POOL
+        COMPUTE ImageArrayRotationAnimationPool-jcell-IMAGE_ROTATION_ANIMATION_POOL = FUNCTION ImgArryRttnAnmtnPl-new1(FUNCTION ImgArryRttnAnmtnCchblIn-24461)
+    END-IF
+    MOVE ImageArrayRotationAnimationPool-jcell-IMAGE_ROTATION_ANIMATION_POOL TO J-RESULT
+    GOBACK.
+END FUNCTION ImgArryRttnAnmtnPl-st68459.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArryRttnAnmtnPlstS36248.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ImageArrayRotationAnimationPool-jcell-IMAGE_ROTATION_ANIMATION_POOL BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION ImgArryRttnAnmtnPl-st68459 TO J-RESULT
+    MOVE J-VALUE TO ImageArrayRotationAnimationPool-jcell-IMAGE_ROTATION_ANIMATION_POOL
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION ImgArryRttnAnmtnPlstS36248.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArryRttnAnmtnPl-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-cacheableInterfaceFactoryInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-cacheableInterfaceFactoryInterface RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ImageArrayRotationAnimationPool")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ImgArryRttnAnmtnPl-new1.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, BasicArrayListResetablePool, CacheableInterface, CacheableInterfaceFactoryInterface, PoolInterface;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArryRttnAnmtnPl-gtInstnc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION ImgArryRttnAnmtnPl-st68459
+        GOBACK
+    GOBACK.
+END FUNCTION ImgArryRttnAnmtnPl-gtInstnc0.
 
-type
-  {AB:TYPES}
-  TImageArrayRotationAnimationPool = class(TBasicArrayListResetablePool)
-  public
-    class var IMAGE_ROTATION_ANIMATION_POOL: IPoolInterface;
-        constructor Create(cacheableInterfaceFactoryInterface_: ICacheableInterfaceFactoryInterface);
-        class function getInstance: IPoolInterface; static;
-        function remove(key: TObject): ICacheableInterface; override;
-  end;
-
-implementation
-uses
-  ImageArrayRotationAnimationCacheableInterfaceFactory, ImageArrayRotationAnimationInfo, ImageArrayRotationAnimationCacheable;
-
-
-{AB:CODE}
-    
-
-constructor TImageArrayRotationAnimationPool.Create(cacheableInterfaceFactoryInterface_: ICacheableInterfaceFactoryInterface);
-begin
-        inherited Create(cacheableInterfaceFactoryInterface_);
-end;
-    
-
-class function TImageArrayRotationAnimationPool.getInstance: IPoolInterface;
-begin
-        Exit(TImageArrayRotationAnimationPool.IMAGE_ROTATION_ANIMATION_POOL);
-end;
-    
-
-// throws Exception
-function TImageArrayRotationAnimationPool.remove(key: TObject): ICacheableInterface;
-var
-  cacheableInterface_: ICacheableInterface;
-  allBinaryImageRotationAnimationInfo: TImageArrayRotationAnimationInfo;
-  imageArrayRotationAnimationCacheable_: TImageArrayRotationAnimationCacheable;
-begin
-        cacheableInterface_ := inherited remove(key);
-        allBinaryImageRotationAnimationInfo := TImageArrayRotationAnimationInfo(TJava.ToObject(key));
-        imageArrayRotationAnimationCacheable_ := (TImageArrayRotationAnimationCacheable(TJava.ToObject(cacheableInterface_)));
-        imageArrayRotationAnimationCacheable_.setImageArray(allBinaryImageRotationAnimationInfo.getImageArray());
-        Exit(cacheableInterface_);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TImageArrayRotationAnimationPool.IMAGE_ROTATION_ANIMATION_POOL := TImageArrayRotationAnimationPool.Create(TImageArrayRotationAnimationCacheableInterfaceFactory.Create());
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArryRttnAnmtnPl-remove1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-cacheableInterface BINARY-DOUBLE.
+01 J-allBinaryImageRotationAnimationInfo BINARY-DOUBLE.
+01 J-imageArrayRotationAnimationCacheable BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-key BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-key RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-cacheableInterface = FUNCTION BscArryLstRstblPl-remove1(J-THIS, J-key)
+        COMPUTE J-allBinaryImageRotationAnimationInfo = J-key
+        COMPUTE J-imageArrayRotationAnimationCacheable = (J-cacheableInterface)
+        COMPUTE JDISCARD = FUNCTION ImgArryRttnAnmtn-stImgArry1(J-imageArrayRotationAnimationCacheable, FUNCTION ImgArryRttnAnmtnInf-gtImgArry0(J-allBinaryImageRotationAnimationInfo))
+        COMPUTE J-RESULT = J-cacheableInterface
+        GOBACK
+    GOBACK.
+END FUNCTION ImgArryRttnAnmtnPl-remove1.
 

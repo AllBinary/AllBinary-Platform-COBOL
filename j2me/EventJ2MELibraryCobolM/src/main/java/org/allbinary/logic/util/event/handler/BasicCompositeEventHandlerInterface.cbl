@@ -31,7 +31,7 @@ PROCEDURE DIVISION RETURNING J-RESULT.
 END FUNCTION BscCmpstEvntHndlrIntrfc-new0.
 
 IDENTIFICATION DIVISION.
-FUNCTION-ID. BscCmpstEvntHndlrIntrfc-gtEvr0.
+FUNCTION-ID. BscCmpstEvntHndlrIntrfc-g46700.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
 REPOSITORY.
@@ -56,10 +56,10 @@ PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
     DISPLAY "AbstractMethodError: BasicCompositeEventHandlerInterface.getEventHandler"
     STOP RUN
     GOBACK.
-END FUNCTION BscCmpstEvntHndlrIntrfc-gtEvr0.
+END FUNCTION BscCmpstEvntHndlrIntrfc-g46700.
 
 IDENTIFICATION DIVISION.
-FUNCTION-ID. BscCmpstEvntHndlrIntrfc-stEvr1.
+FUNCTION-ID. BscCmpstEvntHndlrIntrfc-s16245.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
 REPOSITORY.
@@ -85,5 +85,5 @@ PROCEDURE DIVISION USING J-THIS J-basicEventHandlerInterface RETURNING J-RESULT.
     DISPLAY "AbstractMethodError: BasicCompositeEventHandlerInterface.setEventHandler"
     STOP RUN
     GOBACK.
-END FUNCTION BscCmpstEvntHndlrIntrfc-stEvr1.
+END FUNCTION BscCmpstEvntHndlrIntrfc-s16245.
 

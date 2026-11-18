@@ -1,151 +1,268 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.paint
+*> Java class AboutPaintable
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.paint
-unit AboutPaintable;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, DisplayInfoSingleton, MyFontProcessor, UpdateMyFontInterface, Paintable;
-
-type
-  {AB:TYPES}
-  // J2SEForJ2ME
-  TAboutPaintable = class(TPaintable, IUpdateMyFontInterface)
-  public
-    displayInfoSingleton: TDisplayInfoSingleton;
-    ABOUT: string;
-    info: TArray<string>;
-    developers: TArray<string>;
-    paintableArray: TArray<TPaintable>;
-    myFontProcessor: TMyFontProcessor;
-    charHeight: Integer;
-    aboutBeginWidth: Integer;
-    infoBeginWidth: TArray<Integer>;
-    developersBeginWidth: TArray<Integer>;
-    anchor: Integer;
-    procedure InitFields;
-    function JavaObject: TObject;
-        class function getInstance(info: TArray<string>; developers: TArray<string>): TAboutPaintable; static;
-        constructor Create(info: TArray<string>; developers: TArray<string>);
-        procedure updateMeasurement(graphics_: TGraphics); virtual;
-        function getPaintableArrayInstance: TArray<TPaintable>; virtual;
-        procedure paint(graphics_: TGraphics); virtual;
-  end;
-
-implementation
-uses
-  Font, Anchor, CanvasStrings, UpdateMyFontProcessor;
-
-
-{AB:CODE}
-
-procedure TAboutPaintable.InitFields;
-begin
-  Self.displayInfoSingleton := TDisplayInfoSingleton.getInstance();
-  Self.ABOUT := TCanvasStrings.getInstance().ABOUT;
-  
-  
-  Self.paintableArray := TArray<TPaintable>.Create(Self);
-  Self.myFontProcessor := TUpdateMyFontProcessor.Create(Self);
-  
-  
-  
-  
-  Self.anchor := TAnchor.TOP_LEFT;
-end;
-
-function TAboutPaintable.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AboutPaintable-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-info BINARY-DOUBLE.
+01 J-developers BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-info J-developers RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("AboutPaintable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_displayInfoSingleton")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ABOUT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_info")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_developers")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_paintableArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_myFontProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_charHeight")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_aboutBeginWidth")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_infoBeginWidth")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_developersBeginWidth")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_anchor")
+    COMPUTE JVALUE = FUNCTION DsplyInfSngltn-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_displayInfoSingleton", JVALUE)
+    COMPUTE jtemp1 = FUNCTION CanvasStrings-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_ABOUT")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ABOUT", JVALUE)
     
-
-class function TAboutPaintable.getInstance(info: TArray<string>; developers: TArray<string>): TAboutPaintable;
-begin
-        Exit(TAboutPaintable.Create(info, developers));
-end;
     
-
-constructor TAboutPaintable.Create(info: TArray<string>; developers: TArray<string>);
-begin
-    inherited Create;
-    InitFields;
-        Self.info := info;
-        Self.infoBeginWidth := TJava.NewArray<Integer>(System.Length(Self.info));
-        Self.developers := developers;
-        Self.developersBeginWidth := TJava.NewArray<Integer>(System.Length(Self.developers));
-end;
+    COMPUTE JVALUE = FUNCTION JR-ARRAY-ADD(FUNCTION JR-NEW-ARRAY(JZERO), J-THIS)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_paintableArray", JVALUE)
+    COMPUTE JVALUE = FUNCTION UpdateMyFontProcessor-new1(J-THIS)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
     
-
-procedure TAboutPaintable.updateMeasurement(graphics_: TGraphics);
-var
-  font_: TFont;
-  infoSize: Integer;
-  index: Integer;
-  size: Integer;
-begin
-        font_ := graphics_.getFont();
-        Self.charHeight := font_.getHeight();
-        Self.aboutBeginWidth := (TJava.SignedRightShift(font_.stringWidth(Self.ABOUT), 1));
-        infoSize := System.Length(Self.info);
-        for index := 0 to infoSize - 1 do begin
-            Self.infoBeginWidth[index] := (TJava.SignedRightShift(font_.stringWidth(Self.info[index]), 1));
-        end;
-        size := System.Length(Self.developers);
-        for index := 0 to size - 1 do begin
-            Self.developersBeginWidth[index] := (TJava.SignedRightShift(font_.stringWidth(Self.developers[index]), 1));
-        end;
-        Self.myFontProcessor := TMyFontProcessor.getInstance();
-end;
     
-
-function TAboutPaintable.getPaintableArrayInstance: TArray<TPaintable>;
-begin
-        Exit(Self.paintableArray);
-end;
     
+    
+    COMPUTE JVALUE = FUNCTION Anchor-static-TOP-LEFT
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_anchor", JVALUE)
+        COMPUTE JVALUE = J-info
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_info", JVALUE)
+        COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY(FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_info")))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_infoBeginWidth", JVALUE)
+        COMPUTE JVALUE = J-developers
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_developers", JVALUE)
+        COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY(FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_developers")))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_developersBeginWidth", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION AboutPaintable-new2.
 
-procedure TAboutPaintable.paint(graphics_: TGraphics);
-var
-  halfWidth: Integer;
-  infoSize: Integer;
-  index: Integer;
-  size: Integer;
-begin
-        Self.myFontProcessor.process(graphics_);
-        halfWidth := Self.displayInfoSingleton.getLastHalfWidth();
-        graphics_.drawString(Self.ABOUT, (halfWidth) - (Self.aboutBeginWidth), (2) * (Self.charHeight), Self.anchor);
-        infoSize := System.Length(Self.info);
-        for index := 0 to infoSize - 1 do begin
-            graphics_.drawString(Self.info[index], (halfWidth) - (Self.infoBeginWidth[index]), (((4) + (index))) * (Self.charHeight), Self.anchor);
-        end;
-        size := System.Length(Self.developers);
-        for index := 0 to size - 1 do begin
-            graphics_.drawString(Self.developers[index], (halfWidth) - (Self.developersBeginWidth[index]), ((((5) + (infoSize)) + (index))) * (Self.charHeight), Self.anchor);
-        end;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AboutPaintable-getInstance2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-info BINARY-DOUBLE.
+01 J-developers BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-info J-developers RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION AboutPaintable-new2(J-info, J-developers)
+        GOBACK
+    GOBACK.
+END FUNCTION AboutPaintable-getInstance2.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbtPntbl-updateMeasurement1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-font BINARY-DOUBLE.
+01 J-infoSize BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-font = FUNCTION Graphics-getFont0(J-graphics)
+        COMPUTE JVALUE = FUNCTION Font-getHeight0(J-font)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_charHeight", JVALUE)
+        COMPUTE JVALUE = (FUNCTION JR-SHIFT(JFIVE, FUNCTION Font-stringWidth1(J-font, FUNCTION JR-GET(J-THIS, "f_ABOUT")), 1))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_aboutBeginWidth", JVALUE)
+        COMPUTE J-infoSize = FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_info"))
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-infoSize) EXIT PERFORM END-IF
+            COMPUTE JVALUE = (FUNCTION JR-SHIFT(JFIVE, FUNCTION Font-stringWidth1(J-font, FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_info"), J-index)), 1))
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_infoBeginWidth"), J-index, JVALUE)
+        END-PERFORM
+        COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_developers"))
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST2
+        PERFORM FOREVER
+            IF JFIRST2 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST2
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE JVALUE = (FUNCTION JR-SHIFT(JFIVE, FUNCTION Font-stringWidth1(J-font, FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_developers"), J-index)), 1))
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_developersBeginWidth"), J-index, JVALUE)
+        END-PERFORM
+        COMPUTE JVALUE = FUNCTION MyFontProcessor-getInstance0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
+    GOBACK.
+END FUNCTION AbtPntbl-updateMeasurement1.
 
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbtPntbl-gtPntblArryInstnc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_paintableArray")
+        GOBACK
+    GOBACK.
+END FUNCTION AbtPntbl-gtPntblArryInstnc0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AboutPaintable-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-halfWidth BINARY-DOUBLE.
+01 J-infoSize BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 JFIRST3 BINARY-DOUBLE.
+01 JFIRST4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION MyFontProcessor-process1(FUNCTION JR-GET(J-THIS, "f_myFontProcessor"), J-graphics)
+        COMPUTE J-halfWidth = FUNCTION DsplyInfSngltn-gtLstHlfWdth0(FUNCTION JR-GET(J-THIS, "f_displayInfoSingleton"))
+        COMPUTE jtemp2 = (FUNCTION MOD((J-halfWidth - FUNCTION JR-GET(J-THIS, "f_aboutBeginWidth")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp3 = (FUNCTION MOD((2 * FUNCTION JR-GET(J-THIS, "f_charHeight")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION Graphics-drawString4(J-graphics, FUNCTION JR-GET(J-THIS, "f_ABOUT"), jtemp2, jtemp3, FUNCTION JR-GET(J-THIS, "f_anchor"))
+        COMPUTE J-infoSize = FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_info"))
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST3
+        PERFORM FOREVER
+            IF JFIRST3 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST3
+            IF NOT (J-index < J-infoSize) EXIT PERFORM END-IF
+            COMPUTE jtemp6 = 4
+            COMPUTE jtemp4 = (FUNCTION MOD((J-halfWidth - FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_infoBeginWidth"), J-index)) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE jtemp5 = (FUNCTION MOD((((FUNCTION MOD((jtemp6 + J-index) + 2147483648, 4294967296) - 2147483648)) * FUNCTION JR-GET(J-THIS, "f_charHeight")) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JDISCARD = FUNCTION Graphics-drawString4(J-graphics, FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_info"), J-index), jtemp4, jtemp5, FUNCTION JR-GET(J-THIS, "f_anchor"))
+        END-PERFORM
+        COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_developers"))
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST4
+        PERFORM FOREVER
+            IF JFIRST4 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST4
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE jtemp10 = 5
+            COMPUTE jtemp9 = (FUNCTION MOD((jtemp10 + J-infoSize) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE jtemp7 = (FUNCTION MOD((J-halfWidth - FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_developersBeginWidth"), J-index)) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE jtemp8 = (FUNCTION MOD((((FUNCTION MOD((jtemp9 + J-index) + 2147483648, 4294967296) - 2147483648)) * FUNCTION JR-GET(J-THIS, "f_charHeight")) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JDISCARD = FUNCTION Graphics-drawString4(J-graphics, FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_developers"), J-index), jtemp7, jtemp8, FUNCTION JR-GET(J-THIS, "f_anchor"))
+        END-PERFORM
+    GOBACK.
+END FUNCTION AboutPaintable-paint1.
 

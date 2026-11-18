@@ -1,148 +1,176 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input
+*> Java class DirectionalAnalogLocationInputProcessor
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input
-unit DirectionalAnalogLocationInputProcessor;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AnalogLocationInputProcessor, GameInputProcessor, GameKeyEventSourceInterface, GameKeyFactory, AnalogLocationInput, GameKeyEvent, AllBinaryLayerManager, LogUtil;
-
-type
-  {AB:TYPES}
-  TDirectionalAnalogLocationInputProcessor = class(TAnalogLocationInputProcessor, IGameKeyEventSourceInterface)
-  public
-    logUtil: TLogUtil;
-    inputProcessorArray: TArray<TGameInputProcessor>;
-    gameKeyFactory: TGameKeyFactory;
-    leftGameKeyEvent: TGameKeyEvent;
-    rightGameKeyEvent: TGameKeyEvent;
-    upGameKeyEvent: TGameKeyEvent;
-    downGameKeyEvent: TGameKeyEvent;
-    leftTriggerGameKeyEvent: TGameKeyEvent;
-    rightTriggerGameKeyEvent: TGameKeyEvent;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(inputProcessorArray: TArray<TGameInputProcessor>);
-        procedure process(allbinaryLayerManager_: TAllBinaryLayerManager; analogLocationInput_: TAnalogLocationInput); virtual;
-        function getSourceId: Integer; virtual;
-  end;
-
-implementation
-uses
-  GameKeyEventFactory, CustomGPoint, CommonStrings;
-
-
-{AB:CODE}
-
-procedure TDirectionalAnalogLocationInputProcessor.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  
-  Self.gameKeyFactory := TGameKeyFactory.getInstance();
-  Self.leftGameKeyEvent := TGameKeyEvent.NONE;
-  Self.rightGameKeyEvent := TGameKeyEvent.NONE;
-  Self.upGameKeyEvent := TGameKeyEvent.NONE;
-  Self.downGameKeyEvent := TGameKeyEvent.NONE;
-  Self.leftTriggerGameKeyEvent := TGameKeyEvent.NONE;
-  Self.rightTriggerGameKeyEvent := TGameKeyEvent.NONE;
-end;
-
-function TDirectionalAnalogLocationInputProcessor.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DrctnlAnlgLctnInptPrcssr-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-commonStrings BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-inputProcessorArray BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-inputProcessorArray RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("DirectionalAnalogLocationInputProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_inputProcessorArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameKeyFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_leftGameKeyEvent")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_rightGameKeyEvent")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_upGameKeyEvent")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_downGameKeyEvent")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_leftTriggerGameKeyEvent")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_rightTriggerGameKeyEvent")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
     
+    COMPUTE JVALUE = FUNCTION GameKeyFactory-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameKeyFactory", JVALUE)
+    COMPUTE JVALUE = FUNCTION GameKeyEvent-static-NONE
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_leftGameKeyEvent", JVALUE)
+    COMPUTE JVALUE = FUNCTION GameKeyEvent-static-NONE
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_rightGameKeyEvent", JVALUE)
+    COMPUTE JVALUE = FUNCTION GameKeyEvent-static-NONE
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_upGameKeyEvent", JVALUE)
+    COMPUTE JVALUE = FUNCTION GameKeyEvent-static-NONE
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_downGameKeyEvent", JVALUE)
+    COMPUTE JVALUE = FUNCTION GameKeyEvent-static-NONE
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_leftTriggerGameKeyEvent", JVALUE)
+    COMPUTE JVALUE = FUNCTION GameKeyEvent-static-NONE
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_rightTriggerGameKeyEvent", JVALUE)
+        COMPUTE JVALUE = J-inputProcessorArray
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_inputProcessorArray", JVALUE)
+        CONTINUE
+            COMPUTE jtemp1 = FUNCTION GmKyEvntFctry-getInstance0
+            COMPUTE JVALUE = FUNCTION GmKyEvntFctry-gtInstncFrInpt2(jtemp1, J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_LEFT"))
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_leftGameKeyEvent", JVALUE)
+            COMPUTE jtemp2 = FUNCTION GmKyEvntFctry-getInstance0
+            COMPUTE JVALUE = FUNCTION GmKyEvntFctry-gtInstncFrInpt2(jtemp2, J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_RIGHT"))
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_rightGameKeyEvent", JVALUE)
+            COMPUTE jtemp3 = FUNCTION GmKyEvntFctry-getInstance0
+            COMPUTE JVALUE = FUNCTION GmKyEvntFctry-gtInstncFrInpt2(jtemp3, J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_UP"))
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_upGameKeyEvent", JVALUE)
+            COMPUTE jtemp4 = FUNCTION GmKyEvntFctry-getInstance0
+            COMPUTE JVALUE = FUNCTION GmKyEvntFctry-gtInstncFrInpt2(jtemp4, J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_DOWN"))
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_downGameKeyEvent", JVALUE)
+            COMPUTE jtemp5 = FUNCTION GmKyEvntFctry-getInstance0
+            COMPUTE JVALUE = FUNCTION GmKyEvntFctry-gtInstncFrInpt2(jtemp5, J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_KEY_NUM0"))
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_leftTriggerGameKeyEvent", JVALUE)
+            COMPUTE jtemp6 = FUNCTION GmKyEvntFctry-getInstance0
+            COMPUTE JVALUE = FUNCTION GmKyEvntFctry-gtInstncFrInpt2(jtemp6, J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_KEY_NUM5"))
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_rightTriggerGameKeyEvent", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION DrctnlAnlgLctnInptPrcssr-new1.
 
-constructor TDirectionalAnalogLocationInputProcessor.Create(inputProcessorArray: TArray<TGameInputProcessor>);
-var
-  commonStrings_: TCommonStrings;
-begin
-    inherited Create;
-    InitFields;
-        Self.inputProcessorArray := inputProcessorArray;
-        try
-            Self.leftGameKeyEvent := TGameKeyEventFactory.getInstance().getInstanceForInput(Self, Self.gameKeyFactory.LEFT);
-            Self.rightGameKeyEvent := TGameKeyEventFactory.getInstance().getInstanceForInput(Self, Self.gameKeyFactory.RIGHT);
-            Self.upGameKeyEvent := TGameKeyEventFactory.getInstance().getInstanceForInput(Self, Self.gameKeyFactory.UP);
-            Self.downGameKeyEvent := TGameKeyEventFactory.getInstance().getInstanceForInput(Self, Self.gameKeyFactory.DOWN);
-            Self.leftTriggerGameKeyEvent := TGameKeyEventFactory.getInstance().getInstanceForInput(Self, Self.gameKeyFactory.KEY_NUM0);
-            Self.rightTriggerGameKeyEvent := TGameKeyEventFactory.getInstance().getInstanceForInput(Self, Self.gameKeyFactory.KEY_NUM5);
-        except
-            on e: SysUtils.Exception do begin
-            commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.CONSTRUCTOR_, TJava.Box(e));
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DrctnlAnlgLctnInptPrcss-65297.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-customGPoint BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-leftTrigger BINARY-DOUBLE.
+01 J-rightTrigger BINARY-DOUBLE.
+01 J-commonStrings BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allbinaryLayerManager BINARY-DOUBLE.
+01 J-analogLocationInput BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allbinaryLayerManager J-analogLocationInput RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            CONTINUE
+            COMPUTE J-customGPoint = FUNCTION AnlgLctnInpt-getCustomGPoint0(J-analogLocationInput)
+            COMPUTE J-x = FUNCTION CustomGPoint-getX0(J-customGPoint)
+            COMPUTE J-y = FUNCTION CustomGPoint-getY0(J-customGPoint)
+            COMPUTE J-leftTrigger = FUNCTION AnlgLctnInpt-getLeftTrigger0(J-analogLocationInput)
+            COMPUTE J-rightTrigger = FUNCTION AnlgLctnInpt-getRightTrigger0(J-analogLocationInput)
+            IF (J-x < 0)
+                COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_inputProcessorArray"), FUNCTION GameKeyEvent-getKey0(FUNCTION JR-GET(J-THIS, "f_leftGameKeyEvent"))))
+            ELSE
+                IF (J-x > 0)
+                COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_inputProcessorArray"), FUNCTION GameKeyEvent-getKey0(FUNCTION JR-GET(J-THIS, "f_rightGameKeyEvent"))))
+            END-IF
+            END-IF
+            IF (J-y < 0)
+                COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_inputProcessorArray"), FUNCTION GameKeyEvent-getKey0(FUNCTION JR-GET(J-THIS, "f_downGameKeyEvent"))))
+            ELSE
+                IF (J-y > 0)
+                COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_inputProcessorArray"), FUNCTION GameKeyEvent-getKey0(FUNCTION JR-GET(J-THIS, "f_upGameKeyEvent"))))
+            END-IF
+            END-IF
+            IF (J-leftTrigger > 0)
+                COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_inputProcessorArray"), FUNCTION GameKeyEvent-getKey0(FUNCTION JR-GET(J-THIS, "f_leftTriggerGameKeyEvent"))))
+            END-IF
+            IF (J-rightTrigger > 0)
+                COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_inputProcessorArray"), FUNCTION GameKeyEvent-getKey0(FUNCTION JR-GET(J-THIS, "f_rightTriggerGameKeyEvent"))))
+            END-IF
+    GOBACK.
+END FUNCTION DrctnlAnlgLctnInptPrcss-65297.
 
-procedure TDirectionalAnalogLocationInputProcessor.process(allbinaryLayerManager_: TAllBinaryLayerManager; analogLocationInput_: TAnalogLocationInput);
-var
-  customGPoint_: TCustomGPoint;
-  x: Integer;
-  y: Integer;
-  leftTrigger: Integer;
-  rightTrigger: Integer;
-  commonStrings_: TCommonStrings;
-begin
-        try
-            
-            customGPoint_ := analogLocationInput_.getCustomGPoint();
-            x := customGPoint_.getX();
-            y := customGPoint_.getY();
-            leftTrigger := analogLocationInput_.getLeftTrigger();
-            rightTrigger := analogLocationInput_.getRightTrigger();
-            if (x) < (0) then begin
-                Self.inputProcessorArray[Self.leftGameKeyEvent.getKey()].processAnalog(allbinaryLayerManager_, Self.leftGameKeyEvent, x);
-            end else if (x) > (0) then begin
-                Self.inputProcessorArray[Self.rightGameKeyEvent.getKey()].processAnalog(allbinaryLayerManager_, Self.rightGameKeyEvent, x);
-            end;
-            if (y) < (0) then begin
-                Self.inputProcessorArray[Self.downGameKeyEvent.getKey()].processAnalog(allbinaryLayerManager_, Self.downGameKeyEvent, y);
-            end else if (y) > (0) then begin
-                Self.inputProcessorArray[Self.upGameKeyEvent.getKey()].processAnalog(allbinaryLayerManager_, Self.upGameKeyEvent, y);
-            end;
-            if (leftTrigger) > (0) then begin
-                Self.inputProcessorArray[Self.leftTriggerGameKeyEvent.getKey()].processAnalog(allbinaryLayerManager_, Self.leftTriggerGameKeyEvent, leftTrigger);
-            end;
-            if (rightTrigger) > (0) then begin
-                Self.inputProcessorArray[Self.rightTriggerGameKeyEvent.getKey()].processAnalog(allbinaryLayerManager_, Self.rightTriggerGameKeyEvent, rightTrigger);
-            end;
-        except
-            on e: SysUtils.Exception do begin
-            commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put('Unable to process analog input', TJava.Box(Self), commonStrings_.PROCESS, TJava.Box(e));
-            end;
-        end;
-end;
-    
-
-function TDirectionalAnalogLocationInputProcessor.getSourceId: Integer;
-begin
-        Exit(0);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DrctnlAnlgLctnInptPrcss-98747.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION DrctnlAnlgLctnInptPrcss-98747.
 

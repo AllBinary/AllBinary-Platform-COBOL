@@ -1,140 +1,201 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion.button
+*> Java class TouchButtonsPaintableComposite
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion.button
-unit TouchButtonsPaintableComposite;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, CompleteMotionGestureInputEvent, CompleteMotionGestureInputEventListenerInterface, InputMappingInterface, BasicColor, ProcessPaintable, LogUtil, AllBinaryEventObject, CommonStrings, TimeDelayHelper, TouchButtonsMappingPaintable, EventListenerInterface;
-
-type
-  {AB:TYPES}
-  TTouchButtonsPaintableComposite = class(TProcessPaintable, ICompleteMotionGestureInputEventListenerInterface, IEventListenerInterface)
-  public
-    logUtil: TLogUtil;
-    commonStrings: TCommonStrings;
-    inputMappingInterface: IInputMappingInterface;
-    touchButtonsPaintable: TTouchButtonsMappingPaintable;
-    timeHelper: TTimeDelayHelper;
-    released: Boolean;
-    METHOD_NAME: string;
-    RELEASE: string;
-    FAST_REPEAT: string;
-    IGNORE: string;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(inputMappingInterface_: IInputMappingInterface; basicColor_: TBasicColor);
-        procedure onEvent(eventObject: TAllBinaryEventObject); virtual;
-        procedure onCompleteMotionGestureInputEvent(completeMotionGestureInputEvent_: TCompleteMotionGestureInputEvent); virtual;
-        procedure process; virtual;
-  end;
-
-implementation
-uses
-  CompleteMotionGestureInputEventHandler, GameKey, GameKeyCompleteMotionGestureInputEvent, MotionGestureInput, TouchMotionGestureFactory, ForcedLogUtil, StringMaker, StringUtil, EventStrings;
-
-
-{AB:CODE}
-
-procedure TTouchButtonsPaintableComposite.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.commonStrings := TCommonStrings.getInstance();
-  
-  
-  Self.timeHelper := TTimeDelayHelper.Create(250);
-  Self.released := True;
-  Self.METHOD_NAME := 'onCompleteMotionGestureInputEvent';
-  Self.RELEASE := 'Ignoring: MotionGestureInput Release';
-  Self.FAST_REPEAT := 'Ignoring: MotionGestureInput Repeated To Quickly';
-  Self.IGNORE := 'Ignoring: Until Released';
-end;
-
-function TTouchButtonsPaintableComposite.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchBttnsPntblCmpst-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-inputMappingInterface BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-inputMappingInterface J-basicColor RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("TouchButtonsPaintableComposite")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_inputMappingInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_touchButtonsPaintable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_timeHelper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_released")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_METHOD_NAME")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_RELEASE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_FAST_REPEAT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_IGNORE")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
     
-
-constructor TTouchButtonsPaintableComposite.Create(inputMappingInterface_: IInputMappingInterface; basicColor_: TBasicColor);
-begin
-    inherited Create;
-    InitFields;
-        Self.inputMappingInterface := inputMappingInterface_;
-        TCompleteMotionGestureInputEventHandler.getInstance().addListenerInterface(Self);
-        Self.touchButtonsPaintable := TTouchButtonsMappingPaintable.Create(basicColor_);
-end;
     
+    COMPUTE jtemp1 = 250
+    COMPUTE JVALUE = FUNCTION TimeDelayHelper-new1(jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_timeHelper", JVALUE)
+    COMPUTE JVALUE = 1
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_released", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("onCompleteMotionGestureInputEvent")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_METHOD_NAME", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Ignoring: MotionGestureInput Release")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_RELEASE", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Ignoring: MotionGestureInput Repeated To Quickly")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_FAST_REPEAT", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Ignoring: Until Released")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_IGNORE", JVALUE)
+        COMPUTE JVALUE = J-inputMappingInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_inputMappingInterface", JVALUE)
+        COMPUTE jtemp2 = FUNCTION CmpltMtnGstrInptEvntHnd-61739
+        COMPUTE JDISCARD = FUNCTION BscEvntHndlr-addLstnrIntrfc1(jtemp2, J-THIS)
+        COMPUTE JVALUE = FUNCTION TchBttnsMppngPntbl-new1(J-basicColor)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_touchButtonsPaintable", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION TchBttnsPntblCmpst-new2.
 
-procedure TTouchButtonsPaintableComposite.onEvent(eventObject: TAllBinaryEventObject);
-begin
-        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, TJava.Box(Self));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchBttnsPntblCmpst-onEvent1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp3 = FUNCTION EventStrings-getInstance0
+        COMPUTE JDISCARD = FUNCTION ForcedLogUtil-log2(FUNCTION JR-GET(jtemp3, "f_PERFORMANCE_MESSAGE"), J-THIS)
+    GOBACK.
+END FUNCTION TchBttnsPntblCmpst-onEvent1.
 
-procedure TTouchButtonsPaintableComposite.onCompleteMotionGestureInputEvent(completeMotionGestureInputEvent_: TCompleteMotionGestureInputEvent);
-var
-  touchMotionGestureFactory_: TTouchMotionGestureFactory;
-  gameKeyCompleteMotionGestureInputEvent_: TGameKeyCompleteMotionGestureInputEvent;
-  gameKey_: TGameKey;
-  motionGestureInput_: TMotionGestureInput;
-begin
-        try
-            Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), 'onCompleteMotionGestureInputEvent');
-            touchMotionGestureFactory_ := TTouchMotionGestureFactory.getInstance();
-            gameKeyCompleteMotionGestureInputEvent_ := TGameKeyCompleteMotionGestureInputEvent(TJava.ToObject(completeMotionGestureInputEvent_));
-            gameKey_ := gameKeyCompleteMotionGestureInputEvent_.getGameKey();
-            motionGestureInput_ := completeMotionGestureInputEvent_.getMotionGestureInput();
-            if (motionGestureInput_) = (touchMotionGestureFactory_.RELEASED) then begin
-                Self.logUtil.putF(Self.RELEASE, TJava.Box(Self), Self.METHOD_NAME);
-                Self.released := True;
-                Exit;
-            end;
-            if ((motionGestureInput_) = (TTouchMotionGestureFactory.getInstance().NO_MOTION)) and (not (Self.timeHelper.isTimeTNT())) then begin
-                Self.logUtil.putF(Self.FAST_REPEAT, TJava.Box(Self), Self.METHOD_NAME);
-                Exit;
-            end;
-            if not (Self.released) then begin
-                Self.logUtil.putF(Self.IGNORE, TJava.Box(Self), Self.METHOD_NAME);
-                Exit;
-            end;
-            Self.released := False;
-            Self.logUtil.putF(TStringMaker.Create().append('GameKey: ').append(TStringUtil.getInstance().toString(gameKey_)).append(' MotionGestureInput: ').append(TStringUtil.getInstance().toString(motionGestureInput_)).toString(), TJava.Box(Self), Self.METHOD_NAME);
-            Self.inputMappingInterface.processInputMapping(gameKey_, motionGestureInput_);
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.METHOD_NAME, TJava.Box(e));
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchBttnsPntblCmpst-onCmpl33470.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-touchMotionGestureFactory BINARY-DOUBLE.
+01 J-gameKeyCompleteMotionGestureInputEvent BINARY-DOUBLE.
+01 J-gameKey BINARY-DOUBLE.
+01 J-motionGestureInput BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-completeMotionGestureInputEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-completeMotionGestureInputEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_START"), J-THIS, FUNCTION JR-STR("onCompleteMotionGestureInputEvent"))
+            COMPUTE J-touchMotionGestureFactory = FUNCTION TchMtnGstrFctry-getInstance0
+            COMPUTE J-gameKeyCompleteMotionGestureInputEvent = J-completeMotionGestureInputEvent
+            COMPUTE J-gameKey = FUNCTION GmKyCmpltMtnGstrInptEvn-37915(J-gameKeyCompleteMotionGestureInputEvent)
+            COMPUTE J-motionGestureInput = FUNCTION CmpltMtnGstrInptEvnt-gtMt70238(J-completeMotionGestureInputEvent)
+            IF (J-motionGestureInput = FUNCTION JR-GET(J-touchMotionGestureFactory, "f_RELEASED"))
+                COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-GET(J-THIS, "f_RELEASE"), J-THIS, FUNCTION JR-GET(J-THIS, "f_METHOD_NAME"))
+                COMPUTE JVALUE = 1
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_released", JVALUE)
+                GOBACK
+            END-IF
+            COMPUTE jtemp4 = FUNCTION TchMtnGstrFctry-getInstance0
+            IF ((J-motionGestureInput = FUNCTION JR-GET(jtemp4, "f_NO_MOTION")) AND (NOT (FUNCTION TimeDelayHelper-isTimeTNT0(FUNCTION JR-GET(J-THIS, "f_timeHelper")) = 1)))
+                COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-GET(J-THIS, "f_FAST_REPEAT"), J-THIS, FUNCTION JR-GET(J-THIS, "f_METHOD_NAME"))
+                GOBACK
+            END-IF
+            IF (NOT (FUNCTION JR-GET(J-THIS, "f_released") = 1))
+                COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-GET(J-THIS, "f_IGNORE"), J-THIS, FUNCTION JR-GET(J-THIS, "f_METHOD_NAME"))
+                GOBACK
+            END-IF
+            COMPUTE JVALUE = 0
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_released", JVALUE)
+            COMPUTE jtemp10 = FUNCTION StringUtil-getInstance0
+            COMPUTE jtemp9 = FUNCTION StringMaker-new0
+            COMPUTE jtemp8 = FUNCTION StringMaker-append1(jtemp9, FUNCTION JR-STR("GameKey: "))
+            COMPUTE jtemp11 = FUNCTION StringUtil-getInstance0
+            COMPUTE jtemp7 = FUNCTION StringMaker-append1(jtemp8, FUNCTION StringUtil-toString1(jtemp10, J-gameKey))
+            COMPUTE jtemp6 = FUNCTION StringMaker-append1(jtemp7, FUNCTION JR-STR(" MotionGestureInput: "))
+            COMPUTE jtemp5 = FUNCTION StringMaker-append1(jtemp6, FUNCTION StringUtil-toString1(jtemp11, J-motionGestureInput))
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp5), J-THIS, FUNCTION JR-GET(J-THIS, "f_METHOD_NAME"))
+            COMPUTE JDISCARD = FUNCTION InptMppngIntrfc-prcssInpt19317(FUNCTION JR-GET(J-THIS, "f_inputMappingInterface"), J-gameKey, J-motionGestureInput)
+    GOBACK.
+END FUNCTION TchBttnsPntblCmpst-onCmpl33470.
 
-procedure TTouchButtonsPaintableComposite.process;
-begin
-        TCompleteMotionGestureInputEventHandler.getInstance().removeListener(Self);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchBttnsPntblCmpst-process0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp12 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp12 = FUNCTION CmpltMtnGstrInptEvntHnd-61739
+        COMPUTE JDISCARD = FUNCTION CmpltMtnGstrInptEvntHnd-72665(jtemp12, J-THIS)
+    GOBACK.
+END FUNCTION TchBttnsPntblCmpst-process0.
 

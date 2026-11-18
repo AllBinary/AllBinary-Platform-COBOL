@@ -1,59 +1,111 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion.button
+*> Java class TouchButtonGenericActionResource
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion.button
-unit TouchButtonGenericActionResource;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchBttnGnrcActnRsrc-sttc24693.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 TouchButtonGenericActionResource-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 TouchButtonGenericActionResource-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF TouchButtonGenericActionResource-jset-instance = 0
+        MOVE 1 TO TouchButtonGenericActionResource-jset-instance
+        COMPUTE TouchButtonGenericActionResource-jcell-instance = FUNCTION TchBttnGnrcActnRsrc-new0
+    END-IF
+    MOVE TouchButtonGenericActionResource-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION TchBttnGnrcActnRsrc-sttc24693.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchBttnGnrcActnRsrcsS74394.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 TouchButtonGenericActionResource-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION TchBttnGnrcActnRsrc-sttc24693 TO J-RESULT
+    MOVE J-VALUE TO TouchButtonGenericActionResource-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION TchBttnGnrcActnRsrcsS74394.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchBttnGnrcActnRsrc-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("TouchButtonGenericActionResource")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION TchBttnGnrcActnRsrc-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, TouchButtonResource;
-
-type
-  {AB:TYPES}
-  TTouchButtonGenericActionResource = class(TTouchButtonResource)
-  public
-    class var instance: TTouchButtonResource;
-        class function getInstance: TTouchButtonResource; static;
-        constructor Create;
-  end;
-
-implementation
-
-{AB:CODE}
-    
-
-class function TTouchButtonGenericActionResource.getInstance: TTouchButtonResource;
-begin
-        Exit(TTouchButtonGenericActionResource.instance);
-end;
-    
-
-constructor TTouchButtonGenericActionResource.Create;
-begin
-        inherited Create('/touch_button_generic_action_64_by_64.png', '/touch_button_generic_action_hint_64_by_64.png');
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TTouchButtonGenericActionResource.instance := TTouchButtonGenericActionResource.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchBttnGnrcActnRsrc-gtInstnc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION TchBttnGnrcActnRsrc-sttc24693
+        GOBACK
+    GOBACK.
+END FUNCTION TchBttnGnrcActnRsrc-gtInstnc0.
 

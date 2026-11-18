@@ -1,130 +1,305 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2026 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.logic.io.file
-unit AbFileSystem;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.io.file
+*> Java class AbFileSystem
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbFileSystem-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AbFileSystem-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 AbFileSystem-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF AbFileSystem-jset-instance = 0
+        MOVE 1 TO AbFileSystem-jset-instance
+        COMPUTE AbFileSystem-jcell-instance = FUNCTION AbFileSystem-new0
+    END-IF
+    MOVE AbFileSystem-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION AbFileSystem-static-instance.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbFileSystemstaticinS29231.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AbFileSystem-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION AbFileSystem-static-instance TO J-RESULT
+    MOVE J-VALUE TO AbFileSystem-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION AbFileSystemstaticinS29231.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LogUtil, CommonStrings;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbFileSystem-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("AbFileSystem")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION AbFileSystem-new0.
 
-type
-  {AB:TYPES}
-  // J2MEForJ2ME
-  TAbFileSystem = class(TObject)
-  public
-    logUtil: TLogUtil;
-    commonStrings: TCommonStrings;
-    class var instance: TAbFileSystem;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TAbFileSystem; static;
-        function isDirectoryOrFile(path: string): Boolean; virtual;
-        function isDirectory(path: string): Boolean; virtual;
-        function getFilesAsStringArrayForPath(currentDirPath: string): TArray<string>; virtual;
-        function readAsString(fileName: string): string; overload; virtual;
-        function readAsString(fileName: string; bytes: TArray<ShortInt>): string; overload; virtual;
-        function close(closeable: TObject): Boolean; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbFileSystem-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION AbFileSystem-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION AbFileSystem-getInstance0.
 
-implementation
-uses
-  NullUtil, StringUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbFlSystm-isDirectoryOrFile1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-path BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-path RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION AbFlSystm-isDirectoryOrFile1.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbFileSystem-isDirectory1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-path BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-path RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION AbFileSystem-isDirectory1.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbFlSystm-gtFlsAsStrngArr83518.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-currentDirPath BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-currentDirPath RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+        COMPUTE J-RESULT = FUNCTION StringUtil-getArrayInstance0(jtemp1)
+        GOBACK
+    GOBACK.
+END FUNCTION AbFlSystm-gtFlsAsStrngArr83518.
 
-procedure TAbFileSystem.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.commonStrings := TCommonStrings.getInstance();
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbFileSystem-readAsString1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-bytes BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-fileName BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-fileName RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = 1000000
+        COMPUTE J-bytes = FUNCTION JR-NEW-ARRAY(jtemp2)
+        COMPUTE J-RESULT = FUNCTION AbFileSystem-readAsString2(J-THIS, J-fileName, J-bytes)
+        GOBACK
+    GOBACK.
+END FUNCTION AbFileSystem-readAsString1.
 
-constructor TAbFileSystem.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbFileSystem-readAsString2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-fileName BINARY-DOUBLE.
+01 J-bytes BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-fileName J-bytes RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp3 = FUNCTION StringUtil-getInstance0
+        COMPUTE J-RESULT = FUNCTION JR-GET(jtemp3, "f_EMPTY_STRING")
+        GOBACK
+    GOBACK.
+END FUNCTION AbFileSystem-readAsString2.
 
-class function TAbFileSystem.getInstance: TAbFileSystem;
-begin
-        Exit(TAbFileSystem.instance);
-end;
-    
-
-function TAbFileSystem.isDirectoryOrFile(path: string): Boolean;
-begin
-        Exit(False);
-end;
-    
-
-function TAbFileSystem.isDirectory(path: string): Boolean;
-begin
-        Exit(False);
-end;
-    
-
-function TAbFileSystem.getFilesAsStringArrayForPath(currentDirPath: string): TArray<string>;
-begin
-        Exit(TStringUtil.getInstance().getArrayInstance());
-end;
-    
-
-function TAbFileSystem.readAsString(fileName: string): string;
-var
-  bytes: TArray<ShortInt>;
-begin
-        bytes := TJava.NewArray<ShortInt>(1000000);
-        Exit(Self.readAsString(fileName, bytes));
-end;
-    
-
-function TAbFileSystem.readAsString(fileName: string; bytes: TArray<ShortInt>): string;
-begin
-        Exit(TStringUtil.getInstance().EMPTY_STRING);
-end;
-    
-
-function TAbFileSystem.close(closeable: TObject): Boolean;
-var
-  inputStream_: TInputStream;
-begin
-        try
-            if (closeable) <> (nil) then begin
-                inputStream_ := (TInputStream(TJava.ToObject(closeable)));
-                inputStream_.close();
-            end;
-            Exit(True);
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.CLOSE, TJava.Box(e));
-            Exit(False);
-            end;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TAbFileSystem.instance := TAbFileSystem.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbFileSystem-close1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-inputStream BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-closeable BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-closeable RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            IF (J-closeable NOT = 0)
+                COMPUTE J-inputStream = (J-closeable)
+                COMPUTE JDISCARD = FUNCTION InputStream-close0(J-inputStream)
+            END-IF
+            COMPUTE J-RESULT = 1
+            GOBACK
+    GOBACK.
+END FUNCTION AbFileSystem-close1.
 

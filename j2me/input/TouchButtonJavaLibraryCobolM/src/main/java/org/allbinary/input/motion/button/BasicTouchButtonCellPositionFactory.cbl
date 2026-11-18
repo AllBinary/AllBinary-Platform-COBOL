@@ -1,153 +1,244 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion.button
+*> Java class BasicTouchButtonCellPositionFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion.button
-unit BasicTouchButtonCellPositionFactory;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, CellPosition, LogUtil, CommonStrings;
-
-type
-  {AB:TYPES}
-  TBasicTouchButtonCellPositionFactory = class(TObject)
-  public
-    logUtil: TLogUtil;
-    commonStrings: TCommonStrings;
-    TOP_RIGHT: TCellPosition;
-    TOP_LEFT: TCellPosition;
-    SECOND_FROM_TOP_LEFT: TCellPosition;
-    SECOND_FROM_TOP_RIGHT: TCellPosition;
-    TOP_SECOND_FROM_LEFT: TCellPosition;
-    TOP_SECOND_FROM_RIGHT: TCellPosition;
-    BOTTOM_RIGHT: TCellPosition;
-    BOTTOM_SECOND_FROM_RIGHT: TCellPosition;
-    SECOND_FROM_BOTTOM_RIGHT: TCellPosition;
-    THIRD_FROM_BOTTOM_RIGHT: TCellPosition;
-    FOURTH_FROM_BOTTOM_RIGHT: TCellPosition;
-    SECOND_FROM_BOTTOM_SECOND_FROM_RIGHT: TCellPosition;
-    SECOND_FROM_BOTTOM_THIRD_FROM_RIGHT: TCellPosition;
-    SECOND_FROM_BOTTOM_FOURTH_FROM_RIGHT: TCellPosition;
-    BOTTOM_THIRD_FROM_RIGHT: TCellPosition;
-    BOTTOM_FOURTH_FROM_RIGHT: TCellPosition;
-    BOTTOM_SECOND_FROM_LEFT: TCellPosition;
-    SECOND_FROM_BOTTOM_LEFT: TCellPosition;
-    THIRD_FROM_BOTTOM_LEFT: TCellPosition;
-    BOTTOM_LEFT: TCellPosition;
-    SECOND_FROM_BOTTOM_SECOND_FROM_LEFT: TCellPosition;
-    procedure InitFields;
-        constructor Create;
-  end;
-
-implementation
-uses
-  TouchButtonLocationHelper, CellPositionFactory;
-
-
-{AB:CODE}
-
-procedure TBasicTouchButtonCellPositionFactory.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.commonStrings := TCommonStrings.getInstance();
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscTchBttnCllPstnFctry-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-touchButtonLocationHelper BINARY-DOUBLE.
+01 J-cellPositionFactory BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+01 jtemp18 BINARY-DOUBLE.
+01 jtemp19 BINARY-DOUBLE.
+01 jtemp20 BINARY-DOUBLE.
+01 jtemp21 BINARY-DOUBLE.
+01 jtemp22 BINARY-DOUBLE.
+01 jtemp23 BINARY-DOUBLE.
+01 jtemp24 BINARY-DOUBLE.
+01 jtemp25 BINARY-DOUBLE.
+01 jtemp26 BINARY-DOUBLE.
+01 jtemp27 BINARY-DOUBLE.
+01 jtemp28 BINARY-DOUBLE.
+01 jtemp29 BINARY-DOUBLE.
+01 jtemp30 BINARY-DOUBLE.
+01 jtemp31 BINARY-DOUBLE.
+01 jtemp32 BINARY-DOUBLE.
+01 jtemp33 BINARY-DOUBLE.
+01 jtemp34 BINARY-DOUBLE.
+01 jtemp35 BINARY-DOUBLE.
+01 jtemp36 BINARY-DOUBLE.
+01 jtemp37 BINARY-DOUBLE.
+01 jtemp38 BINARY-DOUBLE.
+01 jtemp39 BINARY-DOUBLE.
+01 jtemp40 BINARY-DOUBLE.
+01 jtemp41 BINARY-DOUBLE.
+01 jtemp42 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("BasicTouchButtonCellPositionFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_TOP_RIGHT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_TOP_LEFT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SECOND_FROM_TOP_LEFT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SECOND_FROM_TOP_RIGHT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_TOP_SECOND_FROM_LEFT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_TOP_SECOND_FROM_RIGHT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_BOTTOM_RIGHT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_BOTTOM_SECOND_FROM_RIGHT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SECOND_FROM_BOTTOM_RIGHT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_THIRD_FROM_BOTTOM_RIGHT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_FOURTH_FROM_BOTTOM_RIGHT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SECOND_FROM_BOTTOM_SECOND_FROM_RIGHT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SECOND_FROM_BOTTOM_THIRD_FROM_RIGHT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SECOND_FROM_BOTTOM_FOURTH_FROM_RIGHT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_BOTTOM_THIRD_FROM_RIGHT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_BOTTOM_FOURTH_FROM_RIGHT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_BOTTOM_SECOND_FROM_LEFT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SECOND_FROM_BOTTOM_LEFT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_THIRD_FROM_BOTTOM_LEFT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_BOTTOM_LEFT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SECOND_FROM_BOTTOM_SECOND_FROM_LEFT")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
     
-
-constructor TBasicTouchButtonCellPositionFactory.Create;
-var
-  touchButtonLocationHelper_: TTouchButtonLocationHelper;
-  cellPositionFactory_: TCellPositionFactory;
-begin
-    inherited Create;
-    InitFields;
-        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_);
-        touchButtonLocationHelper_ := TTouchButtonLocationHelper.Create();
-        cellPositionFactory_ := TCellPositionFactory.getInstance();
-        cellPositionFactory_.init(touchButtonLocationHelper_.getTotalColumns(), touchButtonLocationHelper_.getTotalRows());
-        Self.TOP_LEFT := cellPositionFactory_.getInstanceColRow(0, 0);
-        Self.TOP_RIGHT := cellPositionFactory_.getInstanceColRow((touchButtonLocationHelper_.getTotalColumns()) - (1), 0);
-        Self.BOTTOM_LEFT := cellPositionFactory_.getInstanceColRow(0, (touchButtonLocationHelper_.getTotalRows()) - (1));
-        Self.BOTTOM_RIGHT := cellPositionFactory_.getInstanceColRow((touchButtonLocationHelper_.getTotalColumns()) - (1), (touchButtonLocationHelper_.getTotalRows()) - (1));
-        Self.BOTTOM_SECOND_FROM_RIGHT := cellPositionFactory_.getInstanceColRow((touchButtonLocationHelper_.getTotalColumns()) - (2), (touchButtonLocationHelper_.getTotalRows()) - (1));
-        Self.SECOND_FROM_BOTTOM_RIGHT := cellPositionFactory_.getInstanceColRow((touchButtonLocationHelper_.getTotalColumns()) - (1), (touchButtonLocationHelper_.getTotalRows()) - (2));
-        Self.SECOND_FROM_BOTTOM_SECOND_FROM_RIGHT := cellPositionFactory_.getInstanceColRow((touchButtonLocationHelper_.getTotalColumns()) - (2), (touchButtonLocationHelper_.getTotalRows()) - (2));
-        Self.BOTTOM_SECOND_FROM_LEFT := cellPositionFactory_.getInstanceColRow(1, (touchButtonLocationHelper_.getTotalRows()) - (1));
-        Self.SECOND_FROM_BOTTOM_LEFT := cellPositionFactory_.getInstanceColRow(0, (touchButtonLocationHelper_.getTotalRows()) - (2));
-        Self.SECOND_FROM_BOTTOM_SECOND_FROM_LEFT := cellPositionFactory_.getInstanceColRow(1, (touchButtonLocationHelper_.getTotalRows()) - (2));
-        if (touchButtonLocationHelper_.getTotalRows()) > (2) then begin
-            Self.SECOND_FROM_TOP_LEFT := cellPositionFactory_.getInstanceColRow(0, 1);
-            Self.SECOND_FROM_TOP_RIGHT := cellPositionFactory_.getInstanceColRow((touchButtonLocationHelper_.getTotalColumns()) - (1), 1);
-        end else begin
-            Self.SECOND_FROM_TOP_LEFT := cellPositionFactory_.NONE;
-            Self.SECOND_FROM_TOP_RIGHT := cellPositionFactory_.NONE;
-        end;
-        if (touchButtonLocationHelper_.getTotalRows()) >= (4) then begin
-            Self.THIRD_FROM_BOTTOM_RIGHT := cellPositionFactory_.getInstanceColRow((touchButtonLocationHelper_.getTotalColumns()) - (1), (touchButtonLocationHelper_.getTotalRows()) - (3));
-            Self.FOURTH_FROM_BOTTOM_RIGHT := cellPositionFactory_.getInstanceColRow((touchButtonLocationHelper_.getTotalColumns()) - (1), (touchButtonLocationHelper_.getTotalRows()) - (4));
-            Self.THIRD_FROM_BOTTOM_LEFT := cellPositionFactory_.getInstanceColRow(0, (touchButtonLocationHelper_.getTotalRows()) - (3));
-        end else begin
-            Self.THIRD_FROM_BOTTOM_RIGHT := cellPositionFactory_.NONE;
-            Self.FOURTH_FROM_BOTTOM_RIGHT := cellPositionFactory_.NONE;
-            Self.THIRD_FROM_BOTTOM_LEFT := cellPositionFactory_.NONE;
-        end;
-        if (touchButtonLocationHelper_.getTotalColumns()) >= (4) then begin
-            Self.SECOND_FROM_BOTTOM_THIRD_FROM_RIGHT := cellPositionFactory_.getInstanceColRow((touchButtonLocationHelper_.getTotalColumns()) - (3), (touchButtonLocationHelper_.getTotalRows()) - (2));
-            Self.SECOND_FROM_BOTTOM_FOURTH_FROM_RIGHT := cellPositionFactory_.getInstanceColRow((touchButtonLocationHelper_.getTotalColumns()) - (4), (touchButtonLocationHelper_.getTotalRows()) - (2));
-            Self.BOTTOM_THIRD_FROM_RIGHT := cellPositionFactory_.getInstanceColRow((touchButtonLocationHelper_.getTotalColumns()) - (3), (touchButtonLocationHelper_.getTotalRows()) - (1));
-            Self.BOTTOM_FOURTH_FROM_RIGHT := cellPositionFactory_.getInstanceColRow((touchButtonLocationHelper_.getTotalColumns()) - (4), (touchButtonLocationHelper_.getTotalRows()) - (1));
-            Self.TOP_SECOND_FROM_LEFT := cellPositionFactory_.getInstanceColRow(1, 0);
-            Self.TOP_SECOND_FROM_RIGHT := cellPositionFactory_.getInstanceColRow((touchButtonLocationHelper_.getTotalColumns()) - (2), 0);
-        end else begin
-            Self.SECOND_FROM_BOTTOM_THIRD_FROM_RIGHT := cellPositionFactory_.NONE;
-            Self.SECOND_FROM_BOTTOM_FOURTH_FROM_RIGHT := cellPositionFactory_.NONE;
-            Self.BOTTOM_THIRD_FROM_RIGHT := cellPositionFactory_.NONE;
-            Self.BOTTOM_FOURTH_FROM_RIGHT := cellPositionFactory_.NONE;
-            Self.TOP_SECOND_FROM_LEFT := cellPositionFactory_.NONE;
-            Self.TOP_SECOND_FROM_RIGHT := cellPositionFactory_.NONE;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_START"), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"),
+        "f_CONSTRUCTOR"))
+        COMPUTE J-touchButtonLocationHelper = FUNCTION TouchButtonLocationHelper-new0
+        COMPUTE J-cellPositionFactory = FUNCTION CllPstnFctry-getInstance0
+        COMPUTE JDISCARD = FUNCTION CellPositionFactory-init2(J-cellPositionFactory, FUNCTION TchBttnLctnHlpr-gtTtlClmns0(J-touchButtonLocationHelper), FUNCTION TchBttnLctnHlpr-getTotalRows0(J-touchButtonLocationHelper))
+        COMPUTE jtemp1 = 0
+        COMPUTE jtemp2 = 0
+        COMPUTE JVALUE = FUNCTION CllPstnFctry-gtInstncClRw2(J-cellPositionFactory, jtemp1, jtemp2)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_TOP_LEFT", JVALUE)
+        COMPUTE jtemp3 = (FUNCTION MOD((FUNCTION TchBttnLctnHlpr-gtTtlClmns0(J-touchButtonLocationHelper) - 1) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp4 = 0
+        COMPUTE JVALUE = FUNCTION CllPstnFctry-gtInstncClRw2(J-cellPositionFactory, jtemp3, jtemp4)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_TOP_RIGHT", JVALUE)
+        COMPUTE jtemp5 = 0
+        COMPUTE jtemp6 = (FUNCTION MOD((FUNCTION TchBttnLctnHlpr-getTotalRows0(J-touchButtonLocationHelper) - 1) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION CllPstnFctry-gtInstncClRw2(J-cellPositionFactory, jtemp5, jtemp6)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_BOTTOM_LEFT", JVALUE)
+        COMPUTE jtemp7 = (FUNCTION MOD((FUNCTION TchBttnLctnHlpr-gtTtlClmns0(J-touchButtonLocationHelper) - 1) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp8 = (FUNCTION MOD((FUNCTION TchBttnLctnHlpr-getTotalRows0(J-touchButtonLocationHelper) - 1) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION CllPstnFctry-gtInstncClRw2(J-cellPositionFactory, jtemp7, jtemp8)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_BOTTOM_RIGHT", JVALUE)
+        COMPUTE jtemp9 = (FUNCTION MOD((FUNCTION TchBttnLctnHlpr-gtTtlClmns0(J-touchButtonLocationHelper) - 2) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp10 = (FUNCTION MOD((FUNCTION TchBttnLctnHlpr-getTotalRows0(J-touchButtonLocationHelper) - 1) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION CllPstnFctry-gtInstncClRw2(J-cellPositionFactory, jtemp9, jtemp10)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_BOTTOM_SECOND_FROM_RIGHT", JVALUE)
+        COMPUTE jtemp11 = (FUNCTION MOD((FUNCTION TchBttnLctnHlpr-gtTtlClmns0(J-touchButtonLocationHelper) - 1) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp12 = (FUNCTION MOD((FUNCTION TchBttnLctnHlpr-getTotalRows0(J-touchButtonLocationHelper) - 2) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION CllPstnFctry-gtInstncClRw2(J-cellPositionFactory, jtemp11, jtemp12)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SECOND_FROM_BOTTOM_RIGHT", JVALUE)
+        COMPUTE jtemp13 = (FUNCTION MOD((FUNCTION TchBttnLctnHlpr-gtTtlClmns0(J-touchButtonLocationHelper) - 2) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp14 = (FUNCTION MOD((FUNCTION TchBttnLctnHlpr-getTotalRows0(J-touchButtonLocationHelper) - 2) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION CllPstnFctry-gtInstncClRw2(J-cellPositionFactory, jtemp13, jtemp14)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SECOND_FROM_BOTTOM_SECOND_FROM_RIGHT", JVALUE)
+        COMPUTE jtemp15 = 1
+        COMPUTE jtemp16 = (FUNCTION MOD((FUNCTION TchBttnLctnHlpr-getTotalRows0(J-touchButtonLocationHelper) - 1) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION CllPstnFctry-gtInstncClRw2(J-cellPositionFactory, jtemp15, jtemp16)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_BOTTOM_SECOND_FROM_LEFT", JVALUE)
+        COMPUTE jtemp17 = 0
+        COMPUTE jtemp18 = (FUNCTION MOD((FUNCTION TchBttnLctnHlpr-getTotalRows0(J-touchButtonLocationHelper) - 2) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION CllPstnFctry-gtInstncClRw2(J-cellPositionFactory, jtemp17, jtemp18)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SECOND_FROM_BOTTOM_LEFT", JVALUE)
+        COMPUTE jtemp19 = 1
+        COMPUTE jtemp20 = (FUNCTION MOD((FUNCTION TchBttnLctnHlpr-getTotalRows0(J-touchButtonLocationHelper) - 2) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION CllPstnFctry-gtInstncClRw2(J-cellPositionFactory, jtemp19, jtemp20)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SECOND_FROM_BOTTOM_SECOND_FROM_LEFT", JVALUE)
+        IF (FUNCTION TchBttnLctnHlpr-getTotalRows0(J-touchButtonLocationHelper) > 2)
+            COMPUTE jtemp21 = 0
+            COMPUTE jtemp22 = 1
+            COMPUTE JVALUE = FUNCTION CllPstnFctry-gtInstncClRw2(J-cellPositionFactory, jtemp21, jtemp22)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SECOND_FROM_TOP_LEFT", JVALUE)
+            COMPUTE jtemp23 = (FUNCTION MOD((FUNCTION TchBttnLctnHlpr-gtTtlClmns0(J-touchButtonLocationHelper) - 1) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE jtemp24 = 1
+            COMPUTE JVALUE = FUNCTION CllPstnFctry-gtInstncClRw2(J-cellPositionFactory, jtemp23, jtemp24)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SECOND_FROM_TOP_RIGHT", JVALUE)
+        ELSE
+            COMPUTE JVALUE = FUNCTION JR-GET(J-cellPositionFactory, "f_NONE")
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SECOND_FROM_TOP_LEFT", JVALUE)
+            COMPUTE JVALUE = FUNCTION JR-GET(J-cellPositionFactory, "f_NONE")
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SECOND_FROM_TOP_RIGHT", JVALUE)
+        END-IF
+        IF (FUNCTION TchBttnLctnHlpr-getTotalRows0(J-touchButtonLocationHelper) >= 4)
+            COMPUTE jtemp25 = (FUNCTION MOD((FUNCTION TchBttnLctnHlpr-gtTtlClmns0(J-touchButtonLocationHelper) - 1) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE jtemp26 = (FUNCTION MOD((FUNCTION TchBttnLctnHlpr-getTotalRows0(J-touchButtonLocationHelper) - 3) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JVALUE = FUNCTION CllPstnFctry-gtInstncClRw2(J-cellPositionFactory, jtemp25, jtemp26)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_THIRD_FROM_BOTTOM_RIGHT", JVALUE)
+            COMPUTE jtemp27 = (FUNCTION MOD((FUNCTION TchBttnLctnHlpr-gtTtlClmns0(J-touchButtonLocationHelper) - 1) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE jtemp28 = (FUNCTION MOD((FUNCTION TchBttnLctnHlpr-getTotalRows0(J-touchButtonLocationHelper) - 4) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JVALUE = FUNCTION CllPstnFctry-gtInstncClRw2(J-cellPositionFactory, jtemp27, jtemp28)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_FOURTH_FROM_BOTTOM_RIGHT", JVALUE)
+            COMPUTE jtemp29 = 0
+            COMPUTE jtemp30 = (FUNCTION MOD((FUNCTION TchBttnLctnHlpr-getTotalRows0(J-touchButtonLocationHelper) - 3) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JVALUE = FUNCTION CllPstnFctry-gtInstncClRw2(J-cellPositionFactory, jtemp29, jtemp30)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_THIRD_FROM_BOTTOM_LEFT", JVALUE)
+        ELSE
+            COMPUTE JVALUE = FUNCTION JR-GET(J-cellPositionFactory, "f_NONE")
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_THIRD_FROM_BOTTOM_RIGHT", JVALUE)
+            COMPUTE JVALUE = FUNCTION JR-GET(J-cellPositionFactory, "f_NONE")
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_FOURTH_FROM_BOTTOM_RIGHT", JVALUE)
+            COMPUTE JVALUE = FUNCTION JR-GET(J-cellPositionFactory, "f_NONE")
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_THIRD_FROM_BOTTOM_LEFT", JVALUE)
+        END-IF
+        IF (FUNCTION TchBttnLctnHlpr-gtTtlClmns0(J-touchButtonLocationHelper) >= 4)
+            COMPUTE jtemp31 = (FUNCTION MOD((FUNCTION TchBttnLctnHlpr-gtTtlClmns0(J-touchButtonLocationHelper) - 3) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE jtemp32 = (FUNCTION MOD((FUNCTION TchBttnLctnHlpr-getTotalRows0(J-touchButtonLocationHelper) - 2) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JVALUE = FUNCTION CllPstnFctry-gtInstncClRw2(J-cellPositionFactory, jtemp31, jtemp32)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SECOND_FROM_BOTTOM_THIRD_FROM_RIGHT", JVALUE)
+            COMPUTE jtemp33 = (FUNCTION MOD((FUNCTION TchBttnLctnHlpr-gtTtlClmns0(J-touchButtonLocationHelper) - 4) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE jtemp34 = (FUNCTION MOD((FUNCTION TchBttnLctnHlpr-getTotalRows0(J-touchButtonLocationHelper) - 2) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JVALUE = FUNCTION CllPstnFctry-gtInstncClRw2(J-cellPositionFactory, jtemp33, jtemp34)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SECOND_FROM_BOTTOM_FOURTH_FROM_RIGHT", JVALUE)
+            COMPUTE jtemp35 = (FUNCTION MOD((FUNCTION TchBttnLctnHlpr-gtTtlClmns0(J-touchButtonLocationHelper) - 3) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE jtemp36 = (FUNCTION MOD((FUNCTION TchBttnLctnHlpr-getTotalRows0(J-touchButtonLocationHelper) - 1) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JVALUE = FUNCTION CllPstnFctry-gtInstncClRw2(J-cellPositionFactory, jtemp35, jtemp36)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_BOTTOM_THIRD_FROM_RIGHT", JVALUE)
+            COMPUTE jtemp37 = (FUNCTION MOD((FUNCTION TchBttnLctnHlpr-gtTtlClmns0(J-touchButtonLocationHelper) - 4) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE jtemp38 = (FUNCTION MOD((FUNCTION TchBttnLctnHlpr-getTotalRows0(J-touchButtonLocationHelper) - 1) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JVALUE = FUNCTION CllPstnFctry-gtInstncClRw2(J-cellPositionFactory, jtemp37, jtemp38)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_BOTTOM_FOURTH_FROM_RIGHT", JVALUE)
+            COMPUTE jtemp39 = 1
+            COMPUTE jtemp40 = 0
+            COMPUTE JVALUE = FUNCTION CllPstnFctry-gtInstncClRw2(J-cellPositionFactory, jtemp39, jtemp40)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_TOP_SECOND_FROM_LEFT", JVALUE)
+            COMPUTE jtemp41 = (FUNCTION MOD((FUNCTION TchBttnLctnHlpr-gtTtlClmns0(J-touchButtonLocationHelper) - 2) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE jtemp42 = 0
+            COMPUTE JVALUE = FUNCTION CllPstnFctry-gtInstncClRw2(J-cellPositionFactory, jtemp41, jtemp42)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_TOP_SECOND_FROM_RIGHT", JVALUE)
+        ELSE
+            COMPUTE JVALUE = FUNCTION JR-GET(J-cellPositionFactory, "f_NONE")
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SECOND_FROM_BOTTOM_THIRD_FROM_RIGHT", JVALUE)
+            COMPUTE JVALUE = FUNCTION JR-GET(J-cellPositionFactory, "f_NONE")
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SECOND_FROM_BOTTOM_FOURTH_FROM_RIGHT", JVALUE)
+            COMPUTE JVALUE = FUNCTION JR-GET(J-cellPositionFactory, "f_NONE")
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_BOTTOM_THIRD_FROM_RIGHT", JVALUE)
+            COMPUTE JVALUE = FUNCTION JR-GET(J-cellPositionFactory, "f_NONE")
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_BOTTOM_FOURTH_FROM_RIGHT", JVALUE)
+            COMPUTE JVALUE = FUNCTION JR-GET(J-cellPositionFactory, "f_NONE")
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_TOP_SECOND_FROM_LEFT", JVALUE)
+            COMPUTE JVALUE = FUNCTION JR-GET(J-cellPositionFactory, "f_NONE")
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_TOP_SECOND_FROM_RIGHT", JVALUE)
+        END-IF
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION BscTchBttnCllPstnFctry-new0.
 

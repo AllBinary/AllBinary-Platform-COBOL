@@ -1,95 +1,112 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.midlet
+*> Java class DemoRunnable
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.midlet
-unit DemoRunnable;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LogUtil, CommonStrings, DemoGameMidlet, DemoGameMidletEvent;
-
-type
-  {AB:TYPES}
-  TDemoRunnable = class(TInterfacedObject, IRunnable)
-  public
-    logUtil: TLogUtil;
-    commonStrings: TCommonStrings;
-    demoGameMidlet: TDemoGameMidlet;
-    startDemoGameMidletEvent: TDemoGameMidletEvent;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(demoGameMidlet_: TDemoGameMidlet);
-        procedure run; virtual;
-  end;
-
-implementation
-uses
-  DemoGameMidletStateFactory, DemoGameMidletEventHandler, ProgressCanvasFactory, MyCommandsFactory, StringMaker, CommonLabels;
-
-
-{AB:CODE}
-
-procedure TDemoRunnable.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.commonStrings := TCommonStrings.getInstance();
-  
-  
-end;
-
-function TDemoRunnable.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DemoRunnable-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-demoGameMidlet BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-demoGameMidlet RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("DemoRunnable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_demoGameMidlet")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_startDemoGameMidletEvent")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
     
-
-constructor TDemoRunnable.Create(demoGameMidlet_: TDemoGameMidlet);
-begin
-    inherited Create;
-    InitFields;
-        Self.demoGameMidlet := demoGameMidlet_;
-        Self.startDemoGameMidletEvent := TDemoGameMidletEvent.Create(TJava.Box(Self.demoGameMidlet), TDemoGameMidletStateFactory.getInstance().START_DEMO);
-end;
     
+        COMPUTE JVALUE = J-demoGameMidlet
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_demoGameMidlet", JVALUE)
+        COMPUTE jtemp1 = FUNCTION DmGmMdltSttFctry-getInstance0
+        COMPUTE JVALUE = FUNCTION DemoGameMidletEvent-new2(FUNCTION JR-GET(J-THIS, "f_demoGameMidlet"), FUNCTION JR-GET(jtemp1, "f_START_DEMO"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_startDemoGameMidletEvent", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION DemoRunnable-new1.
 
-procedure TDemoRunnable.run;
-begin
-        try
-            Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().START_LABEL).append('GameCanvasRunnableInterface').toString(), TJava.Box(Self), Self.commonStrings.RUN);
-            Self.demoGameMidlet.commandAction(TMyCommandsFactory.getInstance().SET_DISPLAYABLE, TProgressCanvasFactory.getInstance());
-            Self.demoGameMidlet.setGameCanvasRunnableInterface(Self.demoGameMidlet.createDemoGameCanvasRunnableInterface());
-            Self.demoGameMidlet.demoSetup();
-            TDemoGameMidletEventHandler.getInstance().fireEvent(Self.startDemoGameMidletEvent);
-            Self.demoGameMidlet.startGameCanvasRunnableInterface();
-            Self.demoGameMidlet.postDemoSetup();
-            Self.logUtil.putF(Self.commonStrings.END_RUNNABLE, TJava.Box(Self), Self.commonStrings.RUN);
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.RUN, TJava.Box(e));
-            end;
-        end;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DemoRunnable-run0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE jtemp5 = FUNCTION CommonLabels-getInstance0
+            COMPUTE jtemp4 = FUNCTION StringMaker-new0
+            COMPUTE jtemp3 = FUNCTION StringMaker-append1(jtemp4, FUNCTION JR-GET(jtemp5, "f_START_LABEL"))
+            COMPUTE jtemp2 = FUNCTION StringMaker-append1(jtemp3, FUNCTION JR-STR("GameCanvasRunnableInterface"))
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp2), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_RUN"))
+            COMPUTE jtemp6 = FUNCTION MyCommandsFactory-getInstance0
+            COMPUTE JDISCARD = FUNCTION GameMidlet-commandAction2(FUNCTION JR-GET(J-THIS, "f_demoGameMidlet"), FUNCTION JR-GET(jtemp6, "f_SET_DISPLAYABLE"), FUNCTION PrgrssCnvsFctry-getInstance0)
+            COMPUTE JDISCARD = FUNCTION GmMdlt-stGmCnvsRnnblIntrfc1(FUNCTION JR-GET(J-THIS, "f_demoGameMidlet"), FUNCTION DmGmMdlt-crtDmGmCnvsRnnbl54653(FUNCTION JR-GET(J-THIS, "f_demoGameMidlet")))
+            COMPUTE JDISCARD = FUNCTION DemoGameMidlet-demoSetup0(FUNCTION JR-GET(J-THIS, "f_demoGameMidlet"))
+            COMPUTE jtemp7 = FUNCTION DmGmMdltEvntHndlr-getInstance0
+            COMPUTE JDISCARD = FUNCTION BasicEventHandler-fireEvent1(jtemp7, FUNCTION JR-GET(J-THIS, "f_startDemoGameMidletEvent"))
+            COMPUTE JDISCARD = FUNCTION GmMdlt-strtGmCnvsRnnblIntrfc0(FUNCTION JR-GET(J-THIS, "f_demoGameMidlet"))
+            COMPUTE JDISCARD = FUNCTION DemoGameMidlet-postDemoSetup0(FUNCTION JR-GET(J-THIS, "f_demoGameMidlet"))
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_END_RUNNABLE"), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"),
+        "f_RUN"))
+    GOBACK.
+END FUNCTION DemoRunnable-run0.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+PROGRAM-ID. DemoRunnable-run.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION DemoRunnable-run0(J-THIS)
+    GOBACK.
+END PROGRAM DemoRunnable-run.
 

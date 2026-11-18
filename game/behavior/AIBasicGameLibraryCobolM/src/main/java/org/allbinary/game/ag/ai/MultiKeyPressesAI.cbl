@@ -1,135 +1,228 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.ai
+*> Java class MultiKeyPressesAI
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.ai
-unit MultiKeyPressesAI;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MultiKeyPressesAI-new3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-hashtable BINARY-DOUBLE.
+01 J-ownerLayerInterface BINARY-DOUBLE.
+01 J-gameInput BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-hashtable J-ownerLayerInterface J-gameInput RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("MultiKeyPressesAI")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_toggleTimeHelper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameTickTimeDelayHelper")
+    COMPUTE jtemp1 = 600
+    COMPUTE JVALUE = FUNCTION TimeDelayHelper-new1(jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_toggleTimeHelper", JVALUE)
+    COMPUTE JVALUE = FUNCTION GmTckTmDlyHlprFctry-gtInstnc0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameTickTimeDelayHelper", JVALUE)
+        CONTINUE
+        COMPUTE JDISCARD = FUNCTION MultiKeyPressesAI-update0(J-THIS)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION MultiKeyPressesAI-new3.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MultiKeyPressesAI-processAI1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryLayerManager BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION MultiKeyPressesAI-processAI1.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MultiKeyPressesAI-update0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameInput BINARY-DOUBLE.
+01 J-keys BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-key BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-gameInput = FUNCTION BasicAI-getGameInput0(J-THIS)
+        COMPUTE J-keys = FUNCTION JR-GET(J-THIS, "f_keys")
+        COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(J-keys)
+        IF (FUNCTION KeyPressesAI-isOn0(J-THIS) = 1)
+            COMPUTE J-index = 0
+            MOVE 1 TO JFIRST2
+            PERFORM FOREVER
+                IF JFIRST2 = 0
+                    COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+                END-IF
+                MOVE 0 TO JFIRST2
+                IF NOT (J-index < J-size) EXIT PERFORM END-IF
+                COMPUTE J-key = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(J-keys, J-index))
+                IF (J-key NOT = (0 - 1))
+                    COMPUTE JDISCARD = FUNCTION GameInput-add1(J-gameInput, FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_gameKeyEventFactory")))
+                END-IF
+            END-PERFORM
+        ELSE
+            COMPUTE J-index = 0
+            MOVE 1 TO JFIRST1
+            PERFORM FOREVER
+                IF JFIRST1 = 0
+                    COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+                END-IF
+                MOVE 0 TO JFIRST1
+                IF NOT (J-index < J-size) EXIT PERFORM END-IF
+                COMPUTE J-key = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(J-keys, J-index))
+                IF (J-key NOT = (0 - 1))
+                    COMPUTE JDISCARD = FUNCTION GameInput-addForRemoval1(J-gameInput, FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_gameKeyEventFactory")))
+                END-IF
+            END-PERFORM
+        END-IF
+    GOBACK.
+END FUNCTION MultiKeyPressesAI-update0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameInput, AllBinaryLayer, AllBinaryLayerManager, GameTickTimeDelayHelper, TimeDelayHelper, ABHashtable, KeyPressesAI;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MultiKeyPressesAI-toggle0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION TimeDelayHelper-isTime1(FUNCTION JR-GET(J-THIS, "f_toggleTimeHelper"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameTickTimeDelayHelper"), "f_startTime")) = 1)
+            COMPUTE JDISCARD = FUNCTION KeyPressesAI-toggle0(J-THIS)
+            COMPUTE JDISCARD = FUNCTION MultiKeyPressesAI-update0(J-THIS)
+        END-IF
+    GOBACK.
+END FUNCTION MultiKeyPressesAI-toggle0.
 
-type
-  {AB:TYPES}
-  TMultiKeyPressesAI = class(TKeyPressesAI)
-  public
-    toggleTimeHelper: TTimeDelayHelper;
-    gameTickTimeDelayHelper: TGameTickTimeDelayHelper;
-    procedure InitFields;
-        constructor Create(hashtable: TABHashtable<TObject, TObject>; ownerLayerInterface: TAllBinaryLayer; gameInput_: TGameInput);
-        procedure processAI(allBinaryLayerManager_: TAllBinaryLayerManager); override;
-        procedure update;
-        procedure toggle; override;
-        procedure disable; override;
-        procedure enable; override;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MultiKeyPressesAI-disable0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION TimeDelayHelper-isTime1(FUNCTION JR-GET(J-THIS, "f_toggleTimeHelper"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameTickTimeDelayHelper"), "f_startTime")) = 1)
+            COMPUTE JDISCARD = FUNCTION KeyPressesAI-disable0(J-THIS)
+            COMPUTE JDISCARD = FUNCTION MultiKeyPressesAI-update0(J-THIS)
+        END-IF
+    GOBACK.
+END FUNCTION MultiKeyPressesAI-disable0.
 
-implementation
-uses
-  GameTickTimeDelayHelperFactory;
-
-
-{AB:CODE}
-
-procedure TMultiKeyPressesAI.InitFields;
-begin
-  Self.toggleTimeHelper := TTimeDelayHelper.Create(600);
-  Self.gameTickTimeDelayHelper := TGameTickTimeDelayHelperFactory.getInstance();
-end;
-    
-
-constructor TMultiKeyPressesAI.Create(hashtable: TABHashtable<TObject, TObject>; ownerLayerInterface: TAllBinaryLayer; gameInput_: TGameInput);
-begin
-        inherited Create(hashtable, ownerLayerInterface, gameInput_);
-        InitFields;
-        Self.update();
-end;
-    
-
-// throws Exception
-procedure TMultiKeyPressesAI.processAI(allBinaryLayerManager_: TAllBinaryLayerManager);
-begin
-end;
-    
-
-// throws Exception
-procedure TMultiKeyPressesAI.update;
-var
-  gameInput_: TGameInput;
-  keys: TArray<Integer>;
-  size: Integer;
-  key: Integer;
-  index: Integer;
-begin
-        gameInput_ := Self.getGameInput();
-        keys := Self.keys;
-        size := System.Length(keys);
-        if Self.isOn() then begin
-            for index := 0 to size - 1 do begin
-                key := (keys[index]);
-                if (key) <> (-1) then begin
-                    gameInput_.add(Self.gameKeyEventFactory.getInstanceForKey(Self, key));
-                end;
-            end;
-        end else begin
-            for index := 0 to size - 1 do begin
-                key := (keys[index]);
-                if (key) <> (-1) then begin
-                    gameInput_.addForRemoval(Self.gameKeyEventFactory.getInstanceForKey(Self, key));
-                end;
-            end;
-        end;
-end;
-    
-
-// throws Exception
-procedure TMultiKeyPressesAI.toggle;
-begin
-        if Self.toggleTimeHelper.isTime(Self.gameTickTimeDelayHelper.startTime) then begin
-            inherited toggle();
-            Self.update();
-        end;
-end;
-    
-
-// throws Exception
-procedure TMultiKeyPressesAI.disable;
-begin
-        if Self.toggleTimeHelper.isTime(Self.gameTickTimeDelayHelper.startTime) then begin
-            inherited disable();
-            Self.update();
-        end;
-end;
-    
-
-// throws Exception
-procedure TMultiKeyPressesAI.enable;
-begin
-        if Self.toggleTimeHelper.isTime(Self.gameTickTimeDelayHelper.startTime) then begin
-            inherited enable();
-            Self.update();
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MultiKeyPressesAI-enable0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION TimeDelayHelper-isTime1(FUNCTION JR-GET(J-THIS, "f_toggleTimeHelper"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameTickTimeDelayHelper"), "f_startTime")) = 1)
+            COMPUTE JDISCARD = FUNCTION KeyPressesAI-enable0(J-THIS)
+            COMPUTE JDISCARD = FUNCTION MultiKeyPressesAI-update0(J-THIS)
+        END-IF
+    GOBACK.
+END FUNCTION MultiKeyPressesAI-enable0.
 

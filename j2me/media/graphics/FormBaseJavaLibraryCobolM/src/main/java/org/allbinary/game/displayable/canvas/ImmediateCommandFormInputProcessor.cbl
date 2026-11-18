@@ -1,144 +1,178 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.displayable.canvas
+*> Java class ImmediateCommandFormInputProcessor
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.displayable.canvas
-unit ImmediateCommandFormInputProcessor;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameKeyEvent, ScrollSelectionForm, MotionGestureEvent, TimeDelayHelper, BasicArrayList, GameCommandCanvas, CommandFormInputProcessor;
-
-type
-  {AB:TYPES}
-  TImmediateCommandFormInputProcessor = class(TCommandFormInputProcessor)
-  public
-    timeHelper: TTimeDelayHelper;
-    gameCommandCanvas: TGameCommandCanvas;
-    procedure InitFields;
-        constructor Create(gameKeyEventList: TBasicArrayList; playerInputId: Integer; gameCommandCanvas_: TGameCommandCanvas; form: TScrollSelectionForm);
-        procedure onPressGameKeyEvent(gameKeyEvent_: TGameKeyEvent); override;
-        procedure onDownGameKeyEvent(gameKeyEvent_: TGameKeyEvent); override;
-        procedure onUpGameKeyEvent(gameKeyEvent_: TGameKeyEvent); override;
-        procedure onMotionGestureEvent(motionGestureEvent_: TMotionGestureEvent); override;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TImmediateCommandFormInputProcessor.InitFields;
-begin
-  Self.timeHelper := TTimeDelayHelper.Create(25);
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImmdtCmmndFrmInptPrcssr-new4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-gameKeyEventList BINARY-DOUBLE.
+01 J-playerInputId BINARY-DOUBLE.
+01 J-gameCommandCanvas BINARY-DOUBLE.
+01 J-form BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-gameKeyEventList J-playerInputId J-gameCommandCanvas J-form RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ImmediateCommandFormInputProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_timeHelper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameCommandCanvas")
+    COMPUTE jtemp1 = 25
+    COMPUTE JVALUE = FUNCTION TimeDelayHelper-new1(jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_timeHelper", JVALUE)
     
+        CONTINUE
+        COMPUTE JVALUE = J-gameCommandCanvas
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameCommandCanvas", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ImmdtCmmndFrmInptPrcssr-new4.
 
-constructor TImmediateCommandFormInputProcessor.Create(gameKeyEventList: TBasicArrayList; playerInputId: Integer; gameCommandCanvas_: TGameCommandCanvas; form: TScrollSelectionForm);
-begin
-        inherited Create(gameKeyEventList, playerInputId, gameCommandCanvas_, form);
-        InitFields;
-        Self.gameCommandCanvas := gameCommandCanvas_;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImmdtCmmndFrmInptPrcssr-o10413.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gameKeyEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE JDISCARD = FUNCTION PlyrGmInpt-onPrssGmKyEvnt1(J-THIS, J-gameKeyEvent)
+            IF (FUNCTION TimeDelayHelper-isTimeTNT0(FUNCTION JR-GET(J-THIS, "f_timeHelper")) = 1)
+                COMPUTE JDISCARD = FUNCTION CmmndFrmInptPrcssr-prcssI61415(J-THIS)
+                COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameCommandCanvas"), "f_repaintBehavior"))
+            END-IF
+    GOBACK.
+END FUNCTION ImmdtCmmndFrmInptPrcssr-o10413.
 
-procedure TImmediateCommandFormInputProcessor.onPressGameKeyEvent(gameKeyEvent_: TGameKeyEvent);
-begin
-    TJava.MonitorEnter(Self);
-    try
-        try
-            inherited onPressGameKeyEvent(gameKeyEvent_);
-            if Self.timeHelper.isTimeTNT() then begin
-                Self.processInputList();
-                Self.gameCommandCanvas.repaintBehavior.onChangeRepaint(Self.getCanvas());
-            end;
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.gameInputStrings.ON_PRESS_GAME_KEY, TJava.Box(e));
-            end;
-        end;
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImmdtCmmndFrmInptPrcssr-o38056.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gameKeyEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE JDISCARD = FUNCTION PlyrGmInpt-onDownGameKeyEvent1(J-THIS, J-gameKeyEvent)
+            IF (FUNCTION TimeDelayHelper-isTimeTNT0(FUNCTION JR-GET(J-THIS, "f_timeHelper")) = 1)
+                COMPUTE JDISCARD = FUNCTION CmmndFrmInptPrcssr-prcssI61415(J-THIS)
+                COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameCommandCanvas"), "f_repaintBehavior"))
+            END-IF
+    GOBACK.
+END FUNCTION ImmdtCmmndFrmInptPrcssr-o38056.
 
-procedure TImmediateCommandFormInputProcessor.onDownGameKeyEvent(gameKeyEvent_: TGameKeyEvent);
-begin
-    TJava.MonitorEnter(Self);
-    try
-        try
-            inherited onDownGameKeyEvent(gameKeyEvent_);
-            if Self.timeHelper.isTimeTNT() then begin
-                Self.processInputList();
-                Self.gameCommandCanvas.repaintBehavior.onChangeRepaint(Self.getCanvas());
-            end;
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.gameInputStrings.ON_DOWN_GAME_KEY, TJava.Box(e));
-            end;
-        end;
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImmdtCmmndFrmInptPrcssr-o60716.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gameKeyEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE JDISCARD = FUNCTION PlyrGmInpt-onUpGameKeyEvent1(J-THIS, J-gameKeyEvent)
+            IF (FUNCTION TimeDelayHelper-isTimeTNT0(FUNCTION JR-GET(J-THIS, "f_timeHelper")) = 1)
+                COMPUTE JDISCARD = FUNCTION CmmndFrmInptPrcssr-prcssI61415(J-THIS)
+                COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameCommandCanvas"), "f_repaintBehavior"))
+            END-IF
+    GOBACK.
+END FUNCTION ImmdtCmmndFrmInptPrcssr-o60716.
 
-procedure TImmediateCommandFormInputProcessor.onUpGameKeyEvent(gameKeyEvent_: TGameKeyEvent);
-begin
-    TJava.MonitorEnter(Self);
-    try
-        try
-            inherited onUpGameKeyEvent(gameKeyEvent_);
-            if Self.timeHelper.isTimeTNT() then begin
-                Self.processInputList();
-                Self.gameCommandCanvas.repaintBehavior.onChangeRepaint(Self.getCanvas());
-            end;
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.gameInputStrings.ON_UP_GAME_KEY, TJava.Box(e));
-            end;
-        end;
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
-
-procedure TImmediateCommandFormInputProcessor.onMotionGestureEvent(motionGestureEvent_: TMotionGestureEvent);
-begin
-        try
-            inherited onMotionGestureEvent(motionGestureEvent_);
-            if Self.timeHelper.isTimeTNT() then begin
-                Self.processInputList();
-                Self.gameCommandCanvas.repaintBehavior.onChangeRepaint(Self.getCanvas());
-            end;
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), 'onMotionGestureEvent', TJava.Box(e));
-            end;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImmdtCmmndFrmInptPrcssr-o24830.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-motionGestureEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-motionGestureEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE JDISCARD = FUNCTION BscMnInptPrcssr-onMtnGstrEvnt1(J-THIS, J-motionGestureEvent)
+            IF (FUNCTION TimeDelayHelper-isTimeTNT0(FUNCTION JR-GET(J-THIS, "f_timeHelper")) = 1)
+                COMPUTE JDISCARD = FUNCTION CmmndFrmInptPrcssr-prcssI61415(J-THIS)
+                COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameCommandCanvas"), "f_repaintBehavior"))
+            END-IF
+    GOBACK.
+END FUNCTION ImmdtCmmndFrmInptPrcssr-o24830.
 

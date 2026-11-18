@@ -1,202 +1,440 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion.gesture.observer
+*> Java class GameMotionGestureListener
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion.gesture.observer
-unit GameMotionGestureListener;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LogUtil, AllBinaryEventObject, CommonStrings, BasicArrayList, CompleteMotionGestureListenerInterface, MotionGestureEvent, MotionGestureEventListener, BaseMotionGestureEventListener, EventListenerInterface;
-
-type
-  {AB:TYPES}
-  TGameMotionGestureListener = class(TInterfacedObject, IMotionGestureEventListener, IBaseMotionGestureEventListener, IEventListenerInterface)
-  public
-    logUtil: TLogUtil;
-    commonStrings: TCommonStrings;
-    motionGestureCollection: TBasicArrayList;
-    touchGestureCollection: TBasicArrayList;
-    signed: ICompleteMotionGestureListenerInterface;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(signed: ICompleteMotionGestureListenerInterface);
-        procedure onEvent(eventObject: TAllBinaryEventObject); virtual;
-        procedure onUpMotionGestureEvent(ev: TMotionGestureEvent); virtual;
-        procedure onDownMotionGestureEvent(ev: TMotionGestureEvent); virtual;
-        procedure onLeftMotionGestureEvent(ev: TMotionGestureEvent); virtual;
-        procedure onRightMotionGestureEvent(ev: TMotionGestureEvent); virtual;
-        procedure onDiagonalDownRightMotionGestureEvent(ev: TMotionGestureEvent); virtual;
-        procedure onDiagonalDownLeftMotionGestureEvent(ev: TMotionGestureEvent); virtual;
-        procedure onDiagonalUpRightMotionGestureEvent(ev: TMotionGestureEvent); virtual;
-        procedure onDiagonalUpLeftMotionGestureEvent(ev: TMotionGestureEvent); virtual;
-        procedure onPressedMotionGestureEvent(ev: TMotionGestureEvent); virtual;
-        procedure released(ev: TMotionGestureEvent); virtual;
-        procedure onScrolledMotionGestureEvent(motionGestureEvent_: TMotionGestureEvent); virtual;
-        procedure onMotionGestureEvent(ev: TMotionGestureEvent); virtual;
-  end;
-
-implementation
-uses
-  MotionGestureInput, TouchMotionGestureFactory, ForcedLogUtil, StringMaker, StringUtil, BasicArrayListD;
-
-
-{AB:CODE}
-
-procedure TGameMotionGestureListener.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.commonStrings := TCommonStrings.getInstance();
-  Self.motionGestureCollection := TBasicArrayListD.Create();
-  Self.touchGestureCollection := TBasicArrayListD.Create();
-  
-end;
-
-function TGameMotionGestureListener.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameMotionGestureListener-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-signed BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-signed RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameMotionGestureListener")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_motionGestureCollection")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_touchGestureCollection")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_signed")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
+    COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_motionGestureCollection", JVALUE)
+    COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_touchGestureCollection", JVALUE)
     
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_START"), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"),
+        "f_CONSTRUCTOR"))
+        COMPUTE JVALUE = J-signed
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_signed", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GameMotionGestureListener-new1.
 
-constructor TGameMotionGestureListener.Create(signed: ICompleteMotionGestureListenerInterface);
-begin
-    inherited Create;
-    InitFields;
-        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_);
-        Self.signed := signed;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmMtnGstrLstnr-onEvent1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION ForcedLogUtil-log2(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_NOT_IMPLEMENTED"), J-THIS)
+    GOBACK.
+END FUNCTION GmMtnGstrLstnr-onEvent1.
 
-procedure TGameMotionGestureListener.onEvent(eventObject: TAllBinaryEventObject);
-begin
-        TForcedLogUtil.log(Self.commonStrings.NOT_IMPLEMENTED, TJava.Box(Self));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmMtnGstrLstnr-onUpMtnGst60963.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ev BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ev RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION GmMtnGstrLstnr-onMtnGstrEvnt1(J-THIS, J-ev)
+    GOBACK.
+END FUNCTION GmMtnGstrLstnr-onUpMtnGst60963.
 
-procedure TGameMotionGestureListener.onUpMotionGestureEvent(ev: TMotionGestureEvent);
-begin
-        Self.onMotionGestureEvent(ev);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmMtnGstrLstnr-onDwnMtnGs20227.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ev BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ev RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION GmMtnGstrLstnr-onMtnGstrEvnt1(J-THIS, J-ev)
+    GOBACK.
+END FUNCTION GmMtnGstrLstnr-onDwnMtnGs20227.
 
-procedure TGameMotionGestureListener.onDownMotionGestureEvent(ev: TMotionGestureEvent);
-begin
-        Self.onMotionGestureEvent(ev);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmMtnGstrLstnr-onLftMtnGs38489.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ev BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ev RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION GmMtnGstrLstnr-onMtnGstrEvnt1(J-THIS, J-ev)
+    GOBACK.
+END FUNCTION GmMtnGstrLstnr-onLftMtnGs38489.
 
-procedure TGameMotionGestureListener.onLeftMotionGestureEvent(ev: TMotionGestureEvent);
-begin
-        Self.onMotionGestureEvent(ev);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmMtnGstrLstnr-onRghtMtnG54550.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ev BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ev RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION GmMtnGstrLstnr-onMtnGstrEvnt1(J-THIS, J-ev)
+    GOBACK.
+END FUNCTION GmMtnGstrLstnr-onRghtMtnG54550.
 
-procedure TGameMotionGestureListener.onRightMotionGestureEvent(ev: TMotionGestureEvent);
-begin
-        Self.onMotionGestureEvent(ev);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmMtnGstrLstnr-onDgnlDwnR35351.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ev BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ev RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION GmMtnGstrLstnr-onMtnGstrEvnt1(J-THIS, J-ev)
+    GOBACK.
+END FUNCTION GmMtnGstrLstnr-onDgnlDwnR35351.
 
-procedure TGameMotionGestureListener.onDiagonalDownRightMotionGestureEvent(ev: TMotionGestureEvent);
-begin
-        Self.onMotionGestureEvent(ev);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmMtnGstrLstnr-onDgnlDwnL29086.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ev BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ev RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION GmMtnGstrLstnr-onMtnGstrEvnt1(J-THIS, J-ev)
+    GOBACK.
+END FUNCTION GmMtnGstrLstnr-onDgnlDwnL29086.
 
-procedure TGameMotionGestureListener.onDiagonalDownLeftMotionGestureEvent(ev: TMotionGestureEvent);
-begin
-        Self.onMotionGestureEvent(ev);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmMtnGstrLstnr-onDgnlUpRg50849.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ev BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ev RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION GmMtnGstrLstnr-onMtnGstrEvnt1(J-THIS, J-ev)
+    GOBACK.
+END FUNCTION GmMtnGstrLstnr-onDgnlUpRg50849.
 
-procedure TGameMotionGestureListener.onDiagonalUpRightMotionGestureEvent(ev: TMotionGestureEvent);
-begin
-        Self.onMotionGestureEvent(ev);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmMtnGstrLstnr-onDgnlUpLf84083.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ev BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ev RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION GmMtnGstrLstnr-onMtnGstrEvnt1(J-THIS, J-ev)
+    GOBACK.
+END FUNCTION GmMtnGstrLstnr-onDgnlUpLf84083.
 
-procedure TGameMotionGestureListener.onDiagonalUpLeftMotionGestureEvent(ev: TMotionGestureEvent);
-begin
-        Self.onMotionGestureEvent(ev);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmMtnGstrLstnr-onPrssdMtn82207.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ev BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ev RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_touchGestureCollection"), FUNCTION MtnGstrEvnt-getMotionGesture0(J-ev))
+    GOBACK.
+END FUNCTION GmMtnGstrLstnr-onPrssdMtn82207.
 
-procedure TGameMotionGestureListener.onPressedMotionGestureEvent(ev: TMotionGestureEvent);
-begin
-        Self.touchGestureCollection.add(TJava.Box(ev.getMotionGesture()));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmMtnGstrLstnr-released1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringBuffer BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ev BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ev RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_touchGestureCollection"), FUNCTION MtnGstrEvnt-getMotionGesture0(J-ev))
+            COMPUTE JDISCARD = FUNCTION CmpltMtnGstrLstnrIntrfc-o89017(FUNCTION JR-GET(J-THIS, "f_signed"), FUNCTION JR-GET(J-THIS, "f_touchGestureCollection"))
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-clear0(FUNCTION JR-GET(J-THIS, "f_touchGestureCollection"))
+    GOBACK.
+END FUNCTION GmMtnGstrLstnr-released1.
 
-procedure TGameMotionGestureListener.released(ev: TMotionGestureEvent);
-var
-  stringBuffer: TStringMaker;
-begin
-        try
-            Self.touchGestureCollection.add(TJava.Box(ev.getMotionGesture()));
-            Self.signed.onMotionGestureCompleted(Self.touchGestureCollection);
-            Self.touchGestureCollection.clear();
-        except
-            on e: SysUtils.Exception do begin
-            stringBuffer := TStringMaker.Create();
-            stringBuffer.append(Self.commonStrings.EXCEPTION_LABEL);
-            stringBuffer.append(TStringUtil.getInstance().toString(ev.getMotionGesture()));
-            Self.logUtil.put(stringBuffer.toString(), TJava.Box(Self), 'release', TJava.Box(e));
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmMtnGstrLstnr-onScrlldMt35280.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-motionGestureEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-motionGestureEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION GmMtnGstrLstnr-onScrlldMt35280.
 
-procedure TGameMotionGestureListener.onScrolledMotionGestureEvent(motionGestureEvent_: TMotionGestureEvent);
-begin
-end;
-    
-
-procedure TGameMotionGestureListener.onMotionGestureEvent(ev: TMotionGestureEvent);
-var
-  motionGestureInput_: TMotionGestureInput;
-  stringBuffer: TStringMaker;
-begin
-        try
-            motionGestureInput_ := ev.getMotionGesture();
-            if (motionGestureInput_) = (TTouchMotionGestureFactory.getInstance().PRESSED) then begin
-                Self.onPressedMotionGestureEvent(ev);
-            end else if (motionGestureInput_) = (TTouchMotionGestureFactory.getInstance().RELEASED) then begin
-                Self.released(ev);
-            end else begin
-                Self.motionGestureCollection.add(TJava.Box(motionGestureInput_));
-                Self.signed.onMotionGestureCompleted(Self.motionGestureCollection);
-                Self.motionGestureCollection.clear();
-                Self.touchGestureCollection.clear();
-            end;
-        except
-            on e: SysUtils.Exception do begin
-            stringBuffer := TStringMaker.Create();
-            stringBuffer.append(Self.commonStrings.EXCEPTION_LABEL);
-            stringBuffer.append(TStringUtil.getInstance().toString(ev.getMotionGesture()));
-            Self.logUtil.put(stringBuffer.toString(), TJava.Box(Self), 'onMotionGestureEvent', TJava.Box(e));
-            end;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmMtnGstrLstnr-onMtnGstrEvnt1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-motionGestureInput BINARY-DOUBLE.
+01 J-stringBuffer BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ev BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ev RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE J-motionGestureInput = FUNCTION MtnGstrEvnt-getMotionGesture0(J-ev)
+            COMPUTE jtemp2 = FUNCTION TchMtnGstrFctry-getInstance0
+            IF (J-motionGestureInput = FUNCTION JR-GET(jtemp2, "f_PRESSED"))
+                COMPUTE JDISCARD = FUNCTION GmMtnGstrLstnr-onPrssdMtn82207(J-THIS, J-ev)
+            ELSE
+                COMPUTE jtemp3 = FUNCTION TchMtnGstrFctry-getInstance0
+            IF (J-motionGestureInput = FUNCTION JR-GET(jtemp3, "f_RELEASED"))
+                COMPUTE JDISCARD = FUNCTION GmMtnGstrLstnr-released1(J-THIS, J-ev)
+            ELSE
+                COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_motionGestureCollection"), J-motionGestureInput)
+                COMPUTE JDISCARD = FUNCTION CmpltMtnGstrLstnrIntrfc-o89017(FUNCTION JR-GET(J-THIS, "f_signed"), FUNCTION JR-GET(J-THIS, "f_motionGestureCollection"))
+                COMPUTE JDISCARD = FUNCTION BasicArrayList-clear0(FUNCTION JR-GET(J-THIS, "f_motionGestureCollection"))
+                COMPUTE JDISCARD = FUNCTION BasicArrayList-clear0(FUNCTION JR-GET(J-THIS, "f_touchGestureCollection"))
+            END-IF
+            END-IF
+    GOBACK.
+END FUNCTION GmMtnGstrLstnr-onMtnGstrEvnt1.
 

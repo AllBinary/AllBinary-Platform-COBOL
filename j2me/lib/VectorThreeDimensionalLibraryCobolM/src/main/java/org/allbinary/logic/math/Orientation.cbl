@@ -1,98 +1,251 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.math
+*> Java class Orientation
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.logic.math
-unit Orientation;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Orientation-static-NONE.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 Orientation-jcell-NONE BINARY-DOUBLE EXTERNAL.
+01 Orientation-jset-NONE BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF Orientation-jset-NONE = 0
+        MOVE 1 TO Orientation-jset-NONE
+        COMPUTE jtemp1 = 0
+    COMPUTE jtemp2 = 0
+    COMPUTE jtemp3 = 0
+    COMPUTE Orientation-jcell-NONE = FUNCTION Orientation-new3(jtemp1, jtemp2, jtemp3)
+    END-IF
+    MOVE Orientation-jcell-NONE TO J-RESULT
+    GOBACK.
+END FUNCTION Orientation-static-NONE.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OrientationstaticNONS82367.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 Orientation-jcell-NONE BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION Orientation-static-NONE TO J-RESULT
+    MOVE J-VALUE TO Orientation-jcell-NONE
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION OrientationstaticNONS82367.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Orientation-static-SINGLETON.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 Orientation-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+01 Orientation-jset-SINGLETON BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF Orientation-jset-SINGLETON = 0
+        MOVE 1 TO Orientation-jset-SINGLETON
+        COMPUTE jtemp4 = 0
+    COMPUTE jtemp5 = 0
+    COMPUTE jtemp6 = 0
+    COMPUTE Orientation-jcell-SINGLETON = FUNCTION Orientation-new3(jtemp4, jtemp5, jtemp6)
+    END-IF
+    MOVE Orientation-jcell-SINGLETON TO J-RESULT
+    GOBACK.
+END FUNCTION Orientation-static-SINGLETON.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, BasicDecimal;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OrientationstaticSINS33204.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 Orientation-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION Orientation-static-SINGLETON TO J-RESULT
+    MOVE J-VALUE TO Orientation-jcell-SINGLETON
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION OrientationstaticSINS33204.
 
-type
-  {AB:TYPES}
-  TOrientation = class(TObject)
-  public
-    yaw: TBasicDecimal;
-    pitch: TBasicDecimal;
-    roll: TBasicDecimal;
-    class var NONE: TOrientation;
-    class var SINGLETON: TOrientation;
-    procedure InitFields;
-        class function getInstance(yaw: Integer; pitch: Integer; roll: Integer): TOrientation; static;
-        constructor Create(yaw: Integer; pitch: Integer; roll: Integer);
-        function toString: string; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Orientation-new3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-yaw BINARY-DOUBLE.
+01 J-pitch BINARY-DOUBLE.
+01 J-roll BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-yaw J-pitch J-roll RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("Orientation")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_yaw")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_pitch")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_roll")
+    COMPUTE jtemp7 = 0
+    COMPUTE JVALUE = FUNCTION BasicDecimal-new1(jtemp7)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_yaw", JVALUE)
+    COMPUTE jtemp8 = 0
+    COMPUTE JVALUE = FUNCTION BasicDecimal-new1(jtemp8)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_pitch", JVALUE)
+    COMPUTE jtemp9 = 0
+    COMPUTE JVALUE = FUNCTION BasicDecimal-new1(jtemp9)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_roll", JVALUE)
+        COMPUTE JDISCARD = FUNCTION BasicDecimal-setint1(FUNCTION JR-GET(J-THIS, "f_yaw"), J-yaw)
+        COMPUTE JDISCARD = FUNCTION BasicDecimal-setint1(FUNCTION JR-GET(J-THIS, "f_pitch"), J-pitch)
+        COMPUTE JDISCARD = FUNCTION BasicDecimal-setint1(FUNCTION JR-GET(J-THIS, "f_roll"), J-roll)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION Orientation-new3.
 
-implementation
-uses
-  StringMaker;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Orientation-getInstance3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-yaw BINARY-DOUBLE.
+01 J-pitch BINARY-DOUBLE.
+01 J-roll BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-yaw J-pitch J-roll RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(FUNCTION Orientation-static-SINGLETON, "f_yaw"))
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(FUNCTION Orientation-static-SINGLETON, "f_pitch"))
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(FUNCTION Orientation-static-SINGLETON, "f_roll"))
+        COMPUTE J-RESULT = FUNCTION Orientation-static-SINGLETON
+        GOBACK
+    GOBACK.
+END FUNCTION Orientation-getInstance3.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Orientation-toString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringBuffer BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR("Y: "))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-TO-STRING(FUNCTION JR-GET(J-THIS, "f_yaw")))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR(" P: "))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-TO-STRING(FUNCTION JR-GET(J-THIS, "f_pitch")))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR(" R: "))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-TO-STRING(FUNCTION JR-GET(J-THIS, "f_roll")))
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(J-stringBuffer)
+        GOBACK
+    GOBACK.
+END FUNCTION Orientation-toString0.
 
-{AB:CODE}
-
-procedure TOrientation.InitFields;
-begin
-  Self.yaw := TBasicDecimal.Create(0);
-  Self.pitch := TBasicDecimal.Create(0);
-  Self.roll := TBasicDecimal.Create(0);
-end;
-    
-
-class function TOrientation.getInstance(yaw: Integer; pitch: Integer; roll: Integer): TOrientation;
-begin
-        TOrientation.SINGLETON.yaw.setint(yaw);
-        TOrientation.SINGLETON.pitch.setint(pitch);
-        TOrientation.SINGLETON.roll.setint(roll);
-        Exit(TOrientation.SINGLETON);
-end;
-    
-
-constructor TOrientation.Create(yaw: Integer; pitch: Integer; roll: Integer);
-begin
-    inherited Create;
-    InitFields;
-        Self.yaw.setint(yaw);
-        Self.pitch.setint(pitch);
-        Self.roll.setint(roll);
-end;
-    
-
-function TOrientation.toString: string;
-var
-  stringBuffer: TStringMaker;
-begin
-        stringBuffer := TStringMaker.Create();
-        stringBuffer.append('Y: ');
-        stringBuffer.append(Self.yaw.toString());
-        stringBuffer.append(' P: ');
-        stringBuffer.append(Self.pitch.toString());
-        stringBuffer.append(' R: ');
-        stringBuffer.append(Self.roll.toString());
-        Exit(stringBuffer.toString());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TOrientation.NONE := TOrientation.Create(0, 0, 0);
-  TOrientation.SINGLETON := TOrientation.Create(0, 0, 0);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+PROGRAM-ID. Orientation-toString.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION Orientation-toString0(J-THIS)
+    GOBACK.
+END PROGRAM Orientation-toString.
 

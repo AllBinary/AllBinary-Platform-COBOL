@@ -1,65 +1,62 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation
+*> Java class VectorAnimationFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation
-unit VectorAnimationFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VectorAnimationFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("VectorAnimationFactory")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION VectorAnimationFactory-new0.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, BasicColor, VectorAnimation, VectorAnimationFactoryInterface;
-
-type
-  {AB:TYPES}
-  TVectorAnimationFactory = class(TInterfacedObject, IVectorAnimationFactoryInterface)
-  public
-    function JavaObject: TObject;
-    constructor Create;
-        function getInstance(points: TArray<TArray<TArray<Integer>>>; basicColor_: TBasicColor): TVectorAnimation; virtual;
-  end;
-
-implementation
-uses
-  AnimationBehavior;
-
-
-{AB:CODE}
-
-function TVectorAnimationFactory.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-
-constructor TVectorAnimationFactory.Create;
-begin
-  inherited Create;
-end;
-    
-
-function TVectorAnimationFactory.getInstance(points: TArray<TArray<TArray<Integer>>>; basicColor_: TBasicColor): TVectorAnimation;
-begin
-        Exit(TVectorAnimation.Create(points, basicColor_, TAnimationBehavior.getInstance()));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrAnmtnFctry-getInstance2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-points BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-points J-basicColor RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION VectorAnimation-new3(J-points, J-basicColor, FUNCTION AnimationBehavior-getInstance0)
+        GOBACK
+    GOBACK.
+END FUNCTION VctrAnmtnFctry-getInstance2.
 

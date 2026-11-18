@@ -1,70 +1,78 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2011 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.logic.math.permutations
-unit ComparableObject;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.math.permutations
+*> Java class ComparableObject
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ComparableObject-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ComparableObject")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ComparableObject-new0.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
-
-type
-  {AB:TYPES}
-  TComparableObject = class(TInterfacedObject, IComparable<TObject>)
-  public
-    function JavaObject: TObject;
-    constructor Create;
-        function compareTo(anyType: TObject): Integer; virtual;
-  end;
-
-implementation
-uses
-  TsUtil;
-
-
-{AB:CODE}
-
-function TComparableObject.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-
-constructor TComparableObject.Create;
-begin
-  inherited Create;
-end;
-    
-
-function TComparableObject.compareTo(anyType: TObject): Integer;
-begin
-        if (TTsUtil.getInstance().hashCode(TJava.Box(Self))) < (TTsUtil.getInstance().hashCode(TJava.Box(anyType))) then begin
-            Exit(-1);
-        end else if (TTsUtil.getInstance().hashCode(TJava.Box(Self))) > (TTsUtil.getInstance().hashCode(TJava.Box(anyType))) then begin
-            Exit(1);
-        end;
-        Exit(0);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ComparableObject-compareTo1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-anyType BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-anyType RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = FUNCTION TsUtil-getInstance0
+        COMPUTE jtemp2 = FUNCTION TsUtil-getInstance0
+        IF (FUNCTION TsUtil-hashCode1(jtemp1, J-THIS) < FUNCTION TsUtil-hashCode1(jtemp2, J-anyType))
+            COMPUTE J-RESULT = (0 - 1)
+            GOBACK
+        ELSE
+            COMPUTE jtemp3 = FUNCTION TsUtil-getInstance0
+        COMPUTE jtemp4 = FUNCTION TsUtil-getInstance0
+        IF (FUNCTION TsUtil-hashCode1(jtemp3, J-THIS) > FUNCTION TsUtil-hashCode1(jtemp4, J-anyType))
+            COMPUTE J-RESULT = 1
+            GOBACK
+        END-IF
+        END-IF
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION ComparableObject-compareTo1.
 

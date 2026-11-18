@@ -1,141 +1,373 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.data.resource
+*> Java class ResourceUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.data.resource
-unit ResourceUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RsrcUtl-static-classLoader.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ResourceUtil-jcell-classLoader BINARY-DOUBLE EXTERNAL.
+01 ResourceUtil-jset-classLoader BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF ResourceUtil-jset-classLoader = 0
+        MOVE 1 TO ResourceUtil-jset-classLoader
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE ResourceUtil-jcell-classLoader = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+    END-IF
+    MOVE ResourceUtil-jcell-classLoader TO J-RESULT
+    GOBACK.
+END FUNCTION RsrcUtl-static-classLoader.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RsrcUtlstaticclassLoS46726.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ResourceUtil-jcell-classLoader BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION RsrcUtl-static-classLoader TO J-RESULT
+    MOVE J-VALUE TO ResourceUtil-jcell-classLoader
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION RsrcUtlstaticclassLoS46726.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ResourceUtil-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ResourceUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 ResourceUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF ResourceUtil-jset-instance = 0
+        MOVE 1 TO ResourceUtil-jset-instance
+        COMPUTE ResourceUtil-jcell-instance = FUNCTION ResourceUtil-new0
+    END-IF
+    MOVE ResourceUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION ResourceUtil-static-instance.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LogUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ResourceUtilstaticinS90055.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ResourceUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION ResourceUtil-static-instance TO J-RESULT
+    MOVE J-VALUE TO ResourceUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION ResourceUtilstaticinS90055.
 
-type
-  {AB:TYPES}
-  // J2SE - J2ME
-  TResourceUtil = class(TObject)
-  public
-    logUtil: TLogUtil;
-    class var classLoader: TObject;
-    class var instance: TResourceUtil;
-    procedure InitFields;
-        class function getInstance: TResourceUtil; static;
-        constructor Create;
-        procedure setLoadingPaths(path: string; ext: string); virtual;
-        procedure setClassLoader(classLoader: TClassLoader); virtual;
-        function getResourceAsStream(resource: string): TInputStream; virtual;
-        function getResourceAsStreamAtStart(resource: string; startIndex: Integer): TInputStream;
-        procedure addResource(resource: string; value: Integer); virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ResourceUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ResourceUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ResourceUtil-new0.
 
-implementation
-uses
-  NullUtil, StringMaker, CommonSeps, CommonStrings;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ResourceUtil-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION ResourceUtil-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION ResourceUtil-getInstance0.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ResourceUtil-setLoadingPaths2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-path BINARY-DOUBLE.
+01 J-ext BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-path J-ext RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION CommonStrings-getInstance0
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-GET(jtemp2, "f_NOT_IMPLEMENTED"), J-THIS, FUNCTION JR-STR("setLoadingPaths"))
+    GOBACK.
+END FUNCTION ResourceUtil-setLoadingPaths2.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ResourceUtil-setClassLoader1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-classLoader BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-classLoader RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp6 = FUNCTION JR-CLASS-NAME(J-classLoader)
+        COMPUTE jtemp5 = FUNCTION StringMaker-new0
+        COMPUTE jtemp4 = FUNCTION StringMaker-append1(jtemp5, FUNCTION JR-STR("Resource Loader: "))
+        COMPUTE jtemp3 = FUNCTION StringMaker-append1(jtemp4, jtemp6)
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp3), J-THIS, FUNCTION JR-STR("setClassLoader"))
+        COMPUTE JDISCARD = FUNCTION RsrcUtlstaticclassLoS46726(J-classLoader)
+    GOBACK.
+END FUNCTION ResourceUtil-setClassLoader1.
 
-procedure TResourceUtil.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RsrcUtl-getResourceAsStream1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-inputStream BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-resource BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-resource RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp7 = 2
+        COMPUTE J-inputStream = FUNCTION RsrcUtl-gtRsrcAsStrmAtStrt2(J-THIS, J-resource, jtemp7)
+        IF (J-inputStream = 0)
+            COMPUTE jtemp8 = 1
+            COMPUTE J-inputStream = FUNCTION RsrcUtl-gtRsrcAsStrmAtStrt2(J-THIS, J-resource, jtemp8)
+            IF (J-inputStream = 0)
+                COMPUTE jtemp11 = FUNCTION StringMaker-new0
+                COMPUTE jtemp10 = FUNCTION StringMaker-append1(jtemp11, FUNCTION JR-STR("Unable to obtain: "))
+                COMPUTE jtemp9 = FUNCTION StringMaker-append1(jtemp10, J-resource)
+                COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+            END-IF
+        END-IF
+        COMPUTE J-RESULT = J-inputStream
+        GOBACK
+    GOBACK.
+END FUNCTION RsrcUtl-getResourceAsStream1.
 
-class function TResourceUtil.getInstance: TResourceUtil;
-begin
-        Exit(TResourceUtil.instance);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RsrcUtl-gtRsrcAsStrmAtStrt2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-commonSeps BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-resourcePath BINARY-DOUBLE.
+01 J-inputStream BINARY-DOUBLE.
+01 J-classLoader BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-resource BINARY-DOUBLE.
+01 J-startIndex BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-resource J-startIndex RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-commonSeps = FUNCTION CommonSeps-getInstance0
+        COMPUTE J-index = FUNCTION JR-INDEX-OF(J-resource, FUNCTION JR-GET(J-commonSeps, "f_COLON"))
+        COMPUTE jtemp12 = (FUNCTION MOD((J-index + J-startIndex) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE J-resourcePath = FUNCTION JR-SUBSTRING(J-resource, jtemp12)
+        COMPUTE jtemp13 = FUNCTION JR-CLASS-NAME(J-resource)
+        COMPUTE J-inputStream = FUNCTION JR-CLASS-NAME(jtemp13)
+        IF (J-inputStream NOT = 0)
+            COMPUTE J-RESULT = J-inputStream
+            GOBACK
+        END-IF
+        COMPUTE J-classLoader = FUNCTION RsrcUtl-static-classLoader
+        COMPUTE J-inputStream = FUNCTION ClssLdr-getResourceAsStream1(J-classLoader, J-resourcePath)
+        IF (J-inputStream NOT = 0)
+            COMPUTE J-RESULT = J-inputStream
+            GOBACK
+        END-IF
+        COMPUTE jtemp15 = FUNCTION Thread-currentThread0
+        COMPUTE jtemp14 = FUNCTION JR-CLASS-NAME(jtemp15)
+        COMPUTE J-inputStream = FUNCTION JR-CLASS-NAME(jtemp14)
+        IF (J-inputStream NOT = 0)
+            COMPUTE J-RESULT = J-inputStream
+            GOBACK
+        END-IF
+        COMPUTE J-RESULT = J-inputStream
+        GOBACK
+    GOBACK.
+END FUNCTION RsrcUtl-gtRsrcAsStrmAtStrt2.
 
-constructor TResourceUtil.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
-
-procedure TResourceUtil.setLoadingPaths(path: string; ext: string);
-begin
-        Self.logUtil.putF(TCommonStrings.getInstance().NOT_IMPLEMENTED, TJava.Box(Self), 'setLoadingPaths');
-end;
-    
-
-procedure TResourceUtil.setClassLoader(classLoader: TClassLoader);
-begin
-        Self.logUtil.putF(TStringMaker.Create().append('Resource Loader: ').append(TJava.ToObject(classLoader).ClassType.ClassName).toString(), TJava.Box(Self), 'setClassLoader');
-        TResourceUtil.classLoader := classLoader;
-end;
-    
-
-// throws Exception
-function TResourceUtil.getResourceAsStream(resource: string): TInputStream;
-var
-  inputStream_: TInputStream;
-begin
-        inputStream_ := Self.getResourceAsStreamAtStart(resource, 2);
-        if (inputStream_) = (nil) then begin
-            inputStream_ := Self.getResourceAsStreamAtStart(resource, 1);
-            if (inputStream_) = (nil) then begin
-                raise SysUtils.Exception.Create(TStringMaker.Create().append('Unable to obtain: ').append(resource).toString());
-            end;
-        end;
-        Exit(inputStream_);
-end;
-    
-
-// throws Exception
-function TResourceUtil.getResourceAsStreamAtStart(resource: string; startIndex: Integer): TInputStream;
-var
-  commonSeps_: TCommonSeps;
-  index: Integer;
-  resourcePath: string;
-  inputStream_: TInputStream;
-  classLoader: TClassLoader;
-begin
-        commonSeps_ := TCommonSeps.getInstance();
-        index := (Pos(TJava.ToString(commonSeps_.COLON), resource) - 1);
-        resourcePath := Copy(resource, ((index) + (startIndex)) + 1, MaxInt);
-        inputStream_ := TClassLoader.getSystemClassLoader().getResourceAsStream(resourcePath);
-        if (inputStream_) <> (nil) then begin
-            Exit(inputStream_);
-        end;
-        classLoader := TClassLoader(TJava.ToObject(TResourceUtil.classLoader));
-        inputStream_ := classLoader.getResourceAsStream(resourcePath);
-        if (inputStream_) <> (nil) then begin
-            Exit(inputStream_);
-        end;
-        inputStream_ := TClassLoader.getSystemClassLoader().getResourceAsStream(resourcePath);
-        if (inputStream_) <> (nil) then begin
-            Exit(inputStream_);
-        end;
-        Exit(inputStream_);
-end;
-    
-
-procedure TResourceUtil.addResource(resource: string; value: Integer);
-begin
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TResourceUtil.classLoader := TJava.Box(TNullUtil.getInstance().NULL_OBJECT);
-  TResourceUtil.instance := TResourceUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ResourceUtil-addResource2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-resource BINARY-DOUBLE.
+01 J-value BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-resource J-value RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION ResourceUtil-addResource2.
 

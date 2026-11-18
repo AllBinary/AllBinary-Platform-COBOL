@@ -1,71 +1,132 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game
+*> Java class BasicHighScoresGameInfoFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game
-unit BasicHighScoresGameInfoFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscHghScrsGmInfFctry-stt70842.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BasicHighScoresGameInfoFactory-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+01 BasicHighScoresGameInfoFactory-jset-SINGLETON BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF BasicHighScoresGameInfoFactory-jset-SINGLETON = 0
+        MOVE 1 TO BasicHighScoresGameInfoFactory-jset-SINGLETON
+        COMPUTE BasicHighScoresGameInfoFactory-jcell-SINGLETON = FUNCTION BscHghScrsGmInfFctry-new0
+    END-IF
+    MOVE BasicHighScoresGameInfoFactory-jcell-SINGLETON TO J-RESULT
+    GOBACK.
+END FUNCTION BscHghScrsGmInfFctry-stt70842.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscHghScrsGmInfFctryS69103.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BasicHighScoresGameInfoFactory-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION BscHghScrsGmInfFctry-stt70842 TO J-RESULT
+    MOVE J-VALUE TO BasicHighScoresGameInfoFactory-jcell-SINGLETON
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION BscHghScrsGmInfFctryS69103.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscHghScrsGmInfFctry-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("BasicHighScoresGameInfoFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_MULTI_PLAYER_SERVER")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SINGLE_PLAYER_SERVER")
+    COMPUTE jtemp1 = FUNCTION GameTypeFactory-getInstance0
+    COMPUTE jtemp2 = FUNCTION PlyrTypsFctry-getInstance0
+    COMPUTE jtemp3 = 0
+    COMPUTE jtemp4 = 0
+    COMPUTE JVALUE = FUNCTION GameInfo-new5(FUNCTION JR-GET(jtemp1, "f_MULTI_PLAYER"), FUNCTION GameMode-static-SERVER, FUNCTION JR-GET(jtemp2, "f_PLAYER_TYPE_ONE"), jtemp3, jtemp4)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_MULTI_PLAYER_SERVER", JVALUE)
+    COMPUTE jtemp5 = FUNCTION GameTypeFactory-getInstance0
+    COMPUTE jtemp6 = FUNCTION PlyrTypsFctry-getInstance0
+    COMPUTE jtemp7 = 0
+    COMPUTE jtemp8 = 0
+    COMPUTE JVALUE = FUNCTION GameInfo-new5(FUNCTION JR-GET(jtemp5, "f_SINGLE_PLAYER"), FUNCTION GameMode-static-SERVER, FUNCTION JR-GET(jtemp6, "f_PLAYER_TYPE_ONE"), jtemp7, jtemp8)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SINGLE_PLAYER_SERVER", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION BscHghScrsGmInfFctry-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameInfo;
-
-type
-  {AB:TYPES}
-  TBasicHighScoresGameInfoFactory = class(TObject)
-  public
-    MULTI_PLAYER_SERVER: TGameInfo;
-    SINGLE_PLAYER_SERVER: TGameInfo;
-    class var SINGLETON: TBasicHighScoresGameInfoFactory;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TBasicHighScoresGameInfoFactory; static;
-  end;
-
-implementation
-uses
-  GameTypeFactory, GameMode, PlayerTypesFactory;
-
-
-{AB:CODE}
-
-procedure TBasicHighScoresGameInfoFactory.InitFields;
-begin
-  Self.MULTI_PLAYER_SERVER := TGameInfo.Create(TGameTypeFactory.getInstance().MULTI_PLAYER, TGameMode.SERVER, TPlayerTypesFactory.getInstance().PLAYER_TYPE_ONE, 0, 0);
-  Self.SINGLE_PLAYER_SERVER := TGameInfo.Create(TGameTypeFactory.getInstance().SINGLE_PLAYER, TGameMode.SERVER, TPlayerTypesFactory.getInstance().PLAYER_TYPE_ONE, 0, 0);
-end;
-
-constructor TBasicHighScoresGameInfoFactory.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TBasicHighScoresGameInfoFactory.getInstance: TBasicHighScoresGameInfoFactory;
-begin
-        Exit(TBasicHighScoresGameInfoFactory.SINGLETON);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TBasicHighScoresGameInfoFactory.SINGLETON := TBasicHighScoresGameInfoFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscHghScrsGmInfFctry-gtInstnc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION BscHghScrsGmInfFctry-stt70842
+        GOBACK
+    GOBACK.
+END FUNCTION BscHghScrsGmInfFctry-gtInstnc0.
 

@@ -1,89 +1,178 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.layer
+*> Java class BasicLayerProcessor
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.layer
-unit BasicLayerProcessor;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscLyrPrcssr-sttc-NULL18804.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BasicLayerProcessor-jcell-NULL_LAYER_PROCESSOR BINARY-DOUBLE EXTERNAL.
+01 BasicLayerProcessor-jset-NULL_LAYER_PROCESSOR BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF BasicLayerProcessor-jset-NULL_LAYER_PROCESSOR = 0
+        MOVE 1 TO BasicLayerProcessor-jset-NULL_LAYER_PROCESSOR
+        COMPUTE BasicLayerProcessor-jcell-NULL_LAYER_PROCESSOR = FUNCTION BasicLayerProcessor-new0
+    END-IF
+    MOVE BasicLayerProcessor-jcell-NULL_LAYER_PROCESSOR TO J-RESULT
+    GOBACK.
+END FUNCTION BscLyrPrcssr-sttc-NULL18804.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscLyrPrcssrsttcNULLS60511.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BasicLayerProcessor-jcell-NULL_LAYER_PROCESSOR BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION BscLyrPrcssr-sttc-NULL18804 TO J-RESULT
+    MOVE J-VALUE TO BasicLayerProcessor-jcell-NULL_LAYER_PROCESSOR
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION BscLyrPrcssrsttcNULLS60511.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicLayerProcessor-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("BasicLayerProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_list")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION BasicLayerProcessor-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LogUtil, BasicArrayList, AllBinaryLayer, AllBinaryLayerManager;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicLayerProcessor-add1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (NOT (FUNCTION BasicArrayList-contains1(FUNCTION JR-GET(J-THIS, "f_list"), J-layerInterface) = 1))
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), J-layerInterface)
+        END-IF
+    GOBACK.
+END FUNCTION BasicLayerProcessor-add1.
 
-type
-  {AB:TYPES}
-  TBasicLayerProcessor = class(TObject)
-  public
-    logUtil: TLogUtil;
-    list: TBasicArrayList;
-    class var NULL_LAYER_PROCESSOR: TBasicLayerProcessor;
-    procedure InitFields;
-        constructor Create;
-        procedure add(layerInterface: TAllBinaryLayer); virtual;
-        procedure process(allBinaryLayerManager_: TAllBinaryLayerManager); virtual;
-        function getList: TBasicArrayList; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicLayerProcessor-process1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryLayerManager BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = FUNCTION CommonStrings-getInstance0
+        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+    GOBACK.
+END FUNCTION BasicLayerProcessor-process1.
 
-implementation
-uses
-  CommonStrings, BasicArrayListD;
-
-
-{AB:CODE}
-
-procedure TBasicLayerProcessor.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.list := TBasicArrayListD.Create();
-end;
-    
-
-constructor TBasicLayerProcessor.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
-
-procedure TBasicLayerProcessor.add(layerInterface: TAllBinaryLayer);
-begin
-        if not (Self.list.contains(TJava.Box(layerInterface))) then begin
-            Self.list.add(TJava.Box(layerInterface));
-        end;
-end;
-    
-
-// throws Exception
-procedure TBasicLayerProcessor.process(allBinaryLayerManager_: TAllBinaryLayerManager);
-begin
-        raise SysUtils.Exception.Create(TCommonStrings.getInstance().NOT_IMPLEMENTED);
-end;
-    
-
-function TBasicLayerProcessor.getList: TBasicArrayList;
-begin
-        Exit(Self.list);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TBasicLayerProcessor.NULL_LAYER_PROCESSOR := TBasicLayerProcessor.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicLayerProcessor-getList0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_list")
+        GOBACK
+    GOBACK.
+END FUNCTION BasicLayerProcessor-getList0.
 

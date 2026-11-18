@@ -1,72 +1,122 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.collision
+*> Java class CollisionTypeFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.collision
-unit CollisionTypeFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CllsnTypFctry-sttc-SINGLETON.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CollisionTypeFactory-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+01 CollisionTypeFactory-jset-SINGLETON BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF CollisionTypeFactory-jset-SINGLETON = 0
+        MOVE 1 TO CollisionTypeFactory-jset-SINGLETON
+        COMPUTE CollisionTypeFactory-jcell-SINGLETON = FUNCTION CollisionTypeFactory-new0
+    END-IF
+    MOVE CollisionTypeFactory-jcell-SINGLETON TO J-RESULT
+    GOBACK.
+END FUNCTION CllsnTypFctry-sttc-SINGLETON.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CllsnTypFctrysttcSINS84660.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CollisionTypeFactory-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION CllsnTypFctry-sttc-SINGLETON TO J-RESULT
+    MOVE J-VALUE TO CollisionTypeFactory-jcell-SINGLETON
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION CllsnTypFctrysttcSINS84660.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CollisionTypeFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CollisionTypeFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NONE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DAMAGE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_PICKUP")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_COLLISION")
+    COMPUTE JVALUE = FUNCTION CollisionType-new1(FUNCTION JR-STR("None"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NONE", JVALUE)
+    COMPUTE JVALUE = FUNCTION CollisionType-new1(FUNCTION JR-STR("Damage"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DAMAGE", JVALUE)
+    COMPUTE JVALUE = FUNCTION CollisionType-new1(FUNCTION JR-STR("Pickup"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_PICKUP", JVALUE)
+    COMPUTE JVALUE = FUNCTION CollisionType-new1(FUNCTION JR-STR("Collision"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_COLLISION", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CollisionTypeFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, CollisionType;
-
-type
-  {AB:TYPES}
-  TCollisionTypeFactory = class(TObject)
-  public
-    NONE: TCollisionType;
-    DAMAGE: TCollisionType;
-    PICKUP: TCollisionType;
-    COLLISION: TCollisionType;
-    class var SINGLETON: TCollisionTypeFactory;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TCollisionTypeFactory; static;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TCollisionTypeFactory.InitFields;
-begin
-  Self.NONE := TCollisionType.Create('None');
-  Self.DAMAGE := TCollisionType.Create('Damage');
-  Self.PICKUP := TCollisionType.Create('Pickup');
-  Self.COLLISION := TCollisionType.Create('Collision');
-end;
-
-constructor TCollisionTypeFactory.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TCollisionTypeFactory.getInstance: TCollisionTypeFactory;
-begin
-        Exit(TCollisionTypeFactory.SINGLETON);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TCollisionTypeFactory.SINGLETON := TCollisionTypeFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CllsnTypFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION CllsnTypFctry-sttc-SINGLETON
+        GOBACK
+    GOBACK.
+END FUNCTION CllsnTypFctry-getInstance0.
 

@@ -1,60 +1,54 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics
+*> Java class GPointCircularPool
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics
-unit GPointCircularPool;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, BaseCircularPool;
-
-type
-  {AB:TYPES}
-  TGPointCircularPool = class(TBaseCircularPool)
-  public
-        constructor Create(size: Integer);
-  end;
-
-implementation
-uses
-  CustomGPoint, CircularIndexUtil;
-
-
-{AB:CODE}
-    
-
-constructor TGPointCircularPool.Create(size: Integer);
-var
-  index: Integer;
-begin
-    inherited Create;
-        Self.circularIndexUtil := TCircularIndexUtil.createInstance(size);
-        Self.OBJECT_ARRAY := TJava.NewArray<TObject>(size);
-        for index := (size) - (1) downto 0 do begin
-            Self.OBJECT_ARRAY[index] := TCustomGPoint.getInstance3(0, 0);
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GPointCircularPool-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-size BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-size RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GPointCircularPool")
+        COMPUTE JVALUE = FUNCTION CrclrIndxUtl-createInstance1(J-size)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_circularIndexUtil", JVALUE)
+        COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY(J-size)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_OBJECT_ARRAY", JVALUE)
+        COMPUTE J-index = (FUNCTION MOD((J-size - 1) + 2147483648, 4294967296) - 2147483648)
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index >= 0) EXIT PERFORM END-IF
+            COMPUTE jtemp1 = 0
+            COMPUTE jtemp2 = 0
+            COMPUTE JVALUE = FUNCTION CustomGPoint-getInstance32(jtemp1, jtemp2)
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_OBJECT_ARRAY"), J-index, JVALUE)
+        END-PERFORM
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GPointCircularPool-new1.
 

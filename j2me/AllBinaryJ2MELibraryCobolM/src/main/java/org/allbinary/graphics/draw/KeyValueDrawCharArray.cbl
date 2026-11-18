@@ -1,107 +1,158 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.draw
+*> Java class KeyValueDrawCharArray
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.draw
-unit KeyValueDrawCharArray;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, MyFontProcessor, UpdateMyFontInterface;
-
-type
-  {AB:TYPES}
-  TKeyValueDrawCharArray = class(TInterfacedObject, IUpdateMyFontInterface)
-  public
-    myFontProcessor: TMyFontProcessor;
-    LABEL_: string;
-    labelX: Integer;
-    valueX: Integer;
-    value: TArray<WideChar>;
-    len: Integer;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(label_: string; x: Integer);
-        procedure updateMeasurement(graphics_: TGraphics); virtual;
-        procedure paint(graphics_: TGraphics; y: Integer); virtual;
-        procedure update(value: TArray<WideChar>; len: Integer); virtual;
-  end;
-
-implementation
-uses
-  CharArrayFactory, UpdateMyFontProcessor;
-
-
-{AB:CODE}
-
-procedure TKeyValueDrawCharArray.InitFields;
-begin
-  Self.myFontProcessor := TUpdateMyFontProcessor.Create(Self);
-  
-  
-  
-  Self.value := TCharArrayFactory.getInstance().getZeroCharArray();
-  
-end;
-
-function TKeyValueDrawCharArray.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. KeyValueDrawCharArray-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-label BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-label J-x RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("KeyValueDrawCharArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_myFontProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_LABEL")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_labelX")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_valueX")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_value")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_len")
+    COMPUTE JVALUE = FUNCTION UpdateMyFontProcessor-new1(J-THIS)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
     
-
-constructor TKeyValueDrawCharArray.Create(label_: string; x: Integer);
-begin
-    inherited Create;
-    InitFields;
-        Self.LABEL_ := label_;
-        Self.labelX := x;
-end;
     
-
-procedure TKeyValueDrawCharArray.updateMeasurement(graphics_: TGraphics);
-var
-  labelWidth: Integer;
-begin
-        labelWidth := (graphics_.getFont().stringWidth(Self.LABEL_)) - (System.Length(Self.LABEL_));
-        Self.valueX := (labelWidth) + (Self.labelX);
-        Self.myFontProcessor := TMyFontProcessor.getInstance();
-end;
     
-
-procedure TKeyValueDrawCharArray.paint(graphics_: TGraphics; y: Integer);
-begin
-        Self.myFontProcessor.process(graphics_);
-        graphics_.drawString(Self.LABEL_, Self.labelX, y, 0);
-        graphics_.drawChars(Self.value, 0, Self.len, Self.valueX, y, 0);
-end;
+    COMPUTE jtemp1 = FUNCTION CharArrayFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION ChrArryFctry-getZeroCharArray0(jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_value", JVALUE)
     
+        COMPUTE JVALUE = J-label
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_LABEL", JVALUE)
+        COMPUTE JVALUE = J-x
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_labelX", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION KeyValueDrawCharArray-new2.
 
-procedure TKeyValueDrawCharArray.update(value: TArray<WideChar>; len: Integer);
-begin
-        Self.value := value;
-        Self.len := len;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. KyVlDrwChrArry-updtMsrmnt1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-labelWidth BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION Graphics-getFont0(J-graphics)
+        COMPUTE J-labelWidth = (FUNCTION MOD((FUNCTION JR-CLASS-NAME(jtemp2) - FUNCTION JR-STR-LENGTH(FUNCTION JR-GET(J-THIS, "f_LABEL"))) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = (FUNCTION MOD((J-labelWidth + FUNCTION JR-GET(J-THIS, "f_labelX")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_valueX", JVALUE)
+        COMPUTE JVALUE = FUNCTION MyFontProcessor-getInstance0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
+    GOBACK.
+END FUNCTION KyVlDrwChrArry-updtMsrmnt1.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. KeyValueDrawCharArray-paint2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION MyFontProcessor-process1(FUNCTION JR-GET(J-THIS, "f_myFontProcessor"), J-graphics)
+        COMPUTE jtemp3 = 0
+        COMPUTE JDISCARD = FUNCTION Graphics-drawString4(J-graphics, FUNCTION JR-GET(J-THIS, "f_LABEL"), FUNCTION JR-GET(J-THIS, "f_labelX"), J-y, jtemp3)
+        COMPUTE jtemp4 = 0
+        COMPUTE jtemp5 = 0
+        COMPUTE JDISCARD = FUNCTION Graphics-drawChars6(J-graphics, FUNCTION JR-GET(J-THIS, "f_value"), jtemp4, FUNCTION JR-GET(J-THIS, "f_len"), FUNCTION JR-GET(J-THIS, "f_valueX"), J-y, jtemp5)
+    GOBACK.
+END FUNCTION KeyValueDrawCharArray-paint2.
 
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. KeyValueDrawCharArray-update2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-value BINARY-DOUBLE.
+01 J-len BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-value J-len RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-value
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_value", JVALUE)
+        COMPUTE JVALUE = J-len
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_len", JVALUE)
+    GOBACK.
+END FUNCTION KeyValueDrawCharArray-update2.
 

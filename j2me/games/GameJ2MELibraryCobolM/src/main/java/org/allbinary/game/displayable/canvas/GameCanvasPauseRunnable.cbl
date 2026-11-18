@@ -1,93 +1,119 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.displayable.canvas
+*> Java class GameCanvasPauseRunnable
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.displayable.canvas
-unit GameCanvasPauseRunnable;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LogUtil, AllBinaryGameCanvas, GameRunnable;
-
-type
-  {AB:TYPES}
-  TGameCanvasPauseRunnable = class(TGameRunnable)
-  public
-    logUtil: TLogUtil;
-    allBinaryGameCanvas: TAllBinaryGameCanvas;
-    procedure InitFields;
-        constructor Create(allBinaryGameCanvas_: TAllBinaryGameCanvas);
-        procedure run; override;
-        procedure processLoopSleep; override;
-  end;
-
-implementation
-uses
-  AndroidUtil, Features, OpenGLFeatureFactory, CommonStrings;
-
-
-{AB:CODE}
-
-procedure TGameCanvasPauseRunnable.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameCanvasPauseRunnable-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-allBinaryGameCanvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-allBinaryGameCanvas RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameCanvasPauseRunnable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_allBinaryGameCanvas")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
     
+        COMPUTE JVALUE = J-allBinaryGameCanvas
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_allBinaryGameCanvas", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GameCanvasPauseRunnable-new1.
 
-constructor TGameCanvasPauseRunnable.Create(allBinaryGameCanvas_: TAllBinaryGameCanvas);
-begin
-    inherited Create;
-    InitFields;
-        Self.allBinaryGameCanvas := allBinaryGameCanvas_;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameCanvasPauseRunnable-run0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION GameCanvasPauseRunnable-run0.
 
-procedure TGameCanvasPauseRunnable.run;
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnvsPsRnnbl-prcssLpSlp0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-features BINARY-DOUBLE.
+01 J-isOpenGL BINARY-DOUBLE.
+01 J-commonStrings BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE J-features = FUNCTION Features-getInstance0
+            COMPUTE jtemp1 = FUNCTION OpnGLFtrFctry-getInstance0
+            COMPUTE J-isOpenGL = FUNCTION Features-isDefault1(J-features, FUNCTION JR-GET(jtemp1, "f_OPENGL"))
+            IF (J-isOpenGL = 1)
+                COMPUTE JDISCARD = FUNCTION AllBnryGmCnvs-processSleep0(FUNCTION JR-GET(J-THIS, "f_allBinaryGameCanvas"))
+            END-IF
+    GOBACK.
+END FUNCTION GmCnvsPsRnnbl-prcssLpSlp0.
 
-// throws Exception
-procedure TGameCanvasPauseRunnable.processLoopSleep;
-var
-  features_: TFeatures;
-  isOpenGL: Boolean;
-  commonStrings_: TCommonStrings;
-begin
-        try
-            features_ := TFeatures.getInstance();
-            isOpenGL := features_.isDefault(TOpenGLFeatureFactory.getInstance().OPENGL);
-            if isOpenGL then begin
-                Self.allBinaryGameCanvas.processSleep();
-            end;
-        except
-            on e: SysUtils.Exception do begin
-            commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.RUN, TJava.Box(e));
-            end;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+PROGRAM-ID. GameCanvasPauseRunnable-run.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION GameCanvasPauseRunnable-run0(J-THIS)
+    GOBACK.
+END PROGRAM GameCanvasPauseRunnable-run.
 

@@ -1,153 +1,283 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.layer.hud.basic.health
+*> Java class HealthHudWidget
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.layer.hud.basic.health
-unit HealthHudWidget;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, Animation, BasicHud, Health, HealthListenerInterface, PaintableInterface, GameTickTimeDelayHelper, TimeDelayHelper;
-
-type
-  {AB:TYPES}
-  THealthHudWidget = class(TBasicHud, IPaintableInterface, IHealthListenerInterface)
-  public
-    healthScale: Integer;
-    animationInterface: TAnimation;
-    healthInterface: THealth;
-    max: Integer;
-    xArray: TArray<Integer>;
-    gameTickTimeDelayHelper: TGameTickTimeDelayHelper;
-    timeDelayHelper: TTimeDelayHelper;
-    slowBeatTimeDelayHelper: TTimeDelayHelper;
-    mediumBeatTimeDelayHelper: TTimeDelayHelper;
-    fastBeatTimeDelayHelper: TTimeDelayHelper;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(animationInterface: TAnimation; healthInterface: THealth; location: Integer; direction: Integer);
-        procedure update;
-        procedure setX(x: Integer); virtual;
-        procedure onHealthChange; virtual;
-        procedure paint(graphics_: TGraphics); virtual;
-        procedure paintThreed(graphics_: TGraphics); virtual;
-  end;
-
-implementation
-uses
-  BasicColorFactory, GameTickTimeDelayHelperFactory, NoTimeDelayHelper;
-
-
-{AB:CODE}
-
-procedure THealthHudWidget.InitFields;
-begin
-  
-  
-  
-  
-  
-  Self.gameTickTimeDelayHelper := TGameTickTimeDelayHelperFactory.getInstance();
-  Self.timeDelayHelper := TNoTimeDelayHelper.SINGLETON;
-  Self.slowBeatTimeDelayHelper := TTimeDelayHelper.Create(1280);
-  Self.mediumBeatTimeDelayHelper := TTimeDelayHelper.Create(640);
-  Self.fastBeatTimeDelayHelper := TTimeDelayHelper.Create(320);
-end;
-
-function THealthHudWidget.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HealthHudWidget-new4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-animationInterface BINARY-DOUBLE.
+01 J-healthInterface BINARY-DOUBLE.
+01 J-location BINARY-DOUBLE.
+01 J-direction BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-animationInterface J-healthInterface J-location J-direction RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("HealthHudWidget")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_healthScale")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_animationInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_healthInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_max")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_xArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameTickTimeDelayHelper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_timeDelayHelper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_slowBeatTimeDelayHelper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_mediumBeatTimeDelayHelper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_fastBeatTimeDelayHelper")
     
-
-constructor THealthHudWidget.Create(animationInterface: TAnimation; healthInterface: THealth; location: Integer; direction: Integer);
-begin
-        inherited Create(location, direction, 2, TBasicColorFactory.getInstance().WHITE);
-        InitFields;
-        Self.animationInterface := animationInterface;
-        Self.healthInterface := healthInterface;
-        Self.healthInterface.addListener(Self);
-        Self.healthScale := ((TJava.Divide(Self.healthInterface.getMaxHealth(), 6))) + (1);
-        Self.onHealthChange();
-        Self.updateMaxWidth := (healthInterface.getMaxHealth()) * (16);
-        Self.updateMaxHeight := 16;
-        Self.xArray := TJava.NewArray<Integer>(30);
-        Self.update();
-end;
     
-
-procedure THealthHudWidget.update;
-var
-  index: Integer;
-begin
-        if (Self.xArray) <> (nil) then begin
-            for index := 0 to System.Length(Self.xArray) - 1 do begin
-                Self.xArray[index] := (Self.getX()) + (((index) * (16)));
-            end;
-        end;
-end;
     
-
-procedure THealthHudWidget.setX(x: Integer);
-begin
-        inherited setX(x);
-        Self.update();
-end;
     
-
-procedure THealthHudWidget.onHealthChange;
-begin
-        Self.max := (TJava.Divide(Self.healthInterface.getHealth(), Self.healthScale));
-        Self.timeDelayHelper := TNoTimeDelayHelper.SINGLETON;
-        if ((Self.max) <= (1)) and (Self.healthInterface.isAlive()) then begin
-            Self.max := 1;
-            if ((Self.healthScale) - (Self.healthInterface.getHealth())) > ((((Self.healthScale) * (2))) div (3)) then begin
-                Self.timeDelayHelper := Self.slowBeatTimeDelayHelper;
-            end else if ((Self.healthScale) - (Self.healthInterface.getHealth())) > ((Self.healthScale) div (3)) then begin
-                Self.timeDelayHelper := Self.mediumBeatTimeDelayHelper;
-            end else begin
-                Self.timeDelayHelper := Self.fastBeatTimeDelayHelper;
-            end;
-        end;
-end;
     
+    COMPUTE JVALUE = FUNCTION GmTckTmDlyHlprFctry-gtInstnc0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameTickTimeDelayHelper", JVALUE)
+    COMPUTE JVALUE = FUNCTION NTmDlyHlpr-static-SINGLETON
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_timeDelayHelper", JVALUE)
+    COMPUTE jtemp7 = 1280
+    COMPUTE JVALUE = FUNCTION TimeDelayHelper-new1(jtemp7)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_slowBeatTimeDelayHelper", JVALUE)
+    COMPUTE jtemp8 = 640
+    COMPUTE JVALUE = FUNCTION TimeDelayHelper-new1(jtemp8)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_mediumBeatTimeDelayHelper", JVALUE)
+    COMPUTE jtemp9 = 320
+    COMPUTE JVALUE = FUNCTION TimeDelayHelper-new1(jtemp9)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_fastBeatTimeDelayHelper", JVALUE)
+        COMPUTE jtemp2 = FUNCTION BasicColorFactory-getInstance0
+        COMPUTE jtemp1 = 2
+        CONTINUE
+        COMPUTE JVALUE = J-animationInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animationInterface", JVALUE)
+        COMPUTE JVALUE = J-healthInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_healthInterface", JVALUE)
+        COMPUTE JDISCARD = FUNCTION Health-addListener1(FUNCTION JR-GET(J-THIS, "f_healthInterface"), J-THIS)
+        COMPUTE jtemp3 = ((FUNCTION MOD(FUNCTION INTEGER-PART(FUNCTION Health-getMaxHealth0(FUNCTION JR-GET(J-THIS, "f_healthInterface")) / 6) + 2147483648, 4294967296) - 2147483648))
+        COMPUTE jtemp4 = 1
+        COMPUTE JVALUE = (FUNCTION MOD((jtemp3 + jtemp4) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_healthScale", JVALUE)
+        COMPUTE JDISCARD = FUNCTION HlthHdWdgt-onHealthChange0(J-THIS)
+        COMPUTE JVALUE = (FUNCTION MOD((FUNCTION Health-getMaxHealth0(J-healthInterface) * 16) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_updateMaxWidth", JVALUE)
+        COMPUTE JVALUE = 16
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_updateMaxHeight", JVALUE)
+        COMPUTE jtemp5 = 30
+        COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY(jtemp5)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_xArray", JVALUE)
+        COMPUTE JDISCARD = FUNCTION HealthHudWidget-update0(J-THIS)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION HealthHudWidget-new4.
 
-procedure THealthHudWidget.paint(graphics_: TGraphics);
-var
-  index: Integer;
-begin
-        Self.myFontProcessor.process(graphics_);
-        for index := 0 to Self.max - 1 do begin
-            if Self.timeDelayHelper.isTime(Self.gameTickTimeDelayHelper.startTime) then begin
-                Self.animationInterface.paintXY(graphics_, Self.xArray[index], Self.getY());
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HealthHudWidget-update0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-index BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION JR-GET(J-THIS, "f_xArray") NOT = 0)
+            COMPUTE J-index = 0
+            MOVE 1 TO JFIRST1
+            PERFORM FOREVER
+                IF JFIRST1 = 0
+                    COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+                END-IF
+                MOVE 0 TO JFIRST1
+                IF NOT (J-index < FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_xArray"))) EXIT PERFORM END-IF
+                COMPUTE jtemp6 = ((FUNCTION MOD((J-index * 16) + 2147483648, 4294967296) - 2147483648))
+                COMPUTE JVALUE = (FUNCTION MOD((FUNCTION BasicHud-getX0(J-THIS) + jtemp6) + 2147483648, 4294967296) - 2147483648)
+                COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_xArray"), J-index, JVALUE)
+            END-PERFORM
+        END-IF
+    GOBACK.
+END FUNCTION HealthHudWidget-update0.
 
-procedure THealthHudWidget.paintThreed(graphics_: TGraphics);
-begin
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HealthHudWidget-setX1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-x RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicHud-setX1(J-THIS, J-x)
+        COMPUTE JDISCARD = FUNCTION HealthHudWidget-update0(J-THIS)
+    GOBACK.
+END FUNCTION HealthHudWidget-setX1.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HlthHdWdgt-onHealthChange0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = ((FUNCTION MOD(FUNCTION INTEGER-PART(FUNCTION Health-getHealth0(FUNCTION JR-GET(J-THIS, "f_healthInterface")) / FUNCTION JR-GET(J-THIS, "f_healthScale")) + 2147483648, 4294967296) - 2147483648))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_max", JVALUE)
+        COMPUTE JVALUE = FUNCTION NTmDlyHlpr-static-SINGLETON
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_timeDelayHelper", JVALUE)
+        IF ((FUNCTION JR-GET(J-THIS, "f_max") <= 1) AND (FUNCTION Health-isAlive0(FUNCTION JR-GET(J-THIS, "f_healthInterface")) = 1))
+            COMPUTE JVALUE = 1
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_max", JVALUE)
+            IF ((FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_healthScale") - FUNCTION Health-getHealth0(FUNCTION JR-GET(J-THIS, "f_healthInterface"))) + 2147483648, 4294967296) - 2147483648) > (FUNCTION MOD(FUNCTION INTEGER-PART(((FUNCTION
+        MOD((FUNCTION JR-GET(J-THIS, "f_healthScale") * 2) + 2147483648, 4294967296) - 2147483648)) / 3) + 2147483648, 4294967296) - 2147483648))
+                COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_slowBeatTimeDelayHelper")
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_timeDelayHelper", JVALUE)
+            ELSE
+                IF ((FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_healthScale") - FUNCTION Health-getHealth0(FUNCTION JR-GET(J-THIS, "f_healthInterface"))) + 2147483648, 4294967296) - 2147483648) > (FUNCTION MOD(FUNCTION INTEGER-PART(FUNCTION
+        JR-GET(J-THIS, "f_healthScale") / 3) + 2147483648, 4294967296) - 2147483648))
+                COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_mediumBeatTimeDelayHelper")
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_timeDelayHelper", JVALUE)
+            ELSE
+                COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_fastBeatTimeDelayHelper")
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_timeDelayHelper", JVALUE)
+            END-IF
+            END-IF
+        END-IF
+    GOBACK.
+END FUNCTION HlthHdWdgt-onHealthChange0.
 
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HealthHudWidget-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-index BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_myFontProcessor"))
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST2
+        PERFORM FOREVER
+            IF JFIRST2 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST2
+            IF NOT (J-index < FUNCTION JR-GET(J-THIS, "f_max")) EXIT PERFORM END-IF
+            IF (FUNCTION TimeDelayHelper-isTime1(FUNCTION JR-GET(J-THIS, "f_timeDelayHelper"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameTickTimeDelayHelper"), "f_startTime")) = 1)
+                COMPUTE JDISCARD = FUNCTION Animation-paintXY3(FUNCTION JR-GET(J-THIS, "f_animationInterface"), J-graphics, FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_xArray"), J-index), FUNCTION BasicHud-getY0(J-THIS))
+            END-IF
+        END-PERFORM
+    GOBACK.
+END FUNCTION HealthHudWidget-paint1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HealthHudWidget-paintThreed1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION HealthHudWidget-paintThreed1.
 

@@ -1,210 +1,569 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.midlet
+*> Java class AllBinaryMidlet
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.midlet
-unit AllBinaryMidlet;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryMdlt-sttc-NULL-55452.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AllBinaryMidlet-jcell-NULL_ALLBINARY_MIDLET BINARY-DOUBLE EXTERNAL.
+01 AllBinaryMidlet-jset-NULL_ALLBINARY_MIDLET BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF AllBinaryMidlet-jset-NULL_ALLBINARY_MIDLET = 0
+        MOVE 1 TO AllBinaryMidlet-jset-NULL_ALLBINARY_MIDLET
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE AllBinaryMidlet-jcell-NULL_ALLBINARY_MIDLET = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+    END-IF
+    MOVE AllBinaryMidlet-jcell-NULL_ALLBINARY_MIDLET TO J-RESULT
+    GOBACK.
+END FUNCTION AllBnryMdlt-sttc-NULL-55452.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryMdltsttcNULL5S61068.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AllBinaryMidlet-jcell-NULL_ALLBINARY_MIDLET BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION AllBnryMdlt-sttc-NULL-55452 TO J-RESULT
+    MOVE J-VALUE TO AllBinaryMidlet-jcell-NULL_ALLBINARY_MIDLET
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION AllBnryMdltsttcNULL5S61068.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Command, CommandListener, Display, Displayable, MIDlet, LogUtil, CommonStrings, ABHashtable;
-
-type
-  {AB:TYPES}
-  TAllBinaryMidlet = class(TMIDlet, ICommandListener)
-  public
-    logUtil: TLogUtil;
-    commonStrings: TCommonStrings;
-    SET_DISPLAY: string;
-    SETTING_: string;
-    _DISPLAY_: string;
-    SETTING_NO_TITLE: string;
-    hashtable: TABHashtable<TObject, TObject>;
-    midletDestroyed: Boolean;
-    class var NULL_ALLBINARY_MIDLET: TObject;
-    procedure InitFields;
-    function JavaObject: TObject;
-        class function getNullInstance: TAllBinaryMidlet; static;
-        constructor Create;
-        procedure setDisplay(newDisplay: TDisplayable); virtual;
-        function getDisplay: TDisplay; virtual;
-        function getCurrentDisplayable: TDisplayable; virtual;
-        procedure setDestroyed(destroyed: Boolean); virtual;
-        function isDestroyed: Boolean; virtual;
-        procedure startApp; virtual;
-        procedure pauseApp; virtual;
-        procedure destroyAppInRunnable(unconditional: Boolean; isProgress: Boolean); virtual;
-        procedure destroyApp(unconditional: Boolean); virtual;
-        procedure setStartStateHashtable(hashtable: TABHashtable<TObject, TObject>); virtual;
-        function getStartStateHashtable: TABHashtable<TObject, TObject>; virtual;
-        function getCurrentStateHashtable: TABHashtable<TObject, TObject>; virtual;
-        procedure commandAction(command_: TCommand; displayable_: TDisplayable); virtual;
-  end;
-
-implementation
-uses
-  NullCanvas, MIDletStateChangeException, StdUtil, ForcedLogUtil, PreLogUtil, StringMaker, StringUtil, EventStrings, CommonLabels, Memory, NullUtil;
-
-
-{AB:CODE}
-
-procedure TAllBinaryMidlet.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.commonStrings := TCommonStrings.getInstance();
-  Self.SET_DISPLAY := 'setDisplay';
-  Self.SETTING_ := 'Setting: ';
-  Self._DISPLAY_ := ' Display: ';
-  Self.SETTING_NO_TITLE := 'Setting: No Title, Display: ';
-  Self.hashtable := TStdUtil.getInstance().createHashtable();
-  
-end;
-
-function TAllBinaryMidlet.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBinaryMidlet-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("AllBinaryMidlet")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SET_DISPLAY")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SETTING_")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f__DISPLAY_")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SETTING_NO_TITLE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_hashtable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_midletDestroyed")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("setDisplay")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SET_DISPLAY", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Setting: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SETTING_", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR(" Display: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f__DISPLAY_", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Setting: No Title, Display: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SETTING_NO_TITLE", JVALUE)
+    COMPUTE jtemp3 = FUNCTION StdUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION StdUtil-createHashtable0(jtemp3)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hashtable", JVALUE)
     
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_CONSTRUCTOR"), J-THIS, FUNCTION JR-STR("AllBinaryMidlet::AllBinaryMidlet"))
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION AllBinaryMidlet-new0.
 
-class function TAllBinaryMidlet.getNullInstance: TAllBinaryMidlet;
-begin
-        if (TAllBinaryMidlet.NULL_ALLBINARY_MIDLET) = (TNullUtil.getInstance().NULL_OBJECT) then begin
-            TAllBinaryMidlet.NULL_ALLBINARY_MIDLET := TAllBinaryMidlet.Create();
-        end;
-        Exit(TAllBinaryMidlet(TJava.ToObject(TAllBinaryMidlet.NULL_ALLBINARY_MIDLET)));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryMdlt-getNullInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+        IF (FUNCTION AllBnryMdlt-sttc-NULL-55452 = FUNCTION JR-GET(jtemp2, "f_NULL_OBJECT"))
+            COMPUTE JDISCARD = FUNCTION AllBnryMdltsttcNULL5S61068(FUNCTION AllBinaryMidlet-new0)
+        END-IF
+        COMPUTE J-RESULT = FUNCTION AllBnryMdlt-sttc-NULL-55452
+        GOBACK
+    GOBACK.
+END FUNCTION AllBnryMdlt-getNullInstance0.
 
-constructor TAllBinaryMidlet.Create;
-begin
-    inherited Create;
-    InitFields;
-        Self.logUtil.putF(Self.commonStrings.CONSTRUCTOR_, TJava.Box(Self), 'AllBinaryMidlet::AllBinaryMidlet');
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBinaryMidlet-setDisplay1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-title BINARY-DOUBLE.
+01 J-display BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-newDisplay BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-newDisplay RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp4 = FUNCTION StringUtil-getInstance0
+        COMPUTE J-title = FUNCTION JR-GET(jtemp4, "f_EMPTY_STRING")
+        IF (J-newDisplay NOT = FUNCTION NllCnvs-static-NULL-CANVAS)
+            COMPUTE J-title = FUNCTION Displayable-getTitle0(J-newDisplay)
+            COMPUTE jtemp9 = FUNCTION StringMaker-new0
+            COMPUTE jtemp8 = FUNCTION StringMaker-append1(jtemp9, FUNCTION JR-GET(J-THIS, "f_SETTING_"))
+            COMPUTE jtemp10 = FUNCTION StringUtil-getInstance0
+            COMPUTE jtemp7 = FUNCTION StringMaker-append1(jtemp8, J-title)
+            COMPUTE jtemp6 = FUNCTION StringMaker-append1(jtemp7, FUNCTION JR-GET(J-THIS, "f__DISPLAY_"))
+            COMPUTE jtemp5 = FUNCTION StringMaker-append1(jtemp6, FUNCTION StringUtil-toString1(jtemp10, J-newDisplay))
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp5), J-THIS, FUNCTION JR-GET(J-THIS, "f_SET_DISPLAY"))
+        END-IF
+        COMPUTE J-display = FUNCTION AllBinaryMidlet-getDisplay0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION Display-setCurrent1(J-display, J-newDisplay)
+    GOBACK.
+END FUNCTION AllBinaryMidlet-setDisplay1.
 
-procedure TAllBinaryMidlet.setDisplay(newDisplay: TDisplayable);
-var
-  title: string;
-  display_: TDisplay;
-begin
-        title := TStringUtil.getInstance().EMPTY_STRING;
-        if (newDisplay) <> (TNullCanvas.NULL_CANVAS) then begin
-            title := newDisplay.getTitle();
-            Self.logUtil.putF(TStringMaker.Create().append(Self.SETTING_).append(title).append(Self._DISPLAY_).append(TStringUtil.getInstance().toString(newDisplay)).toString(), TJava.Box(Self), Self.SET_DISPLAY);
-        end;
-        display_ := Self.getDisplay();
-        display_.setCurrent(newDisplay);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBinaryMidlet-getDisplay0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION Display-getDisplay1(J-THIS)
+        GOBACK
+    GOBACK.
+END FUNCTION AllBinaryMidlet-getDisplay0.
 
-function TAllBinaryMidlet.getDisplay: TDisplay;
-begin
-        Exit(TDisplay.getDisplay(Self));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryMdlt-gtCrrntDsplybl0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp11 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp11 = FUNCTION Display-getDisplay1(J-THIS)
+        COMPUTE J-RESULT = FUNCTION JR-CLASS-NAME(jtemp11)
+        GOBACK
+    GOBACK.
+END FUNCTION AllBnryMdlt-gtCrrntDsplybl0.
 
-function TAllBinaryMidlet.getCurrentDisplayable: TDisplayable;
-begin
-        Exit(TDisplay.getDisplay(Self).getCurrent());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBinaryMidlet-setDestroyed1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-destroyed BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-destroyed RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-destroyed
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_midletDestroyed", JVALUE)
+    GOBACK.
+END FUNCTION AllBinaryMidlet-setDestroyed1.
 
-procedure TAllBinaryMidlet.setDestroyed(destroyed: Boolean);
-begin
-        Self.midletDestroyed := destroyed;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBinaryMidlet-isDestroyed0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_midletDestroyed")
+        GOBACK
+    GOBACK.
+END FUNCTION AllBinaryMidlet-isDestroyed0.
 
-function TAllBinaryMidlet.isDestroyed: Boolean;
-begin
-        Exit(Self.midletDestroyed);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBinaryMidlet-startApp0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp12 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp12 = FUNCTION EventStrings-getInstance0
+        COMPUTE JDISCARD = FUNCTION ForcedLogUtil-log2(FUNCTION JR-GET(jtemp12, "f_PERFORMANCE_MESSAGE"), J-THIS)
+    GOBACK.
+END FUNCTION AllBinaryMidlet-startApp0.
 
-// throws MIDletStateChangeException
-procedure TAllBinaryMidlet.startApp;
-begin
-        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, TJava.Box(Self));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBinaryMidlet-pauseApp0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp13 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp13 = FUNCTION EventStrings-getInstance0
+        COMPUTE JDISCARD = FUNCTION ForcedLogUtil-log2(FUNCTION JR-GET(jtemp13, "f_PERFORMANCE_MESSAGE"), J-THIS)
+    GOBACK.
+END FUNCTION AllBinaryMidlet-pauseApp0.
 
-procedure TAllBinaryMidlet.pauseApp;
-begin
-        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, TJava.Box(Self));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryMdlt-dstryAppInRnnbl2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-unconditional BINARY-DOUBLE.
+01 J-isProgress BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-unconditional J-isProgress RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION AllBnryMdlt-dstryAppInRnnbl2.
 
-procedure TAllBinaryMidlet.destroyAppInRunnable(unconditional: Boolean; isProgress: Boolean);
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBinaryMidlet-destroyApp1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-METHOD_NAME BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-unconditional BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-unconditional RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-METHOD_NAME = FUNCTION JR-STR("AllBinaryMidlet::destroyApp")
+        CONTINUE
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_START"), J-THIS, J-METHOD_NAME)
+            COMPUTE JDISCARD = FUNCTION PreLogUtil-put3(FUNCTION Memory-getInfo0, J-THIS, J-METHOD_NAME)
+            COMPUTE jtemp14 = 1
+            COMPUTE JDISCARD = FUNCTION AllBinaryMidlet-setDestroyed1(J-THIS, jtemp14)
+    GOBACK.
+END FUNCTION AllBinaryMidlet-destroyApp1.
 
-procedure TAllBinaryMidlet.destroyApp(unconditional: Boolean);
-var
-  METHOD_NAME: string;
-begin
-        METHOD_NAME := 'AllBinaryMidlet::destroyApp';
-        try
-            Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), METHOD_NAME);
-            TPreLogUtil.put(TMemory.getInfo(), TJava.Box(Self), METHOD_NAME);
-            Self.setDestroyed(True);
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), METHOD_NAME, TJava.Box(e));
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryMdlt-stStrtSttHshtbl1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+01 jtemp18 BINARY-DOUBLE.
+01 jtemp19 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-hashtable BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-hashtable RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp18 = FUNCTION CommonLabels-getInstance0
+        COMPUTE jtemp19 = FUNCTION StringUtil-getInstance0
+        COMPUTE jtemp17 = FUNCTION StringMaker-new0
+        COMPUTE jtemp16 = FUNCTION StringMaker-append1(jtemp17, FUNCTION JR-GET(jtemp18, "f_START_LABEL"))
+        COMPUTE jtemp15 = FUNCTION StringMaker-append1(jtemp16, FUNCTION StringUtil-toString1(jtemp19, J-hashtable))
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp15), J-THIS, FUNCTION JR-STR("setStartStateHashtable"))
+        COMPUTE JVALUE = J-hashtable
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hashtable", JVALUE)
+    GOBACK.
+END FUNCTION AllBnryMdlt-stStrtSttHshtbl1.
 
-// throws Exception
-procedure TAllBinaryMidlet.setStartStateHashtable(hashtable: TABHashtable<TObject, TObject>);
-begin
-        Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().START_LABEL).append(TStringUtil.getInstance().toString(hashtable)).toString(), TJava.Box(Self), 'setStartStateHashtable');
-        Self.hashtable := hashtable;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryMdlt-gtStrtSttHshtbl0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp20 BINARY-DOUBLE.
+01 jtemp21 BINARY-DOUBLE.
+01 jtemp22 BINARY-DOUBLE.
+01 jtemp23 BINARY-DOUBLE.
+01 jtemp24 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp23 = FUNCTION CommonLabels-getInstance0
+        COMPUTE jtemp24 = FUNCTION StringUtil-getInstance0
+        COMPUTE jtemp22 = FUNCTION StringMaker-new0
+        COMPUTE jtemp21 = FUNCTION StringMaker-append1(jtemp22, FUNCTION JR-GET(jtemp23, "f_START_LABEL"))
+        COMPUTE jtemp20 = FUNCTION StringMaker-append1(jtemp21, FUNCTION StringUtil-toString1(jtemp24, FUNCTION JR-GET(J-THIS, "f_hashtable")))
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp20), J-THIS, FUNCTION JR-STR("getStartStateHashtable"))
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_hashtable")
+        GOBACK
+    GOBACK.
+END FUNCTION AllBnryMdlt-gtStrtSttHshtbl0.
 
-// throws Exception
-function TAllBinaryMidlet.getStartStateHashtable: TABHashtable<TObject, TObject>;
-begin
-        Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().START_LABEL).append(TStringUtil.getInstance().toString(Self.hashtable)).toString(), TJava.Box(Self), 'getStartStateHashtable');
-        Exit(Self.hashtable);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryMdlt-gtCrrntSttHshtbl0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp25 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_START"), J-THIS, FUNCTION JR-STR("getStateHashtable"))
+        COMPUTE jtemp25 = FUNCTION StdUtil-getInstance0
+        COMPUTE J-RESULT = FUNCTION JR-GET(jtemp25, "f_NULL_TABLE")
+        GOBACK
+    GOBACK.
+END FUNCTION AllBnryMdlt-gtCrrntSttHshtbl0.
 
-// throws Exception
-function TAllBinaryMidlet.getCurrentStateHashtable: TABHashtable<TObject, TObject>;
-begin
-        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), 'getStateHashtable');
-        Exit(TStdUtil.getInstance().NULL_TABLE);
-end;
-    
-
-procedure TAllBinaryMidlet.commandAction(command_: TCommand; displayable_: TDisplayable);
-begin
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TAllBinaryMidlet.NULL_ALLBINARY_MIDLET := TJava.Box(TNullUtil.getInstance().NULL_OBJECT);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBinaryMidlet-commandAction2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-command BINARY-DOUBLE.
+01 J-displayable BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-command J-displayable RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION AllBinaryMidlet-commandAction2.
 

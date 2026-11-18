@@ -1,103 +1,195 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.combat.damage
+*> Java class DamageUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.combat.damage
-unit DamageUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DamageUtil-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 DamageUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 DamageUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF DamageUtil-jset-instance = 0
+        MOVE 1 TO DamageUtil-jset-instance
+        COMPUTE DamageUtil-jcell-instance = FUNCTION DamageUtil-new0
+    END-IF
+    MOVE DamageUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION DamageUtil-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DamageUtilstaticinstS46651.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 DamageUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION DamageUtil-static-instance TO J-RESULT
+    MOVE J-VALUE TO DamageUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION DamageUtilstaticinstS46651.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DamageUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("DamageUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_COLLIDE")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("collide")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_COLLIDE", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION DamageUtil-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, CollidableCompositeLayer, LogUtil, DamageableInterface;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DamageUtil-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION DamageUtil-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION DamageUtil-getInstance0.
 
-type
-  {AB:TYPES}
-  TDamageUtil = class(TObject)
-  public
-    logUtil: TLogUtil;
-    COLLIDE: string;
-    class var instance: TDamageUtil;
-    procedure InitFields;
-        class function getInstance: TDamageUtil; static;
-        constructor Create;
-        procedure process(damageableInterface_: IDamageableInterface; damageableInterface2: IDamageableInterface); virtual;
-        procedure debugDamage(collidableInterfaceCompositeInterface1: TCollidableCompositeLayer; collidableInterfaceCompositeInterface: TCollidableCompositeLayer); virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DamageUtil-process2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-damageableInterface BINARY-DOUBLE.
+01 J-damageableInterface2 BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-damageableInterface J-damageableInterface2 RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = 0
+        COMPUTE jtemp2 = 0
+        COMPUTE JDISCARD = FUNCTION DamageableInterface-damage2(J-damageableInterface, FUNCTION DamageableInterface-getDamage1(J-damageableInterface2, jtemp1), jtemp2)
+    GOBACK.
+END FUNCTION DamageUtil-process2.
 
-implementation
-uses
-  CollidableDestroyableDamageableLayer, StringMaker;
-
-
-{AB:CODE}
-
-procedure TDamageUtil.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.COLLIDE := 'collide';
-end;
-    
-
-class function TDamageUtil.getInstance: TDamageUtil;
-begin
-        Exit(TDamageUtil.instance);
-end;
-    
-
-constructor TDamageUtil.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
-
-// throws Exception
-procedure TDamageUtil.process(damageableInterface_: IDamageableInterface; damageableInterface2: IDamageableInterface);
-begin
-        damageableInterface_.damage(damageableInterface2.getDamage(0), 0);
-end;
-    
-
-// throws Exception
-procedure TDamageUtil.debugDamage(collidableInterfaceCompositeInterface1: TCollidableCompositeLayer; collidableInterfaceCompositeInterface: TCollidableCompositeLayer);
-var
-  collidableDestroyableDamageableLayer_: TCollidableDestroyableDamageableLayer;
-  damage: Integer;
-  stringBuffer: TStringMaker;
-begin
-        collidableDestroyableDamageableLayer_ := TCollidableDestroyableDamageableLayer(TJava.ToObject(collidableInterfaceCompositeInterface));
-        damage := collidableDestroyableDamageableLayer_.getDamage(0);
-        if (damage) > (20000) then begin
-            stringBuffer := TStringMaker.Create();
-            stringBuffer.append('Collision ');
-            stringBuffer.append(collidableInterfaceCompositeInterface1.toString());
-            stringBuffer.append(' with: ');
-            stringBuffer.append(collidableInterfaceCompositeInterface.toString());
-            stringBuffer.append(' damage: ');
-            stringBuffer.appendint(damage);
-            Self.logUtil.putF(stringBuffer.toString(), TJava.Box(collidableInterfaceCompositeInterface1), Self.COLLIDE);
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TDamageUtil.instance := TDamageUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DamageUtil-debugDamage2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-collidableDestroyableDamageableLayer BINARY-DOUBLE.
+01 J-damage BINARY-DOUBLE.
+01 J-stringBuffer BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-collidableInterfaceCompositeInterface1 BINARY-DOUBLE.
+01 J-collidableInterfaceCompositeInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-collidableInterfaceCompositeInterface1 J-collidableInterfaceCompositeInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-collidableDestroyableDamageableLayer = J-collidableInterfaceCompositeInterface
+        COMPUTE jtemp3 = 0
+        COMPUTE J-damage = FUNCTION ClldblDstryblDmgblLyr-gtDmg1(J-collidableDestroyableDamageableLayer, jtemp3)
+        IF (J-damage > 20000)
+            COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR("Collision "))
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-TO-STRING(J-collidableInterfaceCompositeInterface1))
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR(" with: "))
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-TO-STRING(J-collidableInterfaceCompositeInterface))
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR(" damage: "))
+            COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, J-damage)
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-stringBuffer), J-collidableInterfaceCompositeInterface1, FUNCTION JR-GET(J-THIS, "f_COLLIDE"))
+        END-IF
+    GOBACK.
+END FUNCTION DamageUtil-debugDamage2.
 

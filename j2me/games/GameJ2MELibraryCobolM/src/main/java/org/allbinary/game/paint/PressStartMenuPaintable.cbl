@@ -1,137 +1,224 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.paint
+*> Java class PressStartMenuPaintable
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.paint
-unit PressStartMenuPaintable;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, DisplayInfoSingleton, MyFontProcessor, UpdateMyFontInterface, Paintable, TimeDelayHelper;
-
-type
-  {AB:TYPES}
-  TPressStartMenuPaintable = class(TPaintable, IUpdateMyFontInterface)
-  public
-    displayInfo: TDisplayInfoSingleton;
-    PRESS_START: string;
-    KEY_START: string;
-    MENU_START: string;
-    myFontProcessor: TMyFontProcessor;
-    startString: string;
-    timeDelayHelper: TTimeDelayHelper;
-    flash: Boolean;
-    anchor: Integer;
-    beginWidth: Integer;
-    line: Integer;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create;
-        procedure updateMeasurement(graphics_: TGraphics); virtual;
-        procedure paint(graphics_: TGraphics); virtual;
-        procedure setFlash(flash: Boolean);
-        function isFlash: Boolean;
-  end;
-
-implementation
-uses
-  Font, AppletUtil, Anchor, UpdateMyFontProcessor, TouchScreenFactory, StringUtil;
-
-
-{AB:CODE}
-
-procedure TPressStartMenuPaintable.InitFields;
-begin
-  Self.displayInfo := TDisplayInfoSingleton.getInstance();
-  Self.PRESS_START := 'Press Screen To Start';
-  Self.KEY_START := 'Press or Click F2 To Begin';
-  Self.MENU_START := 'Press Start From The Menu To Begin';
-  Self.myFontProcessor := TUpdateMyFontProcessor.Create(Self);
-  Self.startString := TStringUtil.getInstance().EMPTY_STRING;
-  Self.timeDelayHelper := TTimeDelayHelper.Create(1100);
-  
-  Self.anchor := TAnchor.TOP_LEFT;
-  
-  
-end;
-
-function TPressStartMenuPaintable.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PressStartMenuPaintable-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("PressStartMenuPaintable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_displayInfo")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_PRESS_START")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_KEY_START")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_MENU_START")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_myFontProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_startString")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_timeDelayHelper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_flash")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_anchor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_beginWidth")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_line")
+    COMPUTE JVALUE = FUNCTION DsplyInfSngltn-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_displayInfo", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Press Screen To Start")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_PRESS_START", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Press or Click F2 To Begin")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_KEY_START", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Press Start From The Menu To Begin")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_MENU_START", JVALUE)
+    COMPUTE JVALUE = FUNCTION UpdateMyFontProcessor-new1(J-THIS)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
+    COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_EMPTY_STRING")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_startString", JVALUE)
+    COMPUTE jtemp2 = 1100
+    COMPUTE JVALUE = FUNCTION TimeDelayHelper-new1(jtemp2)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_timeDelayHelper", JVALUE)
     
-
-constructor TPressStartMenuPaintable.Create;
-begin
-    inherited Create;
-    InitFields;
-        if TTouchScreenFactory.getInstance().isTouch() then begin
-            Self.startString := Self.PRESS_START;
-        end else if TAppletUtil.isAppletLoader(TJava.Box(Self)) then begin
-            Self.startString := Self.KEY_START;
-        end else begin
-            Self.startString := Self.MENU_START;
-        end;
-end;
+    COMPUTE JVALUE = FUNCTION Anchor-static-TOP-LEFT
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_anchor", JVALUE)
     
-
-procedure TPressStartMenuPaintable.updateMeasurement(graphics_: TGraphics);
-var
-  font_: TFont;
-begin
-        font_ := graphics_.getFont();
-        Self.beginWidth := (TJava.SignedRightShift(graphics_.getFont().stringWidth(Self.startString), 1));
-        Self.line := (((4) * (TMyFontProcessor.defaultCharWidth(font_)))) + ((TJava.SignedRightShift(font_.getHeight(), 1)));
-        Self.myFontProcessor := TMyFontProcessor.getInstance();
-end;
     
+        COMPUTE jtemp3 = FUNCTION TchScrnFctry-getInstance0
+        IF (FUNCTION TouchScreenFactory-isTouch0(jtemp3) = 1)
+            COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_PRESS_START")
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_startString", JVALUE)
+        ELSE
+            IF (FUNCTION AppletUtil-isAppletLoader1(J-THIS) = 1)
+            COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_KEY_START")
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_startString", JVALUE)
+        ELSE
+            COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_MENU_START")
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_startString", JVALUE)
+        END-IF
+        END-IF
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION PressStartMenuPaintable-new0.
 
-procedure TPressStartMenuPaintable.paint(graphics_: TGraphics);
-begin
-        if Self.timeDelayHelper.isTimeTNT() then begin
-            if Self.isFlash() then begin
-                Self.setFlash(False);
-            end else begin
-                Self.setFlash(True);
-            end;
-        end;
-        if Self.isFlash() then begin
-            Self.myFontProcessor.process(graphics_);
-            graphics_.drawString(Self.startString, (Self.displayInfo.getLastHalfWidth()) - (Self.beginWidth), (Self.displayInfo.getLastHeight()) - (Self.line), Self.anchor);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrssStrtMnPntbl-updtMsrmnt1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-font BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-font = FUNCTION Graphics-getFont0(J-graphics)
+        COMPUTE jtemp4 = FUNCTION Graphics-getFont0(J-graphics)
+        COMPUTE JVALUE = (FUNCTION JR-SHIFT(JFIVE, FUNCTION JR-CLASS-NAME(jtemp4), 1))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_beginWidth", JVALUE)
+        COMPUTE jtemp5 = ((FUNCTION MOD((4 * FUNCTION MyFntPrcssr-defaultCharWidth1(J-font)) + 2147483648, 4294967296) - 2147483648))
+        COMPUTE jtemp6 = (FUNCTION JR-SHIFT(JFIVE, FUNCTION Font-getHeight0(J-font), 1))
+        COMPUTE JVALUE = (FUNCTION MOD((jtemp5 + jtemp6) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_line", JVALUE)
+        COMPUTE JVALUE = FUNCTION MyFontProcessor-getInstance0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
+    GOBACK.
+END FUNCTION PrssStrtMnPntbl-updtMsrmnt1.
 
-procedure TPressStartMenuPaintable.setFlash(flash: Boolean);
-begin
-        Self.flash := flash;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PressStartMenuPaintable-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION TimeDelayHelper-isTimeTNT0(FUNCTION JR-GET(J-THIS, "f_timeDelayHelper")) = 1)
+            IF (FUNCTION PrssStrtMnPntbl-isFlash0(J-THIS) = 1)
+                COMPUTE jtemp8 = 0
+                COMPUTE JDISCARD = FUNCTION PrssStrtMnPntbl-setFlash1(J-THIS, jtemp8)
+            ELSE
+                COMPUTE jtemp7 = 1
+                COMPUTE JDISCARD = FUNCTION PrssStrtMnPntbl-setFlash1(J-THIS, jtemp7)
+            END-IF
+        END-IF
+        IF (FUNCTION PrssStrtMnPntbl-isFlash0(J-THIS) = 1)
+            COMPUTE JDISCARD = FUNCTION MyFontProcessor-process1(FUNCTION JR-GET(J-THIS, "f_myFontProcessor"), J-graphics)
+            COMPUTE jtemp9 = (FUNCTION MOD((FUNCTION DsplyInfSngltn-gtLstHlfWdth0(FUNCTION JR-GET(J-THIS, "f_displayInfo")) - FUNCTION JR-GET(J-THIS, "f_beginWidth")) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE jtemp10 = (FUNCTION MOD((FUNCTION DsplyInfSngltn-getLastHeight0(FUNCTION JR-GET(J-THIS, "f_displayInfo")) - FUNCTION JR-GET(J-THIS, "f_line")) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JDISCARD = FUNCTION Graphics-drawString4(J-graphics, FUNCTION JR-GET(J-THIS, "f_startString"), jtemp9, jtemp10, FUNCTION JR-GET(J-THIS, "f_anchor"))
+        END-IF
+    GOBACK.
+END FUNCTION PressStartMenuPaintable-paint1.
 
-function TPressStartMenuPaintable.isFlash: Boolean;
-begin
-        Exit(Self.flash);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrssStrtMnPntbl-setFlash1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-flash BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-flash RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-flash
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_flash", JVALUE)
+    GOBACK.
+END FUNCTION PrssStrtMnPntbl-setFlash1.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrssStrtMnPntbl-isFlash0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_flash")
+        GOBACK
+    GOBACK.
+END FUNCTION PrssStrtMnPntbl-isFlash0.
 

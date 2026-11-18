@@ -1,97 +1,150 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion.button
+*> Java class CommonButtons
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion.button
-unit CommonButtons;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CommonButtons-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CommonButtons-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 CommonButtons-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF CommonButtons-jset-instance = 0
+        MOVE 1 TO CommonButtons-jset-instance
+        COMPUTE CommonButtons-jcell-instance = FUNCTION CommonButtons-new0
+    END-IF
+    MOVE CommonButtons-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION CommonButtons-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CommonButtonsstaticiS14070.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CommonButtons-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION CommonButtons-static-instance TO J-RESULT
+    MOVE J-VALUE TO CommonButtons-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION CommonButtonsstaticiS14070.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Rectangle;
-
-type
-  {AB:TYPES}
-  TCommonButtons = class(TObject)
-  public
-    STANDARD_BUTTON_SIZE: Integer;
-    NORMAL_BUTTON: TRectangle;
-    LARGE_BUTTON: TRectangle;
-    class var instance: TCommonButtons;
-    procedure InitFields;
-        class function getInstance: TCommonButtons; static;
-        constructor Create;
-  end;
-
-implementation
-uses
-  PointFactory, DisplayInfoSingleton;
-
-
-{AB:CODE}
-
-procedure TCommonButtons.InitFields;
-begin
-  
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CommonButtons-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-displayInfo BINARY-DOUBLE.
+01 J-commonButtonSize BINARY-DOUBLE.
+01 J-totalColumns BINARY-DOUBLE.
+01 J-totalRows BINARY-DOUBLE.
+01 J-max BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CommonButtons")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_STANDARD_BUTTON_SIZE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NORMAL_BUTTON")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_LARGE_BUTTON")
     
-
-class function TCommonButtons.getInstance: TCommonButtons;
-begin
-        Exit(TCommonButtons.instance);
-end;
     
+    
+        COMPUTE J-displayInfo = FUNCTION DsplyInfSngltn-getInstance0
+        COMPUTE J-commonButtonSize = 128
+        PERFORM FOREVER
+            IF NOT (J-commonButtonSize > 64) EXIT PERFORM END-IF
+            COMPUTE J-totalColumns = (FUNCTION MOD(FUNCTION INTEGER-PART(FUNCTION DsplyInfSngltn-getLastWidth0(J-displayInfo) / J-commonButtonSize) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE J-totalRows = (FUNCTION MOD(FUNCTION INTEGER-PART(FUNCTION DsplyInfSngltn-getLastHeight0(J-displayInfo) / J-commonButtonSize) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE J-max = J-totalColumns
+            IF (J-totalRows > J-max)
+                COMPUTE J-max = J-totalRows
+            END-IF
+            IF (J-max > 9)
+                EXIT PERFORM
+            END-IF
+            COMPUTE J-commonButtonSize = FUNCTION JR-SHIFT(JFIVE, J-commonButtonSize, 1)
+        END-PERFORM
+        COMPUTE JVALUE = J-commonButtonSize
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_STANDARD_BUTTON_SIZE", JVALUE)
+        COMPUTE jtemp1 = FUNCTION PointFactory-getInstance0
+        COMPUTE JVALUE = FUNCTION Rectangle-new3(FUNCTION JR-GET(jtemp1, "f_ZERO_ZERO"), FUNCTION JR-GET(J-THIS, "f_STANDARD_BUTTON_SIZE"), FUNCTION JR-GET(J-THIS, "f_STANDARD_BUTTON_SIZE"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NORMAL_BUTTON", JVALUE)
+        COMPUTE jtemp2 = FUNCTION PointFactory-getInstance0
+        COMPUTE jtemp3 = FUNCTION JR-SHIFT(JFOUR, FUNCTION JR-GET(J-THIS, "f_STANDARD_BUTTON_SIZE"), 1)
+        COMPUTE jtemp4 = FUNCTION JR-SHIFT(JFOUR, FUNCTION JR-GET(J-THIS, "f_STANDARD_BUTTON_SIZE"), 1)
+        COMPUTE JVALUE = FUNCTION Rectangle-new3(FUNCTION JR-GET(jtemp2, "f_ZERO_ZERO"), jtemp3, jtemp4)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_LARGE_BUTTON", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CommonButtons-new0.
 
-constructor TCommonButtons.Create;
-var
-  displayInfo: TDisplayInfoSingleton;
-  commonButtonSize: Integer;
-  totalColumns: Integer;
-  totalRows: Integer;
-  max: Integer;
-begin
-    inherited Create;
-    InitFields;
-        displayInfo := TDisplayInfoSingleton.getInstance();
-        commonButtonSize := 128;
-        while (commonButtonSize) > (64) do begin
-            totalColumns := (displayInfo.getLastWidth()) div (commonButtonSize);
-            totalRows := (displayInfo.getLastHeight()) div (commonButtonSize);
-            max := totalColumns;
-            if (totalRows) > (max) then begin
-                max := totalRows;
-            end;
-            if (max) > (9) then begin
-                Break;
-            end;
-            commonButtonSize := TJava.SignedRightShift(commonButtonSize, 1);
-        end;
-        Self.STANDARD_BUTTON_SIZE := commonButtonSize;
-        Self.NORMAL_BUTTON := TRectangle.Create(TPointFactory.getInstance().ZERO_ZERO, Self.STANDARD_BUTTON_SIZE, Self.STANDARD_BUTTON_SIZE);
-        Self.LARGE_BUTTON := TRectangle.Create(TPointFactory.getInstance().ZERO_ZERO, (Self.STANDARD_BUTTON_SIZE) shl (1), (Self.STANDARD_BUTTON_SIZE) shl (1));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TCommonButtons.instance := TCommonButtons.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CommonButtons-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION CommonButtons-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION CommonButtons-getInstance0.
 

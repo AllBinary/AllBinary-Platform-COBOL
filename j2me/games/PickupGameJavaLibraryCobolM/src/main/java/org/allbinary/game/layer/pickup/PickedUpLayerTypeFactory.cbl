@@ -1,87 +1,142 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.layer.pickup
+*> Java class PickedUpLayerTypeFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.layer.pickup
-unit PickedUpLayerTypeFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PckdUpLyrTypFctry-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PickedUpLayerTypeFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 PickedUpLayerTypeFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF PickedUpLayerTypeFactory-jset-instance = 0
+        MOVE 1 TO PickedUpLayerTypeFactory-jset-instance
+        COMPUTE PickedUpLayerTypeFactory-jcell-instance = FUNCTION PickedUpLayerTypeFactory-new0
+    END-IF
+    MOVE PickedUpLayerTypeFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION PckdUpLyrTypFctry-sttc-nstnc.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PckdUpLyrTypFctrysttS71730.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PickedUpLayerTypeFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION PckdUpLyrTypFctry-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO PickedUpLayerTypeFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION PckdUpLyrTypFctrysttS71730.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PickedUpLayerTypeFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("PickedUpLayerTypeFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NONE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_BEAM")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_MINE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_PROJECTILE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ENHANCEMENT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_MORPH")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_PART")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_HEAL")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_LIFE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_POINTS")
+    COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION PickedUpLayerType-new1(FUNCTION JR-GET(jtemp1, "f_NULL_STRING"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NONE", JVALUE)
+    COMPUTE JVALUE = FUNCTION PickedUpLayerType-new1(FUNCTION JR-STR("BEAM"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_BEAM", JVALUE)
+    COMPUTE JVALUE = FUNCTION PickedUpLayerType-new1(FUNCTION JR-STR("MINE"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_MINE", JVALUE)
+    COMPUTE JVALUE = FUNCTION PickedUpLayerType-new1(FUNCTION JR-STR("PROJECTILE"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_PROJECTILE", JVALUE)
+    COMPUTE JVALUE = FUNCTION PickedUpLayerType-new1(FUNCTION JR-STR("Enhancement"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ENHANCEMENT", JVALUE)
+    COMPUTE JVALUE = FUNCTION PickedUpLayerType-new1(FUNCTION JR-STR("Morph"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_MORPH", JVALUE)
+    COMPUTE JVALUE = FUNCTION PickedUpLayerType-new1(FUNCTION JR-STR("Part"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_PART", JVALUE)
+    COMPUTE JVALUE = FUNCTION PickedUpLayerType-new1(FUNCTION JR-STR("Heal"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_HEAL", JVALUE)
+    COMPUTE JVALUE = FUNCTION PickedUpLayerType-new1(FUNCTION JR-STR("Life"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_LIFE", JVALUE)
+    COMPUTE JVALUE = FUNCTION PickedUpLayerType-new1(FUNCTION JR-STR("Points"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_POINTS", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION PickedUpLayerTypeFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, PickedUpLayerType;
-
-type
-  {AB:TYPES}
-  TPickedUpLayerTypeFactory = class(TObject)
-  public
-    NONE: TPickedUpLayerType;
-    BEAM: TPickedUpLayerType;
-    MINE: TPickedUpLayerType;
-    PROJECTILE: TPickedUpLayerType;
-    ENHANCEMENT: TPickedUpLayerType;
-    MORPH: TPickedUpLayerType;
-    PART: TPickedUpLayerType;
-    HEAL: TPickedUpLayerType;
-    LIFE: TPickedUpLayerType;
-    POINTS: TPickedUpLayerType;
-    class var instance: TPickedUpLayerTypeFactory;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TPickedUpLayerTypeFactory; static;
-  end;
-
-implementation
-uses
-  StringUtil;
-
-
-{AB:CODE}
-
-procedure TPickedUpLayerTypeFactory.InitFields;
-begin
-  Self.NONE := TPickedUpLayerType.Create(TStringUtil.getInstance().NULL_STRING);
-  Self.BEAM := TPickedUpLayerType.Create('BEAM');
-  Self.MINE := TPickedUpLayerType.Create('MINE');
-  Self.PROJECTILE := TPickedUpLayerType.Create('PROJECTILE');
-  Self.ENHANCEMENT := TPickedUpLayerType.Create('Enhancement');
-  Self.MORPH := TPickedUpLayerType.Create('Morph');
-  Self.PART := TPickedUpLayerType.Create('Part');
-  Self.HEAL := TPickedUpLayerType.Create('Heal');
-  Self.LIFE := TPickedUpLayerType.Create('Life');
-  Self.POINTS := TPickedUpLayerType.Create('Points');
-end;
-
-constructor TPickedUpLayerTypeFactory.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TPickedUpLayerTypeFactory.getInstance: TPickedUpLayerTypeFactory;
-begin
-        Exit(TPickedUpLayerTypeFactory.instance);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TPickedUpLayerTypeFactory.instance := TPickedUpLayerTypeFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PckdUpLyrTypFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION PckdUpLyrTypFctry-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION PckdUpLyrTypFctry-getInstance0.
 

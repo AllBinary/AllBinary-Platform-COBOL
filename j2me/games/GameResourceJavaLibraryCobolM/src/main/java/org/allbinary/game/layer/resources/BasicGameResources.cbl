@@ -1,120 +1,225 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.layer.resources
+*> Java class BasicGameResources
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.layer.resources
-unit BasicGameResources;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscGmRsrcs-sttc-strngBffr.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BasicGameResources-jcell-stringBuffer BINARY-DOUBLE EXTERNAL.
+01 BasicGameResources-jset-stringBuffer BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF BasicGameResources-jset-stringBuffer = 0
+        MOVE 1 TO BasicGameResources-jset-stringBuffer
+        COMPUTE BasicGameResources-jcell-stringBuffer = FUNCTION StringMaker-new0
+    END-IF
+    MOVE BasicGameResources-jcell-stringBuffer TO J-RESULT
+    GOBACK.
+END FUNCTION BscGmRsrcs-sttc-strngBffr.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscGmRsrcssttcstrngBS87660.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BasicGameResources-jcell-stringBuffer BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION BscGmRsrcs-sttc-strngBffr TO J-RESULT
+    MOVE J-VALUE TO BasicGameResources-jcell-stringBuffer
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION BscGmRsrcssttcstrngBS87660.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicGameResources-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("BasicGameResources")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_RESOURCE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_RESOURCE_DESTROY")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_EMPTY_STRING")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_RESOURCE", JVALUE)
+    COMPUTE jtemp2 = FUNCTION StringUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp2, "f_EMPTY_STRING")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_RESOURCE_DESTROY", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION BasicGameResources-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LogUtil, StringMaker;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicGameResources-init2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-scale BINARY-DOUBLE.
+01 J-commonStrings BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ROOT BINARY-DOUBLE.
+01 J-SIZE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ROOT J-SIZE RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE jtemp4 = FUNCTION GmCnfgrtnCntrl-getInstance0
+            COMPUTE jtemp3 = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(jtemp4, "f_SCALE"))
+            COMPUTE J-scale = FUNCTION JR-CLASS-NAME(jtemp3)
+            IF ((J-scale > 1) AND ((FUNCTION MOD((J-scale - 1) + 2147483648, 4294967296) - 2147483648) < FUNCTION JR-ARRAY-LENGTH(J-SIZE)))
+                COMPUTE jtemp8 = (FUNCTION MOD((J-scale - 1) + 2147483648, 4294967296) - 2147483648)
+                COMPUTE JDISCARD = FUNCTION BasicGameResources-append2(J-THIS, J-ROOT, FUNCTION JR-ARRAY-GET(J-SIZE, jtemp8))
+            ELSE
+                COMPUTE jtemp7 = FUNCTION StringMaker-new0
+                COMPUTE jtemp6 = FUNCTION StringMaker-append1(jtemp7, FUNCTION JR-STR("Invalid Value: "))
+                COMPUTE jtemp5 = FUNCTION StringMaker-appendint1(jtemp6, J-scale)
+                COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+            END-IF
+    GOBACK.
+END FUNCTION BasicGameResources-init2.
 
-type
-  {AB:TYPES}
-  TBasicGameResources = class(TObject)
-  public
-    logUtil: TLogUtil;
-    RESOURCE: string;
-    RESOURCE_DESTROY: string;
-    class var stringBuffer: TStringMaker;
-    procedure InitFields;
-        constructor Create;
-        procedure init(ROOT: string; SIZE: TArray<string>); virtual;
-        procedure append(ROOT: string; sizeString: string); virtual;
-        function getString: string; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicGameResources-append2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-DESTROY BINARY-DOUBLE.
+01 J-string BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ROOT BINARY-DOUBLE.
+01 J-sizeString BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ROOT J-sizeString RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-DESTROY = FUNCTION JR-STR("_destroy")
+        COMPUTE J-string = FUNCTION BasicGameResources-getString0(J-THIS)
+        COMPUTE jtemp9 = 0
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION BscGmRsrcs-sttc-strngBffr)
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION BscGmRsrcs-sttc-strngBffr)
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION BscGmRsrcs-sttc-strngBffr)
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION BscGmRsrcs-sttc-strngBffr)
+        COMPUTE JVALUE = FUNCTION JR-TO-STRING(FUNCTION BscGmRsrcs-sttc-strngBffr)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_RESOURCE", JVALUE)
+        COMPUTE jtemp10 = 0
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION BscGmRsrcs-sttc-strngBffr)
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION BscGmRsrcs-sttc-strngBffr)
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION BscGmRsrcs-sttc-strngBffr)
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION BscGmRsrcs-sttc-strngBffr)
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION BscGmRsrcs-sttc-strngBffr)
+        COMPUTE JVALUE = FUNCTION JR-TO-STRING(FUNCTION BscGmRsrcs-sttc-strngBffr)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_RESOURCE_DESTROY", JVALUE)
+    GOBACK.
+END FUNCTION BasicGameResources-append2.
 
-implementation
-uses
-  GameGraphicsResourceUtil, GameConfigurationCentral, StringUtil, CommonStrings;
-
-
-{AB:CODE}
-
-procedure TBasicGameResources.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.RESOURCE := TStringUtil.getInstance().EMPTY_STRING;
-  Self.RESOURCE_DESTROY := TStringUtil.getInstance().EMPTY_STRING;
-end;
-    
-
-constructor TBasicGameResources.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
-
-procedure TBasicGameResources.init(ROOT: string; SIZE: TArray<string>);
-var
-  scale: Integer;
-  commonStrings_: TCommonStrings;
-begin
-        try
-            scale := TGameConfigurationCentral.getInstance().SCALE.getValue().intValue();
-            if ((scale) > (1)) and (((scale) - (1)) < (System.Length(SIZE))) then begin
-                Self.append(ROOT, SIZE[(scale) - (1)]);
-            end else begin
-                raise SysUtils.Exception.Create(TStringMaker.Create().append('Invalid Value: ').appendint(scale).toString());
-            end;
-        except
-            on e: SysUtils.Exception do begin
-            commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.INIT, TJava.Box(e));
-            end;
-        end;
-end;
-    
-
-// throws Exception
-procedure TBasicGameResources.append(ROOT: string; sizeString: string);
-var
-  DESTROY: string;
-  string_: string;
-begin
-        DESTROY := '_destroy';
-        string_ := Self.getString();
-        TBasicGameResources.stringBuffer.delete_(0, TBasicGameResources.stringBuffer.length());
-        TBasicGameResources.stringBuffer.append(ROOT);
-        TBasicGameResources.stringBuffer.append(string_);
-        TBasicGameResources.stringBuffer.append(sizeString);
-        Self.RESOURCE := TBasicGameResources.stringBuffer.toString();
-        TBasicGameResources.stringBuffer.delete_(0, TBasicGameResources.stringBuffer.length());
-        TBasicGameResources.stringBuffer.append(ROOT);
-        TBasicGameResources.stringBuffer.append(DESTROY);
-        TBasicGameResources.stringBuffer.append(string_);
-        TBasicGameResources.stringBuffer.append(sizeString);
-        Self.RESOURCE_DESTROY := TBasicGameResources.stringBuffer.toString();
-end;
-    
-
-// throws Exception
-function TBasicGameResources.getString: string;
-begin
-        Exit(TGameGraphicsResourceUtil.getInstance().getName());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TBasicGameResources.stringBuffer := TStringMaker.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicGameResources-getString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp11 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp11 = FUNCTION GmGrphcsRsrcUtl-getInstance0
+        COMPUTE J-RESULT = FUNCTION GmGrphcsRsrcUtl-getName0(jtemp11)
+        GOBACK
+    GOBACK.
+END FUNCTION BasicGameResources-getString0.
 

@@ -1,119 +1,187 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.physics.movement
+*> Java class ConstantVelocityNotifyViewChangeMovement
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.physics.movement
-unit ConstantVelocityNotifyViewChangeMovement;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AllBinaryGameLayer, BasicVelocityProperties, AllBinaryLayer, BasicDecimal, AxisMathVectorUtil, Movement;
-
-type
-  {AB:TYPES}
-  TConstantVelocityNotifyViewChangeMovement = class(TMovement)
-  public
-    basicVelocityProperties: TBasicVelocityProperties;
-    speedBasicDecimal: TBasicDecimal;
-    axisMathVectorUtil: TAxisMathVectorUtil;
-    procedure InitFields;
-        constructor Create;
-        procedure init(speedBasicDecimal: TBasicDecimal; angle: Integer; otherAngle: Integer); override;
-        procedure moveOutsideRadius(layer: TAllBinaryLayer; radius: Int64; angle: Integer; otherAngle: Integer); virtual;
-        procedure process(layer: TAllBinaryGameLayer); override;
-        procedure stop; override;
-  end;
-
-implementation
-uses
-  AngleFactory;
-
-
-{AB:CODE}
-
-procedure TConstantVelocityNotifyViewChangeMovement.InitFields;
-begin
-  
-  
-  Self.axisMathVectorUtil := TAxisMathVectorUtil.getInstance();
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CnstntVlctyNtfyVwChngMvmnt-nw0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ConstantVelocityNotifyViewChangeMovement")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_basicVelocityProperties")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_speedBasicDecimal")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_axisMathVectorUtil")
     
-
-constructor TConstantVelocityNotifyViewChangeMovement.Create;
-begin
-    inherited Create;
-    InitFields;
-        Self.speedBasicDecimal := TBasicDecimal.ZERO_BIGDECIMAL;
-        Self.basicVelocityProperties := TBasicVelocityProperties.Create();
-end;
     
+    COMPUTE JVALUE = FUNCTION AxsMthVctrUtl-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_axisMathVectorUtil", JVALUE)
+        COMPUTE JVALUE = FUNCTION BscDcml-sttc-ZERO-BIGDECIMAL
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_speedBasicDecimal", JVALUE)
+        COMPUTE JVALUE = FUNCTION BasicVelocityProperties-new0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicVelocityProperties", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CnstntVlctyNtfyVwChngMvmnt-nw0.
 
-procedure TConstantVelocityNotifyViewChangeMovement.init(speedBasicDecimal: TBasicDecimal; angle: Integer; otherAngle: Integer);
-var
-  angleFactory_: TAngleFactory;
-begin
-        Self.speedBasicDecimal := speedBasicDecimal;
-        angleFactory_ := TAngleFactory.getInstance();
-        Self.basicVelocityProperties.setVelocityWithBigDecimal(speedBasicDecimal, angleFactory_.getAt(angle), angleFactory_.getAt(otherAngle));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CnstntVlctyNtfyVwChngMv-97396.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-angleFactory BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-speedBasicDecimal BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-otherAngle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-speedBasicDecimal J-angle J-otherAngle RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-speedBasicDecimal
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_speedBasicDecimal", JVALUE)
+        COMPUTE J-angleFactory = FUNCTION AngleFactory-getInstance0
+        COMPUTE JDISCARD = FUNCTION BscVlctyPrprts-stVlctyWth69902(FUNCTION JR-GET(J-THIS, "f_basicVelocityProperties"), J-speedBasicDecimal, FUNCTION AngleFactory-getAt1(J-angleFactory, J-angle), FUNCTION
+        AngleFactory-getAt1(J-angleFactory, J-otherAngle))
+    GOBACK.
+END FUNCTION CnstntVlctyNtfyVwChngMv-97396.
 
-procedure TConstantVelocityNotifyViewChangeMovement.moveOutsideRadius(layer: TAllBinaryLayer; radius: Int64; angle: Integer; otherAngle: Integer);
-var
-  scaleFactorValue: Integer;
-  xVector: Integer;
-  yVector: Integer;
-  zVector: Integer;
-begin
-        scaleFactorValue := Self.speedBasicDecimal.getScaledFactorValue();
-        xVector := Integer(Trunc((TJava.Divide(Self.axisMathVectorUtil.calculateX(radius, angle), scaleFactorValue))));
-        yVector := Integer(Trunc((TJava.Divide(Self.axisMathVectorUtil.calculateY(radius, angle), scaleFactorValue))));
-        zVector := Integer(Trunc((TJava.Divide(Self.axisMathVectorUtil.calculateZ(radius, otherAngle), scaleFactorValue))));
-        layer.moveDXYZ(xVector, yVector, zVector);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CnstntVlctyNtfyVwChngMv-67230.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-scaleFactorValue BINARY-DOUBLE.
+01 J-xVector BINARY-DOUBLE.
+01 J-yVector BINARY-DOUBLE.
+01 J-zVector BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layer BINARY-DOUBLE.
+01 J-radius BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-otherAngle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layer J-radius J-angle J-otherAngle RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-scaleFactorValue = FUNCTION BscDcml-getScaledFactorValue0(FUNCTION JR-GET(J-THIS, "f_speedBasicDecimal"))
+        COMPUTE J-xVector = (FUNCTION MOD((FUNCTION INTEGER-PART(FUNCTION AxisMathVectorUtil-calculateX2(FUNCTION JR-GET(J-THIS, "f_axisMathVectorUtil"), J-radius, J-angle) / J-scaleFactorValue)) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE J-yVector = (FUNCTION MOD((FUNCTION INTEGER-PART(FUNCTION AxisMathVectorUtil-calculateY2(FUNCTION JR-GET(J-THIS, "f_axisMathVectorUtil"), J-radius, J-angle) / J-scaleFactorValue)) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE J-zVector = (FUNCTION MOD((FUNCTION INTEGER-PART(FUNCTION AxisMathVectorUtil-calculateZ2(FUNCTION JR-GET(J-THIS, "f_axisMathVectorUtil"), J-radius, J-otherAngle) / J-scaleFactorValue)) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION AllBinaryLayer-moveDXYZ3(J-layer, J-xVector, J-yVector, J-zVector)
+    GOBACK.
+END FUNCTION CnstntVlctyNtfyVwChngMv-67230.
 
-// throws Exception
-procedure TConstantVelocityNotifyViewChangeMovement.process(layer: TAllBinaryGameLayer);
-var
-  x: Integer;
-  y: Integer;
-  z: Integer;
-begin
-        x := Self.basicVelocityProperties.getVelocityXBasicDecimalP().getScaled();
-        y := Self.basicVelocityProperties.getVelocityYBasicDecimalP().getScaled();
-        z := Self.basicVelocityProperties.getVelocityZBasicDecimalP().getScaled();
-        layer.moveDXYZ(x, y, z);
-        if (((x) <> (0)) or ((y) <> (0))) or ((z) <> (0)) then begin
-            layer.onViewPositionChangeEvent();
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CnstntVlctyNtfyVwChngMv-55791.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-z BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layer RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = FUNCTION BscVlctyPrprts-gtVlctyXBs63775(FUNCTION JR-GET(J-THIS, "f_basicVelocityProperties"))
+        COMPUTE J-x = FUNCTION JR-CLASS-NAME(jtemp1)
+        COMPUTE jtemp2 = FUNCTION BscVlctyPrprts-gtVlctyYBs99895(FUNCTION JR-GET(J-THIS, "f_basicVelocityProperties"))
+        COMPUTE J-y = FUNCTION JR-CLASS-NAME(jtemp2)
+        COMPUTE jtemp3 = FUNCTION BscVlctyPrprts-gtVlctyZBs46026(FUNCTION JR-GET(J-THIS, "f_basicVelocityProperties"))
+        COMPUTE J-z = FUNCTION JR-CLASS-NAME(jtemp3)
+        COMPUTE JDISCARD = FUNCTION AllBinaryLayer-moveDXYZ3(J-layer, J-x, J-y, J-z)
+        IF (((J-x NOT = 0) OR (J-y NOT = 0)) OR (J-z NOT = 0))
+            COMPUTE JDISCARD = FUNCTION AllBnryGmLyr-onVwPstnChngEvnt0(J-layer)
+        END-IF
+    GOBACK.
+END FUNCTION CnstntVlctyNtfyVwChngMv-55791.
 
-procedure TConstantVelocityNotifyViewChangeMovement.stop;
-begin
-        Self.basicVelocityProperties.zero();
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CnstntVlctyNtfyVwChngMv-79282.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicVelocityProperties-zero0(FUNCTION JR-GET(J-THIS, "f_basicVelocityProperties"))
+    GOBACK.
+END FUNCTION CnstntVlctyNtfyVwChngMv-79282.
 

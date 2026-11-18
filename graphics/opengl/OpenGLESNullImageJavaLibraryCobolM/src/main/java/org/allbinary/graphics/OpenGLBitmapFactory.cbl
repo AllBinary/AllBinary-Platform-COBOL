@@ -1,77 +1,210 @@
-// Generated Code Do Not Modify
-// package org.allbinary.graphics
-unit OpenGLBitmapFactory;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics
+*> Java class OpenGLBitmapFactory
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OpnGLBtmpFctry-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 OpenGLBitmapFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 OpenGLBitmapFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF OpenGLBitmapFactory-jset-instance = 0
+        MOVE 1 TO OpenGLBitmapFactory-jset-instance
+        COMPUTE OpenGLBitmapFactory-jcell-instance = FUNCTION OpenGLBitmapFactory-new0
+    END-IF
+    MOVE OpenGLBitmapFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION OpnGLBtmpFctry-sttc-nstnc.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OpnGLBtmpFctrysttcnsS75067.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 OpenGLBitmapFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION OpnGLBtmpFctry-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO OpenGLBitmapFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION OpnGLBtmpFctrysttcnsS75067.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Image, PlatformBitmapBase, PlatformBitmapBaseFactory, OpenGLBitmapConfig, OpenGLBitmap;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OpenGLBitmapFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("OpenGLBitmapFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ARGB_8888")
+    COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION OpenGLBitmapConfig-new1(FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ARGB_8888", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION OpenGLBitmapFactory-new0.
 
-type
-  {AB:TYPES}
-  TOpenGLBitmapFactory = class(TPlatformBitmapBaseFactory)
-  public
-    ARGB_8888: TOpenGLBitmapConfig;
-    class var instance: TOpenGLBitmapFactory;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TOpenGLBitmapFactory; static;
-        function createBitmap(width: Integer; height: Integer; config: TOpenGLBitmapConfig): TOpenGLBitmap; overload; virtual;
-        function decodeStream(inputStream_: TInputStream): TOpenGLBitmap; virtual;
-        function createBitmap(image_: TImage): TPlatformBitmapBase; overload; override;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OpnGLBtmpFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION OpnGLBtmpFctry-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION OpnGLBtmpFctry-getInstance0.
 
-implementation
-uses
-  NullUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OpnGLBtmpFctry-createBitmap3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-config BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-width J-height J-config RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+        COMPUTE J-RESULT = FUNCTION OpenGLBitmap-new1(FUNCTION JR-GET(jtemp2, "f_NULL_OBJECT"))
+        GOBACK
+    GOBACK.
+END FUNCTION OpnGLBtmpFctry-createBitmap3.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OpnGLBtmpFctry-decodeStream1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-inputStream BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-inputStream RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp3 = FUNCTION NullUtil-getInstance0
+        COMPUTE J-RESULT = FUNCTION OpenGLBitmap-new1(FUNCTION JR-GET(jtemp3, "f_NULL_OBJECT"))
+        GOBACK
+    GOBACK.
+END FUNCTION OpnGLBtmpFctry-decodeStream1.
 
-{AB:CODE}
-
-procedure TOpenGLBitmapFactory.InitFields;
-begin
-  Self.ARGB_8888 := TOpenGLBitmapConfig.Create(TJava.Box(TNullUtil.getInstance().NULL_OBJECT));
-end;
-
-constructor TOpenGLBitmapFactory.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TOpenGLBitmapFactory.getInstance: TOpenGLBitmapFactory;
-begin
-        Exit(TOpenGLBitmapFactory.instance);
-end;
-    
-
-function TOpenGLBitmapFactory.createBitmap(width: Integer; height: Integer; config: TOpenGLBitmapConfig): TOpenGLBitmap;
-begin
-        Exit(TOpenGLBitmap.Create(TJava.Box(TNullUtil.getInstance().NULL_OBJECT)));
-end;
-    
-
-// throws IOException
-function TOpenGLBitmapFactory.decodeStream(inputStream_: TInputStream): TOpenGLBitmap;
-begin
-        Exit(TOpenGLBitmap.Create(TJava.Box(TNullUtil.getInstance().NULL_OBJECT)));
-end;
-    
-
-function TOpenGLBitmapFactory.createBitmap(image_: TImage): TPlatformBitmapBase;
-begin
-        Exit(TOpenGLBitmap.Create(TJava.Box(TNullUtil.getInstance().NULL_OBJECT)));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TOpenGLBitmapFactory.instance := TOpenGLBitmapFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OpnGLBtmpFctry-createBitmap1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-image BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-image RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp4 = FUNCTION NullUtil-getInstance0
+        COMPUTE J-RESULT = FUNCTION OpenGLBitmap-new1(FUNCTION JR-GET(jtemp4, "f_NULL_OBJECT"))
+        GOBACK
+    GOBACK.
+END FUNCTION OpnGLBtmpFctry-createBitmap1.
 

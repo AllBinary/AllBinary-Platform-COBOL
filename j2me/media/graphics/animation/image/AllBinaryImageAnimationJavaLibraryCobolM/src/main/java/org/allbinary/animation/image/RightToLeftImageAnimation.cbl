@@ -1,105 +1,194 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.image
+*> Java class RightToLeftImageAnimation
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.image
-unit RightToLeftImageAnimation;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, Image, AnimationBehavior, ImageSegmentAnimation;
-
-type
-  {AB:TYPES}
-  TRightToLeftImageAnimation = class(TImageSegmentAnimation)
-  public
-    startWidth: Integer;
-    currentWidth: Integer;
-    anchor: Integer;
-    procedure InitFields;
-        constructor Create(image_: TImage; animationBehavior_: TAnimationBehavior);
-        procedure nextFrame; override;
-        procedure previousFrame; override;
-        procedure setFrame(index: Integer); override;
-        procedure update;
-        procedure paintXY(graphics_: TGraphics; x: Integer; y: Integer); override;
-  end;
-
-implementation
-uses
-  Sprite, Anchor, PrimitiveIntUtil;
-
-
-{AB:CODE}
-
-procedure TRightToLeftImageAnimation.InitFields;
-begin
-  
-  
-  Self.anchor := TAnchor.TOP_LEFT;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RightToLeftImageAnimation-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-image BINARY-DOUBLE.
+01 J-animationBehavior BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-image J-animationBehavior RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("RightToLeftImageAnimation")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_startWidth")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_currentWidth")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_anchor")
     
-
-constructor TRightToLeftImageAnimation.Create(image_: TImage; animationBehavior_: TAnimationBehavior);
-begin
-        inherited Create(image_, TPrimitiveIntUtil.getArrayInstance(), animationBehavior_);
-        InitFields;
-        Self.setFrame((Self.getSize()) - (1));
-end;
     
+    COMPUTE JVALUE = FUNCTION Anchor-static-TOP-LEFT
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_anchor", JVALUE)
+        CONTINUE
+        COMPUTE jtemp1 = (FUNCTION MOD((FUNCTION ImageSegmentAnimation-getSize0(J-THIS) - 1) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION RghtTLftImgAnmtn-setFrame1(J-THIS, jtemp1)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION RightToLeftImageAnimation-new2.
 
-procedure TRightToLeftImageAnimation.nextFrame;
-begin
-        inherited previousFrame();
-        Self.update();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RghtTLftImgAnmtn-nextFrame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION ImgSgmntAnmtn-previousFrame0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION RghtTLftImgAnmtn-update0(J-THIS)
+    GOBACK.
+END FUNCTION RghtTLftImgAnmtn-nextFrame0.
 
-procedure TRightToLeftImageAnimation.previousFrame;
-begin
-        inherited nextFrame();
-        Self.update();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RghtTLftImgAnmtn-prvsFrm0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION ImgSgmntAnmtn-nextFrame0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION RghtTLftImgAnmtn-update0(J-THIS)
+    GOBACK.
+END FUNCTION RghtTLftImgAnmtn-prvsFrm0.
 
-procedure TRightToLeftImageAnimation.setFrame(index: Integer);
-begin
-        inherited setFrame(index);
-        Self.update();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RghtTLftImgAnmtn-setFrame1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-index RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION ImgSgmntAnmtn-setFrame1(J-THIS, J-index)
+        COMPUTE JDISCARD = FUNCTION RghtTLftImgAnmtn-update0(J-THIS)
+    GOBACK.
+END FUNCTION RghtTLftImgAnmtn-setFrame1.
 
-procedure TRightToLeftImageAnimation.update;
-begin
-        Self.startWidth := TJava.Divide((Self.getDrawWidth()) * (Self.getFrame()), Self.getSize());
-        Self.currentWidth := (Self.getDrawWidth()) - (Self.startWidth);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RghtTLftImgAnmtn-update0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = (FUNCTION MOD(FUNCTION INTEGER-PART((FUNCTION MOD((FUNCTION ImgSgmntAnmtn-getDrawWidth0(J-THIS) * FUNCTION ImgSgmntAnmtn-getFrame0(J-THIS)) + 2147483648, 4294967296) - 2147483648) / FUNCTION
+        ImageSegmentAnimation-getSize0(J-THIS)) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_startWidth", JVALUE)
+        COMPUTE JVALUE = (FUNCTION MOD((FUNCTION ImgSgmntAnmtn-getDrawWidth0(J-THIS) - FUNCTION JR-GET(J-THIS, "f_startWidth")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_currentWidth", JVALUE)
+    GOBACK.
+END FUNCTION RghtTLftImgAnmtn-update0.
 
-procedure TRightToLeftImageAnimation.paintXY(graphics_: TGraphics; x: Integer; y: Integer);
-begin
-        graphics_.drawRegion(Self.getImage(), Self.startWidth, Self.getStartY(), Self.currentWidth, Self.getDrawHeight(), TSprite.TRANS_NONE, (x) + (Self.startWidth), y, Self.anchor);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RghtTLftImgAnmtn-paintXY3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = (FUNCTION MOD((J-x + FUNCTION JR-GET(J-THIS, "f_startWidth")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION Graphics-drawRegion9(J-graphics, FUNCTION ImageAnimation-getImage0(J-THIS), FUNCTION JR-GET(J-THIS, "f_startWidth"), FUNCTION ImgSgmntAnmtn-getStartY0(J-THIS), FUNCTION JR-GET(J-THIS, "f_currentWidth"),
+        FUNCTION ImgSgmntAnmtn-getDrawHeight0(J-THIS), FUNCTION Sprite-static-TRANS-NONE, jtemp2, J-y, FUNCTION JR-GET(J-THIS, "f_anchor"))
+    GOBACK.
+END FUNCTION RghtTLftImgAnmtn-paintXY3.
 

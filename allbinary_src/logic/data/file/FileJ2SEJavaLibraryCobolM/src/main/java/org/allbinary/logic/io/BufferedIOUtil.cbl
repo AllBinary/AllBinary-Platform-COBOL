@@ -1,72 +1,76 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.io
+*> Java class BufferedIOUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.logic.io
-unit BufferedIOUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BufferedIOUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("BufferedIOUtil")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION BufferedIOUtil-new0.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AbFile;
-
-type
-  {AB:TYPES}
-  TBufferedIOUtil = class(TObject)
-  public
-    constructor Create;
-        class procedure copy(backupFile: TAbFile; backupFileBak: TAbFile); static;
-  end;
-
-implementation
-uses
-  AbFileNativeUtil, StringUtil;
-
-
-{AB:CODE}
-
-constructor TBufferedIOUtil.Create;
-begin
-  inherited Create;
-end;
-    
-
-// throws Exception
-class procedure TBufferedIOUtil.copy(backupFile: TAbFile; backupFileBak: TAbFile);
-var
-  line: string;
-  tmpOut: TBufferedWriter;
-  tmpIn: TBufferedReader;
-begin
-        line := TStringUtil.getInstance().EMPTY_STRING;
-        tmpOut := TBufferedWriter.Create(TFileWriter.Create(TAbFileNativeUtil.get(backupFileBak)));
-        tmpIn := TBufferedReader.Create(TFileReader.Create(TAbFileNativeUtil.get(backupFile)));
-        while tmpIn.ready() do begin
-            line := tmpIn.readLine();
-            tmpOut.write(line, 0, System.Length(line));
-            tmpOut.newLine();
-        end;
-        tmpOut.flush();
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BufferedIOUtil-copy2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-line BINARY-DOUBLE.
+01 J-tmpOut BINARY-DOUBLE.
+01 J-tmpIn BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-backupFile BINARY-DOUBLE.
+01 J-backupFileBak BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-backupFile J-backupFileBak RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+        COMPUTE J-line = FUNCTION JR-GET(jtemp1, "f_EMPTY_STRING")
+        COMPUTE J-tmpOut = FUNCTION BufferedWriter-new1(FUNCTION FileWriter-new1(FUNCTION AbFileNativeUtil-get1(J-backupFileBak)))
+        COMPUTE J-tmpIn = FUNCTION BufferedReader-new1(FUNCTION FileReader-new1(FUNCTION AbFileNativeUtil-get1(J-backupFile)))
+        PERFORM FOREVER
+            IF NOT (FUNCTION BufferedReader-ready0(J-tmpIn) = 1) EXIT PERFORM END-IF
+            COMPUTE J-line = FUNCTION BufferedReader-readLine0(J-tmpIn)
+            COMPUTE jtemp2 = 0
+            COMPUTE JDISCARD = FUNCTION BufferedWriter-write3(J-tmpOut, J-line, jtemp2, FUNCTION JR-STR-LENGTH(J-line))
+            COMPUTE JDISCARD = FUNCTION BufferedWriter-newLine0(J-tmpOut)
+        END-PERFORM
+        COMPUTE JDISCARD = FUNCTION BufferedWriter-flush0(J-tmpOut)
+    GOBACK.
+END FUNCTION BufferedIOUtil-copy2.
 

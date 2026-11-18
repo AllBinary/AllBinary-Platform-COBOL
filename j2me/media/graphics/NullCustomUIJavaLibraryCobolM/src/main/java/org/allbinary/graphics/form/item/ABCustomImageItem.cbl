@@ -1,54 +1,70 @@
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.form.item
-unit ABCustomImageItem;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.form.item
+*> Java class ABCustomImageItem
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ABCustomImageItem-new6.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-label BINARY-DOUBLE.
+01 J-image BINARY-DOUBLE.
+01 J-layout BINARY-DOUBLE.
+01 J-altText BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-yOffset BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-label J-image J-layout J-altText J-basicColor J-yOffset RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ABCustomImageItem")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_yOffset")
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_yOffset", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ABCustomImageItem-new6.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Image, BasicColor, ABCustomItem;
-
-type
-  {AB:TYPES}
-  TABCustomImageItem = class(TABCustomItem)
-  public
-    yOffset: Integer;
-    procedure InitFields;
-        constructor Create(label_: string; image_: TImage; layout: Integer; altText: string; basicColor_: TBasicColor; yOffset: Integer);
-        function getImage: TImage; virtual;
-  end;
-
-implementation
-uses
-  NullImage;
-
-
-{AB:CODE}
-
-procedure TABCustomImageItem.InitFields;
-begin
-  Self.yOffset := 0;
-end;
-    
-
-constructor TABCustomImageItem.Create(label_: string; image_: TImage; layout: Integer; altText: string; basicColor_: TBasicColor; yOffset: Integer);
-begin
-        inherited Create(label_, basicColor_, basicColor_);
-        InitFields;
-end;
-    
-
-function TABCustomImageItem.getImage: TImage;
-begin
-        Exit(TNullImage.NULL_IMAGE);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ABCustomImageItem-getImage0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION NullImage-static-NULL-IMAGE
+        GOBACK
+    GOBACK.
+END FUNCTION ABCustomImageItem-getImage0.
 

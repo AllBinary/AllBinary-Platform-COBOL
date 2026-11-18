@@ -1,94 +1,221 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.configuration.feature
+*> Java class Feature
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.configuration.feature
-unit Feature;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Feature-static-hashtable.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 Feature-jcell-hashtable BINARY-DOUBLE EXTERNAL.
+01 Feature-jset-hashtable BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF Feature-jset-hashtable = 0
+        MOVE 1 TO Feature-jset-hashtable
+        COMPUTE jtemp1 = FUNCTION StdUtil-getInstance0
+    COMPUTE Feature-jcell-hashtable = FUNCTION StdUtil-createHashtable0(jtemp1)
+    END-IF
+    MOVE Feature-jcell-hashtable TO J-RESULT
+    GOBACK.
+END FUNCTION Feature-static-hashtable.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FeaturestatichashtabS44411.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 Feature-jcell-hashtable BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION Feature-static-hashtable TO J-RESULT
+    MOVE J-VALUE TO Feature-jcell-hashtable
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION FeaturestatichashtabS44411.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, ABHashtable;
-
-type
-  {AB:TYPES}
-  TFeature = class(TObject)
-  public
-    name: string;
-    class var hashtable: TABHashtable<TObject, TObject>;
-    procedure InitFields;
-        constructor Create(name: string);
-        class function getInstance(name: string): TFeature; static;
-        class procedure add(name: string; gameFeature: TFeature); static;
-        function toString: string; virtual;
-        function getName: string; virtual;
-  end;
-
-implementation
-uses
-  ChangedGameFeatureListener, StdUtil;
-
-
-{AB:CODE}
-
-procedure TFeature.InitFields;
-begin
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Feature-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-name BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-name RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("Feature")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_name")
     
+        COMPUTE JVALUE = J-name
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_name", JVALUE)
+        COMPUTE JDISCARD = FUNCTION Feature-add2(J-name, J-THIS)
+        COMPUTE jtemp2 = FUNCTION ChngdGmFtrLstnr-getInstance0
+        COMPUTE JDISCARD = FUNCTION BsChngdGmFtrLstnr-add1(jtemp2, J-THIS)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION Feature-new1.
 
-constructor TFeature.Create(name: string);
-begin
-    inherited Create;
-    InitFields;
-        Self.name := name;
-        TFeature.add(name, Self);
-        TChangedGameFeatureListener.getInstance().add(Self);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Feature-getInstance1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-name BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-name RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-CLASS-NAME(FUNCTION Feature-static-hashtable)
+        GOBACK
+    GOBACK.
+END FUNCTION Feature-getInstance1.
 
-class function TFeature.getInstance(name: string): TFeature;
-begin
-        Exit(TFeature(TJava.ToObject(TFeature.hashtable.get(TJava.Box(name)))));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Feature-add2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-name BINARY-DOUBLE.
+01 J-gameFeature BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-name J-gameFeature RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION Feature-static-hashtable)
+    GOBACK.
+END FUNCTION Feature-add2.
 
-class procedure TFeature.add(name: string; gameFeature: TFeature);
-begin
-        TFeature.hashtable.put(TJava.Box(name), TJava.Box(gameFeature));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Feature-toString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION Feature-getName0(J-THIS)
+        GOBACK
+    GOBACK.
+END FUNCTION Feature-toString0.
 
-function TFeature.toString: string;
-begin
-        Exit(Self.getName());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Feature-getName0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_name")
+        GOBACK
+    GOBACK.
+END FUNCTION Feature-getName0.
 
-function TFeature.getName: string;
-begin
-        Exit(Self.name);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TFeature.hashtable := TStdUtil.getInstance().createHashtable();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+PROGRAM-ID. Feature-toString.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION Feature-toString0(J-THIS)
+    GOBACK.
+END PROGRAM Feature-toString.
 

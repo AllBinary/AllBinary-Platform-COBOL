@@ -1,161 +1,296 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion.button
+*> Java class TouchButton
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion.button
-unit TouchButton;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, Animation, AnimationInterface, CellPosition, Rectangle, Paintable, LogUtil, CommonStrings, TouchButtonInput;
-
-type
-  {AB:TYPES}
-  TTouchButton = class(TPaintable)
-  public
-    logUtil: TLogUtil;
-    commonStrings: TCommonStrings;
-    touchButtonInput: TTouchButtonInput;
-    animationInterface: TAnimation;
-    rawRectangle: TRectangle;
-    xBorder: Integer;
-    yBorder: Integer;
-    rectangle: TRectangle;
-    cellPosition: TCellPosition;
-    animationX: Integer;
-    animationY: Integer;
-    procedure InitFields;
-        constructor Create(touchButtonInput_: TTouchButtonInput; animationInterface_: IAnimationInterface; rawRectangle: TRectangle; cellPosition_: TCellPosition; xBorder: Integer; yBorder: Integer);
-        procedure paint(graphics_: TGraphics); override;
-        procedure updateRectangle; virtual;
-        function getCellPositionP: TCellPosition; virtual;
-        function getRectangleP: TRectangle; virtual;
-        function getTouchButtonInput: TTouchButtonInput; virtual;
-        function toString: string; override;
-  end;
-
-implementation
-uses
-  GPoint, PointFactory, RectangleFactory, StringMaker, StringUtil;
-
-
-{AB:CODE}
-
-procedure TTouchButton.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.commonStrings := TCommonStrings.getInstance();
-  
-  
-  
-  
-  
-  Self.rectangle := TRectangleFactory.SINGLETON;
-  
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TouchButton-new6.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-touchButtonInput BINARY-DOUBLE.
+01 J-animationInterface BINARY-DOUBLE.
+01 J-rawRectangle BINARY-DOUBLE.
+01 J-cellPosition BINARY-DOUBLE.
+01 J-xBorder BINARY-DOUBLE.
+01 J-yBorder BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-touchButtonInput J-animationInterface J-rawRectangle J-cellPosition J-xBorder J-yBorder RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("TouchButton")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_touchButtonInput")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_animationInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_rawRectangle")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_xBorder")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_yBorder")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_rectangle")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_cellPosition")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_animationX")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_animationY")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
     
-
-constructor TTouchButton.Create(touchButtonInput_: TTouchButtonInput; animationInterface_: IAnimationInterface; rawRectangle: TRectangle; cellPosition_: TCellPosition; xBorder: Integer; yBorder: Integer);
-begin
-    inherited Create;
-    InitFields;
-        Self.touchButtonInput := touchButtonInput_;
-        Self.animationInterface := TAnimation(TJava.ToObject(animationInterface_));
-        Self.rawRectangle := rawRectangle;
-        Self.cellPosition := cellPosition_;
-        Self.xBorder := xBorder;
-        Self.yBorder := yBorder;
-        Self.updateRectangle();
-        Self.logUtil.putF(TStringMaker.Create().append('Created: ').append(Self.toString()).toString(), TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_);
-end;
     
-
-procedure TTouchButton.paint(graphics_: TGraphics);
-begin
-        Self.animationInterface.paintXY(graphics_, Self.animationX, Self.animationY);
-end;
     
-
-procedure TTouchButton.updateRectangle;
-var
-  x: Integer;
-  y: Integer;
-  pointFactory_: TPointFactory;
-  point: TGPoint;
-begin
-        try
-            x := (Self.rawRectangle.getWidth()) * (Self.cellPosition.getColumn());
-            y := (Self.rawRectangle.getHeight()) * (Self.cellPosition.getRow());
-            pointFactory_ := TPointFactory.getInstance();
-            Self.rectangle := TRectangle.Create(pointFactory_.createXY((x) + (Self.xBorder), (y) + (Self.yBorder)), Self.rawRectangle.getWidth(), Self.rawRectangle.getHeight());
-            point := Self.rectangle.getPoint();
-            Self.animationX := point.getX();
-            Self.animationY := point.getY();
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), 'updateRectangle', TJava.Box(e));
-            end;
-        end;
-end;
     
-
-function TTouchButton.getCellPositionP: TCellPosition;
-begin
-        Exit(Self.cellPosition);
-end;
     
-
-function TTouchButton.getRectangleP: TRectangle;
-begin
-        Exit(Self.rectangle);
-end;
+    COMPUTE JVALUE = FUNCTION RctnglFctry-static-SINGLETON
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_rectangle", JVALUE)
     
-
-function TTouchButton.getTouchButtonInput: TTouchButtonInput;
-begin
-        Exit(Self.touchButtonInput);
-end;
     
+    
+        COMPUTE JVALUE = J-touchButtonInput
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_touchButtonInput", JVALUE)
+        COMPUTE JVALUE = J-animationInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animationInterface", JVALUE)
+        COMPUTE JVALUE = J-rawRectangle
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_rawRectangle", JVALUE)
+        COMPUTE JVALUE = J-cellPosition
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_cellPosition", JVALUE)
+        COMPUTE JVALUE = J-xBorder
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_xBorder", JVALUE)
+        COMPUTE JVALUE = J-yBorder
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_yBorder", JVALUE)
+        COMPUTE JDISCARD = FUNCTION TouchButton-updateRectangle0(J-THIS)
+        COMPUTE jtemp3 = FUNCTION StringMaker-new0
+        COMPUTE jtemp2 = FUNCTION StringMaker-append1(jtemp3, FUNCTION JR-STR("Created: "))
+        COMPUTE jtemp1 = FUNCTION StringMaker-append1(jtemp2, FUNCTION TouchButton-toString0(J-THIS))
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp1), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_CONSTRUCTOR"))
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION TouchButton-new6.
 
-function TTouchButton.toString: string;
-var
-  stringBuffer: TStringMaker;
-  stringUtil_: TStringUtil;
-begin
-        stringBuffer := TStringMaker.Create();
-        stringUtil_ := TStringUtil.getInstance();
-        stringBuffer.append('TouchButton: ');
-        stringBuffer.append(stringUtil_.toString(Self.rectangle));
-        stringBuffer.append(' CellPosition: ');
-        stringBuffer.append(stringUtil_.toString(Self.cellPosition));
-        stringBuffer.append(' xBorder: ');
-        stringBuffer.appendint(Self.xBorder);
-        stringBuffer.append(' yBorder: ');
-        stringBuffer.appendint(Self.yBorder);
-        Exit(stringBuffer.toString());
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TouchButton-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Animation-paintXY3(FUNCTION JR-GET(J-THIS, "f_animationInterface"), J-graphics, FUNCTION JR-GET(J-THIS, "f_animationX"), FUNCTION JR-GET(J-THIS, "f_animationY"))
+    GOBACK.
+END FUNCTION TouchButton-paint1.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TouchButton-updateRectangle0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-pointFactory BINARY-DOUBLE.
+01 J-point BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE J-x = (FUNCTION MOD((FUNCTION Rectangle-getWidth0(FUNCTION JR-GET(J-THIS, "f_rawRectangle")) * FUNCTION CellPosition-getColumn0(FUNCTION JR-GET(J-THIS, "f_cellPosition"))) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE J-y = (FUNCTION MOD((FUNCTION Rectangle-getHeight0(FUNCTION JR-GET(J-THIS, "f_rawRectangle")) * FUNCTION CellPosition-getRow0(FUNCTION JR-GET(J-THIS, "f_cellPosition"))) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE J-pointFactory = FUNCTION PointFactory-getInstance0
+            COMPUTE jtemp4 = (FUNCTION MOD((J-x + FUNCTION JR-GET(J-THIS, "f_xBorder")) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE jtemp5 = (FUNCTION MOD((J-y + FUNCTION JR-GET(J-THIS, "f_yBorder")) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JVALUE = FUNCTION Rectangle-new3(FUNCTION PointFactory-createXY2(J-pointFactory, jtemp4, jtemp5), FUNCTION Rectangle-getWidth0(FUNCTION JR-GET(J-THIS, "f_rawRectangle")), FUNCTION Rectangle-getHeight0(FUNCTION
+        JR-GET(J-THIS, "f_rawRectangle")))
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_rectangle", JVALUE)
+            COMPUTE J-point = FUNCTION Rectangle-getPoint0(FUNCTION JR-GET(J-THIS, "f_rectangle"))
+            COMPUTE JVALUE = FUNCTION GPoint-getX0(J-point)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animationX", JVALUE)
+            COMPUTE JVALUE = FUNCTION GPoint-getY0(J-point)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animationY", JVALUE)
+    GOBACK.
+END FUNCTION TouchButton-updateRectangle0.
 
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TouchButton-getCellPositionP0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_cellPosition")
+        GOBACK
+    GOBACK.
+END FUNCTION TouchButton-getCellPositionP0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TouchButton-getRectangleP0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_rectangle")
+        GOBACK
+    GOBACK.
+END FUNCTION TouchButton-getRectangleP0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchBttn-getTouchButtonInput0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_touchButtonInput")
+        GOBACK
+    GOBACK.
+END FUNCTION TchBttn-getTouchButtonInput0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TouchButton-toString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringBuffer BINARY-DOUBLE.
+01 J-stringUtil BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE J-stringUtil = FUNCTION StringUtil-getInstance0
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR("TouchButton: "))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION StringUtil-toString1(J-stringUtil, FUNCTION JR-GET(J-THIS, "f_rectangle")))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR(" CellPosition: "))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION StringUtil-toString1(J-stringUtil, FUNCTION JR-GET(J-THIS, "f_cellPosition")))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR(" xBorder: "))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_xBorder"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR(" yBorder: "))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_yBorder"))
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(J-stringBuffer)
+        GOBACK
+    GOBACK.
+END FUNCTION TouchButton-toString0.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. TouchButton-toString.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION TouchButton-toString0(J-THIS)
+    GOBACK.
+END PROGRAM TouchButton-toString.
 

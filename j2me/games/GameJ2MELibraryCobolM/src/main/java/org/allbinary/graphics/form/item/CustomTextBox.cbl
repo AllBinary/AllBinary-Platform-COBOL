@@ -1,169 +1,398 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.form.item
+*> Java class CustomTextBox
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.form.item
-unit CustomTextBox;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, CommandListener, Font, Graphics, GameCommandCanvas, InputFactory, RawKeyEventListener, BasicColor, ABTextFieldItem;
-
-type
-  {AB:TYPES}
-  TCustomTextBox = class(TGameCommandCanvas, IRawKeyEventListener)
-  public
-    textFieldItem: TABTextFieldItem;
-    inputFactory: TInputFactory;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(cmdListener: ICommandListener; label_: string; text: string; maxSize: Integer; constraints: Integer; font_: TFont; backgroundBasicColor: TBasicColor; foregroundBasicColor: TBasicColor);
-        procedure submit; virtual;
-        procedure onEventRaw(keyCode: Integer; deviceId: Integer; repeated: Boolean); virtual;
-        procedure keyPressed(keyCode: Integer); virtual;
-        procedure keyReleased(keyCode: Integer); virtual;
-        procedure keyRepeated(keyCode: Integer); virtual;
-        procedure keyPressedByDevice(keyCode: Integer; deviceId: Integer); virtual;
-        procedure keyReleasedByDevice(keyCode: Integer; deviceId: Integer); virtual;
-        procedure paint(graphics_: TGraphics); virtual;
-        procedure paintXY(graphics_: TGraphics; x: Integer; y: Integer); virtual;
-        function getTextFieldItem: TABTextFieldItem; virtual;
-  end;
-
-implementation
-uses
-  J2MEUtil, Input, PlatformKeyFactory, TextItemVisitor, StringMaker, StringUtil, CommonSeps;
-
-
-{AB:CODE}
-
-procedure TCustomTextBox.InitFields;
-begin
-  
-  Self.inputFactory := TInputFactory.getInstance();
-end;
-
-function TCustomTextBox.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CustomTextBox-new8.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-stringUtil BINARY-DOUBLE.
+01 J-textFieldItem BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-cmdListener BINARY-DOUBLE.
+01 J-label BINARY-DOUBLE.
+01 J-text BINARY-DOUBLE.
+01 J-maxSize BINARY-DOUBLE.
+01 J-constraints BINARY-DOUBLE.
+01 J-font BINARY-DOUBLE.
+01 J-backgroundBasicColor BINARY-DOUBLE.
+01 J-foregroundBasicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-cmdListener J-label J-text J-maxSize J-constraints J-font J-backgroundBasicColor J-foregroundBasicColor RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CustomTextBox")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_textFieldItem")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_inputFactory")
     
+    COMPUTE JVALUE = FUNCTION InputFactory-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_inputFactory", JVALUE)
+        CONTINUE
+        COMPUTE J-stringUtil = FUNCTION StringUtil-getInstance0
+        COMPUTE jtemp1 = 0
+        COMPUTE J-textFieldItem = FUNCTION ABTextFieldItem-new10(J-THIS, FUNCTION TextItemVisitor-new0, FUNCTION JR-GET(J-stringUtil, "f_EMPTY_STRING"), FUNCTION JR-GET(J-stringUtil, "f_EMPTY_STRING"), J-maxSize, jtemp1, FUNCTION
+        JR-GET(J-stringUtil, "f_EMPTY_STRING"), J-font, J-backgroundBasicColor, J-foregroundBasicColor)
+        COMPUTE JDISCARD = FUNCTION ABTextFieldItem-setString1(J-textFieldItem, J-text)
+        COMPUTE JVALUE = J-textFieldItem
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_textFieldItem", JVALUE)
+        COMPUTE JDISCARD = FUNCTION Canvas-setTitle1(J-THIS, J-label)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CustomTextBox-new8.
 
-constructor TCustomTextBox.Create(cmdListener: ICommandListener; label_: string; text: string; maxSize: Integer; constraints: Integer; font_: TFont; backgroundBasicColor: TBasicColor; foregroundBasicColor: TBasicColor);
-var
-  stringUtil_: TStringUtil;
-  textFieldItem: TABTextFieldItem;
-begin
-        inherited Create(cmdListener, label_, backgroundBasicColor, foregroundBasicColor);
-        InitFields;
-        stringUtil_ := TStringUtil.getInstance();
-        textFieldItem := TABTextFieldItem.Create(Self, TTextItemVisitor.Create(), stringUtil_.EMPTY_STRING, stringUtil_.EMPTY_STRING, maxSize, 0, stringUtil_.EMPTY_STRING, font_, backgroundBasicColor, foregroundBasicColor);
-        textFieldItem.setString(text);
-        Self.textFieldItem := textFieldItem;
-        Self.setTitle(label_);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CustomTextBox-submit0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION CustomTextBox-submit0.
 
-procedure TCustomTextBox.submit;
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CustomTextBox-onEventRaw3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-keyCode BINARY-DOUBLE.
+01 J-deviceId BINARY-DOUBLE.
+01 J-repeated BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-keyCode J-deviceId J-repeated RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp4 = FUNCTION StringMaker-new0
+        COMPUTE jtemp3 = FUNCTION StringMaker-append1(jtemp4, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_START"))
+        COMPUTE jtemp2 = FUNCTION StringMaker-appendint1(jtemp3, J-keyCode)
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        COMPUTE JDISCARD = FUNCTION CstmTxtBx-keyPressedByDevice2(J-THIS, J-keyCode, J-deviceId)
+    GOBACK.
+END FUNCTION CustomTextBox-onEventRaw3.
 
-procedure TCustomTextBox.onEventRaw(keyCode: Integer; deviceId: Integer; repeated: Boolean);
-begin
-        Self.logUtil.putF(TStringMaker.Create().append(Self.commonStrings.START).appendint(keyCode).toString(), TJava.Box(Self), 'onEvent');
-        Self.keyPressedByDevice(keyCode, deviceId);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CustomTextBox-keyPressed1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-keyCode BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-keyCode RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp5 = 0
+        COMPUTE JDISCARD = FUNCTION CstmTxtBx-keyPressedByDevice2(J-THIS, J-keyCode, jtemp5)
+    GOBACK.
+END FUNCTION CustomTextBox-keyPressed1.
 
-procedure TCustomTextBox.keyPressed(keyCode: Integer);
-begin
-        Self.keyPressedByDevice(keyCode, 0);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CustomTextBox-keyReleased1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-keyCode BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-keyCode RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp6 = 0
+        COMPUTE JDISCARD = FUNCTION CstmTxtBx-keyReleasedByDevice2(J-THIS, J-keyCode, jtemp6)
+    GOBACK.
+END FUNCTION CustomTextBox-keyReleased1.
 
-procedure TCustomTextBox.keyReleased(keyCode: Integer);
-begin
-        Self.keyReleasedByDevice(keyCode, 0);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CustomTextBox-keyRepeated1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-keyCode BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-keyCode RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp7 = 0
+        COMPUTE JDISCARD = FUNCTION GmCmmndCnvs-kyRptdByDvc2(J-THIS, J-keyCode, jtemp7)
+    GOBACK.
+END FUNCTION CustomTextBox-keyRepeated1.
 
-procedure TCustomTextBox.keyRepeated(keyCode: Integer);
-begin
-        Self.keyRepeatedByDevice(keyCode, 0);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CstmTxtBx-keyPressedByDevice2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-platformKeyFactory BINARY-DOUBLE.
+01 J-input BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-keyCode BINARY-DOUBLE.
+01 J-deviceId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-keyCode J-deviceId RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE jtemp11 = FUNCTION CommonSeps-getInstance0
+            COMPUTE jtemp10 = FUNCTION StringMaker-new0
+            COMPUTE jtemp9 = FUNCTION StringMaker-append1(jtemp10, FUNCTION JR-GET(jtemp11, "f_SPACE"))
+            COMPUTE jtemp8 = FUNCTION StringMaker-appendint1(jtemp9, J-keyCode)
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+            COMPUTE J-platformKeyFactory = FUNCTION PltfrmKyFctry-getInstance0
+            COMPUTE J-input = FUNCTION InputFactory-getInstanceById1(FUNCTION JR-GET(J-THIS, "f_inputFactory"), J-keyCode)
+            IF (FUNCTION PltfrmKyFctry-isSubmission1(J-platformKeyFactory, J-input) = 1)
+                COMPUTE JDISCARD = FUNCTION CustomTextBox-submit0(J-THIS)
+            ELSE
+                COMPUTE JDISCARD = FUNCTION ABTextItem-keyPressed1(FUNCTION JR-GET(J-THIS, "f_textFieldItem"), J-keyCode)
+            END-IF
+    GOBACK.
+END FUNCTION CstmTxtBx-keyPressedByDevice2.
 
-procedure TCustomTextBox.keyPressedByDevice(keyCode: Integer; deviceId: Integer);
-var
-  platformKeyFactory_: TPlatformKeyFactory;
-  input_: TInput;
-begin
-        try
-            Self.logUtil.putF(TStringMaker.Create().append(TCommonSeps.getInstance().SPACE).appendint(keyCode).toString(), TJava.Box(Self), Self.gameInputStrings.KEY_PRESSED);
-            platformKeyFactory_ := TPlatformKeyFactory.getInstance();
-            input_ := Self.inputFactory.getInstanceById(keyCode);
-            if platformKeyFactory_.isSubmission(input_) then begin
-                Self.submit();
-            end else begin
-                Self.textFieldItem.keyPressed(keyCode);
-            end;
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.gameInputStrings.KEY_PRESSED, TJava.Box(e));
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CstmTxtBx-keyReleasedByDevice2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-keyCode BINARY-DOUBLE.
+01 J-deviceId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-keyCode J-deviceId RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION CstmTxtBx-keyReleasedByDevice2.
 
-procedure TCustomTextBox.keyReleasedByDevice(keyCode: Integer; deviceId: Integer);
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CustomTextBox-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+01 jtemp18 BINARY-DOUBLE.
+01 jtemp19 BINARY-DOUBLE.
+01 jtemp20 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Graphics-setColor1(J-graphics, FUNCTION JR-GET(J-THIS, "f_backgroundColor"))
+        COMPUTE jtemp12 = 0
+        COMPUTE jtemp13 = 0
+        COMPUTE JDISCARD = FUNCTION Graphics-fillRect4(J-graphics, jtemp12, jtemp13, FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_displayInfo")), FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_displayInfo")))
+        COMPUTE JDISCARD = FUNCTION Graphics-setColor1(J-graphics, FUNCTION JR-GET(J-THIS, "f_foregroundColor"))
+        IF (NOT (FUNCTION J2MEUtil-isJ2ME0 = 1))
+            COMPUTE jtemp14 = 8
+            COMPUTE jtemp15 = 1
+            COMPUTE jtemp16 = 0
+            COMPUTE JDISCARD = FUNCTION Graphics-drawString4(J-graphics, FUNCTION Canvas-getTitle0(J-THIS), jtemp14, jtemp15, jtemp16)
+        END-IF
+        COMPUTE jtemp19 = FUNCTION Graphics-getFont0(J-graphics)
+        COMPUTE jtemp20 = 2
+        COMPUTE jtemp17 = 8
+        COMPUTE jtemp18 = (FUNCTION MOD((FUNCTION JR-CLASS-NAME(jtemp19) + jtemp20) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION CustomTextBox-paintXY3(J-THIS, J-graphics, jtemp17, jtemp18)
+        COMPUTE JDISCARD = FUNCTION GameCommandCanvas-paint1(J-THIS, J-graphics)
+    GOBACK.
+END FUNCTION CustomTextBox-paint1.
 
-procedure TCustomTextBox.paint(graphics_: TGraphics);
-begin
-        graphics_.setColor(Self.backgroundColor);
-        graphics_.fillRect(0, 0, Self.displayInfo.getLastWidth(), Self.displayInfo.getLastHeight());
-        graphics_.setColor(Self.foregroundColor);
-        if not (TJ2MEUtil.isJ2ME()) then begin
-            graphics_.drawString(Self.getTitle(), 8, 1, 0);
-        end;
-        Self.paintXY(graphics_, 8, (graphics_.getFont().getHeight()) + (2));
-        inherited paint(graphics_);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CustomTextBox-paintXY3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION ABTextItem-paintXY3(FUNCTION JR-GET(J-THIS, "f_textFieldItem"), J-graphics, J-x, J-y)
+    GOBACK.
+END FUNCTION CustomTextBox-paintXY3.
 
-procedure TCustomTextBox.paintXY(graphics_: TGraphics; x: Integer; y: Integer);
-begin
-        Self.textFieldItem.paintXY(graphics_, x, y);
-end;
-    
-
-function TCustomTextBox.getTextFieldItem: TABTextFieldItem;
-begin
-        Exit(Self.textFieldItem);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CstmTxtBx-getTextFieldItem0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_textFieldItem")
+        GOBACK
+    GOBACK.
+END FUNCTION CstmTxtBx-getTextFieldItem0.
 

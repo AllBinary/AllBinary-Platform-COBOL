@@ -1,126 +1,237 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.score
+*> Java class HighScoresCanvasInputProcessor
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.score
-unit HighScoresCanvasInputProcessor;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, PlayerGameInput, GameKeyEvent, HighScoresCanvas;
-
-type
-  {AB:TYPES}
-  THighScoresCanvasInputProcessor = class(TPlayerGameInput)
-  public
-    highScoresCanvas: THighScoresCanvas;
-    procedure InitFields;
-        constructor Create(highScoresCanvas_: THighScoresCanvas);
-        procedure open; virtual;
-        procedure close; virtual;
-        procedure onPressGameKeyEvent(gameKeyEvent_: TGameKeyEvent); override;
-        procedure onDownGameKeyEvent(gameKeyEvent_: TGameKeyEvent); override;
-        procedure onUpGameKeyEvent(gameKeyEvent_: TGameKeyEvent); override;
-        procedure paint(graphics_: TGraphics); virtual;
-        function getHighScoresCanvas: THighScoresCanvas; virtual;
-  end;
-
-implementation
-uses
-  BasicArrayList, BasicArrayListD;
-
-
-{AB:CODE}
-
-procedure THighScoresCanvasInputProcessor.InitFields;
-begin
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrsCnvsInptPrcssr-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-highScoresCanvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-highScoresCanvas RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("HighScoresCanvasInputProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_highScoresCanvas")
     
+        COMPUTE jtemp1 = (0 - 1)
+        CONTINUE
+        COMPUTE JVALUE = J-highScoresCanvas
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_highScoresCanvas", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION HghScrsCnvsInptPrcssr-new1.
 
-constructor THighScoresCanvasInputProcessor.Create(highScoresCanvas_: THighScoresCanvas);
-begin
-        inherited Create(TBasicArrayListD.Create(), TBasicArrayListD.Create(), -1);
-        InitFields;
-        Self.highScoresCanvas := highScoresCanvas_;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrsCnvsInptPrcssr-open0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION HghScrsCnvsInptPrcssr-open0.
 
-procedure THighScoresCanvasInputProcessor.open;
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrsCnvsInptPrcssr-close0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION HghScrsCnvsInptPrcssr-close0.
 
-procedure THighScoresCanvasInputProcessor.close;
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrsCnvsInptPrcssr-onP61296.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gameKeyEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION PlyrGmInpt-onPrssGmKyEvnt1(J-THIS, J-gameKeyEvent)
+        COMPUTE JDISCARD = FUNCTION GameInput-update0(J-THIS)
+    GOBACK.
+END FUNCTION HghScrsCnvsInptPrcssr-onP61296.
 
-procedure THighScoresCanvasInputProcessor.onPressGameKeyEvent(gameKeyEvent_: TGameKeyEvent);
-begin
-    TJava.MonitorEnter(Self);
-    try
-        inherited onPressGameKeyEvent(gameKeyEvent_);
-        Self.update();
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrsCnvsInptPrcssr-onD29699.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gameKeyEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION PlyrGmInpt-onDownGameKeyEvent1(J-THIS, J-gameKeyEvent)
+        COMPUTE JDISCARD = FUNCTION GameInput-update0(J-THIS)
+    GOBACK.
+END FUNCTION HghScrsCnvsInptPrcssr-onD29699.
 
-procedure THighScoresCanvasInputProcessor.onDownGameKeyEvent(gameKeyEvent_: TGameKeyEvent);
-begin
-    TJava.MonitorEnter(Self);
-    try
-        inherited onDownGameKeyEvent(gameKeyEvent_);
-        Self.update();
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrsCnvsInptPrcssr-onU33962.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gameKeyEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION PlyrGmInpt-onUpGameKeyEvent1(J-THIS, J-gameKeyEvent)
+        COMPUTE JDISCARD = FUNCTION GameInput-update0(J-THIS)
+    GOBACK.
+END FUNCTION HghScrsCnvsInptPrcssr-onU33962.
 
-procedure THighScoresCanvasInputProcessor.onUpGameKeyEvent(gameKeyEvent_: TGameKeyEvent);
-begin
-    TJava.MonitorEnter(Self);
-    try
-        inherited onUpGameKeyEvent(gameKeyEvent_);
-        Self.update();
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrsCnvsInptPrcssr-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION HghScrsCnvsInptPrcssr-paint1.
 
-procedure THighScoresCanvasInputProcessor.paint(graphics_: TGraphics);
-begin
-end;
-    
-
-function THighScoresCanvasInputProcessor.getHighScoresCanvas: THighScoresCanvas;
-begin
-        Exit(Self.highScoresCanvas);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrsCnvsInptPrcssr-gtH58100.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_highScoresCanvas")
+        GOBACK
+    GOBACK.
+END FUNCTION HghScrsCnvsInptPrcssr-gtH58100.
 

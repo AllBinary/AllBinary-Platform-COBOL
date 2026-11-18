@@ -1,376 +1,1043 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.layer.weapon
+*> Java class WeaponLayer
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.layer.weapon
-unit WeaponLayer;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GL, Graphics, Animation, CollidableBaseBehavior, WeaponProperties, MultiPlayerGameLayer, RemoteInfo, ScoreableInterface, TickableInterface, Rectangle, AllBinaryLayer, AllBinaryLayerManager, Movement, ViewPositionBase, CollidableWeaponBehavior, NamedInterface;
-
-type
-  {AB:TYPES}
-  TWeaponLayer = class(TMultiPlayerGameLayer, ITickableInterface, INamedInterface)
-  public
-    animationInterface: TAnimation;
-    initAnimationInterface: TAnimation;
-    destroyedAnimationInterface: TAnimation;
-    sourceLayerInterface: TAllBinaryLayer;
-    totalDamage: Integer;
-    initDamage: Integer;
-    destroyed: Boolean;
-    scoreableInterface: IScoreableInterface;
-    movement: TMovement;
-    weaponProperties: TWeaponProperties;
-    multiPlayerType: Integer;
-    collidableWeaponBehavior: TCollidableWeaponBehavior;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(name: string; remoteInfo_: TRemoteInfo; multiPlayerType: Integer; movement_: TMovement; animationInterface: TAnimation; destroyedAnimationInterface: TAnimation; rectangle_: TRectangle; viewPosition: TViewPositionBase);
-        procedure setCollidableInferface(collidableInferface: TCollidableBaseBehavior); virtual;
-        procedure initXYZ(x: Integer; y: Integer; z: Integer); virtual;
-        procedure init(sourceLayerInterface: TAllBinaryLayer; angle: Integer; otherAngle: Integer; weaponProperties_: TWeaponProperties; scoreable: IScoreableInterface); virtual;
-        procedure setGroupInterfaces; virtual;
-        procedure processTick(allBinaryLayerManager_: TAllBinaryLayerManager); virtual;
-        function isDestroyed: Boolean; virtual;
-        procedure damage(damage: Integer; damageType: Integer); virtual;
-        procedure givePoints(total: Integer); virtual;
-        function isExhausted: Boolean; virtual;
-        function getDamage(damageType: Integer): Integer; virtual;
-        procedure setDestroyed(destroyed: Boolean); virtual;
-        function getInitDamage: Integer; virtual;
-        procedure setAnimationInterface(animationInterface: TAnimation); virtual;
-        function getAnimationInterface: TAnimation; virtual;
-        function getInitAnimationInterfaceP: TAnimation; virtual;
-        procedure setInitAnimationInterfaceP(initAnimationInterface: TAnimation); virtual;
-        function getDestroyedAnimationInterface: TAnimation; virtual;
-        function getOwnerLayerInterface: TAllBinaryLayer; virtual;
-        procedure setOwnerLayerInterface(sourceLayerInterface: TAllBinaryLayer); virtual;
-        procedure paint(graphics_: TGraphics); virtual;
-        procedure paintThreed(graphics_: TGraphics); virtual;
-        function getMovement: TMovement; virtual;
-        procedure setMovement(movement_: TMovement); virtual;
-        function getType: Integer; virtual;
-        class function getStaticType: Integer; static;
-        function getMultiPlayerType: Integer; virtual;
-        procedure setWeaponPropertiesP(weaponProperties_: TWeaponProperties); virtual;
-        function getWeaponPropertiesP: TWeaponProperties; virtual;
-        function implmentsTickableInterface: Boolean; virtual;
-        procedure set_(gl_: IGL); virtual;
-  end;
-
-implementation
-uses
-  IndexedAnimation, NullAnimationFactory, DestroyedLayerProcessor, GameConfigurationUtil, BasicGroupFactory, NoScoreable, ViewPosition;
-
-
-{AB:CODE}
-
-procedure TWeaponLayer.InitFields;
-begin
-  Self.animationInterface := TNullAnimationFactory.getFactoryInstance().getInstance(0);
-  
-  
-  Self.sourceLayerInterface := TAllBinaryLayer.NULL_ALLBINARY_LAYER;
-  
-  
-  Self.destroyed := True;
-  Self.scoreableInterface := TNoScoreable.getInstance();
-  
-  Self.weaponProperties := TWeaponProperties.NULL_WEAPON_PROPERTIES;
-  
-  Self.collidableWeaponBehavior := TCollidableWeaponBehavior.getNullInstance();
-end;
-
-function TWeaponLayer.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WeaponLayer-new8.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-name BINARY-DOUBLE.
+01 J-remoteInfo BINARY-DOUBLE.
+01 J-multiPlayerType BINARY-DOUBLE.
+01 J-movement BINARY-DOUBLE.
+01 J-animationInterface BINARY-DOUBLE.
+01 J-destroyedAnimationInterface BINARY-DOUBLE.
+01 J-rectangle BINARY-DOUBLE.
+01 J-viewPosition BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-name J-remoteInfo J-multiPlayerType J-movement J-animationInterface J-destroyedAnimationInterface J-rectangle J-viewPosition RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("WeaponLayer")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_animationInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_initAnimationInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_destroyedAnimationInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_sourceLayerInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_totalDamage")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_initDamage")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_destroyed")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_scoreableInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_movement")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_weaponProperties")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_multiPlayerType")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_collidableWeaponBehavior")
+    COMPUTE jtemp2 = 0
+    COMPUTE jtemp1 = FUNCTION NllAnmtnFctry-gtFctryInstnc0
+    COMPUTE JVALUE = FUNCTION JR-CLASS-NAME(jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animationInterface", JVALUE)
     
-
-constructor TWeaponLayer.Create(name: string; remoteInfo_: TRemoteInfo; multiPlayerType: Integer; movement_: TMovement; animationInterface: TAnimation; destroyedAnimationInterface: TAnimation; rectangle_: TRectangle; viewPosition: TViewPositionBase);
-begin
-        inherited Create(remoteInfo_, TBasicGroupFactory.getInstance().NONE_ARRAY, name, rectangle_, viewPosition);
-        InitFields;
-        Self.initAnimationInterface := animationInterface;
-        Self.setAnimationInterface(animationInterface);
-        Self.destroyedAnimationInterface := destroyedAnimationInterface;
-        Self.movement := movement_;
-        Self.multiPlayerType := multiPlayerType;
-end;
     
-
-procedure TWeaponLayer.setCollidableInferface(collidableInferface: TCollidableBaseBehavior);
-begin
-        inherited setCollidableInferface(collidableInferface);
-        Self.collidableWeaponBehavior := TCollidableWeaponBehavior(TJava.ToObject(Self.getCollidableInferface()));
-end;
+    COMPUTE JVALUE = FUNCTION AllBnryLyr-sttc-NULL-A70567
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_sourceLayerInterface", JVALUE)
     
-
-// throws Exception
-procedure TWeaponLayer.initXYZ(x: Integer; y: Integer; z: Integer);
-begin
-        Self.x := x;
-        Self.y := y;
-        Self.z := z;
-end;
     
-
-// throws Exception
-procedure TWeaponLayer.init(sourceLayerInterface: TAllBinaryLayer; angle: Integer; otherAngle: Integer; weaponProperties_: TWeaponProperties; scoreable: IScoreableInterface);
-begin
-        Self.setWeaponPropertiesP(weaponProperties_);
-        Self.setReadyForExplosion(False);
-        Self.setAnimationInterface(Self.getInitAnimationInterfaceP());
-        Self.setOwnerLayerInterface(sourceLayerInterface);
-        Self.collidableWeaponBehavior.init(sourceLayerInterface);
-        Self.setGroupInterfaces();
-        if (scoreable) <> (nil) then begin
-            Self.scoreableInterface := scoreable;
-        end;
-        Self.totalDamage := 0;
-        Self.initDamage := weaponProperties_.getDamage();
-        Self.setDestroyed(False);
-        Self.movement.init(weaponProperties_.getSpeed(), angle, otherAngle);
-end;
+    COMPUTE JVALUE = 1
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_destroyed", JVALUE)
+    COMPUTE JVALUE = FUNCTION NoScoreable-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_scoreableInterface", JVALUE)
     
-
-procedure TWeaponLayer.setGroupInterfaces;
-var
-  basicGroupFactory_: TBasicGroupFactory;
-begin
-        basicGroupFactory_ := TBasicGroupFactory.getInstance();
-        if (Self.sourceLayerInterface.getGroupInterface()[0]) = (basicGroupFactory_.ENEMY) then begin
-            Self.setGroupInterface(basicGroupFactory_.ENEMY_ARRAY);
-        end else begin
-            Self.setGroupInterface(Self.sourceLayerInterface.getGroupInterface());
-        end;
-end;
+    COMPUTE JVALUE = FUNCTION WpnPrprts-sttc-NULL-WE36388
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_weaponProperties", JVALUE)
     
+    COMPUTE JVALUE = FUNCTION ClldblWpnBhvr-getNullInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_collidableWeaponBehavior", JVALUE)
+        COMPUTE jtemp3 = FUNCTION BasicGroupFactory-getInstance0
+        CONTINUE
+        COMPUTE JVALUE = J-animationInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_initAnimationInterface", JVALUE)
+        COMPUTE JDISCARD = FUNCTION WpnLyr-setAnimationInterface1(J-THIS, J-animationInterface)
+        COMPUTE JVALUE = J-destroyedAnimationInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_destroyedAnimationInterface", JVALUE)
+        COMPUTE JVALUE = J-movement
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_movement", JVALUE)
+        COMPUTE JVALUE = J-multiPlayerType
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_multiPlayerType", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION WeaponLayer-new8.
 
-// throws Exception
-procedure TWeaponLayer.processTick(allBinaryLayerManager_: TAllBinaryLayerManager);
-var
-  collidableWeaponBehavior_: TCollidableWeaponBehavior;
-  indexedAnimationInterface: TIndexedAnimation;
-  currentFrame: Integer;
-begin
-        if (Self.isExhausted()) and (not (Self.isDestroyed())) then begin
-            if Self.isReadyForExplosion() then begin
-                indexedAnimationInterface := TIndexedAnimation(TJava.ToObject(Self.getAnimationInterface()));
-                currentFrame := indexedAnimationInterface.getFrame();
-                if (currentFrame) < ((indexedAnimationInterface.getAnimationSize()) - (1)) then begin
-                    indexedAnimationInterface.nextFrame();
-                end else begin
-                    Self.setDestroyed(True);
-                end;
-            end else begin
-                collidableWeaponBehavior_ := TCollidableWeaponBehavior(TJava.ToObject(Self.getCollidableInferface()));
-                if collidableWeaponBehavior_.isCollided() then begin
-                    Self.setAnimationInterface(Self.destroyedAnimationInterface);
-                    Self.getMovement().stop();
-                    Self.setReadyForExplosion(True);
-                end else begin
-                    Self.setDestroyed(True);
-                end;
-            end;
-        end;
-        Self.movement.process(Self);
-        Self.totalDamage := (Self.totalDamage) + (Self.weaponProperties.getDissipation());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WpnLyr-setCollidableInferface1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-collidableInferface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-collidableInferface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION ClldblCmpstLyr-stClldblInfrfc1(J-THIS, J-collidableInferface)
+        COMPUTE JVALUE = FUNCTION ClldblCmpstLyr-gtClldblInfrfc0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_collidableWeaponBehavior", JVALUE)
+    GOBACK.
+END FUNCTION WpnLyr-setCollidableInferface1.
 
-function TWeaponLayer.isDestroyed: Boolean;
-begin
-        Exit(Self.destroyed);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WeaponLayer-initXYZ3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-z BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-x J-y J-z RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-x
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_x", JVALUE)
+        COMPUTE JVALUE = J-y
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_y", JVALUE)
+        COMPUTE JVALUE = J-z
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_z", JVALUE)
+    GOBACK.
+END FUNCTION WeaponLayer-initXYZ3.
 
-procedure TWeaponLayer.damage(damage: Integer; damageType: Integer);
-begin
-        Self.totalDamage := (Self.totalDamage) + ((damage) * (damage));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WeaponLayer-init5.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-sourceLayerInterface BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-otherAngle BINARY-DOUBLE.
+01 J-weaponProperties BINARY-DOUBLE.
+01 J-scoreable BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-sourceLayerInterface J-angle J-otherAngle J-weaponProperties J-scoreable RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION WpnLyr-setWeaponPropertiesP1(J-THIS, J-weaponProperties)
+        COMPUTE jtemp4 = 0
+        COMPUTE JDISCARD = FUNCTION ClldblDstryblDmgblLyr-stR19074(J-THIS, jtemp4)
+        COMPUTE JDISCARD = FUNCTION WpnLyr-setAnimationInterface1(J-THIS, FUNCTION WpnLyr-gtIntAnmtnIntrfcP0(J-THIS))
+        COMPUTE JDISCARD = FUNCTION WpnLyr-setOwnerLayerInterface1(J-THIS, J-sourceLayerInterface)
+        COMPUTE JDISCARD = FUNCTION CollidableWeaponBehavior-init1(FUNCTION JR-GET(J-THIS, "f_collidableWeaponBehavior"), J-sourceLayerInterface)
+        COMPUTE JDISCARD = FUNCTION WpnLyr-setGroupInterfaces0(J-THIS)
+        IF (J-scoreable NOT = 0)
+            COMPUTE JVALUE = J-scoreable
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_scoreableInterface", JVALUE)
+        END-IF
+        COMPUTE JVALUE = 0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_totalDamage", JVALUE)
+        COMPUTE JVALUE = FUNCTION SmplWpnPrprts-getDamage0(J-weaponProperties)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_initDamage", JVALUE)
+        COMPUTE jtemp5 = 0
+        COMPUTE JDISCARD = FUNCTION WeaponLayer-setDestroyed1(J-THIS, jtemp5)
+        COMPUTE JDISCARD = FUNCTION Movement-init3(FUNCTION JR-GET(J-THIS, "f_movement"), FUNCTION WeaponProperties-getSpeed0(J-weaponProperties), J-angle, J-otherAngle)
+    GOBACK.
+END FUNCTION WeaponLayer-init5.
 
-procedure TWeaponLayer.givePoints(total: Integer);
-begin
-        Self.scoreableInterface.addPoints((TGameConfigurationUtil.getInstance().getCompetitionValue()) * (total));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WpnLyr-setGroupInterfaces0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-basicGroupFactory BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-basicGroupFactory = FUNCTION BasicGroupFactory-getInstance0
+        COMPUTE jtemp6 = 0
+        IF (FUNCTION JR-ARRAY-GET(FUNCTION AllBnryLyr-getGroupInterface0(FUNCTION JR-GET(J-THIS, "f_sourceLayerInterface")), jtemp6) = FUNCTION JR-GET(J-basicGroupFactory, "f_ENEMY"))
+            COMPUTE JDISCARD = FUNCTION ClldblDstryblDmgblLyr-stG60562(J-THIS, FUNCTION JR-GET(J-basicGroupFactory, "f_ENEMY_ARRAY"))
+        ELSE
+            COMPUTE JDISCARD = FUNCTION ClldblDstryblDmgblLyr-stG60562(J-THIS, FUNCTION AllBnryLyr-getGroupInterface0(FUNCTION JR-GET(J-THIS, "f_sourceLayerInterface")))
+        END-IF
+    GOBACK.
+END FUNCTION WpnLyr-setGroupInterfaces0.
 
-function TWeaponLayer.isExhausted: Boolean;
-begin
-        if ((Self.totalDamage) > (Self.getInitDamage())) or ((Self.totalDamage) < (0)) then begin
-            Exit(True);
-        end else begin
-            Exit(False);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WeaponLayer-processTick1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-collidableWeaponBehavior BINARY-DOUBLE.
+01 J-indexedAnimationInterface BINARY-DOUBLE.
+01 J-currentFrame BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryLayerManager BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF ((FUNCTION WeaponLayer-isExhausted0(J-THIS) = 1) AND (NOT (FUNCTION WeaponLayer-isDestroyed0(J-THIS) = 1)))
+            IF (FUNCTION ClldblDstryblDmgblLyr-isR91717(J-THIS) = 1)
+                COMPUTE J-indexedAnimationInterface = FUNCTION WpnLyr-getAnimationInterface0(J-THIS)
+                COMPUTE J-currentFrame = FUNCTION IndexedAnimation-getFrame0(J-indexedAnimationInterface)
+                IF (J-currentFrame < (FUNCTION MOD((FUNCTION IndxdAnmtn-getAnimationSize0(J-indexedAnimationInterface) - 1) + 2147483648, 4294967296) - 2147483648))
+                    COMPUTE JDISCARD = FUNCTION Animation-nextFrame0(J-indexedAnimationInterface)
+                ELSE
+                    COMPUTE jtemp10 = 1
+                    COMPUTE JDISCARD = FUNCTION WeaponLayer-setDestroyed1(J-THIS, jtemp10)
+                END-IF
+            ELSE
+                COMPUTE J-collidableWeaponBehavior = FUNCTION ClldblCmpstLyr-gtClldblInfrfc0(J-THIS)
+                IF (FUNCTION ClldblWpnBhvr-isCollided0(J-collidableWeaponBehavior) = 1)
+                    COMPUTE JDISCARD = FUNCTION WpnLyr-setAnimationInterface1(J-THIS, FUNCTION JR-GET(J-THIS, "f_destroyedAnimationInterface"))
+                    COMPUTE jtemp8 = FUNCTION WeaponLayer-getMovement0(J-THIS)
+                    COMPUTE JDISCARD = FUNCTION Movement-stop0(jtemp8)
+                    COMPUTE jtemp9 = 1
+                    COMPUTE JDISCARD = FUNCTION ClldblDstryblDmgblLyr-stR19074(J-THIS, jtemp9)
+                ELSE
+                    COMPUTE jtemp7 = 1
+                    COMPUTE JDISCARD = FUNCTION WeaponLayer-setDestroyed1(J-THIS, jtemp7)
+                END-IF
+            END-IF
+        END-IF
+        COMPUTE JDISCARD = FUNCTION Movement-process1(FUNCTION JR-GET(J-THIS, "f_movement"), J-THIS)
+        COMPUTE JVALUE = (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_totalDamage") + FUNCTION SmplWpnPrprts-getDissipation0(FUNCTION JR-GET(J-THIS, "f_weaponProperties"))) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_totalDamage", JVALUE)
+    GOBACK.
+END FUNCTION WeaponLayer-processTick1.
 
-function TWeaponLayer.getDamage(damageType: Integer): Integer;
-var
-  total: Integer;
-begin
-        if not (Self.isExhausted()) then begin
-            total := (Self.getInitDamage()) - (Self.totalDamage);
-            Self.givePoints(total);
-            Exit(total);
-        end;
-        Exit(0);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WeaponLayer-isDestroyed0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_destroyed")
+        GOBACK
+    GOBACK.
+END FUNCTION WeaponLayer-isDestroyed0.
 
-procedure TWeaponLayer.setDestroyed(destroyed: Boolean);
-begin
-        Self.destroyed := destroyed;
-        if Self.isDestroyed() then begin
-            Self.scoreableInterface := TNoScoreable.getInstance();
-            TDestroyedLayerProcessor.getInstance().add(Self);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WeaponLayer-damage2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-damage BINARY-DOUBLE.
+01 J-damageType BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-damage J-damageType RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_totalDamage") + (FUNCTION MOD((J-damage * J-damage) + 2147483648, 4294967296) - 2147483648)) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_totalDamage", JVALUE)
+    GOBACK.
+END FUNCTION WeaponLayer-damage2.
 
-function TWeaponLayer.getInitDamage: Integer;
-begin
-        Exit(Self.initDamage);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WeaponLayer-givePoints1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-total BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-total RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp12 = FUNCTION GmCnfgrtnUtl-getInstance0
+        COMPUTE jtemp11 = (FUNCTION MOD((FUNCTION GmCnfgrtnUtl-gtCmpttnVl0(jtemp12) * J-total) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION ScoreableInterface-addPoints1(FUNCTION JR-GET(J-THIS, "f_scoreableInterface"), jtemp11)
+    GOBACK.
+END FUNCTION WeaponLayer-givePoints1.
 
-procedure TWeaponLayer.setAnimationInterface(animationInterface: TAnimation);
-begin
-        Self.animationInterface := animationInterface;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WeaponLayer-isExhausted0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF ((FUNCTION JR-GET(J-THIS, "f_totalDamage") > FUNCTION WeaponLayer-getInitDamage0(J-THIS)) OR (FUNCTION JR-GET(J-THIS, "f_totalDamage") < 0))
+            COMPUTE J-RESULT = 1
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = 0
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION WeaponLayer-isExhausted0.
 
-function TWeaponLayer.getAnimationInterface: TAnimation;
-begin
-        Exit(Self.animationInterface);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WeaponLayer-getDamage1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-total BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-damageType BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-damageType RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (NOT (FUNCTION WeaponLayer-isExhausted0(J-THIS) = 1))
+            COMPUTE J-total = (FUNCTION MOD((FUNCTION WeaponLayer-getInitDamage0(J-THIS) - FUNCTION JR-GET(J-THIS, "f_totalDamage")) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JDISCARD = FUNCTION WeaponLayer-givePoints1(J-THIS, J-total)
+            COMPUTE J-RESULT = J-total
+            GOBACK
+        END-IF
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION WeaponLayer-getDamage1.
 
-function TWeaponLayer.getInitAnimationInterfaceP: TAnimation;
-begin
-        Exit(Self.initAnimationInterface);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WeaponLayer-setDestroyed1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp13 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-destroyed BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-destroyed RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-destroyed
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_destroyed", JVALUE)
+        IF (FUNCTION WeaponLayer-isDestroyed0(J-THIS) = 1)
+            COMPUTE JVALUE = FUNCTION NoScoreable-getInstance0
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_scoreableInterface", JVALUE)
+            COMPUTE jtemp13 = FUNCTION DstrydLyrPrcssr-getInstance0
+            COMPUTE JDISCARD = FUNCTION BasicLayerProcessor-add1(jtemp13, J-THIS)
+        END-IF
+    GOBACK.
+END FUNCTION WeaponLayer-setDestroyed1.
 
-procedure TWeaponLayer.setInitAnimationInterfaceP(initAnimationInterface: TAnimation);
-begin
-        Self.initAnimationInterface := initAnimationInterface;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WeaponLayer-getInitDamage0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_initDamage")
+        GOBACK
+    GOBACK.
+END FUNCTION WeaponLayer-getInitDamage0.
 
-function TWeaponLayer.getDestroyedAnimationInterface: TAnimation;
-begin
-        Exit(Self.destroyedAnimationInterface);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WpnLyr-setAnimationInterface1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-animationInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-animationInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-animationInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animationInterface", JVALUE)
+    GOBACK.
+END FUNCTION WpnLyr-setAnimationInterface1.
 
-function TWeaponLayer.getOwnerLayerInterface: TAllBinaryLayer;
-begin
-        Exit(Self.sourceLayerInterface);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WpnLyr-getAnimationInterface0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_animationInterface")
+        GOBACK
+    GOBACK.
+END FUNCTION WpnLyr-getAnimationInterface0.
 
-procedure TWeaponLayer.setOwnerLayerInterface(sourceLayerInterface: TAllBinaryLayer);
-begin
-        Self.sourceLayerInterface := sourceLayerInterface;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WpnLyr-gtIntAnmtnIntrfcP0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_initAnimationInterface")
+        GOBACK
+    GOBACK.
+END FUNCTION WpnLyr-gtIntAnmtnIntrfcP0.
 
-procedure TWeaponLayer.paint(graphics_: TGraphics);
-var
-  viewPosition: TViewPositionBase;
-begin
-        viewPosition := Self.getViewPosition();
-        Self.animationInterface.paintXY(graphics_, (viewPosition.getX()) - (Self.getHalfWidth()), (viewPosition.getY()) - (Self.getHalfHeight()));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WpnLyr-stIntAnmtnIntrfcP1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-initAnimationInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-initAnimationInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-initAnimationInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_initAnimationInterface", JVALUE)
+    GOBACK.
+END FUNCTION WpnLyr-stIntAnmtnIntrfcP1.
 
-procedure TWeaponLayer.paintThreed(graphics_: TGraphics);
-var
-  viewPosition: TViewPositionBase;
-begin
-        viewPosition := Self.getViewPosition();
-        Self.animationInterface.paintThreedXYZ(graphics_, (viewPosition.getX()) - (Self.getHalfWidth()), (viewPosition.getY()) - (Self.getHalfHeight()), (viewPosition.getZ()) - (Self.getHalfDepth()));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WpnLyr-gtDstrydAnmtnIntrfc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_destroyedAnimationInterface")
+        GOBACK
+    GOBACK.
+END FUNCTION WpnLyr-gtDstrydAnmtnIntrfc0.
 
-function TWeaponLayer.getMovement: TMovement;
-begin
-        Exit(Self.movement);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WpnLyr-getOwnerLayerInterface0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_sourceLayerInterface")
+        GOBACK
+    GOBACK.
+END FUNCTION WpnLyr-getOwnerLayerInterface0.
 
-procedure TWeaponLayer.setMovement(movement_: TMovement);
-begin
-        Self.movement := movement_;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WpnLyr-setOwnerLayerInterface1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-sourceLayerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-sourceLayerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-sourceLayerInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_sourceLayerInterface", JVALUE)
+    GOBACK.
+END FUNCTION WpnLyr-setOwnerLayerInterface1.
 
-function TWeaponLayer.getType: Integer;
-begin
-        Exit(TWeaponLayer.getStaticType());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WeaponLayer-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-viewPosition BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-viewPosition = FUNCTION AllBnryLyr-getViewPosition0(J-THIS)
+        COMPUTE jtemp14 = (FUNCTION MOD((FUNCTION GPoint-getX0(J-viewPosition) - FUNCTION AllBinaryLayer-getHalfWidth0(J-THIS)) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp15 = (FUNCTION MOD((FUNCTION GPoint-getY0(J-viewPosition) - FUNCTION AllBinaryLayer-getHalfHeight0(J-THIS)) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION Animation-paintXY3(FUNCTION JR-GET(J-THIS, "f_animationInterface"), J-graphics, jtemp14, jtemp15)
+    GOBACK.
+END FUNCTION WeaponLayer-paint1.
 
-class function TWeaponLayer.getStaticType: Integer;
-begin
-        Exit(0);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WeaponLayer-paintThreed1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-viewPosition BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+01 jtemp18 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-viewPosition = FUNCTION AllBnryLyr-getViewPosition0(J-THIS)
+        COMPUTE jtemp16 = (FUNCTION MOD((FUNCTION GPoint-getX0(J-viewPosition) - FUNCTION AllBinaryLayer-getHalfWidth0(J-THIS)) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp17 = (FUNCTION MOD((FUNCTION GPoint-getY0(J-viewPosition) - FUNCTION AllBinaryLayer-getHalfHeight0(J-THIS)) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp18 = (FUNCTION MOD((FUNCTION GPoint-getZ0(J-viewPosition) - FUNCTION AllBinaryLayer-getHalfDepth0(J-THIS)) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION Animation-paintThreedXYZ4(FUNCTION JR-GET(J-THIS, "f_animationInterface"), J-graphics, jtemp16, jtemp17, jtemp18)
+    GOBACK.
+END FUNCTION WeaponLayer-paintThreed1.
 
-function TWeaponLayer.getMultiPlayerType: Integer;
-begin
-        Exit(Self.multiPlayerType);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WeaponLayer-getMovement0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_movement")
+        GOBACK
+    GOBACK.
+END FUNCTION WeaponLayer-getMovement0.
 
-procedure TWeaponLayer.setWeaponPropertiesP(weaponProperties_: TWeaponProperties);
-begin
-        Self.weaponProperties := weaponProperties_;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WeaponLayer-setMovement1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-movement BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-movement RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-movement
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_movement", JVALUE)
+    GOBACK.
+END FUNCTION WeaponLayer-setMovement1.
 
-function TWeaponLayer.getWeaponPropertiesP: TWeaponProperties;
-begin
-        Exit(Self.weaponProperties);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WeaponLayer-getType0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION WeaponLayer-getStaticType0
+        GOBACK
+    GOBACK.
+END FUNCTION WeaponLayer-getType0.
 
-function TWeaponLayer.implmentsTickableInterface: Boolean;
-begin
-        Exit(True);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WeaponLayer-getStaticType0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION WeaponLayer-getStaticType0.
 
-// throws Exception
-procedure TWeaponLayer.set_(gl_: IGL);
-begin
-        Self.initAnimationInterface.set_(gl_);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WpnLyr-getMultiPlayerType0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_multiPlayerType")
+        GOBACK
+    GOBACK.
+END FUNCTION WpnLyr-getMultiPlayerType0.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WpnLyr-setWeaponPropertiesP1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-weaponProperties BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-weaponProperties RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-weaponProperties
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_weaponProperties", JVALUE)
+    GOBACK.
+END FUNCTION WpnLyr-setWeaponPropertiesP1.
 
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WpnLyr-getWeaponPropertiesP0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_weaponProperties")
+        GOBACK
+    GOBACK.
+END FUNCTION WpnLyr-getWeaponPropertiesP0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WpnLyr-implmntsTckblIntrfc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = 1
+        GOBACK
+    GOBACK.
+END FUNCTION WpnLyr-implmntsTckblIntrfc0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WeaponLayer-set1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gl BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gl RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Animation-set1(FUNCTION JR-GET(J-THIS, "f_initAnimationInterface"), J-gl)
+    GOBACK.
+END FUNCTION WeaponLayer-set1.
 

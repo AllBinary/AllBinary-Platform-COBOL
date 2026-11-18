@@ -1,194 +1,544 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion.gesture.configuration
+*> Java class MotionGestureConfiguration
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion.gesture.configuration
-unit MotionGestureConfiguration;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrCnfgrtn-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("MotionGestureConfiguration")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_diagonalMotionGestureAllowed")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_diagonalTolerance")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_minimumMotionGesture")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_button")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_color")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_executingActions")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_mouseButtonMask")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_activeCommands")
+    COMPUTE JVALUE = 1
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_diagonalMotionGestureAllowed", JVALUE)
+    COMPUTE JVALUE = 7
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_diagonalTolerance", JVALUE)
+    COMPUTE JVALUE = 9
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_minimumMotionGesture", JVALUE)
+    COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_EMPTY_STRING")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_button", JVALUE)
+    COMPUTE jtemp2 = FUNCTION BasicColorFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp2, "f_BLUE")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_color", JVALUE)
+    COMPUTE JVALUE = 1
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_executingActions", JVALUE)
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_mouseButtonMask", JVALUE)
+    COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_activeCommands", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION MtnGstrCnfgrtn-new0.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrCnfgrtn-addMtnGstrActn2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-commandAction BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-list J-commandAction RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_activeCommands"), FUNCTION MtnGstrTMtnGstrActnAssctn-new2(J-list, J-commandAction))
+    GOBACK.
+END FUNCTION MtnGstrCnfgrtn-addMtnGstrActn2.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrCnfgrtn-clrMtnGstrActn0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-clear0(FUNCTION JR-GET(J-THIS, "f_activeCommands"))
+    GOBACK.
+END FUNCTION MtnGstrCnfgrtn-clrMtnGstrActn0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, CompleteMotionGestureInputEvent, BasicColor, BasicArrayList;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrCnfgrtn-gtAssctCmm41503.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_activeCommands")
+        GOBACK
+    GOBACK.
+END FUNCTION MtnGstrCnfgrtn-gtAssctCmm41503.
 
-type
-  {AB:TYPES}
-  TMotionGestureConfiguration = class(TObject)
-  public
-    diagonalMotionGestureAllowed: Boolean;
-    diagonalTolerance: Integer;
-    minimumMotionGesture: Integer;
-    button: string;
-    color: TBasicColor;
-    executingActions: Boolean;
-    mouseButtonMask: Integer;
-    activeCommands: TBasicArrayList;
-    procedure InitFields;
-        constructor Create;
-        procedure addMotionGestureAction(list: TBasicArrayList; commandAction: TCompleteMotionGestureInputEvent); virtual;
-        procedure clearMotionGestureAction; virtual;
-        function getAssociateCommandActionsList: TBasicArrayList; virtual;
-        function isDiagonalMotionGestureAllowed: Boolean; virtual;
-        function isExecutingActionsAllowed: Boolean; virtual;
-        procedure setExecutingActionsAllowed(executingActionAllowed: Boolean); virtual;
-        procedure setDiagonalMotionGestureAllowed(diagonalMotionGestureAllowed: Boolean); virtual;
-        function getDiagonalTolerance: Integer; virtual;
-        procedure setDiagonalTolerance(diagonalTolerance: Integer); virtual;
-        function getMinimumMotionGesture: Integer; virtual;
-        procedure setMinimumMotionGesture(minimumMotionGesture: Integer); virtual;
-        function getButton: string; virtual;
-        procedure setButton(button: string); virtual;
-        function getColor: TBasicColor; virtual;
-        procedure setColor(color: TBasicColor); virtual;
-        function getMouseButtonMask: Integer; virtual;
-        procedure setMouseButtonMask(mouseButtonMask: Integer); virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrCnfgrtn-isDgnlMtnG24016.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_diagonalMotionGestureAllowed")
+        GOBACK
+    GOBACK.
+END FUNCTION MtnGstrCnfgrtn-isDgnlMtnG24016.
 
-implementation
-uses
-  BasicColorFactory, MotionGestureToMotionGestureActionAssociation, StringUtil, BasicArrayListD;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrCnfgrtn-isExctngAc40871.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_executingActions")
+        GOBACK
+    GOBACK.
+END FUNCTION MtnGstrCnfgrtn-isExctngAc40871.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrCnfgrtn-stExctngAc67799.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-executingActionAllowed BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-executingActionAllowed RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-executingActionAllowed
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_executingActions", JVALUE)
+    GOBACK.
+END FUNCTION MtnGstrCnfgrtn-stExctngAc67799.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrCnfgrtn-stDgnlMtnG40374.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-diagonalMotionGestureAllowed BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-diagonalMotionGestureAllowed RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-diagonalMotionGestureAllowed
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_diagonalMotionGestureAllowed", JVALUE)
+    GOBACK.
+END FUNCTION MtnGstrCnfgrtn-stDgnlMtnG40374.
 
-procedure TMotionGestureConfiguration.InitFields;
-begin
-  Self.diagonalMotionGestureAllowed := True;
-  Self.diagonalTolerance := 7;
-  Self.minimumMotionGesture := 9;
-  Self.button := TStringUtil.getInstance().EMPTY_STRING;
-  Self.color := TBasicColorFactory.getInstance().BLUE;
-  Self.executingActions := True;
-  Self.mouseButtonMask := 0;
-  Self.activeCommands := TBasicArrayListD.Create();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrCnfgrtn-gtDgnlTlrnc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_diagonalTolerance")
+        GOBACK
+    GOBACK.
+END FUNCTION MtnGstrCnfgrtn-gtDgnlTlrnc0.
 
-constructor TMotionGestureConfiguration.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrCnfgrtn-stDgnlTlrnc1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-diagonalTolerance BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-diagonalTolerance RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-diagonalTolerance
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_diagonalTolerance", JVALUE)
+    GOBACK.
+END FUNCTION MtnGstrCnfgrtn-stDgnlTlrnc1.
 
-procedure TMotionGestureConfiguration.addMotionGestureAction(list: TBasicArrayList; commandAction: TCompleteMotionGestureInputEvent);
-begin
-        Self.activeCommands.add(TJava.Box(TMotionGestureToMotionGestureActionAssociation.Create(list, commandAction)));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrCnfgrtn-gtMnmmMtnGstr0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_minimumMotionGesture")
+        GOBACK
+    GOBACK.
+END FUNCTION MtnGstrCnfgrtn-gtMnmmMtnGstr0.
 
-procedure TMotionGestureConfiguration.clearMotionGestureAction;
-begin
-        Self.activeCommands.clear();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrCnfgrtn-stMnmmMtnGstr1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-minimumMotionGesture BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-minimumMotionGesture RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-minimumMotionGesture
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_minimumMotionGesture", JVALUE)
+    GOBACK.
+END FUNCTION MtnGstrCnfgrtn-stMnmmMtnGstr1.
 
-function TMotionGestureConfiguration.getAssociateCommandActionsList: TBasicArrayList;
-begin
-        Exit(Self.activeCommands);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrCnfgrtn-getButton0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_button")
+        GOBACK
+    GOBACK.
+END FUNCTION MtnGstrCnfgrtn-getButton0.
 
-function TMotionGestureConfiguration.isDiagonalMotionGestureAllowed: Boolean;
-begin
-        Exit(Self.diagonalMotionGestureAllowed);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrCnfgrtn-setButton1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-button BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-button RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-button
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_button", JVALUE)
+    GOBACK.
+END FUNCTION MtnGstrCnfgrtn-setButton1.
 
-function TMotionGestureConfiguration.isExecutingActionsAllowed: Boolean;
-begin
-        Exit(Self.executingActions);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrCnfgrtn-getColor0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_color")
+        GOBACK
+    GOBACK.
+END FUNCTION MtnGstrCnfgrtn-getColor0.
 
-procedure TMotionGestureConfiguration.setExecutingActionsAllowed(executingActionAllowed: Boolean);
-begin
-        Self.executingActions := executingActionAllowed;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrCnfgrtn-setColor1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-color BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-color RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-color
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_color", JVALUE)
+    GOBACK.
+END FUNCTION MtnGstrCnfgrtn-setColor1.
 
-procedure TMotionGestureConfiguration.setDiagonalMotionGestureAllowed(diagonalMotionGestureAllowed: Boolean);
-begin
-        Self.diagonalMotionGestureAllowed := diagonalMotionGestureAllowed;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrCnfgrtn-gtMsBttnMsk0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_mouseButtonMask")
+        GOBACK
+    GOBACK.
+END FUNCTION MtnGstrCnfgrtn-gtMsBttnMsk0.
 
-function TMotionGestureConfiguration.getDiagonalTolerance: Integer;
-begin
-        Exit(Self.diagonalTolerance);
-end;
-    
-
-procedure TMotionGestureConfiguration.setDiagonalTolerance(diagonalTolerance: Integer);
-begin
-        Self.diagonalTolerance := diagonalTolerance;
-end;
-    
-
-function TMotionGestureConfiguration.getMinimumMotionGesture: Integer;
-begin
-        Exit(Self.minimumMotionGesture);
-end;
-    
-
-procedure TMotionGestureConfiguration.setMinimumMotionGesture(minimumMotionGesture: Integer);
-begin
-        Self.minimumMotionGesture := minimumMotionGesture;
-end;
-    
-
-function TMotionGestureConfiguration.getButton: string;
-begin
-        Exit(Self.button);
-end;
-    
-
-procedure TMotionGestureConfiguration.setButton(button: string);
-begin
-        Self.button := button;
-end;
-    
-
-function TMotionGestureConfiguration.getColor: TBasicColor;
-begin
-        Exit(Self.color);
-end;
-    
-
-procedure TMotionGestureConfiguration.setColor(color: TBasicColor);
-begin
-        Self.color := color;
-end;
-    
-
-function TMotionGestureConfiguration.getMouseButtonMask: Integer;
-begin
-        Exit(Self.mouseButtonMask);
-end;
-    
-
-procedure TMotionGestureConfiguration.setMouseButtonMask(mouseButtonMask: Integer);
-begin
-        Self.mouseButtonMask := mouseButtonMask;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrCnfgrtn-stMsBttnMsk1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-mouseButtonMask BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-mouseButtonMask RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-mouseButtonMask
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_mouseButtonMask", JVALUE)
+    GOBACK.
+END FUNCTION MtnGstrCnfgrtn-stMsBttnMsk1.
 

@@ -1,134 +1,315 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.image
+*> Java class ImageArrayRotationAnimationInfo
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.image
-unit ImageArrayRotationAnimationInfo;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Image, AngleInfo;
-
-type
-  {AB:TYPES}
-  TImageArrayRotationAnimationInfo = class(TObject)
-  public
-    imageArray: TArray<TImage>;
-    angleIncrement: Integer;
-    totalAngle: Integer;
-    dx: Integer;
-    dy: Integer;
-    procedure InitFields;
-        constructor Create(imageArray: TArray<TImage>; angleIncrement: Integer; totalAngle: Integer; dx: Integer; dy: Integer);
-        procedure setImageArray(imageArray: TArray<TImage>); virtual;
-        function getImageArray: TArray<TImage>; virtual;
-        function getAngleInfoP: TAngleInfo; virtual;
-        procedure setTotalAngle(totalAngle: Integer); virtual;
-        function getTotalAngle: Integer; virtual;
-        procedure setDx(dx: Integer); virtual;
-        function getDx: Integer; virtual;
-        procedure setDy(dy: Integer); virtual;
-        function getDy: Integer; virtual;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TImageArrayRotationAnimationInfo.InitFields;
-begin
-  
-  
-  
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArryRttnAnmtnInf-new5.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-imageArray BINARY-DOUBLE.
+01 J-angleIncrement BINARY-DOUBLE.
+01 J-totalAngle BINARY-DOUBLE.
+01 J-dx BINARY-DOUBLE.
+01 J-dy BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-imageArray J-angleIncrement J-totalAngle J-dx J-dy RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ImageArrayRotationAnimationInfo")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_imageArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_angleIncrement")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_totalAngle")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_dx")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_dy")
     
-
-constructor TImageArrayRotationAnimationInfo.Create(imageArray: TArray<TImage>; angleIncrement: Integer; totalAngle: Integer; dx: Integer; dy: Integer);
-begin
-    inherited Create;
-    InitFields;
-        Self.imageArray := imageArray;
-        Self.angleIncrement := angleIncrement;
-        Self.totalAngle := totalAngle;
-        Self.dx := dx;
-        Self.dy := dy;
-end;
     
-
-procedure TImageArrayRotationAnimationInfo.setImageArray(imageArray: TArray<TImage>);
-begin
-        Self.imageArray := imageArray;
-end;
     
-
-function TImageArrayRotationAnimationInfo.getImageArray: TArray<TImage>;
-begin
-        Exit(Self.imageArray);
-end;
     
-
-function TImageArrayRotationAnimationInfo.getAngleInfoP: TAngleInfo;
-begin
-        Exit(TAngleInfo.getInstance(SmallInt(Self.angleIncrement)));
-end;
     
+        COMPUTE JVALUE = J-imageArray
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_imageArray", JVALUE)
+        COMPUTE JVALUE = J-angleIncrement
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_angleIncrement", JVALUE)
+        COMPUTE JVALUE = J-totalAngle
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_totalAngle", JVALUE)
+        COMPUTE JVALUE = J-dx
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_dx", JVALUE)
+        COMPUTE JVALUE = J-dy
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_dy", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ImgArryRttnAnmtnInf-new5.
 
-procedure TImageArrayRotationAnimationInfo.setTotalAngle(totalAngle: Integer);
-begin
-        Self.totalAngle := totalAngle;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArryRttnAnmtnInf-stImgArry1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-imageArray BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-imageArray RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-imageArray
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_imageArray", JVALUE)
+    GOBACK.
+END FUNCTION ImgArryRttnAnmtnInf-stImgArry1.
 
-function TImageArrayRotationAnimationInfo.getTotalAngle: Integer;
-begin
-        Exit(Self.totalAngle);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArryRttnAnmtnInf-gtImgArry0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_imageArray")
+        GOBACK
+    GOBACK.
+END FUNCTION ImgArryRttnAnmtnInf-gtImgArry0.
 
-procedure TImageArrayRotationAnimationInfo.setDx(dx: Integer);
-begin
-        Self.dx := dx;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArryRttnAnmtnInf-gtAng79855.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = (FUNCTION MOD(FUNCTION INTEGER-PART(FUNCTION JR-GET(J-THIS, "f_angleIncrement")) + 32768, 65536) - 32768)
+        COMPUTE J-RESULT = FUNCTION AngleInfo-getInstance1(jtemp1)
+        GOBACK
+    GOBACK.
+END FUNCTION ImgArryRttnAnmtnInf-gtAng79855.
 
-function TImageArrayRotationAnimationInfo.getDx: Integer;
-begin
-        Exit(Self.dx);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArryRttnAnmtnInf-stTtlAngl1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-totalAngle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-totalAngle RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-totalAngle
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_totalAngle", JVALUE)
+    GOBACK.
+END FUNCTION ImgArryRttnAnmtnInf-stTtlAngl1.
 
-procedure TImageArrayRotationAnimationInfo.setDy(dy: Integer);
-begin
-        Self.dy := dy;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArryRttnAnmtnInf-gtTtlAngl0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_totalAngle")
+        GOBACK
+    GOBACK.
+END FUNCTION ImgArryRttnAnmtnInf-gtTtlAngl0.
 
-function TImageArrayRotationAnimationInfo.getDy: Integer;
-begin
-        Exit(Self.dy);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArryRttnAnmtnInf-setDx1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-dx BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-dx RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-dx
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_dx", JVALUE)
+    GOBACK.
+END FUNCTION ImgArryRttnAnmtnInf-setDx1.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArryRttnAnmtnInf-getDx0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_dx")
+        GOBACK
+    GOBACK.
+END FUNCTION ImgArryRttnAnmtnInf-getDx0.
 
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArryRttnAnmtnInf-setDy1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-dy BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-dy RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-dy
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_dy", JVALUE)
+    GOBACK.
+END FUNCTION ImgArryRttnAnmtnInf-setDy1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArryRttnAnmtnInf-getDy0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_dy")
+        GOBACK
+    GOBACK.
+END FUNCTION ImgArryRttnAnmtnInf-getDy0.
 

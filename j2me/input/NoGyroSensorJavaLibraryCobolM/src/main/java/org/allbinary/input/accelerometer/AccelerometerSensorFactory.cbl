@@ -1,82 +1,152 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.accelerometer
+*> Java class AccelerometerSensorFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.accelerometer
-unit AccelerometerSensorFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AcclrmtrSnsrFctry-sttc-l69604.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AccelerometerSensorFactory-jcell-allBinaryAccelerometerSensor BINARY-DOUBLE EXTERNAL.
+01 AccelerometerSensorFactory-jset-allBinaryAccelerometerSensor BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF AccelerometerSensorFactory-jset-allBinaryAccelerometerSensor = 0
+        MOVE 1 TO AccelerometerSensorFactory-jset-allBinaryAccelerometerSensor
+        COMPUTE AccelerometerSensorFactory-jcell-allBinaryAccelerometerSensor = FUNCTION AllBnryOrnttnSnsr-stt51610
+    END-IF
+    MOVE AccelerometerSensorFactory-jcell-allBinaryAccelerometerSensor TO J-RESULT
+    GOBACK.
+END FUNCTION AcclrmtrSnsrFctry-sttc-l69604.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AcclrmtrSnsrFctrysttS97359.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AccelerometerSensorFactory-jcell-allBinaryAccelerometerSensor BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION AcclrmtrSnsrFctry-sttc-l69604 TO J-RESULT
+    MOVE J-VALUE TO AccelerometerSensorFactory-jcell-allBinaryAccelerometerSensor
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION AcclrmtrSnsrFctrysttS97359.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AcclrmtrSnsrFctry-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("AccelerometerSensorFactory")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION AcclrmtrSnsrFctry-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AllBinaryOrientationSensor;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AcclrmtrSnsrFctry-init0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-features BINARY-DOUBLE.
+01 J-sensorFeatureFactory BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-features = FUNCTION Features-getInstance0
+        COMPUTE J-sensorFeatureFactory = FUNCTION SnsrFtrFctry-getInstance0
+        IF (FUNCTION Features-isFeature1(J-features, FUNCTION JR-GET(J-sensorFeatureFactory, "f_ORIENTATION_SENSORS")) = 1)
+            COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+        ELSE
+            IF (FUNCTION Features-isFeature1(J-features, FUNCTION JR-GET(J-sensorFeatureFactory, "f_SIMULATED_ORIENTATION_SENSORS")) = 1)
+            COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+        ELSE
+            IF (FUNCTION Features-isFeature1(J-features, FUNCTION JR-GET(J-sensorFeatureFactory, "f_NO_ORIENTATION")) = 1)
+            COMPUTE JDISCARD = FUNCTION AcclrmtrSnsrFctrysttS97359(FUNCTION NoAccelerometerSensor-new0)
+        ELSE
+            COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+        END-IF
+        END-IF
+        END-IF
+    GOBACK.
+END FUNCTION AcclrmtrSnsrFctry-init0.
 
-type
-  {AB:TYPES}
-  TAccelerometerSensorFactory = class(TObject)
-  public
-    class var allBinaryAccelerometerSensor: TAllBinaryOrientationSensor;
-    constructor Create;
-        class procedure init; static;
-        class function getInstance: TAllBinaryOrientationSensor; static;
-  end;
-
-implementation
-uses
-  NoAccelerometerSensor, Features, SensorFeatureFactory;
-
-
-{AB:CODE}
-
-constructor TAccelerometerSensorFactory.Create;
-begin
-  inherited Create;
-end;
-    
-
-// throws Exception
-class procedure TAccelerometerSensorFactory.init;
-var
-  features_: TFeatures;
-  sensorFeatureFactory_: TSensorFeatureFactory;
-begin
-        features_ := TFeatures.getInstance();
-        sensorFeatureFactory_ := TSensorFeatureFactory.getInstance();
-        if features_.isFeature(sensorFeatureFactory_.ORIENTATION_SENSORS) then begin
-            raise SysUtils.Exception.Create('No Orientation Sensors');
-        end else if features_.isFeature(sensorFeatureFactory_.SIMULATED_ORIENTATION_SENSORS) then begin
-            raise SysUtils.Exception.Create('No Simulation Sensors');
-        end else if features_.isFeature(sensorFeatureFactory_.NO_ORIENTATION) then begin
-            TAccelerometerSensorFactory.allBinaryAccelerometerSensor := TNoAccelerometerSensor.Create();
-        end else begin
-            raise SysUtils.Exception.Create('Not Such SensorFeature');
-        end;
-end;
-    
-
-class function TAccelerometerSensorFactory.getInstance: TAllBinaryOrientationSensor;
-begin
-        Exit(TAccelerometerSensorFactory.allBinaryAccelerometerSensor);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TAccelerometerSensorFactory.allBinaryAccelerometerSensor := TAllBinaryOrientationSensor.NULL_ALLBINARY_ORIENTATION_SENSOR;
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AcclrmtrSnsrFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION AcclrmtrSnsrFctry-sttc-l69604
+        GOBACK
+    GOBACK.
+END FUNCTION AcclrmtrSnsrFctry-getInstance0.
 

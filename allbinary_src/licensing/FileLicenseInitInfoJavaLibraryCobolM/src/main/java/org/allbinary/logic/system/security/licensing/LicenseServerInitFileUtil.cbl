@@ -1,128 +1,147 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.system.security.licensing
+*> Java class LicenseServerInitFileUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.logic.system.security.licensing
-unit LicenseServerInitFileUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LicenseServerInitFileUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("LicenseServerInitFileUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NULL_OUTPUT_STREAM")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
+    COMPUTE JVALUE = FUNCTION SmplFlUtl-nullOutputStream0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NULL_OUTPUT_STREAM", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION LicenseServerInitFileUtil-new0.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LcnsSrvrIntFlUtl-init0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-filePath BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE jtemp1 = FUNCTION LcnsIntInfUtl-getInstance0
+            COMPUTE J-filePath = FUNCTION JR-GET(jtemp1, "f_INITFILENAME")
+            COMPUTE jtemp3 = FUNCTION StringUtil-getInstance0
+            COMPUTE jtemp2 = FUNCTION LcnsIntInfUtl-getInstance0
+            COMPUTE JDISCARD = FUNCTION LcnsIntInfUtl-setFilePath1(jtemp2, FUNCTION JR-GET(jtemp3, "f_EMPTY_STRING"))
+            COMPUTE jtemp4 = FUNCTION FileFactory-getInstance0
+            IF (FUNCTION FileFactory-isFile1(jtemp4, J-filePath) = 1)
+                COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-STR("Using Existing License File"), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_INIT"))
+            ELSE
+                COMPUTE JDISCARD = FUNCTION LcnsSrvrIntFlUtl-write0(J-THIS)
+            END-IF
+    GOBACK.
+END FUNCTION LcnsSrvrIntFlUtl-init0.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LogUtil, CommonStrings;
-
-type
-  {AB:TYPES}
-  TLicenseServerInitFileUtil = class(TObject)
-  public
-    logUtil: TLogUtil;
-    commonStrings: TCommonStrings;
-    NULL_OUTPUT_STREAM: TOutputStream;
-    procedure InitFields;
-    constructor Create;
-        procedure init;
-        procedure write;
-  end;
-
-implementation
-uses
-  LicenseInitInfoUtil, ResourceUtil, FileStreamFactory, StreamUtil, FileFactory, SimpleFileUtil, StringUtil;
-
-
-{AB:CODE}
-
-procedure TLicenseServerInitFileUtil.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.commonStrings := TCommonStrings.getInstance();
-  Self.NULL_OUTPUT_STREAM := TSimpleFileUtil.nullOutputStream();
-end;
-
-constructor TLicenseServerInitFileUtil.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-procedure TLicenseServerInitFileUtil.init;
-var
-  filePath: string;
-begin
-        try
-            filePath := TLicenseInitInfoUtil.getInstance().INITFILENAME;
-            TLicenseInitInfoUtil.getInstance().setFilePath(TStringUtil.getInstance().EMPTY_STRING);
-            if TFileFactory.getInstance().isFile(filePath) then begin
-                Self.logUtil.putF('Using Existing License File', TJava.Box(Self), Self.commonStrings.INIT);
-            end else begin
-                Self.write();
-            end;
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.INIT, TJava.Box(e));
-            end;
-        end;
-end;
-    
-
-procedure TLicenseServerInitFileUtil.write;
-var
-  fileOutputStream: TOutputStream;
-  resourceUtil_: TResourceUtil;
-  filePath: string;
-  inputStream_: TInputStream;
-  fileStreamFactory_: TFileStreamFactory;
-  b: Integer;
-  index: Integer;
-begin
-        fileOutputStream := Self.NULL_OUTPUT_STREAM;
-        try
-        try
-            resourceUtil_ := TResourceUtil.getInstance();
-            filePath := TLicenseInitInfoUtil.getInstance().INITFILENAME;
-            inputStream_ := resourceUtil_.getResourceAsStream(filePath);
-            Self.logUtil.putF('Writing Default License File', TJava.Box(Self), Self.commonStrings.INIT);
-            fileStreamFactory_ := TFileStreamFactory.getInstance();
-            fileOutputStream := fileStreamFactory_.getFileOutputStreamInstance(TStringUtil.getInstance().EMPTY_STRING, filePath);
-            
-            index := 0;
-            while True do begin
-                b := inputStream_.read();
-                if (b) = (-1) then begin
-                    Break;
-                end;
-                fileOutputStream.write(b);
-                Inc(index);
-            end;
-            Self.logUtil.putF('Wrote Bytes: ' + IntToStr(index), TJava.Box(Self), Self.commonStrings.INIT);
-            fileOutputStream.flush();
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.INIT, TJava.Box(e));
-            end;
-        end;
-        finally
-            TStreamUtil.getInstance().close(fileOutputStream);
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LcnsSrvrIntFlUtl-write0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-fileOutputStream BINARY-DOUBLE.
+01 J-resourceUtil BINARY-DOUBLE.
+01 J-filePath BINARY-DOUBLE.
+01 J-inputStream BINARY-DOUBLE.
+01 J-fileStreamFactory BINARY-DOUBLE.
+01 J-b BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-fileOutputStream = FUNCTION JR-GET(J-THIS, "f_NULL_OUTPUT_STREAM")
+        CONTINUE
+            COMPUTE J-resourceUtil = FUNCTION ResourceUtil-getInstance0
+            COMPUTE jtemp6 = FUNCTION LcnsIntInfUtl-getInstance0
+            COMPUTE J-filePath = FUNCTION JR-GET(jtemp6, "f_INITFILENAME")
+            COMPUTE J-inputStream = FUNCTION RsrcUtl-getResourceAsStream1(J-resourceUtil, J-filePath)
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-STR("Writing Default License File"), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_INIT"))
+            COMPUTE J-fileStreamFactory = FUNCTION FileStreamFactory-getInstance0
+            COMPUTE jtemp7 = FUNCTION StringUtil-getInstance0
+            COMPUTE J-fileOutputStream = FUNCTION FlStrmFctry-gtFlOtptStrmI85974(J-fileStreamFactory, FUNCTION JR-GET(jtemp7, "f_EMPTY_STRING"), J-filePath)
+            CONTINUE
+            COMPUTE J-index = 0
+            PERFORM FOREVER
+                IF NOT (1 = 1) EXIT PERFORM END-IF
+                COMPUTE J-b = FUNCTION InputStream-read0(J-inputStream)
+                IF (J-b = (0 - 1))
+                    EXIT PERFORM
+                END-IF
+                COMPUTE JDISCARD = FUNCTION OutputStream-write1(J-fileOutputStream, J-b)
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-PERFORM
+            COMPUTE jtemp8 = FUNCTION JR-CONCAT(FUNCTION JR-STR("Wrote Bytes: "), FUNCTION JR-INT-STRING(J-index))
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), jtemp8, J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_INIT"))
+            COMPUTE JDISCARD = FUNCTION OutputStream-flush0(J-fileOutputStream)
+            COMPUTE jtemp5 = FUNCTION StreamUtil-getInstance0
+            COMPUTE JDISCARD = FUNCTION StreamUtil-close1(jtemp5, J-fileOutputStream)
+    GOBACK.
+END FUNCTION LcnsSrvrIntFlUtl-write0.
 

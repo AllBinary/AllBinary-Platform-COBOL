@@ -1,332 +1,922 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.canvas.transition.progress
+*> Java class ProgressCanvas
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.canvas.transition.progress
-unit ProgressCanvas;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, CommandListener, Graphics, Processor, RunnableCanvas, BasicColor, MyFontProcessor, UpdateMyFontInterface, ABCustomGaugeItem, Paintable, PaintableInterface, AllBinaryMidlet, ProgressEndListener;
-
-type
-  {AB:TYPES}
-  TProgressCanvas = class(TRunnableCanvas, IPaintableInterface, IUpdateMyFontInterface)
-  public
-    hasPainted: Boolean;
-    backgroundBasicColor: TBasicColor;
-    GAUGE_PAINTABLE: TPaintable;
-    maxValue: Single;
-    gauge: TABCustomGaugeItem;
-    TEXT_: string;
-    updateMyFontProcessor: TMyFontProcessor;
-    myFontProcessor: TMyFontProcessor;
-    allbinaryMidlet: TAllBinaryMidlet;
-    value: Single;
-    text: string;
-    background: Boolean;
-    paintable: IPaintableInterface;
-    inProgress: Boolean;
-    IN_GAME_PROCESSOR: TProcessor;
-    inGameProcessor: TProcessor;
-    progressEndListener: TProgressEndListener;
-    backgroundLabel: string;
-    START_BACKGROUND: string;
-    ADD_PORTION: string;
-    ADD_EARLY_PORTION: string;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(title: string; backgroundBasicColor: TBasicColor; foregroundBasicColor: TBasicColor);
-        procedure updateMeasurement(graphics_: TGraphics); virtual;
-        procedure init(gameMidlet: TAllBinaryMidlet); virtual;
-        procedure update(graphics_: TGraphics); virtual;
-        procedure initCommands(cmdListener: ICommandListener); virtual;
-        function getMaxValue: Single;
-        procedure start; virtual;
-        procedure startBackground(background: Boolean); virtual;
-        procedure endActual; virtual;
-        procedure inGame; virtual;
-        procedure end_; virtual;
-        procedure endFromInitialLazyLoadingComplete; virtual;
-        function isInGame: Boolean; virtual;
-        procedure endIfPaintedSinceStart; virtual;
-        procedure addEarlyPortion(value: Integer; text: string; index: Integer); virtual;
-        procedure addPortion(value: Integer; text: string; index: Integer); virtual;
-        procedure addNormalPortion(value: Integer; text: string); virtual;
-        procedure setValue(value: Integer); virtual;
-        procedure paint(graphics_: TGraphics); virtual;
-        procedure paint2(graphics_: TGraphics); virtual;
-        procedure paintThreed(graphics_: TGraphics); virtual;
-        function getValue: Single; virtual;
-        procedure setText(text: string); virtual;
-        function getText: string; virtual;
-        procedure setBackground(background: Boolean); virtual;
-        function isBackground: Boolean; virtual;
-  end;
-
-implementation
-uses
-  ProgressPaintable, Font, NullCanvas, NullCommandListener, GameCommandsFactory, CanvasStrings, UpdateMyFontProcessor, NullPaintable, PreLogUtil, SmallIntegerSingletonFactory, StringMaker, StringUtil, PathFindingThreadPool, ThreadPool;
-
-
-{AB:CODE}
-
-procedure TProgressCanvas.InitFields;
-begin
-  
-  
-  Self.GAUGE_PAINTABLE := TProgressPaintable.Create(Self);
-  Self.maxValue := 100.0;
-  
-  Self.TEXT_ := Self.commonStrings.LOADING;
-  Self.updateMyFontProcessor := TUpdateMyFontProcessor.Create(Self);
-  Self.myFontProcessor := Self.updateMyFontProcessor;
-  Self.allbinaryMidlet := TAllBinaryMidlet.getNullInstance();
-  
-  Self.text := Self.TEXT_;
-  Self.background := True;
-  Self.paintable := Self.GAUGE_PAINTABLE;
-  Self.inProgress := False;
-  Self.IN_GAME_PROCESSOR := TProcessor.Create() (* Java anonymous class body: implement it as a named class
-        Self.pathFindingThreadPool := TPathFindingThreadPool.getInstance();
-        
-
-    // throws Exception
-    procedure T.process;
-begin
-            Self.pathFindingThreadPool.runAPriorityTask();
-end;
-*);
-  Self.inGameProcessor := TProcessor.getInstance();
-  Self.progressEndListener := TProgressEndListener.instance;
-  Self.backgroundLabel := 'Background AI Game Loading...';
-  Self.START_BACKGROUND := 'startBackground';
-  Self.ADD_PORTION := 'addPortion';
-  Self.ADD_EARLY_PORTION := 'addEarlyPortion';
-end;
-
-function TProgressCanvas.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ProgressCanvas-new3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-title BINARY-DOUBLE.
+01 J-backgroundBasicColor BINARY-DOUBLE.
+01 J-foregroundBasicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-title J-backgroundBasicColor J-foregroundBasicColor RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ProgressCanvas")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_hasPainted")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_backgroundBasicColor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_GAUGE_PAINTABLE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_maxValue")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gauge")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_TEXT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_updateMyFontProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_myFontProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_allbinaryMidlet")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_value")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_text")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_background")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_paintable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_inProgress")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_IN_GAME_PROCESSOR")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_inGameProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_progressEndListener")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_backgroundLabel")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_START_BACKGROUND")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ADD_PORTION")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ADD_EARLY_PORTION")
     
-
-constructor TProgressCanvas.Create(title: string; backgroundBasicColor: TBasicColor; foregroundBasicColor: TBasicColor);
-begin
-        inherited Create(TNullCommandListener.NULL_COMMAND_LISTENER, TCanvasStrings.getInstance().EMPTY_CHILD_NAME_LIST, False);
-        InitFields;
-        Self.backgroundBasicColor := backgroundBasicColor;
-        Self.gauge := TABCustomGaugeItem.Create(TStringUtil.getInstance().EMPTY_STRING, Integer(Trunc(Self.maxValue)), 0, backgroundBasicColor, foregroundBasicColor);
-end;
     
-
-procedure TProgressCanvas.updateMeasurement(graphics_: TGraphics);
-var
-  font_: TFont;
-begin
-        font_ := graphics_.getFont();
-        Self.gauge.setHeight((font_.getHeight()) + (2));
-        Self.myFontProcessor := TMyFontProcessor.getInstance();
-end;
+    COMPUTE JVALUE = FUNCTION ProgressPaintable-new1(J-THIS)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_GAUGE_PAINTABLE", JVALUE)
+    COMPUTE JVALUEF = 100.0
+    COMPUTE JDISCARD = FUNCTION JR-SETF(J-THIS, "f_maxValue", JVALUEF)
     
-
-procedure TProgressCanvas.init(gameMidlet: TAllBinaryMidlet);
-begin
-        Self.allbinaryMidlet := gameMidlet;
-end;
+    COMPUTE JVALUE = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_LOADING")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_TEXT", JVALUE)
+    COMPUTE JVALUE = FUNCTION UpdateMyFontProcessor-new1(J-THIS)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_updateMyFontProcessor", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_updateMyFontProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
+    COMPUTE JVALUE = FUNCTION AllBnryMdlt-getNullInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_allbinaryMidlet", JVALUE)
     
+    COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_TEXT")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_text", JVALUE)
+    COMPUTE JVALUE = 1
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_background", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_GAUGE_PAINTABLE")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_paintable", JVALUE)
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_inProgress", JVALUE)
+    COMPUTE JVALUE = FUNCTION Processor-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_IN_GAME_PROCESSOR", JVALUE)
+    COMPUTE JVALUE = FUNCTION Processor-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_inGameProcessor", JVALUE)
+    COMPUTE JVALUE = FUNCTION PrgrssEndLstnr-sttc-nstnc
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_progressEndListener", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Background AI Game Loading...")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_backgroundLabel", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("startBackground")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_START_BACKGROUND", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("addPortion")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ADD_PORTION", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("addEarlyPortion")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ADD_EARLY_PORTION", JVALUE)
+        COMPUTE jtemp1 = FUNCTION CanvasStrings-getInstance0
+        COMPUTE jtemp2 = 0
+        CONTINUE
+        COMPUTE JVALUE = J-backgroundBasicColor
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_backgroundBasicColor", JVALUE)
+        COMPUTE jtemp3 = FUNCTION StringUtil-getInstance0
+        COMPUTE jtemp4 = FUNCTION JR-D2I(FUNCTION JR-GETF(J-THIS, "f_maxValue"))
+        COMPUTE jtemp5 = 0
+        COMPUTE JVALUE = FUNCTION ABCustomGaugeItem-new5(FUNCTION JR-GET(jtemp3, "f_EMPTY_STRING"), jtemp4, jtemp5, J-backgroundBasicColor, J-foregroundBasicColor)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gauge", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ProgressCanvas-new3.
 
-// throws Exception
-procedure TProgressCanvas.update(graphics_: TGraphics);
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrgrssCnvs-updateMeasurement1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-font BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-font = FUNCTION Graphics-getFont0(J-graphics)
+        COMPUTE jtemp7 = 2
+        COMPUTE jtemp6 = (FUNCTION MOD((FUNCTION Font-getHeight0(J-font) + jtemp7) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION ABCustomItem-setHeight1(FUNCTION JR-GET(J-THIS, "f_gauge"), jtemp6)
+        COMPUTE JVALUE = FUNCTION MyFontProcessor-getInstance0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
+    GOBACK.
+END FUNCTION PrgrssCnvs-updateMeasurement1.
 
-procedure TProgressCanvas.initCommands(cmdListener: ICommandListener);
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ProgressCanvas-init1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameMidlet BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gameMidlet RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-gameMidlet
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_allbinaryMidlet", JVALUE)
+    GOBACK.
+END FUNCTION ProgressCanvas-init1.
 
-function TProgressCanvas.getMaxValue: Single;
-begin
-        Exit(Self.maxValue);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ProgressCanvas-update1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION ProgressCanvas-update1.
 
-procedure TProgressCanvas.start;
-begin
-        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.START_METHOD_NAME);
-        Self.setBackground(True);
-        Self.gauge.setHeight(30);
-        Self.gauge.setLabel(Self.commonStrings.PLEASE_WAIT);
-        Self.setText(Self.TEXT_);
-        Self.setValue(0);
-        Self.inGameProcessor := TProcessor.getInstance();
-        Self.paintable := Self.GAUGE_PAINTABLE;
-        Self.inProgress := True;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ProgressCanvas-initCommands1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-cmdListener BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-cmdListener RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION ProgressCanvas-initCommands1.
 
-procedure TProgressCanvas.startBackground(background: Boolean);
-begin
-        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.START_BACKGROUND);
-        Self.setBackground(background);
-        Self.myFontProcessor := Self.updateMyFontProcessor;
-        Self.gauge.setLabel(Self.backgroundLabel);
-        Self.setText(Self.TEXT_);
-        Self.setValue(0);
-        Self.inGameProcessor := TProcessor.getInstance();
-        Self.paintable := Self.GAUGE_PAINTABLE;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ProgressCanvas-getMaxValue0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT COMP-2.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GETF(J-THIS, "f_maxValue")
+        GOBACK
+    GOBACK.
+END FUNCTION ProgressCanvas-getMaxValue0.
 
-procedure TProgressCanvas.endActual;
-begin
-        Self.allbinaryMidlet.commandAction(TGameCommandsFactory.getInstance().SHOW_GAME_CANVAS, TNullCanvas.NULL_CANVAS);
-        Self.inProgress := False;
-        Self.inGame();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ProgressCanvas-start0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        COMPUTE jtemp8 = 1
+        COMPUTE JDISCARD = FUNCTION ProgressCanvas-setBackground1(J-THIS, jtemp8)
+        COMPUTE jtemp9 = 30
+        COMPUTE JDISCARD = FUNCTION ABCustomItem-setHeight1(FUNCTION JR-GET(J-THIS, "f_gauge"), jtemp9)
+        COMPUTE JDISCARD = FUNCTION ABCustomItem-setLabel1(FUNCTION JR-GET(J-THIS, "f_gauge"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_PLEASE_WAIT"))
+        COMPUTE JDISCARD = FUNCTION ProgressCanvas-setText1(J-THIS, FUNCTION JR-GET(J-THIS, "f_TEXT"))
+        COMPUTE jtemp10 = 0
+        COMPUTE JDISCARD = FUNCTION ProgressCanvas-setValue1(J-THIS, jtemp10)
+        COMPUTE JVALUE = FUNCTION Processor-getInstance0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_inGameProcessor", JVALUE)
+        COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_GAUGE_PAINTABLE")
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_paintable", JVALUE)
+        COMPUTE JVALUE = 1
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_inProgress", JVALUE)
+    GOBACK.
+END FUNCTION ProgressCanvas-start0.
 
-procedure TProgressCanvas.inGame;
-begin
-        Self.progressEndListener.onEndEvent();
-        Self.inGameProcessor := Self.IN_GAME_PROCESSOR;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrgrssCnvs-startBackground1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp11 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-background BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-background RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        COMPUTE JDISCARD = FUNCTION ProgressCanvas-setBackground1(J-THIS, J-background)
+        COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_updateMyFontProcessor")
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
+        COMPUTE JDISCARD = FUNCTION ABCustomItem-setLabel1(FUNCTION JR-GET(J-THIS, "f_gauge"), FUNCTION JR-GET(J-THIS, "f_backgroundLabel"))
+        COMPUTE JDISCARD = FUNCTION ProgressCanvas-setText1(J-THIS, FUNCTION JR-GET(J-THIS, "f_TEXT"))
+        COMPUTE jtemp11 = 0
+        COMPUTE JDISCARD = FUNCTION ProgressCanvas-setValue1(J-THIS, jtemp11)
+        COMPUTE JVALUE = FUNCTION Processor-getInstance0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_inGameProcessor", JVALUE)
+        COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_GAUGE_PAINTABLE")
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_paintable", JVALUE)
+    GOBACK.
+END FUNCTION PrgrssCnvs-startBackground1.
 
-procedure TProgressCanvas.end_;
-begin
-        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.END_METHOD_NAME);
-        Self.gauge.setValue(Self.getMaxValue());
-        Self.endActual();
-        Self.paintable := TNullPaintable.getInstance();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ProgressCanvas-endActual0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp12 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp12 = FUNCTION GmCmmndsFctry-getInstance0
+        COMPUTE JDISCARD = FUNCTION AllBinaryMidlet-commandAction2(FUNCTION JR-GET(J-THIS, "f_allbinaryMidlet"), FUNCTION JR-GET(jtemp12, "f_SHOW_GAME_CANVAS"), FUNCTION NllCnvs-static-NULL-CANVAS)
+        COMPUTE JVALUE = 0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_inProgress", JVALUE)
+        COMPUTE JDISCARD = FUNCTION ProgressCanvas-inGame0(J-THIS)
+    GOBACK.
+END FUNCTION ProgressCanvas-endActual0.
 
-procedure TProgressCanvas.endFromInitialLazyLoadingComplete;
-begin
-        Self.progressEndListener.onEndEvent();
-        Self.gauge.setValue(Self.getMaxValue());
-        Self.inGameProcessor := Self.IN_GAME_PROCESSOR;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ProgressCanvas-inGame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION PrgrssEndLstnr-onEndEvent0(FUNCTION JR-GET(J-THIS, "f_progressEndListener"))
+        COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_IN_GAME_PROCESSOR")
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_inGameProcessor", JVALUE)
+    GOBACK.
+END FUNCTION ProgressCanvas-inGame0.
 
-function TProgressCanvas.isInGame: Boolean;
-begin
-        if (Self.inGameProcessor) = (Self.IN_GAME_PROCESSOR) then begin
-            Exit(True);
-        end;
-        Exit(False);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ProgressCanvas-end0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        COMPUTE JDISCARD = FUNCTION ABCustomItem-setValue1(FUNCTION JR-GET(J-THIS, "f_gauge"), FUNCTION ProgressCanvas-getMaxValue0(J-THIS))
+        COMPUTE JDISCARD = FUNCTION ProgressCanvas-endActual0(J-THIS)
+        COMPUTE JVALUE = FUNCTION NullPaintable-getInstance0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_paintable", JVALUE)
+    GOBACK.
+END FUNCTION ProgressCanvas-end0.
 
-procedure TProgressCanvas.endIfPaintedSinceStart;
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrgrssCnvs-endFrmIntlLzyL12475.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION PrgrssEndLstnr-onEndEvent0(FUNCTION JR-GET(J-THIS, "f_progressEndListener"))
+        COMPUTE JDISCARD = FUNCTION ABCustomItem-setValue1(FUNCTION JR-GET(J-THIS, "f_gauge"), FUNCTION ProgressCanvas-getMaxValue0(J-THIS))
+        COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_IN_GAME_PROCESSOR")
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_inGameProcessor", JVALUE)
+    GOBACK.
+END FUNCTION PrgrssCnvs-endFrmIntlLzyL12475.
 
-procedure TProgressCanvas.addEarlyPortion(value: Integer; text: string; index: Integer);
-begin
-        Self.setText(TStringMaker.Create().append(text).append(TSmallIntegerSingletonFactory.getInstance().getAt(index).toString()).toString());
-        Self.gauge.setValue((Self.gauge.getValue()) + ((Self.getMaxValue()) / (value)));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ProgressCanvas-isInGame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION JR-GET(J-THIS, "f_inGameProcessor") = FUNCTION JR-GET(J-THIS, "f_IN_GAME_PROCESSOR"))
+            COMPUTE J-RESULT = 1
+            GOBACK
+        END-IF
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION ProgressCanvas-isInGame0.
 
-procedure TProgressCanvas.addPortion(value: Integer; text: string; index: Integer);
-begin
-        Self.setText(TStringMaker.Create().append(text).append(TSmallIntegerSingletonFactory.getInstance().getAt(index).toString()).toString());
-        TPreLogUtil.put(Self.text, TJava.Box(Self), Self.ADD_PORTION);
-        Self.gauge.setValue((Self.gauge.getValue()) + ((Self.getMaxValue()) / (value)));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrgrssCnvs-endIfPntdSncStrt0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION PrgrssCnvs-endIfPntdSncStrt0.
 
-procedure TProgressCanvas.addNormalPortion(value: Integer; text: string);
-begin
-        if (Self.text) <> (text) then begin
-            TPreLogUtil.put(text, TJava.Box(Self), Self.ADD_PORTION);
-        end;
-        Self.setText(text);
-        Self.gauge.setValue((Self.gauge.getValue()) + ((Self.getMaxValue()) / (value)));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrgrssCnvs-addEarlyPortion3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+01 jtemp18 BINARY-DOUBLE.
+01 jtemp19 COMP-2.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-value BINARY-DOUBLE.
+01 J-text BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-value J-text J-index RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp17 = FUNCTION SmllIntgrSngltnFctry-gtInstnc0
+        COMPUTE jtemp16 = FUNCTION SmllIntgrSngltnFctry-getAt1(jtemp17, J-index)
+        COMPUTE jtemp15 = FUNCTION StringMaker-new0
+        COMPUTE jtemp14 = FUNCTION StringMaker-append1(jtemp15, J-text)
+        COMPUTE jtemp13 = FUNCTION StringMaker-append1(jtemp14, FUNCTION JR-TO-STRING(jtemp16))
+        COMPUTE JDISCARD = FUNCTION ProgressCanvas-setText1(J-THIS, FUNCTION JR-TO-STRING(jtemp13))
+        COMPUTE jtemp19 = (FUNCTION ProgressCanvas-getMaxValue0(J-THIS) / J-value)
+        COMPUTE jtemp18 = (FUNCTION ABCustomItem-getValue0(FUNCTION JR-GET(J-THIS, "f_gauge")) + jtemp19)
+        COMPUTE JDISCARD = FUNCTION ABCustomItem-setValue1(FUNCTION JR-GET(J-THIS, "f_gauge"), jtemp18)
+    GOBACK.
+END FUNCTION PrgrssCnvs-addEarlyPortion3.
 
-procedure TProgressCanvas.setValue(value: Integer);
-begin
-        Self.value := value;
-        Self.gauge.setValue(value);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ProgressCanvas-addPortion3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp20 BINARY-DOUBLE.
+01 jtemp21 BINARY-DOUBLE.
+01 jtemp22 BINARY-DOUBLE.
+01 jtemp23 BINARY-DOUBLE.
+01 jtemp24 BINARY-DOUBLE.
+01 jtemp25 BINARY-DOUBLE.
+01 jtemp26 COMP-2.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-value BINARY-DOUBLE.
+01 J-text BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-value J-text J-index RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp24 = FUNCTION SmllIntgrSngltnFctry-gtInstnc0
+        COMPUTE jtemp23 = FUNCTION SmllIntgrSngltnFctry-getAt1(jtemp24, J-index)
+        COMPUTE jtemp22 = FUNCTION StringMaker-new0
+        COMPUTE jtemp21 = FUNCTION StringMaker-append1(jtemp22, J-text)
+        COMPUTE jtemp20 = FUNCTION StringMaker-append1(jtemp21, FUNCTION JR-TO-STRING(jtemp23))
+        COMPUTE JDISCARD = FUNCTION ProgressCanvas-setText1(J-THIS, FUNCTION JR-TO-STRING(jtemp20))
+        COMPUTE JDISCARD = FUNCTION PreLogUtil-put3(FUNCTION JR-GET(J-THIS, "f_text"), J-THIS, FUNCTION JR-GET(J-THIS, "f_ADD_PORTION"))
+        COMPUTE jtemp26 = (FUNCTION ProgressCanvas-getMaxValue0(J-THIS) / J-value)
+        COMPUTE jtemp25 = (FUNCTION ABCustomItem-getValue0(FUNCTION JR-GET(J-THIS, "f_gauge")) + jtemp26)
+        COMPUTE JDISCARD = FUNCTION ABCustomItem-setValue1(FUNCTION JR-GET(J-THIS, "f_gauge"), jtemp25)
+    GOBACK.
+END FUNCTION ProgressCanvas-addPortion3.
 
-procedure TProgressCanvas.paint(graphics_: TGraphics);
-begin
-        Self.paintable.paint(graphics_);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrgrssCnvs-addNormalPortion2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp27 BINARY-DOUBLE.
+01 jtemp28 COMP-2.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-value BINARY-DOUBLE.
+01 J-text BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-value J-text RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION JR-GET(J-THIS, "f_text") NOT = J-text)
+            COMPUTE JDISCARD = FUNCTION PreLogUtil-put3(J-text, J-THIS, FUNCTION JR-GET(J-THIS, "f_ADD_PORTION"))
+        END-IF
+        COMPUTE JDISCARD = FUNCTION ProgressCanvas-setText1(J-THIS, J-text)
+        COMPUTE jtemp28 = (FUNCTION ProgressCanvas-getMaxValue0(J-THIS) / J-value)
+        COMPUTE jtemp27 = (FUNCTION ABCustomItem-getValue0(FUNCTION JR-GET(J-THIS, "f_gauge")) + jtemp28)
+        COMPUTE JDISCARD = FUNCTION ABCustomItem-setValue1(FUNCTION JR-GET(J-THIS, "f_gauge"), jtemp27)
+    GOBACK.
+END FUNCTION PrgrssCnvs-addNormalPortion2.
 
-procedure TProgressCanvas.paint2(graphics_: TGraphics);
-begin
-        Self.myFontProcessor.process(graphics_);
-        graphics_.setColor(Self.backgroundBasicColor.intValue());
-        graphics_.fillRect(0, 0, Self.displayInfo.getLastWidth(), Self.displayInfo.getLastHeight());
-        Self.gauge.paintXY(graphics_, 0, 0);
-        Self.hasPainted := True;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ProgressCanvas-setValue1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp29 COMP-2.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-value BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-value RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUEF = J-value
+        COMPUTE JDISCARD = FUNCTION JR-SETF(J-THIS, "f_value", JVALUEF)
+        COMPUTE jtemp29 = J-value
+        COMPUTE JDISCARD = FUNCTION ABCustomItem-setValue1(FUNCTION JR-GET(J-THIS, "f_gauge"), jtemp29)
+    GOBACK.
+END FUNCTION ProgressCanvas-setValue1.
 
-procedure TProgressCanvas.paintThreed(graphics_: TGraphics);
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ProgressCanvas-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION PaintableInterface-paint1(FUNCTION JR-GET(J-THIS, "f_paintable"), J-graphics)
+    GOBACK.
+END FUNCTION ProgressCanvas-paint1.
 
-function TProgressCanvas.getValue: Single;
-begin
-        Exit(Self.value);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ProgressCanvas-paint21.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp30 BINARY-DOUBLE.
+01 jtemp31 BINARY-DOUBLE.
+01 jtemp32 BINARY-DOUBLE.
+01 jtemp33 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION MyFontProcessor-process1(FUNCTION JR-GET(J-THIS, "f_myFontProcessor"), J-graphics)
+        COMPUTE JDISCARD = FUNCTION Graphics-setColor1(J-graphics, FUNCTION BasicColor-intValue0(FUNCTION JR-GET(J-THIS, "f_backgroundBasicColor")))
+        COMPUTE jtemp30 = 0
+        COMPUTE jtemp31 = 0
+        COMPUTE JDISCARD = FUNCTION Graphics-fillRect4(J-graphics, jtemp30, jtemp31, FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_displayInfo")), FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_displayInfo")))
+        COMPUTE jtemp32 = 0
+        COMPUTE jtemp33 = 0
+        COMPUTE JDISCARD = FUNCTION ABCustomItem-paintXY3(FUNCTION JR-GET(J-THIS, "f_gauge"), J-graphics, jtemp32, jtemp33)
+        COMPUTE JVALUE = 1
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hasPainted", JVALUE)
+    GOBACK.
+END FUNCTION ProgressCanvas-paint21.
 
-procedure TProgressCanvas.setText(text: string);
-begin
-        Self.text := text;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ProgressCanvas-paintThreed1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION ProgressCanvas-paintThreed1.
 
-function TProgressCanvas.getText: string;
-begin
-        Exit(Self.text);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ProgressCanvas-getValue0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT COMP-2.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GETF(J-THIS, "f_value")
+        GOBACK
+    GOBACK.
+END FUNCTION ProgressCanvas-getValue0.
 
-procedure TProgressCanvas.setBackground(background: Boolean);
-begin
-        Self.background := background;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ProgressCanvas-setText1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-text BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-text RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-text
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_text", JVALUE)
+    GOBACK.
+END FUNCTION ProgressCanvas-setText1.
 
-function TProgressCanvas.isBackground: Boolean;
-begin
-        Exit(Self.background);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ProgressCanvas-getText0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_text")
+        GOBACK
+    GOBACK.
+END FUNCTION ProgressCanvas-getText0.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ProgressCanvas-setBackground1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-background BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-background RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-background
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_background", JVALUE)
+    GOBACK.
+END FUNCTION ProgressCanvas-setBackground1.
 
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ProgressCanvas-isBackground0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_background")
+        GOBACK
+    GOBACK.
+END FUNCTION ProgressCanvas-isBackground0.
 

@@ -1,99 +1,205 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation
+*> Java class NullRotationAnimationFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation
-unit NullRotationAnimationFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NllRttnAnmtnFctry-stt67743.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 NullRotationAnimationFactory-jcell-NULL_ROTATION_ANIMATION_FACTORY BINARY-DOUBLE EXTERNAL.
+01 NullRotationAnimationFactory-jset-NULL_ROTATION_ANIMATION_FACTORY BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF NullRotationAnimationFactory-jset-NULL_ROTATION_ANIMATION_FACTORY = 0
+        MOVE 1 TO NullRotationAnimationFactory-jset-NULL_ROTATION_ANIMATION_FACTORY
+        COMPUTE NullRotationAnimationFactory-jcell-NULL_ROTATION_ANIMATION_FACTORY = FUNCTION NllRttnAnmtnFctry-new0
+    END-IF
+    MOVE NullRotationAnimationFactory-jcell-NULL_ROTATION_ANIMATION_FACTORY TO J-RESULT
+    GOBACK.
+END FUNCTION NllRttnAnmtnFctry-stt67743.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NllRttnAnmtnFctrysttS73053.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 NullRotationAnimationFactory-jcell-NULL_ROTATION_ANIMATION_FACTORY BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION NllRttnAnmtnFctry-stt67743 TO J-RESULT
+    MOVE J-VALUE TO NullRotationAnimationFactory-jcell-NULL_ROTATION_ANIMATION_FACTORY
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION NllRttnAnmtnFctrysttS73053.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NllRttnAnmtnFctry-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("NullRotationAnimationFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NULL_ROTATION_ANIMATION_ARRAY")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NULL_ANIMATION")
+    COMPUTE jtemp1 = 0
+    COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY(jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NULL_ROTATION_ANIMATION_ARRAY", JVALUE)
+    COMPUTE JVALUE = FUNCTION NullRotationAnimation2-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NULL_ANIMATION", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION NllRttnAnmtnFctry-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, ScaleProperties, Animation, RotationAnimation, AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface, BasicAnimationInterfaceFactoryInterface;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NllRttnAnmtnFctry-gtFctry17864.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION NllRttnAnmtnFctry-stt67743
+        GOBACK
+    GOBACK.
+END FUNCTION NllRttnAnmtnFctry-gtFctry17864.
 
-type
-  {AB:TYPES}
-  TNullRotationAnimationFactory = class(TInterfacedObject, IAnimationInterfaceFactoryInterface, IProceduralAnimationInterfaceFactoryInterface, IBasicAnimationInterfaceFactoryInterface)
-  public
-    NULL_ROTATION_ANIMATION_ARRAY: TArray<TRotationAnimation>;
-    NULL_ANIMATION: TAnimation;
-    class var NULL_ROTATION_ANIMATION_FACTORY: TNullRotationAnimationFactory;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create;
-        class function getFactoryInstance: TNullRotationAnimationFactory; static;
-        function getInstance(instanceId: Integer): TAnimation; virtual;
-        function getInstanceAnimation(animationInterface: TAnimation): TAnimation; virtual;
-        procedure setInitialScale(scaleProperties_: TScaleProperties); virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NllRttnAnmtnFctry-getInstance1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-instanceId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-instanceId RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_NULL_ANIMATION")
+        GOBACK
+    GOBACK.
+END FUNCTION NllRttnAnmtnFctry-getInstance1.
 
-implementation
-uses
-  NullRotationAnimation2;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NllRttnAnmtnFctry-gtInstn97470.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-animationInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-animationInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_NULL_ANIMATION")
+        GOBACK
+    GOBACK.
+END FUNCTION NllRttnAnmtnFctry-gtInstn97470.
 
-
-{AB:CODE}
-
-procedure TNullRotationAnimationFactory.InitFields;
-begin
-  Self.NULL_ROTATION_ANIMATION_ARRAY := nil;
-  Self.NULL_ANIMATION := TNullRotationAnimation2.Create();
-end;
-
-function TNullRotationAnimationFactory.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-    
-
-constructor TNullRotationAnimationFactory.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
-
-class function TNullRotationAnimationFactory.getFactoryInstance: TNullRotationAnimationFactory;
-begin
-        Exit(TNullRotationAnimationFactory.NULL_ROTATION_ANIMATION_FACTORY);
-end;
-    
-
-function TNullRotationAnimationFactory.getInstance(instanceId: Integer): TAnimation;
-begin
-        Exit(Self.NULL_ANIMATION);
-end;
-    
-
-// throws Exception
-function TNullRotationAnimationFactory.getInstanceAnimation(animationInterface: TAnimation): TAnimation;
-begin
-        Exit(Self.NULL_ANIMATION);
-end;
-    
-
-procedure TNullRotationAnimationFactory.setInitialScale(scaleProperties_: TScaleProperties);
-begin
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TNullRotationAnimationFactory.NULL_ROTATION_ANIMATION_FACTORY := TNullRotationAnimationFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NllRttnAnmtnFctry-stIntlScl1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-scaleProperties BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-scaleProperties RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION NllRttnAnmtnFctry-stIntlScl1.
 

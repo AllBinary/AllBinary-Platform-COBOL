@@ -1,94 +1,172 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.displayable.canvas
+*> Java class DemoGameStartupRunnable
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.displayable.canvas
-unit DemoGameStartupRunnable;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DmGmStrtpRnnbl-static-TYPE.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 DemoGameStartupRunnable-jcell-TYPE BINARY-DOUBLE EXTERNAL.
+01 DemoGameStartupRunnable-jset-TYPE BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF DemoGameStartupRunnable-jset-TYPE = 0
+        MOVE 1 TO DemoGameStartupRunnable-jset-TYPE
+        COMPUTE DemoGameStartupRunnable-jcell-TYPE = 4
+    END-IF
+    MOVE DemoGameStartupRunnable-jcell-TYPE TO J-RESULT
+    GOBACK.
+END FUNCTION DmGmStrtpRnnbl-static-TYPE.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DmGmStrtpRnnblstaticS52127.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 DemoGameStartupRunnable-jcell-TYPE BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION DmGmStrtpRnnbl-static-TYPE TO J-RESULT
+    MOVE J-VALUE TO DemoGameStartupRunnable-jcell-TYPE
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION DmGmStrtpRnnblstaticS52127.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LogUtil, ABRunnable, DemoCanvas;
-
-type
-  {AB:TYPES}
-  TDemoGameStartupRunnable = class(TABRunnable)
-  public
-    logUtil: TLogUtil;
-    demoCanvas: TDemoCanvas;
-    class var TYPE_: Integer;
-    procedure InitFields;
-        constructor Create(demoCanvas_: TDemoCanvas);
-        procedure run; override;
-        function getType: Integer; override;
-  end;
-
-implementation
-uses
-  CommonStrings;
-
-
-{AB:CODE}
-
-procedure TDemoGameStartupRunnable.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DemoGameStartupRunnable-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-demoCanvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-demoCanvas RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("DemoGameStartupRunnable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_demoCanvas")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
     
+        COMPUTE JVALUE = J-demoCanvas
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_demoCanvas", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION DemoGameStartupRunnable-new1.
 
-constructor TDemoGameStartupRunnable.Create(demoCanvas_: TDemoCanvas);
-begin
-    inherited Create;
-    InitFields;
-        Self.demoCanvas := demoCanvas_;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DemoGameStartupRunnable-run0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-commonStrings BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE jtemp1 = 1
+            COMPUTE JDISCARD = FUNCTION ABRunnable-setRunning1(J-THIS, jtemp1)
+            COMPUTE JDISCARD = FUNCTION DemoCanvas-stopGameDemo0(FUNCTION JR-GET(J-THIS, "f_demoCanvas"))
+            COMPUTE JDISCARD = FUNCTION DemoCanvas-create0(FUNCTION JR-GET(J-THIS, "f_demoCanvas"))
+            COMPUTE JDISCARD = FUNCTION DemoCanvas-start0(FUNCTION JR-GET(J-THIS, "f_demoCanvas"))
+            COMPUTE jtemp2 = 0
+            COMPUTE JDISCARD = FUNCTION ABRunnable-setRunning1(J-THIS, jtemp2)
+    GOBACK.
+END FUNCTION DemoGameStartupRunnable-run0.
 
-procedure TDemoGameStartupRunnable.run;
-var
-  commonStrings_: TCommonStrings;
-begin
-        try
-            Self.setRunning(True);
-            Self.demoCanvas.stopGameDemo();
-            Self.demoCanvas.create_();
-            Self.demoCanvas.start();
-            Self.setRunning(False);
-        except
-            on e: SysUtils.Exception do begin
-            Self.setRunning(False);
-            commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.RUN, TJava.Box(e));
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DmGmStrtpRnnbl-getType0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION DmGmStrtpRnnbl-static-TYPE
+        GOBACK
+    GOBACK.
+END FUNCTION DmGmStrtpRnnbl-getType0.
 
-function TDemoGameStartupRunnable.getType: Integer;
-begin
-        Exit(TDemoGameStartupRunnable.TYPE_);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TDemoGameStartupRunnable.TYPE_ := 4;
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+PROGRAM-ID. DemoGameStartupRunnable-run.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION DemoGameStartupRunnable-run0(J-THIS)
+    GOBACK.
+END PROGRAM DemoGameStartupRunnable-run.
 

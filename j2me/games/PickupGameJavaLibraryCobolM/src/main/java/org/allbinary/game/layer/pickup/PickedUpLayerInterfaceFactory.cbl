@@ -1,86 +1,131 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.layer.pickup
+*> Java class PickedUpLayerInterfaceFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.layer.pickup
-unit PickedUpLayerInterfaceFactory;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Animation, AllBinaryLayer, PickedUpLayerType, IconLayer, PickedUpLayerInterfaceFactoryBase;
-
-type
-  {AB:TYPES}
-  TPickedUpLayerInterfaceFactory = class(TPickedUpLayerInterfaceFactoryBase)
-  public
-    pickedUpLayerType: TPickedUpLayerType;
-    iconLayer: TIconLayer;
-    animationInterface: TAnimation;
-    procedure InitFields;
-        constructor Create(pickeUpLayerType: TPickedUpLayerType; iconLayer_: TIconLayer; animationInterface: TAnimation);
-        function getIconLayer: TAllBinaryLayer; override;
-        function getAnimationInterface: TAnimation; override;
-        function getPickedUpLayerType: TPickedUpLayerType; override;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TPickedUpLayerInterfaceFactory.InitFields;
-begin
-  
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PckdUpLyrIntrfcFctry-new3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-pickeUpLayerType BINARY-DOUBLE.
+01 J-iconLayer BINARY-DOUBLE.
+01 J-animationInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-pickeUpLayerType J-iconLayer J-animationInterface RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("PickedUpLayerInterfaceFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_pickedUpLayerType")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_iconLayer")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_animationInterface")
     
-
-constructor TPickedUpLayerInterfaceFactory.Create(pickeUpLayerType: TPickedUpLayerType; iconLayer_: TIconLayer; animationInterface: TAnimation);
-begin
-    inherited Create;
-    InitFields;
-        Self.pickedUpLayerType := pickeUpLayerType;
-        Self.animationInterface := animationInterface;
-        Self.iconLayer := iconLayer_;
-end;
     
-
-function TPickedUpLayerInterfaceFactory.getIconLayer: TAllBinaryLayer;
-begin
-        Exit(Self.iconLayer);
-end;
     
+        COMPUTE JVALUE = J-pickeUpLayerType
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_pickedUpLayerType", JVALUE)
+        COMPUTE JVALUE = J-animationInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animationInterface", JVALUE)
+        COMPUTE JVALUE = J-iconLayer
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_iconLayer", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION PckdUpLyrIntrfcFctry-new3.
 
-function TPickedUpLayerInterfaceFactory.getAnimationInterface: TAnimation;
-begin
-        Exit(Self.animationInterface);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PckdUpLyrIntrfcFctry-gtIcnLyr0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_iconLayer")
+        GOBACK
+    GOBACK.
+END FUNCTION PckdUpLyrIntrfcFctry-gtIcnLyr0.
 
-function TPickedUpLayerInterfaceFactory.getPickedUpLayerType: TPickedUpLayerType;
-begin
-        Exit(Self.pickedUpLayerType);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PckdUpLyrIntrfcFctry-gtAn48992.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_animationInterface")
+        GOBACK
+    GOBACK.
+END FUNCTION PckdUpLyrIntrfcFctry-gtAn48992.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PckdUpLyrIntrfcFctry-gtPc30531.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_pickedUpLayerType")
+        GOBACK
+    GOBACK.
+END FUNCTION PckdUpLyrIntrfcFctry-gtPc30531.
 

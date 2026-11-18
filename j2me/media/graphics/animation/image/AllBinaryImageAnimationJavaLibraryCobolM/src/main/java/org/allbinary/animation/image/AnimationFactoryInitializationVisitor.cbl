@@ -1,97 +1,139 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2022 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.image
+*> Java class AnimationFactoryInitializationVisitor
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnmtnFctryIntlztnVstr-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("AnimationFactoryInitializationVisitor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_width")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_height")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_dx")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_dy")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_originalDx")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_originalDy")
     
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.image
-unit AnimationFactoryInitializationVisitor;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
-
-type
-  {AB:TYPES}
-  TAnimationFactoryInitializationVisitor = class(TObject)
-  public
-    width: Integer;
-    height: Integer;
-    dx: Integer;
-    dy: Integer;
-    originalDx: Integer;
-    originalDy: Integer;
-    procedure InitFields;
-    constructor Create;
-        procedure visit; virtual;
-        function toString: string; virtual;
-  end;
-
-implementation
-uses
-  StringMaker, PositionStrings, CommonLabels, CommonSeps;
-
-
-{AB:CODE}
-
-procedure TAnimationFactoryInitializationVisitor.InitFields;
-begin
-  
-  
-  
-  
-  
-  
-end;
-
-constructor TAnimationFactoryInitializationVisitor.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
     
-
-procedure TAnimationFactoryInitializationVisitor.visit;
-begin
-end;
     
+    
+    
+    
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION AnmtnFctryIntlztnVstr-new0.
 
-function TAnimationFactoryInitializationVisitor.toString: string;
-var
-  commonSeps_: TCommonSeps;
-  commonLabels_: TCommonLabels;
-  stringBuffer: TStringMaker;
-begin
-        commonSeps_ := TCommonSeps.getInstance();
-        commonLabels_ := TCommonLabels.getInstance();
-        stringBuffer := TStringMaker.Create();
-        stringBuffer.append(TPositionStrings.getInstance().DX_LABEL).appendfloat(Self.dx);
-        stringBuffer.append(TPositionStrings.getInstance().DY_LABEL).appendfloat(Self.dy);
-        stringBuffer.append(commonLabels_.WIDTH_LABEL);
-        stringBuffer.appendint(Self.width);
-        stringBuffer.append(commonSeps_.SPACE);
-        stringBuffer.append(commonLabels_.HEIGHT_LABEL);
-        stringBuffer.appendint(Self.height);
-        Exit(stringBuffer.toString());
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnmtnFctryIntlztnVstr-visit0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION AnmtnFctryIntlztnVstr-visit0.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnmtnFctryIntlztnVstr-tStrng0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-commonSeps BINARY-DOUBLE.
+01 J-commonLabels BINARY-DOUBLE.
+01 J-stringBuffer BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 COMP-2.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 COMP-2.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-commonSeps = FUNCTION CommonSeps-getInstance0
+        COMPUTE J-commonLabels = FUNCTION CommonLabels-getInstance0
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE jtemp2 = FUNCTION PositionStrings-getInstance0
+        COMPUTE jtemp3 = FUNCTION JR-GET(J-THIS, "f_dx")
+        COMPUTE jtemp1 = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(jtemp2, "f_DX_LABEL"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendfloat1(jtemp1, jtemp3)
+        COMPUTE jtemp5 = FUNCTION PositionStrings-getInstance0
+        COMPUTE jtemp6 = FUNCTION JR-GET(J-THIS, "f_dy")
+        COMPUTE jtemp4 = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(jtemp5, "f_DY_LABEL"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendfloat1(jtemp4, jtemp6)
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-commonLabels, "f_WIDTH_LABEL"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_width"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-commonSeps, "f_SPACE"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-commonLabels, "f_HEIGHT_LABEL"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_height"))
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(J-stringBuffer)
+        GOBACK
+    GOBACK.
+END FUNCTION AnmtnFctryIntlztnVstr-tStrng0.
 
-end.
+IDENTIFICATION DIVISION.
+PROGRAM-ID. AnimationFactoryIniti-toString.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION AnmtnFctryIntlztnVstr-tStrng0(J-THIS)
+    GOBACK.
+END PROGRAM AnimationFactoryIniti-toString.
 

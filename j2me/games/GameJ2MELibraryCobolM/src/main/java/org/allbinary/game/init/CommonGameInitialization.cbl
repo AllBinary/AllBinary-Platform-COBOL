@@ -1,94 +1,123 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.init
+*> Java class CommonGameInitialization
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.init
-unit CommonGameInitialization;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CommonGameInitialization-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-resourceInitializationArray BINARY-DOUBLE.
+01 J-portion BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-resourceInitializationArray J-portion RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CommonGameInitialization")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CommonGameInitialization-new2.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CommonGameInitialization-init3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-resourceLoadingLevelFactory BINARY-DOUBLE.
+01 J-progressCanvas BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-abeClientInformation BINARY-DOUBLE.
+01 J-commandListener BINARY-DOUBLE.
+01 J-level BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-abeClientInformation J-commandListener J-level RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BaseGameInitialization-init3(J-THIS, J-abeClientInformation, J-commandListener, J-level)
+        COMPUTE J-resourceLoadingLevelFactory = FUNCTION RsrcLdngLvlFctry-getInstance0
+        IF ((NOT (FUNCTION BsGmIntlztn-isGameInitialized0(J-THIS) = 1)) AND (J-level = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-resourceLoadingLevelFactory, "f_LOAD_ALL"))))
+            COMPUTE jtemp1 = 1
+            COMPUTE JDISCARD = FUNCTION BsGmIntlztn-stGmIntlzd1(J-THIS, jtemp1)
+            COMPUTE J-progressCanvas = FUNCTION PrgrssCnvsFctry-getInstance0
+            COMPUTE jtemp2 = FUNCTION SmllIntgrSngltnFctry-gtInstnc0
+            COMPUTE JDISCARD = FUNCTION SmllIntgrSngltnFctry-init0(jtemp2)
+            COMPUTE jtemp3 = 50
+            COMPUTE JDISCARD = FUNCTION PrgrssCnvs-addNormalPortion2(J-progressCanvas, jtemp3, FUNCTION JR-STR("Integers"))
+            COMPUTE jtemp4 = FUNCTION PointFactory-getInstance0
+            COMPUTE JDISCARD = FUNCTION PointFactory-init0(jtemp4)
+            COMPUTE jtemp5 = 50
+            COMPUTE JDISCARD = FUNCTION PrgrssCnvs-addNormalPortion2(J-progressCanvas, jtemp5, FUNCTION JR-STR("Points"))
+            COMPUTE JDISCARD = FUNCTION AngleFactory-getInstance0
+            COMPUTE jtemp6 = 50
+            COMPUTE JDISCARD = FUNCTION PrgrssCnvs-addNormalPortion2(J-progressCanvas, jtemp6, FUNCTION JR-STR("Angles"))
+            COMPUTE JDISCARD = FUNCTION CmmnGmIntlztn-initGame0(J-THIS)
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_resourceInitializationArray"), FUNCTION JR-GET(J-THIS, "f_GAME_RESOURCES")))
+        END-IF
+        COMPUTE JDISCARD = FUNCTION BsGmIntlztn-rsrcIntlztn1(J-THIS, J-level)
+    GOBACK.
+END FUNCTION CommonGameInitialization-init3.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, CommandListener, ResourceInitialization, AbeClientInformationInterface, CommonStrings, BaseGameInitialization;
-
-type
-  {AB:TYPES}
-  TCommonGameInitialization = class(TBaseGameInitialization)
-  public
-    commonStrings: TCommonStrings;
-    procedure InitFields;
-        constructor Create(resourceInitializationArray: TArray<TResourceInitialization>; portion: Integer);
-        procedure init(abeClientInformation: IAbeClientInformationInterface; commandListener_: ICommandListener; level: Integer); override;
-        procedure initGame; virtual;
-  end;
-
-implementation
-uses
-  ResourceLoadingLevelFactory, PointFactory, ProgressCanvas, ProgressCanvasFactory, SmallIntegerSingletonFactory, AngleFactory;
-
-
-{AB:CODE}
-
-procedure TCommonGameInitialization.InitFields;
-begin
-  Self.commonStrings := TCommonStrings.getInstance();
-end;
-    
-
-constructor TCommonGameInitialization.Create(resourceInitializationArray: TArray<TResourceInitialization>; portion: Integer);
-begin
-        inherited Create(resourceInitializationArray, portion);
-        InitFields;
-end;
-    
-
-// throws Exception
-procedure TCommonGameInitialization.init(abeClientInformation: IAbeClientInformationInterface; commandListener_: ICommandListener; level: Integer);
-var
-  resourceLoadingLevelFactory_: TResourceLoadingLevelFactory;
-  progressCanvas_: TProgressCanvas;
-begin
-        inherited init(abeClientInformation, commandListener_, level);
-        resourceLoadingLevelFactory_ := TResourceLoadingLevelFactory.getInstance();
-        if (not (Self.isGameInitialized())) and ((level) = (resourceLoadingLevelFactory_.LOAD_ALL.getLevel())) then begin
-            Self.setGameInitialized(True);
-            progressCanvas_ := TProgressCanvasFactory.getInstance();
-            TSmallIntegerSingletonFactory.getInstance().init();
-            progressCanvas_.addNormalPortion(50, 'Integers');
-            TPointFactory.getInstance().init();
-            progressCanvas_.addNormalPortion(50, 'Points');
-            TAngleFactory.getInstance();
-            progressCanvas_.addNormalPortion(50, 'Angles');
-            Self.initGame();
-            Self.resourceInitializationArray[Self.GAME_RESOURCES].init();
-        end;
-        inherited resourceInitialization(level);
-end;
-    
-
-// throws Exception
-procedure TCommonGameInitialization.initGame;
-begin
-        raise SysUtils.Exception.Create(Self.commonStrings.NOT_IMPLEMENTED);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmmnGmIntlztn-initGame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+    GOBACK.
+END FUNCTION CmmnGmIntlztn-initGame0.
 

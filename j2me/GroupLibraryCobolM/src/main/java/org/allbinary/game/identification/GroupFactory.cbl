@@ -1,127 +1,251 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.identification
+*> Java class GroupFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.identification
-unit GroupFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GroupFactory-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GroupFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 GroupFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GroupFactory-jset-instance = 0
+        MOVE 1 TO GroupFactory-jset-instance
+        COMPUTE GroupFactory-jcell-instance = FUNCTION GroupFactory-new0
+    END-IF
+    MOVE GroupFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION GroupFactory-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GroupFactorystaticinS37744.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GroupFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GroupFactory-static-instance TO J-RESULT
+    MOVE J-VALUE TO GroupFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GroupFactorystaticinS37744.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GroupFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GroupFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NULL_GROUP_ARRAY")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_list")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_index")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE jtemp1 = 0
+    COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY(jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NULL_GROUP_ARRAY", JVALUE)
+    COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_index", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GroupFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LogUtil, BasicArrayList, Group;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GroupFactory-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION GroupFactory-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION GroupFactory-getInstance0.
 
-type
-  {AB:TYPES}
-  TGroupFactory = class(TObject)
-  public
-    logUtil: TLogUtil;
-    NULL_GROUP_ARRAY: TArray<TGroup>;
-    list: TBasicArrayList;
-    index: Integer;
-    class var instance: TGroupFactory;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TGroupFactory; static;
-        function getNextGroup: TGroup; virtual;
-        function getNextGroupByName(name: string): TGroup; virtual;
-        procedure init(groups: SmallInt; nameArray: TArray<string>); virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GroupFactory-getNextGroup0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-group BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-group = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_list"), "f_objectArray"), FUNCTION JR-GET(J-THIS, "f_index"))
+        COMPUTE JVALUE = (FUNCTION MOD(FUNCTION JR-GET(J-THIS, "f_index") + 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_index", JVALUE)
+        COMPUTE J-RESULT = J-group
+        GOBACK
+    GOBACK.
+END FUNCTION GroupFactory-getNextGroup0.
 
-implementation
-uses
-  StringMaker, StringUtil, BasicArrayListD;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GrpFctry-getNextGroupByName1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-group BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-name BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-name RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-group = FUNCTION GroupFactory-getNextGroup0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION Group-setName1(J-group, J-name)
+        COMPUTE J-RESULT = J-group
+        GOBACK
+    GOBACK.
+END FUNCTION GrpFctry-getNextGroupByName1.
 
-
-{AB:CODE}
-
-procedure TGroupFactory.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.NULL_GROUP_ARRAY := nil;
-  Self.list := TBasicArrayListD.Create();
-  Self.index := 0;
-end;
-
-constructor TGroupFactory.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TGroupFactory.getInstance: TGroupFactory;
-begin
-        Exit(TGroupFactory.instance);
-end;
-    
-
-function TGroupFactory.getNextGroup: TGroup;
-var
-  group_: TGroup;
-begin
-        group_ := TGroup(TJava.ToObject(Self.list.objectArray[Self.index]));
-        Inc(Self.index);
-        Exit(group_);
-end;
-    
-
-function TGroupFactory.getNextGroupByName(name: string): TGroup;
-var
-  group_: TGroup;
-begin
-        group_ := Self.getNextGroup();
-        group_.setName(name);
-        Exit(group_);
-end;
-    
-
-procedure TGroupFactory.init(groups: SmallInt; nameArray: TArray<string>);
-var
-  stringMaker_: TStringMaker;
-  stringUtil_: TStringUtil;
-  TEAM: string;
-  size: Integer;
-  name: string;
-begin
-        stringMaker_ := TStringMaker.Create();
-        stringUtil_ := TStringUtil.getInstance();
-        TEAM := 'Team ';
-        Self.list.clear();
-        Self.index := 0;
-        size := Self.list.size();
-        
-        while (size) < (Integer(groups)) do begin
-            name := stringUtil_.EMPTY_STRING;
-            if (size) < (System.Length(nameArray)) then begin
-                name := nameArray[size];
-            end else begin
-                stringMaker_.delete_(0, stringMaker_.length());
-                name := stringMaker_.append(TEAM).appendint(size).toString();
-            end;
-            Self.list.add(TJava.Box(TGroup.Create(name, SmallInt(((size) + (3))))));
-            Inc(size);
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TGroupFactory.instance := TGroupFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GroupFactory-init2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringMaker BINARY-DOUBLE.
+01 J-stringUtil BINARY-DOUBLE.
+01 J-TEAM BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-name BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-groups BINARY-DOUBLE.
+01 J-nameArray BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-groups J-nameArray RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringMaker = FUNCTION StringMaker-new0
+        COMPUTE J-stringUtil = FUNCTION StringUtil-getInstance0
+        COMPUTE J-TEAM = FUNCTION JR-STR("Team ")
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-clear0(FUNCTION JR-GET(J-THIS, "f_list"))
+        COMPUTE JVALUE = 0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_index", JVALUE)
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_list"))
+        CONTINUE
+        PERFORM FOREVER
+            IF NOT (J-size < J-groups) EXIT PERFORM END-IF
+            COMPUTE J-name = FUNCTION JR-GET(J-stringUtil, "f_EMPTY_STRING")
+            IF (J-size < FUNCTION JR-ARRAY-LENGTH(J-nameArray))
+                COMPUTE J-name = FUNCTION JR-ARRAY-GET(J-nameArray, J-size)
+            ELSE
+                COMPUTE jtemp2 = 0
+                COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringMaker, jtemp2, FUNCTION StringMaker-length0(J-stringMaker))
+                COMPUTE jtemp4 = FUNCTION StringMaker-append1(J-stringMaker, J-TEAM)
+                COMPUTE jtemp3 = FUNCTION StringMaker-appendint1(jtemp4, J-size)
+                COMPUTE J-name = FUNCTION JR-TO-STRING(jtemp3)
+            END-IF
+            COMPUTE jtemp6 = 3
+            COMPUTE jtemp5 = (FUNCTION MOD(FUNCTION INTEGER-PART(((FUNCTION MOD((J-size + jtemp6) + 2147483648, 4294967296) - 2147483648))) + 32768, 65536) - 32768)
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), FUNCTION Group-new2(J-name, jtemp5))
+            COMPUTE J-size = (FUNCTION MOD(J-size + 1 + 2147483648, 4294967296) - 2147483648)
+        END-PERFORM
+    GOBACK.
+END FUNCTION GroupFactory-init2.
 

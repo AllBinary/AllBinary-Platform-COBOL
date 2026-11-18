@@ -1,51 +1,83 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.transition.shake
+*> Java class NoShakeAnimationListener
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.transition.shake
-unit NoShakeAnimationListener;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NShkAnmtnLstnr-sttc-N99875.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 NoShakeAnimationListener-jcell-NO_SHAKE_ANIMATION_LISTENER BINARY-DOUBLE EXTERNAL.
+01 NoShakeAnimationListener-jset-NO_SHAKE_ANIMATION_LISTENER BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF NoShakeAnimationListener-jset-NO_SHAKE_ANIMATION_LISTENER = 0
+        MOVE 1 TO NoShakeAnimationListener-jset-NO_SHAKE_ANIMATION_LISTENER
+        COMPUTE NoShakeAnimationListener-jcell-NO_SHAKE_ANIMATION_LISTENER = FUNCTION NoShakeAnimationListener-new0
+    END-IF
+    MOVE NoShakeAnimationListener-jcell-NO_SHAKE_ANIMATION_LISTENER TO J-RESULT
+    GOBACK.
+END FUNCTION NShkAnmtnLstnr-sttc-N99875.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NShkAnmtnLstnrsttcN9S59751.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 NoShakeAnimationListener-jcell-NO_SHAKE_ANIMATION_LISTENER BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION NShkAnmtnLstnr-sttc-N99875 TO J-RESULT
+    MOVE J-VALUE TO NoShakeAnimationListener-jcell-NO_SHAKE_ANIMATION_LISTENER
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION NShkAnmtnLstnrsttcN9S59751.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, ShakeAnimationListener;
-
-type
-  {AB:TYPES}
-  TNoShakeAnimationListener = class(TShakeAnimationListener)
-  public
-    class var NO_SHAKE_ANIMATION_LISTENER: TShakeAnimationListener;
-    constructor Create;
-  end;
-
-implementation
-
-{AB:CODE}
-
-constructor TNoShakeAnimationListener.Create;
-begin
-  inherited Create;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TNoShakeAnimationListener.NO_SHAKE_ANIMATION_LISTENER := TNoShakeAnimationListener.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NoShakeAnimationListener-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("NoShakeAnimationListener")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION NoShakeAnimationListener-new0.
 

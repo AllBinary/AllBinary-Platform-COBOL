@@ -1,152 +1,395 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.media.audio
+*> Java class AllBinaryMediaManager
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.media.audio
-unit AllBinaryMediaManager;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryMdMngr-static-THIS.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AllBinaryMediaManager-jcell-THIS BINARY-DOUBLE EXTERNAL.
+01 AllBinaryMediaManager-jset-THIS BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF AllBinaryMediaManager-jset-THIS = 0
+        MOVE 1 TO AllBinaryMediaManager-jset-THIS
+        COMPUTE AllBinaryMediaManager-jcell-THIS = FUNCTION JR-STR("AllBinaryMediaManagerNoMediaMIDP1")
+    END-IF
+    MOVE AllBinaryMediaManager-jcell-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION AllBnryMdMngr-static-THIS.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryMdMngrstaticTS69909.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AllBinaryMediaManager-jcell-THIS BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION AllBnryMdMngr-static-THIS TO J-RESULT
+    MOVE J-VALUE TO AllBinaryMediaManager-jcell-THIS
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION AllBnryMdMngrstaticTS69909.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBinaryMediaManager-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("AllBinaryMediaManager")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION AllBinaryMediaManager-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Player, SoundsFactoryInterface;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBinaryMediaManager-isMuted0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION AllBinaryMediaManager-isMuted0.
 
-type
-  {AB:TYPES}
-  // NotDeviceSpecificNoMediaMIDP1Library
-  TAllBinaryMediaManager = class(TObject)
-  public
-    class var THIS: string;
-        constructor Create;
-        class function isMuted: Boolean; static;
-        class procedure setMuted(aMuted: Boolean); static;
-        class function update: Boolean; static;
-        class procedure init(soundsFactoryInterface_: ISoundsFactoryInterface); static;
-        class procedure shutdown(soundsFactoryInterface_: ISoundsFactoryInterface); static;
-        class function createPlayerFromInputStream(stream: TInputStream; type_: string): IPlayer; static;
-        class function createPlayer(locator: string): IPlayer; static;
-        class procedure playTone(frequency: Integer; time: Integer; volume: Integer); static;
-        class function getSupportedContentTypes(protocol: string): TArray<string>; static;
-        class function getSupportedProtocols(content_type: string): TArray<string>; static;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryMdMngr-setMuted1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-aMuted BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-aMuted RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION AllBnryMdMngr-setMuted1.
 
-implementation
-uses
-  Sounds, NoPlayer, TsUtil, ProgressCanvasFactory, LogUtil, StringUtil, CommonStrings;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBinaryMediaManager-update0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = 1
+        GOBACK
+    GOBACK.
+END FUNCTION AllBinaryMediaManager-update0.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBinaryMediaManager-init1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-logUtil BINARY-DOUBLE.
+01 J-commonString BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-soundsFactoryInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-soundsFactoryInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-logUtil = FUNCTION LogUtil-getInstance0
+        COMPUTE J-commonString = FUNCTION CommonStrings-getInstance0
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(J-logUtil, FUNCTION JR-GET(J-commonString, "f_START"), FUNCTION AllBnryMdMngr-static-THIS, FUNCTION JR-GET(J-commonString, "f_INIT"))
+        COMPUTE jtemp2 = 50
+        COMPUTE jtemp1 = FUNCTION PrgrssCnvsFctry-getInstance0
+        COMPUTE JDISCARD = FUNCTION PrgrssCnvsFctry-addNrmlPrtn2(jtemp1, jtemp2, FUNCTION JR-STR("Media Manager"))
+        COMPUTE jtemp3 = FUNCTION Sounds-new1(J-soundsFactoryInterface)
+        COMPUTE JDISCARD = FUNCTION Sounds-init0(jtemp3)
+    GOBACK.
+END FUNCTION AllBinaryMediaManager-init1.
 
-{AB:CODE}
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryMdMngr-shutdown1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-soundsFactoryInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-soundsFactoryInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp4 = FUNCTION Sounds-new1(J-soundsFactoryInterface)
+        COMPUTE JDISCARD = FUNCTION Sounds-stopAll0(jtemp4)
+        COMPUTE jtemp5 = FUNCTION Sounds-new1(J-soundsFactoryInterface)
+        COMPUTE JDISCARD = FUNCTION Sounds-closeAll0(jtemp5)
+        COMPUTE jtemp6 = FUNCTION TsUtil-getInstance0
+        COMPUTE JDISCARD = FUNCTION TsUtil-gc0(jtemp6)
+    GOBACK.
+END FUNCTION AllBnryMdMngr-shutdown1.
 
-constructor TAllBinaryMediaManager.Create;
-begin
-    inherited Create;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryMdMngr-crtPlyrFrmI30598.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-logUtil BINARY-DOUBLE.
+01 J-commonString BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-stream BINARY-DOUBLE.
+01 J-type BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-stream J-type RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-logUtil = FUNCTION LogUtil-getInstance0
+        COMPUTE J-commonString = FUNCTION CommonStrings-getInstance0
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(J-logUtil, FUNCTION JR-GET(J-commonString, "f_START"), FUNCTION AllBnryMdMngr-static-THIS, FUNCTION JR-STR("creatPlayer(InputStream)"))
+        COMPUTE J-RESULT = FUNCTION NoPlayer-static-NO-PLAYER
+        GOBACK
+    GOBACK.
+END FUNCTION AllBnryMdMngr-crtPlyrFrmI30598.
 
-class function TAllBinaryMediaManager.isMuted: Boolean;
-begin
-        Exit(False);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryMdMngr-createPlayer1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-logUtil BINARY-DOUBLE.
+01 J-commonString BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-locator BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-locator RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-logUtil = FUNCTION LogUtil-getInstance0
+        COMPUTE J-commonString = FUNCTION CommonStrings-getInstance0
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(J-logUtil, FUNCTION JR-GET(J-commonString, "f_START"), FUNCTION AllBnryMdMngr-static-THIS, FUNCTION JR-STR("creatPlayer(locator)"))
+        COMPUTE J-RESULT = FUNCTION NoPlayer-static-NO-PLAYER
+        GOBACK
+    GOBACK.
+END FUNCTION AllBnryMdMngr-createPlayer1.
 
-class procedure TAllBinaryMediaManager.setMuted(aMuted: Boolean);
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryMdMngr-playTone3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-frequency BINARY-DOUBLE.
+01 J-time BINARY-DOUBLE.
+01 J-volume BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-frequency J-time J-volume RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION AllBnryMdMngr-playTone3.
 
-class function TAllBinaryMediaManager.update: Boolean;
-begin
-        Exit(True);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryMdMngr-gtSpprtdCnt39520.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-protocol BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-protocol RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp7 = FUNCTION StringUtil-getInstance0
+        COMPUTE J-RESULT = FUNCTION StringUtil-getArrayInstance0(jtemp7)
+        GOBACK
+    GOBACK.
+END FUNCTION AllBnryMdMngr-gtSpprtdCnt39520.
 
-// throws Exception
-class procedure TAllBinaryMediaManager.init(soundsFactoryInterface_: ISoundsFactoryInterface);
-var
-  logUtil_: TLogUtil;
-  commonString: TCommonStrings;
-begin
-        logUtil_ := TLogUtil.getInstance();
-        commonString := TCommonStrings.getInstance();
-        logUtil_.putF(commonString.START, TJava.Box(TAllBinaryMediaManager.THIS), commonString.INIT);
-        TProgressCanvasFactory.getInstance().addNormalPortion(50, 'Media Manager');
-        TSounds.Create(soundsFactoryInterface_).init();
-end;
-    
-
-// throws Exception
-class procedure TAllBinaryMediaManager.shutdown(soundsFactoryInterface_: ISoundsFactoryInterface);
-begin
-        TSounds.Create(soundsFactoryInterface_).stopAll();
-        TSounds.Create(soundsFactoryInterface_).closeAll();
-        TTsUtil.getInstance().gc();
-end;
-    
-
-class function TAllBinaryMediaManager.createPlayerFromInputStream(stream: TInputStream; type_: string): IPlayer;
-var
-  logUtil_: TLogUtil;
-  commonString: TCommonStrings;
-begin
-        logUtil_ := TLogUtil.getInstance();
-        commonString := TCommonStrings.getInstance();
-        logUtil_.putF(commonString.START, TJava.Box(TAllBinaryMediaManager.THIS), 'creatPlayer(InputStream)');
-        Exit((TJava.ToObject(TNoPlayer.NO_PLAYER) as IPlayer));
-end;
-    
-
-class function TAllBinaryMediaManager.createPlayer(locator: string): IPlayer;
-var
-  logUtil_: TLogUtil;
-  commonString: TCommonStrings;
-begin
-        logUtil_ := TLogUtil.getInstance();
-        commonString := TCommonStrings.getInstance();
-        logUtil_.putF(commonString.START, TJava.Box(TAllBinaryMediaManager.THIS), 'creatPlayer(locator)');
-        Exit((TJava.ToObject(TNoPlayer.NO_PLAYER) as IPlayer));
-end;
-    
-
-class procedure TAllBinaryMediaManager.playTone(frequency: Integer; time: Integer; volume: Integer);
-begin
-    TJava.MonitorEnter(nil);
-    try
-    finally
-    TJava.MonitorExit(nil);
-    end;
-end;
-    
-
-class function TAllBinaryMediaManager.getSupportedContentTypes(protocol: string): TArray<string>;
-begin
-        Exit(TStringUtil.getInstance().getArrayInstance());
-end;
-    
-
-class function TAllBinaryMediaManager.getSupportedProtocols(content_type: string): TArray<string>;
-begin
-        Exit(TStringUtil.getInstance().getArrayInstance());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TAllBinaryMediaManager.THIS := 'AllBinaryMediaManagerNoMediaMIDP1';
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryMdMngr-gtSpprtdPrtcls1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp8 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-content_type BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-content_type RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp8 = FUNCTION StringUtil-getInstance0
+        COMPUTE J-RESULT = FUNCTION StringUtil-getArrayInstance0(jtemp8)
+        GOBACK
+    GOBACK.
+END FUNCTION AllBnryMdMngr-gtSpprtdPrtcls1.
 

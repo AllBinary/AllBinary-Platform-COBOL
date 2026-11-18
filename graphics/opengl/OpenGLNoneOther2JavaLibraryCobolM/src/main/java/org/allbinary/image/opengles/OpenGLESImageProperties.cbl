@@ -1,75 +1,61 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2025 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.image.opengles
+*> Java class OpenGLESImageProperties
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OpenGLESImageProperties-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("OpenGLESImageProperties")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_textureID")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_scaleX")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_scaleY")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_scaleX2")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_scaleY2")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_angle")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_redf")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_greenf")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_bluef")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_alphaf")
+    COMPUTE JVALUE = (0 - 1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_textureID", JVALUE)
+    COMPUTE JVALUEF = 1.0
+    COMPUTE JDISCARD = FUNCTION JR-SETF(J-THIS, "f_scaleX", JVALUEF)
+    COMPUTE JVALUEF = 1.0
+    COMPUTE JDISCARD = FUNCTION JR-SETF(J-THIS, "f_scaleY", JVALUEF)
+    COMPUTE JVALUEF = 1.0
+    COMPUTE JDISCARD = FUNCTION JR-SETF(J-THIS, "f_scaleX2", JVALUEF)
+    COMPUTE JVALUEF = 1.0
+    COMPUTE JDISCARD = FUNCTION JR-SETF(J-THIS, "f_scaleY2", JVALUEF)
     
-}
-// Generated Code Do Not Modify
-// package org.allbinary.image.opengles
-unit OpenGLESImageProperties;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
-
-type
-  {AB:TYPES}
-  TOpenGLESImageProperties = class(TObject)
-  public
-    textureID: Integer;
-    scaleX: Single;
-    scaleY: Single;
-    scaleX2: Single;
-    scaleY2: Single;
-    angle: Integer;
-    redf: Single;
-    greenf: Single;
-    bluef: Single;
-    alphaf: Single;
-    procedure InitFields;
-    constructor Create;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TOpenGLESImageProperties.InitFields;
-begin
-  Self.textureID := -1;
-  Self.scaleX := 1.0;
-  Self.scaleY := 1.0;
-  Self.scaleX2 := 1.0;
-  Self.scaleY2 := 1.0;
-  
-  Self.redf := 1.0;
-  Self.greenf := 1.0;
-  Self.bluef := 1.0;
-  Self.alphaf := 1.0;
-end;
-
-constructor TOpenGLESImageProperties.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+    COMPUTE JVALUEF = 1.0
+    COMPUTE JDISCARD = FUNCTION JR-SETF(J-THIS, "f_redf", JVALUEF)
+    COMPUTE JVALUEF = 1.0
+    COMPUTE JDISCARD = FUNCTION JR-SETF(J-THIS, "f_greenf", JVALUEF)
+    COMPUTE JVALUEF = 1.0
+    COMPUTE JDISCARD = FUNCTION JR-SETF(J-THIS, "f_bluef", JVALUEF)
+    COMPUTE JVALUEF = 1.0
+    COMPUTE JDISCARD = FUNCTION JR-SETF(J-THIS, "f_alphaf", JVALUEF)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION OpenGLESImageProperties-new0.
 

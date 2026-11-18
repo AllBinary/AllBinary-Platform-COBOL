@@ -1,78 +1,150 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.displayable.command
+*> Java class MyCommandsFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.displayable.command
-unit MyCommandsFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MyCmmndsFctry-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 MyCommandsFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 MyCommandsFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF MyCommandsFactory-jset-instance = 0
+        MOVE 1 TO MyCommandsFactory-jset-instance
+        COMPUTE MyCommandsFactory-jcell-instance = FUNCTION MyCommandsFactory-new0
+    END-IF
+    MOVE MyCommandsFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION MyCmmndsFctry-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MyCmmndsFctrystaticiS13902.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 MyCommandsFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION MyCmmndsFctry-static-instance TO J-RESULT
+    MOVE J-VALUE TO MyCommandsFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION MyCmmndsFctrystaticiS13902.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MyCommandsFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("MyCommandsFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NO_COMMAND")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_GAUGE_CHANGE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SET_DISPLAYABLE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_PAUSE_COMMAND")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_RESUME_COMMAND")
+    COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp2 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp3 = (0 - 1)
+    COMPUTE jtemp4 = (0 - 1)
+    COMPUTE JVALUE = FUNCTION Command-new4(FUNCTION JR-GET(jtemp1, "f_EMPTY_STRING"), FUNCTION JR-GET(jtemp2, "f_EMPTY_STRING"), jtemp3, jtemp4)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NO_COMMAND", JVALUE)
+    COMPUTE jtemp5 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp6 = 1
+    COMPUTE JVALUE = FUNCTION Command-new4(FUNCTION JR-STR("GAUGE_CHANGE"), FUNCTION JR-GET(jtemp5, "f_EMPTY_STRING"), FUNCTION Command-static-ITEM, jtemp6)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_GAUGE_CHANGE", JVALUE)
+    COMPUTE jtemp7 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp8 = 2
+    COMPUTE JVALUE = FUNCTION Command-new4(FUNCTION JR-STR("Display"), FUNCTION JR-GET(jtemp7, "f_EMPTY_STRING"), FUNCTION Command-static-SCREEN, jtemp8)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SET_DISPLAYABLE", JVALUE)
+    COMPUTE jtemp9 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp10 = 0
+    COMPUTE JVALUE = FUNCTION Command-new4(FUNCTION JR-STR("Pause"), FUNCTION JR-GET(jtemp9, "f_EMPTY_STRING"), FUNCTION Command-static-SCREEN, jtemp10)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_PAUSE_COMMAND", JVALUE)
+    COMPUTE jtemp11 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp12 = 0
+    COMPUTE JVALUE = FUNCTION Command-new4(FUNCTION JR-STR("Resume"), FUNCTION JR-GET(jtemp11, "f_EMPTY_STRING"), FUNCTION Command-static-SCREEN, jtemp12)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_RESUME_COMMAND", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION MyCommandsFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Command;
-
-type
-  {AB:TYPES}
-  TMyCommandsFactory = class(TObject)
-  public
-    NO_COMMAND: TCommand;
-    GAUGE_CHANGE: TCommand;
-    SET_DISPLAYABLE: TCommand;
-    PAUSE_COMMAND: TCommand;
-    RESUME_COMMAND: TCommand;
-    class var instance: TMyCommandsFactory;
-    procedure InitFields;
-        class function getInstance: TMyCommandsFactory; static;
-        constructor Create;
-  end;
-
-implementation
-uses
-  StringUtil;
-
-
-{AB:CODE}
-
-procedure TMyCommandsFactory.InitFields;
-begin
-  Self.NO_COMMAND := TCommand.Create(TStringUtil.getInstance().EMPTY_STRING, TStringUtil.getInstance().EMPTY_STRING, -1, -1);
-  Self.GAUGE_CHANGE := TCommand.Create('GAUGE_CHANGE', TStringUtil.getInstance().EMPTY_STRING, TCommand.ITEM, 1);
-  Self.SET_DISPLAYABLE := TCommand.Create('Display', TStringUtil.getInstance().EMPTY_STRING, TCommand.SCREEN, 2);
-  Self.PAUSE_COMMAND := TCommand.Create('Pause', TStringUtil.getInstance().EMPTY_STRING, TCommand.SCREEN, 0);
-  Self.RESUME_COMMAND := TCommand.Create('Resume', TStringUtil.getInstance().EMPTY_STRING, TCommand.SCREEN, 0);
-end;
-    
-
-class function TMyCommandsFactory.getInstance: TMyCommandsFactory;
-begin
-        Exit(TMyCommandsFactory.instance);
-end;
-    
-
-constructor TMyCommandsFactory.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TMyCommandsFactory.instance := TMyCommandsFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MyCommandsFactory-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION MyCmmndsFctry-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION MyCommandsFactory-getInstance0.
 

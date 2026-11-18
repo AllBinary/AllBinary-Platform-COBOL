@@ -1,132 +1,298 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.image.sprite
+*> Java class OneRowSpriteIndexedAnimationFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.image.sprite
-unit OneRowSpriteIndexedAnimationFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OnRwSprtIndxdAnmtnFctry-new7.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-image BINARY-DOUBLE.
+01 J-sequenceArray BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-dx BINARY-DOUBLE.
+01 J-dy BINARY-DOUBLE.
+01 J-animationBehaviorFactory BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-image J-sequenceArray J-width J-height J-dx J-dy J-animationBehaviorFactory RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("OneRowSpriteIndexedAnimationFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_animationFactorySpriteScaleUtil")
+    COMPUTE JVALUE = FUNCTION AnmtnFctrySprtSclUtl-gtInstnc0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animationFactorySpriteScaleUtil", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION OnRwSprtIndxdAnmtnFctry-new7.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OnRwSprtIndxdAnmtnFctry-c96706.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-oneRowSpriteIndexedAnimationFactory BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-image BINARY-DOUBLE.
+01 J-dx BINARY-DOUBLE.
+01 J-animationBehaviorFactory BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-image J-dx J-animationBehaviorFactory RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = 0
+        COMPUTE jtemp2 = 0
+        COMPUTE J-oneRowSpriteIndexedAnimationFactory = FUNCTION OnRwSprtIndxdAnmtnFctry-new7(J-image, FUNCTION PrmtvIntUtl-getArrayInstance0, FUNCTION Image-getHeight0(J-image), FUNCTION Image-getHeight0(J-image), jtemp1, jtemp2,
+        J-animationBehaviorFactory)
+        COMPUTE JDISCARD = FUNCTION OnRwSprtIndxdAnmtnFctry-initW1(J-oneRowSpriteIndexedAnimationFactory, J-dx)
+        COMPUTE J-RESULT = J-oneRowSpriteIndexedAnimationFactory
+        GOBACK
+    GOBACK.
+END FUNCTION OnRwSprtIndxdAnmtnFctry-c96706.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OnRwSprtIndxdAnmtnFctry-c63602.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-oneRowSpriteIndexedAnimationFactory BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-image BINARY-DOUBLE.
+01 J-dx BINARY-DOUBLE.
+01 J-dy BINARY-DOUBLE.
+01 J-animationBehaviorFactory BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-image J-dx J-dy J-animationBehaviorFactory RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp3 = 0
+        COMPUTE jtemp4 = 0
+        COMPUTE J-oneRowSpriteIndexedAnimationFactory = FUNCTION OnRwSprtIndxdAnmtnFctry-new7(J-image, FUNCTION PrmtvIntUtl-getArrayInstance0, FUNCTION Image-getHeight0(J-image), FUNCTION Image-getHeight0(J-image), jtemp3, jtemp4,
+        J-animationBehaviorFactory)
+        COMPUTE JDISCARD = FUNCTION OnRwSprtIndxdAnmtnFctry-init2(J-oneRowSpriteIndexedAnimationFactory, J-dx, J-dy)
+        COMPUTE J-RESULT = J-oneRowSpriteIndexedAnimationFactory
+        GOBACK
+    GOBACK.
+END FUNCTION OnRwSprtIndxdAnmtnFctry-c63602.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Image, Animation, AnimationBehaviorFactory, BaseImageAnimationFactory, AnimationFactorySpriteScaleUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OnRwSprtIndxdAnmtnFctry-c90937.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-image BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-animationBehaviorFactory BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-image J-width J-height J-animationBehaviorFactory RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp5 = 0
+        COMPUTE jtemp6 = 0
+        COMPUTE J-RESULT = FUNCTION OnRwSprtIndxdAnmtnFctry-new7(J-image, FUNCTION PrmtvIntUtl-getArrayInstance0, J-width, J-height, jtemp5, jtemp6, J-animationBehaviorFactory)
+        GOBACK
+    GOBACK.
+END FUNCTION OnRwSprtIndxdAnmtnFctry-c90937.
 
-type
-  {AB:TYPES}
-  TOneRowSpriteIndexedAnimationFactory = class(TBaseImageAnimationFactory)
-  public
-    animationFactorySpriteScaleUtil: TAnimationFactorySpriteScaleUtil;
-    procedure InitFields;
-        class function createFactoryDX(image_: TImage; dx: Integer; animationBehaviorFactory_: TAnimationBehaviorFactory): TOneRowSpriteIndexedAnimationFactory; static;
-        class function createFactoryDXY(image_: TImage; dx: Integer; dy: Integer; animationBehaviorFactory_: TAnimationBehaviorFactory): TOneRowSpriteIndexedAnimationFactory; static;
-        class function createFactoryWH(image_: TImage; width: Integer; height: Integer; animationBehaviorFactory_: TAnimationBehaviorFactory): TOneRowSpriteIndexedAnimationFactory; static;
-        class function createFactory(image_: TImage; animationBehaviorFactory_: TAnimationBehaviorFactory): TOneRowSpriteIndexedAnimationFactory; static;
-        constructor Create(image_: TImage; sequenceArray: TArray<Integer>; width: Integer; height: Integer; dx: Integer; dy: Integer; animationBehaviorFactory_: TAnimationBehaviorFactory);
-        procedure init(dx: Integer; dy: Integer); virtual;
-        procedure initW(dx: Integer); virtual;
-        function getInstance(instanceId: Integer): TAnimation; override;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OnRwSprtIndxdAnmtnFctry-c12702.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-image BINARY-DOUBLE.
+01 J-animationBehaviorFactory BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-image J-animationBehaviorFactory RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp7 = 0
+        COMPUTE jtemp8 = 0
+        COMPUTE J-RESULT = FUNCTION OnRwSprtIndxdAnmtnFctry-new7(J-image, FUNCTION PrmtvIntUtl-getArrayInstance0, FUNCTION Image-getHeight0(J-image), FUNCTION Image-getHeight0(J-image), jtemp7, jtemp8, J-animationBehaviorFactory)
+        GOBACK
+    GOBACK.
+END FUNCTION OnRwSprtIndxdAnmtnFctry-c12702.
 
-implementation
-uses
-  SpriteIndexedAnimation, AdjustedSpriteIndexedAnimation, Sprite, BasicColorUtil, PrimitiveIntUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OnRwSprtIndxdAnmtnFctry-init2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-dx BINARY-DOUBLE.
+01 J-dy BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-dx J-dy RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-dx
+        COMPUTE JDISCARD = FUNCTION JR-SET(FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor"), "f_dx", JVALUE)
+        COMPUTE JVALUE = J-dy
+        COMPUTE JDISCARD = FUNCTION JR-SET(FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor"), "f_dy", JVALUE)
+    GOBACK.
+END FUNCTION OnRwSprtIndxdAnmtnFctry-init2.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OnRwSprtIndxdAnmtnFctry-initW1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp9 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-dx BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-dx RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp9 = 0
+        COMPUTE JDISCARD = FUNCTION OnRwSprtIndxdAnmtnFctry-init2(J-THIS, J-dx, jtemp9)
+        COMPUTE JVALUE = (FUNCTION MOD((FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor"), "f_dx") + (0 - (FUNCTION JR-SHIFT(JFIVE, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS,
+        "f_animationFactoryInitializationVisitor"), "f_width"), 2)))) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor"), "f_dx", JVALUE)
+    GOBACK.
+END FUNCTION OnRwSprtIndxdAnmtnFctry-initW1.
 
-{AB:CODE}
-
-procedure TOneRowSpriteIndexedAnimationFactory.InitFields;
-begin
-  Self.animationFactorySpriteScaleUtil := TAnimationFactorySpriteScaleUtil.getInstance();
-end;
-    
-
-// throws Exception
-class function TOneRowSpriteIndexedAnimationFactory.createFactoryDX(image_: TImage; dx: Integer; animationBehaviorFactory_: TAnimationBehaviorFactory): TOneRowSpriteIndexedAnimationFactory;
-var
-  oneRowSpriteIndexedAnimationFactory_: TOneRowSpriteIndexedAnimationFactory;
-begin
-        oneRowSpriteIndexedAnimationFactory_ := TOneRowSpriteIndexedAnimationFactory.Create(image_, TPrimitiveIntUtil.getArrayInstance(), image_.getHeight(), image_.getHeight(), 0, 0, animationBehaviorFactory_);
-        oneRowSpriteIndexedAnimationFactory_.initW(dx);
-        Exit(oneRowSpriteIndexedAnimationFactory_);
-end;
-    
-
-// throws Exception
-class function TOneRowSpriteIndexedAnimationFactory.createFactoryDXY(image_: TImage; dx: Integer; dy: Integer; animationBehaviorFactory_: TAnimationBehaviorFactory): TOneRowSpriteIndexedAnimationFactory;
-var
-  oneRowSpriteIndexedAnimationFactory_: TOneRowSpriteIndexedAnimationFactory;
-begin
-        oneRowSpriteIndexedAnimationFactory_ := TOneRowSpriteIndexedAnimationFactory.Create(image_, TPrimitiveIntUtil.getArrayInstance(), image_.getHeight(), image_.getHeight(), 0, 0, animationBehaviorFactory_);
-        oneRowSpriteIndexedAnimationFactory_.init(dx, dy);
-        Exit(oneRowSpriteIndexedAnimationFactory_);
-end;
-    
-
-// throws Exception
-class function TOneRowSpriteIndexedAnimationFactory.createFactoryWH(image_: TImage; width: Integer; height: Integer; animationBehaviorFactory_: TAnimationBehaviorFactory): TOneRowSpriteIndexedAnimationFactory;
-begin
-        Exit(TOneRowSpriteIndexedAnimationFactory.Create(image_, TPrimitiveIntUtil.getArrayInstance(), width, height, 0, 0, animationBehaviorFactory_));
-end;
-    
-
-// throws Exception
-class function TOneRowSpriteIndexedAnimationFactory.createFactory(image_: TImage; animationBehaviorFactory_: TAnimationBehaviorFactory): TOneRowSpriteIndexedAnimationFactory;
-begin
-        Exit(TOneRowSpriteIndexedAnimationFactory.Create(image_, TPrimitiveIntUtil.getArrayInstance(), image_.getHeight(), image_.getHeight(), 0, 0, animationBehaviorFactory_));
-end;
-    
-
-constructor TOneRowSpriteIndexedAnimationFactory.Create(image_: TImage; sequenceArray: TArray<Integer>; width: Integer; height: Integer; dx: Integer; dy: Integer; animationBehaviorFactory_: TAnimationBehaviorFactory);
-begin
-        inherited Create(image_, sequenceArray, width, height, dx, dy, animationBehaviorFactory_);
-        InitFields;
-end;
-    
-
-procedure TOneRowSpriteIndexedAnimationFactory.init(dx: Integer; dy: Integer);
-begin
-        Self.animationFactoryInitializationVisitor.dx := dx;
-        Self.animationFactoryInitializationVisitor.dy := dy;
-end;
-    
-
-procedure TOneRowSpriteIndexedAnimationFactory.initW(dx: Integer);
-begin
-        Self.init(dx, 0);
-        Self.animationFactoryInitializationVisitor.dx := (Self.animationFactoryInitializationVisitor.dx) + (-(TJava.SignedRightShift(Self.animationFactoryInitializationVisitor.width, 2)));
-end;
-    
-
-// throws Exception
-function TOneRowSpriteIndexedAnimationFactory.getInstance(instanceId: Integer): TAnimation;
-var
-  sprite_: TSprite;
-begin
-        sprite_ := Self.animationFactorySpriteScaleUtil.createImage(Self.getImage(), Self.animationFactoryInitializationVisitor.width, Self.animationFactoryInitializationVisitor.height, Self.scaleProperties.scaleWidth, Self.scaleProperties.scaleHeight);
-        if ((Self.animationFactoryInitializationVisitor.dx) <> (0)) or ((Self.animationFactoryInitializationVisitor.dy) <> (0)) then begin
-            Exit(TAdjustedSpriteIndexedAnimation.Create(sprite_, Self.getImage(), TBasicColorUtil.getInstance().ZERO_ARRAY, Self.animationFactoryInitializationVisitor.dx, Self.animationFactoryInitializationVisitor.dy, Self.animationBehaviorFactory.getOrCreateInstance()));
-        end else begin
-            Exit(TSpriteIndexedAnimation.Create(sprite_, Self.getImage(), TBasicColorUtil.getInstance().ZERO_ARRAY, Self.animationBehaviorFactory.getOrCreateInstance()));
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OnRwSprtIndxdAnmtnFctry-g82830.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-sprite BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-instanceId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-instanceId RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-sprite = FUNCTION AnmtnFctrySprtSclUtl-crtImg5(FUNCTION JR-GET(J-THIS, "f_animationFactorySpriteScaleUtil"), FUNCTION BsImgAnmtnFctry-getImage0(J-THIS), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS,
+        "f_animationFactoryInitializationVisitor"), "f_width"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor"), "f_height"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_scaleProperties"), "f_scaleWidth"),
+        FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_scaleProperties"), "f_scaleHeight"))
+        IF ((FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor"), "f_dx") NOT = 0) OR (FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor"), "f_dy") NOT = 0))
+            COMPUTE jtemp11 = FUNCTION BasicColorUtil-getInstance0
+            COMPUTE J-RESULT = FUNCTION AdjstdSprtIndxdAnmtn-new6(J-sprite, FUNCTION BsImgAnmtnFctry-getImage0(J-THIS), FUNCTION JR-GET(jtemp11, "f_ZERO_ARRAY"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS,
+        "f_animationFactoryInitializationVisitor"), "f_dx"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor"), "f_dy"), FUNCTION AnmtnBhvrFctry-gtOrCrtInstnc0(FUNCTION JR-GET(J-THIS,
+        "f_animationBehaviorFactory")))
+            GOBACK
+        ELSE
+            COMPUTE jtemp10 = FUNCTION BasicColorUtil-getInstance0
+            COMPUTE J-RESULT = FUNCTION SpriteIndexedAnimation-new4(J-sprite, FUNCTION BsImgAnmtnFctry-getImage0(J-THIS), FUNCTION JR-GET(jtemp10, "f_ZERO_ARRAY"), FUNCTION AnmtnBhvrFctry-gtOrCrtInstnc0(FUNCTION JR-GET(J-THIS,
+        "f_animationBehaviorFactory")))
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION OnRwSprtIndxdAnmtnFctry-g82830.
 

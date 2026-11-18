@@ -1,73 +1,144 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion.gesture.observer
+*> Java class BasicMotionGesturesHandler
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion.gesture.observer
-unit BasicMotionGesturesHandler;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscMtnGstrsHndlr-sttc-SI40939.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BasicMotionGesturesHandler-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+01 BasicMotionGesturesHandler-jset-SINGLETON BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF BasicMotionGesturesHandler-jset-SINGLETON = 0
+        MOVE 1 TO BasicMotionGesturesHandler-jset-SINGLETON
+        COMPUTE BasicMotionGesturesHandler-jcell-SINGLETON = FUNCTION BscMtnGstrsHndlr-new0
+    END-IF
+    MOVE BasicMotionGesturesHandler-jcell-SINGLETON TO J-RESULT
+    GOBACK.
+END FUNCTION BscMtnGstrsHndlr-sttc-SI40939.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscMtnGstrsHndlrsttcS30735.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BasicMotionGesturesHandler-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION BscMtnGstrsHndlr-sttc-SI40939 TO J-RESULT
+    MOVE J-VALUE TO BasicMotionGesturesHandler-jcell-SINGLETON
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION BscMtnGstrsHndlrsttcS30735.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscMtnGstrsHndlr-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("BasicMotionGesturesHandler")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION BscMtnGstrsHndlr-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AllBinaryEventObject, EventListenerInterface, BasicEventHandler;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscMtnGstrsHndlr-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION BscMtnGstrsHndlr-sttc-SI40939
+        GOBACK
+    GOBACK.
+END FUNCTION BscMtnGstrsHndlr-getInstance0.
 
-type
-  {AB:TYPES}
-  TBasicMotionGesturesHandler = class(TBasicEventHandler)
-  public
-    class var SINGLETON: TBasicMotionGesturesHandler;
-        class function getInstance: TBasicMotionGesturesHandler; static;
-        constructor Create;
-        procedure process(eventObject: TAllBinaryEventObject; eventListenerInterface_: IEventListenerInterface); override;
-  end;
-
-implementation
-uses
-  BaseMotionGestureEventListener, MotionGestureEvent;
-
-
-{AB:CODE}
-    
-
-class function TBasicMotionGesturesHandler.getInstance: TBasicMotionGesturesHandler;
-begin
-        Exit(TBasicMotionGesturesHandler.SINGLETON);
-end;
-    
-
-constructor TBasicMotionGesturesHandler.Create;
-begin
-    inherited Create;
-end;
-    
-
-// throws Exception
-procedure TBasicMotionGesturesHandler.process(eventObject: TAllBinaryEventObject; eventListenerInterface_: IEventListenerInterface);
-var
-  baseMotionGestureEventListener_: IBaseMotionGestureEventListener;
-begin
-        baseMotionGestureEventListener_ := (TJava.ToObject(eventListenerInterface_) as IBaseMotionGestureEventListener);
-        baseMotionGestureEventListener_.onMotionGestureEvent(TMotionGestureEvent(TJava.ToObject(eventObject)));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TBasicMotionGesturesHandler.SINGLETON := TBasicMotionGesturesHandler.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscMtnGstrsHndlr-process2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-baseMotionGestureEventListener BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-eventListenerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject J-eventListenerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-baseMotionGestureEventListener = J-eventListenerInterface
+        COMPUTE jtemp1 = J-eventObject
+        COMPUTE JDISCARD = FUNCTION BsMtnGstrEvntLstnr-onMtnG88550(J-baseMotionGestureEventListener, jtemp1)
+    GOBACK.
+END FUNCTION BscMtnGstrsHndlr-process2.
 

@@ -1,295 +1,633 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.form
+*> Java class CommandCurrentSelectionForm
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.form
-unit CommandCurrentSelectionForm;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmmndCrrntSlctnFrm-new6.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-title BINARY-DOUBLE.
+01 J-items BINARY-DOUBLE.
+01 J-border BINARY-DOUBLE.
+01 J-moveForSmallScreen BINARY-DOUBLE.
+01 J-backgroundBasicColor BINARY-DOUBLE.
+01 J-foregroundBasicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-title J-items J-border J-moveForSmallScreen J-backgroundBasicColor J-foregroundBasicColor RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CommandCurrentSelectionForm")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_selectedAnimationArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_unSelectedAnimationArray")
+    COMPUTE jtemp1 = 16
+    COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY(jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_selectedAnimationArray", JVALUE)
+    COMPUTE jtemp2 = 16
+    COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY(jtemp2)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_unSelectedAnimationArray", JVALUE)
+        COMPUTE jtemp3 = (0 - 3)
+        CONTINUE
+        COMPUTE JDISCARD = FUNCTION CmmndCrrntSlctnFrm-intAnmtns0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION CmmndCrrntSlctnFrm-addAll1(J-THIS, J-items)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CmmndCrrntSlctnFrm-new6.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmmndCrrntSlctnFrm-updtMsrmnt1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION CmmndCrrntSlctnFrm-updateAll2(J-THIS, J-graphics, FUNCTION ABCustomForm-getAllitems0(J-THIS))
+        COMPUTE JDISCARD = FUNCTION ScrllCrrntSlctnFrm-updtMsrmnt1(J-THIS, J-graphics)
+    GOBACK.
+END FUNCTION CmmndCrrntSlctnFrm-updtMsrmnt1.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmmndCrrntSlctnFrm-intAnmtns0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-nullAnimation BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp5 = 0
+        COMPUTE jtemp4 = FUNCTION NllAnmtnFctry-gtFctryInstnc0
+        COMPUTE J-nullAnimation = FUNCTION JR-CLASS-NAME(jtemp4)
+        COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp6 = J-index
+        COMPUTE J-index = FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_selectedAnimationArray"))
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            MOVE 0 TO JFIRST1
+            IF NOT (jtemp6 >= 0) EXIT PERFORM END-IF
+            COMPUTE JVALUE = J-nullAnimation
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_selectedAnimationArray"), J-index, JVALUE)
+        END-PERFORM
+        COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp7 = J-index
+        COMPUTE J-index = FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_unSelectedAnimationArray"))
+        MOVE 1 TO JFIRST2
+        PERFORM FOREVER
+            MOVE 0 TO JFIRST2
+            IF NOT (jtemp7 >= 0) EXIT PERFORM END-IF
+            COMPUTE JVALUE = J-nullAnimation
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_unSelectedAnimationArray"), J-index, JVALUE)
+        END-PERFORM
+    GOBACK.
+END FUNCTION CmmndCrrntSlctnFrm-intAnmtns0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Command, Graphics, Animation, BasicColor, UpdateMyFontInterface, ABCustomItem, ScrollCurrentSelectionForm;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmmndCrrntSlctnFrm-addAll1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-index BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 JFIRST3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-items BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-items RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp8 = J-index
+        COMPUTE J-index = FUNCTION JR-ARRAY-LENGTH(J-items)
+        MOVE 1 TO JFIRST3
+        PERFORM FOREVER
+            MOVE 0 TO JFIRST3
+            IF NOT (jtemp8 >= 0) EXIT PERFORM END-IF
+            COMPUTE JDISCARD = FUNCTION CmmndCrrntSlctnFrm-addAt2(J-THIS, J-index, FUNCTION JR-ARRAY-GET(J-items, J-index))
+        END-PERFORM
+    GOBACK.
+END FUNCTION CmmndCrrntSlctnFrm-addAll1.
 
-type
-  {AB:TYPES}
-  TCommandCurrentSelectionForm = class(TScrollCurrentSelectionForm, IUpdateMyFontInterface)
-  public
-    selectedAnimationArray: TArray<TAnimation>;
-    unSelectedAnimationArray: TArray<TAnimation>;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(title: string; items: TArray<TABCustomItem>; border: Integer; moveForSmallScreen: Boolean; backgroundBasicColor: TBasicColor; foregroundBasicColor: TBasicColor);
-        procedure updateMeasurement(graphics_: TGraphics); virtual;
-        procedure initAnimations;
-        procedure addAll(items: TArray<TABCustomItem>);
-        procedure addAt(index: Integer; item: TABCustomItem);
-        procedure updateAll(graphics_: TGraphics; items: TArray<TABCustomItem>);
-        procedure updateAt(index: Integer; item: TABCustomItem);
-        function getSelectedCommand: TCommand; virtual;
-        function append(item: TABCustomItem): Integer; virtual;
-        procedure delete_(itemNum: Integer); virtual;
-        procedure deleteAll; virtual;
-        procedure insert(itemNum: Integer; item: TABCustomItem); virtual;
-        procedure set_(itemNum: Integer; item: TABCustomItem); virtual;
-        procedure paint(graphics_: TGraphics); virtual;
-        function paintItem(graphics_: TGraphics; index: Integer; item: TABCustomItem; x: Integer; y: Integer): Integer; virtual;
-        function paintUnselectedItem(graphics_: TGraphics; index: Integer; item: TABCustomItem; x: Integer; y: Integer): Integer; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmmndCrrntSlctnFrm-addAt2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-basicColorFactory BINARY-DOUBLE.
+01 J-buttonColor BINARY-DOUBLE.
+01 J-selectedButtonColor BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-adjustedBorder BINARY-DOUBLE.
+01 J-offset BINARY-DOUBLE.
+01 J-rectWidth BINARY-DOUBLE.
+01 J-rectHeight BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-item BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-index J-item RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-basicColorFactory = FUNCTION BasicColorFactory-getInstance0
+        COMPUTE J-buttonColor = FUNCTION JR-GET(J-basicColorFactory, "f_TRANSPARENT_GREY")
+        COMPUTE J-selectedButtonColor = FUNCTION JR-GET(J-basicColorFactory, "f_TRANSPARENT_RED")
+        COMPUTE J-width = FUNCTION ABCustomItem-getMinimumWidth0(J-item)
+        COMPUTE J-height = FUNCTION ABCustomItem-getMinimumHeight0(J-item)
+        COMPUTE J-adjustedBorder = 3
+        COMPUTE J-offset = (0 - ((FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_halfBorder") + J-adjustedBorder) + 2147483648, 4294967296) - 2147483648)))
+        COMPUTE J-rectWidth = (FUNCTION MOD(((FUNCTION MOD((J-width + FUNCTION JR-GET(J-THIS, "f_border")) + 2147483648, 4294967296) - 2147483648) - J-adjustedBorder) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE J-rectHeight = (FUNCTION MOD(((FUNCTION MOD((J-height + FUNCTION JR-GET(J-THIS, "f_border")) + 2147483648, 4294967296) - 2147483648) - J-adjustedBorder) + 2147483648, 4294967296) - 2147483648)
+        IF ((FUNCTION J2MEUtil-isJ2ME0 = 1) OR (FUNCTION J2MEUtil-isHTML0 = 1))
+            COMPUTE JVALUE = FUNCTION RctnglAdjstdAnmtn-new5(J-rectWidth, J-rectHeight, J-offset, J-offset, J-selectedButtonColor)
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_selectedAnimationArray"), J-index, JVALUE)
+        ELSE
+            COMPUTE JVALUE = FUNCTION RctnglFlldAdjstdAnmtn-new5(J-rectWidth, J-rectHeight, J-offset, J-offset, J-selectedButtonColor)
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_selectedAnimationArray"), J-index, JVALUE)
+        END-IF
+        COMPUTE J-adjustedBorder = 4
+        IF ((FUNCTION J2MEUtil-isJ2ME0 = 1) OR (FUNCTION J2MEUtil-isHTML0 = 1))
+            COMPUTE JVALUE = FUNCTION RctnglAdjstdAnmtn-new5(J-rectWidth, J-rectHeight, J-offset, J-offset, J-buttonColor)
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_unSelectedAnimationArray"), J-index, JVALUE)
+        ELSE
+            COMPUTE JVALUE = FUNCTION RctnglFlldAdjstdAnmtn-new5(J-rectWidth, J-rectHeight, J-offset, J-offset, J-buttonColor)
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_unSelectedAnimationArray"), J-index, JVALUE)
+        END-IF
+    GOBACK.
+END FUNCTION CmmndCrrntSlctnFrm-addAt2.
 
-implementation
-uses
-  ItemPaintableFactory, J2MEUtil, NullAnimationFactory, RectangleAdjustedAnimation, RectangleFilledAdjustedAnimation, BasicColorFactory, CommandTextItem;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmmndCrrntSlctnFrm-updateAll2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-index BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 JFIRST4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-items BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-items RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp9 = J-index
+        COMPUTE J-index = FUNCTION JR-ARRAY-LENGTH(J-items)
+        MOVE 1 TO JFIRST4
+        PERFORM FOREVER
+            MOVE 0 TO JFIRST4
+            IF NOT (jtemp9 >= 0) EXIT PERFORM END-IF
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(J-items, J-index))
+            COMPUTE JDISCARD = FUNCTION CmmndCrrntSlctnFrm-updateAt2(J-THIS, J-index, FUNCTION JR-ARRAY-GET(J-items, J-index))
+        END-PERFORM
+    GOBACK.
+END FUNCTION CmmndCrrntSlctnFrm-updateAll2.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmmndCrrntSlctnFrm-updateAt2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-basicColorFactory BINARY-DOUBLE.
+01 J-buttonColor BINARY-DOUBLE.
+01 J-selectedButtonColor BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-adjustedBorder BINARY-DOUBLE.
+01 J-offset BINARY-DOUBLE.
+01 J-rectWidth BINARY-DOUBLE.
+01 J-rectHeight BINARY-DOUBLE.
+01 J-rectangleAdjustedAnimation BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-item BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-index J-item RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-basicColorFactory = FUNCTION BasicColorFactory-getInstance0
+        COMPUTE J-buttonColor = FUNCTION JR-GET(J-basicColorFactory, "f_TRANSPARENT_GREY")
+        COMPUTE J-selectedButtonColor = FUNCTION JR-GET(J-basicColorFactory, "f_TRANSPARENT_RED")
+        COMPUTE J-width = FUNCTION ABCustomItem-getMinimumWidth0(J-item)
+        COMPUTE J-height = FUNCTION ABCustomItem-getMinimumHeight0(J-item)
+        COMPUTE J-adjustedBorder = 3
+        COMPUTE J-offset = (0 - ((FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_halfBorder") + J-adjustedBorder) + 2147483648, 4294967296) - 2147483648)))
+        COMPUTE J-rectWidth = (FUNCTION MOD(((FUNCTION MOD((J-width + FUNCTION JR-GET(J-THIS, "f_border")) + 2147483648, 4294967296) - 2147483648) - J-adjustedBorder) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE J-rectHeight = (FUNCTION MOD(((FUNCTION MOD((J-height + FUNCTION JR-GET(J-THIS, "f_border")) + 2147483648, 4294967296) - 2147483648) - J-adjustedBorder) + 2147483648, 4294967296) - 2147483648)
+        IF ((FUNCTION J2MEUtil-isJ2ME0 = 1) OR (FUNCTION J2MEUtil-isHTML0 = 1))
+            COMPUTE J-rectangleAdjustedAnimation = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_selectedAnimationArray"), J-index)
+            COMPUTE JDISCARD = FUNCTION RctnglFlldAnmtn-setWidth1(J-rectangleAdjustedAnimation, J-rectWidth)
+            COMPUTE JDISCARD = FUNCTION RctnglFlldAnmtn-setHeight1(J-rectangleAdjustedAnimation, J-rectHeight)
+            COMPUTE JDISCARD = FUNCTION RctnglFlldAdjstdAnmtn-stO92851(J-rectangleAdjustedAnimation, J-offset)
+            COMPUTE JDISCARD = FUNCTION RctnglFlldAdjstdAnmtn-stO92918(J-rectangleAdjustedAnimation, J-offset)
+            COMPUTE JDISCARD = FUNCTION RctnglFlldAdjstdAnmtn-stB93629(J-rectangleAdjustedAnimation, J-selectedButtonColor)
+        ELSE
+            COMPUTE J-rectangleAdjustedAnimation = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_selectedAnimationArray"), J-index)
+            COMPUTE JDISCARD = FUNCTION RctnglFlldAnmtn-setWidth1(J-rectangleAdjustedAnimation, J-rectWidth)
+            COMPUTE JDISCARD = FUNCTION RctnglFlldAnmtn-setHeight1(J-rectangleAdjustedAnimation, J-rectHeight)
+            COMPUTE JDISCARD = FUNCTION RctnglFlldAdjstdAnmtn-stO92851(J-rectangleAdjustedAnimation, J-offset)
+            COMPUTE JDISCARD = FUNCTION RctnglFlldAdjstdAnmtn-stO92918(J-rectangleAdjustedAnimation, J-offset)
+            COMPUTE JDISCARD = FUNCTION RctnglFlldAdjstdAnmtn-stB93629(J-rectangleAdjustedAnimation, J-selectedButtonColor)
+        END-IF
+        COMPUTE J-adjustedBorder = 4
+        IF ((FUNCTION J2MEUtil-isJ2ME0 = 1) OR (FUNCTION J2MEUtil-isHTML0 = 1))
+            COMPUTE J-rectangleAdjustedAnimation = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_unSelectedAnimationArray"), J-index)
+            COMPUTE JDISCARD = FUNCTION RctnglFlldAnmtn-setWidth1(J-rectangleAdjustedAnimation, J-rectWidth)
+            COMPUTE JDISCARD = FUNCTION RctnglFlldAnmtn-setHeight1(J-rectangleAdjustedAnimation, J-rectHeight)
+            COMPUTE JDISCARD = FUNCTION RctnglFlldAdjstdAnmtn-stO92851(J-rectangleAdjustedAnimation, J-offset)
+            COMPUTE JDISCARD = FUNCTION RctnglFlldAdjstdAnmtn-stO92918(J-rectangleAdjustedAnimation, J-offset)
+            COMPUTE JDISCARD = FUNCTION RctnglFlldAdjstdAnmtn-stB93629(J-rectangleAdjustedAnimation, J-buttonColor)
+        ELSE
+            COMPUTE J-rectangleAdjustedAnimation = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_unSelectedAnimationArray"), J-index)
+            COMPUTE JDISCARD = FUNCTION RctnglFlldAnmtn-setWidth1(J-rectangleAdjustedAnimation, J-rectWidth)
+            COMPUTE JDISCARD = FUNCTION RctnglFlldAnmtn-setHeight1(J-rectangleAdjustedAnimation, J-rectHeight)
+            COMPUTE JDISCARD = FUNCTION RctnglFlldAdjstdAnmtn-stO92851(J-rectangleAdjustedAnimation, J-offset)
+            COMPUTE JDISCARD = FUNCTION RctnglFlldAdjstdAnmtn-stO92918(J-rectangleAdjustedAnimation, J-offset)
+            COMPUTE JDISCARD = FUNCTION RctnglFlldAdjstdAnmtn-stB93629(J-rectangleAdjustedAnimation, J-buttonColor)
+        END-IF
+    GOBACK.
+END FUNCTION CmmndCrrntSlctnFrm-updateAt2.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmmndCrrntSlctnFrm-gtSlct80049.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-index BINARY-DOUBLE.
+01 J-commandTextItem BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-index = FUNCTION ABCustomForm-getSelectedIndex0(J-THIS)
+        COMPUTE J-commandTextItem = FUNCTION ABCustomForm-get1(J-THIS, J-index)
+        COMPUTE J-RESULT = FUNCTION CommandTextItem-getCommand0(J-commandTextItem)
+        GOBACK
+    GOBACK.
+END FUNCTION CmmndCrrntSlctnFrm-gtSlct80049.
 
-procedure TCommandCurrentSelectionForm.InitFields;
-begin
-  Self.selectedAnimationArray := TJava.NewArray<TAnimation>(16);
-  Self.unSelectedAnimationArray := TJava.NewArray<TAnimation>(16);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmmndCrrntSlctnFrm-append1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-result-L BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-item BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-item RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-result-L = FUNCTION ScrollSelectionForm-append1(J-THIS, J-item)
+        COMPUTE JDISCARD = FUNCTION CmmndCrrntSlctnFrm-addAt2(J-THIS, J-result-L, J-item)
+        COMPUTE J-RESULT = J-result-L
+        GOBACK
+    GOBACK.
+END FUNCTION CmmndCrrntSlctnFrm-append1.
 
-function TCommandCurrentSelectionForm.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmmndCrrntSlctnFrm-delete1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-itemNum BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-itemNum RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION ABCustomForm-delete1(J-THIS, J-itemNum)
+    GOBACK.
+END FUNCTION CmmndCrrntSlctnFrm-delete1.
 
-constructor TCommandCurrentSelectionForm.Create(title: string; items: TArray<TABCustomItem>; border: Integer; moveForSmallScreen: Boolean; backgroundBasicColor: TBasicColor; foregroundBasicColor: TBasicColor);
-begin
-        inherited Create(title, items, TItemPaintableFactory.getInstance(), border, -3, moveForSmallScreen, backgroundBasicColor, foregroundBasicColor);
-        InitFields;
-        Self.initAnimations();
-        Self.addAll(items);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmmndCrrntSlctnFrm-deleteAll0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION CmmndCrrntSlctnFrm-intAnmtns0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION ABCustomForm-deleteAll0(J-THIS)
+    GOBACK.
+END FUNCTION CmmndCrrntSlctnFrm-deleteAll0.
 
-procedure TCommandCurrentSelectionForm.updateMeasurement(graphics_: TGraphics);
-begin
-        Self.updateAll(graphics_, Self.getAllitems());
-        inherited updateMeasurement(graphics_);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmmndCrrntSlctnFrm-insert2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-itemNum BINARY-DOUBLE.
+01 J-item BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-itemNum J-item RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION ABCustomForm-insert2(J-THIS, J-itemNum, J-item)
+    GOBACK.
+END FUNCTION CmmndCrrntSlctnFrm-insert2.
 
-procedure TCommandCurrentSelectionForm.initAnimations;
-var
-  nullAnimation: TAnimation;
-  index: Integer;
-begin
-        nullAnimation := TNullAnimationFactory.getFactoryInstance().getInstance(0);
-        index := System.Length(Self.selectedAnimationArray);
-        while (TJava.PreDec(index)) >= (0) do begin
-            Self.selectedAnimationArray[index] := nullAnimation;
-        end;
-        index := System.Length(Self.unSelectedAnimationArray);
-        while (TJava.PreDec(index)) >= (0) do begin
-            Self.unSelectedAnimationArray[index] := nullAnimation;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmmndCrrntSlctnFrm-set2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-itemNum BINARY-DOUBLE.
+01 J-item BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-itemNum J-item RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION ABCustomForm-set2(J-THIS, J-itemNum, J-item)
+    GOBACK.
+END FUNCTION CmmndCrrntSlctnFrm-set2.
 
-procedure TCommandCurrentSelectionForm.addAll(items: TArray<TABCustomItem>);
-var
-  index: Integer;
-begin
-        index := System.Length(items);
-        while (TJava.PreDec(index)) >= (0) do begin
-            Self.addAt(index, items[index]);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmmndCrrntSlctnFrm-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_myFontProcessor"))
+        COMPUTE JDISCARD = FUNCTION ScrllCrrntSlctnFrm-paint1(J-THIS, J-graphics)
+    GOBACK.
+END FUNCTION CmmndCrrntSlctnFrm-paint1.
 
-procedure TCommandCurrentSelectionForm.addAt(index: Integer; item: TABCustomItem);
-var
-  basicColorFactory_: TBasicColorFactory;
-  buttonColor: TBasicColor;
-  selectedButtonColor: TBasicColor;
-  width: Integer;
-  height: Integer;
-  adjustedBorder: Integer;
-  offset: Integer;
-  rectWidth: Integer;
-  rectHeight: Integer;
-begin
-        basicColorFactory_ := TBasicColorFactory.getInstance();
-        buttonColor := basicColorFactory_.TRANSPARENT_GREY;
-        selectedButtonColor := basicColorFactory_.TRANSPARENT_RED;
-        width := item.getMinimumWidth();
-        height := item.getMinimumHeight();
-        adjustedBorder := 3;
-        offset := -((Self.halfBorder) + (adjustedBorder));
-        rectWidth := ((width) + (Self.border)) - (adjustedBorder);
-        rectHeight := ((height) + (Self.border)) - (adjustedBorder);
-        if (TJ2MEUtil.isJ2ME()) or (TJ2MEUtil.isHTML()) then begin
-            Self.selectedAnimationArray[index] := TRectangleAdjustedAnimation.Create(rectWidth, rectHeight, offset, offset, selectedButtonColor);
-        end else begin
-            Self.selectedAnimationArray[index] := TRectangleFilledAdjustedAnimation.Create(rectWidth, rectHeight, offset, offset, selectedButtonColor);
-        end;
-        adjustedBorder := 4;
-        if (TJ2MEUtil.isJ2ME()) or (TJ2MEUtil.isHTML()) then begin
-            Self.unSelectedAnimationArray[index] := TRectangleAdjustedAnimation.Create(rectWidth, rectHeight, offset, offset, buttonColor);
-        end else begin
-            Self.unSelectedAnimationArray[index] := TRectangleFilledAdjustedAnimation.Create(rectWidth, rectHeight, offset, offset, buttonColor);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmmndCrrntSlctnFrm-paintItem5.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-item BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-index J-item J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_selectedAnimationArray"), J-index))
+        COMPUTE J-RESULT = FUNCTION ScrollSelectionForm-paintItem5(J-THIS, J-graphics, J-index, J-item, J-x, J-y)
+        GOBACK
+    GOBACK.
+END FUNCTION CmmndCrrntSlctnFrm-paintItem5.
 
-procedure TCommandCurrentSelectionForm.updateAll(graphics_: TGraphics; items: TArray<TABCustomItem>);
-var
-  index: Integer;
-begin
-        index := System.Length(items);
-        while (TJava.PreDec(index)) >= (0) do begin
-            items[index].preMeasurement(graphics_);
-            Self.updateAt(index, items[index]);
-        end;
-end;
-    
-
-procedure TCommandCurrentSelectionForm.updateAt(index: Integer; item: TABCustomItem);
-var
-  basicColorFactory_: TBasicColorFactory;
-  buttonColor: TBasicColor;
-  selectedButtonColor: TBasicColor;
-  width: Integer;
-  height: Integer;
-  adjustedBorder: Integer;
-  offset: Integer;
-  rectWidth: Integer;
-  rectHeight: Integer;
-  rectangleAdjustedAnimation_: TRectangleFilledAdjustedAnimation;
-  rectangleAdjustedAnimation__2: TRectangleAdjustedAnimation;
-  rectangleAdjustedAnimation__4: TRectangleAdjustedAnimation;
-begin
-        basicColorFactory_ := TBasicColorFactory.getInstance();
-        buttonColor := basicColorFactory_.TRANSPARENT_GREY;
-        selectedButtonColor := basicColorFactory_.TRANSPARENT_RED;
-        width := item.getMinimumWidth();
-        height := item.getMinimumHeight();
-        adjustedBorder := 3;
-        offset := -((Self.halfBorder) + (adjustedBorder));
-        rectWidth := ((width) + (Self.border)) - (adjustedBorder);
-        rectHeight := ((height) + (Self.border)) - (adjustedBorder);
-        if (TJ2MEUtil.isJ2ME()) or (TJ2MEUtil.isHTML()) then begin
-            rectangleAdjustedAnimation__2 := TRectangleAdjustedAnimation(TJava.ToObject(Self.selectedAnimationArray[index]));
-            rectangleAdjustedAnimation__2.setWidth(rectWidth);
-            rectangleAdjustedAnimation__2.setHeight(rectHeight);
-            rectangleAdjustedAnimation__2.setOffsetX(offset);
-            rectangleAdjustedAnimation__2.setOffsetY(offset);
-            rectangleAdjustedAnimation__2.setBasicColorP(selectedButtonColor);
-        end else begin
-            rectangleAdjustedAnimation_ := TRectangleFilledAdjustedAnimation(TJava.ToObject(Self.selectedAnimationArray[index]));
-            rectangleAdjustedAnimation_.setWidth(rectWidth);
-            rectangleAdjustedAnimation_.setHeight(rectHeight);
-            rectangleAdjustedAnimation_.setOffsetX(offset);
-            rectangleAdjustedAnimation_.setOffsetY(offset);
-            rectangleAdjustedAnimation_.setBasicColorP(selectedButtonColor);
-        end;
-        adjustedBorder := 4;
-        if (TJ2MEUtil.isJ2ME()) or (TJ2MEUtil.isHTML()) then begin
-            rectangleAdjustedAnimation__4 := TRectangleAdjustedAnimation(TJava.ToObject(Self.unSelectedAnimationArray[index]));
-            rectangleAdjustedAnimation__4.setWidth(rectWidth);
-            rectangleAdjustedAnimation__4.setHeight(rectHeight);
-            rectangleAdjustedAnimation__4.setOffsetX(offset);
-            rectangleAdjustedAnimation__4.setOffsetY(offset);
-            rectangleAdjustedAnimation__4.setBasicColorP(buttonColor);
-        end else begin
-            rectangleAdjustedAnimation_ := TRectangleFilledAdjustedAnimation(TJava.ToObject(Self.unSelectedAnimationArray[index]));
-            rectangleAdjustedAnimation_.setWidth(rectWidth);
-            rectangleAdjustedAnimation_.setHeight(rectHeight);
-            rectangleAdjustedAnimation_.setOffsetX(offset);
-            rectangleAdjustedAnimation_.setOffsetY(offset);
-            rectangleAdjustedAnimation_.setBasicColorP(buttonColor);
-        end;
-end;
-    
-
-function TCommandCurrentSelectionForm.getSelectedCommand: TCommand;
-var
-  index: Integer;
-  commandTextItem_: TCommandTextItem;
-begin
-        index := inherited getSelectedIndex();
-        commandTextItem_ := TCommandTextItem(TJava.ToObject(Self.get(index)));
-        Exit(commandTextItem_.getCommand());
-end;
-    
-
-function TCommandCurrentSelectionForm.append(item: TABCustomItem): Integer;
-var
-  result_: Integer;
-begin
-        result_ := inherited append(item);
-        Self.addAt(result_, item);
-        Exit(result_);
-end;
-    
-
-procedure TCommandCurrentSelectionForm.delete_(itemNum: Integer);
-begin
-        inherited delete_(itemNum);
-end;
-    
-
-procedure TCommandCurrentSelectionForm.deleteAll;
-begin
-        Self.initAnimations();
-        inherited deleteAll();
-end;
-    
-
-procedure TCommandCurrentSelectionForm.insert(itemNum: Integer; item: TABCustomItem);
-begin
-        inherited insert(itemNum, item);
-end;
-    
-
-procedure TCommandCurrentSelectionForm.set_(itemNum: Integer; item: TABCustomItem);
-begin
-        inherited set_(itemNum, item);
-end;
-    
-
-procedure TCommandCurrentSelectionForm.paint(graphics_: TGraphics);
-begin
-        Self.myFontProcessor.process(graphics_);
-        inherited paint(graphics_);
-end;
-    
-
-// throws Exception
-function TCommandCurrentSelectionForm.paintItem(graphics_: TGraphics; index: Integer; item: TABCustomItem; x: Integer; y: Integer): Integer;
-begin
-        Self.selectedAnimationArray[index].paintXY(graphics_, x, y);
-        Exit(inherited paintItem(graphics_, index, item, x, y));
-end;
-    
-
-// throws Exception
-function TCommandCurrentSelectionForm.paintUnselectedItem(graphics_: TGraphics; index: Integer; item: TABCustomItem; x: Integer; y: Integer): Integer;
-begin
-        Self.unSelectedAnimationArray[index].paintXY(graphics_, x, y);
-        Exit(inherited paintUnselectedItem(graphics_, index, item, x, y));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmmndCrrntSlctnFrm-pntUns22186.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-item BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-index J-item J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_unSelectedAnimationArray"), J-index))
+        COMPUTE J-RESULT = FUNCTION ScrllSlctnFrm-pntUnslctdItm5(J-THIS, J-graphics, J-index, J-item, J-x, J-y)
+        GOBACK
+    GOBACK.
+END FUNCTION CmmndCrrntSlctnFrm-pntUns22186.
 

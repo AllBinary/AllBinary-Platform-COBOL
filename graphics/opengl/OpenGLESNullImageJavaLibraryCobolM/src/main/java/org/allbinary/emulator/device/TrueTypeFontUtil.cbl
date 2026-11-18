@@ -1,108 +1,290 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2011 AllBinary 
-  
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-  
-  Created By: Travis Berthelot 
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.emulator.device
-unit TrueTypeFontUtil;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.emulator.device
+*> Java class TrueTypeFontUtil
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TrTypFntUtl-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 TrueTypeFontUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 TrueTypeFontUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF TrueTypeFontUtil-jset-instance = 0
+        MOVE 1 TO TrueTypeFontUtil-jset-instance
+        COMPUTE TrueTypeFontUtil-jcell-instance = FUNCTION TrueTypeFontUtil-new0
+    END-IF
+    MOVE TrueTypeFontUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION TrTypFntUtl-static-instance.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TrTypFntUtlstaticinsS37444.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 TrueTypeFontUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION TrTypFntUtl-static-instance TO J-RESULT
+    MOVE J-VALUE TO TrueTypeFontUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION TrTypFntUtlstaticinsS37444.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GL10, Image, BasicColor, OpenGLESImage, TrueTypeFontUtilBase;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TrueTypeFontUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("TrueTypeFontUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_fontImage")
+    COMPUTE JVALUE = FUNCTION OpnGLESImg-sttc-NULL-O38397
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_fontImage", JVALUE)
+        COMPUTE jtemp1 = 1
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION TrueTypeFontUtil-new0.
 
-type
-  {AB:TYPES}
-  TTrueTypeFontUtil = class(TTrueTypeFontUtilBase)
-  public
-    fontImage: TOpenGLESImage;
-    class var instance: TTrueTypeFontUtil;
-    procedure InitFields;
-        class function getInstance: TTrueTypeFontUtil; static;
-        constructor Create;
-        function getAsTextureSize(textureSize: Integer): Integer; override;
-        function getCellSize(cellSize: Integer): Integer; override;
-        function getFontBitmap(filename: string; fontSize: Integer; cellSize: Integer; basicColor_: TBasicColor): TImage; virtual;
-        procedure saveFontAtlasAsFile; virtual;
-        function getFontBitmapGL(gl: IGL10; filename: string; cellSize: Integer; basicColor_: TBasicColor): TImage; virtual;
-        function getFontWidths(filename: string; fontSize: Integer): TArray<Integer>; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TrueTypeFontUtil-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION TrTypFntUtl-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION TrueTypeFontUtil-getInstance0.
 
-implementation
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TrTypFntUtl-getAsTextureSize1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-textureSize BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-textureSize RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+    GOBACK.
+END FUNCTION TrTypFntUtl-getAsTextureSize1.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TrueTypeFontUtil-getCellSize1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-cellSize BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-cellSize RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+    GOBACK.
+END FUNCTION TrueTypeFontUtil-getCellSize1.
 
-procedure TTrueTypeFontUtil.InitFields;
-begin
-  Self.fontImage := TOpenGLESImage.NULL_OPENGL_IMAGE;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TrTypFntUtl-getFontBitmap4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-filename BINARY-DOUBLE.
+01 J-fontSize BINARY-DOUBLE.
+01 J-cellSize BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-filename J-fontSize J-cellSize J-basicColor RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+    GOBACK.
+END FUNCTION TrTypFntUtl-getFontBitmap4.
 
-class function TTrueTypeFontUtil.getInstance: TTrueTypeFontUtil;
-begin
-        Exit(TTrueTypeFontUtil.instance);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TrTypFntUtl-svFntAtlsAsFl0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION TrTypFntUtl-svFntAtlsAsFl0.
 
-constructor TTrueTypeFontUtil.Create;
-begin
-        inherited Create(1);
-        InitFields;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TrTypFntUtl-getFontBitmapGL4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gl BINARY-DOUBLE.
+01 J-filename BINARY-DOUBLE.
+01 J-cellSize BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gl J-filename J-cellSize J-basicColor RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+    GOBACK.
+END FUNCTION TrTypFntUtl-getFontBitmapGL4.
 
-function TTrueTypeFontUtil.getAsTextureSize(textureSize: Integer): Integer;
-begin
-        raise SysUtils.Exception.Create('');
-end;
-    
-
-function TTrueTypeFontUtil.getCellSize(cellSize: Integer): Integer;
-begin
-        raise SysUtils.Exception.Create('');
-end;
-    
-
-function TTrueTypeFontUtil.getFontBitmap(filename: string; fontSize: Integer; cellSize: Integer; basicColor_: TBasicColor): TImage;
-begin
-        raise SysUtils.Exception.Create('');
-end;
-    
-
-procedure TTrueTypeFontUtil.saveFontAtlasAsFile;
-begin
-end;
-    
-
-function TTrueTypeFontUtil.getFontBitmapGL(gl: IGL10; filename: string; cellSize: Integer; basicColor_: TBasicColor): TImage;
-begin
-        raise SysUtils.Exception.Create('');
-end;
-    
-
-function TTrueTypeFontUtil.getFontWidths(filename: string; fontSize: Integer): TArray<Integer>;
-begin
-        raise SysUtils.Exception.Create('');
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TTrueTypeFontUtil.instance := TTrueTypeFontUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TrTypFntUtl-getFontWidths2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-filename BINARY-DOUBLE.
+01 J-fontSize BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-filename J-fontSize RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+    GOBACK.
+END FUNCTION TrTypFntUtl-getFontWidths2.
 

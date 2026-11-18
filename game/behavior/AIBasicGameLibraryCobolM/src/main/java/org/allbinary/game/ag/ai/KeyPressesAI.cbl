@@ -1,129 +1,255 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.ai
+*> Java class KeyPressesAI
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.ai
-unit KeyPressesAI;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameInput, AllBinaryLayer, AllBinaryLayerManager, BasicAI, ABHashtable;
-
-type
-  {AB:TYPES}
-  TKeyPressesAI = class(TBasicAI)
-  public
-    on_: Boolean;
-    keys: TArray<Integer>;
-    procedure InitFields;
-        constructor Create(hashtable: TABHashtable<TObject, TObject>; ownerLayerInterface: TAllBinaryLayer; gameInput_: TGameInput);
-        procedure processAI(allBinaryLayerManager_: TAllBinaryLayerManager); override;
-        procedure toggle; virtual;
-        procedure disable; virtual;
-        procedure enable; virtual;
-        procedure setOn(on_: Boolean);
-        function isOn: Boolean; virtual;
-  end;
-
-implementation
-uses
-  HashtableUtil;
-
-
-{AB:CODE}
-
-procedure TKeyPressesAI.InitFields;
-begin
-  Self.on_ := True;
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. KeyPressesAI-new3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-objectArray BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-hashtable BINARY-DOUBLE.
+01 J-ownerLayerInterface BINARY-DOUBLE.
+01 J-gameInput BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-hashtable J-ownerLayerInterface J-gameInput RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("KeyPressesAI")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_on")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_keys")
+    COMPUTE JVALUE = 1
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_on", JVALUE)
     
+        CONTINUE
+        COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY(FUNCTION Hashtable-size0(J-hashtable))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_keys", JVALUE)
+        COMPUTE jtemp1 = FUNCTION HashtableUtil-getInstance0
+        COMPUTE J-objectArray = FUNCTION HashtableUtil-getKeysAsArray1(jtemp1, J-hashtable)
+        COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(J-objectArray)
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE jtemp2 = FUNCTION JR-ARRAY-GET(J-objectArray, J-index)
+            COMPUTE JVALUE = FUNCTION Hashtable-get1(J-hashtable, jtemp2)
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_keys"), J-index, JVALUE)
+        END-PERFORM
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION KeyPressesAI-new3.
 
-constructor TKeyPressesAI.Create(hashtable: TABHashtable<TObject, TObject>; ownerLayerInterface: TAllBinaryLayer; gameInput_: TGameInput);
-var
-  objectArray: TArray<TObject>;
-  size: Integer;
-  index: Integer;
-begin
-        inherited Create(ownerLayerInterface, gameInput_);
-        InitFields;
-        Self.keys := TJava.NewArray<Integer>(hashtable.size());
-        objectArray := THashtableUtil.getInstance().getKeysAsArray(hashtable);
-        size := System.Length(objectArray);
-        for index := 0 to size - 1 do begin
-            Self.keys[index] := Integer(hashtable.get(TJava.Box(TJava.Box(objectArray[index]))));
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. KeyPressesAI-processAI1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-index BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryLayerManager BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION JR-GET(J-THIS, "f_on") = 1)
+            COMPUTE J-index = 0
+            MOVE 1 TO JFIRST2
+            PERFORM FOREVER
+                IF JFIRST2 = 0
+                    COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+                END-IF
+                MOVE 0 TO JFIRST2
+                IF NOT (J-index < FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_keys"))) EXIT PERFORM END-IF
+                COMPUTE JDISCARD = FUNCTION BasicAI-processKeyAI1(J-THIS, FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_keys"), J-index)))
+            END-PERFORM
+        END-IF
+    GOBACK.
+END FUNCTION KeyPressesAI-processAI1.
 
-// throws Exception
-procedure TKeyPressesAI.processAI(allBinaryLayerManager_: TAllBinaryLayerManager);
-var
-  index: Integer;
-begin
-        if Self.on_ then begin
-            for index := 0 to System.Length(Self.keys) - 1 do begin
-                inherited processKeyAI(Self.keys[index].intValue());
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. KeyPressesAI-toggle0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION KeyPressesAI-isOn0(J-THIS) = 1)
+            COMPUTE jtemp4 = 0
+            COMPUTE JDISCARD = FUNCTION KeyPressesAI-setOn1(J-THIS, jtemp4)
+        ELSE
+            COMPUTE jtemp3 = 1
+            COMPUTE JDISCARD = FUNCTION KeyPressesAI-setOn1(J-THIS, jtemp3)
+        END-IF
+    GOBACK.
+END FUNCTION KeyPressesAI-toggle0.
 
-// throws Exception
-procedure TKeyPressesAI.toggle;
-begin
-        if Self.isOn() then begin
-            Self.setOn(False);
-        end else begin
-            Self.setOn(True);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. KeyPressesAI-disable0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp5 = 0
+        COMPUTE JDISCARD = FUNCTION KeyPressesAI-setOn1(J-THIS, jtemp5)
+    GOBACK.
+END FUNCTION KeyPressesAI-disable0.
 
-// throws Exception
-procedure TKeyPressesAI.disable;
-begin
-        Self.setOn(False);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. KeyPressesAI-enable0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp6 = 1
+        COMPUTE JDISCARD = FUNCTION KeyPressesAI-setOn1(J-THIS, jtemp6)
+    GOBACK.
+END FUNCTION KeyPressesAI-enable0.
 
-// throws Exception
-procedure TKeyPressesAI.enable;
-begin
-        Self.setOn(True);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. KeyPressesAI-setOn1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-on BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-on RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-on
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_on", JVALUE)
+    GOBACK.
+END FUNCTION KeyPressesAI-setOn1.
 
-procedure TKeyPressesAI.setOn(on_: Boolean);
-begin
-        Self.on_ := on_;
-end;
-    
-
-function TKeyPressesAI.isOn: Boolean;
-begin
-        Exit(Self.on_);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. KeyPressesAI-isOn0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_on")
+        GOBACK
+    GOBACK.
+END FUNCTION KeyPressesAI-isOn0.
 

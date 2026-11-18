@@ -1,194 +1,429 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.configuration.feature
+*> Java class Features
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.configuration.feature
-unit Features;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Features-static-SINGLETON.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 Features-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+01 Features-jset-SINGLETON BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF Features-jset-SINGLETON = 0
+        MOVE 1 TO Features-jset-SINGLETON
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE Features-jcell-SINGLETON = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+    END-IF
+    MOVE Features-jcell-SINGLETON TO J-RESULT
+    GOBACK.
+END FUNCTION Features-static-SINGLETON.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FeaturesstaticSINGLES90909.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 Features-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION Features-static-SINGLETON TO J-RESULT
+    MOVE J-VALUE TO Features-jcell-SINGLETON
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION FeaturesstaticSINGLES90909.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LogUtil, CommonStrings, BasicArrayList, Feature;
-
-type
-  {AB:TYPES}
-  TFeatures = class(TObject)
-  public
-    logUtil: TLogUtil;
-    commonStrings: TCommonStrings;
-    list: TBasicArrayList;
-    defaultList: TBasicArrayList;
-    class var SINGLETON: TObject;
-    procedure InitFields;
-        class function getInstance: TFeatures; static;
-        constructor Create;
-        procedure addDefault(gameFeature: TFeature); virtual;
-        procedure add(gameFeature: TFeature); virtual;
-        procedure removeDefault(gameFeature: TFeature); virtual;
-        procedure remove(gameFeature: TFeature); virtual;
-        procedure init;
-        function isDefault(gameFeature: TFeature): Boolean; virtual;
-        function isFeature(gameFeature: TFeature): Boolean; virtual;
-        procedure toggle(gameFeature: TFeature); virtual;
-  end;
-
-implementation
-uses
-  GameFeatureFactory, InputFeatureFactory, SensorFeatureFactory, TouchFeatureFactory, MainFeatureFactory, GameFeatureEvent, GameFeatureEventHandler, NullUtil, PreLogUtil, StringMaker, GenericOperatingSystem, OperatingSystemFactory, CommonLabels, BasicArrayListD;
-
-
-{AB:CODE}
-
-procedure TFeatures.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.commonStrings := TCommonStrings.getInstance();
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Features-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("Features")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_list")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_defaultList")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
     
-
-class function TFeatures.getInstance: TFeatures;
-begin
-        if (TFeatures.SINGLETON) = (TNullUtil.getInstance().NULL_OBJECT) then begin
-            TFeatures.SINGLETON := TFeatures.Create();
-        end;
-        Exit(TFeatures(TJava.ToObject(TFeatures.SINGLETON)));
-end;
     
+        COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
+        COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_defaultList", JVALUE)
+        COMPUTE JDISCARD = FUNCTION Features-init0(J-THIS)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION Features-new0.
 
-constructor TFeatures.Create;
-begin
-    inherited Create;
-    InitFields;
-        Self.list := TBasicArrayListD.Create();
-        Self.defaultList := TBasicArrayListD.Create();
-        Self.init();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Features-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+        IF (FUNCTION Features-static-SINGLETON = FUNCTION JR-GET(jtemp2, "f_NULL_OBJECT"))
+            COMPUTE JDISCARD = FUNCTION FeaturesstaticSINGLES90909(FUNCTION Features-new0)
+        END-IF
+        COMPUTE J-RESULT = FUNCTION Features-static-SINGLETON
+        GOBACK
+    GOBACK.
+END FUNCTION Features-getInstance0.
 
-// throws Exception
-procedure TFeatures.addDefault(gameFeature: TFeature);
-begin
-        Self.add(gameFeature);
-        if not (Self.defaultList.contains(TJava.Box(gameFeature))) then begin
-            Self.defaultList.add(TJava.Box(gameFeature));
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Features-addDefault1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameFeature BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gameFeature RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Features-add1(J-THIS, J-gameFeature)
+        IF (NOT (FUNCTION BasicArrayList-contains1(FUNCTION JR-GET(J-THIS, "f_defaultList"), J-gameFeature) = 1))
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_defaultList"), J-gameFeature)
+        END-IF
+    GOBACK.
+END FUNCTION Features-addDefault1.
 
-// throws Exception
-procedure TFeatures.add(gameFeature: TFeature);
-begin
-        if not (Self.list.contains(TJava.Box(gameFeature))) then begin
-            Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().START_LABEL).append(gameFeature.toString()).toString(), TJava.Box(Self), Self.commonStrings.ADD);
-            Self.list.add(TJava.Box(gameFeature));
-            TGameFeatureEventHandler.getInstance().fireEvent(TGameFeatureEvent.Create(TJava.Box(gameFeature), gameFeature.toString()));
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Features-add1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameFeature BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gameFeature RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (NOT (FUNCTION BasicArrayList-contains1(FUNCTION JR-GET(J-THIS, "f_list"), J-gameFeature) = 1))
+            COMPUTE jtemp6 = FUNCTION CommonLabels-getInstance0
+            COMPUTE jtemp5 = FUNCTION StringMaker-new0
+            COMPUTE jtemp4 = FUNCTION StringMaker-append1(jtemp5, FUNCTION JR-GET(jtemp6, "f_START_LABEL"))
+            COMPUTE jtemp3 = FUNCTION StringMaker-append1(jtemp4, FUNCTION JR-TO-STRING(J-gameFeature))
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp3), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_ADD"))
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), J-gameFeature)
+            COMPUTE jtemp7 = FUNCTION GmFtrEvntHndlr-getInstance0
+            COMPUTE JDISCARD = FUNCTION BasicEventHandler-fireEvent1(jtemp7, FUNCTION GameFeatureEvent-new2(J-gameFeature, FUNCTION JR-TO-STRING(J-gameFeature)))
+        END-IF
+    GOBACK.
+END FUNCTION Features-add1.
 
-// throws Exception
-procedure TFeatures.removeDefault(gameFeature: TFeature);
-begin
-        Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().START_LABEL).append(gameFeature.toString()).toString(), TJava.Box(Self), 'removeDefault');
-        Self.remove(gameFeature);
-        Self.defaultList.remove(gameFeature);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Features-removeDefault1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameFeature BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gameFeature RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp11 = FUNCTION CommonLabels-getInstance0
+        COMPUTE jtemp10 = FUNCTION StringMaker-new0
+        COMPUTE jtemp9 = FUNCTION StringMaker-append1(jtemp10, FUNCTION JR-GET(jtemp11, "f_START_LABEL"))
+        COMPUTE jtemp8 = FUNCTION StringMaker-append1(jtemp9, FUNCTION JR-TO-STRING(J-gameFeature))
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp8), J-THIS, FUNCTION JR-STR("removeDefault"))
+        COMPUTE JDISCARD = FUNCTION Features-remove1(J-THIS, J-gameFeature)
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-remove1(FUNCTION JR-GET(J-THIS, "f_defaultList"), J-gameFeature)
+    GOBACK.
+END FUNCTION Features-removeDefault1.
 
-// throws Exception
-procedure TFeatures.remove(gameFeature: TFeature);
-begin
-        if Self.list.contains(TJava.Box(gameFeature)) then begin
-            Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.REMOVE);
-            Self.list.remove(gameFeature);
-            TGameFeatureEventHandler.getInstance().fireEvent(TGameFeatureEvent.Create(TJava.Box(gameFeature), gameFeature.toString()));
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Features-remove1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp12 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameFeature BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gameFeature RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION BasicArrayList-contains1(FUNCTION JR-GET(J-THIS, "f_list"), J-gameFeature) = 1)
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_START"), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"),
+        "f_REMOVE"))
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-remove1(FUNCTION JR-GET(J-THIS, "f_list"), J-gameFeature)
+            COMPUTE jtemp12 = FUNCTION GmFtrEvntHndlr-getInstance0
+            COMPUTE JDISCARD = FUNCTION BasicEventHandler-fireEvent1(jtemp12, FUNCTION GameFeatureEvent-new2(J-gameFeature, FUNCTION JR-TO-STRING(J-gameFeature)))
+        END-IF
+    GOBACK.
+END FUNCTION Features-remove1.
 
-procedure TFeatures.init;
-var
-  gameFeatureFactory_: TGameFeatureFactory;
-  inputFeatureFactory_: TInputFeatureFactory;
-  sensorFeatureFactory_: TSensorFeatureFactory;
-  touchFeatureFactory_: TTouchFeatureFactory;
-  operatingSystemInterface: TGenericOperatingSystem;
-begin
-        try
-            gameFeatureFactory_ := TGameFeatureFactory.getInstance();
-            inputFeatureFactory_ := TInputFeatureFactory.getInstance();
-            sensorFeatureFactory_ := TSensorFeatureFactory.getInstance();
-            touchFeatureFactory_ := TTouchFeatureFactory.getInstance();
-            Self.addDefault(gameFeatureFactory_.ARTIFICIAL_INTELLEGENCE_PROCESSOR);
-            Self.addDefault(gameFeatureFactory_.COLLIDABLE_INTERFACE_LAYER_PROCESSOR);
-            Self.addDefault(gameFeatureFactory_.GAME_INPUT_LAYER_PROCESSOR);
-            Self.addDefault(gameFeatureFactory_.TICKABLE_LAYER_PROCESSOR);
-            Self.addDefault(inputFeatureFactory_.MULTI_KEY_PRESS);
-            Self.addDefault(inputFeatureFactory_.REMOVE_DUPLICATE_KEY_PRESSES);
-            Self.addDefault(gameFeatureFactory_.SCREEN_SHAKE);
-            Self.addDefault(gameFeatureFactory_.POST_IMAGE_LOADING_MODIFICATION);
-            operatingSystemInterface := TOperatingSystemFactory.getInstance().getOperatingSystemInstance();
-            if operatingSystemInterface.isOverScan() then begin
-                Self.addDefault(sensorFeatureFactory_.NO_ORIENTATION);
-                Self.addDefault(touchFeatureFactory_.HIDE_SCREEN_BUTTONS);
-            end else begin
-                Self.addDefault(sensorFeatureFactory_.ORIENTATION_SENSORS);
-                Self.addDefault(touchFeatureFactory_.AUTO_HIDE_SHOW_SCREEN_BUTTONS);
-            end;
-            Self.addDefault(touchFeatureFactory_.TOUCH_ENABLED);
-            Self.addDefault(TMainFeatureFactory.getInstance().FULL_SCREEN);
-            Self.addDefault(TMainFeatureFactory.getInstance().LOAD_ONDEMAND);
-        except
-            on e: SysUtils.Exception do begin
-            TPreLogUtil.putOE(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.INIT, TJava.Box(e));
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Features-init0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameFeatureFactory BINARY-DOUBLE.
+01 J-inputFeatureFactory BINARY-DOUBLE.
+01 J-sensorFeatureFactory BINARY-DOUBLE.
+01 J-touchFeatureFactory BINARY-DOUBLE.
+01 J-operatingSystemInterface BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE J-gameFeatureFactory = FUNCTION GmFtrFctry-getInstance0
+            COMPUTE J-inputFeatureFactory = FUNCTION InptFtrFctry-getInstance0
+            COMPUTE J-sensorFeatureFactory = FUNCTION SnsrFtrFctry-getInstance0
+            COMPUTE J-touchFeatureFactory = FUNCTION TchFtrFctry-getInstance0
+            COMPUTE JDISCARD = FUNCTION Features-addDefault1(J-THIS, FUNCTION JR-GET(J-gameFeatureFactory, "f_ARTIFICIAL_INTELLEGENCE_PROCESSOR"))
+            COMPUTE JDISCARD = FUNCTION Features-addDefault1(J-THIS, FUNCTION JR-GET(J-gameFeatureFactory, "f_COLLIDABLE_INTERFACE_LAYER_PROCESSOR"))
+            COMPUTE JDISCARD = FUNCTION Features-addDefault1(J-THIS, FUNCTION JR-GET(J-gameFeatureFactory, "f_GAME_INPUT_LAYER_PROCESSOR"))
+            COMPUTE JDISCARD = FUNCTION Features-addDefault1(J-THIS, FUNCTION JR-GET(J-gameFeatureFactory, "f_TICKABLE_LAYER_PROCESSOR"))
+            COMPUTE JDISCARD = FUNCTION Features-addDefault1(J-THIS, FUNCTION JR-GET(J-inputFeatureFactory, "f_MULTI_KEY_PRESS"))
+            COMPUTE JDISCARD = FUNCTION Features-addDefault1(J-THIS, FUNCTION JR-GET(J-inputFeatureFactory, "f_REMOVE_DUPLICATE_KEY_PRESSES"))
+            COMPUTE JDISCARD = FUNCTION Features-addDefault1(J-THIS, FUNCTION JR-GET(J-gameFeatureFactory, "f_SCREEN_SHAKE"))
+            COMPUTE JDISCARD = FUNCTION Features-addDefault1(J-THIS, FUNCTION JR-GET(J-gameFeatureFactory, "f_POST_IMAGE_LOADING_MODIFICATION"))
+            COMPUTE jtemp13 = FUNCTION OprtngSystmFctry-getInstance0
+            COMPUTE J-operatingSystemInterface = FUNCTION OprtngSystmFctry-gtOprtng62787(jtemp13)
+            IF (FUNCTION GnrcOprtngSystm-isOverScan0(J-operatingSystemInterface) = 1)
+                COMPUTE JDISCARD = FUNCTION Features-addDefault1(J-THIS, FUNCTION JR-GET(J-sensorFeatureFactory, "f_NO_ORIENTATION"))
+                COMPUTE JDISCARD = FUNCTION Features-addDefault1(J-THIS, FUNCTION JR-GET(J-touchFeatureFactory, "f_HIDE_SCREEN_BUTTONS"))
+            ELSE
+                COMPUTE JDISCARD = FUNCTION Features-addDefault1(J-THIS, FUNCTION JR-GET(J-sensorFeatureFactory, "f_ORIENTATION_SENSORS"))
+                COMPUTE JDISCARD = FUNCTION Features-addDefault1(J-THIS, FUNCTION JR-GET(J-touchFeatureFactory, "f_AUTO_HIDE_SHOW_SCREEN_BUTTONS"))
+            END-IF
+            COMPUTE JDISCARD = FUNCTION Features-addDefault1(J-THIS, FUNCTION JR-GET(J-touchFeatureFactory, "f_TOUCH_ENABLED"))
+            COMPUTE jtemp14 = FUNCTION MnFtrFctry-getInstance0
+            COMPUTE JDISCARD = FUNCTION Features-addDefault1(J-THIS, FUNCTION JR-GET(jtemp14, "f_FULL_SCREEN"))
+            COMPUTE jtemp15 = FUNCTION MnFtrFctry-getInstance0
+            COMPUTE JDISCARD = FUNCTION Features-addDefault1(J-THIS, FUNCTION JR-GET(jtemp15, "f_LOAD_ONDEMAND"))
+    GOBACK.
+END FUNCTION Features-init0.
 
-function TFeatures.isDefault(gameFeature: TFeature): Boolean;
-begin
-        Exit(Self.defaultList.contains(TJava.Box(gameFeature)));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Features-isDefault1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameFeature BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gameFeature RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION BasicArrayList-contains1(FUNCTION JR-GET(J-THIS, "f_defaultList"), J-gameFeature)
+        GOBACK
+    GOBACK.
+END FUNCTION Features-isDefault1.
 
-function TFeatures.isFeature(gameFeature: TFeature): Boolean;
-begin
-        Exit(Self.list.contains(TJava.Box(gameFeature)));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Features-isFeature1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameFeature BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gameFeature RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION BasicArrayList-contains1(FUNCTION JR-GET(J-THIS, "f_list"), J-gameFeature)
+        GOBACK
+    GOBACK.
+END FUNCTION Features-isFeature1.
 
-// throws Exception
-procedure TFeatures.toggle(gameFeature: TFeature);
-begin
-        if Self.isFeature(gameFeature) then begin
-            Self.remove(gameFeature);
-        end else begin
-            Self.add(gameFeature);
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TFeatures.SINGLETON := TJava.Box(TNullUtil.getInstance().NULL_OBJECT);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Features-toggle1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameFeature BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gameFeature RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION Features-isFeature1(J-THIS, J-gameFeature) = 1)
+            COMPUTE JDISCARD = FUNCTION Features-remove1(J-THIS, J-gameFeature)
+        ELSE
+            COMPUTE JDISCARD = FUNCTION Features-add1(J-THIS, J-gameFeature)
+        END-IF
+    GOBACK.
+END FUNCTION Features-toggle1.
 

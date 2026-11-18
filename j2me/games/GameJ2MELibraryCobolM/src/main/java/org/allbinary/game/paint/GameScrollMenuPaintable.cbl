@@ -1,101 +1,154 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.paint
+*> Java class GameScrollMenuPaintable
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.paint
-unit GameScrollMenuPaintable;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameScrollMenuPaintable-new4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-mainDemoStatePaintable BINARY-DOUBLE.
+01 J-ownershipPaintable BINARY-DOUBLE.
+01 J-helpPaintableInterface BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-mainDemoStatePaintable J-ownershipPaintable J-helpPaintableInterface J-basicColor RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameScrollMenuPaintable")
+        CONTINUE
+        COMPUTE JDISCARD = FUNCTION GmScrllMnPntbl-setColor1(J-THIS, J-basicColor)
+        COMPUTE jtemp1 = FUNCTION ClrChngEvntHndlr-getInstance0
+        COMPUTE JDISCARD = FUNCTION BscEvntHndlr-addLstnrIntrfc1(jtemp1, J-THIS)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GameScrollMenuPaintable-new4.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmScrllMnPntbl-setState1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-state BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-state RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BscGmDmPntbl-stCrrntSttPntbl1(J-THIS, FUNCTION BscGmDmPntbl-gtMnDmSttPntbl0(J-THIS))
+    GOBACK.
+END FUNCTION GmScrllMnPntbl-setState1.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmScrllMnPntbl-onEvent1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION GmScrllMnPntbl-onEvent1.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, BasicColor, ColorChangeListener, Paintable, AllBinaryEventObject, BasicGameDemoPaintable, EventListenerInterface;
-
-type
-  {AB:TYPES}
-  TGameScrollMenuPaintable = class(TBasicGameDemoPaintable, IColorChangeListener, IEventListenerInterface)
-  public
-    function JavaObject: TObject;
-        constructor Create(mainDemoStatePaintable: TPaintable; ownershipPaintable: TPaintable; helpPaintableInterface: TPaintable; basicColor_: TBasicColor);
-        procedure setState(state: Integer); virtual;
-        procedure onEvent(eventObject: TAllBinaryEventObject); virtual;
-        procedure setColor(basicColor_: TBasicColor); virtual;
-  end;
-
-implementation
-uses
-  MainGameDemoStatePaintable, ColorChangeEventHandler, FormPaintable, ScrollSelectionForm, ABStringComponent, ABTextItem;
-
-
-{AB:CODE}
-
-function TGameScrollMenuPaintable.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-    
-
-constructor TGameScrollMenuPaintable.Create(mainDemoStatePaintable: TPaintable; ownershipPaintable: TPaintable; helpPaintableInterface: TPaintable; basicColor_: TBasicColor);
-begin
-        inherited Create(mainDemoStatePaintable, ownershipPaintable, helpPaintableInterface);
-        Self.setColor(basicColor_);
-        TColorChangeEventHandler.getInstance().addListenerInterface(Self);
-end;
-    
-
-procedure TGameScrollMenuPaintable.setState(state: Integer);
-begin
-        Self.setCurrentStatePaintable(Self.getMainDemoStatePaintable());
-end;
-    
-
-procedure TGameScrollMenuPaintable.onEvent(eventObject: TAllBinaryEventObject);
-begin
-end;
-    
-
-procedure TGameScrollMenuPaintable.setColor(basicColor_: TBasicColor);
-var
-  mainGameDemoStatePaintable_: TMainGameDemoStatePaintable;
-  formPaintable_: TFormPaintable;
-  scrollSelectionForm_: TScrollSelectionForm;
-  item: TABTextItem;
-  stringComponent: TABStringComponent;
-  index: Integer;
-begin
-        mainGameDemoStatePaintable_ := TMainGameDemoStatePaintable(TJava.ToObject(Self.getMainDemoStatePaintable()));
-        formPaintable_ := TFormPaintable(TJava.ToObject(mainGameDemoStatePaintable_.getMenuPaintableInterface()));
-        scrollSelectionForm_ := TScrollSelectionForm(TJava.ToObject(formPaintable_.getForm()));
-        mainGameDemoStatePaintable_.getOwnershipPaintableInterface().setBasicColorP(basicColor_);
-        scrollSelectionForm_.setButtonBasicColor(basicColor_);
-        
-        
-        for index := (scrollSelectionForm_.size()) - (1) downto 0 do begin
-            item := TABTextItem(TJava.ToObject(scrollSelectionForm_.get(index)));
-            stringComponent := item.getLabelStringComponent();
-            if (stringComponent) <> (nil) then begin
-                stringComponent.setForegroundBasicColor(basicColor_);
-            end;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmScrllMnPntbl-setColor1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-mainGameDemoStatePaintable BINARY-DOUBLE.
+01 J-formPaintable BINARY-DOUBLE.
+01 J-scrollSelectionForm BINARY-DOUBLE.
+01 J-item BINARY-DOUBLE.
+01 J-stringComponent BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-basicColor RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-mainGameDemoStatePaintable = FUNCTION BscGmDmPntbl-gtMnDmSttPntbl0(J-THIS)
+        COMPUTE J-formPaintable = FUNCTION MnGmDmSttPntbl-gtMnPntblI76818(J-mainGameDemoStatePaintable)
+        COMPUTE J-scrollSelectionForm = FUNCTION FormPaintable-getForm0(J-formPaintable)
+        COMPUTE jtemp2 = FUNCTION MnGmDmSttPntbl-gtOwnrshpP12588(J-mainGameDemoStatePaintable)
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp2)
+        COMPUTE JDISCARD = FUNCTION ScrllSlctnFrm-stBttnBscClr1(J-scrollSelectionForm, J-basicColor)
+        CONTINUE
+        CONTINUE
+        COMPUTE J-index = (FUNCTION MOD((FUNCTION ABCustomForm-size0(J-scrollSelectionForm) - 1) + 2147483648, 4294967296) - 2147483648)
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index >= 0) EXIT PERFORM END-IF
+            COMPUTE J-item = FUNCTION ABCustomForm-get1(J-scrollSelectionForm, J-index)
+            COMPUTE J-stringComponent = FUNCTION ABTxtItm-gtLblStrngCmpnnt0(J-item)
+            IF (J-stringComponent NOT = 0)
+                COMPUTE JDISCARD = FUNCTION ABStrngCmpnnt-stFrgrndBscClr1(J-stringComponent, J-basicColor)
+            END-IF
+        END-PERFORM
+    GOBACK.
+END FUNCTION GmScrllMnPntbl-setColor1.
 

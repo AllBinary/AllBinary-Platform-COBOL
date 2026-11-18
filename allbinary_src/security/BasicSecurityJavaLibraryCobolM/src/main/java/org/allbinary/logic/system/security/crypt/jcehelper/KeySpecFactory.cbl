@@ -1,99 +1,163 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.system.security.crypt.jcehelper
+*> Java class KeySpecFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.logic.system.security.crypt.jcehelper
-unit KeySpecFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. KySpcFctry-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 KeySpecFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 KeySpecFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF KeySpecFactory-jset-instance = 0
+        MOVE 1 TO KeySpecFactory-jset-instance
+        COMPUTE KeySpecFactory-jcell-instance = FUNCTION KeySpecFactory-new0
+    END-IF
+    MOVE KeySpecFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION KySpcFctry-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. KySpcFctrystaticinstS98394.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 KeySpecFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION KySpcFctry-static-instance TO J-RESULT
+    MOVE J-VALUE TO KeySpecFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION KySpcFctrystaticinstS98394.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. KeySpecFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("KeySpecFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DES")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DESEDE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_BLOWFISH")
+    COMPUTE JVALUE = FUNCTION JR-STR("DES")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DES", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("DESede")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DESEDE", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Blowfish")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_BLOWFISH", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION KeySpecFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. KeySpecFactory-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION KySpcFctry-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION KeySpecFactory-getInstance0.
 
-type
-  {AB:TYPES}
-  TKeySpecFactory = class(TObject)
-  public
-    DES: string;
-    DESEDE: string;
-    BLOWFISH: string;
-    class var instance: TKeySpecFactory;
-    procedure InitFields;
-        class function getInstance: TKeySpecFactory; overload; static;
-        constructor Create;
-        function getInstance(algorithm: string; keyData: TArray<ShortInt>): TKeySpec; overload; virtual;
-  end;
-
-implementation
-uses
-  TsUtil, PreLogUtil, CommonStrings;
-
-
-{AB:CODE}
-
-procedure TKeySpecFactory.InitFields;
-begin
-  Self.DES := 'DES';
-  Self.DESEDE := 'DESede';
-  Self.BLOWFISH := 'Blowfish';
-end;
-    
-
-class function TKeySpecFactory.getInstance: TKeySpecFactory;
-begin
-        Exit(TKeySpecFactory.instance);
-end;
-    
-
-constructor TKeySpecFactory.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
-
-function TKeySpecFactory.getInstance(algorithm: string; keyData: TArray<ShortInt>): TKeySpec;
-var
-  tsUtil_: TTsUtil;
-  commonStrings_: TCommonStrings;
-begin
-        try
-            tsUtil_ := TTsUtil.getInstance();
-            if (tsUtil_.compareTo(algorithm, Self.DES)) = (0) then begin
-                Exit(TDESKeySpec.Create(keyData));
-            end else if (tsUtil_.compareTo(algorithm, Self.DESEDE)) = (0) then begin
-                Exit(TDESedeKeySpec.Create(keyData));
-            end else begin
-                raise SysUtils.Exception.Create('');
-            end;
-        except
-            on e: SysUtils.Exception do begin
-            commonStrings_ := TCommonStrings.getInstance();
-            TPreLogUtil.putOE(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.GET_INSTANCE, TJava.Box(e));
-            raise SysUtils.Exception.Create('');
-            end;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TKeySpecFactory.instance := TKeySpecFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. KeySpecFactory-getInstance2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-tsUtil BINARY-DOUBLE.
+01 J-commonStrings BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-algorithm BINARY-DOUBLE.
+01 J-keyData BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-algorithm J-keyData RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE J-tsUtil = FUNCTION TsUtil-getInstance0
+            IF (FUNCTION TsUtil-compareTo2(J-tsUtil, J-algorithm, FUNCTION JR-GET(J-THIS, "f_DES")) = 0)
+                COMPUTE J-RESULT = FUNCTION DESKeySpec-new1(J-keyData)
+                GOBACK
+            ELSE
+                IF (FUNCTION TsUtil-compareTo2(J-tsUtil, J-algorithm, FUNCTION JR-GET(J-THIS, "f_DESEDE")) = 0)
+                COMPUTE J-RESULT = FUNCTION DESedeKeySpec-new1(J-keyData)
+                GOBACK
+            ELSE
+                COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+            END-IF
+            END-IF
+    GOBACK.
+END FUNCTION KeySpecFactory-getInstance2.
 

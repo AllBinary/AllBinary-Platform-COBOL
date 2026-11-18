@@ -1,163 +1,426 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.input
+*> Java class J2MEKeyFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.input
-unit J2MEKeyFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. J2MEKyFctry-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 J2MEKeyFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 J2MEKeyFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF J2MEKeyFactory-jset-instance = 0
+        MOVE 1 TO J2MEKeyFactory-jset-instance
+        COMPUTE J2MEKeyFactory-jcell-instance = FUNCTION J2MEKeyFactory-new0
+    END-IF
+    MOVE J2MEKeyFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION J2MEKyFctry-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. J2MEKyFctrystaticinsS71778.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 J2MEKeyFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION J2MEKyFctry-static-instance TO J-RESULT
+    MOVE J-VALUE TO J2MEKeyFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION J2MEKyFctrystaticinsS71778.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. J2MEKeyFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("J2MEKeyFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameKeyFactory")
+    COMPUTE JVALUE = FUNCTION GameKeyFactory-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameKeyFactory", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION J2MEKeyFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameKeyFactory, Input;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. J2MEKeyFactory-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION J2MEKyFctry-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION J2MEKeyFactory-getInstance0.
 
-type
-  {AB:TYPES}
-  TJ2MEKeyFactory = class(TObject)
-  public
-    gameKeyFactory: TGameKeyFactory;
-    class var instance: TJ2MEKeyFactory;
-    procedure InitFields;
-        class function getInstance: TJ2MEKeyFactory; static;
-        constructor Create;
-        procedure init; virtual;
-        function isSubmission(input_: TInput): Boolean; virtual;
-        function isDelete(input_: TInput): Boolean; virtual;
-        function isBackSpace(input_: TInput): Boolean; virtual;
-        function isUp(input_: TInput): Boolean; virtual;
-        function isDown(input_: TInput): Boolean; virtual;
-        function isLeft(input_: TInput): Boolean; virtual;
-        function isRight(input_: TInput): Boolean; virtual;
-        function isEnter(input_: TInput): Boolean; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. J2MEKeyFactory-init0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameKeyArray BINARY-DOUBLE.
+01 J-inputFactory BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-gameKeyArray = FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION
+        JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION
+        JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-NEW-ARRAY(JZERO), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_DOWN")), FUNCTION JR-GET(FUNCTION
+        JR-GET(J-THIS, "f_gameKeyFactory"), "f_FIRE")), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_GAME_A")), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_GAME_B")), FUNCTION JR-GET(FUNCTION
+        JR-GET(J-THIS, "f_gameKeyFactory"), "f_GAME_C")), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_GAME_D")), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_KEY_NUM0")), FUNCTION JR-GET(FUNCTION
+        JR-GET(J-THIS, "f_gameKeyFactory"), "f_KEY_NUM1")), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_KEY_NUM2")), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_KEY_NUM3")), FUNCTION JR-GET(FUNCTION
+        JR-GET(J-THIS, "f_gameKeyFactory"), "f_KEY_NUM4")), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_KEY_NUM5")), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_KEY_NUM6")), FUNCTION JR-GET(FUNCTION
+        JR-GET(J-THIS, "f_gameKeyFactory"), "f_KEY_NUM7")), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_KEY_NUM8")), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_KEY_NUM9")), FUNCTION JR-GET(FUNCTION
+        JR-GET(J-THIS, "f_gameKeyFactory"), "f_KEY_POUND")), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_KEY_STAR")), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_LEFT")), FUNCTION JR-GET(FUNCTION
+        JR-GET(J-THIS, "f_gameKeyFactory"), "f_LEVEL_DOWN")), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_LEVEL_UP")), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_NONE")), FUNCTION JR-GET(FUNCTION
+        JR-GET(J-THIS, "f_gameKeyFactory"), "f_RIGHT")), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_UP"))
+        COMPUTE J-inputFactory = FUNCTION InputFactory-getInstance0
+        COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp1 = J-index
+        COMPUTE J-index = FUNCTION JR-ARRAY-LENGTH(J-gameKeyArray)
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            MOVE 0 TO JFIRST1
+            IF NOT (jtemp1 >= 0) EXIT PERFORM END-IF
+            COMPUTE JDISCARD = FUNCTION InputFactory-add2(J-inputFactory, FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(J-gameKeyArray, J-index)), FUNCTION JR-ARRAY-GET(J-gameKeyArray, J-index))
+        END-PERFORM
+    GOBACK.
+END FUNCTION J2MEKeyFactory-init0.
 
-implementation
-uses
-  GameKey, InputFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. J2MEKeyFactory-isSubmission1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-input BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-input RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (J-input = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_FIRE"))
+            COMPUTE J-RESULT = 1
+            GOBACK
+        END-IF
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION J2MEKeyFactory-isSubmission1.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. J2MEKeyFactory-isDelete1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-input BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-input RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (J-input = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_GAME_D"))
+            COMPUTE J-RESULT = 1
+            GOBACK
+        END-IF
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION J2MEKeyFactory-isDelete1.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. J2MEKeyFactory-isBackSpace1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-input BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-input RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION J2MEKeyFactory-isBackSpace1.
 
-procedure TJ2MEKeyFactory.InitFields;
-begin
-  Self.gameKeyFactory := TGameKeyFactory.getInstance();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. J2MEKeyFactory-isUp1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-input BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-input RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (J-input = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_UP"))
+            COMPUTE J-RESULT = 1
+            GOBACK
+        END-IF
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION J2MEKeyFactory-isUp1.
 
-class function TJ2MEKeyFactory.getInstance: TJ2MEKeyFactory;
-begin
-        Exit(TJ2MEKeyFactory.instance);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. J2MEKeyFactory-isDown1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-input BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-input RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (J-input = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_DOWN"))
+            COMPUTE J-RESULT = 1
+            GOBACK
+        END-IF
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION J2MEKeyFactory-isDown1.
 
-constructor TJ2MEKeyFactory.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. J2MEKeyFactory-isLeft1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-input BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-input RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (J-input = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_LEFT"))
+            COMPUTE J-RESULT = 1
+            GOBACK
+        END-IF
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION J2MEKeyFactory-isLeft1.
 
-procedure TJ2MEKeyFactory.init;
-var
-  gameKeyArray: TArray<TGameKey>;
-  inputFactory_: TInputFactory;
-  index: Integer;
-begin
-        gameKeyArray := TArray<TGameKey>.Create(Self.gameKeyFactory.DOWN, Self.gameKeyFactory.FIRE, Self.gameKeyFactory.GAME_A, Self.gameKeyFactory.GAME_B, Self.gameKeyFactory.GAME_C, Self.gameKeyFactory.GAME_D, Self.gameKeyFactory.KEY_NUM0, Self.gameKeyFactory.KEY_NUM1, Self.gameKeyFactory.KEY_NUM2, Self.gameKeyFactory.KEY_NUM3, Self.gameKeyFactory.KEY_NUM4, Self.gameKeyFactory.KEY_NUM5, Self.gameKeyFactory.KEY_NUM6, Self.gameKeyFactory.KEY_NUM7, Self.gameKeyFactory.KEY_NUM8, Self.gameKeyFactory.KEY_NUM9, Self.gameKeyFactory.KEY_POUND, Self.gameKeyFactory.KEY_STAR, Self.gameKeyFactory.LEFT, Self.gameKeyFactory.LEVEL_DOWN, Self.gameKeyFactory.LEVEL_UP, Self.gameKeyFactory.NONE, Self.gameKeyFactory.RIGHT, Self.gameKeyFactory.UP);
-        inputFactory_ := TInputFactory.getInstance();
-        index := System.Length(gameKeyArray);
-        while (TJava.PreDec(index)) >= (0) do begin
-            inputFactory_.add(gameKeyArray[index].getId(), gameKeyArray[index]);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. J2MEKeyFactory-isRight1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-input BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-input RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (J-input = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_RIGHT"))
+            COMPUTE J-RESULT = 1
+            GOBACK
+        END-IF
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION J2MEKeyFactory-isRight1.
 
-function TJ2MEKeyFactory.isSubmission(input_: TInput): Boolean;
-begin
-        if (input_) = (Self.gameKeyFactory.FIRE) then begin
-            Exit(True);
-        end;
-        Exit(False);
-end;
-    
-
-function TJ2MEKeyFactory.isDelete(input_: TInput): Boolean;
-begin
-        if (input_) = (Self.gameKeyFactory.GAME_D) then begin
-            Exit(True);
-        end;
-        Exit(False);
-end;
-    
-
-function TJ2MEKeyFactory.isBackSpace(input_: TInput): Boolean;
-begin
-        Exit(False);
-end;
-    
-
-function TJ2MEKeyFactory.isUp(input_: TInput): Boolean;
-begin
-        if (input_) = (Self.gameKeyFactory.UP) then begin
-            Exit(True);
-        end;
-        Exit(False);
-end;
-    
-
-function TJ2MEKeyFactory.isDown(input_: TInput): Boolean;
-begin
-        if (input_) = (Self.gameKeyFactory.DOWN) then begin
-            Exit(True);
-        end;
-        Exit(False);
-end;
-    
-
-function TJ2MEKeyFactory.isLeft(input_: TInput): Boolean;
-begin
-        if (input_) = (Self.gameKeyFactory.LEFT) then begin
-            Exit(True);
-        end;
-        Exit(False);
-end;
-    
-
-function TJ2MEKeyFactory.isRight(input_: TInput): Boolean;
-begin
-        if (input_) = (Self.gameKeyFactory.RIGHT) then begin
-            Exit(True);
-        end;
-        Exit(False);
-end;
-    
-
-function TJ2MEKeyFactory.isEnter(input_: TInput): Boolean;
-begin
-        if (input_) = (Self.gameKeyFactory.FIRE) then begin
-            Exit(True);
-        end;
-        Exit(False);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TJ2MEKeyFactory.instance := TJ2MEKeyFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. J2MEKeyFactory-isEnter1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-input BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-input RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (J-input = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_FIRE"))
+            COMPUTE J-RESULT = 1
+            GOBACK
+        END-IF
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION J2MEKeyFactory-isEnter1.
 

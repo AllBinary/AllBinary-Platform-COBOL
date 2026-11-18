@@ -1,62 +1,100 @@
-// Generated Code Do Not Modify
-// package org.allbinary.game.layer.weapon
-unit TempExplosionWeaponLayer;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.layer.weapon
+*> Java class TempExplosionWeaponLayer
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TempExplosionWeaponLayer-new6.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-name BINARY-DOUBLE.
+01 J-movement BINARY-DOUBLE.
+01 J-animationInterface BINARY-DOUBLE.
+01 J-rectangle BINARY-DOUBLE.
+01 J-viewPosition BINARY-DOUBLE.
+01 J-timeDelay BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-name J-movement J-animationInterface J-rectangle J-viewPosition J-timeDelay RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("TempExplosionWeaponLayer")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_weaponProperties")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_timeDelayHelper")
+    COMPUTE jtemp1 = (0 - 1)
+    COMPUTE jtemp2 = (0 - 1)
+    COMPUTE jtemp3 = 0
+    COMPUTE jtemp4 = 1000
+    COMPUTE jtemp5 = (FUNCTION MOD(FUNCTION INTEGER-PART(0) + 32768, 65536) - 32768)
+    COMPUTE JVALUE = FUNCTION WeaponProperties-new5(jtemp1, jtemp2, jtemp3, jtemp4, jtemp5)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_weaponProperties", JVALUE)
+    COMPUTE jtemp6 = 0
+    COMPUTE JVALUE = FUNCTION TimeDelayHelper-new1(jtemp6)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_timeDelayHelper", JVALUE)
+        COMPUTE jtemp7 = (0 - 1)
+        CONTINUE
+        COMPUTE JVALUE = J-timeDelay
+        COMPUTE JDISCARD = FUNCTION JR-SET(FUNCTION JR-GET(J-THIS, "f_timeDelayHelper"), "f_delay", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION TempExplosionWeaponLayer-new6.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Animation, WeaponProperties, Rectangle, AllBinaryLayerManager, Movement, TimeDelayHelper, ViewPositionBase, SimpleWeaponLayer;
-
-type
-  {AB:TYPES}
-  TTempExplosionWeaponLayer = class(TSimpleWeaponLayer)
-  public
-    weaponProperties: TWeaponProperties;
-    timeDelayHelper: TTimeDelayHelper;
-    procedure InitFields;
-        constructor Create(name: string; movement_: TMovement; animationInterface: TAnimation; rectangle_: TRectangle; viewPosition: TViewPositionBase; timeDelay: Integer);
-        procedure processTick(allBinaryLayerManager_: TAllBinaryLayerManager); override;
-  end;
-
-implementation
-uses
-  RemoteInfo, GameTickTimeDelayHelperFactory;
-
-
-{AB:CODE}
-
-procedure TTempExplosionWeaponLayer.InitFields;
-begin
-  Self.weaponProperties := TWeaponProperties.Create(-1, -1, 0, 1000, SmallInt(0));
-  Self.timeDelayHelper := TTimeDelayHelper.Create(0);
-end;
-    
-
-constructor TTempExplosionWeaponLayer.Create(name: string; movement_: TMovement; animationInterface: TAnimation; rectangle_: TRectangle; viewPosition: TViewPositionBase; timeDelay: Integer);
-begin
-        inherited Create(name, TRemoteInfo.REMOTE_INFO, -1, movement_, animationInterface, TSimpleWeaponLayer.createDestroyed(), rectangle_, viewPosition);
-        InitFields;
-        Self.timeDelayHelper.delay := timeDelay;
-end;
-    
-
-// throws Exception
-procedure TTempExplosionWeaponLayer.processTick(allBinaryLayerManager_: TAllBinaryLayerManager);
-begin
-        if Self.timeDelayHelper.isTime(TGameTickTimeDelayHelperFactory.getInstance().startTime) then begin
-            Self.getCollidableInferface().collide(Self, Self);
-            Self.totalDamage := (Self.getInitDamage()) + (1);
-        end;
-        inherited processTick(allBinaryLayerManager_);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TmpExplsnWpnLyr-processTick1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryLayerManager BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp8 = FUNCTION GmTckTmDlyHlprFctry-gtInstnc0
+        IF (FUNCTION TimeDelayHelper-isTime1(FUNCTION JR-GET(J-THIS, "f_timeDelayHelper"), FUNCTION JR-GET(jtemp8, "f_startTime")) = 1)
+            COMPUTE jtemp9 = FUNCTION ClldblCmpstLyr-gtClldblInfrfc0(J-THIS)
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp9)
+            COMPUTE jtemp10 = 1
+            COMPUTE JVALUE = (FUNCTION MOD((FUNCTION WeaponLayer-getInitDamage0(J-THIS) + jtemp10) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_totalDamage", JVALUE)
+        END-IF
+        COMPUTE JDISCARD = FUNCTION WeaponLayer-processTick1(J-THIS, J-allBinaryLayerManager)
+    GOBACK.
+END FUNCTION TmpExplsnWpnLyr-processTick1.
 

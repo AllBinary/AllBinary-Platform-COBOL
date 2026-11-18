@@ -1,103 +1,105 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.midlet
+*> Java class ExitRunnable
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.midlet
-unit ExitRunnable;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Processor, LogUtil, CommonStrings, AllBinaryMidlet;
-
-type
-  {AB:TYPES}
-  TExitRunnable = class(TInterfacedObject, IRunnable)
-  public
-    logUtil: TLogUtil;
-    commonStrings: TCommonStrings;
-    midlet: TAllBinaryMidlet;
-    processor: TProcessor;
-    isProgress: Boolean;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(midlet: TAllBinaryMidlet; processor_: TProcessor; isProgress: Boolean);
-        procedure run; virtual;
-  end;
-
-implementation
-uses
-  NullCanvas;
-
-
-{AB:CODE}
-
-procedure TExitRunnable.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.commonStrings := TCommonStrings.getInstance();
-  
-  
-  
-end;
-
-function TExitRunnable.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ExitRunnable-new3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-midlet BINARY-DOUBLE.
+01 J-processor BINARY-DOUBLE.
+01 J-isProgress BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-midlet J-processor J-isProgress RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ExitRunnable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_midlet")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_processor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_isProgress")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
     
-
-constructor TExitRunnable.Create(midlet: TAllBinaryMidlet; processor_: TProcessor; isProgress: Boolean);
-begin
-    inherited Create;
-    InitFields;
-        Self.midlet := midlet;
-        Self.isProgress := isProgress;
-        Self.processor := processor_;
-end;
     
+    
+        COMPUTE JVALUE = J-midlet
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_midlet", JVALUE)
+        COMPUTE JVALUE = J-isProgress
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_isProgress", JVALUE)
+        COMPUTE JVALUE = J-processor
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_processor", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ExitRunnable-new3.
 
-procedure TExitRunnable.run;
-begin
-        try
-            Self.logUtil.putF(Self.commonStrings.START_RUNNABLE, TJava.Box(Self), Self.commonStrings.RUN);
-            Self.midlet.destroyAppInRunnable(False, Self.isProgress);
-            Self.midlet.setDisplay(TNullCanvas.NULL_CANVAS);
-            Self.midlet.notifyDestroyed();
-            Self.logUtil.putF(Self.commonStrings.END_RUNNABLE, TJava.Box(Self), Self.commonStrings.RUN);
-            Self.processor.process();
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.RUN, TJava.Box(e));
-            try
-                Self.processor.process();
-            except
-                on e2: SysUtils.Exception do begin
-                Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.RUN, TJava.Box(e));
-                end;
-            end;
-            end;
-        end;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ExitRunnable-run0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_START_RUNNABLE"), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS,
+        "f_commonStrings"), "f_RUN"))
+            COMPUTE jtemp1 = 0
+            COMPUTE JDISCARD = FUNCTION AllBnryMdlt-dstryAppInRnnbl2(FUNCTION JR-GET(J-THIS, "f_midlet"), jtemp1, FUNCTION JR-GET(J-THIS, "f_isProgress"))
+            COMPUTE JDISCARD = FUNCTION AllBinaryMidlet-setDisplay1(FUNCTION JR-GET(J-THIS, "f_midlet"), FUNCTION NllCnvs-static-NULL-CANVAS)
+            COMPUTE JDISCARD = FUNCTION MIDlet-notifyDestroyed0(FUNCTION JR-GET(J-THIS, "f_midlet"))
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_END_RUNNABLE"), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"),
+        "f_RUN"))
+            COMPUTE JDISCARD = FUNCTION Processor-process0(FUNCTION JR-GET(J-THIS, "f_processor"))
+    GOBACK.
+END FUNCTION ExitRunnable-run0.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+PROGRAM-ID. ExitRunnable-run.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ExitRunnable-run0(J-THIS)
+    GOBACK.
+END PROGRAM ExitRunnable-run.
 

@@ -1,259 +1,658 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.system.security.licensing
+*> Java class ClientInformation
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.logic.system.security.licensing
-unit ClientInformation;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, TsUtil, GenericOperatingSystem, BasicArrayList, ABHashtable, AbeClientInformationInterface;
-
-type
-  {AB:TYPES}
-  //  This is the information sent to the license server
-  TClientInformation = class(TInterfacedObject, IAbeClientInformationInterface)
-  public
-    operatingSystemInterface: TGenericOperatingSystem;
-    tsUtil: TTsUtil;
-    name: string;
-    shortName: string;
-    version: string;
-    specialName: string;
-    hardSale: Boolean;
-    licenseId: string;
-    licenseServers: TBasicArrayList;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(name: string; version: string; specialName: string; shortName: string);
-        procedure init; virtual;
-        function getOperatingSystemInterface: TGenericOperatingSystem; virtual;
-        function getName: string; virtual;
-        function getSpecialName: string; virtual;
-        function getVersion: string; virtual;
-        function getLicenseId: string; virtual;
-        function getLicenseServers: TBasicArrayList; virtual;
-        function getLicenseServer(index: Integer): string; virtual;
-        function getNumberOfLicenseServers: Integer; virtual;
-        function toHashtable: TABHashtable<TObject, TObject>; virtual;
-        function isSameId(alicenseId: string): Boolean; virtual;
-        function isLargerOrDifferentServerList(list: TBasicArrayList): Boolean; virtual;
-        procedure setHardSale(hardSale: Boolean); virtual;
-        function isHardSale: Boolean; virtual;
-        procedure setOperatingSystemInterface(operatingSystemInterface: TGenericOperatingSystem); virtual;
-        procedure setLicenseId(licenseId: string); virtual;
-        procedure setLicenseServers(licenseServers: TBasicArrayList); virtual;
-        function toShortString: string; virtual;
-  end;
-
-implementation
-uses
-  AbeClientInformationData, StringMaker, StringUtil, HardwareInterface, SystemHardwareFactory, NoOperatingSystem, CommonSeps, BasicArrayListUtil, StdUtil;
-
-
-{AB:CODE}
-
-procedure TClientInformation.InitFields;
-begin
-  Self.operatingSystemInterface := TNoOperatingSystem.NO_OPERATING_SYSTEM;
-  Self.tsUtil := TTsUtil.getInstance();
-  
-  
-  
-  
-  Self.hardSale := True;
-  Self.licenseId := TStringUtil.getInstance().EMPTY_STRING;
-  Self.licenseServers := TBasicArrayListUtil.getInstance().getImmutableInstance();
-end;
-
-function TClientInformation.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClientInformation-new4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-name BINARY-DOUBLE.
+01 J-version BINARY-DOUBLE.
+01 J-specialName BINARY-DOUBLE.
+01 J-shortName BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-name J-version J-specialName J-shortName RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ClientInformation")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_operatingSystemInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_tsUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_name")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_shortName")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_version")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_specialName")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_hardSale")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_licenseId")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_licenseServers")
+    COMPUTE JVALUE = FUNCTION NOprtngSystm-sttc-NO-O33314
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_operatingSystemInterface", JVALUE)
+    COMPUTE JVALUE = FUNCTION TsUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_tsUtil", JVALUE)
     
-
-constructor TClientInformation.Create(name: string; version: string; specialName: string; shortName: string);
-begin
-    inherited Create;
-    InitFields;
-        Self.name := name;
-        Self.version := version;
-        Self.specialName := specialName;
-        Self.shortName := TStringMaker.Create().append(shortName).append(TCommonSeps.getInstance().UNDERSCORE).append(version).toString();
-        Self.init();
-end;
     
-
-procedure TClientInformation.init;
-begin
-end;
     
-
-function TClientInformation.getOperatingSystemInterface: TGenericOperatingSystem;
-begin
-        Exit(Self.operatingSystemInterface);
-end;
     
+    COMPUTE JVALUE = 1
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hardSale", JVALUE)
+    COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_EMPTY_STRING")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_licenseId", JVALUE)
+    COMPUTE jtemp2 = FUNCTION BscArryLstUtl-getInstance0
+    COMPUTE JVALUE = FUNCTION BscArryLstUtl-gtImmtblInstnc0(jtemp2)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_licenseServers", JVALUE)
+        COMPUTE JVALUE = J-name
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_name", JVALUE)
+        COMPUTE JVALUE = J-version
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_version", JVALUE)
+        COMPUTE JVALUE = J-specialName
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_specialName", JVALUE)
+        COMPUTE jtemp7 = FUNCTION CommonSeps-getInstance0
+        COMPUTE jtemp6 = FUNCTION StringMaker-new0
+        COMPUTE jtemp5 = FUNCTION StringMaker-append1(jtemp6, J-shortName)
+        COMPUTE jtemp4 = FUNCTION StringMaker-append1(jtemp5, FUNCTION JR-GET(jtemp7, "f_UNDERSCORE"))
+        COMPUTE jtemp3 = FUNCTION StringMaker-append1(jtemp4, J-version)
+        COMPUTE JVALUE = FUNCTION JR-TO-STRING(jtemp3)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_shortName", JVALUE)
+        COMPUTE JDISCARD = FUNCTION ClientInformation-init0(J-THIS)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ClientInformation-new4.
 
-function TClientInformation.getName: string;
-begin
-        Exit(Self.name);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClientInformation-init0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION ClientInformation-init0.
 
-function TClientInformation.getSpecialName: string;
-begin
-        Exit(Self.specialName);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClntInfrmtn-gtOprtngSystm31891.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_operatingSystemInterface")
+        GOBACK
+    GOBACK.
+END FUNCTION ClntInfrmtn-gtOprtngSystm31891.
 
-function TClientInformation.getVersion: string;
-begin
-        Exit(Self.version);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClientInformation-getName0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_name")
+        GOBACK
+    GOBACK.
+END FUNCTION ClientInformation-getName0.
 
-function TClientInformation.getLicenseId: string;
-begin
-        Exit(Self.licenseId);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClntInfrmtn-getSpecialName0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_specialName")
+        GOBACK
+    GOBACK.
+END FUNCTION ClntInfrmtn-getSpecialName0.
 
-function TClientInformation.getLicenseServers: TBasicArrayList;
-begin
-        Exit(Self.licenseServers);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClientInformation-getVersion0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_version")
+        GOBACK
+    GOBACK.
+END FUNCTION ClientInformation-getVersion0.
 
-function TClientInformation.getLicenseServer(index: Integer): string;
-begin
-        Exit(TJava.UnboxString(TJava.ToObject(Self.licenseServers.objectArray[index])));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClntInfrmtn-getLicenseId0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_licenseId")
+        GOBACK
+    GOBACK.
+END FUNCTION ClntInfrmtn-getLicenseId0.
 
-function TClientInformation.getNumberOfLicenseServers: Integer;
-begin
-        Exit(Self.licenseServers.size());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClntInfrmtn-getLicenseServers0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_licenseServers")
+        GOBACK
+    GOBACK.
+END FUNCTION ClntInfrmtn-getLicenseServers0.
 
-function TClientInformation.toHashtable: TABHashtable<TObject, TObject>;
-var
-  abeClientInformationData_: TAbeClientInformationData;
-  genericOperatingSystem_: TGenericOperatingSystem;
-  clientInfoHashtable: TABHashtable<TObject, TObject>;
-  hardwareInterface_: IHardwareInterface;
-  hardwareString: string;
-begin
-        abeClientInformationData_ := TAbeClientInformationData.getInstance();
-        genericOperatingSystem_ := Self.getOperatingSystemInterface();
-        clientInfoHashtable := TStdUtil.getInstance().createHashtable();
-        clientInfoHashtable.put(TJava.Box(abeClientInformationData_.NAME), TJava.Box(Self.name));
-        clientInfoHashtable.put(TJava.Box(abeClientInformationData_.VERSION), TJava.Box(Self.version));
-        clientInfoHashtable.put(TJava.Box(abeClientInformationData_.SPECIALNAME), TJava.Box(Self.specialName));
-        clientInfoHashtable.put(TJava.Box(abeClientInformationData_.LICENSEID), TJava.Box(Self.getLicenseId()));
-        clientInfoHashtable.put(TJava.Box(abeClientInformationData_.OSNAME), TJava.Box(genericOperatingSystem_.getName()));
-        clientInfoHashtable.put(TJava.Box(abeClientInformationData_.OSARCH), TJava.Box(genericOperatingSystem_.getArch()));
-        clientInfoHashtable.put(TJava.Box(abeClientInformationData_.OSVERSION), TJava.Box(genericOperatingSystem_.getVersion()));
-        clientInfoHashtable.put(TJava.Box(abeClientInformationData_.OS), TJava.Box(genericOperatingSystem_.toString()));
-        hardwareInterface_ := TSystemHardwareFactory.getInstance().getInstance(genericOperatingSystem_);
-        hardwareString := TJava.ToString(TJava.ToObject(hardwareInterface_));
-        clientInfoHashtable.put(TJava.Box(abeClientInformationData_.HARDWARE), TJava.Box(hardwareString));
-        Exit(clientInfoHashtable);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClntInfrmtn-getLicenseServer1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-index RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_licenseServers"), "f_objectArray"), J-index)
+        GOBACK
+    GOBACK.
+END FUNCTION ClntInfrmtn-getLicenseServer1.
 
-function TClientInformation.isSameId(alicenseId: string): Boolean;
-begin
-        if (Self.tsUtil.compareTo(Self.getLicenseId(), alicenseId)) = (0) then begin
-            Exit(True);
-        end else begin
-            Exit(False);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClntInfrmtn-gtNmbrOfLcnsSrvrs0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_licenseServers"))
+        GOBACK
+    GOBACK.
+END FUNCTION ClntInfrmtn-gtNmbrOfLcnsSrvrs0.
 
-function TClientInformation.isLargerOrDifferentServerList(list: TBasicArrayList): Boolean;
-var
-  size: Integer;
-  currentSize: Integer;
-  newServerName: string;
-  nextOldServerName: string;
-  index2: Integer;
-  index: Integer;
-begin
-        size := (list.size()) - (1);
-        currentSize := (Self.licenseServers.size()) - (1);
-        if (size) > (currentSize) then begin
-            Exit(True);
-        end;
-        for index := size downto 0 do begin
-            newServerName := TJava.UnboxString(TJava.ToObject(list.objectArray[index]));
-            for index2 := currentSize downto 0 do begin
-                nextOldServerName := TJava.UnboxString(TJava.ToObject(Self.licenseServers.objectArray[index]));
-                if (Self.tsUtil.compareTo(newServerName, nextOldServerName)) <> (0) then begin
-                    Exit(True);
-                end;
-            end;
-        end;
-        Exit(False);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClientInformation-toHashtable0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-abeClientInformationData BINARY-DOUBLE.
+01 J-genericOperatingSystem BINARY-DOUBLE.
+01 J-clientInfoHashtable BINARY-DOUBLE.
+01 J-hardwareInterface BINARY-DOUBLE.
+01 J-hardwareString BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-abeClientInformationData = FUNCTION AbClntInfrmtnDt-getInstance0
+        COMPUTE J-genericOperatingSystem = FUNCTION ClntInfrmtn-gtOprtngSystm31891(J-THIS)
+        COMPUTE jtemp8 = FUNCTION StdUtil-getInstance0
+        COMPUTE J-clientInfoHashtable = FUNCTION StdUtil-createHashtable0(jtemp8)
+        COMPUTE JDISCARD = FUNCTION Hashtable-put2(J-clientInfoHashtable, FUNCTION JR-GET(J-abeClientInformationData, "f_NAME"), FUNCTION JR-GET(J-THIS, "f_name"))
+        COMPUTE JDISCARD = FUNCTION Hashtable-put2(J-clientInfoHashtable, FUNCTION JR-GET(J-abeClientInformationData, "f_VERSION"), FUNCTION JR-GET(J-THIS, "f_version"))
+        COMPUTE JDISCARD = FUNCTION Hashtable-put2(J-clientInfoHashtable, FUNCTION JR-GET(J-abeClientInformationData, "f_SPECIALNAME"), FUNCTION JR-GET(J-THIS, "f_specialName"))
+        COMPUTE JDISCARD = FUNCTION Hashtable-put2(J-clientInfoHashtable, FUNCTION JR-GET(J-abeClientInformationData, "f_LICENSEID"), FUNCTION ClntInfrmtn-getLicenseId0(J-THIS))
+        COMPUTE JDISCARD = FUNCTION Hashtable-put2(J-clientInfoHashtable, FUNCTION JR-GET(J-abeClientInformationData, "f_OSNAME"), FUNCTION GnrcOprtngSystm-getName0(J-genericOperatingSystem))
+        COMPUTE JDISCARD = FUNCTION Hashtable-put2(J-clientInfoHashtable, FUNCTION JR-GET(J-abeClientInformationData, "f_OSARCH"), FUNCTION GnrcOprtngSystm-getArch0(J-genericOperatingSystem))
+        COMPUTE JDISCARD = FUNCTION Hashtable-put2(J-clientInfoHashtable, FUNCTION JR-GET(J-abeClientInformationData, "f_OSVERSION"), FUNCTION GnrcOprtngSystm-getVersion0(J-genericOperatingSystem))
+        COMPUTE JDISCARD = FUNCTION Hashtable-put2(J-clientInfoHashtable, FUNCTION JR-GET(J-abeClientInformationData, "f_OS"), FUNCTION JR-TO-STRING(J-genericOperatingSystem))
+        COMPUTE jtemp9 = FUNCTION SystmHrdwrFctry-getInstance0
+        COMPUTE J-hardwareInterface = FUNCTION SystmHrdwrFctry-getInstance1(jtemp9, J-genericOperatingSystem)
+        COMPUTE J-hardwareString = FUNCTION JR-TO-STRING(J-hardwareInterface)
+        COMPUTE JDISCARD = FUNCTION Hashtable-put2(J-clientInfoHashtable, FUNCTION JR-GET(J-abeClientInformationData, "f_HARDWARE"), J-hardwareString)
+        COMPUTE J-RESULT = J-clientInfoHashtable
+        GOBACK
+    GOBACK.
+END FUNCTION ClientInformation-toHashtable0.
 
-procedure TClientInformation.setHardSale(hardSale: Boolean);
-begin
-        Self.hardSale := hardSale;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClientInformation-isSameId1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-alicenseId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-alicenseId RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION TsUtil-compareTo2(FUNCTION JR-GET(J-THIS, "f_tsUtil"), FUNCTION ClntInfrmtn-getLicenseId0(J-THIS), J-alicenseId) = 0)
+            COMPUTE J-RESULT = 1
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = 0
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION ClientInformation-isSameId1.
 
-function TClientInformation.isHardSale: Boolean;
-begin
-        Exit(Self.hardSale);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClntInfrmtn-isLrgrOrDffrn40531.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-size BINARY-DOUBLE.
+01 J-currentSize BINARY-DOUBLE.
+01 J-newServerName BINARY-DOUBLE.
+01 J-nextOldServerName BINARY-DOUBLE.
+01 J-index2 BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-list RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-size = (FUNCTION MOD((FUNCTION BasicArrayList-size0(J-list) - 1) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE J-currentSize = (FUNCTION MOD((FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_licenseServers")) - 1) + 2147483648, 4294967296) - 2147483648)
+        IF (J-size > J-currentSize)
+            COMPUTE J-RESULT = 1
+            GOBACK
+        END-IF
+        COMPUTE J-index = J-size
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index >= 0) EXIT PERFORM END-IF
+            COMPUTE J-newServerName = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
+            COMPUTE J-index2 = J-currentSize
+            MOVE 1 TO JFIRST2
+            PERFORM FOREVER
+                IF JFIRST2 = 0
+                    COMPUTE J-index2 = (FUNCTION MOD(J-index2 - 1 + 2147483648, 4294967296) - 2147483648)
+                END-IF
+                MOVE 0 TO JFIRST2
+                IF NOT (J-index2 >= 0) EXIT PERFORM END-IF
+                COMPUTE J-nextOldServerName = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_licenseServers"), "f_objectArray"), J-index)
+                IF (FUNCTION TsUtil-compareTo2(FUNCTION JR-GET(J-THIS, "f_tsUtil"), J-newServerName, J-nextOldServerName) NOT = 0)
+                    COMPUTE J-RESULT = 1
+                    GOBACK
+                END-IF
+            END-PERFORM
+        END-PERFORM
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION ClntInfrmtn-isLrgrOrDffrn40531.
 
-procedure TClientInformation.setOperatingSystemInterface(operatingSystemInterface: TGenericOperatingSystem);
-begin
-        Self.operatingSystemInterface := operatingSystemInterface;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClientInformation-setHardSale1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-hardSale BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-hardSale RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-hardSale
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hardSale", JVALUE)
+    GOBACK.
+END FUNCTION ClientInformation-setHardSale1.
 
-procedure TClientInformation.setLicenseId(licenseId: string);
-begin
-        Self.licenseId := licenseId;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClientInformation-isHardSale0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_hardSale")
+        GOBACK
+    GOBACK.
+END FUNCTION ClientInformation-isHardSale0.
 
-procedure TClientInformation.setLicenseServers(licenseServers: TBasicArrayList);
-begin
-        Self.licenseServers := licenseServers;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClntInfrmtn-stOprtngSystm78907.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-operatingSystemInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-operatingSystemInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-operatingSystemInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_operatingSystemInterface", JVALUE)
+    GOBACK.
+END FUNCTION ClntInfrmtn-stOprtngSystm78907.
 
-function TClientInformation.toShortString: string;
-begin
-        Exit(Self.shortName);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClntInfrmtn-setLicenseId1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-licenseId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-licenseId RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-licenseId
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_licenseId", JVALUE)
+    GOBACK.
+END FUNCTION ClntInfrmtn-setLicenseId1.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClntInfrmtn-setLicenseServers1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-licenseServers BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-licenseServers RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-licenseServers
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_licenseServers", JVALUE)
+    GOBACK.
+END FUNCTION ClntInfrmtn-setLicenseServers1.
 
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClntInfrmtn-toShortString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_shortName")
+        GOBACK
+    GOBACK.
+END FUNCTION ClntInfrmtn-toShortString0.
 

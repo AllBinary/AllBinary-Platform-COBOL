@@ -1,62 +1,113 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.configuration.persistance
+*> Java class GameConfigurationPersistanceSingleton
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.configuration.persistance
-unit GameConfigurationPersistanceSingleton;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtnPrsstncSngltn-66085.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameConfigurationPersistanceSingleton-jcell-GAME_PERSISTANCE BINARY-DOUBLE EXTERNAL.
+01 GameConfigurationPersistanceSingleton-jset-GAME_PERSISTANCE BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GameConfigurationPersistanceSingleton-jset-GAME_PERSISTANCE = 0
+        MOVE 1 TO GameConfigurationPersistanceSingleton-jset-GAME_PERSISTANCE
+        COMPUTE GameConfigurationPersistanceSingleton-jcell-GAME_PERSISTANCE = FUNCTION GmCnfgrtnPrsstncSngltn-new0
+    END-IF
+    MOVE GameConfigurationPersistanceSingleton-jcell-GAME_PERSISTANCE TO J-RESULT
+    GOBACK.
+END FUNCTION GmCnfgrtnPrsstncSngltn-66085.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtnPrsstncSnglS37512.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameConfigurationPersistanceSingleton-jcell-GAME_PERSISTANCE BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GmCnfgrtnPrsstncSngltn-66085 TO J-RESULT
+    MOVE J-VALUE TO GameConfigurationPersistanceSingleton-jcell-GAME_PERSISTANCE
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GmCnfgrtnPrsstncSnglS37512.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtnPrsstncSngltn-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameConfigurationPersistanceSingleton")
+        COMPUTE jtemp1 = FUNCTION GmPrsstncStrngs-getInstance0
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GmCnfgrtnPrsstncSngltn-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, KeyValuePersistance;
-
-type
-  {AB:TYPES}
-  TGameConfigurationPersistanceSingleton = class(TKeyValuePersistance)
-  public
-    class var GAME_PERSISTANCE: TGameConfigurationPersistanceSingleton;
-        class function getInstance: TGameConfigurationPersistanceSingleton; static;
-        constructor Create;
-  end;
-
-implementation
-uses
-  GamePersistanceStrings;
-
-
-{AB:CODE}
-    
-
-class function TGameConfigurationPersistanceSingleton.getInstance: TGameConfigurationPersistanceSingleton;
-begin
-        Exit(TGameConfigurationPersistanceSingleton.GAME_PERSISTANCE);
-end;
-    
-
-constructor TGameConfigurationPersistanceSingleton.Create;
-begin
-        inherited Create(TGamePersistanceStrings.getInstance().SAVED_GAME_CONFIGURATION_RECORD_ID);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TGameConfigurationPersistanceSingleton.GAME_PERSISTANCE := TGameConfigurationPersistanceSingleton.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtnPrsstncSngltn-gt56870.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION GmCnfgrtnPrsstncSngltn-66085
+        GOBACK
+    GOBACK.
+END FUNCTION GmCnfgrtnPrsstncSngltn-gt56870.
 

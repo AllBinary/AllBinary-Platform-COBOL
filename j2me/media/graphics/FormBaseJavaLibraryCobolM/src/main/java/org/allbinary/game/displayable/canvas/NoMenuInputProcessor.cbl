@@ -1,90 +1,199 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.displayable.canvas
+*> Java class NoMenuInputProcessor
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.displayable.canvas
-unit NoMenuInputProcessor;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NMnInptPrcssr-sttc-SINGLETON.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 NoMenuInputProcessor-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+01 NoMenuInputProcessor-jset-SINGLETON BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF NoMenuInputProcessor-jset-SINGLETON = 0
+        MOVE 1 TO NoMenuInputProcessor-jset-SINGLETON
+        COMPUTE NoMenuInputProcessor-jcell-SINGLETON = FUNCTION NoMenuInputProcessor-new0
+    END-IF
+    MOVE NoMenuInputProcessor-jcell-SINGLETON TO J-RESULT
+    GOBACK.
+END FUNCTION NMnInptPrcssr-sttc-SINGLETON.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NMnInptPrcssrsttcSINS28125.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 NoMenuInputProcessor-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION NMnInptPrcssr-sttc-SINGLETON TO J-RESULT
+    MOVE J-VALUE TO NoMenuInputProcessor-jcell-SINGLETON
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION NMnInptPrcssrsttcSINS28125.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NoMenuInputProcessor-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("NoMenuInputProcessor")
+        COMPUTE jtemp1 = FUNCTION BscArryLstUtl-getInstance0
+        COMPUTE jtemp2 = (0 - 1)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION NoMenuInputProcessor-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameKeyEvent, MotionGestureEvent, BasicMenuInputProcessor;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NMnInptPrcssr-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION NMnInptPrcssr-sttc-SINGLETON
+        GOBACK
+    GOBACK.
+END FUNCTION NMnInptPrcssr-getInstance0.
 
-type
-  {AB:TYPES}
-  TNoMenuInputProcessor = class(TBasicMenuInputProcessor)
-  public
-    class var SINGLETON: TNoMenuInputProcessor;
-        class function getInstance: TNoMenuInputProcessor; static;
-        constructor Create;
-        procedure onDownGameKeyEvent(gameKeyEvent_: TGameKeyEvent); override;
-        procedure onUpGameKeyEvent(gameKeyEvent_: TGameKeyEvent); override;
-        procedure onMotionGestureEvent(motionGestureEvent_: TMotionGestureEvent); override;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NMnInptPrcssr-onDwnGmKyEvnt1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gameKeyEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION NMnInptPrcssr-onDwnGmKyEvnt1.
 
-implementation
-uses
-  NullCanvas, BasicArrayListUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NMnInptPrcssr-onUpGmKyEvnt1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gameKeyEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION NMnInptPrcssr-onUpGmKyEvnt1.
 
-
-{AB:CODE}
-    
-
-class function TNoMenuInputProcessor.getInstance: TNoMenuInputProcessor;
-begin
-        Exit(TNoMenuInputProcessor.SINGLETON);
-end;
-    
-
-constructor TNoMenuInputProcessor.Create;
-begin
-        inherited Create(TBasicArrayListUtil.getInstance().getImmutableInstance(), -1, TNullCanvas.NULL_CANVAS);
-end;
-    
-
-procedure TNoMenuInputProcessor.onDownGameKeyEvent(gameKeyEvent_: TGameKeyEvent);
-begin
-    TJava.MonitorEnter(Self);
-    try
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
-
-procedure TNoMenuInputProcessor.onUpGameKeyEvent(gameKeyEvent_: TGameKeyEvent);
-begin
-    TJava.MonitorEnter(Self);
-    try
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
-
-procedure TNoMenuInputProcessor.onMotionGestureEvent(motionGestureEvent_: TMotionGestureEvent);
-begin
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TNoMenuInputProcessor.SINGLETON := TNoMenuInputProcessor.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NMnInptPrcssr-onMtnGstrEvnt1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-motionGestureEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-motionGestureEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION NMnInptPrcssr-onMtnGstrEvnt1.
 

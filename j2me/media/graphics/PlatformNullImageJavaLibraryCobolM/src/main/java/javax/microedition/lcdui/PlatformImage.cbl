@@ -1,126 +1,383 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2022 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package javax.microedition.lcdui
-unit PlatformImage;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package javax.microedition.lcdui
+*> Java class PlatformImage
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlatformImage-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("PlatformImage")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION PlatformImage-new0.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlatformImage-getImage1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphicsSurface2 BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphicsSurface2 RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION NullImage-static-NULL-IMAGE
+        GOBACK
+    GOBACK.
+END FUNCTION PlatformImage-getImage1.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Image, Graphics;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlatformImage-getSurfaceWidth2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphicsSurface2 BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphicsSurface2 J-width RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = J-width
+        GOBACK
+    GOBACK.
+END FUNCTION PlatformImage-getSurfaceWidth2.
 
-type
-  {AB:TYPES}
-  // PlatformNullImageJavaLibrary
-  TPlatformImage = class(TObject)
-  public
-    constructor Create;
-        function getImage(graphicsSurface2: TObject): TObject; virtual;
-        function getSurfaceWidth(graphicsSurface2: TObject; width: Integer): Integer; virtual;
-        function getSurfaceHeight(graphicsSurface2: TObject; height: Integer): Integer; virtual;
-        function getWidth(image_: TImage; width: Integer): Integer; virtual;
-        function getHeight(image_: TImage; height: Integer): Integer; virtual;
-        function getGraphics(graphicsSurface: TObject; width: Integer; height: Integer; image_: TImage): TGraphics; virtual;
-        procedure drawImage(image_: TImage; x: Integer; y: Integer; anchor: Integer; g2: TGraphics; g: TObject); virtual;
-        procedure drawRegion(image_: TImage; x_src: Integer; y_src: Integer; width: Integer; height: Integer; transform: Integer; x_dst: Integer; y_dst: Integer; anchor: Integer; g: TGraphics); virtual;
-        procedure getRGB(argb: TArray<Integer>; offset: Integer; scanlength: Integer; x: Integer; y: Integer; width: Integer; height: Integer; image_: TImage); virtual;
-        procedure setRGB(argb: TArray<Integer>; offset: Integer; scanlength: Integer; x: Integer; y: Integer; width: Integer; height: Integer; image_: TImage); virtual;
-        function getData(image_: TImage): TArray<Integer>; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PltfrmImg-getSurfaceHeight2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphicsSurface2 BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphicsSurface2 J-height RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = J-height
+        GOBACK
+    GOBACK.
+END FUNCTION PltfrmImg-getSurfaceHeight2.
 
-implementation
-uses
-  NullImage, NullUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlatformImage-getWidth2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-image BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-image J-width RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = J-width
+        GOBACK
+    GOBACK.
+END FUNCTION PlatformImage-getWidth2.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlatformImage-getHeight2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-image BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-image J-height RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = J-height
+        GOBACK
+    GOBACK.
+END FUNCTION PlatformImage-getHeight2.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlatformImage-getGraphics4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphicsSurface BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-image BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphicsSurface J-width J-height J-image RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+    GOBACK.
+END FUNCTION PlatformImage-getGraphics4.
 
-constructor TPlatformImage.Create;
-begin
-  inherited Create;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlatformImage-drawImage6.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-image BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-anchor BINARY-DOUBLE.
+01 J-g2 BINARY-DOUBLE.
+01 J-g BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-image J-x J-y J-anchor J-g2 J-g RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION PlatformImage-drawImage6.
 
-function TPlatformImage.getImage(graphicsSurface2: TObject): TObject;
-begin
-        Exit(TJava.Box(TNullImage.NULL_IMAGE));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlatformImage-drawRegion10.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-image BINARY-DOUBLE.
+01 J-x_src BINARY-DOUBLE.
+01 J-y_src BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-transform BINARY-DOUBLE.
+01 J-x_dst BINARY-DOUBLE.
+01 J-y_dst BINARY-DOUBLE.
+01 J-anchor BINARY-DOUBLE.
+01 J-g BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-image J-x_src J-y_src J-width J-height J-transform J-x_dst J-y_dst J-anchor J-g RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION PlatformImage-drawRegion10.
 
-function TPlatformImage.getSurfaceWidth(graphicsSurface2: TObject; width: Integer): Integer;
-begin
-        Exit(width);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlatformImage-getRGB8.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-argb BINARY-DOUBLE.
+01 J-offset BINARY-DOUBLE.
+01 J-scanlength BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-image BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-argb J-offset J-scanlength J-x J-y J-width J-height J-image RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION PlatformImage-getRGB8.
 
-function TPlatformImage.getSurfaceHeight(graphicsSurface2: TObject; height: Integer): Integer;
-begin
-        Exit(height);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlatformImage-setRGB8.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-argb BINARY-DOUBLE.
+01 J-offset BINARY-DOUBLE.
+01 J-scanlength BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-image BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-argb J-offset J-scanlength J-x J-y J-width J-height J-image RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION PlatformImage-setRGB8.
 
-function TPlatformImage.getWidth(image_: TImage; width: Integer): Integer;
-begin
-        Exit(width);
-end;
-    
-
-function TPlatformImage.getHeight(image_: TImage; height: Integer): Integer;
-begin
-        Exit(height);
-end;
-    
-
-function TPlatformImage.getGraphics(graphicsSurface: TObject; width: Integer; height: Integer; image_: TImage): TGraphics;
-begin
-        raise SysUtils.Exception.Create('');
-end;
-    
-
-procedure TPlatformImage.drawImage(image_: TImage; x: Integer; y: Integer; anchor: Integer; g2: TGraphics; g: TObject);
-begin
-end;
-    
-
-procedure TPlatformImage.drawRegion(image_: TImage; x_src: Integer; y_src: Integer; width: Integer; height: Integer; transform: Integer; x_dst: Integer; y_dst: Integer; anchor: Integer; g: TGraphics);
-begin
-end;
-    
-
-procedure TPlatformImage.getRGB(argb: TArray<Integer>; offset: Integer; scanlength: Integer; x: Integer; y: Integer; width: Integer; height: Integer; image_: TImage);
-begin
-end;
-    
-
-procedure TPlatformImage.setRGB(argb: TArray<Integer>; offset: Integer; scanlength: Integer; x: Integer; y: Integer; width: Integer; height: Integer; image_: TImage);
-begin
-end;
-    
-
-function TPlatformImage.getData(image_: TImage): TArray<Integer>;
-begin
-        Exit(TNullUtil.getInstance().NULL_INT_ARRAY);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlatformImage-getData1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-image BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-image RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+        COMPUTE J-RESULT = FUNCTION JR-GET(jtemp1, "f_NULL_INT_ARRAY")
+        GOBACK
+    GOBACK.
+END FUNCTION PlatformImage-getData1.
 

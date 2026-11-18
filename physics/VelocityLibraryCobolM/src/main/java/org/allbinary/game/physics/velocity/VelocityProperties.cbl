@@ -1,243 +1,717 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.physics.velocity
+*> Java class VelocityProperties
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.physics.velocity
-unit VelocityProperties;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VlctyPrprts-sttc-NULL-98536.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 VelocityProperties-jcell-NULL_VELOCITY_PROPERTIES BINARY-DOUBLE EXTERNAL.
+01 VelocityProperties-jset-NULL_VELOCITY_PROPERTIES BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF VelocityProperties-jset-NULL_VELOCITY_PROPERTIES = 0
+        MOVE 1 TO VelocityProperties-jset-NULL_VELOCITY_PROPERTIES
+        COMPUTE jtemp1 = 0
+    COMPUTE jtemp2 = 0
+    COMPUTE VelocityProperties-jcell-NULL_VELOCITY_PROPERTIES = FUNCTION VelocityProperties-new2(jtemp1, jtemp2)
+    END-IF
+    MOVE VelocityProperties-jcell-NULL_VELOCITY_PROPERTIES TO J-RESULT
+    GOBACK.
+END FUNCTION VlctyPrprts-sttc-NULL-98536.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VlctyPrprtssttcNULL9S24982.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 VelocityProperties-jcell-NULL_VELOCITY_PROPERTIES BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION VlctyPrprts-sttc-NULL-98536 TO J-RESULT
+    MOVE J-VALUE TO VelocityProperties-jcell-NULL_VELOCITY_PROPERTIES
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION VlctyPrprtssttcNULL9S24982.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, BasicVelocityProperties, VelocityInterface, BasicVelocityInterface;
-
-type
-  {AB:TYPES}
-  TVelocityProperties = class(TBasicVelocityProperties, IVelocityInterface, IBasicVelocityInterface)
-  public
-    maxForwardVelocity: Integer;
-    maxReverseVelocity: Integer;
-    class var NULL_VELOCITY_PROPERTIES: TVelocityProperties;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(maxForwardVelocity: Integer; maxReverseVelocity: Integer);
-        function getMaxForwardVelocity: Integer; virtual;
-        procedure setMaxForwardVelocity(maxForwardVelocity: Integer); virtual;
-        function getMaxReverseVelocity: Integer; virtual;
-        procedure setMaxReverseVelocity(maxReverseVelocity: Integer); virtual;
-        procedure limitMaxXYForwardVelocity; virtual;
-        procedure limitMaxXYReverseVelocity; virtual;
-        procedure limitMaxYForwardVelocity; virtual;
-        procedure limitMaxYReverseVelocity; virtual;
-        procedure limitMaxXForwardVelocity; virtual;
-        procedure limitMaxXReverseVelocity; virtual;
-        function isOverXYMaxForwardVelocity: Boolean; virtual;
-        function isOverXYMaxReverseVelocity: Boolean; virtual;
-        procedure limitXYToForwardAndReverseMaxVelocity; virtual;
-        procedure limitMaxXYVelocity(maxVelocity: Integer); virtual;
-        procedure limitMaxPositiveYVelocity(maxVelocity: Integer); virtual;
-        procedure limitMaxNegativeYVelocity(maxVelocity: Integer); virtual;
-        procedure limitMaxYVelocity(maxVelocity: Integer); virtual;
-        procedure limitMaxXVelocity(maxVelocity: Integer); virtual;
-        function isOverXYMaxVelocity(maxVelocity: Integer): Boolean; virtual;
-        procedure setVelocityi(magnitude: Int64; angle: Integer; otherAngle: Integer); virtual;
-        procedure addVelocityi(magnitude: Int64; angle: Integer; otherAngle: Integer); virtual;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TVelocityProperties.InitFields;
-begin
-  
-  
-end;
-
-function TVelocityProperties.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VelocityProperties-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-maxForwardVelocity BINARY-DOUBLE.
+01 J-maxReverseVelocity BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-maxForwardVelocity J-maxReverseVelocity RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("VelocityProperties")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_maxForwardVelocity")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_maxReverseVelocity")
     
-
-constructor TVelocityProperties.Create(maxForwardVelocity: Integer; maxReverseVelocity: Integer);
-begin
-    inherited Create;
-    InitFields;
-        Self.setMaxForwardVelocity(maxForwardVelocity);
-        Self.setMaxReverseVelocity(maxReverseVelocity);
-end;
     
+        COMPUTE JDISCARD = FUNCTION VlctyPrprts-stMxFrwrdVlcty1(J-THIS, J-maxForwardVelocity)
+        COMPUTE JDISCARD = FUNCTION VlctyPrprts-stMxRvrsVlcty1(J-THIS, J-maxReverseVelocity)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION VelocityProperties-new2.
 
-function TVelocityProperties.getMaxForwardVelocity: Integer;
-begin
-        Exit(Self.maxForwardVelocity);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VlctyPrprts-gtMxFrwrdVlcty0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_maxForwardVelocity")
+        GOBACK
+    GOBACK.
+END FUNCTION VlctyPrprts-gtMxFrwrdVlcty0.
 
-procedure TVelocityProperties.setMaxForwardVelocity(maxForwardVelocity: Integer);
-begin
-        Self.maxForwardVelocity := maxForwardVelocity;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VlctyPrprts-stMxFrwrdVlcty1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-maxForwardVelocity BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-maxForwardVelocity RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-maxForwardVelocity
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_maxForwardVelocity", JVALUE)
+    GOBACK.
+END FUNCTION VlctyPrprts-stMxFrwrdVlcty1.
 
-function TVelocityProperties.getMaxReverseVelocity: Integer;
-begin
-        Exit(Self.maxReverseVelocity);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VlctyPrprts-gtMxRvrsVlcty0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_maxReverseVelocity")
+        GOBACK
+    GOBACK.
+END FUNCTION VlctyPrprts-gtMxRvrsVlcty0.
 
-procedure TVelocityProperties.setMaxReverseVelocity(maxReverseVelocity: Integer);
-begin
-        Self.maxReverseVelocity := maxReverseVelocity;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VlctyPrprts-stMxRvrsVlcty1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-maxReverseVelocity BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-maxReverseVelocity RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-maxReverseVelocity
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_maxReverseVelocity", JVALUE)
+    GOBACK.
+END FUNCTION VlctyPrprts-stMxRvrsVlcty1.
 
-procedure TVelocityProperties.limitMaxXYForwardVelocity;
-begin
-        Self.limitMaxXYVelocity(Self.getMaxForwardVelocity());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VlctyPrprts-lmtMxXYFrwrdVlcty0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION VlctyPrprts-lmtMxXYVlcty1(J-THIS, FUNCTION VlctyPrprts-gtMxFrwrdVlcty0(J-THIS))
+    GOBACK.
+END FUNCTION VlctyPrprts-lmtMxXYFrwrdVlcty0.
 
-procedure TVelocityProperties.limitMaxXYReverseVelocity;
-begin
-        Self.limitMaxXYVelocity(Self.getMaxReverseVelocity());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VlctyPrprts-lmtMxXYRvrsVlcty0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION VlctyPrprts-lmtMxXYVlcty1(J-THIS, FUNCTION VlctyPrprts-gtMxRvrsVlcty0(J-THIS))
+    GOBACK.
+END FUNCTION VlctyPrprts-lmtMxXYRvrsVlcty0.
 
-procedure TVelocityProperties.limitMaxYForwardVelocity;
-begin
-        Self.limitMaxYVelocity(Self.getMaxForwardVelocity());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VlctyPrprts-lmtMxYFrwrdVlcty0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION VlctyPrprts-limitMaxYVelocity1(J-THIS, FUNCTION VlctyPrprts-gtMxFrwrdVlcty0(J-THIS))
+    GOBACK.
+END FUNCTION VlctyPrprts-lmtMxYFrwrdVlcty0.
 
-procedure TVelocityProperties.limitMaxYReverseVelocity;
-begin
-        Self.limitMaxYVelocity(Self.getMaxReverseVelocity());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VlctyPrprts-lmtMxYRvrsVlcty0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION VlctyPrprts-limitMaxYVelocity1(J-THIS, FUNCTION VlctyPrprts-gtMxRvrsVlcty0(J-THIS))
+    GOBACK.
+END FUNCTION VlctyPrprts-lmtMxYRvrsVlcty0.
 
-procedure TVelocityProperties.limitMaxXForwardVelocity;
-begin
-        Self.limitMaxXVelocity(Self.getMaxForwardVelocity());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VlctyPrprts-lmtMxXFrwrdVlcty0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION VlctyPrprts-limitMaxXVelocity1(J-THIS, FUNCTION VlctyPrprts-gtMxFrwrdVlcty0(J-THIS))
+    GOBACK.
+END FUNCTION VlctyPrprts-lmtMxXFrwrdVlcty0.
 
-procedure TVelocityProperties.limitMaxXReverseVelocity;
-begin
-        Self.limitMaxXVelocity(Self.getMaxReverseVelocity());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VlctyPrprts-lmtMxXRvrsVlcty0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION VlctyPrprts-limitMaxXVelocity1(J-THIS, FUNCTION VlctyPrprts-gtMxRvrsVlcty0(J-THIS))
+    GOBACK.
+END FUNCTION VlctyPrprts-lmtMxXRvrsVlcty0.
 
-function TVelocityProperties.isOverXYMaxForwardVelocity: Boolean;
-begin
-        Exit(Self.isOverXYMaxVelocity(Self.getMaxForwardVelocity()));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VlctyPrprts-isOvrXYMxFrwr93146.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION VlctyPrprts-isOvrXYMxVlcty1(J-THIS, FUNCTION VlctyPrprts-gtMxFrwrdVlcty0(J-THIS))
+        GOBACK
+    GOBACK.
+END FUNCTION VlctyPrprts-isOvrXYMxFrwr93146.
 
-function TVelocityProperties.isOverXYMaxReverseVelocity: Boolean;
-begin
-        Exit(Self.isOverXYMaxVelocity(Self.getMaxReverseVelocity()));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VlctyPrprts-isOvrXYMxRvrs72103.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION VlctyPrprts-isOvrXYMxVlcty1(J-THIS, FUNCTION VlctyPrprts-gtMxRvrsVlcty0(J-THIS))
+        GOBACK
+    GOBACK.
+END FUNCTION VlctyPrprts-isOvrXYMxRvrs72103.
 
-procedure TVelocityProperties.limitXYToForwardAndReverseMaxVelocity;
-begin
-        Self.limitMaxXYForwardVelocity();
-        Self.limitMaxXYReverseVelocity();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VlctyPrprts-lmtXYTFrwrdAn54796.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION VlctyPrprts-lmtMxXYFrwrdVlcty0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION VlctyPrprts-lmtMxXYRvrsVlcty0(J-THIS)
+    GOBACK.
+END FUNCTION VlctyPrprts-lmtXYTFrwrdAn54796.
 
-procedure TVelocityProperties.limitMaxXYVelocity(maxVelocity: Integer);
-begin
-        Self.limitMaxXVelocity(maxVelocity);
-        Self.limitMaxYVelocity(maxVelocity);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VlctyPrprts-lmtMxXYVlcty1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-maxVelocity BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-maxVelocity RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION VlctyPrprts-limitMaxXVelocity1(J-THIS, J-maxVelocity)
+        COMPUTE JDISCARD = FUNCTION VlctyPrprts-limitMaxYVelocity1(J-THIS, J-maxVelocity)
+    GOBACK.
+END FUNCTION VlctyPrprts-lmtMxXYVlcty1.
 
-procedure TVelocityProperties.limitMaxPositiveYVelocity(maxVelocity: Integer);
-begin
-        if (Self.velocityYBasicDecimal.getUnscaled()) > (maxVelocity) then begin
-            Self.velocityYBasicDecimal.setint(maxVelocity);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VlctyPrprts-lmtMxPstvYVlcty1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-maxVelocity BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-maxVelocity RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_velocityYBasicDecimal")) > J-maxVelocity)
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_velocityYBasicDecimal"))
+        END-IF
+    GOBACK.
+END FUNCTION VlctyPrprts-lmtMxPstvYVlcty1.
 
-procedure TVelocityProperties.limitMaxNegativeYVelocity(maxVelocity: Integer);
-begin
-        if (Self.velocityYBasicDecimal.getUnscaled()) < (-maxVelocity) then begin
-            Self.velocityYBasicDecimal.setint(-maxVelocity);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VlctyPrprts-lmtMxNgtvYVlcty1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-maxVelocity BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-maxVelocity RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_velocityYBasicDecimal")) < (0 - J-maxVelocity))
+            COMPUTE jtemp3 = (0 - J-maxVelocity)
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_velocityYBasicDecimal"))
+        END-IF
+    GOBACK.
+END FUNCTION VlctyPrprts-lmtMxNgtvYVlcty1.
 
-procedure TVelocityProperties.limitMaxYVelocity(maxVelocity: Integer);
-begin
-        Self.limitMaxPositiveYVelocity(maxVelocity);
-        Self.limitMaxNegativeYVelocity(maxVelocity);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VlctyPrprts-limitMaxYVelocity1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-maxVelocity BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-maxVelocity RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION VlctyPrprts-lmtMxPstvYVlcty1(J-THIS, J-maxVelocity)
+        COMPUTE JDISCARD = FUNCTION VlctyPrprts-lmtMxNgtvYVlcty1(J-THIS, J-maxVelocity)
+    GOBACK.
+END FUNCTION VlctyPrprts-limitMaxYVelocity1.
 
-procedure TVelocityProperties.limitMaxXVelocity(maxVelocity: Integer);
-begin
-        if (Self.velocityXBasicDecimal.getUnscaled()) > (maxVelocity) then begin
-            Self.velocityXBasicDecimal.setint(maxVelocity);
-        end;
-        if (Self.velocityXBasicDecimal.getUnscaled()) < (-maxVelocity) then begin
-            Self.velocityXBasicDecimal.setint(-maxVelocity);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VlctyPrprts-limitMaxXVelocity1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-maxVelocity BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-maxVelocity RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_velocityXBasicDecimal")) > J-maxVelocity)
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_velocityXBasicDecimal"))
+        END-IF
+        IF (FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_velocityXBasicDecimal")) < (0 - J-maxVelocity))
+            COMPUTE jtemp4 = (0 - J-maxVelocity)
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_velocityXBasicDecimal"))
+        END-IF
+    GOBACK.
+END FUNCTION VlctyPrprts-limitMaxXVelocity1.
 
-function TVelocityProperties.isOverXYMaxVelocity(maxVelocity: Integer): Boolean;
-begin
-        if (Self.velocityXBasicDecimal.getUnscaled()) > (maxVelocity) then begin
-            Exit(True);
-        end;
-        if (Self.velocityXBasicDecimal.getUnscaled()) < (-maxVelocity) then begin
-            Exit(True);
-        end;
-        if (Self.velocityYBasicDecimal.getUnscaled()) > (maxVelocity) then begin
-            Exit(True);
-        end;
-        if (Self.velocityYBasicDecimal.getUnscaled()) < (-maxVelocity) then begin
-            Exit(True);
-        end;
-        Exit(False);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VlctyPrprts-isOvrXYMxVlcty1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-maxVelocity BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-maxVelocity RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_velocityXBasicDecimal")) > J-maxVelocity)
+            COMPUTE J-RESULT = 1
+            GOBACK
+        END-IF
+        IF (FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_velocityXBasicDecimal")) < (0 - J-maxVelocity))
+            COMPUTE J-RESULT = 1
+            GOBACK
+        END-IF
+        IF (FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_velocityYBasicDecimal")) > J-maxVelocity)
+            COMPUTE J-RESULT = 1
+            GOBACK
+        END-IF
+        IF (FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_velocityYBasicDecimal")) < (0 - J-maxVelocity))
+            COMPUTE J-RESULT = 1
+            GOBACK
+        END-IF
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION VlctyPrprts-isOvrXYMxVlcty1.
 
-procedure TVelocityProperties.setVelocityi(magnitude: Int64; angle: Integer; otherAngle: Integer);
-begin
-        inherited setVelocityi(magnitude, angle, otherAngle);
-        Self.limitXYToForwardAndReverseMaxVelocity();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VlctyPrprts-setVelocityi3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-magnitude BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-otherAngle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-magnitude J-angle J-otherAngle RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BscVlctyPrprts-setVelocityi3(J-THIS, J-magnitude, J-angle, J-otherAngle)
+        COMPUTE JDISCARD = FUNCTION VlctyPrprts-lmtXYTFrwrdAn54796(J-THIS)
+    GOBACK.
+END FUNCTION VlctyPrprts-setVelocityi3.
 
-procedure TVelocityProperties.addVelocityi(magnitude: Int64; angle: Integer; otherAngle: Integer);
-begin
-        inherited addVelocityi(magnitude, angle, otherAngle);
-        Self.limitXYToForwardAndReverseMaxVelocity();
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TVelocityProperties.NULL_VELOCITY_PROPERTIES := TVelocityProperties.Create(0, 0);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VlctyPrprts-addVelocityi3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-magnitude BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-otherAngle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-magnitude J-angle J-otherAngle RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BscVlctyPrprts-addVelocityi3(J-THIS, J-magnitude, J-angle, J-otherAngle)
+        COMPUTE JDISCARD = FUNCTION VlctyPrprts-lmtXYTFrwrdAn54796(J-THIS)
+    GOBACK.
+END FUNCTION VlctyPrprts-addVelocityi3.
 

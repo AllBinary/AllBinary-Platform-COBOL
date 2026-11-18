@@ -1,66 +1,49 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2025 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.opengles.shader
+*> Java class Shader
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Shader-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("Shader")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_shaderName")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_shaderStringList")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_shaderAsString")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_shaderHandle")
+    COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_EMPTY_STRING")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_shaderName", JVALUE)
+    COMPUTE jtemp2 = FUNCTION BscArryLstUtl-getInstance0
+    COMPUTE JVALUE = FUNCTION BscArryLstUtl-gtImmtblInstnc0(jtemp2)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_shaderStringList", JVALUE)
+    COMPUTE jtemp3 = FUNCTION StringUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp3, "f_EMPTY_STRING")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_shaderAsString", JVALUE)
     
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.opengles.shader
-unit Shader;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, BasicArrayList;
-
-type
-  {AB:TYPES}
-  TShader = class(TObject)
-  public
-    shaderName: string;
-    shaderStringList: TBasicArrayList;
-    shaderAsString: string;
-    shaderHandle: Integer;
-    procedure InitFields;
-    constructor Create;
-  end;
-
-implementation
-uses
-  StringUtil, BasicArrayListUtil;
-
-
-{AB:CODE}
-
-procedure TShader.InitFields;
-begin
-  Self.shaderName := TStringUtil.getInstance().EMPTY_STRING;
-  Self.shaderStringList := TBasicArrayListUtil.getInstance().getImmutableInstance();
-  Self.shaderAsString := TStringUtil.getInstance().EMPTY_STRING;
-  
-end;
-
-constructor TShader.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION Shader-new0.
 

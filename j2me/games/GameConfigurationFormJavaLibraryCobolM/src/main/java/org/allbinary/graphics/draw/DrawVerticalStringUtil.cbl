@@ -1,193 +1,406 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.draw
+*> Java class DrawVerticalStringUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.draw
-unit DrawVerticalStringUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DrwVrtclStrngUtl-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 DrawVerticalStringUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 DrawVerticalStringUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF DrawVerticalStringUtil-jset-instance = 0
+        MOVE 1 TO DrawVerticalStringUtil-jset-instance
+        COMPUTE DrawVerticalStringUtil-jcell-instance = FUNCTION DrawVerticalStringUtil-new0
+    END-IF
+    MOVE DrawVerticalStringUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION DrwVrtclStrngUtl-sttc-nstnc.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DrwVrtclStrngUtlsttcS22864.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 DrawVerticalStringUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION DrwVrtclStrngUtl-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO DrawVerticalStringUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION DrwVrtclStrngUtlsttcS22864.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics;
-
-type
-  {AB:TYPES}
-  TDrawVerticalStringUtil = class(TObject)
-  public
-    EMPTY_STRING: string;
-    anchor: Integer;
-    charHeight: Integer;
-    offsetY: Integer;
-    offsetXArray: TArray<Integer>;
-    class var instance: TDrawVerticalStringUtil;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TDrawVerticalStringUtil; static;
-        procedure updateMeasurement(graphics_: TGraphics; string_: string); virtual;
-        procedure paintVerticle(graphics_: TGraphics; string_: string; x: Integer; y: Integer; anchor_: Integer); virtual;
-        procedure drawCenterString(graphics_: TGraphics; string_: string; offset: Integer; length: Integer; x: Integer; y: Integer); virtual;
-        procedure drawCenterStrings(graphics_: TGraphics; stringArray: TArray<string>; maxWidth: Integer; x: Integer; y: Integer); virtual;
-  end;
-
-implementation
-uses
-  Font, AndroidUtil, J2MEUtil, Anchor, OpenGLFeatureUtil, NullUtil, PreLogUtil, StringMaker, StringUtil;
-
-
-{AB:CODE}
-
-procedure TDrawVerticalStringUtil.InitFields;
-begin
-  Self.EMPTY_STRING := TStringUtil.getInstance().EMPTY_STRING;
-  Self.anchor := TAnchor.TOP_LEFT;
-  
-  
-  Self.offsetXArray := TNullUtil.getInstance().NULL_INT_ARRAY;
-end;
-
-constructor TDrawVerticalStringUtil.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DrawVerticalStringUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("DrawVerticalStringUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_EMPTY_STRING")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_anchor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_charHeight")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_offsetY")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_offsetXArray")
+    COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_EMPTY_STRING")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_EMPTY_STRING", JVALUE)
+    COMPUTE JVALUE = FUNCTION Anchor-static-TOP-LEFT
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_anchor", JVALUE)
     
-
-class function TDrawVerticalStringUtil.getInstance: TDrawVerticalStringUtil;
-begin
-        Exit(TDrawVerticalStringUtil.instance);
-end;
     
+    COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp2, "f_NULL_INT_ARRAY")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_offsetXArray", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION DrawVerticalStringUtil-new0.
 
-procedure TDrawVerticalStringUtil.updateMeasurement(graphics_: TGraphics; string_: string);
-var
-  openGLFeatureUtil_: TOpenGLFeatureUtil;
-  font_: TFont;
-  size: Integer;
-  aChar: WideChar;
-  offsetXArray: TArray<Integer>;
-  index: Integer;
-begin
-        openGLFeatureUtil_ := TOpenGLFeatureUtil.getInstance();
-        font_ := graphics_.getFont();
-        Self.charHeight := font_.getHeight();
-        Self.offsetY := 0;
-        if TJ2MEUtil.isHTML() then begin
-            Self.charHeight := (Self.charHeight) + (1);
-        end else if openGLFeatureUtil_.isAnyThreed() then begin
-            Self.charHeight := (Self.charHeight) + (2);
-            if TAndroidUtil.isAndroid() then begin
-            end else begin
-                Self.offsetY := (2) + ((((Self.charHeight) * (2)) div (3)));
-            end;
-        end;
-        size := System.Length(string_);
-        
-        offsetXArray := TJava.NewArray<Integer>(size);
-        for index := (size) - (1) downto 0 do begin
-            aChar := string_[(index) + 1];
-            if openGLFeatureUtil_.isAnyThreed() then begin
-                offsetXArray[index] := TJava.Divide(font_.charWidth(aChar), 2);
-            end;
-        end;
-        Self.offsetXArray := offsetXArray;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DrwVrtclStrngUtl-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION DrwVrtclStrngUtl-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION DrwVrtclStrngUtl-getInstance0.
 
-procedure TDrawVerticalStringUtil.paintVerticle(graphics_: TGraphics; string_: string; x: Integer; y: Integer; anchor_: Integer);
-var
-  size: Integer;
-  aChar: WideChar;
-  index: Integer;
-begin
-        size := System.Length(string_);
-        
-        for index := (size) - (1) downto 0 do begin
-            aChar := string_[(index) + 1];
-            graphics_.drawChar(aChar, (x) + (Self.offsetXArray[index]), ((y) + (((Self.charHeight) * (index)))) + (Self.offsetY), anchor_);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DrwVrtclStrngUtl-updtMsrmnt2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-openGLFeatureUtil BINARY-DOUBLE.
+01 J-font BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-aChar BINARY-DOUBLE.
+01 J-offsetXArray BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-string BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-string RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-openGLFeatureUtil = FUNCTION OpenGLFeatureUtil-getInstance0
+        COMPUTE J-font = FUNCTION Graphics-getFont0(J-graphics)
+        COMPUTE JVALUE = FUNCTION Font-getHeight0(J-font)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_charHeight", JVALUE)
+        COMPUTE JVALUE = 0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_offsetY", JVALUE)
+        IF (FUNCTION J2MEUtil-isHTML0 = 1)
+            COMPUTE JVALUE = (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_charHeight") + 1) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_charHeight", JVALUE)
+        ELSE
+            IF (FUNCTION OpenGLFeatureUtil-isAnyThreed0(J-openGLFeatureUtil) = 1)
+            COMPUTE JVALUE = (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_charHeight") + 2) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_charHeight", JVALUE)
+            IF (FUNCTION AndroidUtil-isAndroid0 = 1)
+                CONTINUE
+            ELSE
+                COMPUTE jtemp3 = 2
+                COMPUTE jtemp4 = ((FUNCTION MOD(FUNCTION INTEGER-PART((FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_charHeight") * 2) + 2147483648, 4294967296) - 2147483648) / 3) + 2147483648, 4294967296) - 2147483648))
+                COMPUTE JVALUE = (FUNCTION MOD((jtemp3 + jtemp4) + 2147483648, 4294967296) - 2147483648)
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_offsetY", JVALUE)
+            END-IF
+        END-IF
+        END-IF
+        COMPUTE J-size = FUNCTION JR-STR-LENGTH(J-string)
+        CONTINUE
+        COMPUTE J-offsetXArray = FUNCTION JR-NEW-ARRAY(J-size)
+        COMPUTE J-index = (FUNCTION MOD((J-size - 1) + 2147483648, 4294967296) - 2147483648)
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index >= 0) EXIT PERFORM END-IF
+            COMPUTE J-aChar = FUNCTION JR-CHAR-AT(J-string, J-index)
+            IF (FUNCTION OpenGLFeatureUtil-isAnyThreed0(J-openGLFeatureUtil) = 1)
+                COMPUTE JVALUE = (FUNCTION MOD(FUNCTION INTEGER-PART(FUNCTION Font-charWidth1(J-font, J-aChar) / 2) + 2147483648, 4294967296) - 2147483648)
+                COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-offsetXArray, J-index, JVALUE)
+            END-IF
+        END-PERFORM
+        COMPUTE JVALUE = J-offsetXArray
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_offsetXArray", JVALUE)
+    GOBACK.
+END FUNCTION DrwVrtclStrngUtl-updtMsrmnt2.
 
-procedure TDrawVerticalStringUtil.drawCenterString(graphics_: TGraphics; string_: string; offset: Integer; length: Integer; x: Integer; y: Integer);
-var
-  width: Integer;
-begin
-        width := (TJava.SignedRightShift(graphics_.getFont().substringWidth(string_, offset, length), 1));
-        try
-            graphics_.drawSubstring(string_, offset, length, (x) - (width), y, Self.anchor);
-        except
-            on e: SysUtils.Exception do begin
-            TPreLogUtil.put(TStringMaker.Create().append('Exception: stringLength: ').appendint(System.Length(string_)).append(' offset: ').appendint(offset).append(' currentLength: ').appendint(length).toString(), TJava.Box(Self), 'drawCenterString');
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DrwVrtclStrngUtl-pntVrtcl5.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-size BINARY-DOUBLE.
+01 J-aChar BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-string BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-anchor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-string J-x J-y J-anchor RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-size = FUNCTION JR-STR-LENGTH(J-string)
+        CONTINUE
+        COMPUTE J-index = (FUNCTION MOD((J-size - 1) + 2147483648, 4294967296) - 2147483648)
+        MOVE 1 TO JFIRST2
+        PERFORM FOREVER
+            IF JFIRST2 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST2
+            IF NOT (J-index >= 0) EXIT PERFORM END-IF
+            COMPUTE J-aChar = FUNCTION JR-CHAR-AT(J-string, J-index)
+            COMPUTE jtemp8 = ((FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_charHeight") * J-index) + 2147483648, 4294967296) - 2147483648))
+            COMPUTE jtemp7 = (FUNCTION MOD((J-y + jtemp8) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE jtemp5 = (FUNCTION MOD((J-x + FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_offsetXArray"), J-index)) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE jtemp6 = (FUNCTION MOD((jtemp7 + FUNCTION JR-GET(J-THIS, "f_offsetY")) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JDISCARD = FUNCTION Graphics-drawChar4(J-graphics, J-aChar, jtemp5, jtemp6, J-anchor)
+        END-PERFORM
+    GOBACK.
+END FUNCTION DrwVrtclStrngUtl-pntVrtcl5.
 
-procedure TDrawVerticalStringUtil.drawCenterStrings(graphics_: TGraphics; stringArray: TArray<string>; maxWidth: Integer; x: Integer; y: Integer);
-var
-  extraLines: Integer;
-  string_: string;
-  width: Integer;
-  minTotalLines: Integer;
-  linePortion: Integer;
-  offset: Integer;
-  currentLength: Integer;
-  size: Integer;
-  index: Integer;
-begin
-        extraLines := 0;
-        for index := 0 to System.Length(stringArray) - 1 do begin
-            string_ := stringArray[index];
-            if (string_) <> (Self.EMPTY_STRING) then begin
-                width := graphics_.getFont().stringWidth(string_);
-                minTotalLines := 1;
-                if (width) > (maxWidth) then begin
-                    minTotalLines := (((width) div (maxWidth))) + (1);
-                end;
-                linePortion := (System.Length(string_)) div (minTotalLines);
-                offset := 0;
-                currentLength := linePortion;
-                size := System.Length(string_);
-                while (offset) < (size) do begin
-                    if ((offset) + (currentLength)) > (size) then begin
-                        currentLength := (size) - (offset);
-                    end;
-                    if ((offset) + (currentLength)) <> (size) then begin
-                        while ((currentLength) > (0)) and ((stringArray[index][((offset) + (currentLength)) + 1]) <> (' ')) do begin
-                            Dec(currentLength);
-                        end;
-                        if (currentLength) <= (4) then begin
-                            currentLength := linePortion;
-                        end;
-                    end;
-                    Self.drawCenterString(graphics_, string_, offset, currentLength, x, (y) + (((((index) + (TJava.PostInc(extraLines)))) * (Self.charHeight))));
-                    offset := (offset) + (currentLength);
-                    currentLength := linePortion;
-                end;
-                Dec(extraLines);
-            end;
-        end;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DrwVrtclStrngUtl-drwCntrStrng6.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-width BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-string BINARY-DOUBLE.
+01 J-offset BINARY-DOUBLE.
+01 J-length BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-string J-offset J-length J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp9 = FUNCTION Graphics-getFont0(J-graphics)
+        COMPUTE J-width = (FUNCTION JR-SHIFT(JFIVE, FUNCTION JR-CLASS-NAME(jtemp9), 1))
+        CONTINUE
+            COMPUTE jtemp10 = (FUNCTION MOD((J-x - J-width) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JDISCARD = FUNCTION Graphics-drawSubstring6(J-graphics, J-string, J-offset, J-length, jtemp10, J-y, FUNCTION JR-GET(J-THIS, "f_anchor"))
+    GOBACK.
+END FUNCTION DrwVrtclStrngUtl-drwCntrStrng6.
 
-initialization
-  {AB:INITIALIZATION}
-  TDrawVerticalStringUtil.instance := TDrawVerticalStringUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DrwVrtclStrngUtl-drwCntrS67932.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-extraLines BINARY-DOUBLE.
+01 J-string BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-minTotalLines BINARY-DOUBLE.
+01 J-linePortion BINARY-DOUBLE.
+01 J-offset BINARY-DOUBLE.
+01 J-currentLength BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp18 BINARY-DOUBLE.
+01 jtemp19 BINARY-DOUBLE.
+01 jtemp20 BINARY-DOUBLE.
+01 jtemp21 BINARY-DOUBLE.
+01 jtemp22 BINARY-DOUBLE.
+01 jtemp23 BINARY-DOUBLE.
+01 jtemp24 BINARY-DOUBLE.
+01 JFIRST3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-stringArray BINARY-DOUBLE.
+01 J-maxWidth BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-stringArray J-maxWidth J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-extraLines = 0
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST3
+        PERFORM FOREVER
+            IF JFIRST3 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST3
+            IF NOT (J-index < FUNCTION JR-ARRAY-LENGTH(J-stringArray)) EXIT PERFORM END-IF
+            COMPUTE J-string = FUNCTION JR-ARRAY-GET(J-stringArray, J-index)
+            IF (J-string NOT = FUNCTION JR-GET(J-THIS, "f_EMPTY_STRING"))
+                COMPUTE jtemp18 = FUNCTION Graphics-getFont0(J-graphics)
+                COMPUTE J-width = FUNCTION JR-CLASS-NAME(jtemp18)
+                COMPUTE J-minTotalLines = 1
+                IF (J-width > J-maxWidth)
+                    COMPUTE jtemp19 = ((FUNCTION MOD(FUNCTION INTEGER-PART(J-width / J-maxWidth) + 2147483648, 4294967296) - 2147483648))
+                    COMPUTE jtemp20 = 1
+                    COMPUTE J-minTotalLines = (FUNCTION MOD((jtemp19 + jtemp20) + 2147483648, 4294967296) - 2147483648)
+                END-IF
+                COMPUTE J-linePortion = (FUNCTION MOD(FUNCTION INTEGER-PART(FUNCTION JR-STR-LENGTH(J-string) / J-minTotalLines) + 2147483648, 4294967296) - 2147483648)
+                COMPUTE J-offset = 0
+                COMPUTE J-currentLength = J-linePortion
+                COMPUTE J-size = FUNCTION JR-STR-LENGTH(J-string)
+                PERFORM FOREVER
+                    IF NOT (J-offset < J-size) EXIT PERFORM END-IF
+                    IF ((FUNCTION MOD((J-offset + J-currentLength) + 2147483648, 4294967296) - 2147483648) > J-size)
+                        COMPUTE J-currentLength = (FUNCTION MOD((J-size - J-offset) + 2147483648, 4294967296) - 2147483648)
+                    END-IF
+                    IF ((FUNCTION MOD((J-offset + J-currentLength) + 2147483648, 4294967296) - 2147483648) NOT = J-size)
+                        COMPUTE jtemp21 = (FUNCTION MOD((J-offset + J-currentLength) + 2147483648, 4294967296) - 2147483648)
+                        PERFORM FOREVER
+                            IF NOT ((J-currentLength > 0) AND (FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(J-stringArray, J-index)) NOT = 32)) EXIT PERFORM END-IF
+                            COMPUTE J-currentLength = (FUNCTION MOD(J-currentLength - 1 + 2147483648, 4294967296) - 2147483648)
+                        END-PERFORM
+                        IF (J-currentLength <= 4)
+                            COMPUTE J-currentLength = J-linePortion
+                        END-IF
+                    END-IF
+                    COMPUTE jtemp24 = J-extraLines
+                    COMPUTE J-extraLines = (FUNCTION MOD(J-extraLines + 1 + 2147483648, 4294967296) - 2147483648)
+                    COMPUTE jtemp23 = ((FUNCTION MOD((((FUNCTION MOD((J-index + jtemp24) + 2147483648, 4294967296) - 2147483648)) * FUNCTION JR-GET(J-THIS, "f_charHeight")) + 2147483648, 4294967296) - 2147483648))
+                    COMPUTE jtemp22 = (FUNCTION MOD((J-y + jtemp23) + 2147483648, 4294967296) - 2147483648)
+                    COMPUTE JDISCARD = FUNCTION DrwVrtclStrngUtl-drwCntrStrng6(J-THIS, J-graphics, J-string, J-offset, J-currentLength, J-x, jtemp22)
+                    COMPUTE J-offset = (FUNCTION MOD((J-offset + J-currentLength) + 2147483648, 4294967296) - 2147483648)
+                    COMPUTE J-currentLength = J-linePortion
+                END-PERFORM
+                COMPUTE J-extraLines = (FUNCTION MOD(J-extraLines - 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+        END-PERFORM
+    GOBACK.
+END FUNCTION DrwVrtclStrngUtl-drwCntrS67932.
 

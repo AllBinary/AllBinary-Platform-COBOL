@@ -1,85 +1,110 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.ai
+*> Java class BoundBounceAI
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.ai
-unit BoundBounceAI;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, BoundsVisitorInterface, LayerBounds, BasicAI, GameInput, AllBinaryLayer, AllBinaryLayerManager;
-
-type
-  {AB:TYPES}
-  TBoundBounceAI = class(TBasicAI)
-  public
-    currentRelativeAngle: Integer;
-    layerBounds: TLayerBounds;
-    boundsVisitorInterface: IBoundsVisitorInterface;
-    procedure InitFields;
-        constructor Create(ownerLayerInterface: TAllBinaryLayer; gameInput_: TGameInput; layerBounds_: TLayerBounds; boundsVisitorInterface_: IBoundsVisitorInterface);
-        procedure paint(graphics_: TGraphics); virtual;
-        procedure processAI(allBinaryLayerManager_: TAllBinaryLayerManager); override;
-  end;
-
-implementation
-uses
-  Rectangle;
-
-
-{AB:CODE}
-
-procedure TBoundBounceAI.InitFields;
-begin
-  Self.currentRelativeAngle := 0;
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BoundBounceAI-new4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-ownerLayerInterface BINARY-DOUBLE.
+01 J-gameInput BINARY-DOUBLE.
+01 J-layerBounds BINARY-DOUBLE.
+01 J-boundsVisitorInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-ownerLayerInterface J-gameInput J-layerBounds J-boundsVisitorInterface RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("BoundBounceAI")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_currentRelativeAngle")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_layerBounds")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_boundsVisitorInterface")
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_currentRelativeAngle", JVALUE)
     
-
-constructor TBoundBounceAI.Create(ownerLayerInterface: TAllBinaryLayer; gameInput_: TGameInput; layerBounds_: TLayerBounds; boundsVisitorInterface_: IBoundsVisitorInterface);
-begin
-        inherited Create(ownerLayerInterface, gameInput_);
-        InitFields;
-        Self.layerBounds := layerBounds_;
-        Self.boundsVisitorInterface := boundsVisitorInterface_;
-end;
     
+        CONTINUE
+        COMPUTE JVALUE = J-layerBounds
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_layerBounds", JVALUE)
+        COMPUTE JVALUE = J-boundsVisitorInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_boundsVisitorInterface", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION BoundBounceAI-new4.
 
-procedure TBoundBounceAI.paint(graphics_: TGraphics);
-var
-  rectange: TRectangle;
-begin
-        rectange := Self.layerBounds.getRectangleP();
-        graphics_.drawRect(rectange.getPoint().getX(), rectange.getPoint().getY(), rectange.getWidth(), rectange.getHeight());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BoundBounceAI-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-rectange BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-rectange = FUNCTION LayerBounds-getRectangleP0(FUNCTION JR-GET(J-THIS, "f_layerBounds"))
+        COMPUTE jtemp1 = FUNCTION Rectangle-getPoint0(J-rectange)
+        COMPUTE jtemp2 = FUNCTION Rectangle-getPoint0(J-rectange)
+        COMPUTE JDISCARD = FUNCTION Graphics-drawRect4(J-graphics, FUNCTION JR-CLASS-NAME(jtemp1), FUNCTION JR-CLASS-NAME(jtemp2), FUNCTION Rectangle-getWidth0(J-rectange), FUNCTION Rectangle-getHeight0(J-rectange))
+    GOBACK.
+END FUNCTION BoundBounceAI-paint1.
 
-// throws Exception
-procedure TBoundBounceAI.processAI(allBinaryLayerManager_: TAllBinaryLayerManager);
-begin
-        Self.layerBounds.visit(Self.boundsVisitorInterface);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BoundBounceAI-processAI1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryLayerManager BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION LayerBounds-visit1(FUNCTION JR-GET(J-THIS, "f_layerBounds"), FUNCTION JR-GET(J-THIS, "f_boundsVisitorInterface"))
+    GOBACK.
+END FUNCTION BoundBounceAI-processAI1.
 

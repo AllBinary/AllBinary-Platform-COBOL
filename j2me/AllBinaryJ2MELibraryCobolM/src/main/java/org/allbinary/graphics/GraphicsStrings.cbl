@@ -1,80 +1,134 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2025 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics
-unit GraphicsStrings;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics
+*> Java class GraphicsStrings
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GrphcsStrngs-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GraphicsStrings-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 GraphicsStrings-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GraphicsStrings-jset-instance = 0
+        MOVE 1 TO GraphicsStrings-jset-instance
+        COMPUTE GraphicsStrings-jcell-instance = FUNCTION GraphicsStrings-new0
+    END-IF
+    MOVE GraphicsStrings-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION GrphcsStrngs-static-instance.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GrphcsStrngsstaticinS26981.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GraphicsStrings-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GrphcsStrngs-static-instance TO J-RESULT
+    MOVE J-VALUE TO GraphicsStrings-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GrphcsStrngsstaticinS26981.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GraphicsStrings-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GraphicsStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ANIMATION")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ANGLE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_MOVEMENT_ANGLE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ROTATION")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_OPACITY")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_HTML")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_WIDTH")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_HEIGHT")
+    COMPUTE JVALUE = FUNCTION JR-STR("animation")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ANIMATION", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("angle")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ANGLE", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("movement_angle")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_MOVEMENT_ANGLE", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("rotation")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ROTATION", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("opacity")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_OPACITY", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("HTML")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_HTML", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("width")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_WIDTH", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("height")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_HEIGHT", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GraphicsStrings-new0.
 
-type
-  {AB:TYPES}
-  TGraphicsStrings = class(TObject)
-  public
-    ANIMATION: string;
-    ANGLE: string;
-    MOVEMENT_ANGLE: string;
-    ROTATION: string;
-    OPACITY: string;
-    HTML: string;
-    WIDTH: string;
-    HEIGHT: string;
-    class var instance: TGraphicsStrings;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TGraphicsStrings; static;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TGraphicsStrings.InitFields;
-begin
-  Self.ANIMATION := 'animation';
-  Self.ANGLE := 'angle';
-  Self.MOVEMENT_ANGLE := 'movement_angle';
-  Self.ROTATION := 'rotation';
-  Self.OPACITY := 'opacity';
-  Self.HTML := 'HTML';
-  Self.WIDTH := 'width';
-  Self.HEIGHT := 'height';
-end;
-
-constructor TGraphicsStrings.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TGraphicsStrings.getInstance: TGraphicsStrings;
-begin
-        Exit(TGraphicsStrings.instance);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TGraphicsStrings.instance := TGraphicsStrings.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GraphicsStrings-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION GrphcsStrngs-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION GraphicsStrings-getInstance0.
 

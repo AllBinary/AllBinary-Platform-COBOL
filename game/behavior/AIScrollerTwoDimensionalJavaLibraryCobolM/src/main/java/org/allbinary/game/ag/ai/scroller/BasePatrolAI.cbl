@@ -1,134 +1,437 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.ai.scroller
+*> Java class BasePatrolAI
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.ai.scroller
-unit BasePatrolAI;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsPtrlAI-static-MAX-DISTANCE.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BasePatrolAI-jcell-MAX_DISTANCE BINARY-DOUBLE EXTERNAL.
+01 BasePatrolAI-jset-MAX_DISTANCE BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF BasePatrolAI-jset-MAX_DISTANCE = 0
+        MOVE 1 TO BasePatrolAI-jset-MAX_DISTANCE
+        COMPUTE jtemp2 = 2
+    COMPUTE jtemp1 = FUNCTION SmllIntgrSngltnFctry-gtInstnc0
+    COMPUTE BasePatrolAI-jcell-MAX_DISTANCE = FUNCTION SmllIntgrSngltnFctry-getAt1(jtemp1, jtemp2)
+    END-IF
+    MOVE BasePatrolAI-jcell-MAX_DISTANCE TO J-RESULT
+    GOBACK.
+END FUNCTION BsPtrlAI-static-MAX-DISTANCE.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsPtrlAIstaticMAXDISS84110.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BasePatrolAI-jcell-MAX_DISTANCE BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION BsPtrlAI-static-MAX-DISTANCE TO J-RESULT
+    MOVE J-VALUE TO BasePatrolAI-jcell-MAX_DISTANCE
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION BsPtrlAIstaticMAXDISS84110.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsPtrlAI-sttc-DIRECTION11598.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BasePatrolAI-jcell-DIRECTION_ARRAY BINARY-DOUBLE EXTERNAL.
+01 BasePatrolAI-jset-DIRECTION_ARRAY BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF BasePatrolAI-jset-DIRECTION_ARRAY = 0
+        MOVE 1 TO BasePatrolAI-jset-DIRECTION_ARRAY
+        COMPUTE jtemp4 = 3
+    COMPUTE jtemp3 = FUNCTION SmllIntgrSngltnFctry-gtInstnc0
+    COMPUTE BasePatrolAI-jcell-DIRECTION_ARRAY = FUNCTION SmllIntgrSngltnFctry-getAt1(jtemp3, jtemp4)
+    END-IF
+    MOVE BasePatrolAI-jcell-DIRECTION_ARRAY TO J-RESULT
+    GOBACK.
+END FUNCTION BsPtrlAI-sttc-DIRECTION11598.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, BasicAI, GameInput, AllBinaryLayer, ABHashtable;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsPtrlAIsttcDIRECTIOS83005.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BasePatrolAI-jcell-DIRECTION_ARRAY BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION BsPtrlAI-sttc-DIRECTION11598 TO J-RESULT
+    MOVE J-VALUE TO BasePatrolAI-jcell-DIRECTION_ARRAY
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION BsPtrlAIsttcDIRECTIOS83005.
 
-type
-  {AB:TYPES}
-  TBasePatrolAI = class(TBasicAI)
-  public
-    maxDistance: Integer;
-    currentDistance: Integer;
-    xTotalDistance: Integer;
-    lastKeyDirection: Integer;
-    keyDirection: Integer;
-    class var MAX_DISTANCE: Integer;
-    class var DIRECTION_ARRAY: Integer;
-    class var FIRING_DISTANCE: Integer;
-    class var SPEED: Integer;
-    procedure InitFields;
-        constructor Create(hashtable: TABHashtable<TObject, TObject>; ownerLayerInterface: TAllBinaryLayer; gameInput_: TGameInput);
-        procedure update; virtual;
-        procedure updateTotalDistance;
-        procedure changeDirectionIfReachedPacingAreaMax;
-        procedure nextDirection; virtual;
-        procedure disable; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsPtrlAI-sttc-FIRING-DI85982.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BasePatrolAI-jcell-FIRING_DISTANCE BINARY-DOUBLE EXTERNAL.
+01 BasePatrolAI-jset-FIRING_DISTANCE BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF BasePatrolAI-jset-FIRING_DISTANCE = 0
+        MOVE 1 TO BasePatrolAI-jset-FIRING_DISTANCE
+        COMPUTE jtemp6 = 4
+    COMPUTE jtemp5 = FUNCTION SmllIntgrSngltnFctry-gtInstnc0
+    COMPUTE BasePatrolAI-jcell-FIRING_DISTANCE = FUNCTION SmllIntgrSngltnFctry-getAt1(jtemp5, jtemp6)
+    END-IF
+    MOVE BasePatrolAI-jcell-FIRING_DISTANCE TO J-RESULT
+    GOBACK.
+END FUNCTION BsPtrlAI-sttc-FIRING-DI85982.
 
-implementation
-uses
-  Canvas, BasicVelocityProperties, VelocityInterfaceCompositeInterface, MathUtil, SmallIntegerSingletonFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsPtrlAIsttcFIRINGDIS60588.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BasePatrolAI-jcell-FIRING_DISTANCE BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION BsPtrlAI-sttc-FIRING-DI85982 TO J-RESULT
+    MOVE J-VALUE TO BasePatrolAI-jcell-FIRING_DISTANCE
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION BsPtrlAIsttcFIRINGDIS60588.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasePatrolAI-static-SPEED.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BasePatrolAI-jcell-SPEED BINARY-DOUBLE EXTERNAL.
+01 BasePatrolAI-jset-SPEED BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF BasePatrolAI-jset-SPEED = 0
+        MOVE 1 TO BasePatrolAI-jset-SPEED
+        COMPUTE jtemp8 = 5
+    COMPUTE jtemp7 = FUNCTION SmllIntgrSngltnFctry-gtInstnc0
+    COMPUTE BasePatrolAI-jcell-SPEED = FUNCTION SmllIntgrSngltnFctry-getAt1(jtemp7, jtemp8)
+    END-IF
+    MOVE BasePatrolAI-jcell-SPEED TO J-RESULT
+    GOBACK.
+END FUNCTION BasePatrolAI-static-SPEED.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasePatrolAIstaticSPS47554.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BasePatrolAI-jcell-SPEED BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION BasePatrolAI-static-SPEED TO J-RESULT
+    MOVE J-VALUE TO BasePatrolAI-jcell-SPEED
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION BasePatrolAIstaticSPS47554.
 
-procedure TBasePatrolAI.InitFields;
-begin
-  
-  
-  
-  Self.lastKeyDirection := TCanvas.RIGHT;
-  Self.keyDirection := TCanvas.RIGHT;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasePatrolAI-new3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-hashtable BINARY-DOUBLE.
+01 J-ownerLayerInterface BINARY-DOUBLE.
+01 J-gameInput BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-hashtable J-ownerLayerInterface J-gameInput RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("BasePatrolAI")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_maxDistance")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_currentDistance")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_xTotalDistance")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_lastKeyDirection")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_keyDirection")
     
-
-constructor TBasePatrolAI.Create(hashtable: TABHashtable<TObject, TObject>; ownerLayerInterface: TAllBinaryLayer; gameInput_: TGameInput);
-begin
-        inherited Create(ownerLayerInterface, gameInput_);
-        InitFields;
-        Self.maxDistance := Integer(hashtable.get(TJava.Box(TBasePatrolAI.MAX_DISTANCE)));
-        Self.currentDistance := (Self.maxDistance);
-end;
     
-
-procedure TBasePatrolAI.update;
-begin
-        Self.updateTotalDistance();
-        Self.changeDirectionIfReachedPacingAreaMax();
-end;
     
+    COMPUTE JVALUE = FUNCTION Canvas-static-RIGHT
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lastKeyDirection", JVALUE)
+    COMPUTE JVALUE = FUNCTION Canvas-static-RIGHT
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_keyDirection", JVALUE)
+        CONTINUE
+        COMPUTE JVALUE = FUNCTION Hashtable-get1(J-hashtable, FUNCTION BsPtrlAI-static-MAX-DISTANCE)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_maxDistance", JVALUE)
+        COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_maxDistance")
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_currentDistance", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION BasePatrolAI-new3.
 
-procedure TBasePatrolAI.updateTotalDistance;
-var
-  velocityInterfaceCompositeInterface_: IVelocityInterfaceCompositeInterface;
-  velocityProperties: TBasicVelocityProperties;
-begin
-        velocityInterfaceCompositeInterface_ := (TJava.ToObject(Self.getOwnerLayerInterface()) as IVelocityInterfaceCompositeInterface);
-        velocityProperties := velocityInterfaceCompositeInterface_.getVelocityProperties();
-        Self.xTotalDistance := (Self.xTotalDistance) + (velocityProperties.getVelocityXBasicDecimalP().getScaled());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasePatrolAI-update0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BsPtrlAI-updateTotalDistance0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION BsPtrlAI-chngDrctnIfRchdP86708(J-THIS)
+    GOBACK.
+END FUNCTION BasePatrolAI-update0.
 
-procedure TBasePatrolAI.changeDirectionIfReachedPacingAreaMax;
-var
-  mathUtil_: TMathUtil;
-  totalDistance: Integer;
-begin
-        mathUtil_ := TMathUtil.getInstance();
-        totalDistance := mathUtil_.abs(Self.xTotalDistance);
-        if (totalDistance) > (Self.currentDistance) then begin
-            Self.nextDirection();
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsPtrlAI-updateTotalDistance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-velocityInterfaceCompositeInterface BINARY-DOUBLE.
+01 J-velocityProperties BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-velocityInterfaceCompositeInterface = FUNCTION BscAI-getOwnerLayerInterface0(J-THIS)
+        COMPUTE J-velocityProperties = FUNCTION VlctyIntrfcCmpstIntrfc-gt15512(J-velocityInterfaceCompositeInterface)
+        COMPUTE jtemp9 = FUNCTION BscVlctyPrprts-gtVlctyXBs63775(J-velocityProperties)
+        COMPUTE JVALUE = (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_xTotalDistance") + FUNCTION JR-CLASS-NAME(jtemp9)) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_xTotalDistance", JVALUE)
+    GOBACK.
+END FUNCTION BsPtrlAI-updateTotalDistance0.
 
-procedure TBasePatrolAI.nextDirection;
-begin
-        if (Self.lastKeyDirection) = (TCanvas.LEFT) then begin
-            Self.keyDirection := TCanvas.RIGHT;
-            Self.lastKeyDirection := Self.keyDirection;
-            Self.xTotalDistance := 0;
-        end else if (Self.lastKeyDirection) = (TCanvas.RIGHT) then begin
-            Self.keyDirection := TCanvas.LEFT;
-            Self.lastKeyDirection := Self.keyDirection;
-            Self.xTotalDistance := 0;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsPtrlAI-chngDrctnIfRchdP86708.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-mathUtil BINARY-DOUBLE.
+01 J-totalDistance BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-mathUtil = FUNCTION MathUtil-getInstance0
+        COMPUTE J-totalDistance = FUNCTION MathUtil-abs1(J-mathUtil, FUNCTION JR-GET(J-THIS, "f_xTotalDistance"))
+        IF (J-totalDistance > FUNCTION JR-GET(J-THIS, "f_currentDistance"))
+            COMPUTE JDISCARD = FUNCTION BasePatrolAI-nextDirection0(J-THIS)
+        END-IF
+    GOBACK.
+END FUNCTION BsPtrlAI-chngDrctnIfRchdP86708.
 
-procedure TBasePatrolAI.disable;
-begin
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasePatrolAI-nextDirection0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION JR-GET(J-THIS, "f_lastKeyDirection") = FUNCTION Canvas-static-LEFT)
+            COMPUTE JVALUE = FUNCTION Canvas-static-RIGHT
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_keyDirection", JVALUE)
+            COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_keyDirection")
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lastKeyDirection", JVALUE)
+            COMPUTE JVALUE = 0
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_xTotalDistance", JVALUE)
+        ELSE
+            IF (FUNCTION JR-GET(J-THIS, "f_lastKeyDirection") = FUNCTION Canvas-static-RIGHT)
+            COMPUTE JVALUE = FUNCTION Canvas-static-LEFT
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_keyDirection", JVALUE)
+            COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_keyDirection")
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lastKeyDirection", JVALUE)
+            COMPUTE JVALUE = 0
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_xTotalDistance", JVALUE)
+        END-IF
+        END-IF
+    GOBACK.
+END FUNCTION BasePatrolAI-nextDirection0.
 
-initialization
-  {AB:INITIALIZATION}
-  TBasePatrolAI.MAX_DISTANCE := TSmallIntegerSingletonFactory.getInstance().getAt(2);
-  TBasePatrolAI.DIRECTION_ARRAY := TSmallIntegerSingletonFactory.getInstance().getAt(3);
-  TBasePatrolAI.FIRING_DISTANCE := TSmallIntegerSingletonFactory.getInstance().getAt(4);
-  TBasePatrolAI.SPEED := TSmallIntegerSingletonFactory.getInstance().getAt(5);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasePatrolAI-disable0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION BasePatrolAI-disable0.
 

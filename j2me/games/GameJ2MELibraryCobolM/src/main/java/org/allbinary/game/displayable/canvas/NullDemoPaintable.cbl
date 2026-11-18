@@ -1,63 +1,110 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2025 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.displayable.canvas
-unit NullDemoPaintable;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.displayable.canvas
+*> Java class NullDemoPaintable
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NllDmPntbl-sttc-NULL-D45019.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 NullDemoPaintable-jcell-NULL_DEMO_PAINTABLE BINARY-DOUBLE EXTERNAL.
+01 NullDemoPaintable-jset-NULL_DEMO_PAINTABLE BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF NullDemoPaintable-jset-NULL_DEMO_PAINTABLE = 0
+        MOVE 1 TO NullDemoPaintable-jset-NULL_DEMO_PAINTABLE
+        COMPUTE NullDemoPaintable-jcell-NULL_DEMO_PAINTABLE = FUNCTION NullDemoPaintable-new0
+    END-IF
+    MOVE NullDemoPaintable-jcell-NULL_DEMO_PAINTABLE TO J-RESULT
+    GOBACK.
+END FUNCTION NllDmPntbl-sttc-NULL-D45019.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NllDmPntblsttcNULLD4S14664.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 NullDemoPaintable-jcell-NULL_DEMO_PAINTABLE BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION NllDmPntbl-sttc-NULL-D45019 TO J-RESULT
+    MOVE J-VALUE TO NullDemoPaintable-jcell-NULL_DEMO_PAINTABLE
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION NllDmPntblsttcNULLD4S14664.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, DemoPaintableInterface;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullDemoPaintable-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("NullDemoPaintable")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION NullDemoPaintable-new0.
 
-type
-  {AB:TYPES}
-  TNullDemoPaintable = class(TInterfacedObject, IDemoPaintableInterface)
-  public
-    class var NULL_DEMO_PAINTABLE: TNullDemoPaintable;
-    function JavaObject: TObject;
-    constructor Create;
-        procedure showGamePaintable; virtual;
-  end;
-
-implementation
-
-{AB:CODE}
-
-function TNullDemoPaintable.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-
-constructor TNullDemoPaintable.Create;
-begin
-  inherited Create;
-end;
-    
-
-procedure TNullDemoPaintable.showGamePaintable;
-begin
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TNullDemoPaintable.NULL_DEMO_PAINTABLE := TNullDemoPaintable.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NllDmPntbl-showGamePaintable0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION NllDmPntbl-showGamePaintable0.
 

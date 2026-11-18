@@ -1,126 +1,167 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.combat.damage
+*> Java class AnimationDamageFloaters
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.combat.damage
-unit AnimationDamageFloaters;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, IndexedAnimation, AllBinaryLayer, LogUtil, CircularIndexUtil, DamageFloaters;
-
-type
-  {AB:TYPES}
-  TAnimationDamageFloaters = class(TDamageFloaters)
-  public
-    logUtil: TLogUtil;
-    layerInterface: TAllBinaryLayer;
-    animationInterfaceArray: TArray<TIndexedAnimation>;
-    circularIndexUtil: TCircularIndexUtil;
-    dx: Integer;
-    dy: Integer;
-    procedure InitFields;
-        constructor Create(layerInterface: TAllBinaryLayer; animationInterfaceArray: TArray<TIndexedAnimation>; dx: Integer; dy: Integer);
-        procedure add(damage: Integer); override;
-        procedure paint(graphics_: TGraphics); override;
-  end;
-
-implementation
-uses
-  CanvasStrings, CommonStrings, ViewPosition, ViewPositionBase;
-
-
-{AB:CODE}
-
-procedure TAnimationDamageFloaters.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  
-  
-  
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnimationDamageFloaters-new4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-animationInterfaceArray BINARY-DOUBLE.
+01 J-dx BINARY-DOUBLE.
+01 J-dy BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-layerInterface J-animationInterfaceArray J-dx J-dy RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("AnimationDamageFloaters")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_layerInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_animationInterfaceArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_circularIndexUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_dx")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_dy")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
     
-
-constructor TAnimationDamageFloaters.Create(layerInterface: TAllBinaryLayer; animationInterfaceArray: TArray<TIndexedAnimation>; dx: Integer; dy: Integer);
-var
-  index: Integer;
-begin
-    inherited Create;
-    InitFields;
-        Self.animationInterfaceArray := animationInterfaceArray;
-        for index := (System.Length(Self.animationInterfaceArray)) - (1) downto 0 do begin
-            Self.animationInterfaceArray[index].setFrame((Self.animationInterfaceArray[index].getSize()) - (1));
-        end;
-        Self.layerInterface := layerInterface;
-        Self.circularIndexUtil := TCircularIndexUtil.createInstance(System.Length(Self.animationInterfaceArray));
-        Self.dx := dx;
-        Self.dy := dy;
-end;
     
-
-procedure TAnimationDamageFloaters.add(damage: Integer);
-var
-  i: Integer;
-begin
-        i := Self.circularIndexUtil.getIndex();
-        Self.animationInterfaceArray[i].setFrame(0);
-        Self.circularIndexUtil.next();
-end;
     
+    
+    
+        COMPUTE JVALUE = J-animationInterfaceArray
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animationInterfaceArray", JVALUE)
+        COMPUTE J-index = (FUNCTION MOD((FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_animationInterfaceArray")) - 1) + 2147483648, 4294967296) - 2147483648)
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index >= 0) EXIT PERFORM END-IF
+            COMPUTE jtemp1 = (FUNCTION MOD((FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_animationInterfaceArray"), J-index)) - 1) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_animationInterfaceArray"), J-index))
+        END-PERFORM
+        COMPUTE JVALUE = J-layerInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_layerInterface", JVALUE)
+        COMPUTE JVALUE = FUNCTION CrclrIndxUtl-createInstance1(FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_animationInterfaceArray")))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_circularIndexUtil", JVALUE)
+        COMPUTE JVALUE = J-dx
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_dx", JVALUE)
+        COMPUTE JVALUE = J-dy
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_dy", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION AnimationDamageFloaters-new4.
 
-procedure TAnimationDamageFloaters.paint(graphics_: TGraphics);
-var
-  viewPosition: TViewPositionBase;
-  x: Integer;
-  y: Integer;
-  animationInterface: TIndexedAnimation;
-  delta: Integer;
-  index: Integer;
-  commonStrings_: TCommonStrings;
-  canvasStrings_: TCanvasStrings;
-begin
-        try
-            viewPosition := Self.layerInterface.getViewPosition();
-            x := viewPosition.getX();
-            y := viewPosition.getY();
-            for index := 0 to System.Length(Self.animationInterfaceArray) - 1 do begin
-                animationInterface := Self.animationInterfaceArray[index];
-                if (animationInterface.getFrame()) < ((animationInterface.getAnimationSize()) - (1)) then begin
-                    delta := (animationInterface.getFrame()) * (20);
-                    animationInterface.paintXY(graphics_, (x) + (Self.dx), ((y) - (delta)) + (Self.dy));
-                    animationInterface.nextFrame();
-                end;
-            end;
-        except
-            on e: SysUtils.Exception do begin
-            commonStrings_ := TCommonStrings.getInstance();
-            canvasStrings_ := TCanvasStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), canvasStrings_.PAINT, TJava.Box(e));
-            end;
-        end;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnimationDamageFloaters-add1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-i BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-damage BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-damage RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-i = FUNCTION CircularIndexUtil-getIndex0(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil"))
+        COMPUTE jtemp2 = 0
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_animationInterfaceArray"), J-i))
+        COMPUTE JDISCARD = FUNCTION CircularIndexUtil-next0(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil"))
+    GOBACK.
+END FUNCTION AnimationDamageFloaters-add1.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnimationDamageFloaters-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-viewPosition BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-animationInterface BINARY-DOUBLE.
+01 J-delta BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-commonStrings BINARY-DOUBLE.
+01 J-canvasStrings BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE J-viewPosition = FUNCTION AllBnryLyr-getViewPosition0(FUNCTION JR-GET(J-THIS, "f_layerInterface"))
+            COMPUTE J-x = FUNCTION GPoint-getX0(J-viewPosition)
+            COMPUTE J-y = FUNCTION GPoint-getY0(J-viewPosition)
+            COMPUTE J-index = 0
+            MOVE 1 TO JFIRST2
+            PERFORM FOREVER
+                IF JFIRST2 = 0
+                    COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+                END-IF
+                MOVE 0 TO JFIRST2
+                IF NOT (J-index < FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_animationInterfaceArray"))) EXIT PERFORM END-IF
+                COMPUTE J-animationInterface = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_animationInterfaceArray"), J-index)
+                IF (FUNCTION IndexedAnimation-getFrame0(J-animationInterface) < (FUNCTION MOD((FUNCTION IndxdAnmtn-getAnimationSize0(J-animationInterface) - 1) + 2147483648, 4294967296) - 2147483648))
+                    COMPUTE J-delta = (FUNCTION MOD((FUNCTION IndexedAnimation-getFrame0(J-animationInterface) * 20) + 2147483648, 4294967296) - 2147483648)
+                    COMPUTE jtemp5 = (FUNCTION MOD((J-y - J-delta) + 2147483648, 4294967296) - 2147483648)
+                    COMPUTE jtemp3 = (FUNCTION MOD((J-x + FUNCTION JR-GET(J-THIS, "f_dx")) + 2147483648, 4294967296) - 2147483648)
+                    COMPUTE jtemp4 = (FUNCTION MOD((jtemp5 + FUNCTION JR-GET(J-THIS, "f_dy")) + 2147483648, 4294967296) - 2147483648)
+                    COMPUTE JDISCARD = FUNCTION Animation-paintXY3(J-animationInterface, J-graphics, jtemp3, jtemp4)
+                    COMPUTE JDISCARD = FUNCTION Animation-nextFrame0(J-animationInterface)
+                END-IF
+            END-PERFORM
+    GOBACK.
+END FUNCTION AnimationDamageFloaters-paint1.
 

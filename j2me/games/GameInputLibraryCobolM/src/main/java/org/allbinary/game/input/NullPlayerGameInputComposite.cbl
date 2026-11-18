@@ -1,87 +1,196 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2025 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.input
-unit NullPlayerGameInputComposite;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.input
+*> Java class NullPlayerGameInputComposite
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NllPlyrGmInptCmpst-s70216.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 NullPlayerGameInputComposite-jcell-NULL_PLAYER_GAME_INPUT_COMPOSITE BINARY-DOUBLE EXTERNAL.
+01 NullPlayerGameInputComposite-jset-NULL_PLAYER_GAME_INPUT_COMPOSITE BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF NullPlayerGameInputComposite-jset-NULL_PLAYER_GAME_INPUT_COMPOSITE = 0
+        MOVE 1 TO NullPlayerGameInputComposite-jset-NULL_PLAYER_GAME_INPUT_COMPOSITE
+        COMPUTE NullPlayerGameInputComposite-jcell-NULL_PLAYER_GAME_INPUT_COMPOSITE = FUNCTION NllPlyrGmInptCmpst-new0
+    END-IF
+    MOVE NullPlayerGameInputComposite-jcell-NULL_PLAYER_GAME_INPUT_COMPOSITE TO J-RESULT
+    GOBACK.
+END FUNCTION NllPlyrGmInptCmpst-s70216.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NllPlyrGmInptCmpsts7S32382.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 NullPlayerGameInputComposite-jcell-NULL_PLAYER_GAME_INPUT_COMPOSITE BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION NllPlyrGmInptCmpst-s70216 TO J-RESULT
+    MOVE J-VALUE TO NullPlayerGameInputComposite-jcell-NULL_PLAYER_GAME_INPUT_COMPOSITE
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION NllPlyrGmInptCmpsts7S32382.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AllBinaryLayerManager, PlayerGameInput, PlayerGameInputCompositeInterface, GameInputInterface, NamedInterface;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NllPlyrGmInptCmpst-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("NullPlayerGameInputComposite")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION NllPlyrGmInptCmpst-new0.
 
-type
-  {AB:TYPES}
-  TNullPlayerGameInputComposite = class(TInterfacedObject, IPlayerGameInputCompositeInterface, IGameInputInterface, INamedInterface)
-  public
-    class var NULL_PLAYER_GAME_INPUT_COMPOSITE: TNullPlayerGameInputComposite;
-    function JavaObject: TObject;
-    constructor Create;
-        function getName: string; virtual;
-        procedure processInput(layerManager: TAllBinaryLayerManager); virtual;
-        procedure initInputProcessors; virtual;
-        function getPlayerGameInput: TPlayerGameInput; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NllPlyrGmInptCmpst-getName0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+        COMPUTE J-RESULT = FUNCTION JR-GET(jtemp1, "f_EMPTY_STRING")
+        GOBACK
+    GOBACK.
+END FUNCTION NllPlyrGmInptCmpst-getName0.
 
-implementation
-uses
-  NoPlayerGameInput, StringUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NllPlyrGmInptCmpst-prcssInpt1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerManager BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerManager RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION NllPlyrGmInptCmpst-prcssInpt1.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NllPlyrGmInptCmpst-intInp43658.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION NllPlyrGmInptCmpst-intInp43658.
 
-{AB:CODE}
-
-function TNullPlayerGameInputComposite.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-
-constructor TNullPlayerGameInputComposite.Create;
-begin
-  inherited Create;
-end;
-    
-
-function TNullPlayerGameInputComposite.getName: string;
-begin
-        Exit(TStringUtil.getInstance().EMPTY_STRING);
-end;
-    
-
-// throws Exception
-procedure TNullPlayerGameInputComposite.processInput(layerManager: TAllBinaryLayerManager);
-begin
-end;
-    
-
-procedure TNullPlayerGameInputComposite.initInputProcessors;
-begin
-end;
-    
-
-function TNullPlayerGameInputComposite.getPlayerGameInput: TPlayerGameInput;
-begin
-        Exit(TNoPlayerGameInput.getInstance());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TNullPlayerGameInputComposite.NULL_PLAYER_GAME_INPUT_COMPOSITE := TNullPlayerGameInputComposite.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NllPlyrGmInptCmpst-gtPlyr29517.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION NoPlayerGameInput-getInstance0
+        GOBACK
+    GOBACK.
+END FUNCTION NllPlyrGmInptCmpst-gtPlyr29517.
 

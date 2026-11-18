@@ -1,74 +1,87 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.displayable.canvas
+*> Java class CanvasUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.displayable.canvas
-unit CanvasUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CanvasUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CanvasUtil")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CanvasUtil-new0.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
-
-type
-  {AB:TYPES}
-  TCanvasUtil = class(TObject)
-  public
-        constructor Create;
-        class function getKeyName(key: Integer): string; static;
-  end;
-
-implementation
-uses
-  Canvas, CommonPhoneStrings;
-
-
-{AB:CODE}
-    
-
-constructor TCanvasUtil.Create;
-begin
-    inherited Create;
-end;
-    
-
-class function TCanvasUtil.getKeyName(key: Integer): string;
-var
-  commonPhoneStrings_: TCommonPhoneStrings;
-begin
-        commonPhoneStrings_ := TCommonPhoneStrings.getInstance();
-        if (key) = (TCanvas.UP) then begin
-            Exit(commonPhoneStrings_.UP);
-        end else if (key) = (TCanvas.DOWN) then begin
-            Exit(commonPhoneStrings_.DOWN);
-        end else if (key) = (TCanvas.RIGHT) then begin
-            Exit(commonPhoneStrings_.RIGHT);
-        end else if (key) = (TCanvas.LEFT) then begin
-            Exit(commonPhoneStrings_.LEFT);
-        end else if (key) = (TCanvas.FIRE) then begin
-            Exit(commonPhoneStrings_.FIRE);
-        end;
-        Exit('UNKNOWN KEY');
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CanvasUtil-getKeyName1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-commonPhoneStrings BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-key BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-key RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-commonPhoneStrings = FUNCTION CmmnPhnStrngs-getInstance0
+        IF (J-key = FUNCTION Canvas-static-UP)
+            COMPUTE J-RESULT = FUNCTION JR-GET(J-commonPhoneStrings, "f_UP")
+            GOBACK
+        ELSE
+            IF (J-key = FUNCTION Canvas-static-DOWN)
+            COMPUTE J-RESULT = FUNCTION JR-GET(J-commonPhoneStrings, "f_DOWN")
+            GOBACK
+        ELSE
+            IF (J-key = FUNCTION Canvas-static-RIGHT)
+            COMPUTE J-RESULT = FUNCTION JR-GET(J-commonPhoneStrings, "f_RIGHT")
+            GOBACK
+        ELSE
+            IF (J-key = FUNCTION Canvas-static-LEFT)
+            COMPUTE J-RESULT = FUNCTION JR-GET(J-commonPhoneStrings, "f_LEFT")
+            GOBACK
+        ELSE
+            IF (J-key = FUNCTION Canvas-static-FIRE)
+            COMPUTE J-RESULT = FUNCTION JR-GET(J-commonPhoneStrings, "f_FIRE")
+            GOBACK
+        END-IF
+        END-IF
+        END-IF
+        END-IF
+        END-IF
+        COMPUTE J-RESULT = FUNCTION JR-STR("UNKNOWN KEY")
+        GOBACK
+    GOBACK.
+END FUNCTION CanvasUtil-getKeyName1.
 

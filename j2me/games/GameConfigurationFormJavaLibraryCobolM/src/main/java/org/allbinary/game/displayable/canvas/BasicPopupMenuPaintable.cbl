@@ -1,173 +1,298 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.displayable.canvas
+*> Java class BasicPopupMenuPaintable
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.displayable.canvas
-unit BasicPopupMenuPaintable;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscPppMnPntbl-static-NAME.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BasicPopupMenuPaintable-jcell-NAME BINARY-DOUBLE EXTERNAL.
+01 BasicPopupMenuPaintable-jset-NAME BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF BasicPopupMenuPaintable-jset-NAME = 0
+        MOVE 1 TO BasicPopupMenuPaintable-jset-NAME
+        COMPUTE BasicPopupMenuPaintable-jcell-NAME = FUNCTION JR-STR("MENU")
+    END-IF
+    MOVE BasicPopupMenuPaintable-jcell-NAME TO J-RESULT
+    GOBACK.
+END FUNCTION BscPppMnPntbl-static-NAME.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscPppMnPntblstaticNS29045.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BasicPopupMenuPaintable-jcell-NAME BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION BscPppMnPntbl-static-NAME TO J-RESULT
+    MOVE J-VALUE TO BasicPopupMenuPaintable-jcell-NAME
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION BscPppMnPntblstaticNS29045.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, Animation, Rectangle, BasicColor, BasicColorSetUtil, DrawVerticalStringUtil, MyFontProcessor, UpdateMyFontInterface, Paintable;
-
-type
-  {AB:TYPES}
-  TBasicPopupMenuPaintable = class(TPaintable, IUpdateMyFontInterface)
-  public
-    basicSetColorUtil: TBasicColorSetUtil;
-    drawStringUtil: TDrawVerticalStringUtil;
-    label_: string;
-    foregroundBasicColor: TBasicColor;
-    myFontProcessor: TMyFontProcessor;
-    rectangle: TRectangle;
-    BORDER: Integer;
-    heightOffset: Integer;
-    offset: Integer;
-    animationInterface: TAnimation;
-    class var NAME: string;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(rectangle_: TRectangle; backgroundBasicColor: TBasicColor; foregroundBasicColor: TBasicColor);
-        procedure updateMeasurement(graphics_: TGraphics); virtual;
-        procedure init(rectangle_: TRectangle); virtual;
-        procedure paint(graphics_: TGraphics); virtual;
-  end;
-
-implementation
-uses
-  Font, AndroidUtil, J2MEUtil, NullAnimationFactory, RectangleFilledAnimation, Features, SWTUtil, GPoint, BasicColorFactory, UpdateMyFontProcessor, OpenGLFeatureFactory, OpenGLFeatureUtil, SWTJOGLProcessor;
-
-
-{AB:CODE}
-
-procedure TBasicPopupMenuPaintable.InitFields;
-begin
-  Self.basicSetColorUtil := TBasicColorSetUtil.getInstance();
-  Self.drawStringUtil := TDrawVerticalStringUtil.getInstance();
-  
-  
-  Self.myFontProcessor := TUpdateMyFontProcessor.Create(Self);
-  
-  
-  
-  
-  
-end;
-
-function TBasicPopupMenuPaintable.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicPopupMenuPaintable-new3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-rectangle BINARY-DOUBLE.
+01 J-backgroundBasicColor BINARY-DOUBLE.
+01 J-foregroundBasicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-rectangle J-backgroundBasicColor J-foregroundBasicColor RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("BasicPopupMenuPaintable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_basicSetColorUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_drawStringUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_label")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_foregroundBasicColor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_myFontProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_rectangle")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_BORDER")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_heightOffset")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_offset")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_animationInterface")
+    COMPUTE JVALUE = FUNCTION BasicColorSetUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicSetColorUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION DrwVrtclStrngUtl-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_drawStringUtil", JVALUE)
     
-
-constructor TBasicPopupMenuPaintable.Create(rectangle_: TRectangle; backgroundBasicColor: TBasicColor; foregroundBasicColor: TBasicColor);
-begin
-    inherited Create;
-    InitFields;
-        Self.foregroundBasicColor := foregroundBasicColor;
-        Self.label_ := TBasicPopupMenuPaintable.NAME;
-        Self.rectangle := rectangle_;
-        if (TJ2MEUtil.isJ2ME()) or (TJ2MEUtil.isHTML()) then begin
-            Self.animationInterface := TNullAnimationFactory.getFactoryInstance().getInstance(0);
-        end else begin
-            Self.animationInterface := TRectangleFilledAnimation.Create(Self.rectangle.getWidth(), Self.rectangle.getHeight(), TBasicColorFactory.getInstance().TRANSPARENT_GREY);
-        end;
-        Self.init(rectangle_);
-end;
     
-
-procedure TBasicPopupMenuPaintable.updateMeasurement(graphics_: TGraphics);
-var
-  font_: TFont;
-  features_: TFeatures;
-  isOpenGL: Boolean;
-  BORDER: Integer;
-begin
-        font_ := graphics_.getFont();
-        features_ := TFeatures.getInstance();
-        isOpenGL := features_.isDefault(TOpenGLFeatureFactory.getInstance().OPENGL);
-        Self.drawStringUtil.updateMeasurement(graphics_, Self.label_);
-        BORDER := 0;
-        if (TJ2MEUtil.isHTML()) or (isOpenGL) then begin
-            BORDER := TJava.Divide(TMyFontProcessor.defaultCharWidth(font_), 2);
-        end else if ((TAndroidUtil.isAndroid()) or (TJ2MEUtil.isJ2SE())) or (TSWTUtil.isSWT) then begin
-            BORDER := TMyFontProcessor.defaultCharWidth(font_);
-        end else begin
-            BORDER := (TMyFontProcessor.defaultCharWidth(font_)) * (2);
-        end;
-        Self.BORDER := BORDER;
-        Self.heightOffset := (Self.rectangle.getHeight()) - (((font_.getHeight()) * (System.Length(TBasicPopupMenuPaintable.NAME))));
-        if TOpenGLFeatureUtil.getInstance().isAnyThreed() then begin
-            Self.heightOffset := (Self.heightOffset) - ((font_.getHeight()) + (2));
-            if TAndroidUtil.isAndroid() then begin
-                Self.heightOffset := font_.getHeight();
-            end else begin
-                Self.heightOffset := (Self.heightOffset) - ((font_.getHeight()) + (2));
-            end;
-        end;
-        Self.offset := ((TJava.SignedRightShift(Self.heightOffset, 1))) + ((TJava.IfThen<Variant>(TSWTJOGLProcessor.getInstance().isJOGL(), 4, 0)));
-        Self.myFontProcessor := TMyFontProcessor.getInstance();
-end;
+    COMPUTE JVALUE = FUNCTION UpdateMyFontProcessor-new1(J-THIS)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
     
-
-// throws Exception
-procedure TBasicPopupMenuPaintable.init(rectangle_: TRectangle);
-var
-  width: Integer;
-  height: Integer;
-  rectangleFilledAnimation_: TRectangleFilledAnimation;
-begin
-        Self.rectangle := rectangle_;
-        width := Self.rectangle.getWidth();
-        height := Self.rectangle.getHeight();
-        if (TJ2MEUtil.isJ2ME()) or (TJ2MEUtil.isHTML()) then begin
-        end else begin
-            rectangleFilledAnimation_ := TRectangleFilledAnimation(TJava.ToObject(Self.animationInterface));
-            rectangleFilledAnimation_.setWidth(width);
-            rectangleFilledAnimation_.setHeight(height);
-        end;
-end;
     
+    
+    
+    
+        COMPUTE JVALUE = J-foregroundBasicColor
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_foregroundBasicColor", JVALUE)
+        COMPUTE JVALUE = FUNCTION BscPppMnPntbl-static-NAME
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_label", JVALUE)
+        COMPUTE JVALUE = J-rectangle
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_rectangle", JVALUE)
+        IF ((FUNCTION J2MEUtil-isJ2ME0 = 1) OR (FUNCTION J2MEUtil-isHTML0 = 1))
+            COMPUTE jtemp3 = 0
+            COMPUTE jtemp2 = FUNCTION NllAnmtnFctry-gtFctryInstnc0
+            COMPUTE JVALUE = FUNCTION JR-CLASS-NAME(jtemp2)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animationInterface", JVALUE)
+        ELSE
+            COMPUTE jtemp1 = FUNCTION BasicColorFactory-getInstance0
+            COMPUTE JVALUE = FUNCTION RectangleFilledAnimation-new3(FUNCTION Rectangle-getWidth0(FUNCTION JR-GET(J-THIS, "f_rectangle")), FUNCTION Rectangle-getHeight0(FUNCTION JR-GET(J-THIS, "f_rectangle")), FUNCTION JR-GET(jtemp1,
+        "f_TRANSPARENT_GREY"))
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animationInterface", JVALUE)
+        END-IF
+        COMPUTE JDISCARD = FUNCTION BasicPopupMenuPaintable-init1(J-THIS, J-rectangle)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION BasicPopupMenuPaintable-new3.
 
-procedure TBasicPopupMenuPaintable.paint(graphics_: TGraphics);
-var
-  point: TGPoint;
-  x: Integer;
-  y: Integer;
-  width: Integer;
-  height: Integer;
-begin
-        Self.myFontProcessor.process(graphics_);
-        point := Self.rectangle.getPoint();
-        x := point.getX();
-        y := point.getY();
-        width := Self.rectangle.getWidth();
-        height := Self.rectangle.getHeight();
-        Self.animationInterface.paintXY(graphics_, x, y);
-        Self.basicSetColorUtil.setBasicColorP(graphics_, Self.foregroundBasicColor);
-        Self.drawStringUtil.paintVerticle(graphics_, Self.label_, (x) + (Self.BORDER), (y) + (Self.offset), 0);
-        graphics_.drawRect(x, y, width, height);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscPppMnPntbl-updtMsrmnt1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-font BINARY-DOUBLE.
+01 J-features BINARY-DOUBLE.
+01 J-isOpenGL BINARY-DOUBLE.
+01 J-BORDER BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-font = FUNCTION Graphics-getFont0(J-graphics)
+        COMPUTE J-features = FUNCTION Features-getInstance0
+        COMPUTE jtemp4 = FUNCTION OpnGLFtrFctry-getInstance0
+        COMPUTE J-isOpenGL = FUNCTION Features-isDefault1(J-features, FUNCTION JR-GET(jtemp4, "f_OPENGL"))
+        COMPUTE JDISCARD = FUNCTION DrwVrtclStrngUtl-updtMsrmnt2(FUNCTION JR-GET(J-THIS, "f_drawStringUtil"), J-graphics, FUNCTION JR-GET(J-THIS, "f_label"))
+        COMPUTE J-BORDER = 0
+        IF ((FUNCTION J2MEUtil-isHTML0 = 1) OR (J-isOpenGL = 1))
+            COMPUTE J-BORDER = (FUNCTION MOD(FUNCTION INTEGER-PART(FUNCTION MyFntPrcssr-defaultCharWidth1(J-font) / 2) + 2147483648, 4294967296) - 2147483648)
+        ELSE
+            IF (((FUNCTION AndroidUtil-isAndroid0 = 1) OR (FUNCTION J2MEUtil-isJ2SE0 = 1)) OR (FUNCTION SWTUtil-static-isSWT = 1))
+            COMPUTE J-BORDER = FUNCTION MyFntPrcssr-defaultCharWidth1(J-font)
+        ELSE
+            COMPUTE J-BORDER = (FUNCTION MOD((FUNCTION MyFntPrcssr-defaultCharWidth1(J-font) * 2) + 2147483648, 4294967296) - 2147483648)
+        END-IF
+        END-IF
+        COMPUTE JVALUE = J-BORDER
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_BORDER", JVALUE)
+        COMPUTE JVALUE = (FUNCTION MOD((FUNCTION Rectangle-getHeight0(FUNCTION JR-GET(J-THIS, "f_rectangle")) - ((FUNCTION MOD((FUNCTION Font-getHeight0(J-font) * FUNCTION JR-CLASS-NAME(FUNCTION BscPppMnPntbl-static-NAME)) + 2147483648,
+        4294967296) - 2147483648))) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_heightOffset", JVALUE)
+        COMPUTE jtemp5 = FUNCTION OpenGLFeatureUtil-getInstance0
+        IF (FUNCTION OpenGLFeatureUtil-isAnyThreed0(jtemp5) = 1)
+            COMPUTE jtemp6 = 2
+            COMPUTE JVALUE = (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_heightOffset") - (FUNCTION MOD((FUNCTION Font-getHeight0(J-font) + jtemp6) + 2147483648, 4294967296) - 2147483648)) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_heightOffset", JVALUE)
+            IF (FUNCTION AndroidUtil-isAndroid0 = 1)
+                COMPUTE JVALUE = FUNCTION Font-getHeight0(J-font)
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_heightOffset", JVALUE)
+            ELSE
+                COMPUTE jtemp7 = 2
+                COMPUTE JVALUE = (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_heightOffset") - (FUNCTION MOD((FUNCTION Font-getHeight0(J-font) + jtemp7) + 2147483648, 4294967296) - 2147483648)) + 2147483648, 4294967296) - 2147483648)
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_heightOffset", JVALUE)
+            END-IF
+        END-IF
+        COMPUTE jtemp10 = FUNCTION SWTJOGLProcessor-getInstance0
+        COMPUTE jtemp8 = (FUNCTION JR-SHIFT(JFIVE, FUNCTION JR-GET(J-THIS, "f_heightOffset"), 1))
+        COMPUTE jtemp9 = (((FUNCTION SWTJOGLProcessor-isJOGL0(jtemp10)) * (4) + (1 - (FUNCTION SWTJOGLProcessor-isJOGL0(jtemp10))) * (0)))
+        COMPUTE JVALUE = (FUNCTION MOD((jtemp8 + jtemp9) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_offset", JVALUE)
+        COMPUTE JVALUE = FUNCTION MyFontProcessor-getInstance0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
+    GOBACK.
+END FUNCTION BscPppMnPntbl-updtMsrmnt1.
 
-initialization
-  {AB:INITIALIZATION}
-  TBasicPopupMenuPaintable.NAME := 'MENU';
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicPopupMenuPaintable-init1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-rectangleFilledAnimation BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-rectangle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-rectangle RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-rectangle
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_rectangle", JVALUE)
+        COMPUTE J-width = FUNCTION Rectangle-getWidth0(FUNCTION JR-GET(J-THIS, "f_rectangle"))
+        COMPUTE J-height = FUNCTION Rectangle-getHeight0(FUNCTION JR-GET(J-THIS, "f_rectangle"))
+        IF ((FUNCTION J2MEUtil-isJ2ME0 = 1) OR (FUNCTION J2MEUtil-isHTML0 = 1))
+            CONTINUE
+        ELSE
+            COMPUTE J-rectangleFilledAnimation = FUNCTION JR-GET(J-THIS, "f_animationInterface")
+            COMPUTE JDISCARD = FUNCTION RctnglFlldAnmtn-setWidth1(J-rectangleFilledAnimation, J-width)
+            COMPUTE JDISCARD = FUNCTION RctnglFlldAnmtn-setHeight1(J-rectangleFilledAnimation, J-height)
+        END-IF
+    GOBACK.
+END FUNCTION BasicPopupMenuPaintable-init1.
 
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicPopupMenuPaintable-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-point BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION MyFontProcessor-process1(FUNCTION JR-GET(J-THIS, "f_myFontProcessor"), J-graphics)
+        COMPUTE J-point = FUNCTION Rectangle-getPoint0(FUNCTION JR-GET(J-THIS, "f_rectangle"))
+        COMPUTE J-x = FUNCTION GPoint-getX0(J-point)
+        COMPUTE J-y = FUNCTION GPoint-getY0(J-point)
+        COMPUTE J-width = FUNCTION Rectangle-getWidth0(FUNCTION JR-GET(J-THIS, "f_rectangle"))
+        COMPUTE J-height = FUNCTION Rectangle-getHeight0(FUNCTION JR-GET(J-THIS, "f_rectangle"))
+        COMPUTE JDISCARD = FUNCTION Animation-paintXY3(FUNCTION JR-GET(J-THIS, "f_animationInterface"), J-graphics, J-x, J-y)
+        COMPUTE JDISCARD = FUNCTION BscClrStUtl-setBasicColorP2(FUNCTION JR-GET(J-THIS, "f_basicSetColorUtil"), J-graphics, FUNCTION JR-GET(J-THIS, "f_foregroundBasicColor"))
+        COMPUTE jtemp11 = (FUNCTION MOD((J-x + FUNCTION JR-GET(J-THIS, "f_BORDER")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp12 = (FUNCTION MOD((J-y + FUNCTION JR-GET(J-THIS, "f_offset")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp13 = 0
+        COMPUTE JDISCARD = FUNCTION DrwVrtclStrngUtl-pntVrtcl5(FUNCTION JR-GET(J-THIS, "f_drawStringUtil"), J-graphics, FUNCTION JR-GET(J-THIS, "f_label"), jtemp11, jtemp12, jtemp13)
+        COMPUTE JDISCARD = FUNCTION Graphics-drawRect4(J-graphics, J-x, J-y, J-width, J-height)
+    GOBACK.
+END FUNCTION BasicPopupMenuPaintable-paint1.
 

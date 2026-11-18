@@ -1,64 +1,142 @@
-// Generated Code Do Not Modify
-// package org.allbinary.game.displayable.canvas
-unit NullDisplayable;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.displayable.canvas
+*> Java class NullDisplayable
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NllDsplybl-static-SINGLETON.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 NullDisplayable-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+01 NullDisplayable-jset-SINGLETON BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF NullDisplayable-jset-SINGLETON = 0
+        MOVE 1 TO NullDisplayable-jset-SINGLETON
+        COMPUTE NullDisplayable-jcell-SINGLETON = FUNCTION NullDisplayable-new0
+    END-IF
+    MOVE NullDisplayable-jcell-SINGLETON TO J-RESULT
+    GOBACK.
+END FUNCTION NllDsplybl-static-SINGLETON.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NllDsplyblstaticSINGS74139.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 NullDisplayable-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION NllDsplybl-static-SINGLETON TO J-RESULT
+    MOVE J-VALUE TO NullDisplayable-jcell-SINGLETON
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION NllDsplyblstaticSINGS74139.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Canvas, Graphics, BaseGameStatistics;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullDisplayable-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("NullDisplayable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_baseGameStatistics")
+    COMPUTE JVALUE = FUNCTION GmSttstcsFctry-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_baseGameStatistics", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION NullDisplayable-new0.
 
-type
-  {AB:TYPES}
-  // J2SEForJ2ME
-  TNullDisplayable = class(TCanvas)
-  public
-    baseGameStatistics: TBaseGameStatistics;
-    class var SINGLETON: TNullDisplayable;
-    procedure InitFields;
-        class function getInstance: TNullDisplayable; static;
-        constructor Create;
-        procedure paint(graphics_: TGraphics); override;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullDisplayable-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION NllDsplybl-static-SINGLETON
+        GOBACK
+    GOBACK.
+END FUNCTION NullDisplayable-getInstance0.
 
-implementation
-uses
-  GameStatisticsFactory;
-
-
-{AB:CODE}
-
-procedure TNullDisplayable.InitFields;
-begin
-  Self.baseGameStatistics := TGameStatisticsFactory.getInstance();
-end;
-    
-
-class function TNullDisplayable.getInstance: TNullDisplayable;
-begin
-        Exit(TNullDisplayable.SINGLETON);
-end;
-    
-
-constructor TNullDisplayable.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
-
-procedure TNullDisplayable.paint(graphics_: TGraphics);
-begin
-        Self.baseGameStatistics.nextRefresh();
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TNullDisplayable.SINGLETON := TNullDisplayable.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullDisplayable-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BsGmSttstcs-nextRefresh0(FUNCTION JR-GET(J-THIS, "f_baseGameStatistics"))
+    GOBACK.
+END FUNCTION NullDisplayable-paint1.
 

@@ -1,214 +1,570 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.image.sprite
+*> Java class SpriteIndexedAnimation
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.image.sprite
-unit SpriteIndexedAnimation;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, Image, Sprite, AnimationBehavior, IndexedAnimation, BasicColor, ColorCompositeInterface, BasicColorCompositeSetterInterface;
-
-type
-  {AB:TYPES}
-  TSpriteIndexedAnimation = class(TIndexedAnimation, IColorCompositeInterface, IBasicColorCompositeSetterInterface)
-  public
-    sprite: TSprite;
-    image: TImage;
-    basicColorArray: TArray<TBasicColor>;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(sprite_: TSprite; image_: TImage; basicColorArray: TArray<TBasicColor>; animationBehavior_: TAnimationBehavior);
-        function getAnimationSize: Integer; virtual;
-        procedure setBasicColorP(basicColor_: TBasicColor); virtual;
-        function getBasicColorP: TBasicColor; virtual;
-        procedure paintFrame(graphics_: TGraphics; frame: Integer; x: Integer; y: Integer); virtual;
-        procedure paintXY(graphics_: TGraphics; x: Integer; y: Integer); virtual;
-        procedure paint(graphics_: TGraphics); virtual;
-        procedure nextFrame; virtual;
-        procedure previousFrame; virtual;
-        function getSize: Integer; virtual;
-        procedure setFrame(frame: Integer); virtual;
-        function getFrame: Integer; virtual;
-        function isLastFrame: Boolean; virtual;
-        function getLastFrame: Integer; virtual;
-        procedure setSequence(sequence: TArray<Integer>); virtual;
-        function getSequence: TArray<Integer>; virtual;
-        procedure close; virtual;
-        procedure finalize; virtual;
-  end;
-
-implementation
-uses
-  BasicColorFactory, PrimitiveIntUtil, StringMaker, CommonLabels;
-
-
-{AB:CODE}
-
-procedure TSpriteIndexedAnimation.InitFields;
-begin
-  
-  
-  
-end;
-
-function TSpriteIndexedAnimation.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SpriteIndexedAnimation-new4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-sprite BINARY-DOUBLE.
+01 J-image BINARY-DOUBLE.
+01 J-basicColorArray BINARY-DOUBLE.
+01 J-animationBehavior BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-sprite J-image J-basicColorArray J-animationBehavior RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("SpriteIndexedAnimation")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_sprite")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_image")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_basicColorArray")
     
-
-constructor TSpriteIndexedAnimation.Create(sprite_: TSprite; image_: TImage; basicColorArray: TArray<TBasicColor>; animationBehavior_: TAnimationBehavior);
-begin
-        inherited Create(animationBehavior_);
-        InitFields;
-        Self.sprite := sprite_;
-        Self.image := image_;
-        Self.basicColorArray := basicColorArray;
-        if ((System.Length(Self.basicColorArray)) <> (0)) and ((Self.getSize()) <> (System.Length(Self.basicColorArray))) then begin
-            raise SysUtils.Exception.Create(TStringMaker.Create().append(TCommonLabels.getInstance().TOTAL_LABEL).appendint(Self.getSize()).append('!=').appendint(System.Length(Self.basicColorArray)).toString());
-        end;
-end;
     
-
-// throws Exception
-function TSpriteIndexedAnimation.getAnimationSize: Integer;
-begin
-        Exit(Self.getSize());
-end;
     
+        CONTINUE
+        COMPUTE JVALUE = J-sprite
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_sprite", JVALUE)
+        COMPUTE JVALUE = J-image
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_image", JVALUE)
+        COMPUTE JVALUE = J-basicColorArray
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicColorArray", JVALUE)
+        IF ((FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_basicColorArray")) NOT = 0) AND (FUNCTION SprtIndxdAnmtn-getSize0(J-THIS) NOT = FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_basicColorArray"))))
+            COMPUTE jtemp6 = FUNCTION CommonLabels-getInstance0
+            COMPUTE jtemp5 = FUNCTION StringMaker-new0
+            COMPUTE jtemp4 = FUNCTION StringMaker-append1(jtemp5, FUNCTION JR-GET(jtemp6, "f_TOTAL_LABEL"))
+            COMPUTE jtemp3 = FUNCTION StringMaker-appendint1(jtemp4, FUNCTION SprtIndxdAnmtn-getSize0(J-THIS))
+            COMPUTE jtemp2 = FUNCTION StringMaker-append1(jtemp3, FUNCTION JR-STR("!="))
+            COMPUTE jtemp1 = FUNCTION StringMaker-appendint1(jtemp2, FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_basicColorArray")))
+            COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+        END-IF
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION SpriteIndexedAnimation-new4.
 
-procedure TSpriteIndexedAnimation.setBasicColorP(basicColor_: TBasicColor);
-var
-  index: Integer;
-begin
-        for index := 0 to System.Length(Self.basicColorArray) - 1 do begin
-            if (basicColor_) = (Self.basicColorArray[index]) then begin
-                Self.setFrame(index);
-                Break;
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SprtIndxdAnmtn-gtAnmtnSz0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION SprtIndxdAnmtn-getSize0(J-THIS)
+        GOBACK
+    GOBACK.
+END FUNCTION SprtIndxdAnmtn-gtAnmtnSz0.
 
-function TSpriteIndexedAnimation.getBasicColorP: TBasicColor;
-begin
-        if (System.Length(Self.basicColorArray)) < (Self.getFrame()) then begin
-            Exit(Self.basicColorArray[Self.getFrame()]);
-        end else begin
-            Exit(TBasicColorFactory.getInstance().WHITE);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SprtIndxdAnmtn-setBasicColorP1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-index BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-basicColor RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_basicColorArray"))) EXIT PERFORM END-IF
+            IF (J-basicColor = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_basicColorArray"), J-index))
+                COMPUTE JDISCARD = FUNCTION SprtIndxdAnmtn-setFrame1(J-THIS, J-index)
+                EXIT PERFORM
+            END-IF
+        END-PERFORM
+    GOBACK.
+END FUNCTION SprtIndxdAnmtn-setBasicColorP1.
 
-procedure TSpriteIndexedAnimation.paintFrame(graphics_: TGraphics; frame: Integer; x: Integer; y: Integer);
-begin
-        Self.setFrame(frame);
-        Self.sprite.setPosition(x, y);
-        Self.sprite.paint(graphics_);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SprtIndxdAnmtn-getBasicColorP0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_basicColorArray")) < FUNCTION SprtIndxdAnmtn-getFrame0(J-THIS))
+            COMPUTE J-RESULT = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_basicColorArray"), FUNCTION SprtIndxdAnmtn-getFrame0(J-THIS))
+            GOBACK
+        ELSE
+            COMPUTE jtemp7 = FUNCTION BasicColorFactory-getInstance0
+            COMPUTE J-RESULT = FUNCTION JR-GET(jtemp7, "f_WHITE")
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION SprtIndxdAnmtn-getBasicColorP0.
 
-procedure TSpriteIndexedAnimation.paintXY(graphics_: TGraphics; x: Integer; y: Integer);
-begin
-        Self.sprite.setPosition(x, y);
-        Self.sprite.paint(graphics_);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SprtIndxdAnmtn-paintFrame4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-frame BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-frame J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION SprtIndxdAnmtn-setFrame1(J-THIS, J-frame)
+        COMPUTE JDISCARD = FUNCTION Sprite-setPosition2(FUNCTION JR-GET(J-THIS, "f_sprite"), J-x, J-y)
+        COMPUTE JDISCARD = FUNCTION Sprite-paint1(FUNCTION JR-GET(J-THIS, "f_sprite"), J-graphics)
+    GOBACK.
+END FUNCTION SprtIndxdAnmtn-paintFrame4.
 
-procedure TSpriteIndexedAnimation.paint(graphics_: TGraphics);
-begin
-        Self.sprite.paint(graphics_);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SprtIndxdAnmtn-paintXY3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Sprite-setPosition2(FUNCTION JR-GET(J-THIS, "f_sprite"), J-x, J-y)
+        COMPUTE JDISCARD = FUNCTION Sprite-paint1(FUNCTION JR-GET(J-THIS, "f_sprite"), J-graphics)
+    GOBACK.
+END FUNCTION SprtIndxdAnmtn-paintXY3.
 
-procedure TSpriteIndexedAnimation.nextFrame;
-begin
-        Self.sprite.nextFrame();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SpriteIndexedAnimation-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Sprite-paint1(FUNCTION JR-GET(J-THIS, "f_sprite"), J-graphics)
+    GOBACK.
+END FUNCTION SpriteIndexedAnimation-paint1.
 
-procedure TSpriteIndexedAnimation.previousFrame;
-begin
-        Self.sprite.prevFrame();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SprtIndxdAnmtn-nextFrame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Sprite-nextFrame0(FUNCTION JR-GET(J-THIS, "f_sprite"))
+    GOBACK.
+END FUNCTION SprtIndxdAnmtn-nextFrame0.
 
-function TSpriteIndexedAnimation.getSize: Integer;
-begin
-        Exit(Self.sprite.getRawFrameCount());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SprtIndxdAnmtn-previousFrame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Sprite-prevFrame0(FUNCTION JR-GET(J-THIS, "f_sprite"))
+    GOBACK.
+END FUNCTION SprtIndxdAnmtn-previousFrame0.
 
-procedure TSpriteIndexedAnimation.setFrame(frame: Integer);
-begin
-        Self.sprite.setFrame(frame);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SprtIndxdAnmtn-getSize0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION Sprite-getRawFrameCount0(FUNCTION JR-GET(J-THIS, "f_sprite"))
+        GOBACK
+    GOBACK.
+END FUNCTION SprtIndxdAnmtn-getSize0.
 
-function TSpriteIndexedAnimation.getFrame: Integer;
-begin
-        Exit(Self.sprite.getFrame());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SprtIndxdAnmtn-setFrame1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-frame BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-frame RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Sprite-setFrame1(FUNCTION JR-GET(J-THIS, "f_sprite"), J-frame)
+    GOBACK.
+END FUNCTION SprtIndxdAnmtn-setFrame1.
 
-function TSpriteIndexedAnimation.isLastFrame: Boolean;
-begin
-        if (Self.sprite.getFrame()) = ((Self.getSize()) - (1)) then begin
-            Exit(True);
-        end else begin
-            Exit(False);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SprtIndxdAnmtn-getFrame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION Sprite-getFrame0(FUNCTION JR-GET(J-THIS, "f_sprite"))
+        GOBACK
+    GOBACK.
+END FUNCTION SprtIndxdAnmtn-getFrame0.
 
-function TSpriteIndexedAnimation.getLastFrame: Integer;
-begin
-        Exit(Self.getSize());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SprtIndxdAnmtn-isLastFrame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION Sprite-getFrame0(FUNCTION JR-GET(J-THIS, "f_sprite")) = (FUNCTION MOD((FUNCTION SprtIndxdAnmtn-getSize0(J-THIS) - 1) + 2147483648, 4294967296) - 2147483648))
+            COMPUTE J-RESULT = 1
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = 0
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION SprtIndxdAnmtn-isLastFrame0.
 
-procedure TSpriteIndexedAnimation.setSequence(sequence: TArray<Integer>);
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SprtIndxdAnmtn-getLastFrame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION SprtIndxdAnmtn-getSize0(J-THIS)
+        GOBACK
+    GOBACK.
+END FUNCTION SprtIndxdAnmtn-getLastFrame0.
 
-function TSpriteIndexedAnimation.getSequence: TArray<Integer>;
-begin
-        Exit(TPrimitiveIntUtil.getArrayInstance());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SprtIndxdAnmtn-setSequence1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-sequence BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-sequence RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION SprtIndxdAnmtn-setSequence1.
 
-// throws Exception
-procedure TSpriteIndexedAnimation.close;
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SprtIndxdAnmtn-getSequence0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION PrmtvIntUtl-getArrayInstance0
+        GOBACK
+    GOBACK.
+END FUNCTION SprtIndxdAnmtn-getSequence0.
 
-// throws Throwable
-procedure TSpriteIndexedAnimation.finalize;
-begin
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SpriteIndexedAnimation-close0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION SpriteIndexedAnimation-close0.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SprtIndxdAnmtn-finalize0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION SprtIndxdAnmtn-finalize0.
 

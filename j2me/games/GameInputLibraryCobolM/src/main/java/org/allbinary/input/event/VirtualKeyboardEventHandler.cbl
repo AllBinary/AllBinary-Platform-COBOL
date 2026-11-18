@@ -1,112 +1,216 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.event
+*> Java class VirtualKeyboardEventHandler
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.event
-unit VirtualKeyboardEventHandler;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VrtlKybrdEvntHndlr-sttc-73705.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 VirtualKeyboardEventHandler-jcell-gameKeyEventHandler BINARY-DOUBLE EXTERNAL.
+01 VirtualKeyboardEventHandler-jset-gameKeyEventHandler BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF VirtualKeyboardEventHandler-jset-gameKeyEventHandler = 0
+        MOVE 1 TO VirtualKeyboardEventHandler-jset-gameKeyEventHandler
+        COMPUTE VirtualKeyboardEventHandler-jcell-gameKeyEventHandler = FUNCTION VrtlKybrdEvntHndlr-new0
+    END-IF
+    MOVE VirtualKeyboardEventHandler-jcell-gameKeyEventHandler TO J-RESULT
+    GOBACK.
+END FUNCTION VrtlKybrdEvntHndlr-sttc-73705.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VrtlKybrdEvntHndlrstS72407.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 VirtualKeyboardEventHandler-jcell-gameKeyEventHandler BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION VrtlKybrdEvntHndlr-sttc-73705 TO J-RESULT
+    MOVE J-VALUE TO VirtualKeyboardEventHandler-jcell-gameKeyEventHandler
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION VrtlKybrdEvntHndlrstS72407.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VrtlKybrdEvntHndlr-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("VirtualKeyboardEventHandler")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SHOW_EVENT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_HIDE_EVENT")
+    COMPUTE jtemp1 = FUNCTION BooleanFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION VirtualKeyboardEvent-new1(FUNCTION JR-GET(jtemp1, "f_TRUE"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SHOW_EVENT", JVALUE)
+    COMPUTE jtemp2 = FUNCTION BooleanFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION VirtualKeyboardEvent-new1(FUNCTION JR-GET(jtemp2, "f_FALSE"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_HIDE_EVENT", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION VrtlKybrdEvntHndlr-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AllBinaryEventObject, EventListenerInterface, BasicEventHandler, VirtualKeyboardEvent;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VrtlKybrdEvntHndlr-gtInstnc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION VrtlKybrdEvntHndlr-sttc-73705
+        GOBACK
+    GOBACK.
+END FUNCTION VrtlKybrdEvntHndlr-gtInstnc0.
 
-type
-  {AB:TYPES}
-  TVirtualKeyboardEventHandler = class(TBasicEventHandler)
-  public
-    SHOW_EVENT: TVirtualKeyboardEvent;
-    HIDE_EVENT: TVirtualKeyboardEvent;
-    class var gameKeyEventHandler: TVirtualKeyboardEventHandler;
-    procedure InitFields;
-        constructor Create;
-        class function getInstance: TVirtualKeyboardEventHandler; static;
-        procedure process(eventObject: TAllBinaryEventObject; eventListenerInterface_: IEventListenerInterface); override;
-        procedure open; virtual;
-        procedure close; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VrtlKybrdEvntHndlr-process2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-virtualKeyboardEventListenerInterface BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-eventListenerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject J-eventListenerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-virtualKeyboardEventListenerInterface = J-eventListenerInterface
+        COMPUTE jtemp3 = J-eventObject
+        COMPUTE JDISCARD = FUNCTION VrtlKybrdEvntLstnrIntrf-34718(J-virtualKeyboardEventListenerInterface, jtemp3)
+    GOBACK.
+END FUNCTION VrtlKybrdEvntHndlr-process2.
 
-implementation
-uses
-  VirtualKeyboardEventListenerInterface, BooleanFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VrtlKybrdEvntHndlr-open0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE jtemp4 = 120
+            COMPUTE JDISCARD = FUNCTION Thread-sleep1(jtemp4)
+            COMPUTE JDISCARD = FUNCTION BasicEventHandler-fireEvent1(J-THIS, FUNCTION JR-GET(J-THIS, "f_SHOW_EVENT"))
+    GOBACK.
+END FUNCTION VrtlKybrdEvntHndlr-open0.
 
-
-{AB:CODE}
-
-procedure TVirtualKeyboardEventHandler.InitFields;
-begin
-  Self.SHOW_EVENT := TVirtualKeyboardEvent.Create(TJava.Box(TBooleanFactory.getInstance().TRUE_));
-  Self.HIDE_EVENT := TVirtualKeyboardEvent.Create(TJava.Box(TBooleanFactory.getInstance().FALSE_));
-end;
-    
-
-constructor TVirtualKeyboardEventHandler.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
-
-class function TVirtualKeyboardEventHandler.getInstance: TVirtualKeyboardEventHandler;
-begin
-        Exit(TVirtualKeyboardEventHandler.gameKeyEventHandler);
-end;
-    
-
-// throws Exception
-procedure TVirtualKeyboardEventHandler.process(eventObject: TAllBinaryEventObject; eventListenerInterface_: IEventListenerInterface);
-var
-  virtualKeyboardEventListenerInterface_: IVirtualKeyboardEventListenerInterface;
-begin
-        virtualKeyboardEventListenerInterface_ := (TJava.ToObject(eventListenerInterface_) as IVirtualKeyboardEventListenerInterface);
-        virtualKeyboardEventListenerInterface_.onVirtualKeyboardEvent(TVirtualKeyboardEvent(TJava.ToObject(eventObject)));
-end;
-    
-
-procedure TVirtualKeyboardEventHandler.open;
-begin
-        try
-            SysUtils.Sleep(120);
-            Self.fireEvent(Self.SHOW_EVENT);
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), 'open', TJava.Box(e));
-            end;
-        end;
-end;
-    
-
-// throws Exception
-procedure TVirtualKeyboardEventHandler.close;
-begin
-        try
-            SysUtils.Sleep(120);
-            Self.fireEvent(Self.HIDE_EVENT);
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.CLOSE, TJava.Box(e));
-            end;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TVirtualKeyboardEventHandler.gameKeyEventHandler := TVirtualKeyboardEventHandler.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VrtlKybrdEvntHndlr-close0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE jtemp5 = 120
+            COMPUTE JDISCARD = FUNCTION Thread-sleep1(jtemp5)
+            COMPUTE JDISCARD = FUNCTION BasicEventHandler-fireEvent1(J-THIS, FUNCTION JR-GET(J-THIS, "f_HIDE_EVENT"))
+    GOBACK.
+END FUNCTION VrtlKybrdEvntHndlr-close0.
 

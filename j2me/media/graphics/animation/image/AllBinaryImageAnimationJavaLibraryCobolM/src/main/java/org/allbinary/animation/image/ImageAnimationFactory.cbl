@@ -1,80 +1,112 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2022 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.image
-unit ImageAnimationFactory;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.image
+*> Java class ImageAnimationFactory
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImageAnimationFactory-new6.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-image BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-dx BINARY-DOUBLE.
+01 J-dy BINARY-DOUBLE.
+01 J-animationBehaviorFactory BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-image J-width J-height J-dx J-dy J-animationBehaviorFactory RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ImageAnimationFactory")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ImageAnimationFactory-new6.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgAnmtnFctry-createFactory1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-image BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-image RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = 0
+        COMPUTE jtemp2 = 0
+        COMPUTE J-RESULT = FUNCTION ImageAnimationFactory-new6(J-image, FUNCTION Image-getWidth0(J-image), FUNCTION Image-getHeight0(J-image), jtemp1, jtemp2, FUNCTION AnmtnBhvrFctry-getInstance0)
+        GOBACK
+    GOBACK.
+END FUNCTION ImgAnmtnFctry-createFactory1.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Image, Animation, AnimationBehaviorFactory, BaseImageAnimationFactory;
-
-type
-  {AB:TYPES}
-  TImageAnimationFactory = class(TBaseImageAnimationFactory)
-  public
-        class function createFactory(image_: TImage): TImageAnimationFactory; static;
-        constructor Create(image_: TImage; width: Integer; height: Integer; dx: Integer; dy: Integer; animationBehaviorFactory_: TAnimationBehaviorFactory);
-        function getInstance(instanceId: Integer): TAnimation; override;
-  end;
-
-implementation
-uses
-  ImageAnimation, AdjustedImageAnimation, OpenGLUtil, PrimitiveIntUtil;
-
-
-{AB:CODE}
-    
-
-// throws Exception
-class function TImageAnimationFactory.createFactory(image_: TImage): TImageAnimationFactory;
-begin
-        Exit(TImageAnimationFactory.Create(image_, image_.getWidth(), image_.getHeight(), 0, 0, TAnimationBehaviorFactory.getInstance()));
-end;
-    
-
-constructor TImageAnimationFactory.Create(image_: TImage; width: Integer; height: Integer; dx: Integer; dy: Integer; animationBehaviorFactory_: TAnimationBehaviorFactory);
-begin
-        inherited Create(image_, TPrimitiveIntUtil.getArrayInstance(), width, height, dx, dy, animationBehaviorFactory_);
-end;
-    
-
-// throws Exception
-function TImageAnimationFactory.getInstance(instanceId: Integer): TAnimation;
-var
-  scaledImage: TImage;
-  openGLUtil_: TOpenGLUtil;
-begin
-        scaledImage := Self.animationFactoryImageScaleUtil.createImage(Self.getImage(), Self.animationFactoryInitializationVisitor.width, Self.animationFactoryInitializationVisitor.height, Self.scaleProperties.scaleWidth, Self.scaleProperties.scaleHeight);
-        openGLUtil_ := TOpenGLUtil.getInstance();
-        scaledImage := openGLUtil_.addImage(scaledImage);
-        if ((Self.animationFactoryInitializationVisitor.dx) <> (0)) or ((Self.animationFactoryInitializationVisitor.dy) <> (0)) then begin
-            Self.animationFactoryImageScaleUtil.processAdjust(Self);
-            Exit(TAdjustedImageAnimation.Create(scaledImage, Self.animationFactoryInitializationVisitor.dx, Self.animationFactoryInitializationVisitor.dy, Self.animationBehaviorFactory.getOrCreateInstance()));
-        end else begin
-            Exit(TImageAnimation.Create(scaledImage, Self.animationBehaviorFactory.getOrCreateInstance()));
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgAnmtnFctry-getInstance1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-scaledImage BINARY-DOUBLE.
+01 J-openGLUtil BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-instanceId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-instanceId RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-scaledImage = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_animationFactoryImageScaleUtil"))
+        COMPUTE J-openGLUtil = FUNCTION OpenGLUtil-getInstance0
+        COMPUTE J-scaledImage = FUNCTION OpenGLUtil-addImage1(J-openGLUtil, J-scaledImage)
+        IF ((FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor"), "f_dx") NOT = 0) OR (FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor"), "f_dy") NOT = 0))
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_animationFactoryImageScaleUtil"))
+            COMPUTE J-RESULT = FUNCTION AdjustedImageAnimation-new4(J-scaledImage, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor"), "f_dx"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS,
+        "f_animationFactoryInitializationVisitor"), "f_dy"), FUNCTION AnmtnBhvrFctry-gtOrCrtInstnc0(FUNCTION JR-GET(J-THIS, "f_animationBehaviorFactory")))
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = FUNCTION ImageAnimation-new2(J-scaledImage, FUNCTION AnmtnBhvrFctry-gtOrCrtInstnc0(FUNCTION JR-GET(J-THIS, "f_animationBehaviorFactory")))
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION ImgAnmtnFctry-getInstance1.
 

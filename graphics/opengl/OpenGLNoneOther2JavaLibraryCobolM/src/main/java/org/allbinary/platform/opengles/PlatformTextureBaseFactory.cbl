@@ -1,65 +1,119 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2022 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.platform.opengles
-unit PlatformTextureBaseFactory;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.platform.opengles
+*> Java class PlatformTextureBaseFactory
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PltfrmTxtrBsFctry-st43232.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PlatformTextureBaseFactory-jcell-NULL_PLATFORM_TEXTURE_BASE_FACTORY BINARY-DOUBLE EXTERNAL.
+01 PlatformTextureBaseFactory-jset-NULL_PLATFORM_TEXTURE_BASE_FACTORY BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF PlatformTextureBaseFactory-jset-NULL_PLATFORM_TEXTURE_BASE_FACTORY = 0
+        MOVE 1 TO PlatformTextureBaseFactory-jset-NULL_PLATFORM_TEXTURE_BASE_FACTORY
+        COMPUTE PlatformTextureBaseFactory-jcell-NULL_PLATFORM_TEXTURE_BASE_FACTORY = FUNCTION PltfrmTxtrBsFctry-new0
+    END-IF
+    MOVE PlatformTextureBaseFactory-jcell-NULL_PLATFORM_TEXTURE_BASE_FACTORY TO J-RESULT
+    GOBACK.
+END FUNCTION PltfrmTxtrBsFctry-st43232.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PltfrmTxtrBsFctryst4S27650.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PlatformTextureBaseFactory-jcell-NULL_PLATFORM_TEXTURE_BASE_FACTORY BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION PltfrmTxtrBsFctry-st43232 TO J-RESULT
+    MOVE J-VALUE TO PlatformTextureBaseFactory-jcell-NULL_PLATFORM_TEXTURE_BASE_FACTORY
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION PltfrmTxtrBsFctryst4S27650.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GL10, Image, CommonStrings;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PltfrmTxtrBsFctry-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("PlatformTextureBaseFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION PltfrmTxtrBsFctry-new0.
 
-type
-  {AB:TYPES}
-  TPlatformTextureBaseFactory = class(TObject)
-  public
-    commonStrings: TCommonStrings;
-    class var NULL_PLATFORM_TEXTURE_BASE_FACTORY: TPlatformTextureBaseFactory;
-    procedure InitFields;
-    constructor Create;
-        procedure load(gl: IGL10; target: Integer; level: Integer; image_: TImage; border: Integer; flip: Boolean); virtual;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TPlatformTextureBaseFactory.InitFields;
-begin
-  Self.commonStrings := TCommonStrings.getInstance();
-end;
-
-constructor TPlatformTextureBaseFactory.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-procedure TPlatformTextureBaseFactory.load(gl: IGL10; target: Integer; level: Integer; image_: TImage; border: Integer; flip: Boolean);
-begin
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TPlatformTextureBaseFactory.NULL_PLATFORM_TEXTURE_BASE_FACTORY := TPlatformTextureBaseFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PltfrmTxtrBsFctry-load6.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gl BINARY-DOUBLE.
+01 J-target BINARY-DOUBLE.
+01 J-level BINARY-DOUBLE.
+01 J-image BINARY-DOUBLE.
+01 J-border BINARY-DOUBLE.
+01 J-flip BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gl J-target J-level J-image J-border J-flip RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION PltfrmTxtrBsFctry-load6.
 

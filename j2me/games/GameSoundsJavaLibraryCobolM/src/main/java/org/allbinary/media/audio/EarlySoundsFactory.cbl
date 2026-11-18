@@ -1,76 +1,154 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.media.audio
+*> Java class EarlySoundsFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.media.audio
-unit EarlySoundsFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ErlySndsFctry-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 EarlySoundsFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 EarlySoundsFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF EarlySoundsFactory-jset-instance = 0
+        MOVE 1 TO EarlySoundsFactory-jset-instance
+        COMPUTE EarlySoundsFactory-jcell-instance = FUNCTION EarlySoundsFactory-new0
+    END-IF
+    MOVE EarlySoundsFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION ErlySndsFctry-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ErlySndsFctrystaticiS94644.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 EarlySoundsFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION ErlySndsFctry-static-instance TO J-RESULT
+    MOVE J-VALUE TO EarlySoundsFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION ErlySndsFctrystaticiS94644.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. EarlySoundsFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("EarlySoundsFactory")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION EarlySoundsFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Sound, BaseSoundsFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ErlySndsFctry-gtSndIntrfcArry0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-soundInterfaceArray BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = 2
+        COMPUTE J-soundInterfaceArray = FUNCTION JR-NEW-ARRAY(jtemp1)
+        COMPUTE J-index = 0
+        COMPUTE jtemp2 = J-index
+        COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION SelectSound-getInstance0
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-soundInterfaceArray, jtemp2, JVALUE)
+        COMPUTE jtemp3 = J-index
+        COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION ErrorSound-getInstance0
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-soundInterfaceArray, jtemp3, JVALUE)
+        COMPUTE J-RESULT = J-soundInterfaceArray
+        GOBACK
+    GOBACK.
+END FUNCTION ErlySndsFctry-gtSndIntrfcArry0.
 
-type
-  {AB:TYPES}
-  TEarlySoundsFactory = class(TBaseSoundsFactory)
-  public
-    class var instance: TEarlySoundsFactory;
-    constructor Create;
-        function getSoundInterfaceArray: TArray<TSound>; override;
-        class function getInstance: TEarlySoundsFactory; static;
-  end;
-
-implementation
-uses
-  SelectSound, ErrorSound;
-
-
-{AB:CODE}
-
-constructor TEarlySoundsFactory.Create;
-begin
-  inherited Create;
-end;
-    
-
-// throws Exception
-function TEarlySoundsFactory.getSoundInterfaceArray: TArray<TSound>;
-var
-  soundInterfaceArray: TArray<TSound>;
-  index: Integer;
-begin
-        soundInterfaceArray := TJava.NewArray<TSound>(2);
-        index := 0;
-        soundInterfaceArray[TJava.PostInc(index)] := TSelectSound.getInstance();
-        soundInterfaceArray[TJava.PostInc(index)] := TErrorSound.getInstance();
-        Exit(soundInterfaceArray);
-end;
-    
-
-class function TEarlySoundsFactory.getInstance: TEarlySoundsFactory;
-begin
-        Exit(TEarlySoundsFactory.instance);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TEarlySoundsFactory.instance := TEarlySoundsFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ErlySndsFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION ErlySndsFctry-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION ErlySndsFctry-getInstance0.
 

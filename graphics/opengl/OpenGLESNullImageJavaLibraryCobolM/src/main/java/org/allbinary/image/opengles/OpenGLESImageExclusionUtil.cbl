@@ -1,76 +1,142 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2022 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.image.opengles
-unit OpenGLESImageExclusionUtil;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.image.opengles
+*> Java class OpenGLESImageExclusionUtil
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OpnGLESImgExclsnUtl-sttc52956.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 OpenGLESImageExclusionUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 OpenGLESImageExclusionUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF OpenGLESImageExclusionUtil-jset-instance = 0
+        MOVE 1 TO OpenGLESImageExclusionUtil-jset-instance
+        COMPUTE OpenGLESImageExclusionUtil-jcell-instance = FUNCTION OpnGLESImgExclsnUtl-new0
+    END-IF
+    MOVE OpenGLESImageExclusionUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION OpnGLESImgExclsnUtl-sttc52956.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OpnGLESImgExclsnUtlsS37447.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 OpenGLESImageExclusionUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION OpnGLESImgExclsnUtl-sttc52956 TO J-RESULT
+    MOVE J-VALUE TO OpenGLESImageExclusionUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION OpnGLESImgExclsnUtlsS37447.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Image, BasicArrayList;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OpnGLESImgExclsnUtl-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("OpenGLESImageExclusionUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_list")
+    COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION OpnGLESImgExclsnUtl-new0.
 
-type
-  {AB:TYPES}
-  TOpenGLESImageExclusionUtil = class(TObject)
-  public
-    list: TBasicArrayList;
-    class var instance: TOpenGLESImageExclusionUtil;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TOpenGLESImageExclusionUtil; static;
-        function isCustomScaling(image_: TImage): Boolean; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OpnGLESImgExclsnUtl-gtInstnc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION OpnGLESImgExclsnUtl-sttc52956
+        GOBACK
+    GOBACK.
+END FUNCTION OpnGLESImgExclsnUtl-gtInstnc0.
 
-implementation
-uses
-  BasicArrayListD;
-
-
-{AB:CODE}
-
-procedure TOpenGLESImageExclusionUtil.InitFields;
-begin
-  Self.list := TBasicArrayListD.Create();
-end;
-
-constructor TOpenGLESImageExclusionUtil.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TOpenGLESImageExclusionUtil.getInstance: TOpenGLESImageExclusionUtil;
-begin
-        Exit(TOpenGLESImageExclusionUtil.instance);
-end;
-    
-
-function TOpenGLESImageExclusionUtil.isCustomScaling(image_: TImage): Boolean;
-begin
-        Exit(False);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TOpenGLESImageExclusionUtil.instance := TOpenGLESImageExclusionUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OpnGLESImgExclsnUtl-isCst29128.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-image BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-image RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION OpnGLESImgExclsnUtl-isCst29128.
 

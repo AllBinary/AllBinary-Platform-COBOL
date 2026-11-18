@@ -1,249 +1,588 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.physics.velocity
+*> Java class BasicVelocityProperties
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.physics.velocity
-unit BasicVelocityProperties;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Direction, DirectionUtil, LogUtil, BasicDecimal, AxisMathVectorUtil, Angle, BasicVelocityInterface;
-
-type
-  {AB:TYPES}
-  TBasicVelocityProperties = class(TInterfacedObject, IBasicVelocityInterface)
-  public
-    logUtil: TLogUtil;
-    velocityXBasicDecimal: TBasicDecimal;
-    velocityYBasicDecimal: TBasicDecimal;
-    velocityZBasicDecimal: TBasicDecimal;
-    axisMathVectorUtil: TAxisMathVectorUtil;
-    directionUtil: TDirectionUtil;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create;
-        procedure zero; virtual;
-        function getVelocityXBasicDecimalP: TBasicDecimal; virtual;
-        function getVelocityYBasicDecimalP: TBasicDecimal; virtual;
-        function getVelocityZBasicDecimalP: TBasicDecimal; virtual;
-        procedure setVelocityWithBigDecimalAndDirection(magnitudeBasicDecimal: TBasicDecimal; direction_: TDirection; otherDirection: TDirection); virtual;
-        procedure setVelocityWithDirection(magnitude: Int64; direction_: TDirection; otherDirection: TDirection); virtual;
-        procedure addVelocityWithBigDecimalAndDirection(magnitudeBasicDecimal: TBasicDecimal; direction_: TDirection; otherDirection: TDirection); virtual;
-        procedure addVelocityWithDirection(magnitude: Int64; direction_: TDirection; otherDirection: TDirection); virtual;
-        procedure setVelocityWithBigDecimal(magnitudeBasicDecimal: TBasicDecimal; angle_: TAngle; otherAngle: TAngle); virtual;
-        procedure addVelocityWithBigDecimal(magnitudeBasicDecimal: TBasicDecimal; angle_: TAngle; otherAngle: TAngle); virtual;
-        procedure setVelocity(magnitude: Int64; angle_: TAngle; otherAngle: TAngle); virtual;
-        procedure addVelocity(magnitude: Int64; angle_: TAngle; otherAngle: TAngle); virtual;
-        procedure setVelocityi(magnitude: Int64; angle_: Integer; otherAngle: Integer); virtual;
-        procedure addVelocityi(magnitude: Int64; angle_: Integer; otherAngle: Integer); virtual;
-        function toString: string; virtual;
-  end;
-
-implementation
-uses
-  StringMaker, StringUtil, PositionStrings, CommonSeps;
-
-
-{AB:CODE}
-
-procedure TBasicVelocityProperties.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  
-  
-  
-  Self.axisMathVectorUtil := TAxisMathVectorUtil.getInstance();
-  Self.directionUtil := TDirectionUtil.getInstance();
-end;
-
-function TBasicVelocityProperties.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicVelocityProperties-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("BasicVelocityProperties")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_velocityXBasicDecimal")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_velocityYBasicDecimal")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_velocityZBasicDecimal")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_axisMathVectorUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_directionUtil")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
     
-
-constructor TBasicVelocityProperties.Create;
-begin
-    inherited Create;
-    InitFields;
-        Self.velocityXBasicDecimal := TBasicDecimal.Create(0);
-        Self.velocityYBasicDecimal := TBasicDecimal.Create(0);
-        Self.velocityZBasicDecimal := TBasicDecimal.Create(0);
-end;
     
-
-procedure TBasicVelocityProperties.zero;
-begin
-        Self.velocityXBasicDecimal.setint(0);
-        Self.velocityYBasicDecimal.setint(0);
-        Self.velocityZBasicDecimal.setint(0);
-end;
     
+    COMPUTE JVALUE = FUNCTION AxsMthVctrUtl-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_axisMathVectorUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION DirectionUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_directionUtil", JVALUE)
+        COMPUTE jtemp1 = 0
+        COMPUTE JVALUE = FUNCTION BasicDecimal-new1(jtemp1)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_velocityXBasicDecimal", JVALUE)
+        COMPUTE jtemp2 = 0
+        COMPUTE JVALUE = FUNCTION BasicDecimal-new1(jtemp2)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_velocityYBasicDecimal", JVALUE)
+        COMPUTE jtemp3 = 0
+        COMPUTE JVALUE = FUNCTION BasicDecimal-new1(jtemp3)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_velocityZBasicDecimal", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION BasicVelocityProperties-new0.
 
-function TBasicVelocityProperties.getVelocityXBasicDecimalP: TBasicDecimal;
-begin
-        Exit(Self.velocityXBasicDecimal);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicVelocityProperties-zero0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp4 = 0
+        COMPUTE JDISCARD = FUNCTION BasicDecimal-setint1(FUNCTION JR-GET(J-THIS, "f_velocityXBasicDecimal"), jtemp4)
+        COMPUTE jtemp5 = 0
+        COMPUTE JDISCARD = FUNCTION BasicDecimal-setint1(FUNCTION JR-GET(J-THIS, "f_velocityYBasicDecimal"), jtemp5)
+        COMPUTE jtemp6 = 0
+        COMPUTE JDISCARD = FUNCTION BasicDecimal-setint1(FUNCTION JR-GET(J-THIS, "f_velocityZBasicDecimal"), jtemp6)
+    GOBACK.
+END FUNCTION BasicVelocityProperties-zero0.
 
-function TBasicVelocityProperties.getVelocityYBasicDecimalP: TBasicDecimal;
-begin
-        Exit(Self.velocityYBasicDecimal);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscVlctyPrprts-gtVlctyXBs63775.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_velocityXBasicDecimal")
+        GOBACK
+    GOBACK.
+END FUNCTION BscVlctyPrprts-gtVlctyXBs63775.
 
-function TBasicVelocityProperties.getVelocityZBasicDecimalP: TBasicDecimal;
-begin
-        Exit(Self.velocityZBasicDecimal);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscVlctyPrprts-gtVlctyYBs99895.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_velocityYBasicDecimal")
+        GOBACK
+    GOBACK.
+END FUNCTION BscVlctyPrprts-gtVlctyYBs99895.
 
-procedure TBasicVelocityProperties.setVelocityWithBigDecimalAndDirection(magnitudeBasicDecimal: TBasicDecimal; direction_: TDirection; otherDirection: TDirection);
-var
-  angle_: TAngle;
-  otherAngle: TAngle;
-begin
-        angle_ := Self.directionUtil.getAngle(direction_);
-        otherAngle := Self.directionUtil.getAngle(otherDirection);
-        Self.setVelocityWithBigDecimal(magnitudeBasicDecimal, angle_, otherAngle);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscVlctyPrprts-gtVlctyZBs46026.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_velocityZBasicDecimal")
+        GOBACK
+    GOBACK.
+END FUNCTION BscVlctyPrprts-gtVlctyZBs46026.
 
-procedure TBasicVelocityProperties.setVelocityWithDirection(magnitude: Int64; direction_: TDirection; otherDirection: TDirection);
-var
-  angle_: TAngle;
-  otherAngle: TAngle;
-begin
-        angle_ := Self.directionUtil.getAngle(direction_);
-        otherAngle := Self.directionUtil.getAngle(otherDirection);
-        Self.setVelocity(magnitude, angle_, otherAngle);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscVlctyPrprts-stVlctyWth12749.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-angle BINARY-DOUBLE.
+01 J-otherAngle BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-magnitudeBasicDecimal BINARY-DOUBLE.
+01 J-direction BINARY-DOUBLE.
+01 J-otherDirection BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-magnitudeBasicDecimal J-direction J-otherDirection RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-angle = FUNCTION DirectionUtil-getAngle1(FUNCTION JR-GET(J-THIS, "f_directionUtil"), J-direction)
+        COMPUTE J-otherAngle = FUNCTION DirectionUtil-getAngle1(FUNCTION JR-GET(J-THIS, "f_directionUtil"), J-otherDirection)
+        COMPUTE JDISCARD = FUNCTION BscVlctyPrprts-stVlctyWth69902(J-THIS, J-magnitudeBasicDecimal, J-angle, J-otherAngle)
+    GOBACK.
+END FUNCTION BscVlctyPrprts-stVlctyWth12749.
 
-procedure TBasicVelocityProperties.addVelocityWithBigDecimalAndDirection(magnitudeBasicDecimal: TBasicDecimal; direction_: TDirection; otherDirection: TDirection);
-var
-  angle_: TAngle;
-  otherAngle: TAngle;
-begin
-        angle_ := Self.directionUtil.getAngle(direction_);
-        otherAngle := Self.directionUtil.getAngle(otherDirection);
-        Self.addVelocityWithBigDecimal(magnitudeBasicDecimal, angle_, otherAngle);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscVlctyPrprts-stVlctyWth51579.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-angle BINARY-DOUBLE.
+01 J-otherAngle BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-magnitude BINARY-DOUBLE.
+01 J-direction BINARY-DOUBLE.
+01 J-otherDirection BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-magnitude J-direction J-otherDirection RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-angle = FUNCTION DirectionUtil-getAngle1(FUNCTION JR-GET(J-THIS, "f_directionUtil"), J-direction)
+        COMPUTE J-otherAngle = FUNCTION DirectionUtil-getAngle1(FUNCTION JR-GET(J-THIS, "f_directionUtil"), J-otherDirection)
+        COMPUTE JDISCARD = FUNCTION BscVlctyPrprts-setVelocity3(J-THIS, J-magnitude, J-angle, J-otherAngle)
+    GOBACK.
+END FUNCTION BscVlctyPrprts-stVlctyWth51579.
 
-procedure TBasicVelocityProperties.addVelocityWithDirection(magnitude: Int64; direction_: TDirection; otherDirection: TDirection);
-var
-  angle_: TAngle;
-  otherAngle: TAngle;
-begin
-        angle_ := Self.directionUtil.getAngle(direction_);
-        otherAngle := Self.directionUtil.getAngle(otherDirection);
-        Self.addVelocity(magnitude, angle_, otherAngle);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscVlctyPrprts-addVlctyWt49338.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-angle BINARY-DOUBLE.
+01 J-otherAngle BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-magnitudeBasicDecimal BINARY-DOUBLE.
+01 J-direction BINARY-DOUBLE.
+01 J-otherDirection BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-magnitudeBasicDecimal J-direction J-otherDirection RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-angle = FUNCTION DirectionUtil-getAngle1(FUNCTION JR-GET(J-THIS, "f_directionUtil"), J-direction)
+        COMPUTE J-otherAngle = FUNCTION DirectionUtil-getAngle1(FUNCTION JR-GET(J-THIS, "f_directionUtil"), J-otherDirection)
+        COMPUTE JDISCARD = FUNCTION BscVlctyPrprts-addVlctyWt70611(J-THIS, J-magnitudeBasicDecimal, J-angle, J-otherAngle)
+    GOBACK.
+END FUNCTION BscVlctyPrprts-addVlctyWt49338.
 
-procedure TBasicVelocityProperties.setVelocityWithBigDecimal(magnitudeBasicDecimal: TBasicDecimal; angle_: TAngle; otherAngle: TAngle);
-var
-  magnitude: Int64;
-begin
-        magnitude := magnitudeBasicDecimal.getUnscaled();
-        Self.setVelocity(magnitude, angle_, otherAngle);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscVlctyPrprts-addVlctyWt37940.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-angle BINARY-DOUBLE.
+01 J-otherAngle BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-magnitude BINARY-DOUBLE.
+01 J-direction BINARY-DOUBLE.
+01 J-otherDirection BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-magnitude J-direction J-otherDirection RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-angle = FUNCTION DirectionUtil-getAngle1(FUNCTION JR-GET(J-THIS, "f_directionUtil"), J-direction)
+        COMPUTE J-otherAngle = FUNCTION DirectionUtil-getAngle1(FUNCTION JR-GET(J-THIS, "f_directionUtil"), J-otherDirection)
+        COMPUTE JDISCARD = FUNCTION BscVlctyPrprts-addVelocity3(J-THIS, J-magnitude, J-angle, J-otherAngle)
+    GOBACK.
+END FUNCTION BscVlctyPrprts-addVlctyWt37940.
 
-procedure TBasicVelocityProperties.addVelocityWithBigDecimal(magnitudeBasicDecimal: TBasicDecimal; angle_: TAngle; otherAngle: TAngle);
-var
-  magnitude: Int64;
-begin
-        magnitude := magnitudeBasicDecimal.getUnscaled();
-        Self.addVelocity(magnitude, angle_, otherAngle);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscVlctyPrprts-stVlctyWth69902.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-magnitude BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-magnitudeBasicDecimal BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-otherAngle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-magnitudeBasicDecimal J-angle J-otherAngle RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-magnitude = FUNCTION BasicDecimal-getUnscaled0(J-magnitudeBasicDecimal)
+        COMPUTE JDISCARD = FUNCTION BscVlctyPrprts-setVelocity3(J-THIS, J-magnitude, J-angle, J-otherAngle)
+    GOBACK.
+END FUNCTION BscVlctyPrprts-stVlctyWth69902.
 
-procedure TBasicVelocityProperties.setVelocity(magnitude: Int64; angle_: TAngle; otherAngle: TAngle);
-begin
-        Self.setVelocityi(magnitude, Integer(Trunc(angle_.getValue())), Integer(Trunc(otherAngle.getValue())));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscVlctyPrprts-addVlctyWt70611.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-magnitude BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-magnitudeBasicDecimal BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-otherAngle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-magnitudeBasicDecimal J-angle J-otherAngle RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-magnitude = FUNCTION BasicDecimal-getUnscaled0(J-magnitudeBasicDecimal)
+        COMPUTE JDISCARD = FUNCTION BscVlctyPrprts-addVelocity3(J-THIS, J-magnitude, J-angle, J-otherAngle)
+    GOBACK.
+END FUNCTION BscVlctyPrprts-addVlctyWt70611.
 
-procedure TBasicVelocityProperties.addVelocity(magnitude: Int64; angle_: TAngle; otherAngle: TAngle);
-begin
-        Self.addVelocityi(magnitude, Integer(Trunc(angle_.getValue())), Integer(Trunc(otherAngle.getValue())));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscVlctyPrprts-setVelocity3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-magnitude BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-otherAngle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-magnitude J-angle J-otherAngle RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp7 = FUNCTION Angle-getValue0(J-angle)
+        COMPUTE jtemp8 = FUNCTION Angle-getValue0(J-otherAngle)
+        COMPUTE JDISCARD = FUNCTION BscVlctyPrprts-setVelocityi3(J-THIS, J-magnitude, jtemp7, jtemp8)
+    GOBACK.
+END FUNCTION BscVlctyPrprts-setVelocity3.
 
-procedure TBasicVelocityProperties.setVelocityi(magnitude: Int64; angle_: Integer; otherAngle: Integer);
-var
-  xVector: Int64;
-  yVector: Int64;
-  zVector: Int64;
-begin
-        xVector := ((Self.axisMathVectorUtil.calculateX(magnitude, angle_)) div (Self.velocityXBasicDecimal.getScaledFactorValue()));
-        yVector := ((Self.axisMathVectorUtil.calculateY(magnitude, angle_)) div (Self.velocityYBasicDecimal.getScaledFactorValue()));
-        zVector := ((Self.axisMathVectorUtil.calculateZ(magnitude, otherAngle)) div (Self.velocityZBasicDecimal.getScaledFactorValue()));
-        Self.velocityXBasicDecimal.setlong(xVector);
-        Self.velocityYBasicDecimal.setlong(yVector);
-        Self.velocityZBasicDecimal.setlong(zVector);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscVlctyPrprts-addVelocity3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-magnitude BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-otherAngle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-magnitude J-angle J-otherAngle RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp9 = FUNCTION Angle-getValue0(J-angle)
+        COMPUTE jtemp10 = FUNCTION Angle-getValue0(J-otherAngle)
+        COMPUTE JDISCARD = FUNCTION BscVlctyPrprts-addVelocityi3(J-THIS, J-magnitude, jtemp9, jtemp10)
+    GOBACK.
+END FUNCTION BscVlctyPrprts-addVelocity3.
 
-procedure TBasicVelocityProperties.addVelocityi(magnitude: Int64; angle_: Integer; otherAngle: Integer);
-var
-  xVector: Int64;
-  yVector: Int64;
-  zVector: Int64;
-begin
-        xVector := ((Self.axisMathVectorUtil.calculateX(magnitude, angle_)) div (Self.velocityXBasicDecimal.getScaledFactorValue()));
-        yVector := ((Self.axisMathVectorUtil.calculateY(magnitude, angle_)) div (Self.velocityYBasicDecimal.getScaledFactorValue()));
-        zVector := ((Self.axisMathVectorUtil.calculateZ(magnitude, otherAngle)) div (Self.velocityZBasicDecimal.getScaledFactorValue()));
-        Self.velocityXBasicDecimal.addlong(xVector);
-        Self.velocityYBasicDecimal.addlong(yVector);
-        Self.velocityZBasicDecimal.addlong(zVector);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscVlctyPrprts-setVelocityi3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-xVector BINARY-DOUBLE.
+01 J-yVector BINARY-DOUBLE.
+01 J-zVector BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-magnitude BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-otherAngle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-magnitude J-angle J-otherAngle RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-xVector = (FUNCTION INTEGER-PART(FUNCTION AxisMathVectorUtil-calculateX2(FUNCTION JR-GET(J-THIS, "f_axisMathVectorUtil"), J-magnitude, J-angle) / FUNCTION BscDcml-getScaledFactorValue0(FUNCTION JR-GET(J-THIS,
+        "f_velocityXBasicDecimal"))))
+        COMPUTE J-yVector = (FUNCTION INTEGER-PART(FUNCTION AxisMathVectorUtil-calculateY2(FUNCTION JR-GET(J-THIS, "f_axisMathVectorUtil"), J-magnitude, J-angle) / FUNCTION BscDcml-getScaledFactorValue0(FUNCTION JR-GET(J-THIS,
+        "f_velocityYBasicDecimal"))))
+        COMPUTE J-zVector = (FUNCTION INTEGER-PART(FUNCTION AxisMathVectorUtil-calculateZ2(FUNCTION JR-GET(J-THIS, "f_axisMathVectorUtil"), J-magnitude, J-otherAngle) / FUNCTION BscDcml-getScaledFactorValue0(FUNCTION JR-GET(J-THIS,
+        "f_velocityZBasicDecimal"))))
+        COMPUTE JDISCARD = FUNCTION BasicDecimal-setlong1(FUNCTION JR-GET(J-THIS, "f_velocityXBasicDecimal"), J-xVector)
+        COMPUTE JDISCARD = FUNCTION BasicDecimal-setlong1(FUNCTION JR-GET(J-THIS, "f_velocityYBasicDecimal"), J-yVector)
+        COMPUTE JDISCARD = FUNCTION BasicDecimal-setlong1(FUNCTION JR-GET(J-THIS, "f_velocityZBasicDecimal"), J-zVector)
+    GOBACK.
+END FUNCTION BscVlctyPrprts-setVelocityi3.
 
-function TBasicVelocityProperties.toString: string;
-var
-  commonSeps_: TCommonSeps;
-  positionStrings_: TPositionStrings;
-  stringBuffer: TStringMaker;
-  stringUtil_: TStringUtil;
-begin
-        commonSeps_ := TCommonSeps.getInstance();
-        positionStrings_ := TPositionStrings.getInstance();
-        stringBuffer := TStringMaker.Create();
-        stringUtil_ := TStringUtil.getInstance();
-        stringBuffer.append('Velocity ');
-        stringBuffer.append(positionStrings_.X_LABEL);
-        stringBuffer.append(stringUtil_.toString(Self.velocityXBasicDecimal));
-        stringBuffer.append(commonSeps_.SPACE);
-        stringBuffer.append(positionStrings_.Y_LABEL);
-        stringBuffer.append(stringUtil_.toString(Self.velocityYBasicDecimal));
-        stringBuffer.append(commonSeps_.SPACE);
-        stringBuffer.append(positionStrings_.Z_LABEL);
-        stringBuffer.append(stringUtil_.toString(Self.velocityZBasicDecimal));
-        Exit(stringBuffer.toString());
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscVlctyPrprts-addVelocityi3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-xVector BINARY-DOUBLE.
+01 J-yVector BINARY-DOUBLE.
+01 J-zVector BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-magnitude BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-otherAngle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-magnitude J-angle J-otherAngle RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-xVector = (FUNCTION INTEGER-PART(FUNCTION AxisMathVectorUtil-calculateX2(FUNCTION JR-GET(J-THIS, "f_axisMathVectorUtil"), J-magnitude, J-angle) / FUNCTION BscDcml-getScaledFactorValue0(FUNCTION JR-GET(J-THIS,
+        "f_velocityXBasicDecimal"))))
+        COMPUTE J-yVector = (FUNCTION INTEGER-PART(FUNCTION AxisMathVectorUtil-calculateY2(FUNCTION JR-GET(J-THIS, "f_axisMathVectorUtil"), J-magnitude, J-angle) / FUNCTION BscDcml-getScaledFactorValue0(FUNCTION JR-GET(J-THIS,
+        "f_velocityYBasicDecimal"))))
+        COMPUTE J-zVector = (FUNCTION INTEGER-PART(FUNCTION AxisMathVectorUtil-calculateZ2(FUNCTION JR-GET(J-THIS, "f_axisMathVectorUtil"), J-magnitude, J-otherAngle) / FUNCTION BscDcml-getScaledFactorValue0(FUNCTION JR-GET(J-THIS,
+        "f_velocityZBasicDecimal"))))
+        COMPUTE JDISCARD = FUNCTION BasicDecimal-addlong1(FUNCTION JR-GET(J-THIS, "f_velocityXBasicDecimal"), J-xVector)
+        COMPUTE JDISCARD = FUNCTION BasicDecimal-addlong1(FUNCTION JR-GET(J-THIS, "f_velocityYBasicDecimal"), J-yVector)
+        COMPUTE JDISCARD = FUNCTION BasicDecimal-addlong1(FUNCTION JR-GET(J-THIS, "f_velocityZBasicDecimal"), J-zVector)
+    GOBACK.
+END FUNCTION BscVlctyPrprts-addVelocityi3.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscVlctyPrprts-toString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-commonSeps BINARY-DOUBLE.
+01 J-positionStrings BINARY-DOUBLE.
+01 J-stringBuffer BINARY-DOUBLE.
+01 J-stringUtil BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-commonSeps = FUNCTION CommonSeps-getInstance0
+        COMPUTE J-positionStrings = FUNCTION PositionStrings-getInstance0
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE J-stringUtil = FUNCTION StringUtil-getInstance0
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR("Velocity "))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-positionStrings, "f_X_LABEL"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION StringUtil-toString1(J-stringUtil, FUNCTION JR-GET(J-THIS, "f_velocityXBasicDecimal")))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-commonSeps, "f_SPACE"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-positionStrings, "f_Y_LABEL"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION StringUtil-toString1(J-stringUtil, FUNCTION JR-GET(J-THIS, "f_velocityYBasicDecimal")))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-commonSeps, "f_SPACE"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-positionStrings, "f_Z_LABEL"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION StringUtil-toString1(J-stringUtil, FUNCTION JR-GET(J-THIS, "f_velocityZBasicDecimal")))
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(J-stringBuffer)
+        GOBACK
+    GOBACK.
+END FUNCTION BscVlctyPrprts-toString0.
 
-end.
+IDENTIFICATION DIVISION.
+PROGRAM-ID. BasicVelocityProperti-toString.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION BscVlctyPrprts-toString0(J-THIS)
+    GOBACK.
+END PROGRAM BasicVelocityProperti-toString.
 

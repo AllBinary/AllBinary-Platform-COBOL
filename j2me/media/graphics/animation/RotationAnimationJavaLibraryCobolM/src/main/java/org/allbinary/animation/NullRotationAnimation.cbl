@@ -1,61 +1,130 @@
-// Generated Code Do Not Modify
-// package org.allbinary.animation
-unit NullRotationAnimation;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation
+*> Java class NullRotationAnimation
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullRotationAnimation-new3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-angleInfo BINARY-DOUBLE.
+01 J-circularIndexUtil BINARY-DOUBLE.
+01 J-animationBehavior BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-angleInfo J-circularIndexUtil J-animationBehavior RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("NullRotationAnimation")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION NullRotationAnimation-new3.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NllRttnAnmtn-createTotalAngle3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-angleInfo BINARY-DOUBLE.
+01 J-totalAngle BINARY-DOUBLE.
+01 J-animationBehavior BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-angleInfo J-totalAngle J-animationBehavior RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION AnglInf-getAngleIncrementInfo0(J-angleInfo)
+        COMPUTE jtemp1 = (FUNCTION MOD(FUNCTION INTEGER-PART(J-totalAngle / FUNCTION JR-CLASS-NAME(jtemp2)) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE J-RESULT = FUNCTION NullRotationAnimation-new3(J-angleInfo, FUNCTION CrclrIndxUtl-createInstance1(jtemp1), J-animationBehavior)
+        GOBACK
+    GOBACK.
+END FUNCTION NllRttnAnmtn-createTotalAngle3.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AngleInfo, CircularIndexUtil, AnimationBehavior, RotationAnimation;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NllRttnAnmtn-createQuarter1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-animationBehavior BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-animationBehavior RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp3 = FUNCTION AngleFactory-getInstance0
+        COMPUTE jtemp4 = 4
+        COMPUTE J-RESULT = FUNCTION NullRotationAnimation-new3(FUNCTION AngleInfo-getInstance1(FUNCTION JR-GET(jtemp3, "f_QUARTER_TOTAL_ANGLE")), FUNCTION CrclrIndxUtl-createInstance1(jtemp4), J-animationBehavior)
+        GOBACK
+    GOBACK.
+END FUNCTION NllRttnAnmtn-createQuarter1.
 
-type
-  {AB:TYPES}
-  TNullRotationAnimation = class(TRotationAnimation)
-  public
-        class function createTotalAngle(angleInfo_: TAngleInfo; totalAngle: SmallInt; animationBehavior_: TAnimationBehavior): TNullRotationAnimation; static;
-        class function createQuarter(animationBehavior_: TAnimationBehavior): TNullRotationAnimation; static;
-        constructor Create(angleInfo_: TAngleInfo; circularIndexUtil_: TCircularIndexUtil; animationBehavior_: TAnimationBehavior);
-        function getAnimationSize: Integer; override;
-  end;
-
-implementation
-uses
-  AngleFactory;
-
-
-{AB:CODE}
-    
-
-class function TNullRotationAnimation.createTotalAngle(angleInfo_: TAngleInfo; totalAngle: SmallInt; animationBehavior_: TAnimationBehavior): TNullRotationAnimation;
-begin
-        Exit(TNullRotationAnimation.Create(angleInfo_, TCircularIndexUtil.createInstance(TJava.Divide(totalAngle, angleInfo_.getAngleIncrementInfo().getAngleIncrement())), animationBehavior_));
-end;
-    
-
-class function TNullRotationAnimation.createQuarter(animationBehavior_: TAnimationBehavior): TNullRotationAnimation;
-begin
-        Exit(TNullRotationAnimation.Create(TAngleInfo.getInstance(TAngleFactory.getInstance().QUARTER_TOTAL_ANGLE), TCircularIndexUtil.createInstance(4), animationBehavior_));
-end;
-    
-
-constructor TNullRotationAnimation.Create(angleInfo_: TAngleInfo; circularIndexUtil_: TCircularIndexUtil; animationBehavior_: TAnimationBehavior);
-begin
-        inherited Create(angleInfo_, circularIndexUtil_, animationBehavior_);
-end;
-    
-
-// throws Exception
-function TNullRotationAnimation.getAnimationSize: Integer;
-begin
-        Exit(0);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NllRttnAnmtn-getAnimationSize0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION NllRttnAnmtn-getAnimationSize0.
 

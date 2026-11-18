@@ -1,174 +1,467 @@
-// Generated Code Do Not Modify
-// package org.allbinary.configuration
-unit ApplicationConfiguration;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.configuration
+*> Java class ApplicationConfiguration
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ApplctnCnfgrtn-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ApplicationConfiguration-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 ApplicationConfiguration-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF ApplicationConfiguration-jset-instance = 0
+        MOVE 1 TO ApplicationConfiguration-jset-instance
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE ApplicationConfiguration-jcell-instance = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+    END-IF
+    MOVE ApplicationConfiguration-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION ApplctnCnfgrtn-sttc-nstnc.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ApplctnCnfgrtnsttcnsS55349.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ApplicationConfiguration-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION ApplctnCnfgrtn-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO ApplicationConfiguration-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION ApplctnCnfgrtnsttcnsS55349.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Feature, LogUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ApplicationConfiguration-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-commonStrings BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ApplicationConfiguration")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_fullscreen")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_showTitleBar")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_progressBarView")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = 1
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_fullscreen", JVALUE)
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_showTitleBar", JVALUE)
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_progressBarView", JVALUE)
+        CONTINUE
+            COMPUTE JDISCARD = FUNCTION ApplicationConfiguration-read0(J-THIS)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ApplicationConfiguration-new0.
 
-type
-  {AB:TYPES}
-  TApplicationConfiguration = class(TObject)
-  public
-    logUtil: TLogUtil;
-    fullscreen: Boolean;
-    showTitleBar: Boolean;
-    progressBarView: Boolean;
-    class var instance: TObject;
-    procedure InitFields;
-        class function getInstance: TApplicationConfiguration; static;
-        constructor Create;
-        procedure read;
-        procedure write; virtual;
-        procedure update(gameFeature: TFeature); virtual;
-        procedure setFullscreen(fullscreen: Boolean); virtual;
-        function isFullscreen: Boolean; virtual;
-        procedure setShowTitleBar(showTitleBar: Boolean); virtual;
-        function isShowTitleBar: Boolean; virtual;
-        procedure setProgressBarView(progressBarView: Boolean); virtual;
-        function isProgressBarView: Boolean; virtual;
-        function toString: string; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ApplctnCnfgrtn-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+        IF (FUNCTION ApplctnCnfgrtn-sttc-nstnc = FUNCTION JR-GET(jtemp2, "f_NULL_OBJECT"))
+            COMPUTE JDISCARD = FUNCTION ApplctnCnfgrtnsttcnsS55349(FUNCTION ApplicationConfiguration-new0)
+        END-IF
+        COMPUTE J-RESULT = FUNCTION ApplctnCnfgrtn-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION ApplctnCnfgrtn-getInstance0.
 
-implementation
-uses
-  Features, MainFeatureFactory, NullUtil, StringMaker, CommonStrings;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ApplicationConfiguration-read0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp3 = 1
+        COMPUTE JDISCARD = FUNCTION ApplctnCnfgrtn-setFullscreen1(J-THIS, jtemp3)
+        COMPUTE jtemp4 = 0
+        COMPUTE JDISCARD = FUNCTION ApplctnCnfgrtn-stPrgrssBrVw1(J-THIS, jtemp4)
+        COMPUTE jtemp5 = 0
+        COMPUTE JDISCARD = FUNCTION ApplctnCnfgrtn-stShwTtlBr1(J-THIS, jtemp5)
+        COMPUTE jtemp6 = FUNCTION JR-CONCAT(FUNCTION JR-STR("Read Configuration: "), FUNCTION ApplctnCnfgrtn-toString0(J-THIS))
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), jtemp6, J-THIS, FUNCTION JR-STR("read"))
+    GOBACK.
+END FUNCTION ApplicationConfiguration-read0.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ApplctnCnfgrtn-write0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION ApplctnCnfgrtn-write0.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ApplctnCnfgrtn-update1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-features BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameFeature BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gameFeature RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp7 = FUNCTION MnFtrFctry-getInstance0
+        IF (J-gameFeature = FUNCTION JR-GET(jtemp7, "f_FULL_SCREEN"))
+            COMPUTE J-features = FUNCTION Features-getInstance0
+            IF (FUNCTION Features-isFeature1(J-features, J-gameFeature) = 1)
+                IF (NOT (FUNCTION ApplctnCnfgrtn-isFullscreen0(J-THIS) = 1))
+                    COMPUTE jtemp9 = 1
+                    COMPUTE JDISCARD = FUNCTION ApplctnCnfgrtn-setFullscreen1(J-THIS, jtemp9)
+                    COMPUTE JDISCARD = FUNCTION ApplctnCnfgrtn-write0(J-THIS)
+                END-IF
+            ELSE
+                IF (FUNCTION ApplctnCnfgrtn-isFullscreen0(J-THIS) = 1)
+                    COMPUTE jtemp8 = 0
+                    COMPUTE JDISCARD = FUNCTION ApplctnCnfgrtn-setFullscreen1(J-THIS, jtemp8)
+                    COMPUTE JDISCARD = FUNCTION ApplctnCnfgrtn-write0(J-THIS)
+                END-IF
+            END-IF
+        END-IF
+    GOBACK.
+END FUNCTION ApplctnCnfgrtn-update1.
 
-procedure TApplicationConfiguration.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.fullscreen := True;
-  Self.showTitleBar := False;
-  Self.progressBarView := False;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ApplctnCnfgrtn-setFullscreen1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-fullscreen BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-fullscreen RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-fullscreen
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_fullscreen", JVALUE)
+    GOBACK.
+END FUNCTION ApplctnCnfgrtn-setFullscreen1.
 
-class function TApplicationConfiguration.getInstance: TApplicationConfiguration;
-begin
-        if (TApplicationConfiguration.instance) = (TNullUtil.getInstance().NULL_OBJECT) then begin
-            TApplicationConfiguration.instance := TApplicationConfiguration.Create();
-        end;
-        Exit(TApplicationConfiguration(TJava.ToObject(TApplicationConfiguration.instance)));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ApplctnCnfgrtn-isFullscreen0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_fullscreen")
+        GOBACK
+    GOBACK.
+END FUNCTION ApplctnCnfgrtn-isFullscreen0.
 
-constructor TApplicationConfiguration.Create;
-var
-  commonStrings_: TCommonStrings;
-begin
-    inherited Create;
-    InitFields;
-        try
-            Self.read();
-        except
-            on e: SysUtils.Exception do begin
-            commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.CONSTRUCTOR_, TJava.Box(e));
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ApplctnCnfgrtn-stShwTtlBr1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-showTitleBar BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-showTitleBar RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-showTitleBar
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_showTitleBar", JVALUE)
+    GOBACK.
+END FUNCTION ApplctnCnfgrtn-stShwTtlBr1.
 
-// throws Exception
-procedure TApplicationConfiguration.read;
-begin
-        Self.setFullscreen(True);
-        Self.setProgressBarView(False);
-        Self.setShowTitleBar(False);
-        Self.logUtil.putF('Read Configuration: ' + Self.toString(), TJava.Box(Self), 'read');
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ApplctnCnfgrtn-isShowTitleBar0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_showTitleBar")
+        GOBACK
+    GOBACK.
+END FUNCTION ApplctnCnfgrtn-isShowTitleBar0.
 
-// throws Exception
-procedure TApplicationConfiguration.write;
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ApplctnCnfgrtn-stPrgrssBrVw1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-progressBarView BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-progressBarView RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-progressBarView
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_progressBarView", JVALUE)
+    GOBACK.
+END FUNCTION ApplctnCnfgrtn-stPrgrssBrVw1.
 
-// throws Exception
-procedure TApplicationConfiguration.update(gameFeature: TFeature);
-var
-  features_: TFeatures;
-begin
-        if (gameFeature) = (TMainFeatureFactory.getInstance().FULL_SCREEN) then begin
-            features_ := TFeatures.getInstance();
-            if features_.isFeature(gameFeature) then begin
-                if not (Self.isFullscreen()) then begin
-                    Self.setFullscreen(True);
-                    Self.write();
-                end;
-            end else begin
-                if Self.isFullscreen() then begin
-                    Self.setFullscreen(False);
-                    Self.write();
-                end;
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ApplctnCnfgrtn-isPrgrssBrVw0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_progressBarView")
+        GOBACK
+    GOBACK.
+END FUNCTION ApplctnCnfgrtn-isPrgrssBrVw0.
 
-procedure TApplicationConfiguration.setFullscreen(fullscreen: Boolean);
-begin
-        Self.fullscreen := fullscreen;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ApplctnCnfgrtn-toString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringBuffer BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR("isFullscreen: "))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendboolean1(J-stringBuffer, FUNCTION ApplctnCnfgrtn-isFullscreen0(J-THIS))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR(" isProgressBarView: "))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendboolean1(J-stringBuffer, FUNCTION ApplctnCnfgrtn-isPrgrssBrVw0(J-THIS))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR(" isShowTitleBar: "))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendboolean1(J-stringBuffer, FUNCTION ApplctnCnfgrtn-isShowTitleBar0(J-THIS))
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(J-stringBuffer)
+        GOBACK
+    GOBACK.
+END FUNCTION ApplctnCnfgrtn-toString0.
 
-function TApplicationConfiguration.isFullscreen: Boolean;
-begin
-        Exit(Self.fullscreen);
-end;
-    
-
-procedure TApplicationConfiguration.setShowTitleBar(showTitleBar: Boolean);
-begin
-        Self.showTitleBar := showTitleBar;
-end;
-    
-
-function TApplicationConfiguration.isShowTitleBar: Boolean;
-begin
-        Exit(Self.showTitleBar);
-end;
-    
-
-procedure TApplicationConfiguration.setProgressBarView(progressBarView: Boolean);
-begin
-        Self.progressBarView := progressBarView;
-end;
-    
-
-function TApplicationConfiguration.isProgressBarView: Boolean;
-begin
-        Exit(Self.progressBarView);
-end;
-    
-
-function TApplicationConfiguration.toString: string;
-var
-  stringBuffer: TStringMaker;
-begin
-        stringBuffer := TStringMaker.Create();
-        stringBuffer.append('isFullscreen: ');
-        stringBuffer.appendboolean(Self.isFullscreen());
-        stringBuffer.append(' isProgressBarView: ');
-        stringBuffer.appendboolean(Self.isProgressBarView());
-        stringBuffer.append(' isShowTitleBar: ');
-        stringBuffer.appendboolean(Self.isShowTitleBar());
-        Exit(stringBuffer.toString());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TApplicationConfiguration.instance := TJava.Box(TNullUtil.getInstance().NULL_OBJECT);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+PROGRAM-ID. ApplicationConfigurat-toString.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ApplctnCnfgrtn-toString0(J-THIS)
+    GOBACK.
+END PROGRAM ApplicationConfigurat-toString.
 

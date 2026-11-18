@@ -124,7 +124,7 @@
 
         <module>../../../allbinary_src/licensing/ApplicationConfigurationJavaLibraryCobolM</module>
         <module>../../../allbinary_src/licensing/ApplicationConfigurationNoFSJavaLibraryCobolM</module>
-        <module>../../input/AllBinaryMagneticFieldSensorJavaLibraryCobolM</module>
+        <!--<module>../../input/AllBinaryMagneticFieldSensorJavaLibraryCobolM</module>-->
         <!--<module>../../android/VirtualKeyboardJavaLibraryCobolM</module>-->
 
     </modules>

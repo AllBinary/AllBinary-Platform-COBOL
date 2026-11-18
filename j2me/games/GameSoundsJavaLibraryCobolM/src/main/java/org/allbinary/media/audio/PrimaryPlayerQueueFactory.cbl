@@ -1,58 +1,112 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.media.audio
+*> Java class PrimaryPlayerQueueFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.media.audio
-unit PrimaryPlayerQueueFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrmryPlyrQFctry-sttc-SIN97471.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PrimaryPlayerQueueFactory-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+01 PrimaryPlayerQueueFactory-jset-SINGLETON BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF PrimaryPlayerQueueFactory-jset-SINGLETON = 0
+        MOVE 1 TO PrimaryPlayerQueueFactory-jset-SINGLETON
+        COMPUTE jtemp1 = 4
+    COMPUTE PrimaryPlayerQueueFactory-jcell-SINGLETON = FUNCTION PlayerQueue-new1(jtemp1)
+    END-IF
+    MOVE PrimaryPlayerQueueFactory-jcell-SINGLETON TO J-RESULT
+    GOBACK.
+END FUNCTION PrmryPlyrQFctry-sttc-SIN97471.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrmryPlyrQFctrysttcSS82213.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PrimaryPlayerQueueFactory-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION PrmryPlyrQFctry-sttc-SIN97471 TO J-RESULT
+    MOVE J-VALUE TO PrimaryPlayerQueueFactory-jcell-SINGLETON
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION PrmryPlyrQFctrysttcSS82213.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrimaryPlayerQueueFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("PrimaryPlayerQueueFactory")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION PrimaryPlayerQueueFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, PlayerQueue;
-
-type
-  {AB:TYPES}
-  TPrimaryPlayerQueueFactory = class(TObject)
-  public
-    class var SINGLETON: TPlayerQueue;
-    constructor Create;
-        class function getInstance: TPlayerQueue; static;
-  end;
-
-implementation
-
-{AB:CODE}
-
-constructor TPrimaryPlayerQueueFactory.Create;
-begin
-  inherited Create;
-end;
-    
-
-class function TPrimaryPlayerQueueFactory.getInstance: TPlayerQueue;
-begin
-        Exit(TPrimaryPlayerQueueFactory.SINGLETON);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TPrimaryPlayerQueueFactory.SINGLETON := TPlayerQueue.Create(4);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrmryPlyrQFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION PrmryPlyrQFctry-sttc-SIN97471
+        GOBACK
+    GOBACK.
+END FUNCTION PrmryPlyrQFctry-getInstance0.
 

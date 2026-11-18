@@ -1,86 +1,153 @@
-// Generated Code Do Not Modify
-// package org.allbinary.logic.math.permutations
-unit ObjectPermutationVisitor;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.math.permutations
+*> Java class ObjectPermutationVisitor
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, StringMaker, Visitor;
-
-type
-  {AB:TYPES}
-  TObjectPermutationVisitor = class(TVisitor)
-  public
-    data: TArray<TObject>;
-    stringBuilder: TStringMaker;
-    procedure InitFields;
-        constructor Create(data: TArray<TObject>);
-        function visit(anyType: TObject): TObject; override;
-        procedure print(data: TArray<TObject>); overload; virtual;
-        procedure print(data: TArray<TObject>; stringBuilder: TStringMaker); overload; virtual;
-  end;
-
-implementation
-uses
-  TsUtil, NullUtil, CommonSeps;
-
-
-{AB:CODE}
-
-procedure TObjectPermutationVisitor.InitFields;
-begin
-  
-  Self.stringBuilder := TStringMaker.Create();
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ObjectPermutationVisitor-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-data BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-data RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ObjectPermutationVisitor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_data")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_stringBuilder")
     
+    COMPUTE JVALUE = FUNCTION StringMaker-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_stringBuilder", JVALUE)
+        COMPUTE JVALUE = J-data
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_data", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ObjectPermutationVisitor-new1.
 
-constructor TObjectPermutationVisitor.Create(data: TArray<TObject>);
-begin
-    inherited Create;
-    InitFields;
-        Self.data := data;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ObjctPrmttnVstr-visit1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-anyType BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-anyType RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = 0
+        COMPUTE JDISCARD = FUNCTION StringMaker-delete2(FUNCTION JR-GET(J-THIS, "f_stringBuilder"), jtemp1, FUNCTION StringMaker-length0(FUNCTION JR-GET(J-THIS, "f_stringBuilder")))
+        COMPUTE JDISCARD = FUNCTION ObjctPrmttnVstr-print2(J-THIS, FUNCTION JR-GET(J-THIS, "f_data"), FUNCTION JR-GET(J-THIS, "f_stringBuilder"))
+        COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+        COMPUTE J-RESULT = FUNCTION JR-GET(jtemp2, "f_NULL_OBJECT")
+        GOBACK
+    GOBACK.
+END FUNCTION ObjctPrmttnVstr-visit1.
 
-function TObjectPermutationVisitor.visit(anyType: TObject): TObject;
-begin
-        Self.stringBuilder.delete_(0, Self.stringBuilder.length());
-        Self.print(Self.data, Self.stringBuilder);
-        Exit(TJava.Box(TNullUtil.getInstance().NULL_OBJECT));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ObjctPrmttnVstr-print1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringBuilder BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-data BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-data RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringBuilder = FUNCTION StringMaker-new0
+        COMPUTE JDISCARD = FUNCTION ObjctPrmttnVstr-print2(J-THIS, J-data, J-stringBuilder)
+    GOBACK.
+END FUNCTION ObjctPrmttnVstr-print1.
 
-procedure TObjectPermutationVisitor.print(data: TArray<TObject>);
-var
-  stringBuilder: TStringMaker;
-begin
-        stringBuilder := TStringMaker.Create();
-        Self.print(data, stringBuilder);
-end;
-    
-
-procedure TObjectPermutationVisitor.print(data: TArray<TObject>; stringBuilder: TStringMaker);
-var
-  tsUtil_: TTsUtil;
-  size: Integer;
-  i: Integer;
-begin
-        tsUtil_ := TTsUtil.getInstance();
-        size := System.Length(data);
-        for i := 0 to size - 1 do begin
-            stringBuilder.appendint(Integer(Trunc(tsUtil_.hashCode(TJava.Box(data[i])))));
-            stringBuilder.append(TCommonSeps.getInstance().SPACE);
-        end;
-        WriteLn(stringBuilder.toString());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ObjctPrmttnVstr-print2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-tsUtil BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-i BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-data BINARY-DOUBLE.
+01 J-stringBuilder BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-data J-stringBuilder RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-tsUtil = FUNCTION TsUtil-getInstance0
+        COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(J-data)
+        COMPUTE J-i = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-i = (FUNCTION MOD(J-i + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-i < J-size) EXIT PERFORM END-IF
+            COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuilder, FUNCTION TsUtil-hashCode1(J-tsUtil, FUNCTION JR-ARRAY-GET(J-data, J-i)))
+            COMPUTE jtemp3 = FUNCTION CommonSeps-getInstance0
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuilder, FUNCTION JR-GET(jtemp3, "f_SPACE"))
+        END-PERFORM
+        COMPUTE JDISCARD = FUNCTION JR-PRINTLN(FUNCTION JR-TO-STRING(J-stringBuilder))
+    GOBACK.
+END FUNCTION ObjctPrmttnVstr-print2.
 

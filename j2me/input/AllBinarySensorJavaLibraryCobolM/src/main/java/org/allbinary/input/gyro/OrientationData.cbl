@@ -1,69 +1,117 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.gyro
+*> Java class OrientationData
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.gyro
-unit OrientationData;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OrnttnDt-static-SINGLETON.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 OrientationData-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+01 OrientationData-jset-SINGLETON BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF OrientationData-jset-SINGLETON = 0
+        MOVE 1 TO OrientationData-jset-SINGLETON
+        COMPUTE OrientationData-jcell-SINGLETON = FUNCTION OrientationData-new0
+    END-IF
+    MOVE OrientationData-jcell-SINGLETON TO J-RESULT
+    GOBACK.
+END FUNCTION OrnttnDt-static-SINGLETON.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OrnttnDtstaticSINGLES45515.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 OrientationData-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION OrnttnDt-static-SINGLETON TO J-RESULT
+    MOVE J-VALUE TO OrientationData-jcell-SINGLETON
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION OrnttnDtstaticSINGLES45515.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OrientationData-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("OrientationData")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ORIENTATION_SENSOR_INPUT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ORIENTATION_TYPE")
+    COMPUTE JVALUE = FUNCTION JR-STR("Orientation Sensor Input")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ORIENTATION_SENSOR_INPUT", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Orientation Type")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ORIENTATION_TYPE", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION OrientationData-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
-
-type
-  {AB:TYPES}
-  TOrientationData = class(TObject)
-  public
-    ORIENTATION_SENSOR_INPUT: string;
-    ORIENTATION_TYPE: string;
-    class var SINGLETON: TOrientationData;
-    procedure InitFields;
-        constructor Create;
-        class function getInstance: TOrientationData; static;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TOrientationData.InitFields;
-begin
-  Self.ORIENTATION_SENSOR_INPUT := 'Orientation Sensor Input';
-  Self.ORIENTATION_TYPE := 'Orientation Type';
-end;
-    
-
-constructor TOrientationData.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
-
-class function TOrientationData.getInstance: TOrientationData;
-begin
-        Exit(TOrientationData.SINGLETON);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TOrientationData.SINGLETON := TOrientationData.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OrientationData-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION OrnttnDt-static-SINGLETON
+        GOBACK
+    GOBACK.
+END FUNCTION OrientationData-getInstance0.
 

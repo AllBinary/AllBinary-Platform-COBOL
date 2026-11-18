@@ -1,77 +1,112 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2025 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.image.opengles
-unit OpenGLESDeviceImageTranslate;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.image.opengles
+*> Java class OpenGLESDeviceImageTranslate
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OpnGLESDvcImgTrnslt-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("OpenGLESDeviceImageTranslate")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_translateX")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_translateY")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_translateX2")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_translateY2")
+    COMPUTE JVALUEF = 0.0
+    COMPUTE JDISCARD = FUNCTION JR-SETF(J-THIS, "f_translateX", JVALUEF)
+    COMPUTE JVALUEF = 0.0
+    COMPUTE JDISCARD = FUNCTION JR-SETF(J-THIS, "f_translateY", JVALUEF)
+    COMPUTE JVALUEF = 0.0
+    COMPUTE JDISCARD = FUNCTION JR-SETF(J-THIS, "f_translateX2", JVALUEF)
+    COMPUTE JVALUEF = 0.0
+    COMPUTE JDISCARD = FUNCTION JR-SETF(J-THIS, "f_translateY2", JVALUEF)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION OpnGLESDvcImgTrnslt-new0.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OpnGLESDvcImgTrnslt-translate4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 COMP-2.
+01 jtemp2 COMP-2.
+01 jtemp3 COMP-2.
+01 jtemp4 COMP-2.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gl BINARY-DOUBLE.
+01 J-openGLESImage BINARY-DOUBLE.
+01 J-x COMP-2.
+01 J-y COMP-2.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gl J-openGLESImage J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = ((FUNCTION JR-GET(FUNCTION JR-GET(J-openGLESImage, "f_openGLESImageProperties"), "f_scaleX") * J-x))
+        COMPUTE jtemp4 = ((FUNCTION JR-GET(FUNCTION JR-GET(J-openGLESImage, "f_openGLESImageProperties"), "f_scaleY") * J-y))
+        COMPUTE jtemp1 = (FUNCTION JR-GETF(J-THIS, "f_translateX") + jtemp2)
+        COMPUTE jtemp3 = (FUNCTION JR-GETF(J-THIS, "f_translateY") + jtemp4)
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-openGLESImage, "f_imageProcessor"))
+    GOBACK.
+END FUNCTION OpnGLESDvcImgTrnslt-translate4.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GL10, OpenGLESImage, OpenGLESImageTranslate;
-
-type
-  {AB:TYPES}
-  TOpenGLESDeviceImageTranslate = class(TOpenGLESImageTranslate)
-  public
-    translateX: Single;
-    translateY: Single;
-    translateX2: Single;
-    translateY2: Single;
-    procedure InitFields;
-    constructor Create;
-        procedure translate(gl: IGL10; openGLESImage_: TOpenGLESImage; x: Single; y: Single); override;
-        procedure translate2(gl: IGL10; openGLESImage_: TOpenGLESImage); override;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TOpenGLESDeviceImageTranslate.InitFields;
-begin
-  Self.translateX := 0.0;
-  Self.translateY := 0.0;
-  Self.translateX2 := 0.0;
-  Self.translateY2 := 0.0;
-end;
-
-constructor TOpenGLESDeviceImageTranslate.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-procedure TOpenGLESDeviceImageTranslate.translate(gl: IGL10; openGLESImage_: TOpenGLESImage; x: Single; y: Single);
-begin
-        openGLESImage_.imageProcessor.translate(gl, (Self.translateX) + (((openGLESImage_.openGLESImageProperties.scaleX) * (x))), (Self.translateY) + (((openGLESImage_.openGLESImageProperties.scaleY) * (y))));
-end;
-    
-
-procedure TOpenGLESDeviceImageTranslate.translate2(gl: IGL10; openGLESImage_: TOpenGLESImage);
-begin
-        openGLESImage_.imageProcessor.translate(gl, Self.translateX2, Self.translateY2);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OpnGLESDvcImgTrnslt-trnslt22.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gl BINARY-DOUBLE.
+01 J-openGLESImage BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gl J-openGLESImage RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-openGLESImage, "f_imageProcessor"))
+    GOBACK.
+END FUNCTION OpnGLESDvcImgTrnslt-trnslt22.
 

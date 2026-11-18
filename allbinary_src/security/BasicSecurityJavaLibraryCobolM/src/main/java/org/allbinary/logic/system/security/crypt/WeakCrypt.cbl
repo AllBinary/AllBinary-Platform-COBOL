@@ -1,111 +1,220 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.system.security.crypt
+*> Java class WeakCrypt
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.logic.system.security.crypt
-unit WeakCrypt;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WeakCrypt-static-keys.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 WeakCrypt-jcell-keys BINARY-DOUBLE EXTERNAL.
+01 WeakCrypt-jset-keys BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF WeakCrypt-jset-keys = 0
+        MOVE 1 TO WeakCrypt-jset-keys
+        COMPUTE WeakCrypt-jcell-keys = FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION
+        JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION
+        JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-NEW-ARRAY(JZERO), FUNCTION JR-STR("qwres6qewrupoi1132790jfahleavi89398")), FUNCTION
+        JR-STR("143uk32lngf8675gt1tv9214uvt924ut9u9")), FUNCTION JR-STR("12kvjlvlkv11445v12951v512v9m51295v1")), FUNCTION JR-STR("gampipoiupg4g43y5u238tu2485u20u0932")), FUNCTION JR-STR("a93u5uu02s2d2g3259u4395u409u093u9vu")), FUNCTION
+        JR-STR("nlkxzj90je3mln9l8l89qjf0j3v50j23r9j")), FUNCTION JR-STR("2lk5fn5j23nr8f0233vq35n23jn58vhy843")), FUNCTION JR-STR("9q24334m598t092tkn2iv0982456n425j9g")), FUNCTION JR-STR("5m9uvmt9436243m5v34g09d43i52ki35g99")), FUNCTION
+        JR-STR("n123lr1iubiu2br32lv32rbu23b32ub2rlb")), FUNCTION JR-STR("va0u0iovji2ojpvj2oij22poiu4ov2uv28v")), FUNCTION JR-STR("bkk80gn2v9uc902340ut209pcup0u09utc9")), FUNCTION JR-STR("mn32m32neee23c42fn32nf3mf2n3fn2m3fm")), FUNCTION
+        JR-STR("zcxpozo3423voizupovsijevnv3n33o33n3")), FUNCTION JR-STR("v0345324thv93h03893893vh893v8h3vhzz")), FUNCTION JR-STR("v8na898v8wyef9ty39yv98yaw39yeeyf8ye")), FUNCTION JR-STR("45zd36d34jg09434hfshp8uj9sy8s7cyr78")), FUNCTION
+        JR-STR("b098yy0908vdvh983b2lb327980a76s5e5e")), FUNCTION JR-STR("v90y9v9p8y3r98pagsdgsagyr6y3985yhfh")), FUNCTION JR-STR("vblkzhhzp8yvzi8u4t9856456zy3rv8a388")), FUNCTION JR-STR("da7696023rgf28dssfa98asd879hg32hewe")), FUNCTION
+        JR-STR("afo7d6ffkjb3jr3i34gb24ytuvu3jr3uryf")), FUNCTION JR-STR("4gijvqo8vq984hv984hj5j3511h832hf833"))
+    END-IF
+    MOVE WeakCrypt-jcell-keys TO J-RESULT
+    GOBACK.
+END FUNCTION WeakCrypt-static-keys.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WeakCryptstatickeysS48084.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 WeakCrypt-jcell-keys BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION WeakCrypt-static-keys TO J-RESULT
+    MOVE J-VALUE TO WeakCrypt-jcell-keys
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION WeakCryptstatickeysS48084.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WeakCrypt-static-KEYMAX.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 WeakCrypt-jcell-KEYMAX BINARY-DOUBLE EXTERNAL.
+01 WeakCrypt-jset-KEYMAX BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF WeakCrypt-jset-KEYMAX = 0
+        MOVE 1 TO WeakCrypt-jset-KEYMAX
+        COMPUTE WeakCrypt-jcell-KEYMAX = FUNCTION JR-ARRAY-LENGTH(FUNCTION WeakCrypt-static-keys)
+    END-IF
+    MOVE WeakCrypt-jcell-KEYMAX TO J-RESULT
+    GOBACK.
+END FUNCTION WeakCrypt-static-KEYMAX.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, TsUtil, AbCrypt;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WeakCryptstaticKEYMAS88463.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 WeakCrypt-jcell-KEYMAX BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION WeakCrypt-static-KEYMAX TO J-RESULT
+    MOVE J-VALUE TO WeakCrypt-jcell-KEYMAX
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION WeakCryptstaticKEYMAS88463.
 
-type
-  {AB:TYPES}
-  TWeakCrypt = class(TObject)
-  public
-    tsUtil: TTsUtil;
-    abCrypt: TAbCrypt;
-    class var keys: TArray<string>;
-    class var KEYMAX: Integer;
-    procedure InitFields;
-        constructor Create(key: Integer);
-        function encrypt(value: string): string; virtual;
-        function decrypt(value: string): string; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WeakCrypt-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-commonStrings BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-key BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-key RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("WeakCrypt")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_tsUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_abCrypt")
+    COMPUTE JVALUE = FUNCTION TsUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_tsUtil", JVALUE)
+    COMPUTE jtemp1 = FUNCTION KeySpecFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION AbCrypt-new1(FUNCTION JR-GET(jtemp1, "f_DES"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_abCrypt", JVALUE)
+        CONTINUE
+            COMPUTE JDISCARD = FUNCTION AbCrypt-init1(FUNCTION JR-GET(J-THIS, "f_abCrypt"), FUNCTION JR-ARRAY-GET(FUNCTION WeakCrypt-static-keys, J-key))
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION WeakCrypt-new1.
 
-implementation
-uses
-  DatabaseEncoder, PreLogUtil, StringUtil, KeySpecFactory, CommonStrings;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WeakCrypt-encrypt1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-crypted BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-value BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-value RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE J-crypted = FUNCTION AbCrypt-encrypt1(FUNCTION JR-GET(J-THIS, "f_abCrypt"), FUNCTION TsUtil-getByteArray1(FUNCTION JR-GET(J-THIS, "f_tsUtil"), J-value))
+            COMPUTE J-RESULT = FUNCTION DatabaseEncoder-encode1(J-crypted)
+            GOBACK
+    GOBACK.
+END FUNCTION WeakCrypt-encrypt1.
 
-
-{AB:CODE}
-
-procedure TWeakCrypt.InitFields;
-begin
-  Self.tsUtil := TTsUtil.getInstance();
-  Self.abCrypt := TAbCrypt.Create(TKeySpecFactory.getInstance().DES);
-end;
-    
-
-constructor TWeakCrypt.Create(key: Integer);
-var
-  commonStrings_: TCommonStrings;
-begin
-    inherited Create;
-    InitFields;
-        try
-            Self.abCrypt.init(TWeakCrypt.keys[key]);
-        except
-            on e: SysUtils.Exception do begin
-            commonStrings_ := TCommonStrings.getInstance();
-            TPreLogUtil.putOE(commonStrings_.EXCEPTION, TJava.Box(Self), 'SuperCrypt(key)', TJava.Box(e));
-            end;
-        end;
-end;
-    
-
-function TWeakCrypt.encrypt(value: string): string;
-var
-  crypted: TArray<ShortInt>;
-begin
-        try
-            crypted := Self.abCrypt.encrypt(Self.tsUtil.getByteArray(value));
-            Exit(TDatabaseEncoder.encode(crypted));
-        except
-            on e: SysUtils.Exception do begin
-            TPreLogUtil.putOE('Encrypt Failed', TJava.Box(Self), 'encrypt', TJava.Box(e));
-            Exit(TStringUtil.getInstance().EMPTY_STRING);
-            end;
-        end;
-end;
-    
-
-function TWeakCrypt.decrypt(value: string): string;
-var
-  decrypted: TArray<ShortInt>;
-begin
-        try
-            decrypted := Self.abCrypt.decrypt(TDatabaseEncoder.decode(value));
-            Exit(TJava.NewString(decrypted));
-        except
-            on e: SysUtils.Exception do begin
-            TPreLogUtil.putOE('decrypt Failed', TJava.Box(Self), 'decrypt', TJava.Box(e));
-            Exit(TStringUtil.getInstance().EMPTY_STRING);
-            end;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TWeakCrypt.keys := TArray<string>.Create('qwres6qewrupoi1132790jfahleavi89398', '143uk32lngf8675gt1tv9214uvt924ut9u9', '12kvjlvlkv11445v12951v512v9m51295v1', 'gampipoiupg4g43y5u238tu2485u20u0932', 'a93u5uu02s2d2g3259u4395u409u093u9vu', 'nlkxzj90je3mln9l8l89qjf0j3v50j23r9j', '2lk5fn5j23nr8f0233vq35n23jn58vhy843', '9q24334m598t092tkn2iv0982456n425j9g', '5m9uvmt9436243m5v34g09d43i52ki35g99', 'n123lr1iubiu2br32lv32rbu23b32ub2rlb', 'va0u0iovji2ojpvj2oij22poiu4ov2uv28v', 'bkk80gn2v9uc902340ut209pcup0u09utc9', 'mn32m32neee23c42fn32nf3mf2n3fn2m3fm', 'zcxpozo3423voizupovsijevnv3n33o33n3', 'v0345324thv93h03893893vh893v8h3vhzz', 'v8na898v8wyef9ty39yv98yaw39yeeyf8ye', '45zd36d34jg09434hfshp8uj9sy8s7cyr78', 'b098yy0908vdvh983b2lb327980a76s5e5e', 'v90y9v9p8y3r98pagsdgsagyr6y3985yhfh', 'vblkzhhzp8yvzi8u4t9856456zy3rv8a388', 'da7696023rgf28dssfa98asd879hg32hewe', 'afo7d6ffkjb3jr3i34gb24ytuvu3jr3uryf', '4gijvqo8vq984hv984hj5j3511h832hf833');
-  TWeakCrypt.KEYMAX := System.Length(TWeakCrypt.keys);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WeakCrypt-decrypt1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-decrypted BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-value BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-value RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE J-decrypted = FUNCTION AbCrypt-decrypt1(FUNCTION JR-GET(J-THIS, "f_abCrypt"), FUNCTION DatabaseEncoder-decode1(J-value))
+            COMPUTE J-RESULT = J-decrypted
+            GOBACK
+    GOBACK.
+END FUNCTION WeakCrypt-decrypt1.
 

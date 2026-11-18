@@ -1,165 +1,301 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.configuration
+*> Java class LoadGameForm
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.configuration
-unit LoadGameForm;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, ChoiceGroup, CommandListener, MIDPUtil, BasicColor, CommandForm, BasicArrayList;
-
-type
-  {AB:TYPES}
-  TLoadGameForm = class(TCommandForm)
-  public
-    meUtil: TMIDPUtil;
-    areChoices: Boolean;
-    procedure InitFields;
-        constructor Create(commandListener_: ICommandListener; title: string; backgrounBasicColor: TBasicColor; foregroundBasicColor: TBasicColor);
-        procedure initCommands(cmdListener: ICommandListener); override;
-        procedure update; override;
-        procedure add(list: TBasicArrayList; name: string; option: Integer);
-        function getChoiceGroup(list: TBasicArrayList; name: string; option: Integer): TChoiceGroup;
-        function getSelectedId: Integer; virtual;
-        function getSelectedText: Integer; virtual;
-  end;
-
-implementation
-uses
-  Choice, Item, NullImage, StringItem, GameCommandsFactory, GamePersistanceSingleton, StringMaker, StringUtil;
-
-
-{AB:CODE}
-
-procedure TLoadGameForm.InitFields;
-begin
-  Self.meUtil := TMIDPUtil.getInstance();
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LoadGameForm-new4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-commandListener BINARY-DOUBLE.
+01 J-title BINARY-DOUBLE.
+01 J-backgrounBasicColor BINARY-DOUBLE.
+01 J-foregroundBasicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-commandListener J-title J-backgrounBasicColor J-foregroundBasicColor RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("LoadGameForm")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_meUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_areChoices")
+    COMPUTE JVALUE = FUNCTION MIDPUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_meUtil", JVALUE)
     
+        CONTINUE
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        COMPUTE JDISCARD = FUNCTION LoadGameForm-update0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION LoadGameForm-initCommands1(J-THIS, J-commandListener)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION LoadGameForm-new4.
 
-constructor TLoadGameForm.Create(commandListener_: ICommandListener; title: string; backgrounBasicColor: TBasicColor; foregroundBasicColor: TBasicColor);
-begin
-        inherited Create(commandListener_, title, backgrounBasicColor, foregroundBasicColor);
-        InitFields;
-        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_);
-        Self.update();
-        Self.initCommands(commandListener_);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LoadGameForm-initCommands1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameCommandsFactory BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-cmdListener BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-cmdListener RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-gameCommandsFactory = FUNCTION GmCmmndsFctry-getInstance0
+        COMPUTE JDISCARD = FUNCTION CommandForm-removeAllCommands0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION CommandForm-addCommand1(J-THIS, FUNCTION JR-GET(J-gameCommandsFactory, "f_LOAD_FILE"))
+        COMPUTE JDISCARD = FUNCTION CommandForm-addCommand1(J-THIS, FUNCTION JR-GET(J-gameCommandsFactory, "f_DELETE_FILE"))
+        COMPUTE JDISCARD = FUNCTION CommandForm-addCommand1(J-THIS, FUNCTION JR-GET(J-gameCommandsFactory, "f_CLOSE_AND_SHOW_GAME_CANVAS"))
+        COMPUTE JDISCARD = FUNCTION Form-setCommandListener1(J-THIS, J-cmdListener)
+    GOBACK.
+END FUNCTION LoadGameForm-initCommands1.
 
-procedure TLoadGameForm.initCommands(cmdListener: ICommandListener);
-var
-  gameCommandsFactory_: TGameCommandsFactory;
-begin
-        gameCommandsFactory_ := TGameCommandsFactory.getInstance();
-        Self.removeAllCommands();
-        Self.addCommand(gameCommandsFactory_.LOAD_FILE);
-        Self.addCommand(gameCommandsFactory_.DELETE_FILE);
-        Self.addCommand(gameCommandsFactory_.CLOSE_AND_SHOW_GAME_CANVAS);
-        Self.setCommandListener(cmdListener);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LoadGameForm-update0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-list BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = FUNCTION GmPrsstncSngltn-getInstance0
+        COMPUTE J-list = FUNCTION BasicPersitance-getIds0(jtemp1)
+        COMPUTE JDISCARD = FUNCTION Form-deleteAll0(J-THIS)
+        IF (FUNCTION BasicArrayList-size0(J-list) > 0)
+            COMPUTE JDISCARD = FUNCTION LoadGameForm-add3(J-THIS, J-list, FUNCTION JR-STR("Select A Saved Game"), FUNCTION Choice-static-EXCLUSIVE)
+            COMPUTE JVALUE = 1
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_areChoices", JVALUE)
+        ELSE
+            COMPUTE jtemp2 = FUNCTION StringUtil-getInstance0
+            COMPUTE JDISCARD = FUNCTION MIDPUtil-appendItem2(FUNCTION JR-GET(J-THIS, "f_meUtil"), J-THIS, FUNCTION StringItem-new3(FUNCTION JR-STR("No Saved Games"), FUNCTION JR-GET(jtemp2, "f_EMPTY_STRING"), FUNCTION Item-static-PLAIN))
+            COMPUTE JVALUE = 0
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_areChoices", JVALUE)
+        END-IF
+        COMPUTE JDISCARD = FUNCTION CommandForm-update0(J-THIS)
+    GOBACK.
+END FUNCTION LoadGameForm-update0.
 
-// throws Exception
-procedure TLoadGameForm.update;
-var
-  list: TBasicArrayList;
-begin
-        list := TGamePersistanceSingleton.getInstance().getIds();
-        Self.deleteAll();
-        if (list.size()) > (0) then begin
-            Self.add(list, 'Select A Saved Game', IChoice.EXCLUSIVE);
-            Self.areChoices := True;
-        end else begin
-            Self.meUtil.appendItem(Self, TStringItem.Create('No Saved Games', TStringUtil.getInstance().EMPTY_STRING, TItem.PLAIN));
-            Self.areChoices := False;
-        end;
-        inherited update();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LoadGameForm-add3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-choiceGroup BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-name BINARY-DOUBLE.
+01 J-option BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-list J-name J-option RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-choiceGroup = FUNCTION LoadGameForm-getChoiceGroup3(J-THIS, J-list, J-name, J-option)
+        IF (FUNCTION BasicArrayList-size0(J-list) > 0)
+            COMPUTE jtemp3 = 0
+            COMPUTE jtemp4 = 1
+            COMPUTE JDISCARD = FUNCTION ChoiceGroup-setSelectedIndex2(J-choiceGroup, jtemp3, jtemp4)
+        END-IF
+        COMPUTE JDISCARD = FUNCTION MIDPUtil-appendItem2(FUNCTION JR-GET(J-THIS, "f_meUtil"), J-THIS, J-choiceGroup)
+    GOBACK.
+END FUNCTION LoadGameForm-add3.
 
-procedure TLoadGameForm.add(list: TBasicArrayList; name: string; option: Integer);
-var
-  choiceGroup_: TChoiceGroup;
-begin
-        choiceGroup_ := Self.getChoiceGroup(list, name, option);
-        if (list.size()) > (0) then begin
-            choiceGroup_.setSelectedIndex(0, True);
-        end;
-        Self.meUtil.appendItem(Self, choiceGroup_);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LoadGameForm-getChoiceGroup3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-METHOD_NAME BINARY-DOUBLE.
+01 J-ADDING_CHOICE BINARY-DOUBLE.
+01 J-choiceGroup BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-anyType BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-name BINARY-DOUBLE.
+01 J-option BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-list J-name J-option RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-METHOD_NAME = FUNCTION JR-STR("getChoiceGroup")
+        COMPUTE J-ADDING_CHOICE = FUNCTION JR-STR("Adding Choice: ")
+        COMPUTE jtemp5 = FUNCTION StringUtil-getInstance0
+        COMPUTE J-choiceGroup = FUNCTION ChoiceGroup-new4(J-name, J-option, FUNCTION StringUtil-getArrayInstance0(jtemp5), FUNCTION NllImg-sttc-NULL-IMAGE88814)
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(J-list)
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-anyType = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
+            COMPUTE jtemp8 = FUNCTION StringMaker-new0
+            COMPUTE jtemp7 = FUNCTION StringMaker-append1(jtemp8, J-ADDING_CHOICE)
+            COMPUTE jtemp6 = FUNCTION StringMaker-append1(jtemp7, FUNCTION JR-TO-STRING(J-anyType))
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+            COMPUTE JDISCARD = FUNCTION ChoiceGroup-append2(J-choiceGroup, FUNCTION JR-TO-STRING(J-anyType), FUNCTION NullImage-static-NULL-IMAGE)
+        END-PERFORM
+        COMPUTE J-RESULT = J-choiceGroup
+        GOBACK
+    GOBACK.
+END FUNCTION LoadGameForm-getChoiceGroup3.
 
-function TLoadGameForm.getChoiceGroup(list: TBasicArrayList; name: string; option: Integer): TChoiceGroup;
-var
-  METHOD_NAME: string;
-  ADDING_CHOICE: string;
-  choiceGroup_: TChoiceGroup;
-  size: Integer;
-  anyType: TObject;
-  index: Integer;
-begin
-        METHOD_NAME := 'getChoiceGroup';
-        ADDING_CHOICE := 'Adding Choice: ';
-        choiceGroup_ := TChoiceGroup.Create(name, option, TStringUtil.getInstance().getArrayInstance(), TNullImage.NULL_IMAGE_ARRAY);
-        size := list.size();
-        for index := 0 to size - 1 do begin
-            anyType := TJava.Box(list.objectArray[index]);
-            Self.logUtil.putF(TStringMaker.Create().append(ADDING_CHOICE).append(anyType.toString()).toString(), TJava.Box(Self), METHOD_NAME);
-            choiceGroup_.append(anyType.toString(), TNullImage.NULL_IMAGE);
-        end;
-        Exit(choiceGroup_);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LoadGameForm-getSelectedId0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-choiceGroup BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION JR-GET(J-THIS, "f_areChoices") = 1)
+            COMPUTE jtemp9 = 0
+            COMPUTE J-choiceGroup = FUNCTION Form-get1(J-THIS, jtemp9)
+            COMPUTE J-RESULT = FUNCTION ChoiceGroup-getSelectedIndex0(J-choiceGroup)
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = (0 - 1)
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION LoadGameForm-getSelectedId0.
 
-function TLoadGameForm.getSelectedId: Integer;
-var
-  choiceGroup_: TChoiceGroup;
-begin
-        if Self.areChoices then begin
-            choiceGroup_ := TChoiceGroup(TJava.ToObject(Self.get(0)));
-            Exit(choiceGroup_.getSelectedIndex());
-        end else begin
-            Exit(-1);
-        end;
-end;
-    
-
-function TLoadGameForm.getSelectedText: Integer;
-var
-  choiceGroup_: TChoiceGroup;
-  value: Integer;
-begin
-        if Self.areChoices then begin
-            choiceGroup_ := TChoiceGroup(TJava.ToObject(Self.get(0)));
-            value := TJava.IntValueOf(choiceGroup_.getString(choiceGroup_.getSelectedIndex()));
-            Exit(value);
-        end else begin
-            Exit(-1);
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LoadGameForm-getSelectedText0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-choiceGroup BINARY-DOUBLE.
+01 J-value BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION JR-GET(J-THIS, "f_areChoices") = 1)
+            COMPUTE jtemp10 = 0
+            COMPUTE J-choiceGroup = FUNCTION Form-get1(J-THIS, jtemp10)
+            COMPUTE jtemp11 = FUNCTION ChoiceGroup-getString1(J-choiceGroup, FUNCTION ChoiceGroup-getSelectedIndex0(J-choiceGroup))
+            COMPUTE J-value = FUNCTION JR-CLASS-NAME(jtemp11)
+            COMPUTE J-RESULT = J-value
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = (0 - 1)
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION LoadGameForm-getSelectedText0.
 

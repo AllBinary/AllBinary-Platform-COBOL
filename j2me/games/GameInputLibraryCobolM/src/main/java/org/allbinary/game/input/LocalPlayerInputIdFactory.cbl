@@ -1,173 +1,437 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.input
+*> Java class LocalPlayerInputIdFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.input
-unit LocalPlayerInputIdFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LclPlyrInptIdFctry-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 LocalPlayerInputIdFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 LocalPlayerInputIdFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF LocalPlayerInputIdFactory-jset-instance = 0
+        MOVE 1 TO LocalPlayerInputIdFactory-jset-instance
+        COMPUTE LocalPlayerInputIdFactory-jcell-instance = FUNCTION LocalPlayerInputIdFactory-new0
+    END-IF
+    MOVE LocalPlayerInputIdFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION LclPlyrInptIdFctry-sttc-nstnc.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LclPlyrInptIdFctrystS26977.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 LocalPlayerInputIdFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION LclPlyrInptIdFctry-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO LocalPlayerInputIdFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION LclPlyrInptIdFctrystS26977.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LocalPlayerInputIdFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("LocalPlayerInputIdFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_MAX_NUMBER_OF_PLAYERS")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_MAX_FAST_DEVICEID")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_deviceIdToplayerId")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_playerIdToDeviceId")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_playersInPlay")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_totalDevicesMapped")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = 6
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_MAX_NUMBER_OF_PLAYERS", JVALUE)
+    COMPUTE JVALUE = 65
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_MAX_FAST_DEVICEID", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY(FUNCTION JR-GET(J-THIS, "f_MAX_FAST_DEVICEID"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_deviceIdToplayerId", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY(FUNCTION JR-GET(J-THIS, "f_MAX_NUMBER_OF_PLAYERS"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_playerIdToDeviceId", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY(FUNCTION JR-GET(J-THIS, "f_MAX_NUMBER_OF_PLAYERS"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_playersInPlay", JVALUE)
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_totalDevicesMapped", JVALUE)
+        COMPUTE J-index = (FUNCTION MOD((FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_deviceIdToplayerId")) - 1) + 2147483648, 4294967296) - 2147483648)
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index >= 0) EXIT PERFORM END-IF
+            COMPUTE JVALUE = (0 - 1)
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_deviceIdToplayerId"), J-index, JVALUE)
+        END-PERFORM
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION LocalPlayerInputIdFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LogUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LclPlyrInptIdFctry-gtInstnc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION LclPlyrInptIdFctry-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION LclPlyrInptIdFctry-gtInstnc0.
 
-type
-  {AB:TYPES}
-  TLocalPlayerInputIdFactory = class(TObject)
-  public
-    logUtil: TLogUtil;
-    MAX_NUMBER_OF_PLAYERS: Integer;
-    MAX_FAST_DEVICEID: Integer;
-    deviceIdToplayerId: TArray<Integer>;
-    playerIdToDeviceId: TArray<Integer>;
-    playersInPlay: TArray<Boolean>;
-    totalDevicesMapped: Integer;
-    class var instance: TLocalPlayerInputIdFactory;
-    procedure InitFields;
-        constructor Create;
-        class function getInstance: TLocalPlayerInputIdFactory; static;
-        function getDeviceId(playerInputId: Integer): Integer; virtual;
-        function getPlayerForDevice(deviceId: Integer): Integer; virtual;
-        function getTotalDevicesInPlay: Integer; virtual;
-        function isPlayerInPlay(playerInputId: Integer): Boolean; virtual;
-        procedure setPlayerInPlay(playerInputId: Integer); virtual;
-        procedure setPlayerOutOfPlay(playerInputId: Integer); virtual;
-        function getPlayersInPlay: TArray<Boolean>; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LclPlyrInptIdFctry-gtDvcId1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-playerInputId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-playerInputId RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_playerIdToDeviceId"), J-playerInputId)
+        GOBACK
+    GOBACK.
+END FUNCTION LclPlyrInptIdFctry-gtDvcId1.
 
-implementation
-uses
-  AnalogLocationInputFactory, StringMaker;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LclPlyrInptIdFctry-gtPlyr36898.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-index BINARY-DOUBLE.
+01 J-playerInputId BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-deviceId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-deviceId RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+        IF (J-deviceId < FUNCTION JR-GET(J-THIS, "f_MAX_FAST_DEVICEID"))
+            COMPUTE J-playerInputId = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_deviceIdToplayerId"), J-deviceId)
+            IF (J-playerInputId NOT = (0 - 1))
+                COMPUTE J-RESULT = J-playerInputId
+                GOBACK
+            END-IF
+        ELSE
+            COMPUTE J-index = (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_totalDevicesMapped") - 1) + 2147483648, 4294967296) - 2147483648)
+            MOVE 1 TO JFIRST1
+            PERFORM FOREVER
+                IF JFIRST1 = 0
+                    COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+                END-IF
+                MOVE 0 TO JFIRST1
+                IF NOT (J-index >= 0) EXIT PERFORM END-IF
+                IF (FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_playerIdToDeviceId"), J-index) = J-deviceId)
+                    COMPUTE J-RESULT = J-index
+                    GOBACK
+                END-IF
+            END-PERFORM
+        END-IF
+        COMPUTE J-index = FUNCTION JR-GET(J-THIS, "f_totalDevicesMapped")
+        IF (J-deviceId < FUNCTION JR-GET(J-THIS, "f_MAX_FAST_DEVICEID"))
+            COMPUTE JVALUE = J-index
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_deviceIdToplayerId"), J-deviceId, JVALUE)
+        ELSE
+            COMPUTE jtemp4 = FUNCTION StringMaker-new0
+            COMPUTE jtemp3 = FUNCTION StringMaker-append1(jtemp4, FUNCTION JR-STR("Added DeviceId: "))
+            COMPUTE jtemp2 = FUNCTION StringMaker-appendint1(jtemp3, J-deviceId)
+            COMPUTE jtemp1 = FUNCTION StringMaker-append1(jtemp2, FUNCTION JR-STR(" beyond fast Id list"))
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp1), J-THIS, FUNCTION JR-STR("getPlayerForDevice"))
+        END-IF
+        COMPUTE JVALUE = J-deviceId
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_playerIdToDeviceId"), J-index, JVALUE)
+        COMPUTE jtemp5 = FUNCTION AnlgLctnInptFctry-getInstance0
+        COMPUTE JDISCARD = FUNCTION AnlgLctnInptFctry-addPlayer1(jtemp5, FUNCTION JR-GET(J-THIS, "f_totalDevicesMapped"))
+        COMPUTE JVALUE = (FUNCTION MOD(FUNCTION JR-GET(J-THIS, "f_totalDevicesMapped") + 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_totalDevicesMapped", JVALUE)
+        COMPUTE jtemp12 = FUNCTION StringMaker-new0
+        COMPUTE jtemp11 = FUNCTION StringMaker-append1(jtemp12, FUNCTION JR-STR("Added DeviceId: "))
+        COMPUTE jtemp10 = FUNCTION StringMaker-appendint1(jtemp11, J-deviceId)
+        COMPUTE jtemp9 = FUNCTION StringMaker-append1(jtemp10, FUNCTION JR-STR(" at: "))
+        COMPUTE jtemp8 = FUNCTION StringMaker-appendint1(jtemp9, J-index)
+        COMPUTE jtemp7 = FUNCTION StringMaker-append1(jtemp8, FUNCTION JR-STR(" Total: "))
+        COMPUTE jtemp6 = FUNCTION StringMaker-appendint1(jtemp7, FUNCTION JR-GET(J-THIS, "f_totalDevicesMapped"))
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp6), J-THIS, FUNCTION JR-STR("getPlayerForDevice"))
+        COMPUTE J-RESULT = J-index
+        GOBACK
+    GOBACK.
+END FUNCTION LclPlyrInptIdFctry-gtPlyr36898.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LclPlyrInptIdFctry-gtTtlD77765.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-total BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-total = 0
+        COMPUTE J-index = (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_totalDevicesMapped") - 1) + 2147483648, 4294967296) - 2147483648)
+        MOVE 1 TO JFIRST2
+        PERFORM FOREVER
+            IF JFIRST2 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST2
+            IF NOT (J-index >= 0) EXIT PERFORM END-IF
+            IF (FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_playersInPlay"), J-index) = 1)
+                COMPUTE J-total = (FUNCTION MOD(J-total + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+        END-PERFORM
+        COMPUTE J-RESULT = J-total
+        GOBACK
+    GOBACK.
+END FUNCTION LclPlyrInptIdFctry-gtTtlD77765.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LclPlyrInptIdFctry-isPlyr21280.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-playerInputId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-playerInputId RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_playersInPlay"), J-playerInputId)
+        GOBACK
+    GOBACK.
+END FUNCTION LclPlyrInptIdFctry-isPlyr21280.
 
-procedure TLocalPlayerInputIdFactory.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.MAX_NUMBER_OF_PLAYERS := 6;
-  Self.MAX_FAST_DEVICEID := 65;
-  Self.deviceIdToplayerId := TJava.NewArray<Integer>(Self.MAX_FAST_DEVICEID);
-  Self.playerIdToDeviceId := TJava.NewArray<Integer>(Self.MAX_NUMBER_OF_PLAYERS);
-  Self.playersInPlay := TJava.NewArray<Boolean>(Self.MAX_NUMBER_OF_PLAYERS);
-  Self.totalDevicesMapped := 0;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LclPlyrInptIdFctry-stPlyr68520.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-playerInputId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-playerInputId RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp15 = FUNCTION StringMaker-new0
+        COMPUTE jtemp14 = FUNCTION StringMaker-append1(jtemp15, FUNCTION JR-STR("Setting PlayerInPlay with playerInputId: "))
+        COMPUTE jtemp13 = FUNCTION StringMaker-appendint1(jtemp14, J-playerInputId)
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp13), J-THIS, FUNCTION JR-STR("setPlayerInPlay"))
+        COMPUTE JVALUE = 1
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_playersInPlay"), J-playerInputId, JVALUE)
+    GOBACK.
+END FUNCTION LclPlyrInptIdFctry-stPlyr68520.
 
-constructor TLocalPlayerInputIdFactory.Create;
-var
-  index: Integer;
-begin
-    inherited Create;
-    InitFields;
-        for index := (System.Length(Self.deviceIdToplayerId)) - (1) downto 0 do begin
-            Self.deviceIdToplayerId[index] := -1;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LclPlyrInptIdFctry-stPlyr89857.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp16 BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+01 jtemp18 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-playerInputId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-playerInputId RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp18 = FUNCTION StringMaker-new0
+        COMPUTE jtemp17 = FUNCTION StringMaker-append1(jtemp18, FUNCTION JR-STR("Setting PlayerOutOfPlay with playerInputId: "))
+        COMPUTE jtemp16 = FUNCTION StringMaker-appendint1(jtemp17, J-playerInputId)
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp16), J-THIS, FUNCTION JR-STR("setPlayerOutOfPlay"))
+        COMPUTE JVALUE = 0
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_playersInPlay"), J-playerInputId, JVALUE)
+    GOBACK.
+END FUNCTION LclPlyrInptIdFctry-stPlyr89857.
 
-class function TLocalPlayerInputIdFactory.getInstance: TLocalPlayerInputIdFactory;
-begin
-        Exit(TLocalPlayerInputIdFactory.instance);
-end;
-    
-
-function TLocalPlayerInputIdFactory.getDeviceId(playerInputId: Integer): Integer;
-begin
-        Exit(Self.playerIdToDeviceId[playerInputId]);
-end;
-    
-
-function TLocalPlayerInputIdFactory.getPlayerForDevice(deviceId: Integer): Integer;
-var
-  index: Integer;
-  playerInputId: Integer;
-begin
-        
-        if (deviceId) < (Self.MAX_FAST_DEVICEID) then begin
-            playerInputId := Self.deviceIdToplayerId[deviceId];
-            if (playerInputId) <> (-1) then begin
-                Exit(playerInputId);
-            end;
-        end else begin
-            for index := (Self.totalDevicesMapped) - (1) downto 0 do begin
-                if (Self.playerIdToDeviceId[index]) = (deviceId) then begin
-                    Exit(index);
-                end;
-            end;
-        end;
-        index := Self.totalDevicesMapped;
-        if (deviceId) < (Self.MAX_FAST_DEVICEID) then begin
-            Self.deviceIdToplayerId[deviceId] := index;
-        end else begin
-            Self.logUtil.putF(TStringMaker.Create().append('Added DeviceId: ').appendint(deviceId).append(' beyond fast Id list').toString(), TJava.Box(Self), 'getPlayerForDevice');
-        end;
-        Self.playerIdToDeviceId[index] := deviceId;
-        TAnalogLocationInputFactory.getInstance().addPlayer(Self.totalDevicesMapped);
-        Inc(Self.totalDevicesMapped);
-        Self.logUtil.putF(TStringMaker.Create().append('Added DeviceId: ').appendint(deviceId).append(' at: ').appendint(index).append(' Total: ').appendint(Self.totalDevicesMapped).toString(), TJava.Box(Self), 'getPlayerForDevice');
-        Exit(index);
-end;
-    
-
-function TLocalPlayerInputIdFactory.getTotalDevicesInPlay: Integer;
-var
-  total: Integer;
-  index: Integer;
-begin
-        total := 0;
-        for index := (Self.totalDevicesMapped) - (1) downto 0 do begin
-            if (Self.playersInPlay[index]) = (True) then begin
-                Inc(total);
-            end;
-        end;
-        Exit(total);
-end;
-    
-
-function TLocalPlayerInputIdFactory.isPlayerInPlay(playerInputId: Integer): Boolean;
-begin
-        Exit(Self.playersInPlay[playerInputId]);
-end;
-    
-
-procedure TLocalPlayerInputIdFactory.setPlayerInPlay(playerInputId: Integer);
-begin
-        Self.logUtil.putF(TStringMaker.Create().append('Setting PlayerInPlay with playerInputId: ').appendint(playerInputId).toString(), TJava.Box(Self), 'setPlayerInPlay');
-        Self.playersInPlay[playerInputId] := True;
-end;
-    
-
-procedure TLocalPlayerInputIdFactory.setPlayerOutOfPlay(playerInputId: Integer);
-begin
-        Self.logUtil.putF(TStringMaker.Create().append('Setting PlayerOutOfPlay with playerInputId: ').appendint(playerInputId).toString(), TJava.Box(Self), 'setPlayerOutOfPlay');
-        Self.playersInPlay[playerInputId] := False;
-end;
-    
-
-function TLocalPlayerInputIdFactory.getPlayersInPlay: TArray<Boolean>;
-begin
-        Exit(Self.playersInPlay);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TLocalPlayerInputIdFactory.instance := TLocalPlayerInputIdFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LclPlyrInptIdFctry-gtPlyr79070.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_playersInPlay")
+        GOBACK
+    GOBACK.
+END FUNCTION LclPlyrInptIdFctry-gtPlyr79070.
 

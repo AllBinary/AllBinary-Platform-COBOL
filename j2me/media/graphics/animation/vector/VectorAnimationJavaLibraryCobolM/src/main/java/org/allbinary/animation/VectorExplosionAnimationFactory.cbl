@@ -1,104 +1,143 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation
+*> Java class VectorExplosionAnimationFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrExplsnAnmtnFctry-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-basicColor BINARY-DOUBLE.
+01 J-animationBehaviorFactory BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-basicColor J-animationBehaviorFactory RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("VectorExplosionAnimationFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_vectorExplosionGenerator")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_basicColor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_animationBehaviorFactory")
+    COMPUTE JVALUE = FUNCTION VctrExplsnGnrtr-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_vectorExplosionGenerator", JVALUE)
+    COMPUTE jtemp1 = FUNCTION BasicColorFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_WHITE")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicColor", JVALUE)
     
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation
-unit VectorExplosionAnimationFactory;
+        COMPUTE JVALUE = J-animationBehaviorFactory
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animationBehaviorFactory", JVALUE)
+        COMPUTE JDISCARD = FUNCTION VctrExplsnAnmtnFctry-stBs54618(J-THIS, J-basicColor)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION VctrExplsnAnmtnFctry-new2.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrExplsnAnmtnFctry-gtIn51409.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-vectorRotationAnimationInterface BINARY-DOUBLE.
+01 J-frame BINARY-DOUBLE.
+01 J-framePoints BINARY-DOUBLE.
+01 J-points BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-animationInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-animationInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-vectorRotationAnimationInterface = J-animationInterface
+        COMPUTE J-frame = FUNCTION VctrAnmtnIntrfc-getFrame0(J-vectorRotationAnimationInterface)
+        COMPUTE J-framePoints = FUNCTION VctrAnmtnIntrfc-getPoints1(J-vectorRotationAnimationInterface, J-frame)
+        COMPUTE jtemp2 = 6
+        COMPUTE J-points = FUNCTION VctrExplsnGnrtr-getInstance3(FUNCTION JR-GET(J-THIS, "f_vectorExplosionGenerator"), J-framePoints, jtemp2, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_vectorExplosionGenerator"), "f_ROTATION"))
+        COMPUTE J-RESULT = FUNCTION VectorRotationAnimation-new3(J-points, FUNCTION VctrExplsnAnmtnFctry-gtBs71122(J-THIS), FUNCTION AnmtnBhvrFctry-gtOrCrtInstnc0(FUNCTION JR-GET(J-THIS, "f_animationBehaviorFactory")))
+        GOBACK
+    GOBACK.
+END FUNCTION VctrExplsnAnmtnFctry-gtIn51409.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrExplsnAnmtnFctry-stBs54618.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-basicColor RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-basicColor
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicColor", JVALUE)
+    GOBACK.
+END FUNCTION VctrExplsnAnmtnFctry-stBs54618.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, BasicColor, VectorExplosionGenerator, AnimationBehaviorFactory, Animation, ProceduralAnimationInterfaceFactoryInterface, BasicAnimationInterfaceFactoryInterface;
-
-type
-  {AB:TYPES}
-  TVectorExplosionAnimationFactory = class(TInterfacedObject, IProceduralAnimationInterfaceFactoryInterface, IBasicAnimationInterfaceFactoryInterface)
-  public
-    vectorExplosionGenerator: TVectorExplosionGenerator;
-    basicColor: TBasicColor;
-    animationBehaviorFactory: TAnimationBehaviorFactory;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(basicColor_: TBasicColor; animationBehaviorFactory_: TAnimationBehaviorFactory);
-        function getInstanceAnimation(animationInterface: TAnimation): TAnimation; virtual;
-        procedure setBasicColorP(basicColor_: TBasicColor);
-        function getBasicColorP: TBasicColor;
-  end;
-
-implementation
-uses
-  VectorAnimationInterface, VectorRotationAnimation, BasicColorFactory;
-
-
-{AB:CODE}
-
-procedure TVectorExplosionAnimationFactory.InitFields;
-begin
-  Self.vectorExplosionGenerator := TVectorExplosionGenerator.getInstance();
-  Self.basicColor := TBasicColorFactory.getInstance().WHITE;
-  
-end;
-
-function TVectorExplosionAnimationFactory.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-    
-
-constructor TVectorExplosionAnimationFactory.Create(basicColor_: TBasicColor; animationBehaviorFactory_: TAnimationBehaviorFactory);
-begin
-    inherited Create;
-    InitFields;
-        Self.animationBehaviorFactory := animationBehaviorFactory_;
-        Self.setBasicColorP(basicColor_);
-end;
-    
-
-// throws Exception
-function TVectorExplosionAnimationFactory.getInstanceAnimation(animationInterface: TAnimation): TAnimation;
-var
-  vectorRotationAnimationInterface: IVectorAnimationInterface;
-  frame: Integer;
-  framePoints: TArray<TArray<Integer>>;
-  points: TArray<TArray<TArray<Integer>>>;
-begin
-        vectorRotationAnimationInterface := (TJava.ToObject(animationInterface) as IVectorAnimationInterface);
-        frame := vectorRotationAnimationInterface.getFrame();
-        framePoints := vectorRotationAnimationInterface.getPoints(frame);
-        points := Self.vectorExplosionGenerator.getInstance(framePoints, 6, Self.vectorExplosionGenerator.ROTATION);
-        Exit(TVectorRotationAnimation.Create(points, Self.getBasicColorP(), Self.animationBehaviorFactory.getOrCreateInstance()));
-end;
-    
-
-procedure TVectorExplosionAnimationFactory.setBasicColorP(basicColor_: TBasicColor);
-begin
-        Self.basicColor := basicColor_;
-end;
-    
-
-function TVectorExplosionAnimationFactory.getBasicColorP: TBasicColor;
-begin
-        Exit(Self.basicColor);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrExplsnAnmtnFctry-gtBs71122.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_basicColor")
+        GOBACK
+    GOBACK.
+END FUNCTION VctrExplsnAnmtnFctry-gtBs71122.
 

@@ -1,73 +1,131 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.score
+*> Java class HighScoreCommands
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.score
-unit HighScoreCommands;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrCmmnds-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 HighScoreCommands-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 HighScoreCommands-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF HighScoreCommands-jset-instance = 0
+        MOVE 1 TO HighScoreCommands-jset-instance
+        COMPUTE HighScoreCommands-jcell-instance = FUNCTION HighScoreCommands-new0
+    END-IF
+    MOVE HighScoreCommands-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION HghScrCmmnds-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrCmmndsstaticinS32863.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 HighScoreCommands-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION HghScrCmmnds-static-instance TO J-RESULT
+    MOVE J-VALUE TO HighScoreCommands-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION HghScrCmmndsstaticinS32863.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HighScoreCommands-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("HighScoreCommands")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DISPLAY")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_PERSONAL")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_WORLD")
+    COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp2 = 1
+    COMPUTE JVALUE = FUNCTION Command-new4(FUNCTION JR-STR("Scores"), FUNCTION JR-GET(jtemp1, "f_EMPTY_STRING"), FUNCTION Command-static-SCREEN, jtemp2)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DISPLAY", JVALUE)
+    COMPUTE jtemp3 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp4 = 1
+    COMPUTE JVALUE = FUNCTION Command-new4(FUNCTION JR-STR("Personal"), FUNCTION JR-GET(jtemp3, "f_EMPTY_STRING"), FUNCTION Command-static-SCREEN, jtemp4)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_PERSONAL", JVALUE)
+    COMPUTE jtemp5 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp6 = 1
+    COMPUTE JVALUE = FUNCTION Command-new4(FUNCTION JR-STR("World"), FUNCTION JR-GET(jtemp5, "f_EMPTY_STRING"), FUNCTION Command-static-SCREEN, jtemp6)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_WORLD", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION HighScoreCommands-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Command;
-
-type
-  {AB:TYPES}
-  THighScoreCommands = class(TObject)
-  public
-    DISPLAY: TCommand;
-    PERSONAL: TCommand;
-    WORLD: TCommand;
-    class var instance: THighScoreCommands;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: THighScoreCommands; static;
-  end;
-
-implementation
-uses
-  StringUtil;
-
-
-{AB:CODE}
-
-procedure THighScoreCommands.InitFields;
-begin
-  Self.DISPLAY := TCommand.Create('Scores', TStringUtil.getInstance().EMPTY_STRING, TCommand.SCREEN, 1);
-  Self.PERSONAL := TCommand.Create('Personal', TStringUtil.getInstance().EMPTY_STRING, TCommand.SCREEN, 1);
-  Self.WORLD := TCommand.Create('World', TStringUtil.getInstance().EMPTY_STRING, TCommand.SCREEN, 1);
-end;
-
-constructor THighScoreCommands.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function THighScoreCommands.getInstance: THighScoreCommands;
-begin
-        Exit(THighScoreCommands.instance);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  THighScoreCommands.instance := THighScoreCommands.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HighScoreCommands-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION HghScrCmmnds-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION HighScoreCommands-getInstance0.
 

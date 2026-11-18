@@ -1,176 +1,361 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion.button
+*> Java class BasicTouchInputFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion.button
-unit BasicTouchInputFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscTchInptFctry-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BasicTouchInputFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 BasicTouchInputFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF BasicTouchInputFactory-jset-instance = 0
+        MOVE 1 TO BasicTouchInputFactory-jset-instance
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE BasicTouchInputFactory-jcell-instance = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+    END-IF
+    MOVE BasicTouchInputFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION BscTchInptFctry-sttc-nstnc.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscTchInptFctrysttcnS15520.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BasicTouchInputFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION BscTchInptFctry-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO BasicTouchInputFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION BscTchInptFctrysttcnS15520.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, InputToGameKeyMapping, LogUtil, BasicArrayList, TouchButtonInput;
-
-type
-  {AB:TYPES}
-  TBasicTouchInputFactory = class(TObject)
-  public
-    logUtil: TLogUtil;
-    SPECIAL_BUTTON_SEVEN_TESTING_ONLY: TTouchButtonInput;
-    SPECIAL_BUTTON_EIGHT_TESTING_ONLY: TTouchButtonInput;
-    SPECIAL_BUTTON_SIX: TTouchButtonInput;
-    SPECIAL_BUTTON_FIVE: TTouchButtonInput;
-    SPECIAL_BUTTON_FOUR: TTouchButtonInput;
-    SPECIAL_BUTTON_THREE: TTouchButtonInput;
-    SPECIAL_BUTTON_TWO: TTouchButtonInput;
-    SPECIAL_BUTTON_ONE: TTouchButtonInput;
-    UP: TTouchButtonInput;
-    LEFT: TTouchButtonInput;
-    RIGHT: TTouchButtonInput;
-    DOWN: TTouchButtonInput;
-    NONE: TTouchButtonInput;
-    initialized: Boolean;
-    list: TBasicArrayList;
-    class var instance: TObject;
-    procedure InitFields;
-        class function getInstance: TBasicTouchInputFactory; static;
-        constructor Create;
-        procedure init(inputToGameKeyMapping_: TInputToGameKeyMapping); virtual;
-        procedure updateAll(inputToGameKeyMapping_: TInputToGameKeyMapping); virtual;
-        procedure updateAllFromList(list: TBasicArrayList; inputToGameKeyMapping_: TInputToGameKeyMapping); virtual;
-        function getList: TBasicArrayList; virtual;
-  end;
-
-implementation
-uses
-  InputFactory, NullUtil, StringMaker, CommonLabels, BasicArrayListD;
-
-
-{AB:CODE}
-
-procedure TBasicTouchInputFactory.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  Self.initialized := False;
-  Self.list := TBasicArrayListD.Create();
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicTouchInputFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-MAX BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("BasicTouchInputFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SPECIAL_BUTTON_SEVEN_TESTING_ONLY")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SPECIAL_BUTTON_EIGHT_TESTING_ONLY")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SPECIAL_BUTTON_SIX")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SPECIAL_BUTTON_FIVE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SPECIAL_BUTTON_FOUR")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SPECIAL_BUTTON_THREE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SPECIAL_BUTTON_TWO")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SPECIAL_BUTTON_ONE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_UP")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_LEFT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_RIGHT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DOWN")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NONE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_initialized")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_list")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
     
-
-class function TBasicTouchInputFactory.getInstance: TBasicTouchInputFactory;
-begin
-        if (TBasicTouchInputFactory.instance) = (TNullUtil.getInstance().NULL_OBJECT) then begin
-            TBasicTouchInputFactory.instance := TBasicTouchInputFactory.Create();
-        end;
-        Exit(TBasicTouchInputFactory(TJava.ToObject(TBasicTouchInputFactory.instance)));
-end;
     
-
-constructor TBasicTouchInputFactory.Create;
-var
-  MAX: Integer;
-begin
-    inherited Create;
-    InitFields;
-        MAX := TInputFactory.getInstance().MAX;
-        Self.SPECIAL_BUTTON_SEVEN_TESTING_ONLY := TTouchButtonInput.Create((MAX) - (41), 'Button 7 - Testing Only May Cross Over Key Values');
-        Self.SPECIAL_BUTTON_EIGHT_TESTING_ONLY := TTouchButtonInput.Create((MAX) - (42), 'Button 8 - Testing Only May Cross Over Key Values');
-        Self.SPECIAL_BUTTON_SIX := TTouchButtonInput.Create((MAX) - (30), 'Button 6');
-        Self.SPECIAL_BUTTON_FIVE := TTouchButtonInput.Create((MAX) - (31), 'Button 5');
-        Self.SPECIAL_BUTTON_FOUR := TTouchButtonInput.Create((MAX) - (32), 'Button 4');
-        Self.SPECIAL_BUTTON_THREE := TTouchButtonInput.Create((MAX) - (33), 'Button 3');
-        Self.SPECIAL_BUTTON_TWO := TTouchButtonInput.Create((MAX) - (34), 'Button 2');
-        Self.SPECIAL_BUTTON_ONE := TTouchButtonInput.Create((MAX) - (35), 'Button 1');
-        Self.UP := TTouchButtonInput.Create((MAX) - (36), 'Up Button');
-        Self.LEFT := TTouchButtonInput.Create((MAX) - (37), 'Left Button');
-        Self.RIGHT := TTouchButtonInput.Create((MAX) - (38), 'Right Button');
-        Self.DOWN := TTouchButtonInput.Create((MAX) - (39), 'Down Button');
-        Self.NONE := TTouchButtonInput.Create((MAX) - (40), 'No Button');
-end;
     
-
-procedure TBasicTouchInputFactory.init(inputToGameKeyMapping_: TInputToGameKeyMapping);
-begin
-    TJava.MonitorEnter(Self);
-    try
-        if not (Self.initialized) then begin
-            Self.initialized := True;
-            Self.list.add(TJava.Box(Self.UP));
-            Self.list.add(TJava.Box(Self.LEFT));
-            Self.list.add(TJava.Box(Self.RIGHT));
-            Self.list.add(TJava.Box(Self.DOWN));
-            Self.list.add(TJava.Box(Self.SPECIAL_BUTTON_TWO));
-            Self.list.add(TJava.Box(Self.SPECIAL_BUTTON_FOUR));
-            Self.list.add(TJava.Box(Self.SPECIAL_BUTTON_THREE));
-            Self.list.add(TJava.Box(Self.SPECIAL_BUTTON_ONE));
-            Self.list.add(TJava.Box(Self.SPECIAL_BUTTON_FIVE));
-            Self.list.add(TJava.Box(Self.SPECIAL_BUTTON_SIX));
-            Self.list.add(TJava.Box(Self.SPECIAL_BUTTON_SIX));
-            Self.list.add(TJava.Box(Self.SPECIAL_BUTTON_SEVEN_TESTING_ONLY));
-            Self.list.add(TJava.Box(Self.SPECIAL_BUTTON_EIGHT_TESTING_ONLY));
-            Self.updateAllFromList(Self.list, inputToGameKeyMapping_);
-        end;
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
     
-
-procedure TBasicTouchInputFactory.updateAll(inputToGameKeyMapping_: TInputToGameKeyMapping);
-begin
-        Self.updateAllFromList(Self.list, inputToGameKeyMapping_);
-end;
     
-
-procedure TBasicTouchInputFactory.updateAllFromList(list: TBasicArrayList; inputToGameKeyMapping_: TInputToGameKeyMapping);
-var
-  touchButtonInput_: TTouchButtonInput;
-  index: Integer;
-begin
-        Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().START_LABEL).appendint(list.size()).toString(), TJava.Box(Self), 'updateAll');
-        
-        for index := (list.size()) - (1) downto 0 do begin
-            touchButtonInput_ := TTouchButtonInput(TJava.ToObject(list.objectArray[index]));
-            touchButtonInput_.update(inputToGameKeyMapping_);
-        end;
-end;
     
+    
+    
+    
+    
+    
+    
+    
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_initialized", JVALUE)
+    COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
+        COMPUTE jtemp3 = FUNCTION InputFactory-getInstance0
+        COMPUTE J-MAX = FUNCTION JR-GET(jtemp3, "f_MAX")
+        COMPUTE jtemp4 = (FUNCTION MOD((J-MAX - 41) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION TouchButtonInput-new2(jtemp4, FUNCTION JR-STR("Button 7 - Testing Only May Cross Over Key Values"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SPECIAL_BUTTON_SEVEN_TESTING_ONLY", JVALUE)
+        COMPUTE jtemp5 = (FUNCTION MOD((J-MAX - 42) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION TouchButtonInput-new2(jtemp5, FUNCTION JR-STR("Button 8 - Testing Only May Cross Over Key Values"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SPECIAL_BUTTON_EIGHT_TESTING_ONLY", JVALUE)
+        COMPUTE jtemp6 = (FUNCTION MOD((J-MAX - 30) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION TouchButtonInput-new2(jtemp6, FUNCTION JR-STR("Button 6"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SPECIAL_BUTTON_SIX", JVALUE)
+        COMPUTE jtemp7 = (FUNCTION MOD((J-MAX - 31) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION TouchButtonInput-new2(jtemp7, FUNCTION JR-STR("Button 5"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SPECIAL_BUTTON_FIVE", JVALUE)
+        COMPUTE jtemp8 = (FUNCTION MOD((J-MAX - 32) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION TouchButtonInput-new2(jtemp8, FUNCTION JR-STR("Button 4"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SPECIAL_BUTTON_FOUR", JVALUE)
+        COMPUTE jtemp9 = (FUNCTION MOD((J-MAX - 33) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION TouchButtonInput-new2(jtemp9, FUNCTION JR-STR("Button 3"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SPECIAL_BUTTON_THREE", JVALUE)
+        COMPUTE jtemp10 = (FUNCTION MOD((J-MAX - 34) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION TouchButtonInput-new2(jtemp10, FUNCTION JR-STR("Button 2"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SPECIAL_BUTTON_TWO", JVALUE)
+        COMPUTE jtemp11 = (FUNCTION MOD((J-MAX - 35) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION TouchButtonInput-new2(jtemp11, FUNCTION JR-STR("Button 1"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SPECIAL_BUTTON_ONE", JVALUE)
+        COMPUTE jtemp12 = (FUNCTION MOD((J-MAX - 36) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION TouchButtonInput-new2(jtemp12, FUNCTION JR-STR("Up Button"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_UP", JVALUE)
+        COMPUTE jtemp13 = (FUNCTION MOD((J-MAX - 37) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION TouchButtonInput-new2(jtemp13, FUNCTION JR-STR("Left Button"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_LEFT", JVALUE)
+        COMPUTE jtemp14 = (FUNCTION MOD((J-MAX - 38) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION TouchButtonInput-new2(jtemp14, FUNCTION JR-STR("Right Button"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_RIGHT", JVALUE)
+        COMPUTE jtemp15 = (FUNCTION MOD((J-MAX - 39) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION TouchButtonInput-new2(jtemp15, FUNCTION JR-STR("Down Button"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DOWN", JVALUE)
+        COMPUTE jtemp16 = (FUNCTION MOD((J-MAX - 40) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION TouchButtonInput-new2(jtemp16, FUNCTION JR-STR("No Button"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NONE", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION BasicTouchInputFactory-new0.
 
-function TBasicTouchInputFactory.getList: TBasicArrayList;
-begin
-        Exit(Self.list);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscTchInptFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+        IF (FUNCTION BscTchInptFctry-sttc-nstnc = FUNCTION JR-GET(jtemp2, "f_NULL_OBJECT"))
+            COMPUTE JDISCARD = FUNCTION BscTchInptFctrysttcnS15520(FUNCTION BasicTouchInputFactory-new0)
+        END-IF
+        COMPUTE J-RESULT = FUNCTION BscTchInptFctry-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION BscTchInptFctry-getInstance0.
 
-initialization
-  {AB:INITIALIZATION}
-  TBasicTouchInputFactory.instance := TJava.Box(TNullUtil.getInstance().NULL_OBJECT);
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicTouchInputFactory-init1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-inputToGameKeyMapping BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-inputToGameKeyMapping RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (NOT (FUNCTION JR-GET(J-THIS, "f_initialized") = 1))
+            COMPUTE JVALUE = 1
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_initialized", JVALUE)
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), FUNCTION JR-GET(J-THIS, "f_UP"))
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), FUNCTION JR-GET(J-THIS, "f_LEFT"))
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), FUNCTION JR-GET(J-THIS, "f_RIGHT"))
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), FUNCTION JR-GET(J-THIS, "f_DOWN"))
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), FUNCTION JR-GET(J-THIS, "f_SPECIAL_BUTTON_TWO"))
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), FUNCTION JR-GET(J-THIS, "f_SPECIAL_BUTTON_FOUR"))
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), FUNCTION JR-GET(J-THIS, "f_SPECIAL_BUTTON_THREE"))
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), FUNCTION JR-GET(J-THIS, "f_SPECIAL_BUTTON_ONE"))
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), FUNCTION JR-GET(J-THIS, "f_SPECIAL_BUTTON_FIVE"))
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), FUNCTION JR-GET(J-THIS, "f_SPECIAL_BUTTON_SIX"))
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), FUNCTION JR-GET(J-THIS, "f_SPECIAL_BUTTON_SIX"))
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), FUNCTION JR-GET(J-THIS, "f_SPECIAL_BUTTON_SEVEN_TESTING_ONLY"))
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), FUNCTION JR-GET(J-THIS, "f_SPECIAL_BUTTON_EIGHT_TESTING_ONLY"))
+            COMPUTE JDISCARD = FUNCTION BscTchInptFctry-updtAllFrmLst2(J-THIS, FUNCTION JR-GET(J-THIS, "f_list"), J-inputToGameKeyMapping)
+        END-IF
+    GOBACK.
+END FUNCTION BasicTouchInputFactory-init1.
 
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscTchInptFctry-updateAll1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-inputToGameKeyMapping BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-inputToGameKeyMapping RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BscTchInptFctry-updtAllFrmLst2(J-THIS, FUNCTION JR-GET(J-THIS, "f_list"), J-inputToGameKeyMapping)
+    GOBACK.
+END FUNCTION BscTchInptFctry-updateAll1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscTchInptFctry-updtAllFrmLst2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-touchButtonInput BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+01 jtemp18 BINARY-DOUBLE.
+01 jtemp19 BINARY-DOUBLE.
+01 jtemp20 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-inputToGameKeyMapping BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-list J-inputToGameKeyMapping RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp20 = FUNCTION CommonLabels-getInstance0
+        COMPUTE jtemp19 = FUNCTION StringMaker-new0
+        COMPUTE jtemp18 = FUNCTION StringMaker-append1(jtemp19, FUNCTION JR-GET(jtemp20, "f_START_LABEL"))
+        COMPUTE jtemp17 = FUNCTION StringMaker-appendint1(jtemp18, FUNCTION BasicArrayList-size0(J-list))
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp17), J-THIS, FUNCTION JR-STR("updateAll"))
+        CONTINUE
+        COMPUTE J-index = (FUNCTION MOD((FUNCTION BasicArrayList-size0(J-list) - 1) + 2147483648, 4294967296) - 2147483648)
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index >= 0) EXIT PERFORM END-IF
+            COMPUTE J-touchButtonInput = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
+            COMPUTE JDISCARD = FUNCTION TouchButtonInput-update1(J-touchButtonInput, J-inputToGameKeyMapping)
+        END-PERFORM
+    GOBACK.
+END FUNCTION BscTchInptFctry-updtAllFrmLst2.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscTchInptFctry-getList0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_list")
+        GOBACK
+    GOBACK.
+END FUNCTION BscTchInptFctry-getList0.
 

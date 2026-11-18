@@ -1,104 +1,200 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion.button
+*> Java class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion.button
-unit TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchBttnRsrcAnmtnIntrfcF-66427.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-name BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-name RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory")
+        COMPUTE jtemp1 = FUNCTION StdUtil-getInstance0
+        COMPUTE jtemp2 = FUNCTION StdUtil-getInstance0
+        COMPUTE jtemp3 = FUNCTION StdUtil-getInstance0
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION TchBttnRsrcAnmtnIntrfcF-66427.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchBttnRsrcAnmtnIntrfcF-58248.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION TchBttnRsrcAnmtnIntrfcF-66427(FUNCTION JR-STR("TouchButton Animations"))
+        GOBACK
+    GOBACK.
+END FUNCTION TchBttnRsrcAnmtnIntrfcF-58248.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchBttnRsrcAnmtnIntrfcF-75896.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-level BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-level RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION TchBttnRsrcAnmtnIntrfcF-91721(J-THIS, FUNCTION ImageCacheFactory-getInstance0, J-level)
+    GOBACK.
+END FUNCTION TchBttnRsrcAnmtnIntrfcF-75896.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, BaseResourceAnimationInterfaceFactoryInterfaceFactory, ImageCache;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchBttnRsrcAnmtnIntrfcF-91721.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-imageCache BINARY-DOUBLE.
+01 J-level BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-imageCache J-level RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION BsRsrcAnmtnIntrfcFctryI-45603(J-THIS) = 1)
+            GOBACK
+        END-IF
+        COMPUTE JDISCARD = FUNCTION BsRsrcAnmtnIntrfcFctryI-32786(J-THIS, J-level)
+    GOBACK.
+END FUNCTION TchBttnRsrcAnmtnIntrfcF-91721.
 
-type
-  {AB:TYPES}
-  TTouchButtonResourceAnimationInterfaceFactoryInterfaceFactory = class(TBaseResourceAnimationInterfaceFactoryInterfaceFactory)
-  public
-        class function createFactory: TTouchButtonResourceAnimationInterfaceFactoryInterfaceFactory; static;
-        constructor Create(name: string);
-        procedure init(level: Integer); override;
-        procedure initImageCache(imageCache_: TImageCache; level: Integer); override;
-        function isLoadingLevel(level: Integer): Boolean; override;
-        function isFeature: Boolean; override;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchBttnRsrcAnmtnIntrfcF-90564.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-resourceLoadingLevelFactory BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-level BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-level RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-resourceLoadingLevelFactory = FUNCTION RsrcLdngLvlFctry-getInstance0
+        IF (J-level = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-resourceLoadingLevelFactory, "f_LOAD_TOUCH")))
+            COMPUTE J-RESULT = 1
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = FUNCTION BsRsrcAnmtnIntrfcFctryI-26333(J-THIS, J-level)
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION TchBttnRsrcAnmtnIntrfcF-90564.
 
-implementation
-uses
-  Features, ResourceLoadingLevelFactory, OpenGLFeatureFactory, ImageCacheFactory, StdUtil;
-
-
-{AB:CODE}
-    
-
-class function TTouchButtonResourceAnimationInterfaceFactoryInterfaceFactory.createFactory: TTouchButtonResourceAnimationInterfaceFactoryInterfaceFactory;
-begin
-        Exit(TTouchButtonResourceAnimationInterfaceFactoryInterfaceFactory.Create('TouchButton Animations'));
-end;
-    
-
-constructor TTouchButtonResourceAnimationInterfaceFactoryInterfaceFactory.Create(name: string);
-begin
-        inherited Create(name, TStdUtil.getInstance().createHashtable(), TStdUtil.getInstance().createHashtable(), TStdUtil.getInstance().createHashtable());
-end;
-    
-
-// throws Exception
-procedure TTouchButtonResourceAnimationInterfaceFactoryInterfaceFactory.init(level: Integer);
-begin
-        Self.initImageCache(TImageCacheFactory.getInstance(), level);
-end;
-    
-
-// throws Exception
-procedure TTouchButtonResourceAnimationInterfaceFactoryInterfaceFactory.initImageCache(imageCache_: TImageCache; level: Integer);
-begin
-        if Self.isInitialized() then begin
-            Exit;
-        end;
-        inherited init(level);
-end;
-    
-
-function TTouchButtonResourceAnimationInterfaceFactoryInterfaceFactory.isLoadingLevel(level: Integer): Boolean;
-var
-  resourceLoadingLevelFactory_: TResourceLoadingLevelFactory;
-begin
-        resourceLoadingLevelFactory_ := TResourceLoadingLevelFactory.getInstance();
-        if (level) = (resourceLoadingLevelFactory_.LOAD_TOUCH.getLevel()) then begin
-            Exit(True);
-        end else begin
-            Exit(inherited isLoadingLevel(level));
-        end;
-end;
-    
-
-function TTouchButtonResourceAnimationInterfaceFactoryInterfaceFactory.isFeature: Boolean;
-begin
-        if not (TFeatures.getInstance().isDefault(TOpenGLFeatureFactory.getInstance().OPENGL)) then begin
-            Exit(True);
-        end else begin
-            Exit(False);
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchBttnRsrcAnmtnIntrfcF-59761.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp5 = FUNCTION OpnGLFtrFctry-getInstance0
+        COMPUTE jtemp4 = FUNCTION Features-getInstance0
+        IF (NOT (FUNCTION Features-isDefault1(jtemp4, FUNCTION JR-GET(jtemp5, "f_OPENGL")) = 1))
+            COMPUTE J-RESULT = 1
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = 0
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION TchBttnRsrcAnmtnIntrfcF-59761.
 

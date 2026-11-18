@@ -1,72 +1,122 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2025 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion.button
-unit TouchScreenTypesFactory;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion.button
+*> Java class TouchScreenTypesFactory
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchScrnTypsFctry-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 TouchScreenTypesFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 TouchScreenTypesFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF TouchScreenTypesFactory-jset-instance = 0
+        MOVE 1 TO TouchScreenTypesFactory-jset-instance
+        COMPUTE TouchScreenTypesFactory-jcell-instance = FUNCTION TouchScreenTypesFactory-new0
+    END-IF
+    MOVE TouchScreenTypesFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION TchScrnTypsFctry-sttc-nstnc.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchScrnTypsFctrysttcS27088.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 TouchScreenTypesFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION TchScrnTypsFctry-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO TouchScreenTypesFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION TchScrnTypsFctrysttcS27088.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, TouchScreenType;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TouchScreenTypesFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("TouchScreenTypesFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_FINGER")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NOTOUCH")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_STYLUS")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_UNDEFINED")
+    COMPUTE JVALUE = FUNCTION TouchScreenType-new1(FUNCTION JR-STR("Finger"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_FINGER", JVALUE)
+    COMPUTE JVALUE = FUNCTION TouchScreenType-new1(FUNCTION JR-STR("No Touch"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NOTOUCH", JVALUE)
+    COMPUTE JVALUE = FUNCTION TouchScreenType-new1(FUNCTION JR-STR("Stylus"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_STYLUS", JVALUE)
+    COMPUTE JVALUE = FUNCTION TouchScreenType-new1(FUNCTION JR-STR("Undefined"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_UNDEFINED", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION TouchScreenTypesFactory-new0.
 
-type
-  {AB:TYPES}
-  TTouchScreenTypesFactory = class(TObject)
-  public
-    FINGER: TTouchScreenType;
-    NOTOUCH: TTouchScreenType;
-    STYLUS: TTouchScreenType;
-    UNDEFINED: TTouchScreenType;
-    class var instance: TTouchScreenTypesFactory;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TTouchScreenTypesFactory; static;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TTouchScreenTypesFactory.InitFields;
-begin
-  Self.FINGER := TTouchScreenType.Create('Finger');
-  Self.NOTOUCH := TTouchScreenType.Create('No Touch');
-  Self.STYLUS := TTouchScreenType.Create('Stylus');
-  Self.UNDEFINED := TTouchScreenType.Create('Undefined');
-end;
-
-constructor TTouchScreenTypesFactory.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TTouchScreenTypesFactory.getInstance: TTouchScreenTypesFactory;
-begin
-        Exit(TTouchScreenTypesFactory.instance);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TTouchScreenTypesFactory.instance := TTouchScreenTypesFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchScrnTypsFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION TchScrnTypsFctry-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION TchScrnTypsFctry-getInstance0.
 

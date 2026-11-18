@@ -1,59 +1,111 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.paint
+*> Java class ProcessPaintableSingletonFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.paint
-unit ProcessPaintableSingletonFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrcssPntblSngltnFctry-st28037.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ProcessPaintableSingletonFactory-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+01 ProcessPaintableSingletonFactory-jset-SINGLETON BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF ProcessPaintableSingletonFactory-jset-SINGLETON = 0
+        MOVE 1 TO ProcessPaintableSingletonFactory-jset-SINGLETON
+        COMPUTE ProcessPaintableSingletonFactory-jcell-SINGLETON = FUNCTION ProcessPaintable-new0
+    END-IF
+    MOVE ProcessPaintableSingletonFactory-jcell-SINGLETON TO J-RESULT
+    GOBACK.
+END FUNCTION PrcssPntblSngltnFctry-st28037.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrcssPntblSngltnFctrS82040.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ProcessPaintableSingletonFactory-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION PrcssPntblSngltnFctry-st28037 TO J-RESULT
+    MOVE J-VALUE TO ProcessPaintableSingletonFactory-jcell-SINGLETON
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION PrcssPntblSngltnFctrS82040.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrcssPntblSngltnFctry-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ProcessPaintableSingletonFactory")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION PrcssPntblSngltnFctry-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, ProcessPaintable;
-
-type
-  {AB:TYPES}
-  TProcessPaintableSingletonFactory = class(TObject)
-  public
-    class var SINGLETON: TProcessPaintable;
-        constructor Create;
-        class function getInstance: TProcessPaintable; static;
-  end;
-
-implementation
-
-{AB:CODE}
-    
-
-constructor TProcessPaintableSingletonFactory.Create;
-begin
-    inherited Create;
-end;
-    
-
-class function TProcessPaintableSingletonFactory.getInstance: TProcessPaintable;
-begin
-        Exit(TProcessPaintableSingletonFactory.SINGLETON);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TProcessPaintableSingletonFactory.SINGLETON := TProcessPaintable.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrcssPntblSngltnFctry-gtI85576.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION PrcssPntblSngltnFctry-st28037
+        GOBACK
+    GOBACK.
+END FUNCTION PrcssPntblSngltnFctry-gtI85576.
 

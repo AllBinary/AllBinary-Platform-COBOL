@@ -1,60 +1,143 @@
-// Generated Code Do Not Modify
-// package org.allbinary.game.configuration.feature
-unit MultiPlayerGameFeatureFactory;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.configuration.feature
+*> Java class MultiPlayerGameFeatureFactory
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MltPlyrGmFtrFctry-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 MultiPlayerGameFeatureFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 MultiPlayerGameFeatureFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF MultiPlayerGameFeatureFactory-jset-instance = 0
+        MOVE 1 TO MultiPlayerGameFeatureFactory-jset-instance
+        COMPUTE MultiPlayerGameFeatureFactory-jcell-instance = FUNCTION MltPlyrGmFtrFctry-new0
+    END-IF
+    MOVE MultiPlayerGameFeatureFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION MltPlyrGmFtrFctry-sttc-nstnc.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MltPlyrGmFtrFctrysttS66191.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 MultiPlayerGameFeatureFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION MltPlyrGmFtrFctry-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO MultiPlayerGameFeatureFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION MltPlyrGmFtrFctrysttS66191.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MltPlyrGmFtrFctry-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("MultiPlayerGameFeatureFactory")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION MltPlyrGmFtrFctry-new0.
 
-type
-  {AB:TYPES}
-  TMultiPlayerGameFeatureFactory = class(TObject)
-  public
-    class var instance: TMultiPlayerGameFeatureFactory;
-        class function getInstance: TMultiPlayerGameFeatureFactory; static;
-        constructor Create;
-        procedure addCommands(anyType: TObject); virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MltPlyrGmFtrFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION MltPlyrGmFtrFctry-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION MltPlyrGmFtrFctry-getInstance0.
 
-implementation
-uses
-  Canvas, GameCommandsFactory;
-
-
-{AB:CODE}
-    
-
-class function TMultiPlayerGameFeatureFactory.getInstance: TMultiPlayerGameFeatureFactory;
-begin
-        Exit(TMultiPlayerGameFeatureFactory.instance);
-end;
-    
-
-constructor TMultiPlayerGameFeatureFactory.Create;
-begin
-    inherited Create;
-end;
-    
-
-procedure TMultiPlayerGameFeatureFactory.addCommands(anyType: TObject);
-var
-  gameCommandsFactory_: TGameCommandsFactory;
-  canvas_: TCanvas;
-begin
-        gameCommandsFactory_ := TGameCommandsFactory.getInstance();
-        canvas_ := TCanvas(TJava.ToObject(anyType));
-        canvas_.addCommand(gameCommandsFactory_.QUIT_COMMAND);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TMultiPlayerGameFeatureFactory.instance := TMultiPlayerGameFeatureFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MltPlyrGmFtrFctry-addCommands1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameCommandsFactory BINARY-DOUBLE.
+01 J-canvas BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-anyType BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-anyType RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-gameCommandsFactory = FUNCTION GmCmmndsFctry-getInstance0
+        COMPUTE J-canvas = J-anyType
+        COMPUTE JDISCARD = FUNCTION Canvas-addCommand1(J-canvas, FUNCTION JR-GET(J-gameCommandsFactory, "f_QUIT_COMMAND"))
+    GOBACK.
+END FUNCTION MltPlyrGmFtrFctry-addCommands1.
 

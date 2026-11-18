@@ -1,168 +1,502 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.layer
+*> Java class LayerManagerLogging
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-  
-}
-// Generated Code Do Not Modify
-// package org.allbinary.layer
-unit LayerManagerLogging;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LyrMngrLggng-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 LayerManagerLogging-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 LayerManagerLogging-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF LayerManagerLogging-jset-instance = 0
+        MOVE 1 TO LayerManagerLogging-jset-instance
+        COMPUTE LayerManagerLogging-jcell-instance = FUNCTION LayerManagerLogging-new0
+    END-IF
+    MOVE LayerManagerLogging-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION LyrMngrLggng-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LyrMngrLggngstaticinS54224.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 LayerManagerLogging-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION LyrMngrLggng-static-instance TO J-RESULT
+    MOVE J-VALUE TO LayerManagerLogging-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION LyrMngrLggngstaticinS54224.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LyrMngrLggng-sttc-rmvFld.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 LayerManagerLogging-jcell-removeFailed BINARY-DOUBLE EXTERNAL.
+01 LayerManagerLogging-jset-removeFailed BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF LayerManagerLogging-jset-removeFailed = 0
+        MOVE 1 TO LayerManagerLogging-jset-removeFailed
+        COMPUTE LayerManagerLogging-jcell-removeFailed = 0
+    END-IF
+    MOVE LayerManagerLogging-jcell-removeFailed TO J-RESULT
+    GOBACK.
+END FUNCTION LyrMngrLggng-sttc-rmvFld.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LogUtil, StringMaker, AllBinaryLayer, ABLayerManager, LayerManagerLoggingBase;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LyrMngrLggngsttcrmvFS34362.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 LayerManagerLogging-jcell-removeFailed BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION LyrMngrLggng-sttc-rmvFld TO J-RESULT
+    MOVE J-VALUE TO LayerManagerLogging-jcell-removeFailed
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION LyrMngrLggngsttcrmvFS34362.
 
-type
-  {AB:TYPES}
-  TLayerManagerLogging = class(TLayerManagerLoggingBase)
-  public
-    logUtil: TLogUtil;
-    stringBuilder: TStringMaker;
-    APPEND__: string;
-    APPEND_: string;
-    _AT_: string;
-    ATTEMPT_REMOVE_: string;
-    REMOVE_: string;
-    REMOVE__: string;
-    DID_NOT_REMOVE: string;
-    CLEAR_: string;
-    class var instance: TLayerManagerLogging;
-    class var removeFailed: Boolean;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TLayerManagerLogging; static;
-        procedure append(layerInterface: TAllBinaryLayer); override;
-        procedure appendAt(layerInterface: TAllBinaryLayer; index: Integer); override;
-        procedure remove(layerInterface: TAllBinaryLayer); override;
-        procedure removeResult(layerManager: TABLayerManager; layerInterface: TAllBinaryLayer; result_: Boolean); override;
-        procedure log(layerManager: TABLayerManager);
-        procedure clear; override;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LayerManagerLogging-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("LayerManagerLogging")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_stringBuilder")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_APPEND")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_APPEND_")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f__AT_")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ATTEMPT_REMOVE_")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_REMOVE_")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_REMOVE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DID_NOT_REMOVE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_CLEAR")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION StringMaker-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_stringBuilder", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("append")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_APPEND", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR(" append: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_APPEND_", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR(" at: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f__AT_", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR(" Remove Attempt: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ATTEMPT_REMOVE_", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR(" Remove: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_REMOVE_", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("remove")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_REMOVE", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR(" Did not remove: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DID_NOT_REMOVE", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR(" Clear List")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_CLEAR", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION LayerManagerLogging-new0.
 
-implementation
-uses
-  TsUtil, StringUtil, CommonSeps;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LyrMngrLggng-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION LyrMngrLggng-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION LyrMngrLggng-getInstance0.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LayerManagerLogging-append1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = 0
+        COMPUTE JDISCARD = FUNCTION StringMaker-delete2(FUNCTION JR-GET(J-THIS, "f_stringBuilder"), jtemp1, FUNCTION StringMaker-length0(FUNCTION JR-GET(J-THIS, "f_stringBuilder")))
+        COMPUTE jtemp5 = FUNCTION TsUtil-getInstance0
+        COMPUTE jtemp4 = FUNCTION StringMaker-appendint1(FUNCTION JR-GET(J-THIS, "f_stringBuilder"), FUNCTION TsUtil-hashCode1(jtemp5, J-THIS))
+        COMPUTE jtemp3 = FUNCTION StringMaker-append1(jtemp4, FUNCTION JR-GET(J-THIS, "f_APPEND_"))
+        COMPUTE jtemp2 = FUNCTION StringMaker-append1(jtemp3, FUNCTION AllBinaryLayer-getName0(J-layerInterface))
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp2), J-THIS, FUNCTION JR-GET(J-THIS, "f_APPEND"))
+    GOBACK.
+END FUNCTION LayerManagerLogging-append1.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LayerManagerLogging-appendAt2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerInterface J-index RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp6 = 0
+        COMPUTE JDISCARD = FUNCTION StringMaker-delete2(FUNCTION JR-GET(J-THIS, "f_stringBuilder"), jtemp6, FUNCTION StringMaker-length0(FUNCTION JR-GET(J-THIS, "f_stringBuilder")))
+        COMPUTE jtemp12 = FUNCTION TsUtil-getInstance0
+        COMPUTE jtemp11 = FUNCTION StringMaker-appendint1(FUNCTION JR-GET(J-THIS, "f_stringBuilder"), FUNCTION TsUtil-hashCode1(jtemp12, J-THIS))
+        COMPUTE jtemp10 = FUNCTION StringMaker-append1(jtemp11, FUNCTION JR-GET(J-THIS, "f_APPEND_"))
+        COMPUTE jtemp9 = FUNCTION StringMaker-append1(jtemp10, FUNCTION AllBinaryLayer-getName0(J-layerInterface))
+        COMPUTE jtemp8 = FUNCTION StringMaker-append1(jtemp9, FUNCTION JR-GET(J-THIS, "f__AT_"))
+        COMPUTE jtemp7 = FUNCTION StringMaker-appendint1(jtemp8, J-index)
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp7), J-THIS, FUNCTION JR-GET(J-THIS, "f_APPEND"))
+    GOBACK.
+END FUNCTION LayerManagerLogging-appendAt2.
 
-procedure TLayerManagerLogging.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.stringBuilder := TStringMaker.Create();
-  Self.APPEND__ := 'append';
-  Self.APPEND_ := ' append: ';
-  Self._AT_ := ' at: ';
-  Self.ATTEMPT_REMOVE_ := ' Remove Attempt: ';
-  Self.REMOVE_ := ' Remove: ';
-  Self.REMOVE__ := 'remove';
-  Self.DID_NOT_REMOVE := ' Did not remove: ';
-  Self.CLEAR_ := ' Clear List';
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LayerManagerLogging-remove1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+01 jtemp18 BINARY-DOUBLE.
+01 jtemp19 BINARY-DOUBLE.
+01 jtemp20 BINARY-DOUBLE.
+01 jtemp21 BINARY-DOUBLE.
+01 jtemp22 BINARY-DOUBLE.
+01 jtemp23 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (J-layerInterface = 0)
+            COMPUTE jtemp18 = 0
+            COMPUTE JDISCARD = FUNCTION StringMaker-delete2(FUNCTION JR-GET(J-THIS, "f_stringBuilder"), jtemp18, FUNCTION StringMaker-length0(FUNCTION JR-GET(J-THIS, "f_stringBuilder")))
+            COMPUTE jtemp22 = FUNCTION TsUtil-getInstance0
+            COMPUTE jtemp23 = FUNCTION StringUtil-getInstance0
+            COMPUTE jtemp21 = FUNCTION StringMaker-appendint1(FUNCTION JR-GET(J-THIS, "f_stringBuilder"), FUNCTION TsUtil-hashCode1(jtemp22, J-THIS))
+            COMPUTE jtemp20 = FUNCTION StringMaker-append1(jtemp21, FUNCTION JR-GET(J-THIS, "f_ATTEMPT_REMOVE_"))
+            COMPUTE jtemp19 = FUNCTION StringMaker-append1(jtemp20, FUNCTION StringUtil-toString1(jtemp23, J-layerInterface))
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp19), J-THIS, FUNCTION JR-GET(J-THIS, "f_REMOVE"))
+        ELSE
+            COMPUTE jtemp13 = 0
+            COMPUTE JDISCARD = FUNCTION StringMaker-delete2(FUNCTION JR-GET(J-THIS, "f_stringBuilder"), jtemp13, FUNCTION StringMaker-length0(FUNCTION JR-GET(J-THIS, "f_stringBuilder")))
+            COMPUTE jtemp17 = FUNCTION TsUtil-getInstance0
+            COMPUTE jtemp16 = FUNCTION StringMaker-appendint1(FUNCTION JR-GET(J-THIS, "f_stringBuilder"), FUNCTION TsUtil-hashCode1(jtemp17, J-THIS))
+            COMPUTE jtemp15 = FUNCTION StringMaker-append1(jtemp16, FUNCTION JR-GET(J-THIS, "f_ATTEMPT_REMOVE_"))
+            COMPUTE jtemp14 = FUNCTION StringMaker-append1(jtemp15, FUNCTION AllBinaryLayer-getName0(J-layerInterface))
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp14), J-THIS, FUNCTION JR-GET(J-THIS, "f_REMOVE"))
+        END-IF
+    GOBACK.
+END FUNCTION LayerManagerLogging-remove1.
 
-constructor TLayerManagerLogging.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LyrMngrLggng-removeResult3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp24 BINARY-DOUBLE.
+01 jtemp25 BINARY-DOUBLE.
+01 jtemp26 BINARY-DOUBLE.
+01 jtemp27 BINARY-DOUBLE.
+01 jtemp28 BINARY-DOUBLE.
+01 jtemp29 BINARY-DOUBLE.
+01 jtemp30 BINARY-DOUBLE.
+01 jtemp31 BINARY-DOUBLE.
+01 jtemp32 BINARY-DOUBLE.
+01 jtemp33 BINARY-DOUBLE.
+01 jtemp34 BINARY-DOUBLE.
+01 jtemp35 BINARY-DOUBLE.
+01 jtemp36 BINARY-DOUBLE.
+01 jtemp37 BINARY-DOUBLE.
+01 jtemp38 BINARY-DOUBLE.
+01 jtemp39 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerManager BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-result-L BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerManager J-layerInterface J-result-L RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (J-layerInterface = 0)
+            COMPUTE jtemp34 = 0
+            COMPUTE JDISCARD = FUNCTION StringMaker-delete2(FUNCTION JR-GET(J-THIS, "f_stringBuilder"), jtemp34, FUNCTION StringMaker-length0(FUNCTION JR-GET(J-THIS, "f_stringBuilder")))
+            COMPUTE jtemp38 = FUNCTION TsUtil-getInstance0
+            COMPUTE jtemp39 = FUNCTION StringUtil-getInstance0
+            COMPUTE jtemp37 = FUNCTION StringMaker-appendint1(FUNCTION JR-GET(J-THIS, "f_stringBuilder"), FUNCTION TsUtil-hashCode1(jtemp38, J-THIS))
+            COMPUTE jtemp36 = FUNCTION StringMaker-append1(jtemp37, FUNCTION JR-GET(J-THIS, "f_REMOVE_"))
+            COMPUTE jtemp35 = FUNCTION StringMaker-append1(jtemp36, FUNCTION StringUtil-toString1(jtemp39, J-layerInterface))
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp35), J-THIS, FUNCTION JR-GET(J-THIS, "f_REMOVE"))
+        ELSE
+            IF (J-result-L = 1)
+            IF (FUNCTION LyrMngrLggng-sttc-rmvFld = 1)
+                COMPUTE jtemp29 = 0
+                COMPUTE JDISCARD = FUNCTION StringMaker-delete2(FUNCTION JR-GET(J-THIS, "f_stringBuilder"), jtemp29, FUNCTION StringMaker-length0(FUNCTION JR-GET(J-THIS, "f_stringBuilder")))
+                COMPUTE jtemp33 = FUNCTION TsUtil-getInstance0
+                COMPUTE jtemp32 = FUNCTION StringMaker-appendint1(FUNCTION JR-GET(J-THIS, "f_stringBuilder"), FUNCTION TsUtil-hashCode1(jtemp33, J-THIS))
+                COMPUTE jtemp31 = FUNCTION StringMaker-append1(jtemp32, FUNCTION JR-GET(J-THIS, "f_REMOVE_"))
+                COMPUTE jtemp30 = FUNCTION StringMaker-append1(jtemp31, FUNCTION AllBinaryLayer-getName0(J-layerInterface))
+                COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp30), J-THIS, FUNCTION JR-GET(J-THIS, "f_REMOVE"))
+            END-IF
+        ELSE
+            COMPUTE jtemp24 = 0
+            COMPUTE JDISCARD = FUNCTION StringMaker-delete2(FUNCTION JR-GET(J-THIS, "f_stringBuilder"), jtemp24, FUNCTION StringMaker-length0(FUNCTION JR-GET(J-THIS, "f_stringBuilder")))
+            COMPUTE jtemp28 = FUNCTION TsUtil-getInstance0
+            COMPUTE jtemp27 = FUNCTION StringMaker-appendint1(FUNCTION JR-GET(J-THIS, "f_stringBuilder"), FUNCTION TsUtil-hashCode1(jtemp28, J-THIS))
+            COMPUTE jtemp26 = FUNCTION StringMaker-append1(jtemp27, FUNCTION JR-GET(J-THIS, "f_DID_NOT_REMOVE"))
+            COMPUTE jtemp25 = FUNCTION StringMaker-append1(jtemp26, FUNCTION AllBinaryLayer-getName0(J-layerInterface))
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp25), J-THIS, FUNCTION JR-GET(J-THIS, "f_REMOVE"))
+            COMPUTE JDISCARD = FUNCTION LyrMngrLggngsttcrmvFS34362(1)
+        END-IF
+        END-IF
+    GOBACK.
+END FUNCTION LyrMngrLggng-removeResult3.
 
-class function TLayerManagerLogging.getInstance: TLayerManagerLogging;
-begin
-        Exit(TLayerManagerLogging.instance);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LayerManagerLogging-log1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-size BINARY-DOUBLE.
+01 J-commonSeps BINARY-DOUBLE.
+01 J-allBinaryLayer BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp40 BINARY-DOUBLE.
+01 jtemp41 BINARY-DOUBLE.
+01 jtemp42 BINARY-DOUBLE.
+01 jtemp43 BINARY-DOUBLE.
+01 jtemp44 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerManager BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerManager RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp40 = 0
+        COMPUTE JDISCARD = FUNCTION StringMaker-delete2(FUNCTION JR-GET(J-THIS, "f_stringBuilder"), jtemp40, FUNCTION StringMaker-length0(FUNCTION JR-GET(J-THIS, "f_stringBuilder")))
+        COMPUTE J-size = FUNCTION ABLayerManager-getSize0(J-layerManager)
+        COMPUTE J-commonSeps = FUNCTION CommonSeps-getInstance0
+        COMPUTE jtemp42 = FUNCTION TsUtil-getInstance0
+        COMPUTE jtemp41 = FUNCTION StringMaker-append1(FUNCTION JR-GET(J-THIS, "f_stringBuilder"), FUNCTION Integer-toHexString1(FUNCTION TsUtil-hashCode1(jtemp42, J-layerManager)))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(jtemp41, FUNCTION JR-GET(J-commonSeps, "f_COLON_SEP"))
+        COMPUTE jtemp43 = FUNCTION StringMaker-appendint1(FUNCTION JR-GET(J-THIS, "f_stringBuilder"), J-size)
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(jtemp43, FUNCTION JR-GET(J-commonSeps, "f_COLON_SEP"))
+        CONTINUE
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-allBinaryLayer = (FUNCTION ABLayerManager-getLayerAt1(J-layerManager, J-index))
+            COMPUTE jtemp44 = FUNCTION StringMaker-append1(FUNCTION JR-GET(J-THIS, "f_stringBuilder"), FUNCTION AllBinaryLayer-getName0(J-allBinaryLayer))
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(jtemp44, FUNCTION JR-GET(J-commonSeps, "f_COMMA"))
+        END-PERFORM
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(FUNCTION JR-GET(J-THIS, "f_stringBuilder")), J-THIS, FUNCTION JR-GET(J-THIS, "f_REMOVE"))
+    GOBACK.
+END FUNCTION LayerManagerLogging-log1.
 
-// throws Exception
-procedure TLayerManagerLogging.append(layerInterface: TAllBinaryLayer);
-begin
-        Self.stringBuilder.delete_(0, Self.stringBuilder.length());
-        Self.logUtil.putF(Self.stringBuilder.appendint(Integer(Trunc(TTsUtil.getInstance().hashCode(TJava.Box(Self))))).append(Self.APPEND_).append(layerInterface.getName()).toString(), TJava.Box(Self), Self.APPEND__);
-end;
-    
-
-procedure TLayerManagerLogging.appendAt(layerInterface: TAllBinaryLayer; index: Integer);
-begin
-        Self.stringBuilder.delete_(0, Self.stringBuilder.length());
-        Self.logUtil.putF(Self.stringBuilder.appendint(Integer(Trunc(TTsUtil.getInstance().hashCode(TJava.Box(Self))))).append(Self.APPEND_).append(layerInterface.getName()).append(Self._AT_).appendint(index).toString(), TJava.Box(Self), Self.APPEND__);
-end;
-    
-
-procedure TLayerManagerLogging.remove(layerInterface: TAllBinaryLayer);
-begin
-        if (layerInterface) = (nil) then begin
-            Self.stringBuilder.delete_(0, Self.stringBuilder.length());
-            Self.logUtil.putF(Self.stringBuilder.appendint(Integer(Trunc(TTsUtil.getInstance().hashCode(TJava.Box(Self))))).append(Self.ATTEMPT_REMOVE_).append(TStringUtil.getInstance().toString(layerInterface)).toString(), TJava.Box(Self), Self.REMOVE__);
-        end else begin
-            Self.stringBuilder.delete_(0, Self.stringBuilder.length());
-            Self.logUtil.putF(Self.stringBuilder.appendint(Integer(Trunc(TTsUtil.getInstance().hashCode(TJava.Box(Self))))).append(Self.ATTEMPT_REMOVE_).append(layerInterface.getName()).toString(), TJava.Box(Self), Self.REMOVE__);
-        end;
-end;
-    
-
-procedure TLayerManagerLogging.removeResult(layerManager: TABLayerManager; layerInterface: TAllBinaryLayer; result_: Boolean);
-begin
-        if (layerInterface) = (nil) then begin
-            Self.stringBuilder.delete_(0, Self.stringBuilder.length());
-            Self.logUtil.putF(Self.stringBuilder.appendint(Integer(Trunc(TTsUtil.getInstance().hashCode(TJava.Box(Self))))).append(Self.REMOVE_).append(TStringUtil.getInstance().toString(layerInterface)).toString(), TJava.Box(Self), Self.REMOVE__);
-        end else if result_ then begin
-            if TLayerManagerLogging.removeFailed then begin
-                Self.stringBuilder.delete_(0, Self.stringBuilder.length());
-                Self.logUtil.putF(Self.stringBuilder.appendint(Integer(Trunc(TTsUtil.getInstance().hashCode(TJava.Box(Self))))).append(Self.REMOVE_).append(layerInterface.getName()).toString(), TJava.Box(Self), Self.REMOVE__);
-            end;
-        end else begin
-            Self.stringBuilder.delete_(0, Self.stringBuilder.length());
-            Self.logUtil.putF(Self.stringBuilder.appendint(Integer(Trunc(TTsUtil.getInstance().hashCode(TJava.Box(Self))))).append(Self.DID_NOT_REMOVE).append(layerInterface.getName()).toString(), TJava.Box(Self), Self.REMOVE__);
-            TLayerManagerLogging.removeFailed := True;
-        end;
-end;
-    
-
-procedure TLayerManagerLogging.log(layerManager: TABLayerManager);
-var
-  size: Integer;
-  commonSeps_: TCommonSeps;
-  allBinaryLayer_: TAllBinaryLayer;
-  index: Integer;
-begin
-        Self.stringBuilder.delete_(0, Self.stringBuilder.length());
-        size := layerManager.getSize();
-        commonSeps_ := TCommonSeps.getInstance();
-        Self.stringBuilder.append(IntToHex(TTsUtil.getInstance().hashCode(TJava.Box(layerManager)))).append(commonSeps_.COLON_SEP);
-        Self.stringBuilder.appendint(size).append(commonSeps_.COLON_SEP);
-        
-        for index := 0 to size - 1 do begin
-            allBinaryLayer_ := (TAllBinaryLayer(TJava.ToObject(layerManager.getLayerAt(index))));
-            Self.stringBuilder.append(allBinaryLayer_.getName()).append(commonSeps_.COMMA);
-        end;
-        Self.logUtil.putF(Self.stringBuilder.toString(), TJava.Box(Self), Self.REMOVE__);
-end;
-    
-
-procedure TLayerManagerLogging.clear;
-begin
-        Self.stringBuilder.delete_(0, Self.stringBuilder.length());
-        Self.logUtil.putF(Self.stringBuilder.appendint(Integer(Trunc(TTsUtil.getInstance().hashCode(TJava.Box(Self))))).append(Self.CLEAR_).toString(), TJava.Box(Self), Self.CLEAR_);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TLayerManagerLogging.instance := TLayerManagerLogging.Create();
-  TLayerManagerLogging.removeFailed := False;
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LayerManagerLogging-clear0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp45 BINARY-DOUBLE.
+01 jtemp46 BINARY-DOUBLE.
+01 jtemp47 BINARY-DOUBLE.
+01 jtemp48 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp45 = 0
+        COMPUTE JDISCARD = FUNCTION StringMaker-delete2(FUNCTION JR-GET(J-THIS, "f_stringBuilder"), jtemp45, FUNCTION StringMaker-length0(FUNCTION JR-GET(J-THIS, "f_stringBuilder")))
+        COMPUTE jtemp48 = FUNCTION TsUtil-getInstance0
+        COMPUTE jtemp47 = FUNCTION StringMaker-appendint1(FUNCTION JR-GET(J-THIS, "f_stringBuilder"), FUNCTION TsUtil-hashCode1(jtemp48, J-THIS))
+        COMPUTE jtemp46 = FUNCTION StringMaker-append1(jtemp47, FUNCTION JR-GET(J-THIS, "f_CLEAR"))
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp46), J-THIS, FUNCTION JR-GET(J-THIS, "f_CLEAR"))
+    GOBACK.
+END FUNCTION LayerManagerLogging-clear0.
 

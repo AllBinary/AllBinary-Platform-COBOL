@@ -1,83 +1,104 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.ai
+*> Java class TopUBoundBounceAIFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.ai
-unit TopUBoundBounceAIFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TopUBoundBounceAIFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("TopUBoundBounceAIFactory")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION TopUBoundBounceAIFactory-new0.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, ArtificialIntelligenceInterface, ArtificialIntelligenceInterfaceFactoryInterface, GameInput, AllBinaryLayer, ABHashtable;
-
-type
-  {AB:TYPES}
-  TTopUBoundBounceAIFactory = class(TInterfacedObject, IArtificialIntelligenceInterfaceFactoryInterface)
-  public
-    function JavaObject: TObject;
-    constructor Create;
-        function getInstance(hashtable: TABHashtable<TObject, TObject>; ownerLayerInterface: TAllBinaryLayer; gameInput_: TGameInput): IArtificialIntelligenceInterface; virtual;
-  end;
-
-implementation
-uses
-  BoundBounceAI, ReverseVelocityBoundsVisitor, TopULayerBounds, VelocityInterface, VelocityInterfaceCompositeInterface, GPoint, PointFactory, Rectangle, DisplayInfoSingleton;
-
-
-{AB:CODE}
-
-function TTopUBoundBounceAIFactory.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-
-constructor TTopUBoundBounceAIFactory.Create;
-begin
-  inherited Create;
-end;
-    
-
-// throws Exception
-function TTopUBoundBounceAIFactory.getInstance(hashtable: TABHashtable<TObject, TObject>; ownerLayerInterface: TAllBinaryLayer; gameInput_: TGameInput): IArtificialIntelligenceInterface;
-var
-  velocityInterfaceCompositeInterface_: IVelocityInterfaceCompositeInterface;
-  velocityInterface_: IVelocityInterface;
-  maxDistancePerTick: Integer;
-  halfWidth: Integer;
-  halfHeight: Integer;
-  point: TGPoint;
-  displayInfo: TDisplayInfoSingleton;
-  rectangle_: TRectangle;
-begin
-        velocityInterfaceCompositeInterface_ := (TJava.ToObject(ownerLayerInterface) as IVelocityInterfaceCompositeInterface);
-        velocityInterface_ := (TJava.ToObject(velocityInterfaceCompositeInterface_.getVelocityProperties()) as IVelocityInterface);
-        maxDistancePerTick := (TJava.SignedRightShift(velocityInterface_.getMaxForwardVelocity(), velocityInterface_.getVelocityXBasicDecimalP().getScaledFactor()));
-        halfWidth := (((ownerLayerInterface.getWidth()) * (2)) + (maxDistancePerTick)) + (1);
-        halfHeight := (((ownerLayerInterface.getHeight()) * (2)) + (maxDistancePerTick)) + (1);
-        point := TPointFactory.getInstance().createXY(halfWidth, (halfHeight) + (60));
-        displayInfo := TDisplayInfoSingleton.getInstance();
-        rectangle_ := TRectangle.Create(point, (((displayInfo.getLastWidth()) - (halfWidth)) - (point.getX())), (((displayInfo.getLastHeight()) - (halfHeight)) - (point.getY())));
-        Exit(TBoundBounceAI.Create(ownerLayerInterface, gameInput_, TTopULayerBounds.Create(rectangle_), TReverseVelocityBoundsVisitor.Create(ownerLayerInterface)));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TpUBndBncAIFctry-getInstance3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-velocityInterfaceCompositeInterface BINARY-DOUBLE.
+01 J-velocityInterface BINARY-DOUBLE.
+01 J-maxDistancePerTick BINARY-DOUBLE.
+01 J-halfWidth BINARY-DOUBLE.
+01 J-halfHeight BINARY-DOUBLE.
+01 J-point BINARY-DOUBLE.
+01 J-displayInfo BINARY-DOUBLE.
+01 J-rectangle BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-hashtable BINARY-DOUBLE.
+01 J-ownerLayerInterface BINARY-DOUBLE.
+01 J-gameInput BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-hashtable J-ownerLayerInterface J-gameInput RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-velocityInterfaceCompositeInterface = J-ownerLayerInterface
+        COMPUTE J-velocityInterface = FUNCTION VlctyIntrfcCmpstIntrfc-gt15512(J-velocityInterfaceCompositeInterface)
+        COMPUTE jtemp1 = FUNCTION VlctyIntrfc-gtVlctyXBscDcmlP0(J-velocityInterface)
+        COMPUTE J-maxDistancePerTick = (FUNCTION JR-SHIFT(JFIVE, FUNCTION VlctyIntrfc-gtMxFrwrdVlcty0(J-velocityInterface), FUNCTION JR-CLASS-NAME(jtemp1)))
+        COMPUTE jtemp3 = (FUNCTION MOD((FUNCTION AllBinaryLayer-getWidth0(J-ownerLayerInterface) * 2) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp2 = (FUNCTION MOD((jtemp3 + J-maxDistancePerTick) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp4 = 1
+        COMPUTE J-halfWidth = (FUNCTION MOD((jtemp2 + jtemp4) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp6 = (FUNCTION MOD((FUNCTION AllBinaryLayer-getHeight0(J-ownerLayerInterface) * 2) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp5 = (FUNCTION MOD((jtemp6 + J-maxDistancePerTick) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp7 = 1
+        COMPUTE J-halfHeight = (FUNCTION MOD((jtemp5 + jtemp7) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp10 = 60
+        COMPUTE jtemp9 = (FUNCTION MOD((J-halfHeight + jtemp10) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp8 = FUNCTION PointFactory-getInstance0
+        COMPUTE J-point = FUNCTION PointFactory-createXY2(jtemp8, J-halfWidth, jtemp9)
+        COMPUTE J-displayInfo = FUNCTION DsplyInfSngltn-getInstance0
+        COMPUTE jtemp11 = ((FUNCTION MOD(((FUNCTION MOD((FUNCTION DsplyInfSngltn-getLastWidth0(J-displayInfo) - J-halfWidth) + 2147483648, 4294967296) - 2147483648) - FUNCTION GPoint-getX0(J-point)) + 2147483648, 4294967296) - 2147483648))
+        COMPUTE jtemp12 = ((FUNCTION MOD(((FUNCTION MOD((FUNCTION DsplyInfSngltn-getLastHeight0(J-displayInfo) - J-halfHeight) + 2147483648, 4294967296) - 2147483648) - FUNCTION GPoint-getY0(J-point)) + 2147483648, 4294967296) -
+        2147483648))
+        COMPUTE J-rectangle = FUNCTION Rectangle-new3(J-point, jtemp11, jtemp12)
+        COMPUTE J-RESULT = FUNCTION BoundBounceAI-new4(J-ownerLayerInterface, J-gameInput, FUNCTION TopULayerBounds-new1(J-rectangle), FUNCTION RvrsVlctyBndsVstr-new1(J-ownerLayerInterface))
+        GOBACK
+    GOBACK.
+END FUNCTION TpUBndBncAIFctry-getInstance3.
 

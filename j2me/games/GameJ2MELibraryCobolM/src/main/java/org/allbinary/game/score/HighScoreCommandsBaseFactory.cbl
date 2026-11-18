@@ -1,93 +1,127 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.score
+*> Java class HighScoreCommandsBaseFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.score
-unit HighScoreCommandsBaseFactory;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Command, LogUtil;
-
-type
-  {AB:TYPES}
-  THighScoreCommandsBaseFactory = class(TObject)
-  public
-    logUtil: TLogUtil;
-    HIGH_SCORE_COMMANDS: TArray<TCommand>;
-    procedure InitFields;
-        constructor Create(HIGH_SCORE_COMMANDS: TArray<TCommand>);
-        function isHighScoreCommand(command_: TCommand): Boolean; virtual;
-        function getIndex(command_: TCommand): Integer; virtual;
-  end;
-
-implementation
-uses
-  J2MEUtil;
-
-
-{AB:CODE}
-
-procedure THighScoreCommandsBaseFactory.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrCmmndsBsFctry-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-HIGH_SCORE_COMMANDS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-HIGH_SCORE_COMMANDS RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("HighScoreCommandsBaseFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_HIGH_SCORE_COMMANDS")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
     
+        COMPUTE JVALUE = J-HIGH_SCORE_COMMANDS
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_HIGH_SCORE_COMMANDS", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION HghScrCmmndsBsFctry-new1.
 
-constructor THighScoreCommandsBaseFactory.Create(HIGH_SCORE_COMMANDS: TArray<TCommand>);
-begin
-    inherited Create;
-    InitFields;
-        Self.HIGH_SCORE_COMMANDS := HIGH_SCORE_COMMANDS;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrCmmndsBsFctry-isHgh46252.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-index BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-command BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-command RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-index = (FUNCTION MOD((FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_HIGH_SCORE_COMMANDS")) - 1) + 2147483648, 4294967296) - 2147483648)
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index >= 0) EXIT PERFORM END-IF
+            IF (J-command = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_HIGH_SCORE_COMMANDS"), J-index))
+                COMPUTE J-RESULT = 1
+                GOBACK
+            END-IF
+        END-PERFORM
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION HghScrCmmndsBsFctry-isHgh46252.
 
-function THighScoreCommandsBaseFactory.isHighScoreCommand(command_: TCommand): Boolean;
-var
-  index: Integer;
-begin
-        for index := (System.Length(Self.HIGH_SCORE_COMMANDS)) - (1) downto 0 do begin
-            if (command_) = (Self.HIGH_SCORE_COMMANDS[index]) then begin
-                Exit(True);
-            end;
-        end;
-        Exit(False);
-end;
-    
-
-// throws Exception
-function THighScoreCommandsBaseFactory.getIndex(command_: TCommand): Integer;
-var
-  index: Integer;
-begin
-        for index := (System.Length(Self.HIGH_SCORE_COMMANDS)) - (1) downto 0 do begin
-            if (command_) = (Self.HIGH_SCORE_COMMANDS[index]) then begin
-                Exit(index);
-            end;
-        end;
-        raise SysUtils.Exception.Create('No Such Command');
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrCmmndsBsFctry-getIndex1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-index BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-command BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-command RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-index = (FUNCTION MOD((FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_HIGH_SCORE_COMMANDS")) - 1) + 2147483648, 4294967296) - 2147483648)
+        MOVE 1 TO JFIRST2
+        PERFORM FOREVER
+            IF JFIRST2 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST2
+            IF NOT (J-index >= 0) EXIT PERFORM END-IF
+            IF (J-command = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_HIGH_SCORE_COMMANDS"), J-index))
+                COMPUTE J-RESULT = J-index
+                GOBACK
+            END-IF
+        END-PERFORM
+        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+    GOBACK.
+END FUNCTION HghScrCmmndsBsFctry-getIndex1.
 

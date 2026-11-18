@@ -1,41 +1,99 @@
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.form.item
-unit ABCustomGaugeItem;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.form.item
+*> Java class ABCustomGaugeItem
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ABCstmGgItm-sttc-NULL-89415.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ABCustomGaugeItem-jcell-NULL_GAUGE_ITEM BINARY-DOUBLE EXTERNAL.
+01 ABCustomGaugeItem-jset-NULL_GAUGE_ITEM BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF ABCustomGaugeItem-jset-NULL_GAUGE_ITEM = 0
+        MOVE 1 TO ABCustomGaugeItem-jset-NULL_GAUGE_ITEM
+        COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp4 = FUNCTION BasicColorFactory-getInstance0
+    COMPUTE jtemp5 = FUNCTION BasicColorFactory-getInstance0
+    COMPUTE jtemp2 = 1
+    COMPUTE jtemp3 = 0
+    COMPUTE ABCustomGaugeItem-jcell-NULL_GAUGE_ITEM = FUNCTION ABCustomGaugeItem-new5(FUNCTION JR-GET(jtemp1, "f_EMPTY_STRING"), jtemp2, jtemp3, FUNCTION JR-GET(jtemp4, "f_BLACK"), FUNCTION JR-GET(jtemp5, "f_WHITE"))
+    END-IF
+    MOVE ABCustomGaugeItem-jcell-NULL_GAUGE_ITEM TO J-RESULT
+    GOBACK.
+END FUNCTION ABCstmGgItm-sttc-NULL-89415.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ABCstmGgItmsttcNULL8S48494.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ABCustomGaugeItem-jcell-NULL_GAUGE_ITEM BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION ABCstmGgItm-sttc-NULL-89415 TO J-RESULT
+    MOVE J-VALUE TO ABCustomGaugeItem-jcell-NULL_GAUGE_ITEM
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION ABCstmGgItmsttcNULL8S48494.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, BasicColor, ABCustomItem;
-
-type
-  {AB:TYPES}
-  TABCustomGaugeItem = class(TABCustomItem)
-  public
-    class var NULL_GAUGE_ITEM: TABCustomGaugeItem;
-        constructor Create(label_: string; maxValue: Integer; initialValue: Integer; backgroundBasicColor: TBasicColor; foregroundBasicColor: TBasicColor);
-  end;
-
-implementation
-uses
-  BasicColorFactory, StringUtil;
-
-
-{AB:CODE}
-    
-
-constructor TABCustomGaugeItem.Create(label_: string; maxValue: Integer; initialValue: Integer; backgroundBasicColor: TBasicColor; foregroundBasicColor: TBasicColor);
-begin
-        inherited Create(label_, backgroundBasicColor, foregroundBasicColor);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TABCustomGaugeItem.NULL_GAUGE_ITEM := TABCustomGaugeItem.Create(TStringUtil.getInstance().EMPTY_STRING, 1, 0, TBasicColorFactory.getInstance().BLACK, TBasicColorFactory.getInstance().WHITE);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ABCustomGaugeItem-new5.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-label BINARY-DOUBLE.
+01 J-maxValue BINARY-DOUBLE.
+01 J-initialValue BINARY-DOUBLE.
+01 J-backgroundBasicColor BINARY-DOUBLE.
+01 J-foregroundBasicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-label J-maxValue J-initialValue J-backgroundBasicColor J-foregroundBasicColor RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ABCustomGaugeItem")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ABCustomGaugeItem-new5.
 

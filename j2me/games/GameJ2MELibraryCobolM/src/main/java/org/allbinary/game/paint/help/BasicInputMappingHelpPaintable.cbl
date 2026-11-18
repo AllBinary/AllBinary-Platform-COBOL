@@ -1,132 +1,191 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.paint.help
+*> Java class BasicInputMappingHelpPaintable
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.paint.help
-unit BasicInputMappingHelpPaintable;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameKey, Input, GameInputMapping, BasicColor, BasicArrayList, HelpPaintable;
-
-type
-  {AB:TYPES}
-  TBasicInputMappingHelpPaintable = class(THelpPaintable)
-  public
-    gameInputMappingArray: TArray<TGameInputMapping>;
-    NONE: TGameKey;
-    procedure InitFields;
-        constructor Create(gameInputMappingArray: TArray<TGameInputMapping>; basicColor_: TBasicColor);
-        procedure update(selectedGameKey: TGameKey; selectedInput: TInput); virtual;
-        function get(keyList: TBasicArrayList): string;
-  end;
-
-implementation
-uses
-  GameKeyFactory, PlatformInputMappingFactory, PersistentInputMapping, BasicColorFactory, StringMaker, CommonSeps;
-
-
-{AB:CODE}
-
-procedure TBasicInputMappingHelpPaintable.InitFields;
-begin
-  
-  Self.NONE := TGameKeyFactory.getInstance().NONE;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscInptMppngHlpPntbl-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-gameInputMappingArray BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-gameInputMappingArray J-basicColor RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("BasicInputMappingHelpPaintable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameInputMappingArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NONE")
     
+    COMPUTE jtemp1 = FUNCTION GameKeyFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_NONE")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NONE", JVALUE)
+        COMPUTE jtemp2 = FUNCTION BasicColorFactory-getInstance0
+        CONTINUE
+        COMPUTE JVALUE = J-gameInputMappingArray
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameInputMappingArray", JVALUE)
+        COMPUTE JDISCARD = FUNCTION BscInptMppngHlpPntbl-update2(J-THIS, FUNCTION JR-GET(J-THIS, "f_NONE"), FUNCTION JR-GET(J-THIS, "f_NONE"))
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION BscInptMppngHlpPntbl-new2.
 
-constructor TBasicInputMappingHelpPaintable.Create(gameInputMappingArray: TArray<TGameInputMapping>; basicColor_: TBasicColor);
-begin
-        inherited Create('Help Screen', TBasicColorFactory.getInstance().BLACK, basicColor_);
-        InitFields;
-        Self.gameInputMappingArray := gameInputMappingArray;
-        Self.update(Self.NONE, Self.NONE);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscInptMppngHlpPntbl-update2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameKeyMapping BINARY-DOUBLE.
+01 J-EQUAL BINARY-DOUBLE.
+01 J-stringMaker BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-keyInfo BINARY-DOUBLE.
+01 J-gameInputMapping BINARY-DOUBLE.
+01 J-gameKey BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-selectedGameKey BINARY-DOUBLE.
+01 J-selectedInput BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-selectedGameKey J-selectedInput RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp3 = FUNCTION PltfrmInptMppngFctry-gtInstnc0
+        COMPUTE J-gameKeyMapping = FUNCTION PltfrmInptMppngFctry-gtPr75051(jtemp3)
+        COMPUTE J-EQUAL = FUNCTION JR-STR(" = ")
+        COMPUTE J-stringMaker = FUNCTION StringMaker-new0
+        COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_gameInputMappingArray"))
+        COMPUTE J-keyInfo = FUNCTION JR-NEW-ARRAY(J-size)
+        CONTINUE
+        CONTINUE
+        CONTINUE
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-gameInputMapping = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_gameInputMappingArray"), J-index)
+            COMPUTE J-gameKey = FUNCTION GameInputMapping-getGameKey0(J-gameInputMapping)
+            COMPUTE jtemp4 = FUNCTION PrsstntInptMppng-gtInptMppng0(J-gameKeyMapping)
+            COMPUTE J-list = FUNCTION JR-CLASS-NAME(jtemp4)
+            COMPUTE jtemp5 = 0
+            COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringMaker, jtemp5, FUNCTION StringMaker-length0(J-stringMaker))
+            COMPUTE jtemp8 = FUNCTION StringMaker-append1(J-stringMaker, FUNCTION GameInputMapping-getName0(J-gameInputMapping))
+            COMPUTE jtemp7 = FUNCTION StringMaker-append1(jtemp8, J-EQUAL)
+            COMPUTE jtemp6 = FUNCTION StringMaker-append1(jtemp7, FUNCTION BscInptMppngHlpPntbl-get1(J-THIS, J-list))
+            COMPUTE JVALUE = FUNCTION JR-TO-STRING(jtemp6)
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-keyInfo, J-index, JVALUE)
+        END-PERFORM
+        COMPUTE JDISCARD = FUNCTION HelpPaintable-setInputInfoP1(J-THIS, J-keyInfo)
+    GOBACK.
+END FUNCTION BscInptMppngHlpPntbl-update2.
 
-procedure TBasicInputMappingHelpPaintable.update(selectedGameKey: TGameKey; selectedInput: TInput);
-var
-  gameKeyMapping: TPersistentInputMapping;
-  EQUAL: string;
-  stringMaker_: TStringMaker;
-  size: Integer;
-  keyInfo: TArray<string>;
-  gameInputMapping_: TGameInputMapping;
-  gameKey_: TGameKey;
-  list: TBasicArrayList;
-  index: Integer;
-begin
-        gameKeyMapping := TPlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance();
-        EQUAL := ' = ';
-        stringMaker_ := TStringMaker.Create();
-        size := System.Length(Self.gameInputMappingArray);
-        keyInfo := TJava.NewArray<string>(size);
-        
-        
-        
-        for index := 0 to size - 1 do begin
-            gameInputMapping_ := Self.gameInputMappingArray[index];
-            gameKey_ := gameInputMapping_.getGameKey();
-            list := gameKeyMapping.getInputMapping().getMappedInput(gameKey_);
-            stringMaker_.delete_(0, stringMaker_.length());
-            keyInfo[index] := stringMaker_.append(gameInputMapping_.getName()).append(EQUAL).append(Self.get(list)).toString();
-        end;
-        inherited setInputInfoP(keyInfo);
-end;
-    
-
-function TBasicInputMappingHelpPaintable.get(keyList: TBasicArrayList): string;
-var
-  commonSeps_: TCommonSeps;
-  stringBuffer: TStringMaker;
-  AND_: string;
-  key: TInput;
-  size: Integer;
-  index: Integer;
-begin
-        commonSeps_ := TCommonSeps.getInstance();
-        stringBuffer := TStringMaker.Create();
-        AND_ := 'and ';
-        
-        size := keyList.size();
-        for index := 0 to size - 1 do begin
-            key := TInput(TJava.ToObject(keyList.objectArray[index]));
-            stringBuffer.append(key.getName());
-            if ((index) + (1)) < (keyList.size()) then begin
-                if (keyList.size()) = (2) then begin
-                    stringBuffer.append(commonSeps_.SPACE).append(AND_);
-                end else begin
-                    if ((index) + (2)) = (keyList.size()) then begin
-                        stringBuffer.append(commonSeps_.COMMA_SEP);
-                        stringBuffer.append(AND_);
-                    end else begin
-                        stringBuffer.append(commonSeps_.COMMA_SEP);
-                    end;
-                end;
-            end;
-        end;
-        Exit(stringBuffer.toString());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscInptMppngHlpPntbl-get1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-commonSeps BINARY-DOUBLE.
+01 J-stringBuffer BINARY-DOUBLE.
+01 J-AND BINARY-DOUBLE.
+01 J-key BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-keyList BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-keyList RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-commonSeps = FUNCTION CommonSeps-getInstance0
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE J-AND = FUNCTION JR-STR("and ")
+        CONTINUE
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(J-keyList)
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST2
+        PERFORM FOREVER
+            IF JFIRST2 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST2
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-key = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-keyList, "f_objectArray"), J-index)
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION Input-getName0(J-key))
+            COMPUTE jtemp9 = 1
+            IF ((FUNCTION MOD((J-index + jtemp9) + 2147483648, 4294967296) - 2147483648) < FUNCTION BasicArrayList-size0(J-keyList))
+                IF (FUNCTION BasicArrayList-size0(J-keyList) = 2)
+                    COMPUTE jtemp11 = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-commonSeps, "f_SPACE"))
+                    COMPUTE JDISCARD = FUNCTION StringMaker-append1(jtemp11, J-AND)
+                ELSE
+                    COMPUTE jtemp10 = 2
+                    IF ((FUNCTION MOD((J-index + jtemp10) + 2147483648, 4294967296) - 2147483648) = FUNCTION BasicArrayList-size0(J-keyList))
+                        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-commonSeps, "f_COMMA_SEP"))
+                        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-AND)
+                    ELSE
+                        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-commonSeps, "f_COMMA_SEP"))
+                    END-IF
+                END-IF
+            END-IF
+        END-PERFORM
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(J-stringBuffer)
+        GOBACK
+    GOBACK.
+END FUNCTION BscInptMppngHlpPntbl-get1.
 

@@ -1,190 +1,376 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.text
+*> Java class TextAnimation
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.text
-unit TextAnimation;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TextAnimation-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-text BINARY-DOUBLE.
+01 J-animationBehavior BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-text J-animationBehavior RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("TextAnimation")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_updateMyFontProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_myFontProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_textArrayP")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_anchor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_fontHeight")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_offsetY")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_textChangeListener")
+    COMPUTE JVALUE = FUNCTION UpdateMyFontProcessor-new1(J-THIS)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_updateMyFontProcessor", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_updateMyFontProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
+    COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_ONE_EMPTY_STRING_ARRAY")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_textArrayP", JVALUE)
+    COMPUTE JVALUE = FUNCTION Anchor-static-TOP-LEFT
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_anchor", JVALUE)
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_fontHeight", JVALUE)
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_offsetY", JVALUE)
+    COMPUTE JVALUE = FUNCTION TxtChngLstnr-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_textChangeListener", JVALUE)
+        CONTINUE
+        COMPUTE JDISCARD = FUNCTION TextAnimation-setText1(J-THIS, J-text)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION TextAnimation-new2.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TxtAnmtn-updateMeasurement1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-font BINARY-DOUBLE.
+01 J-adjustedFontHeight BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-font = FUNCTION Graphics-getFont0(J-graphics)
+        COMPUTE JVALUE = FUNCTION Font-getHeight0(J-font)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_fontHeight", JVALUE)
+        COMPUTE J-adjustedFontHeight = FUNCTION JR-D2I((0 - ((FUNCTION JR-GET(J-THIS, "f_fontHeight") * 2.00))))
+        COMPUTE jtemp2 = FUNCTION SWTJOGLProcessor-getInstance0
+        COMPUTE JVALUE = ((FUNCTION SWTJOGLProcessor-isJOGL0(jtemp2)) * (J-adjustedFontHeight) + (1 - (FUNCTION SWTJOGLProcessor-isJOGL0(jtemp2))) * (0))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_offsetY", JVALUE)
+        COMPUTE JDISCARD = FUNCTION TextChangeListener-onMeasure0(FUNCTION JR-GET(J-THIS, "f_textChangeListener"))
+        COMPUTE JVALUE = FUNCTION TxtChngLstnr-getInstance0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_textChangeListener", JVALUE)
+        COMPUTE JVALUE = FUNCTION MyFontProcessor-getInstance0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
+    GOBACK.
+END FUNCTION TxtAnmtn-updateMeasurement1.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TextAnimation-nextFrame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION TextAnimation-nextFrame0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, AnimationBehavior, IndexedAnimation, MyFontProcessor, UpdateMyFontInterface, TextChangeListener;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TextAnimation-paintXY3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION MyFontProcessor-process1(FUNCTION JR-GET(J-THIS, "f_myFontProcessor"), J-graphics)
+        COMPUTE JDISCARD = FUNCTION TextAnimation-paintXYNoUpdate3(J-THIS, J-graphics, J-x, J-y)
+    GOBACK.
+END FUNCTION TextAnimation-paintXY3.
 
-type
-  {AB:TYPES}
-  TTextAnimation = class(TIndexedAnimation, IUpdateMyFontInterface)
-  public
-    updateMyFontProcessor: TMyFontProcessor;
-    myFontProcessor: TMyFontProcessor;
-    textArrayP: TArray<string>;
-    anchor: Integer;
-    fontHeight: Integer;
-    offsetY: Integer;
-    textChangeListener: TTextChangeListener;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(text: string; animationBehavior_: TAnimationBehavior);
-        procedure updateMeasurement(graphics_: TGraphics); virtual;
-        procedure nextFrame; virtual;
-        procedure paintXY(graphics_: TGraphics; x: Integer; y: Integer); virtual;
-        procedure paintXYNoUpdate(graphics_: TGraphics; x: Integer; y: Integer); virtual;
-        procedure setTextWithOnMeasure(text: string; textChangeListener_: TTextChangeListener); virtual;
-        procedure setText(text: string); virtual;
-        function getTextArray: TArray<string>; virtual;
-        function getFontHeight: Integer; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TextAnimation-paintXYNoUpdate3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-size BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_basicSetColorUtil"))
+        COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_textArrayP"))
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE jtemp4 = (FUNCTION MOD((J-y + FUNCTION JR-GET(J-THIS, "f_offsetY")) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE jtemp5 = ((FUNCTION MOD((J-index * FUNCTION JR-GET(J-THIS, "f_fontHeight")) + 2147483648, 4294967296) - 2147483648))
+            COMPUTE jtemp3 = (FUNCTION MOD((jtemp4 + jtemp5) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JDISCARD = FUNCTION Graphics-drawString4(J-graphics, FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_textArrayP"), J-index), J-x, jtemp3, FUNCTION JR-GET(J-THIS, "f_anchor"))
+        END-PERFORM
+    GOBACK.
+END FUNCTION TextAnimation-paintXYNoUpdate3.
 
-implementation
-uses
-  Font, Anchor, UpdateMyFontProcessor, SWTJOGLProcessor, StringMaker, StringUtil, BasicArrayList, BasicArrayListD;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TxtAnmtn-setTextWithOnMeasure2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-text BINARY-DOUBLE.
+01 J-textChangeListener BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-text J-textChangeListener RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION TextAnimation-setText1(J-THIS, J-text)
+        COMPUTE JVALUE = J-textChangeListener
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_textChangeListener", JVALUE)
+    GOBACK.
+END FUNCTION TxtAnmtn-setTextWithOnMeasure2.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TextAnimation-setText1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-list BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-startIndex BINARY-DOUBLE.
+01 J-endIndex BINARY-DOUBLE.
+01 J-textArray BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-text BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-text RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-list = FUNCTION BasicArrayListD-new0
+        IF (FUNCTION JR-STR-LENGTH(J-text) > 0)
+            COMPUTE J-index = 0
+            COMPUTE J-startIndex = 0
+            COMPUTE J-endIndex = 0
+            PERFORM FOREVER
+                IF NOT (J-index >= 0) EXIT PERFORM END-IF
+                COMPUTE J-startIndex = J-index
+                COMPUTE jtemp6 = 10
+                COMPUTE J-index = FUNCTION JR-INDEX-OF(J-text, jtemp6, J-startIndex)
+                COMPUTE J-endIndex = J-index
+                IF (J-index < 0)
+                    COMPUTE J-endIndex = FUNCTION JR-STR-LENGTH(J-text)
+                END-IF
+                COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-list, FUNCTION JR-SUBSTRING(J-text, J-startIndex, J-endIndex))
+                IF (J-index < 0)
+                    EXIT PERFORM
+                END-IF
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-PERFORM
+        END-IF
+        IF (FUNCTION BasicArrayList-size0(J-list) > 0)
+            COMPUTE J-textArray = FUNCTION JR-NEW-ARRAY(FUNCTION BasicArrayList-size0(J-list))
+            COMPUTE J-size = FUNCTION BasicArrayList-size0(J-list)
+            COMPUTE J-index = 0
+            MOVE 1 TO JFIRST2
+            PERFORM FOREVER
+                IF JFIRST2 = 0
+                    COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+                END-IF
+                MOVE 0 TO JFIRST2
+                IF NOT (J-index < J-size) EXIT PERFORM END-IF
+                COMPUTE JVALUE = FUNCTION BasicArrayList-get1(J-list, J-index)
+                COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-textArray, J-index, JVALUE)
+            END-PERFORM
+            COMPUTE JVALUE = J-textArray
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_textArrayP", JVALUE)
+        ELSE
+            COMPUTE jtemp7 = FUNCTION StringUtil-getInstance0
+            COMPUTE JVALUE = FUNCTION JR-GET(jtemp7, "f_ONE_EMPTY_STRING_ARRAY")
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_textArrayP", JVALUE)
+        END-IF
+        COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_updateMyFontProcessor")
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
+    GOBACK.
+END FUNCTION TextAnimation-setText1.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TextAnimation-getTextArray0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_textArrayP")
+        GOBACK
+    GOBACK.
+END FUNCTION TextAnimation-getTextArray0.
 
-procedure TTextAnimation.InitFields;
-begin
-  Self.updateMyFontProcessor := TUpdateMyFontProcessor.Create(Self);
-  Self.myFontProcessor := Self.updateMyFontProcessor;
-  Self.textArrayP := TStringUtil.getInstance().ONE_EMPTY_STRING_ARRAY;
-  Self.anchor := TAnchor.TOP_LEFT;
-  Self.fontHeight := 0;
-  Self.offsetY := 0;
-  Self.textChangeListener := TTextChangeListener.getInstance();
-end;
-
-function TTextAnimation.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-    
-
-constructor TTextAnimation.Create(text: string; animationBehavior_: TAnimationBehavior);
-begin
-        inherited Create(animationBehavior_);
-        InitFields;
-        Self.setText(text);
-end;
-    
-
-procedure TTextAnimation.updateMeasurement(graphics_: TGraphics);
-var
-  font_: TFont;
-  adjustedFontHeight: Integer;
-begin
-        font_ := graphics_.getFont();
-        Self.fontHeight := font_.getHeight();
-        adjustedFontHeight := Integer(Trunc(-((Self.fontHeight) * (2.00))));
-        Self.offsetY := TJava.IfThen<Variant>(TSWTJOGLProcessor.getInstance().isJOGL(), adjustedFontHeight, 0);
-        Self.textChangeListener.onMeasure();
-        Self.textChangeListener := TTextChangeListener.getInstance();
-        Self.myFontProcessor := TMyFontProcessor.getInstance();
-end;
-    
-
-// throws Exception
-procedure TTextAnimation.nextFrame;
-begin
-end;
-    
-
-procedure TTextAnimation.paintXY(graphics_: TGraphics; x: Integer; y: Integer);
-begin
-        Self.myFontProcessor.process(graphics_);
-        Self.paintXYNoUpdate(graphics_, x, y);
-end;
-    
-
-procedure TTextAnimation.paintXYNoUpdate(graphics_: TGraphics; x: Integer; y: Integer);
-var
-  size: Integer;
-  index: Integer;
-begin
-        Self.basicSetColorUtil.setBasicColorP3(graphics_, Self.getBasicColorP(), Self.getColor());
-        size := System.Length(Self.textArrayP);
-        for index := 0 to size - 1 do begin
-            graphics_.drawString(Self.textArrayP[index], x, ((y) + (Self.offsetY)) + (((index) * (Self.fontHeight))), Self.anchor);
-        end;
-end;
-    
-
-procedure TTextAnimation.setTextWithOnMeasure(text: string; textChangeListener_: TTextChangeListener);
-begin
-        Self.setText(text);
-        Self.textChangeListener := textChangeListener_;
-end;
-    
-
-procedure TTextAnimation.setText(text: string);
-var
-  list: TBasicArrayList;
-  index: Integer;
-  startIndex: Integer;
-  endIndex: Integer;
-  textArray: TArray<string>;
-  size: Integer;
-begin
-        list := TBasicArrayListD.Create();
-        if (System.Length(text)) > (0) then begin
-            index := 0;
-            startIndex := 0;
-            endIndex := 0;
-            while (index) >= (0) do begin
-                startIndex := index;
-                index := text.indexOf(#10, startIndex);
-                endIndex := index;
-                if (index) < (0) then begin
-                    endIndex := System.Length(text);
-                end;
-                list.add(TJava.Box(Copy(text, (startIndex) + 1, (endIndex) - (startIndex))));
-                if (index) < (0) then begin
-                    Break;
-                end;
-                Inc(index);
-            end;
-        end;
-        if (list.size()) > (0) then begin
-            textArray := TJava.NewArray<string>(list.size());
-            size := list.size();
-            for index := 0 to size - 1 do begin
-                textArray[index] := TJava.UnboxString(TJava.ToObject(list.get(index)));
-            end;
-            Self.textArrayP := textArray;
-        end else begin
-            Self.textArrayP := TStringUtil.getInstance().ONE_EMPTY_STRING_ARRAY;
-        end;
-        Self.myFontProcessor := Self.updateMyFontProcessor;
-end;
-    
-
-function TTextAnimation.getTextArray: TArray<string>;
-begin
-        Exit(Self.textArrayP);
-end;
-    
-
-function TTextAnimation.getFontHeight: Integer;
-begin
-        Exit(Self.fontHeight);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TextAnimation-getFontHeight0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_fontHeight")
+        GOBACK
+    GOBACK.
+END FUNCTION TextAnimation-getFontHeight0.
 

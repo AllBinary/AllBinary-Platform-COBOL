@@ -1,159 +1,404 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.layer.weapon
+*> Java class CollidableWeaponBehavior
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.layer.weapon
-unit CollidableWeaponBehavior;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblWpnBhvr-sttc-NU49348.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CollidableWeaponBehavior-jcell-NULL_COLLIDABLE_WEAPON_BEHAVIOR BINARY-DOUBLE EXTERNAL.
+01 CollidableWeaponBehavior-jset-NULL_COLLIDABLE_WEAPON_BEHAVIOR BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF CollidableWeaponBehavior-jset-NULL_COLLIDABLE_WEAPON_BEHAVIOR = 0
+        MOVE 1 TO CollidableWeaponBehavior-jset-NULL_COLLIDABLE_WEAPON_BEHAVIOR
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE CollidableWeaponBehavior-jcell-NULL_COLLIDABLE_WEAPON_BEHAVIOR = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+    END-IF
+    MOVE CollidableWeaponBehavior-jcell-NULL_COLLIDABLE_WEAPON_BEHAVIOR TO J-RESULT
+    GOBACK.
+END FUNCTION ClldblWpnBhvr-sttc-NU49348.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblWpnBhvrsttcNU4S88681.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CollidableWeaponBehavior-jcell-NULL_COLLIDABLE_WEAPON_BEHAVIOR BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION ClldblWpnBhvr-sttc-NU49348 TO J-RESULT
+    MOVE J-VALUE TO CollidableWeaponBehavior-jcell-NULL_COLLIDABLE_WEAPON_BEHAVIOR
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION ClldblWpnBhvrsttcNU4S88681.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, CollidableInterfaceCompositeInterface, CollisionHelper, CollisionType, CollidableCompositeLayer, CollidableDestroyableDamageableBehavior, AllBinaryLayer;
-
-type
-  {AB:TYPES}
-  TCollidableWeaponBehavior = class(TCollidableDestroyableDamageableBehavior)
-  public
-    collided: Boolean;
-    collisionHelper: TCollisionHelper;
-    class var NULL_COLLIDABLE_WEAPON_BEHAVIOR: TObject;
-    procedure InitFields;
-        class function getNullInstance: TCollidableWeaponBehavior; static;
-        constructor Create(collidable: Boolean);
-        procedure init(sourceLayerInterface: TAllBinaryLayer); virtual;
-        function isCollision(ownerLayer: TCollidableCompositeLayer; collisionLayer: TCollidableCompositeLayer): Boolean; override;
-        procedure collide(ownerLayer: TCollidableCompositeLayer; collisionLayer: TCollidableCompositeLayer); override;
-        function isCollisionInterface(ownerLayer: TCollidableCompositeLayer; collidableInterfaceCompositeInterface_: ICollidableInterfaceCompositeInterface): Boolean; override;
-        procedure collideInterface(ownerLayer: TCollidableCompositeLayer; collidableInterfaceCompositeInterface_: ICollidableInterfaceCompositeInterface); override;
-        function getCollisionTypeWith(layerInterface: TAllBinaryLayer): TCollisionType; override;
-        function isCollided: Boolean; virtual;
-        procedure setCollided(collided: Boolean);
-  end;
-
-implementation
-uses
-  CollidableHelperFactory, CollisionTypeFactory, DamageableInterface, NullUtil;
-
-
-{AB:CODE}
-
-procedure TCollidableWeaponBehavior.InitFields;
-begin
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CollidableWeaponBehavior-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-collidable BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-collidable RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CollidableWeaponBehavior")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_collided")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_collisionHelper")
     
-
-class function TCollidableWeaponBehavior.getNullInstance: TCollidableWeaponBehavior;
-begin
-        if (TCollidableWeaponBehavior.NULL_COLLIDABLE_WEAPON_BEHAVIOR) = (TNullUtil.getInstance().NULL_OBJECT) then begin
-            TCollidableWeaponBehavior.NULL_COLLIDABLE_WEAPON_BEHAVIOR := TCollidableWeaponBehavior.Create(False);
-        end;
-        Exit(TCollidableWeaponBehavior(TJava.ToObject(TCollidableWeaponBehavior.NULL_COLLIDABLE_WEAPON_BEHAVIOR)));
-end;
     
+        CONTINUE
+        COMPUTE jtemp4 = 0
+        COMPUTE JDISCARD = FUNCTION ClldblWpnBhvr-setCollided1(J-THIS, jtemp4)
+        COMPUTE jtemp5 = 1
+        COMPUTE JDISCARD = FUNCTION ClldblBsBhvr-setCollidable1(J-THIS, jtemp5)
+        COMPUTE JVALUE = FUNCTION ClldblHlprFctry-getInstance0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_collisionHelper", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CollidableWeaponBehavior-new1.
 
-constructor TCollidableWeaponBehavior.Create(collidable: Boolean);
-begin
-        inherited Create(collidable);
-        InitFields;
-        Self.setCollided(False);
-        Self.setCollidable(True);
-        Self.collisionHelper := TCollidableHelperFactory.getInstance();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblWpnBhvr-getNullInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+        IF (FUNCTION ClldblWpnBhvr-sttc-NU49348 = FUNCTION JR-GET(jtemp2, "f_NULL_OBJECT"))
+            COMPUTE jtemp3 = 0
+            COMPUTE JDISCARD = FUNCTION ClldblWpnBhvrsttcNU4S88681(FUNCTION CollidableWeaponBehavior-new1(jtemp3))
+        END-IF
+        COMPUTE J-RESULT = FUNCTION ClldblWpnBhvr-sttc-NU49348
+        GOBACK
+    GOBACK.
+END FUNCTION ClldblWpnBhvr-getNullInstance0.
 
-procedure TCollidableWeaponBehavior.init(sourceLayerInterface: TAllBinaryLayer);
-begin
-        Self.setCollided(False);
-        Self.collisionHelper.setOwnerLayerInterface(sourceLayerInterface);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CollidableWeaponBehavior-init1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-sourceLayerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-sourceLayerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp6 = 0
+        COMPUTE JDISCARD = FUNCTION ClldblWpnBhvr-setCollided1(J-THIS, jtemp6)
+        COMPUTE JDISCARD = FUNCTION CllsnHlpr-stOwnrLyrIntrfc1(FUNCTION JR-GET(J-THIS, "f_collisionHelper"), J-sourceLayerInterface)
+    GOBACK.
+END FUNCTION CollidableWeaponBehavior-init1.
 
-function TCollidableWeaponBehavior.isCollision(ownerLayer: TCollidableCompositeLayer; collisionLayer: TCollidableCompositeLayer): Boolean;
-begin
-        if Self.collisionHelper.isCollidable(collisionLayer) then begin
-            if (ownerLayer.getGroupInterface()[0]) <> (collisionLayer.getGroupInterface()[0]) then begin
-                Exit(inherited isCollision(ownerLayer, collisionLayer));
-            end;
-        end;
-        Exit(False);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblWpnBhvr-isCollision2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ownerLayer BINARY-DOUBLE.
+01 J-collisionLayer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ownerLayer J-collisionLayer RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION CollisionHelper-isCollidable1(FUNCTION JR-GET(J-THIS, "f_collisionHelper"), J-collisionLayer) = 1)
+            COMPUTE jtemp7 = 0
+            COMPUTE jtemp8 = 0
+            IF (FUNCTION JR-ARRAY-GET(FUNCTION AllBnryLyr-getGroupInterface0(J-ownerLayer), jtemp7) NOT = FUNCTION JR-ARRAY-GET(FUNCTION AllBnryLyr-getGroupInterface0(J-collisionLayer), jtemp8))
+                COMPUTE J-RESULT = FUNCTION ClldblDstryblDmgblBhvr-is73840(J-THIS, J-ownerLayer, J-collisionLayer)
+                GOBACK
+            END-IF
+        END-IF
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION ClldblWpnBhvr-isCollision2.
 
-// throws Exception
-procedure TCollidableWeaponBehavior.collide(ownerLayer: TCollidableCompositeLayer; collisionLayer: TCollidableCompositeLayer);
-begin
-        inherited collide(ownerLayer, collisionLayer);
-        Self.collided := True;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblWpnBhvr-collide2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ownerLayer BINARY-DOUBLE.
+01 J-collisionLayer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ownerLayer J-collisionLayer RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION ClldblDstryblDmgblBhvr-clld2(J-THIS, J-ownerLayer, J-collisionLayer)
+        COMPUTE JVALUE = 1
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_collided", JVALUE)
+    GOBACK.
+END FUNCTION ClldblWpnBhvr-collide2.
 
-function TCollidableWeaponBehavior.isCollisionInterface(ownerLayer: TCollidableCompositeLayer; collidableInterfaceCompositeInterface_: ICollidableInterfaceCompositeInterface): Boolean;
-var
-  layerInterface: TAllBinaryLayer;
-begin
-        if Self.collisionHelper.isCollidable(TCollidableCompositeLayer(TJava.ToObject(collidableInterfaceCompositeInterface_))) then begin
-            layerInterface := TAllBinaryLayer(TJava.ToObject(collidableInterfaceCompositeInterface_));
-            if (ownerLayer.getGroupInterface()[0]) <> (layerInterface.getGroupInterface()[0]) then begin
-                if Self.layerCollisionUtil.isCollision(ownerLayer, layerInterface) then begin
-                    Exit(True);
-                end;
-            end;
-        end;
-        Exit(False);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblWpnBhvr-isCllsnIntrfc2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-layerInterface BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ownerLayer BINARY-DOUBLE.
+01 J-collidableInterfaceCompositeInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ownerLayer J-collidableInterfaceCompositeInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp9 = J-collidableInterfaceCompositeInterface
+        IF (FUNCTION CollisionHelper-isCollidable1(FUNCTION JR-GET(J-THIS, "f_collisionHelper"), jtemp9) = 1)
+            COMPUTE J-layerInterface = J-collidableInterfaceCompositeInterface
+            COMPUTE jtemp10 = 0
+            COMPUTE jtemp11 = 0
+            IF (FUNCTION JR-ARRAY-GET(FUNCTION AllBnryLyr-getGroupInterface0(J-ownerLayer), jtemp10) NOT = FUNCTION JR-ARRAY-GET(FUNCTION AllBnryLyr-getGroupInterface0(J-layerInterface), jtemp11))
+                IF (FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_layerCollisionUtil")) = 1)
+                    COMPUTE J-RESULT = 1
+                    GOBACK
+                END-IF
+            END-IF
+        END-IF
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION ClldblWpnBhvr-isCllsnIntrfc2.
 
-// throws Exception
-procedure TCollidableWeaponBehavior.collideInterface(ownerLayer: TCollidableCompositeLayer; collidableInterfaceCompositeInterface_: ICollidableInterfaceCompositeInterface);
-var
-  ownerDamageableInterface: IDamageableInterface;
-  damageableInterface_: IDamageableInterface;
-begin
-        ownerDamageableInterface := (TJava.ToObject(ownerLayer) as IDamageableInterface);
-        damageableInterface_ := (TJava.ToObject(collidableInterfaceCompositeInterface_) as IDamageableInterface);
-        Self.damageUtil.process(ownerDamageableInterface, damageableInterface_);
-        Self.collided := True;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblWpnBhvr-clldIntrfc2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-ownerDamageableInterface BINARY-DOUBLE.
+01 J-damageableInterface BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ownerLayer BINARY-DOUBLE.
+01 J-collidableInterfaceCompositeInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ownerLayer J-collidableInterfaceCompositeInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-ownerDamageableInterface = J-ownerLayer
+        COMPUTE J-damageableInterface = J-collidableInterfaceCompositeInterface
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_damageUtil"))
+        COMPUTE JVALUE = 1
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_collided", JVALUE)
+    GOBACK.
+END FUNCTION ClldblWpnBhvr-clldIntrfc2.
 
-function TCollidableWeaponBehavior.getCollisionTypeWith(layerInterface: TAllBinaryLayer): TCollisionType;
-begin
-        Exit(TCollisionTypeFactory.getInstance().COLLISION);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblWpnBhvr-gtCllsnTypWth1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp12 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp12 = FUNCTION CllsnTypFctry-getInstance0
+        COMPUTE J-RESULT = FUNCTION JR-GET(jtemp12, "f_COLLISION")
+        GOBACK
+    GOBACK.
+END FUNCTION ClldblWpnBhvr-gtCllsnTypWth1.
 
-function TCollidableWeaponBehavior.isCollided: Boolean;
-begin
-        Exit(Self.collided);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblWpnBhvr-isCollided0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_collided")
+        GOBACK
+    GOBACK.
+END FUNCTION ClldblWpnBhvr-isCollided0.
 
-procedure TCollidableWeaponBehavior.setCollided(collided: Boolean);
-begin
-        Self.collided := collided;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TCollidableWeaponBehavior.NULL_COLLIDABLE_WEAPON_BEHAVIOR := TJava.Box(TNullUtil.getInstance().NULL_OBJECT);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblWpnBhvr-setCollided1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-collided BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-collided RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-collided
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_collided", JVALUE)
+    GOBACK.
+END FUNCTION ClldblWpnBhvr-setCollided1.
 

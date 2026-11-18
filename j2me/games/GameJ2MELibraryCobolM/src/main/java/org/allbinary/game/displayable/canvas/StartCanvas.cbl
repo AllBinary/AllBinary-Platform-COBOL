@@ -1,920 +1,2684 @@
-{
-
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.displayable.canvas
-unit StartCanvas;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, CommandListener, Graphics, Item, Animation, SpecialAnimation, GameAdStateFactory, BaseGameStatistics, FullScreenUtil, RunnableCanvas, Features, BasicBuildGameInitializerFactory, GameInputStrings, GameKey, GameKeyEventFactory, InputToGameKeyMapping, AllBinaryGameLayerManager, HighScoresFactoryInterface, HighScoresHelper, HighScoresPaintable, GameState, GameStateFactory, BasicColorFactory, MyCommandsFactory, DisplayChangeEvent, DisplayChangeEventListener, ScrollSelectionForm, OpenGLFeatureFactory, InitUpdatePaintable, Paintable, PaintableInterface, StatePaintable, AbeClientInformationInterface, AllBinaryEventObject, TimeDelayHelper, ABHashtable, FormUtil, BasicMenuInputProcessor, GameRunnable, GameCanvasRunnableInterface, MenuListener, GameStateCompositeInterface, ItemStateListener, RunnableInterface, EventListener, GameKeyEventSourceInterface, SWTEventListener, EventListenerInterface;
-
-type
-  {AB:TYPES}
-  TStartCanvas = class(TRunnableCanvas, IGameCanvasRunnableInterface, IMenuListener, IDisplayChangeEventListener, IGameStateCompositeInterface, IItemStateListener, IPaintableInterface, IRunnable, IRunnableInterface, IEventListener, IGameKeyEventSourceInterface, ISWTEventListener, IEventListenerInterface)
-  public
-    basicColorFactory: TBasicColorFactory;
-    features: TFeatures;
-    openGLFeatureFactory: TOpenGLFeatureFactory;
-    myCommandsFactory: TMyCommandsFactory;
-    gameAdStateFactory: TGameAdStateFactory;
-    gameStateFactory: TGameStateFactory;
-    gameInputStrings: TGameInputStrings;
-    formUtil: TFormUtil;
-    basicGameDemoPaintable: TStatePaintable;
-    specialAnimationInterface: TSpecialAnimation;
-    paintedSpecialAnimationInterface: TAnimation;
-    fullScreenUtil: TFullScreenUtil;
-    highScoresHelper: THighScoresHelper;
-    realHighScoresPaintable: THighScoresPaintable;
-    highScoresPaintable: TPaintable;
-    state: Integer;
-    timeDelayHelper: TTimeDelayHelper;
-    highScoresFactoryInterface: IHighScoresFactoryInterface;
-    menuInputProcessor: TBasicMenuInputProcessor;
-    menuForm: TScrollSelectionForm;
-    gameInitializationInterfaceFactoryInterface: TBasicBuildGameInitializerFactory;
-    initialized: Boolean;
-    defaultPaintableInterface: TPaintable;
-    paintableInterface: IPaintableInterface;
-    overlayPaintable: TInitUpdatePaintable;
-    tempWait: Integer;
-    inputToGameKeyMapping: TInputToGameKeyMapping;
-    gameRunnable: TGameRunnable;
-    progressPaintable: IPaintableInterface;
-    isSingleKeyRepeatableProcessing: Boolean;
-    NONE: TGameKey;
-    gameKeyEventFactory: TGameKeyEventFactory;
-    SET_STATE: string;
-    baseGameStatistics: TBaseGameStatistics;
-    class var id: Integer;
-    class var BOT_GAME_STATS: string;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(abeClientInformation: IAbeClientInformationInterface; commandListener_: ICommandListener; highScoresFactoryInterface_: IHighScoresFactoryInterface; paintable_: TPaintable; overlayPaintable: TInitUpdatePaintable; gameInitializationInterfaceFactoryInterface: TBasicBuildGameInitializerFactory; isContinue: Boolean);
-        procedure onEvent(eventObject: TAllBinaryEventObject); virtual;
-        procedure onDisplayChangeEvent(displayChangeEvent_: TDisplayChangeEvent); virtual;
-        function getCustomCommands: TArray<TObject>; virtual;
-        procedure initCommands(cmdListener: ICommandListener); virtual;
-        procedure initPostPaint; virtual;
-        procedure mediaInit; virtual;
-        procedure itemStateChanged(item_: TItem); virtual;
-        procedure initMenu; virtual;
-        procedure open; virtual;
-        procedure close; virtual;
-        function getSourceId: Integer; virtual;
-        procedure keyPressed(keyCode: Integer); virtual;
-        procedure keyReleased(keyCode: Integer); virtual;
-        procedure keyRepeated(keyCode: Integer); virtual;
-        procedure keyPressedByDevice(keyCode: Integer; deviceId: Integer); virtual;
-        procedure keyReleasedByDevice(keyCode: Integer; deviceId: Integer); virtual;
-        procedure keyRepeatedByDevice(keyCode: Integer; deviceId: Integer); virtual;
-        procedure addGameKeyEvent(keyCode: Integer; repeated: Boolean);
-        procedure removeGameKeyEvent(keyCode: Integer; repeated: Boolean);
-        procedure pause; virtual;
-        procedure unPause; virtual;
-        function isPausable: Boolean; virtual;
-        function isGameOver: Boolean; virtual;
-        procedure setLoadStateHashtable(hashtable: TABHashtable<TObject, TObject>); virtual;
-        function getLoadStateHashtable: TABHashtable<TObject, TObject>; virtual;
-        function getCurrentStateHashtable: TABHashtable<TObject, TObject>; virtual;
-        procedure setHighScoreSubmitted(isNotUsed: Boolean); virtual;
-        procedure paint(graphics_: TGraphics); virtual;
-        procedure paintThreed(graphics_: TGraphics); virtual;
-        procedure processGameOver; virtual;
-        procedure demoStateChange; virtual;
-        procedure updateDemoState; virtual;
-        function getNextRandom: Integer; virtual;
-        function createGameLayerManager(randomValue: Integer): TAllBinaryGameLayerManager; virtual;
-        function createRunnable(randomLevel: Integer): IGameCanvasRunnableInterface; virtual;
-        procedure createCanvas; virtual;
-        procedure start; virtual;
-        procedure preDemoProcess; virtual;
-        procedure process; virtual;
-        procedure startDemoGame;
-        procedure processGame; virtual;
-        procedure run; virtual;
-        procedure setRunning(running: Boolean); virtual;
-        procedure end_; virtual;
-        procedure setGameState(gameState_: TGameState); virtual;
-        function getGameState: TGameState; virtual;
-        function getState: Integer; virtual;
-        procedure setState(state: Integer); virtual;
-        function isHighScoreSubmitted: Boolean; virtual;
-        function getRealHighScoresPaintable: THighScoresPaintable; virtual;
-        procedure setSpecialAnimationInterface(specialAnimationInterface: TSpecialAnimation); virtual;
-        function getSpecialAnimationInterface: TSpecialAnimation; virtual;
-        procedure setPaintableInterface(paintableInterface_: IPaintableInterface); virtual;
-        function getPaintableInterface: IPaintableInterface; virtual;
-        procedure setDefaultPaintableInterface(defaultPaintableInterface: TPaintable); virtual;
-        function getDefaultPaintableInterface: TPaintable; virtual;
-        function getHighScoresFactoryInterface: IHighScoresFactoryInterface; virtual;
-        procedure setMenuInputProcessor(menuInputProcessor: TBasicMenuInputProcessor); virtual;
-        function getMenuInputProcessor: TBasicMenuInputProcessor; virtual;
-        function getMenuForm: TScrollSelectionForm; virtual;
-        procedure setMenuForm(menuForm: TScrollSelectionForm); virtual;
-        function isInitialized: Boolean; virtual;
-        function getOverlayPaintable: TPaintable; virtual;
-        procedure setBasicGameDemoPaintable(basicGameDemoPaintable: TStatePaintable); virtual;
-        function getBasicGameDemoPaintable: TStatePaintable; virtual;
-        procedure setTempWait(tempWait: Integer); virtual;
-        function getTempWait: Integer; virtual;
-        function isSingleThread: Boolean; virtual;
-        function isRunningInAnotherThread: Boolean; virtual;
-        function getGameInitializationInterfaceFactoryInterface: TBasicBuildGameInitializerFactory; virtual;
-        function getTitle: string; virtual;
-        function isPaused: Boolean; virtual;
-        function getType: Integer; virtual;
-  end;
-
-implementation
-uses
-  NoMenuInputProcessor, NullWaitGameRunnable, GameInputMappingCanvas, Command, J2MEUtil, IndexedAnimationBehavior, CustomGameMenuUtil, GameStatisticsFactory, GameAdState, GameCommandsFactory, ChangedGameFeatureListener, GameFeatureFactory, InputFeatureFactory, MainFeatureFactory, GameInitializationUtil, GameKeyFactory, PlatformInputMappingFactory, DownGameKeyEventHandler, GameKeyEvent, GameKeyEventHandler, UpGameKeyEventHandler, SWTUtil, DemoGameMidlet, HighScoreCommands, HighScores, NullHighScoresSingletonFactory, Rectangle, ResizableListenerHandler, ProgressCanvas, ProgressCanvasFactory, DisplayChangeEventHandler, FormType, FormTypeFactory, CurrentDisplayableFactory, OpenGLFeatureUtil, OpenGLThreadUtil, NullPaintable, StatePaintableFactory, BasicMotionGesturesHandler, ForcedLogUtil, PreLogUtil, SmallIntegerSingletonFactory, StringMaker, OperatingSystemFactory, InApplicationPurchaseFactory, LockableFeature, LockableFeatureFactory, EventStrings, AllBinaryMediaManager, EarlySoundsFactory, CommonSeps, BasicArrayList, BasicArrayListD;
-
-
-{AB:CODE}
-
-procedure TStartCanvas.InitFields;
-begin
-  Self.basicColorFactory := TBasicColorFactory.getInstance();
-  Self.features := TFeatures.getInstance();
-  Self.openGLFeatureFactory := TOpenGLFeatureFactory.getInstance();
-  Self.myCommandsFactory := TMyCommandsFactory.getInstance();
-  Self.gameAdStateFactory := TGameAdStateFactory.getInstance();
-  Self.gameStateFactory := TGameStateFactory.getInstance();
-  Self.gameInputStrings := TGameInputStrings.getInstance();
-  Self.formUtil := TFormUtil.getInstance();
-  Self.basicGameDemoPaintable := TStatePaintableFactory.getInstance();
-  Self.specialAnimationInterface := TSpecialAnimation.getInstance();
-  Self.paintedSpecialAnimationInterface := TSpecialAnimation.getInstance();
-  Self.fullScreenUtil := TFullScreenUtil.getInstance();
-  Self.highScoresHelper := THighScoresHelper.Create();
-  Self.realHighScoresPaintable := THighScoresPaintable.Create();
-  Self.highScoresPaintable := TNullPaintable.getInstance();
-  Self.state := 0;
-  Self.timeDelayHelper := TTimeDelayHelper.Create(6000);
-  
-  Self.menuInputProcessor := TNoMenuInputProcessor.getInstance();
-  Self.menuForm := TScrollSelectionForm.getNullScrollSelectionForm();
-  
-  
-  Self.defaultPaintableInterface := TNullPaintable.getInstance();
-  Self.paintableInterface := TNullPaintable.getInstance();
-  
-  Self.tempWait := TNullWaitGameRunnable.getInstance().WAIT;
-  Self.inputToGameKeyMapping := TPlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping();
-  Self.gameRunnable := TNullWaitGameRunnable.getInstance();
-  Self.progressPaintable := TProgressCanvasFactory.getLazyInstance();
-  Self.isSingleKeyRepeatableProcessing := Self.features.isFeature(TInputFeatureFactory.getInstance().SINGLE_KEY_REPEAT_PRESS);
-  Self.NONE := TGameKeyFactory.getInstance().NONE;
-  Self.gameKeyEventFactory := TGameKeyEventFactory.getInstance();
-  Self.SET_STATE := 'setState';
-  Self.baseGameStatistics := TGameStatisticsFactory.getInstance();
-end;
-
-function TStartCanvas.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-    
-
-constructor TStartCanvas.Create(abeClientInformation: IAbeClientInformationInterface; commandListener_: ICommandListener; highScoresFactoryInterface_: IHighScoresFactoryInterface; paintable_: TPaintable; overlayPaintable: TInitUpdatePaintable; gameInitializationInterfaceFactoryInterface: TBasicBuildGameInitializerFactory; isContinue: Boolean);
-begin
-        inherited Create(commandListener_, TCurrentDisplayableFactory.getInstance().DEFAULT_CHILD_NAME_LIST, True);
-        InitFields;
-        Self.setWait(TNullWaitGameRunnable.getInstance().WAIT);
-        Self.gameInitializationInterfaceFactoryInterface := gameInitializationInterfaceFactoryInterface;
-        TGameInitializationUtil.getInstance().initDemo(abeClientInformation, Self, gameInitializationInterfaceFactoryInterface);
-        TResizableListenerHandler.getInstance().fireEvent(False);
-        Self.overlayPaintable := overlayPaintable;
-        Self.highScoresFactoryInterface := highScoresFactoryInterface_;
-        Self.setDefaultPaintableInterface(paintable_);
-        Self.setPaintableInterface(Self.getDefaultPaintableInterface());
-        if isContinue then begin
-            Self.addCommand(TGameCommandsFactory.getInstance().CONTINUE_COMMAND);
-        end;
-        if TChangedGameFeatureListener.getInstance().isChangedFeature(TGameFeatureFactory.getInstance().SOUND) then begin
-            Self.mediaInit();
-        end;
-        TDisplayChangeEventHandler.getInstance().addListenerInterface(Self);
-end;
-    
-
-procedure TStartCanvas.onEvent(eventObject: TAllBinaryEventObject);
-begin
-        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, TJava.Box(Self));
-end;
-    
-
-procedure TStartCanvas.onDisplayChangeEvent(displayChangeEvent_: TDisplayChangeEvent);
-var
-  scrollSelectionForm_: TScrollSelectionForm;
-  formType_: TFormType;
-  rectangle_: TRectangle;
-begin
-        try
-            scrollSelectionForm_ := Self.getMenuForm();
-            if (scrollSelectionForm_) <> (nil) then begin
-                formType_ := TFormTypeFactory.getInstance().getFormType();
-                rectangle_ := Self.formUtil.createFormRectangle();
-                scrollSelectionForm_.init(rectangle_, formType_);
-            end;
-            Self.overlayPaintable.init();
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.canvasStrings.ON_DISPLAY_CHANGE_EVENT, TJava.Box(e));
-            end;
-        end;
-end;
-    
-
-function TStartCanvas.getCustomCommands: TArray<TObject>;
-var
-  gameCommandsFactory_: TGameCommandsFactory;
-  commandList: TBasicArrayList;
-  inApplicationPurchaseFactory_: TInApplicationPurchaseFactory;
-  list: TBasicArrayList;
-  isOverScan: Boolean;
-  commandArray: TArray<TObject>;
-begin
-        gameCommandsFactory_ := TGameCommandsFactory.getInstance();
-        if TJ2MEUtil.isHTML() then begin
-            commandArray := TArray<TObject>.Create(TJava.Box(gameCommandsFactory_.START_COMMAND), TJava.Box(THighScoreCommands.getInstance().DISPLAY), TJava.Box(TGameInputMappingCanvas.DISPLAY), TJava.Box(gameCommandsFactory_.DISPLAY_ABOUT));
-            Exit(commandArray);
-        end else begin
-            commandList := TBasicArrayListD.Create();
-            commandList.add(TJava.Box(gameCommandsFactory_.START_COMMAND));
-            inApplicationPurchaseFactory_ := TInApplicationPurchaseFactory.getInstance();
-            if inApplicationPurchaseFactory_.isEnabled() then begin
-                list := TLockableFeatureFactory.getInstance().getList();
-                if ((list.size()) > (0)) and (not (inApplicationPurchaseFactory_.isPurchased(TLockableFeature(TJava.ToObject(list.get(0)))))) then begin
-                    commandList.add(TJava.Box(gameCommandsFactory_.BUY_COMMAND));
-                end;
-            end;
-            commandList.add(TJava.Box(THighScoreCommands.getInstance().DISPLAY));
-            try
-                isOverScan := TOperatingSystemFactory.getInstance().getOperatingSystemInstance().isOverScan();
-                if TSWTUtil.isSWT then begin
-                    commandList.add(TJava.Box(TGameInputMappingCanvas.DISPLAY));
-                end else if not (isOverScan) then begin
-                    commandList.add(TJava.Box(gameCommandsFactory_.DISPLAY_OPTIONS));
-                    commandList.add(TJava.Box(gameCommandsFactory_.DISPLAY_LOAD_FORM));
-                    commandList.add(TJava.Box(TGameInputMappingCanvas.DISPLAY));
-                end;
-            except
-                on e: SysUtils.Exception do begin
-                end;
-            end;
-            commandList.add(TJava.Box(gameCommandsFactory_.DISPLAY_ABOUT));
-            commandArray := commandList.toArray();
-            Exit(commandArray);
-        end;
-end;
-    
-
-procedure TStartCanvas.initCommands(cmdListener: ICommandListener);
-var
-  commandArray: TArray<TObject>;
-  size: Integer;
-  index: Integer;
-begin
-        Self.removeAllCommands();
-        commandArray := Self.getCustomCommands();
-        size := System.Length(commandArray);
-        for index := 0 to size - 1 do begin
-            Self.addCommand(TCommand(TJava.ToObject(commandArray[index])));
-        end;
-        TCustomGameMenuUtil.add(Self);
-        Self.setCommandListener(cmdListener);
-end;
-    
-
-// throws Exception
-procedure TStartCanvas.initPostPaint;
-begin
-end;
-    
-
-// throws Exception
-procedure TStartCanvas.mediaInit;
-begin
-        TAllBinaryMediaManager.init(TEarlySoundsFactory.getInstance());
-end;
-    
-
-procedure TStartCanvas.itemStateChanged(item_: TItem);
-begin
-        TForcedLogUtil.log(Self.commonStrings.NOT_IMPLEMENTED, TJava.Box(Self));
-end;
-    
-
-// throws Exception
-procedure TStartCanvas.initMenu;
-begin
-        Self.close();
-        Self.open();
-end;
-    
-
-procedure TStartCanvas.open;
-begin
-        TBasicMotionGesturesHandler.getInstance().addListenerInterface(Self.getMenuInputProcessor());
-        TGameKeyEventHandler.getInstance().addListener(Self.getMenuInputProcessor());
-end;
-    
-
-procedure TStartCanvas.close;
-begin
-        TBasicMotionGesturesHandler.getInstance().removeListener(Self.getMenuInputProcessor());
-        TGameKeyEventHandler.getInstance().removeListener(Self.getMenuInputProcessor());
-end;
-    
-
-function TStartCanvas.getSourceId: Integer;
-begin
-        Exit(TStartCanvas.id);
-end;
-    
-
-procedure TStartCanvas.keyPressed(keyCode: Integer);
-begin
-        Self.keyPressedByDevice(keyCode, 0);
-end;
-    
-
-procedure TStartCanvas.keyReleased(keyCode: Integer);
-begin
-        Self.keyReleasedByDevice(keyCode, 0);
-end;
-    
-
-procedure TStartCanvas.keyRepeated(keyCode: Integer);
-begin
-        Self.keyRepeatedByDevice(keyCode, 0);
-end;
-    
-
-procedure TStartCanvas.keyPressedByDevice(keyCode: Integer; deviceId: Integer);
-begin
-        Self.addGameKeyEvent(keyCode, False);
-end;
-    
-
-procedure TStartCanvas.keyReleasedByDevice(keyCode: Integer; deviceId: Integer);
-begin
-        Self.removeGameKeyEvent(keyCode, False);
-end;
-    
-
-procedure TStartCanvas.keyRepeatedByDevice(keyCode: Integer; deviceId: Integer);
-begin
-        if Self.isSingleKeyRepeatableProcessing then begin
-            Self.addGameKeyEvent(keyCode, True);
-        end;
-end;
-    
-
-procedure TStartCanvas.addGameKeyEvent(keyCode: Integer; repeated: Boolean);
-var
-  gameKey_: TGameKey;
-  gameKeyEvent_: TGameKeyEvent;
-begin
-        try
-            gameKey_ := Self.inputToGameKeyMapping.getInstanceForCanvas(Self, keyCode);
-            if (gameKey_) <> (Self.NONE) then begin
-                gameKeyEvent_ := Self.gameKeyEventFactory.getInstanceForInput(Self, gameKey_);
-                TDownGameKeyEventHandler.getInstance().fireEvent(gameKeyEvent_);
-            end else begin
-                Self.logUtil.putF(TStringMaker.Create().append(Self.gameInputStrings.NO_KEY).appendint(keyCode).toString(), TJava.Box(Self), Self.gameInputStrings.ADD_KEY_EVENT);
-            end;
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put('Key Event Error', TJava.Box(Self), Self.gameInputStrings.ADD_KEY_EVENT, TJava.Box(e));
-            end;
-        end;
-end;
-    
-
-procedure TStartCanvas.removeGameKeyEvent(keyCode: Integer; repeated: Boolean);
-var
-  gameKey_: TGameKey;
-  gameKeyEvent_: TGameKeyEvent;
-begin
-        try
-            gameKey_ := Self.inputToGameKeyMapping.getInstanceForCanvas(Self, keyCode);
-            if (gameKey_) <> (Self.NONE) then begin
-                gameKeyEvent_ := Self.gameKeyEventFactory.getInstanceForInput(Self, gameKey_);
-                TUpGameKeyEventHandler.getInstance().fireEvent(gameKeyEvent_);
-            end else begin
-                Self.logUtil.putF(TStringMaker.Create().append(Self.gameInputStrings.NO_KEY).appendint(keyCode).toString(), TJava.Box(Self), Self.gameInputStrings.REMOVE_KEY_EVENT);
-            end;
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put('Key Event Error', TJava.Box(Self), Self.gameInputStrings.REMOVE_KEY_EVENT, TJava.Box(e));
-            end;
-        end;
-end;
-    
-
-procedure TStartCanvas.pause;
-begin
-    TJava.MonitorEnter(Self);
-    try
-        Self.close();
-        Self.setPaused(True);
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
-
-procedure TStartCanvas.unPause;
-begin
-    TJava.MonitorEnter(Self);
-    try
-        Self.open();
-        Self.setPaused(False);
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
-
-function TStartCanvas.isPausable: Boolean;
-begin
-        if (TCurrentDisplayableFactory.getInstance().getUsedRunnable()) = (TNullWaitGameRunnable.getInstance()) then begin
-            Exit(True);
-        end else begin
-            Exit(False);
-        end;
-end;
-    
-
-function TStartCanvas.isGameOver: Boolean;
-begin
-        Self.logUtil.putF(TStringMaker.Create().append(Self.commonStrings.NOT_IMPLEMENTED).append(' since not a game').toString(), TJava.Box(Self), 'isGameOver');
-        Exit(False);
-end;
-    
-
-// throws Exception
-procedure TStartCanvas.setLoadStateHashtable(hashtable: TABHashtable<TObject, TObject>);
-begin
-        Self.logUtil.putF('Trying to continue a demo lol - only continue a game canvas not the demo', TJava.Box(Self), 'setLoadStateHashtable');
-end;
-    
-
-// throws Exception
-function TStartCanvas.getLoadStateHashtable: TABHashtable<TObject, TObject>;
-begin
-        Self.logUtil.putF('Trying to continue a demo lol - only continue a game canvas not the demo', TJava.Box(Self), 'getLoadStateHashtable');
-        Exit(Self.stdUtil.NULL_TABLE);
-end;
-    
-
-// throws Exception
-function TStartCanvas.getCurrentStateHashtable: TABHashtable<TObject, TObject>;
-begin
-        Self.logUtil.putF('Trying to save the AI lol', TJava.Box(Self), 'getCurrentStateHashtable');
-        Exit(Self.stdUtil.NULL_TABLE);
-end;
-    
-
-procedure TStartCanvas.setHighScoreSubmitted(isNotUsed: Boolean);
-begin
-end;
-    
-
-procedure TStartCanvas.paint(graphics_: TGraphics);
-begin
-        Self.paintableInterface.paint(graphics_);
-        Self.paintedSpecialAnimationInterface.paintXY(graphics_, 0, 0);
-        Self.highScoresPaintable.paint(graphics_);
-        Self.getBasicGameDemoPaintable().paint(graphics_);
-        Self.overlayPaintable.paint(graphics_);
-        Self.progressPaintable.paint(graphics_);
-end;
-    
-
-procedure TStartCanvas.paintThreed(graphics_: TGraphics);
-begin
-        Self.paintableInterface.paintThreed(graphics_);
-        Self.paintedSpecialAnimationInterface.paintThreedXYZ(graphics_, 0, 0, 0);
-end;
-    
-
-procedure TStartCanvas.processGameOver;
-begin
-    TJava.MonitorEnter(Self);
-    try
-        Self.logUtil.putF('Not Implemented since not a game', TJava.Box(Self), 'setGameOver');
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
-
-procedure TStartCanvas.demoStateChange;
-var
-  newState: Integer;
-  highScores_: THighScores;
-begin
-        newState := (Self.state) + (1);
-        if (newState) > (2) then begin
-            newState := 0;
-        end else if (newState) = (2) then begin
-            if not (Self.highScoresHelper.isAnyHighScores()) then begin
-                newState := 0;
-            end else begin
-                highScores_ := Self.highScoresHelper.getNextHighScores();
-                if (highScores_) = (TNullHighScoresSingletonFactory.getInstance()) then begin
-                    newState := 0;
-                end else begin
-                    Self.getRealHighScoresPaintable().setHighScores(highScores_);
-                end;
-            end;
-        end;
-        Self.setState(newState);
-        Self.updateDemoState();
-end;
-    
-
-procedure TStartCanvas.updateDemoState;
-var
-  gameAdState_: TGameAdState;
-begin
-        TPreLogUtil.put(TSmallIntegerSingletonFactory.getInstance().createInstance(Self.state).toString(), TJava.Box(Self), Self.SET_STATE);
-        Self.getBasicGameDemoPaintable().setState(Self.state);
-        if (Self.state) = (0) then begin
-            Self.highScoresPaintable := TNullPaintable.getInstance();
-            Self.paintedSpecialAnimationInterface := Self.getSpecialAnimationInterface();
-            Self.getSpecialAnimationInterface().reset();
-        end else if (Self.state) = (1) then begin
-            Self.paintedSpecialAnimationInterface := TSpecialAnimation.getInstance();
-        end else if (Self.state) = (2) then begin
-            Self.highScoresPaintable := Self.getRealHighScoresPaintable();
-        end;
-        gameAdState_ := Self.gameAdStateFactory.getCurrentInstance();
-        gameAdState_.processPageAdState();
-end;
-    
-
-// throws Exception
-function TStartCanvas.getNextRandom: Integer;
-begin
-        raise SysUtils.Exception.Create(Self.commonStrings.NOT_IMPLEMENTED);
-end;
-    
-
-// throws Exception
-function TStartCanvas.createGameLayerManager(randomValue: Integer): TAllBinaryGameLayerManager;
-begin
-        raise SysUtils.Exception.Create(Self.commonStrings.NOT_IMPLEMENTED);
-end;
-    
-
-// throws Exception
-function TStartCanvas.createRunnable(randomLevel: Integer): IGameCanvasRunnableInterface;
-begin
-        raise SysUtils.Exception.Create(Self.commonStrings.NOT_IMPLEMENTED);
-end;
-    
-
-// throws Exception
-procedure TStartCanvas.createCanvas;
-var
-  randomLevel: Integer;
-begin
-        Self.highScoresPaintable := TNullPaintable.getInstance();
-        randomLevel := Self.getNextRandom();
-end;
-    
-
-// throws Exception
-procedure TStartCanvas.start;
-begin
-end;
-    
-
-procedure TStartCanvas.preDemoProcess;
-begin
-        Self.overlayPaintable.update();
-end;
-    
-
-// throws Exception
-procedure TStartCanvas.process;
-var
-  indexedAnimationBehavior_: TIndexedAnimationBehavior;
-  demoGameMidlet_: TDemoGameMidlet;
-begin
-        Self.getMenuInputProcessor().processInputList();
-        Self.preDemoProcess();
-        if (Self.state) = (0) then begin
-            indexedAnimationBehavior_ := TIndexedAnimationBehavior(TJava.ToObject(Self.getSpecialAnimationInterface().getAnimationBehavior()));
-            if (indexedAnimationBehavior_.loopIndex) < (1) then begin
-                Self.timeDelayHelper.setStartTimeTNT();
-            end;
-            demoGameMidlet_ := TDemoGameMidlet(TJava.ToObject(Self.getCustomCommandListener()));
-        end;
-end;
-    
-
-// throws Exception
-procedure TStartCanvas.startDemoGame;
-begin
-end;
-    
-
-// throws Exception
-procedure TStartCanvas.processGame;
-begin
-        Self.gameRunnable.run();
-        Self.specialAnimationInterface.nextFrame();
-        Self.process();
-end;
-    
-
-procedure TStartCanvas.run;
-var
-  progressCanvas_: TProgressCanvas;
-begin
-        Self.logUtil.putF(Self.commonStrings.START_RUNNABLE, TJava.Box(Self), Self.commonStrings.RUN);
-        try
-            progressCanvas_ := TProgressCanvasFactory.getInstance();
-            progressCanvas_.addNormalPortion(50, 'Demo Thread');
-            Self.setCurrentThread();
-            Self.setRunning(True);
-            if Self.features.isFeature(TMainFeatureFactory.getInstance().LOAD_ONDEMAND) then begin
-                progressCanvas_.end_();
-            end else begin
-                progressCanvas_.addNormalPortion(50, 'Demo Thread Running');
-            end;
-            Self.fullScreenUtil.initOnRun(Self, Self.getCustomCommandListener());
-            Self.initMenu();
-            Self.initPostPaint();
-            Self.updateDemoState();
-            if Self.features.isDefault(Self.openGLFeatureFactory.OPENGL_AS_GAME_THREAD) then begin
-                TOpenGLThreadUtil.getInstance().onResume();
-            end;
-            if (Self.features.isDefault(Self.openGLFeatureFactory.OPENGL_AS_GAME_THREAD)) or (TJ2MEUtil.isHTML()) then begin
-            end else begin
-                while Self.isRunning() do begin
-                    Self.loopTimeHelper.setStartTimeTNT();
-                    Self.processGame();
-                    Self.processLoopSleep();
-                end;
-                Self.end_();
-            end;
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.RUN, TJava.Box(e));
-            end;
-        end;
-        Self.logUtil.putF(Self.commonStrings.END_RUNNABLE, TJava.Box(Self), Self.commonStrings.RUN);
-end;
-    
-
-procedure TStartCanvas.setRunning(running: Boolean);
-var
-  currentDisplayableFactory_: TCurrentDisplayableFactory;
-begin
-        inherited setRunning(running);
-        try
-            if (((Self.features.isDefault(Self.openGLFeatureFactory.OPENGL)) or (TJ2MEUtil.isHTML()))) and (not (running)) then begin
-                currentDisplayableFactory_ := TCurrentDisplayableFactory.getInstance();
-                currentDisplayableFactory_.clearRunnable();
-                Self.end_();
-            end;
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.SET_RUNNING, TJava.Box(e));
-            end;
-        end;
-end;
-    
-
-// throws Exception
-procedure TStartCanvas.end_;
-var
-  progressCanvas_: TProgressCanvas;
-begin
-        progressCanvas_ := TProgressCanvasFactory.getInstance();
-        Self.baseGameStatistics.add(TStringMaker.Create().append(TStartCanvas.BOT_GAME_STATS).append(Self.baseGameStatistics.toString()).append(TCommonSeps.getInstance().NEW_LINE).toString());
-        Self.baseGameStatistics.init();
-        if Self.features.isFeature(TMainFeatureFactory.getInstance().LOAD_ONDEMAND) then begin
-            progressCanvas_.start();
-        end;
-        Self.logUtil.putF('Demo End', TJava.Box(Self), Self.commonStrings.RUN);
-        Self.close();
-        TDisplayChangeEventHandler.getInstance().removeListener(Self);
-end;
-    
-
-procedure TStartCanvas.setGameState(gameState_: TGameState);
-begin
-end;
-    
-
-function TStartCanvas.getGameState: TGameState;
-begin
-        Exit(Self.gameStateFactory.PLAYING_GAME_STATE);
-end;
-    
-
-function TStartCanvas.getState: Integer;
-begin
-        Exit(Self.state);
-end;
-    
-
-procedure TStartCanvas.setState(state: Integer);
-begin
-        Self.state := state;
-end;
-    
-
-function TStartCanvas.isHighScoreSubmitted: Boolean;
-begin
-        Self.logUtil.putF('Wow the AI got a high score!', TJava.Box(Self), 'isHighScoreSubmitted');
-        Exit(False);
-end;
-    
-
-function TStartCanvas.getRealHighScoresPaintable: THighScoresPaintable;
-begin
-        Exit(Self.realHighScoresPaintable);
-end;
-    
-
-procedure TStartCanvas.setSpecialAnimationInterface(specialAnimationInterface: TSpecialAnimation);
-begin
-        specialAnimationInterface.setFrame(0);
-        Self.specialAnimationInterface := specialAnimationInterface;
-end;
-    
-
-function TStartCanvas.getSpecialAnimationInterface: TSpecialAnimation;
-begin
-        Exit(Self.specialAnimationInterface);
-end;
-    
-
-procedure TStartCanvas.setPaintableInterface(paintableInterface_: IPaintableInterface);
-begin
-        Self.paintableInterface := paintableInterface_;
-end;
-    
-
-function TStartCanvas.getPaintableInterface: IPaintableInterface;
-begin
-        Exit(Self.paintableInterface);
-end;
-    
-
-procedure TStartCanvas.setDefaultPaintableInterface(defaultPaintableInterface: TPaintable);
-begin
-        Self.defaultPaintableInterface := defaultPaintableInterface;
-end;
-    
-
-function TStartCanvas.getDefaultPaintableInterface: TPaintable;
-begin
-        Exit(Self.defaultPaintableInterface);
-end;
-    
-
-function TStartCanvas.getHighScoresFactoryInterface: IHighScoresFactoryInterface;
-begin
-        Exit(Self.highScoresFactoryInterface);
-end;
-    
-
-procedure TStartCanvas.setMenuInputProcessor(menuInputProcessor: TBasicMenuInputProcessor);
-begin
-        Self.menuInputProcessor := menuInputProcessor;
-end;
-    
-
-function TStartCanvas.getMenuInputProcessor: TBasicMenuInputProcessor;
-begin
-        Exit(Self.menuInputProcessor);
-end;
-    
-
-function TStartCanvas.getMenuForm: TScrollSelectionForm;
-begin
-        Exit(Self.menuForm);
-end;
-    
-
-procedure TStartCanvas.setMenuForm(menuForm: TScrollSelectionForm);
-begin
-        Self.menuForm := menuForm;
-end;
-    
-
-function TStartCanvas.isInitialized: Boolean;
-begin
-        Exit(Self.initialized);
-end;
-    
-
-function TStartCanvas.getOverlayPaintable: TPaintable;
-begin
-        Exit(Self.overlayPaintable);
-end;
-    
-
-procedure TStartCanvas.setBasicGameDemoPaintable(basicGameDemoPaintable: TStatePaintable);
-begin
-        Self.basicGameDemoPaintable := basicGameDemoPaintable;
-end;
-    
-
-function TStartCanvas.getBasicGameDemoPaintable: TStatePaintable;
-begin
-        Exit(Self.basicGameDemoPaintable);
-end;
-    
-
-procedure TStartCanvas.setTempWait(tempWait: Integer);
-begin
-        Self.tempWait := tempWait;
-end;
-    
-
-function TStartCanvas.getTempWait: Integer;
-begin
-        Exit(Self.tempWait);
-end;
-    
-
-function TStartCanvas.isSingleThread: Boolean;
-begin
-        Exit((TOpenGLFeatureUtil.getInstance().isAnyThreed()) or (TSWTUtil.isSWT));
-end;
-    
-
-function TStartCanvas.isRunningInAnotherThread: Boolean;
-var
-  features_: TFeatures;
-  openGLFeatureFactory_: TOpenGLFeatureFactory;
-begin
-        features_ := TFeatures.getInstance();
-        openGLFeatureFactory_ := TOpenGLFeatureFactory.getInstance();
-        if features_.isDefault(openGLFeatureFactory_.OPENGL_AS_GAME_THREAD) then begin
-            Exit(True);
-        end else begin
-            Exit(Self.isRunning());
-        end;
-end;
-    
-
-function TStartCanvas.getGameInitializationInterfaceFactoryInterface: TBasicBuildGameInitializerFactory;
-begin
-        Exit(Self.gameInitializationInterfaceFactoryInterface);
-end;
-    
-
-function TStartCanvas.getTitle: string;
-begin
-        Exit(inherited getTitle());
-end;
-    
-
-function TStartCanvas.isPaused: Boolean;
-begin
-        Exit(inherited isPaused());
-end;
-    
-
-function TStartCanvas.getType: Integer;
-begin
-        Exit(inherited getType());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TStartCanvas.id := 0;
-  TStartCanvas.BOT_GAME_STATS := 'Bot Game Statistics: ';
-  {AB:END}
-
-end.
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.displayable.canvas
+*> Java class StartCanvas
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-static-id.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 StartCanvas-jcell-id BINARY-DOUBLE EXTERNAL.
+01 StartCanvas-jset-id BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF StartCanvas-jset-id = 0
+        MOVE 1 TO StartCanvas-jset-id
+        COMPUTE StartCanvas-jcell-id = 0
+    END-IF
+    MOVE StartCanvas-jcell-id TO J-RESULT
+    GOBACK.
+END FUNCTION StartCanvas-static-id.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvasstaticidS59140.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 StartCanvas-jcell-id BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION StartCanvas-static-id TO J-RESULT
+    MOVE J-VALUE TO StartCanvas-jcell-id
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION StartCanvasstaticidS59140.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrtCnvs-sttc-BOT-GAME69014.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 StartCanvas-jcell-BOT_GAME_STATS BINARY-DOUBLE EXTERNAL.
+01 StartCanvas-jset-BOT_GAME_STATS BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF StartCanvas-jset-BOT_GAME_STATS = 0
+        MOVE 1 TO StartCanvas-jset-BOT_GAME_STATS
+        COMPUTE StartCanvas-jcell-BOT_GAME_STATS = FUNCTION JR-STR("Bot Game Statistics: ")
+    END-IF
+    MOVE StartCanvas-jcell-BOT_GAME_STATS TO J-RESULT
+    GOBACK.
+END FUNCTION StrtCnvs-sttc-BOT-GAME69014.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrtCnvssttcBOTGAME6S99204.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 StartCanvas-jcell-BOT_GAME_STATS BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION StrtCnvs-sttc-BOT-GAME69014 TO J-RESULT
+    MOVE J-VALUE TO StartCanvas-jcell-BOT_GAME_STATS
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION StrtCnvssttcBOTGAME6S99204.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-new7.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp34 BINARY-DOUBLE.
+01 jtemp36 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-abeClientInformation BINARY-DOUBLE.
+01 J-commandListener BINARY-DOUBLE.
+01 J-highScoresFactoryInterface BINARY-DOUBLE.
+01 J-paintable BINARY-DOUBLE.
+01 J-overlayPaintable BINARY-DOUBLE.
+01 J-gameInitializationInterfaceFactoryInterface BINARY-DOUBLE.
+01 J-isContinue BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-abeClientInformation J-commandListener J-highScoresFactoryInterface J-paintable J-overlayPaintable J-gameInitializationInterfaceFactoryInterface J-isContinue RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("StartCanvas")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_basicColorFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_features")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_openGLFeatureFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_myCommandsFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameAdStateFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameStateFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameInputStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_formUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_basicGameDemoPaintable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_specialAnimationInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_paintedSpecialAnimationInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_fullScreenUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_highScoresHelper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_realHighScoresPaintable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_highScoresPaintable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_state")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_timeDelayHelper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_highScoresFactoryInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_menuInputProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_menuForm")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameInitializationInterfaceFactoryInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_initialized")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_defaultPaintableInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_paintableInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_overlayPaintable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_tempWait")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_inputToGameKeyMapping")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameRunnable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_progressPaintable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_isSingleKeyRepeatableProcessing")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NONE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameKeyEventFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SET_STATE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_baseGameStatistics")
+    COMPUTE JVALUE = FUNCTION BasicColorFactory-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicColorFactory", JVALUE)
+    COMPUTE JVALUE = FUNCTION Features-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_features", JVALUE)
+    COMPUTE JVALUE = FUNCTION OpnGLFtrFctry-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_openGLFeatureFactory", JVALUE)
+    COMPUTE JVALUE = FUNCTION MyCommandsFactory-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myCommandsFactory", JVALUE)
+    COMPUTE JVALUE = FUNCTION GmAdSttFctry-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameAdStateFactory", JVALUE)
+    COMPUTE JVALUE = FUNCTION GameStateFactory-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameStateFactory", JVALUE)
+    COMPUTE JVALUE = FUNCTION GameInputStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameInputStrings", JVALUE)
+    COMPUTE JVALUE = FUNCTION FormUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_formUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION SttPntblFctry-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicGameDemoPaintable", JVALUE)
+    COMPUTE JVALUE = FUNCTION SpecialAnimation-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_specialAnimationInterface", JVALUE)
+    COMPUTE JVALUE = FUNCTION SpecialAnimation-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_paintedSpecialAnimationInterface", JVALUE)
+    COMPUTE JVALUE = FUNCTION FullScreenUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_fullScreenUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION HighScoresHelper-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_highScoresHelper", JVALUE)
+    COMPUTE JVALUE = FUNCTION HighScoresPaintable-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_realHighScoresPaintable", JVALUE)
+    COMPUTE JVALUE = FUNCTION NullPaintable-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_highScoresPaintable", JVALUE)
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_state", JVALUE)
+    COMPUTE jtemp1 = 6000
+    COMPUTE JVALUE = FUNCTION TimeDelayHelper-new1(jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_timeDelayHelper", JVALUE)
+    
+    COMPUTE JVALUE = FUNCTION NMnInptPrcssr-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_menuInputProcessor", JVALUE)
+    COMPUTE JVALUE = FUNCTION ScrllSlctnFrm-gtNllScrllS58322
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_menuForm", JVALUE)
+    
+    
+    COMPUTE JVALUE = FUNCTION NullPaintable-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_defaultPaintableInterface", JVALUE)
+    COMPUTE JVALUE = FUNCTION NullPaintable-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_paintableInterface", JVALUE)
+    
+    COMPUTE jtemp2 = FUNCTION NllWtGmRnnbl-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp2, "f_WAIT")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_tempWait", JVALUE)
+    COMPUTE jtemp4 = FUNCTION PltfrmInptMppngFctry-gtInstnc0
+    COMPUTE jtemp3 = FUNCTION PltfrmInptMppngFctry-gtPr75051(jtemp4)
+    COMPUTE JVALUE = FUNCTION JR-CLASS-NAME(jtemp3)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_inputToGameKeyMapping", JVALUE)
+    COMPUTE JVALUE = FUNCTION NllWtGmRnnbl-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameRunnable", JVALUE)
+    COMPUTE JVALUE = FUNCTION PrgrssCnvsFctry-gtLzyInstnc0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_progressPaintable", JVALUE)
+    COMPUTE jtemp34 = FUNCTION InptFtrFctry-getInstance0
+    COMPUTE JVALUE = FUNCTION Features-isFeature1(FUNCTION JR-GET(J-THIS, "f_features"), FUNCTION JR-GET(jtemp34, "f_SINGLE_KEY_REPEAT_PRESS"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_isSingleKeyRepeatableProcessing", JVALUE)
+    COMPUTE jtemp36 = FUNCTION GameKeyFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp36, "f_NONE")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NONE", JVALUE)
+    COMPUTE JVALUE = FUNCTION GmKyEvntFctry-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameKeyEventFactory", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("setState")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SET_STATE", JVALUE)
+    COMPUTE JVALUE = FUNCTION GmSttstcsFctry-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_baseGameStatistics", JVALUE)
+        COMPUTE jtemp5 = FUNCTION CrrntDsplyblFctry-getInstance0
+        COMPUTE jtemp6 = 1
+        CONTINUE
+        COMPUTE jtemp7 = FUNCTION NllWtGmRnnbl-getInstance0
+        COMPUTE JDISCARD = FUNCTION RunnableCanvas-setWait1(J-THIS, FUNCTION JR-GET(jtemp7, "f_WAIT"))
+        COMPUTE JVALUE = J-gameInitializationInterfaceFactoryInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameInitializationInterfaceFactoryInterface", JVALUE)
+        COMPUTE jtemp8 = FUNCTION GmIntlztnUtl-getInstance0
+        COMPUTE JDISCARD = FUNCTION GmIntlztnUtl-initDemo3(jtemp8, J-abeClientInformation, J-THIS, J-gameInitializationInterfaceFactoryInterface)
+        COMPUTE jtemp10 = 0
+        COMPUTE jtemp9 = FUNCTION RszblLstnrHndlr-getInstance0
+        COMPUTE JDISCARD = FUNCTION RszblLstnrHndlr-fireEvent1(jtemp9, jtemp10)
+        COMPUTE JVALUE = J-overlayPaintable
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_overlayPaintable", JVALUE)
+        COMPUTE JVALUE = J-highScoresFactoryInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_highScoresFactoryInterface", JVALUE)
+        COMPUTE JDISCARD = FUNCTION StrtCnvs-stDfltPntblIntrfc1(J-THIS, J-paintable)
+        COMPUTE JDISCARD = FUNCTION StrtCnvs-stPntblIntrfc1(J-THIS, FUNCTION StrtCnvs-gtDfltPntblIntrfc0(J-THIS))
+        IF (J-isContinue = 1)
+            COMPUTE jtemp11 = FUNCTION GmCmmndsFctry-getInstance0
+            COMPUTE JDISCARD = FUNCTION MyCanvas-addCommand1(J-THIS, FUNCTION JR-GET(jtemp11, "f_CONTINUE_COMMAND"))
+        END-IF
+        COMPUTE jtemp13 = FUNCTION GmFtrFctry-getInstance0
+        COMPUTE jtemp12 = FUNCTION ChngdGmFtrLstnr-getInstance0
+        IF (FUNCTION BsChngdGmFtrLstnr-isChngdFtr1(jtemp12, FUNCTION JR-GET(jtemp13, "f_SOUND")) = 1)
+            COMPUTE JDISCARD = FUNCTION StartCanvas-mediaInit0(J-THIS)
+        END-IF
+        COMPUTE jtemp14 = FUNCTION DsplyChngEvntHndlr-gtInstnc0
+        COMPUTE JDISCARD = FUNCTION BscEvntHndlr-addLstnrIntrfc1(jtemp14, J-THIS)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION StartCanvas-new7.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-onEvent1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp15 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp15 = FUNCTION EventStrings-getInstance0
+        COMPUTE JDISCARD = FUNCTION ForcedLogUtil-log2(FUNCTION JR-GET(jtemp15, "f_PERFORMANCE_MESSAGE"), J-THIS)
+    GOBACK.
+END FUNCTION StartCanvas-onEvent1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrtCnvs-onDisplayChangeEvent1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-scrollSelectionForm BINARY-DOUBLE.
+01 J-formType BINARY-DOUBLE.
+01 J-rectangle BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-displayChangeEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-displayChangeEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE J-scrollSelectionForm = FUNCTION StartCanvas-getMenuForm0(J-THIS)
+            IF (J-scrollSelectionForm NOT = 0)
+                COMPUTE jtemp16 = FUNCTION FormTypeFactory-getInstance0
+                COMPUTE J-formType = FUNCTION FormTypeFactory-getFormType0(jtemp16)
+                COMPUTE J-rectangle = FUNCTION FormUtil-createFormRectangle0(FUNCTION JR-GET(J-THIS, "f_formUtil"))
+                COMPUTE JDISCARD = FUNCTION ScrollSelectionForm-init2(J-scrollSelectionForm, J-rectangle, J-formType)
+            END-IF
+            COMPUTE JDISCARD = FUNCTION InitUpdatePaintable-init0(FUNCTION JR-GET(J-THIS, "f_overlayPaintable"))
+    GOBACK.
+END FUNCTION StrtCnvs-onDisplayChangeEvent1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-getCustomCommands0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameCommandsFactory BINARY-DOUBLE.
+01 J-commandList BINARY-DOUBLE.
+01 J-inApplicationPurchaseFactory BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-isOverScan BINARY-DOUBLE.
+01 J-commandArray BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+01 jtemp18 BINARY-DOUBLE.
+01 jtemp19 BINARY-DOUBLE.
+01 jtemp20 BINARY-DOUBLE.
+01 jtemp21 BINARY-DOUBLE.
+01 jtemp22 BINARY-DOUBLE.
+01 jtemp23 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-gameCommandsFactory = FUNCTION GmCmmndsFctry-getInstance0
+        IF (FUNCTION J2MEUtil-isHTML0 = 1)
+            COMPUTE jtemp23 = FUNCTION HighScoreCommands-getInstance0
+            COMPUTE J-commandArray = FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-NEW-ARRAY(JZERO), FUNCTION JR-GET(J-gameCommandsFactory, "f_START_COMMAND")), FUNCTION JR-GET(jtemp23,
+        "f_DISPLAY")), FUNCTION GmInptMppngCnvs-sttc-DISPLAY), FUNCTION JR-GET(J-gameCommandsFactory, "f_DISPLAY_ABOUT"))
+            COMPUTE J-RESULT = J-commandArray
+            GOBACK
+        ELSE
+            COMPUTE J-commandList = FUNCTION BasicArrayListD-new0
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-commandList, FUNCTION JR-GET(J-gameCommandsFactory, "f_START_COMMAND"))
+            COMPUTE J-inApplicationPurchaseFactory = FUNCTION InApplctnPrchsFctry-gtInstnc0
+            IF (FUNCTION InApplctnPrchsFctry-isEnabled0(J-inApplicationPurchaseFactory) = 1)
+                COMPUTE jtemp17 = FUNCTION LckblFtrFctry-getInstance0
+                COMPUTE J-list = FUNCTION LckblFtrFctry-getList0(jtemp17)
+                COMPUTE jtemp19 = 0
+                COMPUTE jtemp18 = FUNCTION BasicArrayList-get1(J-list, jtemp19)
+                IF ((FUNCTION BasicArrayList-size0(J-list) > 0) AND (NOT (FUNCTION InApplctnPrchsFctry-isPrchsd1(J-inApplicationPurchaseFactory, jtemp18) = 1)))
+                    COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-commandList, FUNCTION JR-GET(J-gameCommandsFactory, "f_BUY_COMMAND"))
+                END-IF
+            END-IF
+            COMPUTE jtemp20 = FUNCTION HighScoreCommands-getInstance0
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-commandList, FUNCTION JR-GET(jtemp20, "f_DISPLAY"))
+            CONTINUE
+                COMPUTE jtemp22 = FUNCTION OprtngSystmFctry-getInstance0
+                COMPUTE jtemp21 = FUNCTION OprtngSystmFctry-gtOprtng62787(jtemp22)
+                COMPUTE J-isOverScan = FUNCTION JR-CLASS-NAME(jtemp21)
+                IF (FUNCTION SWTUtil-static-isSWT = 1)
+                    COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-commandList, FUNCTION GmInptMppngCnvs-sttc-DISPLAY)
+                ELSE
+                    IF (NOT (J-isOverScan = 1))
+                    COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-commandList, FUNCTION JR-GET(J-gameCommandsFactory, "f_DISPLAY_OPTIONS"))
+                    COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-commandList, FUNCTION JR-GET(J-gameCommandsFactory, "f_DISPLAY_LOAD_FORM"))
+                    COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-commandList, FUNCTION GmInptMppngCnvs-sttc-DISPLAY)
+                END-IF
+                END-IF
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-commandList, FUNCTION JR-GET(J-gameCommandsFactory, "f_DISPLAY_ABOUT"))
+            COMPUTE J-commandArray = FUNCTION BasicArrayList-toArray0(J-commandList)
+            COMPUTE J-RESULT = J-commandArray
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION StartCanvas-getCustomCommands0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-initCommands1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-commandArray BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp24 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-cmdListener BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-cmdListener RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION MyCanvas-removeAllCommands0(J-THIS)
+        COMPUTE J-commandArray = FUNCTION StartCanvas-getCustomCommands0(J-THIS)
+        COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(J-commandArray)
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE jtemp24 = FUNCTION JR-ARRAY-GET(J-commandArray, J-index)
+            COMPUTE JDISCARD = FUNCTION MyCanvas-addCommand1(J-THIS, jtemp24)
+        END-PERFORM
+        COMPUTE JDISCARD = FUNCTION CustomGameMenuUtil-add1(J-THIS)
+        COMPUTE JDISCARD = FUNCTION MyCanvas-setCommandListener1(J-THIS, J-cmdListener)
+    GOBACK.
+END FUNCTION StartCanvas-initCommands1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-initPostPaint0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION StartCanvas-initPostPaint0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-mediaInit0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION AllBinaryMediaManager-init1(FUNCTION ErlySndsFctry-getInstance0)
+    GOBACK.
+END FUNCTION StartCanvas-mediaInit0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-itemStateChanged1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-item BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-item RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION ForcedLogUtil-log2(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_NOT_IMPLEMENTED"), J-THIS)
+    GOBACK.
+END FUNCTION StartCanvas-itemStateChanged1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-initMenu0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION StartCanvas-close0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION StartCanvas-open0(J-THIS)
+    GOBACK.
+END FUNCTION StartCanvas-initMenu0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-open0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp25 BINARY-DOUBLE.
+01 jtemp26 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp25 = FUNCTION BscMtnGstrsHndlr-getInstance0
+        COMPUTE JDISCARD = FUNCTION BscEvntHndlr-addLstnrIntrfc1(jtemp25, FUNCTION StrtCnvs-gtMnInptPrcssr0(J-THIS))
+        COMPUTE jtemp26 = FUNCTION GmKyEvntHndlr-getInstance0
+        COMPUTE JDISCARD = FUNCTION GmKyEvntHndlr-addListener1(jtemp26, FUNCTION StrtCnvs-gtMnInptPrcssr0(J-THIS))
+    GOBACK.
+END FUNCTION StartCanvas-open0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-close0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp27 BINARY-DOUBLE.
+01 jtemp28 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp27 = FUNCTION BscMtnGstrsHndlr-getInstance0
+        COMPUTE JDISCARD = FUNCTION BscEvntHndlr-removeListener1(jtemp27, FUNCTION StrtCnvs-gtMnInptPrcssr0(J-THIS))
+        COMPUTE jtemp28 = FUNCTION GmKyEvntHndlr-getInstance0
+        COMPUTE JDISCARD = FUNCTION GmKyEvntHndlr-removeListener1(jtemp28, FUNCTION StrtCnvs-gtMnInptPrcssr0(J-THIS))
+    GOBACK.
+END FUNCTION StartCanvas-close0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-getSourceId0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION StartCanvas-static-id
+        GOBACK
+    GOBACK.
+END FUNCTION StartCanvas-getSourceId0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-keyPressed1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp29 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-keyCode BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-keyCode RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp29 = 0
+        COMPUTE JDISCARD = FUNCTION StrtCnvs-keyPressedByDevice2(J-THIS, J-keyCode, jtemp29)
+    GOBACK.
+END FUNCTION StartCanvas-keyPressed1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-keyReleased1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp30 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-keyCode BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-keyCode RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp30 = 0
+        COMPUTE JDISCARD = FUNCTION StrtCnvs-keyReleasedByDevice2(J-THIS, J-keyCode, jtemp30)
+    GOBACK.
+END FUNCTION StartCanvas-keyReleased1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-keyRepeated1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp31 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-keyCode BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-keyCode RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp31 = 0
+        COMPUTE JDISCARD = FUNCTION StrtCnvs-keyRepeatedByDevice2(J-THIS, J-keyCode, jtemp31)
+    GOBACK.
+END FUNCTION StartCanvas-keyRepeated1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrtCnvs-keyPressedByDevice2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp32 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-keyCode BINARY-DOUBLE.
+01 J-deviceId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-keyCode J-deviceId RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp32 = 0
+        COMPUTE JDISCARD = FUNCTION StartCanvas-addGameKeyEvent2(J-THIS, J-keyCode, jtemp32)
+    GOBACK.
+END FUNCTION StrtCnvs-keyPressedByDevice2.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrtCnvs-keyReleasedByDevice2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp33 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-keyCode BINARY-DOUBLE.
+01 J-deviceId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-keyCode J-deviceId RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp33 = 0
+        COMPUTE JDISCARD = FUNCTION StrtCnvs-removeGameKeyEvent2(J-THIS, J-keyCode, jtemp33)
+    GOBACK.
+END FUNCTION StrtCnvs-keyReleasedByDevice2.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrtCnvs-keyRepeatedByDevice2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp35 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-keyCode BINARY-DOUBLE.
+01 J-deviceId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-keyCode J-deviceId RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION JR-GET(J-THIS, "f_isSingleKeyRepeatableProcessing") = 1)
+            COMPUTE jtemp35 = 1
+            COMPUTE JDISCARD = FUNCTION StartCanvas-addGameKeyEvent2(J-THIS, J-keyCode, jtemp35)
+        END-IF
+    GOBACK.
+END FUNCTION StrtCnvs-keyRepeatedByDevice2.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-addGameKeyEvent2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameKey BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 jtemp37 BINARY-DOUBLE.
+01 jtemp38 BINARY-DOUBLE.
+01 jtemp39 BINARY-DOUBLE.
+01 jtemp40 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-keyCode BINARY-DOUBLE.
+01 J-repeated BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-keyCode J-repeated RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE J-gameKey = FUNCTION InptTGmKyMppng-gtInstncFrCnvs2(FUNCTION JR-GET(J-THIS, "f_inputToGameKeyMapping"), J-THIS, J-keyCode)
+            IF (J-gameKey NOT = FUNCTION JR-GET(J-THIS, "f_NONE"))
+                COMPUTE J-gameKeyEvent = FUNCTION GmKyEvntFctry-gtInstncFrInpt2(FUNCTION JR-GET(J-THIS, "f_gameKeyEventFactory"), J-THIS, J-gameKey)
+                COMPUTE jtemp40 = FUNCTION DwnGmKyEvntHndlr-getInstance0
+                COMPUTE JDISCARD = FUNCTION DwnGmKyEvntHndlrBs-fireEvent1(jtemp40, J-gameKeyEvent)
+            ELSE
+                COMPUTE jtemp39 = FUNCTION StringMaker-new0
+                COMPUTE jtemp38 = FUNCTION StringMaker-append1(jtemp39, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameInputStrings"), "f_NO_KEY"))
+                COMPUTE jtemp37 = FUNCTION StringMaker-appendint1(jtemp38, J-keyCode)
+                COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+            END-IF
+    GOBACK.
+END FUNCTION StartCanvas-addGameKeyEvent2.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrtCnvs-removeGameKeyEvent2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameKey BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 jtemp41 BINARY-DOUBLE.
+01 jtemp42 BINARY-DOUBLE.
+01 jtemp43 BINARY-DOUBLE.
+01 jtemp44 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-keyCode BINARY-DOUBLE.
+01 J-repeated BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-keyCode J-repeated RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE J-gameKey = FUNCTION InptTGmKyMppng-gtInstncFrCnvs2(FUNCTION JR-GET(J-THIS, "f_inputToGameKeyMapping"), J-THIS, J-keyCode)
+            IF (J-gameKey NOT = FUNCTION JR-GET(J-THIS, "f_NONE"))
+                COMPUTE J-gameKeyEvent = FUNCTION GmKyEvntFctry-gtInstncFrInpt2(FUNCTION JR-GET(J-THIS, "f_gameKeyEventFactory"), J-THIS, J-gameKey)
+                COMPUTE jtemp44 = FUNCTION UpGmKyEvntHndlr-getInstance0
+                COMPUTE JDISCARD = FUNCTION UpGmKyEvntHndlrBs-fireEvent1(jtemp44, J-gameKeyEvent)
+            ELSE
+                COMPUTE jtemp43 = FUNCTION StringMaker-new0
+                COMPUTE jtemp42 = FUNCTION StringMaker-append1(jtemp43, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameInputStrings"), "f_NO_KEY"))
+                COMPUTE jtemp41 = FUNCTION StringMaker-appendint1(jtemp42, J-keyCode)
+                COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+            END-IF
+    GOBACK.
+END FUNCTION StrtCnvs-removeGameKeyEvent2.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-pause0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp45 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION StartCanvas-close0(J-THIS)
+        COMPUTE jtemp45 = 1
+        COMPUTE JDISCARD = FUNCTION MyCanvas-setPaused1(J-THIS, jtemp45)
+    GOBACK.
+END FUNCTION StartCanvas-pause0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-unPause0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp46 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION StartCanvas-open0(J-THIS)
+        COMPUTE jtemp46 = 0
+        COMPUTE JDISCARD = FUNCTION MyCanvas-setPaused1(J-THIS, jtemp46)
+    GOBACK.
+END FUNCTION StartCanvas-unPause0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-isPausable0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp47 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp47 = FUNCTION CrrntDsplyblFctry-getInstance0
+        IF (FUNCTION CrrntDsplyblFctry-gtUsdRnnbl0(jtemp47) = FUNCTION NllWtGmRnnbl-getInstance0)
+            COMPUTE J-RESULT = 1
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = 0
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION StartCanvas-isPausable0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-isGameOver0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp48 BINARY-DOUBLE.
+01 jtemp49 BINARY-DOUBLE.
+01 jtemp50 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp50 = FUNCTION StringMaker-new0
+        COMPUTE jtemp49 = FUNCTION StringMaker-append1(jtemp50, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_NOT_IMPLEMENTED"))
+        COMPUTE jtemp48 = FUNCTION StringMaker-append1(jtemp49, FUNCTION JR-STR(" since not a game"))
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION StartCanvas-isGameOver0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrtCnvs-stLdSttHshtbl1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-hashtable BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-hashtable RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+    GOBACK.
+END FUNCTION StrtCnvs-stLdSttHshtbl1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrtCnvs-gtLdSttHshtbl0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        COMPUTE J-RESULT = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_stdUtil"), "f_NULL_TABLE")
+        GOBACK
+    GOBACK.
+END FUNCTION StrtCnvs-gtLdSttHshtbl0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrtCnvs-gtCrrntSttHshtbl0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        COMPUTE J-RESULT = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_stdUtil"), "f_NULL_TABLE")
+        GOBACK
+    GOBACK.
+END FUNCTION StrtCnvs-gtCrrntSttHshtbl0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrtCnvs-stHghScrSbmttd1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-isNotUsed BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-isNotUsed RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION StrtCnvs-stHghScrSbmttd1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp51 BINARY-DOUBLE.
+01 jtemp52 BINARY-DOUBLE.
+01 jtemp53 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION PaintableInterface-paint1(FUNCTION JR-GET(J-THIS, "f_paintableInterface"), J-graphics)
+        COMPUTE jtemp51 = 0
+        COMPUTE jtemp52 = 0
+        COMPUTE JDISCARD = FUNCTION Animation-paintXY3(FUNCTION JR-GET(J-THIS, "f_paintedSpecialAnimationInterface"), J-graphics, jtemp51, jtemp52)
+        COMPUTE JDISCARD = FUNCTION Paintable-paint1(FUNCTION JR-GET(J-THIS, "f_highScoresPaintable"), J-graphics)
+        COMPUTE jtemp53 = FUNCTION StrtCnvs-gtBscGmDmPntbl0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION Paintable-paint1(jtemp53, J-graphics)
+        COMPUTE JDISCARD = FUNCTION Paintable-paint1(FUNCTION JR-GET(J-THIS, "f_overlayPaintable"), J-graphics)
+        COMPUTE JDISCARD = FUNCTION PaintableInterface-paint1(FUNCTION JR-GET(J-THIS, "f_progressPaintable"), J-graphics)
+    GOBACK.
+END FUNCTION StartCanvas-paint1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-paintThreed1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp54 BINARY-DOUBLE.
+01 jtemp55 BINARY-DOUBLE.
+01 jtemp56 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION PntblIntrfc-paintThreed1(FUNCTION JR-GET(J-THIS, "f_paintableInterface"), J-graphics)
+        COMPUTE jtemp54 = 0
+        COMPUTE jtemp55 = 0
+        COMPUTE jtemp56 = 0
+        COMPUTE JDISCARD = FUNCTION Animation-paintThreedXYZ4(FUNCTION JR-GET(J-THIS, "f_paintedSpecialAnimationInterface"), J-graphics, jtemp54, jtemp55, jtemp56)
+    GOBACK.
+END FUNCTION StartCanvas-paintThreed1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-processGameOver0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+    GOBACK.
+END FUNCTION StartCanvas-processGameOver0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-demoStateChange0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-newState BINARY-DOUBLE.
+01 J-highScores BINARY-DOUBLE.
+01 jtemp57 BINARY-DOUBLE.
+01 jtemp58 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp57 = 1
+        COMPUTE J-newState = (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_state") + jtemp57) + 2147483648, 4294967296) - 2147483648)
+        IF (J-newState > 2)
+            COMPUTE J-newState = 0
+        ELSE
+            IF (J-newState = 2)
+            IF (NOT (FUNCTION HghScrsHlpr-isAnyHighScores0(FUNCTION JR-GET(J-THIS, "f_highScoresHelper")) = 1))
+                COMPUTE J-newState = 0
+            ELSE
+                COMPUTE J-highScores = FUNCTION HghScrsHlpr-getNextHighScores0(FUNCTION JR-GET(J-THIS, "f_highScoresHelper"))
+                IF (J-highScores = FUNCTION NllHghScrsSngltnFctry-gtI23303)
+                    COMPUTE J-newState = 0
+                ELSE
+                    COMPUTE jtemp58 = FUNCTION StrtCnvs-gtRlHghScrsPntbl0(J-THIS)
+                    COMPUTE JDISCARD = FUNCTION HghScrsPntbl-setHighScores1(jtemp58, J-highScores)
+                END-IF
+            END-IF
+        END-IF
+        END-IF
+        COMPUTE JDISCARD = FUNCTION StartCanvas-setState1(J-THIS, J-newState)
+        COMPUTE JDISCARD = FUNCTION StartCanvas-updateDemoState0(J-THIS)
+    GOBACK.
+END FUNCTION StartCanvas-demoStateChange0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-updateDemoState0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameAdState BINARY-DOUBLE.
+01 jtemp59 BINARY-DOUBLE.
+01 jtemp60 BINARY-DOUBLE.
+01 jtemp61 BINARY-DOUBLE.
+01 jtemp62 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp60 = FUNCTION SmllIntgrSngltnFctry-gtInstnc0
+        COMPUTE jtemp59 = FUNCTION SmllIntgrSngltnFctry-crtI66862(jtemp60, FUNCTION JR-GET(J-THIS, "f_state"))
+        COMPUTE JDISCARD = FUNCTION PreLogUtil-put3(FUNCTION JR-TO-STRING(jtemp59), J-THIS, FUNCTION JR-GET(J-THIS, "f_SET_STATE"))
+        COMPUTE jtemp61 = FUNCTION StrtCnvs-gtBscGmDmPntbl0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION StatePaintable-setState1(jtemp61, FUNCTION JR-GET(J-THIS, "f_state"))
+        IF (FUNCTION JR-GET(J-THIS, "f_state") = 0)
+            COMPUTE JVALUE = FUNCTION NullPaintable-getInstance0
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_highScoresPaintable", JVALUE)
+            COMPUTE JVALUE = FUNCTION StrtCnvs-gtSpclAnmtnIntrfc0(J-THIS)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_paintedSpecialAnimationInterface", JVALUE)
+            COMPUTE jtemp62 = FUNCTION StrtCnvs-gtSpclAnmtnIntrfc0(J-THIS)
+            COMPUTE JDISCARD = FUNCTION IndexedAnimation-reset0(jtemp62)
+        ELSE
+            IF (FUNCTION JR-GET(J-THIS, "f_state") = 1)
+            COMPUTE JVALUE = FUNCTION SpecialAnimation-getInstance0
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_paintedSpecialAnimationInterface", JVALUE)
+        ELSE
+            IF (FUNCTION JR-GET(J-THIS, "f_state") = 2)
+            COMPUTE JVALUE = FUNCTION StrtCnvs-gtRlHghScrsPntbl0(J-THIS)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_highScoresPaintable", JVALUE)
+        END-IF
+        END-IF
+        END-IF
+        COMPUTE J-gameAdState = FUNCTION GmAdSttFctry-gtCrrntInstnc0(FUNCTION JR-GET(J-THIS, "f_gameAdStateFactory"))
+        COMPUTE JDISCARD = FUNCTION GmAdSttBs-processPageAdState0(J-gameAdState)
+    GOBACK.
+END FUNCTION StartCanvas-updateDemoState0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-getNextRandom0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+    GOBACK.
+END FUNCTION StartCanvas-getNextRandom0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrtCnvs-crtGmLyrMngr1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-randomValue BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-randomValue RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+    GOBACK.
+END FUNCTION StrtCnvs-crtGmLyrMngr1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-createRunnable1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-randomLevel BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-randomLevel RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+    GOBACK.
+END FUNCTION StartCanvas-createRunnable1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-createCanvas0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-randomLevel BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = FUNCTION NullPaintable-getInstance0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_highScoresPaintable", JVALUE)
+        COMPUTE J-randomLevel = FUNCTION StartCanvas-getNextRandom0(J-THIS)
+    GOBACK.
+END FUNCTION StartCanvas-createCanvas0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-start0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION StartCanvas-start0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-preDemoProcess0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION InitUpdatePaintable-update0(FUNCTION JR-GET(J-THIS, "f_overlayPaintable"))
+    GOBACK.
+END FUNCTION StartCanvas-preDemoProcess0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-process0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-indexedAnimationBehavior BINARY-DOUBLE.
+01 J-demoGameMidlet BINARY-DOUBLE.
+01 jtemp63 BINARY-DOUBLE.
+01 jtemp64 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp63 = FUNCTION StrtCnvs-gtMnInptPrcssr0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION BscMnInptPrcssr-prcssInptLst0(jtemp63)
+        COMPUTE JDISCARD = FUNCTION StartCanvas-preDemoProcess0(J-THIS)
+        IF (FUNCTION JR-GET(J-THIS, "f_state") = 0)
+            COMPUTE jtemp64 = FUNCTION StrtCnvs-gtSpclAnmtnIntrfc0(J-THIS)
+            COMPUTE J-indexedAnimationBehavior = FUNCTION IndxdAnmtn-gtAnmtnBhvr0(jtemp64)
+            IF (FUNCTION JR-GET(J-indexedAnimationBehavior, "f_loopIndex") < 1)
+                COMPUTE JDISCARD = FUNCTION TmDlyHlpr-setStartTimeTNT0(FUNCTION JR-GET(J-THIS, "f_timeDelayHelper"))
+            END-IF
+            COMPUTE J-demoGameMidlet = FUNCTION MyCnvs-gtCstmCmmndLstnr0(J-THIS)
+        END-IF
+    GOBACK.
+END FUNCTION StartCanvas-process0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-startDemoGame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION StartCanvas-startDemoGame0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-processGame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION GameRunnable-run0(FUNCTION JR-GET(J-THIS, "f_gameRunnable"))
+        COMPUTE JDISCARD = FUNCTION SpecialAnimation-nextFrame0(FUNCTION JR-GET(J-THIS, "f_specialAnimationInterface"))
+        COMPUTE JDISCARD = FUNCTION StartCanvas-process0(J-THIS)
+    GOBACK.
+END FUNCTION StartCanvas-processGame0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-run0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-progressCanvas BINARY-DOUBLE.
+01 jtemp65 BINARY-DOUBLE.
+01 jtemp66 BINARY-DOUBLE.
+01 jtemp67 BINARY-DOUBLE.
+01 jtemp68 BINARY-DOUBLE.
+01 jtemp69 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        CONTINUE
+            COMPUTE J-progressCanvas = FUNCTION PrgrssCnvsFctry-getInstance0
+            COMPUTE jtemp65 = 50
+            COMPUTE JDISCARD = FUNCTION PrgrssCnvs-addNormalPortion2(J-progressCanvas, jtemp65, FUNCTION JR-STR("Demo Thread"))
+            COMPUTE JDISCARD = FUNCTION RnnblCnvs-setCurrentThread0(J-THIS)
+            COMPUTE jtemp66 = 1
+            COMPUTE JDISCARD = FUNCTION StartCanvas-setRunning1(J-THIS, jtemp66)
+            COMPUTE jtemp67 = FUNCTION MnFtrFctry-getInstance0
+            IF (FUNCTION Features-isFeature1(FUNCTION JR-GET(J-THIS, "f_features"), FUNCTION JR-GET(jtemp67, "f_LOAD_ONDEMAND")) = 1)
+                COMPUTE JDISCARD = FUNCTION ProgressCanvas-end0(J-progressCanvas)
+            ELSE
+                COMPUTE jtemp68 = 50
+                COMPUTE JDISCARD = FUNCTION PrgrssCnvs-addNormalPortion2(J-progressCanvas, jtemp68, FUNCTION JR-STR("Demo Thread Running"))
+            END-IF
+            COMPUTE JDISCARD = FUNCTION FullScreenUtil-initOnRun2(FUNCTION JR-GET(J-THIS, "f_fullScreenUtil"), J-THIS, FUNCTION MyCnvs-gtCstmCmmndLstnr0(J-THIS))
+            COMPUTE JDISCARD = FUNCTION StartCanvas-initMenu0(J-THIS)
+            COMPUTE JDISCARD = FUNCTION StartCanvas-initPostPaint0(J-THIS)
+            COMPUTE JDISCARD = FUNCTION StartCanvas-updateDemoState0(J-THIS)
+            IF (FUNCTION Features-isDefault1(FUNCTION JR-GET(J-THIS, "f_features"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_openGLFeatureFactory"), "f_OPENGL_AS_GAME_THREAD")) = 1)
+                COMPUTE jtemp69 = FUNCTION OpenGLThreadUtil-getInstance0
+                COMPUTE JDISCARD = FUNCTION OpenGLThreadUtil-onResume0(jtemp69)
+            END-IF
+            IF ((FUNCTION Features-isDefault1(FUNCTION JR-GET(J-THIS, "f_features"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_openGLFeatureFactory"), "f_OPENGL_AS_GAME_THREAD")) = 1) OR (FUNCTION J2MEUtil-isHTML0 = 1))
+                CONTINUE
+            ELSE
+                PERFORM FOREVER
+                    IF NOT (FUNCTION RunnableCanvas-isRunning0(J-THIS) = 1) EXIT PERFORM END-IF
+                    COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_loopTimeHelper"))
+                    COMPUTE JDISCARD = FUNCTION StartCanvas-processGame0(J-THIS)
+                    COMPUTE JDISCARD = FUNCTION RnnblCnvs-processLoopSleep0(J-THIS)
+                END-PERFORM
+                COMPUTE JDISCARD = FUNCTION StartCanvas-end0(J-THIS)
+            END-IF
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+    GOBACK.
+END FUNCTION StartCanvas-run0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-setRunning1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-currentDisplayableFactory BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-running BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-running RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION RunnableCanvas-setRunning1(J-THIS, J-running)
+        CONTINUE
+            IF ((((FUNCTION Features-isDefault1(FUNCTION JR-GET(J-THIS, "f_features"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_openGLFeatureFactory"), "f_OPENGL")) = 1) OR (FUNCTION J2MEUtil-isHTML0 = 1))) AND (NOT (J-running = 1)))
+                COMPUTE J-currentDisplayableFactory = FUNCTION CrrntDsplyblFctry-getInstance0
+                COMPUTE JDISCARD = FUNCTION CrrntDsplyblFctry-clrRnnbl0(J-currentDisplayableFactory)
+                COMPUTE JDISCARD = FUNCTION StartCanvas-end0(J-THIS)
+            END-IF
+    GOBACK.
+END FUNCTION StartCanvas-setRunning1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-end0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-progressCanvas BINARY-DOUBLE.
+01 jtemp70 BINARY-DOUBLE.
+01 jtemp71 BINARY-DOUBLE.
+01 jtemp72 BINARY-DOUBLE.
+01 jtemp73 BINARY-DOUBLE.
+01 jtemp74 BINARY-DOUBLE.
+01 jtemp75 BINARY-DOUBLE.
+01 jtemp76 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-progressCanvas = FUNCTION PrgrssCnvsFctry-getInstance0
+        COMPUTE jtemp73 = FUNCTION StringMaker-new0
+        COMPUTE jtemp74 = FUNCTION CommonSeps-getInstance0
+        COMPUTE jtemp72 = FUNCTION StringMaker-append1(jtemp73, FUNCTION StrtCnvs-sttc-BOT-GAME69014)
+        COMPUTE jtemp71 = FUNCTION StringMaker-append1(jtemp72, FUNCTION JR-TO-STRING(FUNCTION JR-GET(J-THIS, "f_baseGameStatistics")))
+        COMPUTE jtemp70 = FUNCTION StringMaker-append1(jtemp71, FUNCTION JR-GET(jtemp74, "f_NEW_LINE"))
+        COMPUTE JDISCARD = FUNCTION BaseGameStatistics-add1(FUNCTION JR-GET(J-THIS, "f_baseGameStatistics"), FUNCTION JR-TO-STRING(jtemp70))
+        COMPUTE JDISCARD = FUNCTION BaseGameStatistics-init0(FUNCTION JR-GET(J-THIS, "f_baseGameStatistics"))
+        COMPUTE jtemp75 = FUNCTION MnFtrFctry-getInstance0
+        IF (FUNCTION Features-isFeature1(FUNCTION JR-GET(J-THIS, "f_features"), FUNCTION JR-GET(jtemp75, "f_LOAD_ONDEMAND")) = 1)
+            COMPUTE JDISCARD = FUNCTION ProgressCanvas-start0(J-progressCanvas)
+        END-IF
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        COMPUTE JDISCARD = FUNCTION StartCanvas-close0(J-THIS)
+        COMPUTE jtemp76 = FUNCTION DsplyChngEvntHndlr-gtInstnc0
+        COMPUTE JDISCARD = FUNCTION BscEvntHndlr-removeListener1(jtemp76, J-THIS)
+    GOBACK.
+END FUNCTION StartCanvas-end0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-setGameState1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameState BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gameState RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION StartCanvas-setGameState1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-getGameState0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameStateFactory"), "f_PLAYING_GAME_STATE")
+        GOBACK
+    GOBACK.
+END FUNCTION StartCanvas-getGameState0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-getState0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_state")
+        GOBACK
+    GOBACK.
+END FUNCTION StartCanvas-getState0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-setState1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-state BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-state RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-state
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_state", JVALUE)
+    GOBACK.
+END FUNCTION StartCanvas-setState1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrtCnvs-isHighScoreSubmitted0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION StrtCnvs-isHighScoreSubmitted0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrtCnvs-gtRlHghScrsPntbl0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_realHighScoresPaintable")
+        GOBACK
+    GOBACK.
+END FUNCTION StrtCnvs-gtRlHghScrsPntbl0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrtCnvs-stSpclAnmtnIntrfc1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp77 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-specialAnimationInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-specialAnimationInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp77 = 0
+        COMPUTE JDISCARD = FUNCTION IndexedAnimation-setFrame1(J-specialAnimationInterface, jtemp77)
+        COMPUTE JVALUE = J-specialAnimationInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_specialAnimationInterface", JVALUE)
+    GOBACK.
+END FUNCTION StrtCnvs-stSpclAnmtnIntrfc1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrtCnvs-gtSpclAnmtnIntrfc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_specialAnimationInterface")
+        GOBACK
+    GOBACK.
+END FUNCTION StrtCnvs-gtSpclAnmtnIntrfc0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrtCnvs-stPntblIntrfc1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-paintableInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-paintableInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-paintableInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_paintableInterface", JVALUE)
+    GOBACK.
+END FUNCTION StrtCnvs-stPntblIntrfc1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrtCnvs-gtPntblIntrfc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_paintableInterface")
+        GOBACK
+    GOBACK.
+END FUNCTION StrtCnvs-gtPntblIntrfc0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrtCnvs-stDfltPntblIntrfc1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-defaultPaintableInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-defaultPaintableInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-defaultPaintableInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_defaultPaintableInterface", JVALUE)
+    GOBACK.
+END FUNCTION StrtCnvs-stDfltPntblIntrfc1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrtCnvs-gtDfltPntblIntrfc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_defaultPaintableInterface")
+        GOBACK
+    GOBACK.
+END FUNCTION StrtCnvs-gtDfltPntblIntrfc0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrtCnvs-gtHghScrsFctryIntrfc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_highScoresFactoryInterface")
+        GOBACK
+    GOBACK.
+END FUNCTION StrtCnvs-gtHghScrsFctryIntrfc0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrtCnvs-stMnInptPrcssr1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-menuInputProcessor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-menuInputProcessor RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-menuInputProcessor
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_menuInputProcessor", JVALUE)
+    GOBACK.
+END FUNCTION StrtCnvs-stMnInptPrcssr1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrtCnvs-gtMnInptPrcssr0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_menuInputProcessor")
+        GOBACK
+    GOBACK.
+END FUNCTION StrtCnvs-gtMnInptPrcssr0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-getMenuForm0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_menuForm")
+        GOBACK
+    GOBACK.
+END FUNCTION StartCanvas-getMenuForm0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-setMenuForm1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-menuForm BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-menuForm RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-menuForm
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_menuForm", JVALUE)
+    GOBACK.
+END FUNCTION StartCanvas-setMenuForm1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-isInitialized0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_initialized")
+        GOBACK
+    GOBACK.
+END FUNCTION StartCanvas-isInitialized0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrtCnvs-getOverlayPaintable0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_overlayPaintable")
+        GOBACK
+    GOBACK.
+END FUNCTION StrtCnvs-getOverlayPaintable0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrtCnvs-stBscGmDmPntbl1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-basicGameDemoPaintable BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-basicGameDemoPaintable RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-basicGameDemoPaintable
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicGameDemoPaintable", JVALUE)
+    GOBACK.
+END FUNCTION StrtCnvs-stBscGmDmPntbl1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrtCnvs-gtBscGmDmPntbl0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_basicGameDemoPaintable")
+        GOBACK
+    GOBACK.
+END FUNCTION StrtCnvs-gtBscGmDmPntbl0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-setTempWait1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-tempWait BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-tempWait RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-tempWait
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_tempWait", JVALUE)
+    GOBACK.
+END FUNCTION StartCanvas-setTempWait1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-getTempWait0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_tempWait")
+        GOBACK
+    GOBACK.
+END FUNCTION StartCanvas-getTempWait0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-isSingleThread0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp78 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp78 = FUNCTION OpenGLFeatureUtil-getInstance0
+        COMPUTE J-RESULT = FUNCTION MAX(FUNCTION OpenGLFeatureUtil-isAnyThreed0(jtemp78), FUNCTION SWTUtil-static-isSWT)
+        GOBACK
+    GOBACK.
+END FUNCTION StartCanvas-isSingleThread0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrtCnvs-isRnnngInAnthrThrd0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-features BINARY-DOUBLE.
+01 J-openGLFeatureFactory BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-features = FUNCTION Features-getInstance0
+        COMPUTE J-openGLFeatureFactory = FUNCTION OpnGLFtrFctry-getInstance0
+        IF (FUNCTION Features-isDefault1(J-features, FUNCTION JR-GET(J-openGLFeatureFactory, "f_OPENGL_AS_GAME_THREAD")) = 1)
+            COMPUTE J-RESULT = 1
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = FUNCTION RunnableCanvas-isRunning0(J-THIS)
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION StrtCnvs-isRnnngInAnthrThrd0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrtCnvs-gtGmIntlztnIntrf43461.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_gameInitializationInterfaceFactoryInterface")
+        GOBACK
+    GOBACK.
+END FUNCTION StrtCnvs-gtGmIntlztnIntrf43461.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-getTitle0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION Canvas-getTitle0(J-THIS)
+        GOBACK
+    GOBACK.
+END FUNCTION StartCanvas-getTitle0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-isPaused0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION MyCanvas-isPaused0(J-THIS)
+        GOBACK
+    GOBACK.
+END FUNCTION StartCanvas-isPaused0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StartCanvas-getType0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION RunnableCanvas-getType0(J-THIS)
+        GOBACK
+    GOBACK.
+END FUNCTION StartCanvas-getType0.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. StartCanvas-run.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION StartCanvas-run0(J-THIS)
+    GOBACK.
+END PROGRAM StartCanvas-run.
 

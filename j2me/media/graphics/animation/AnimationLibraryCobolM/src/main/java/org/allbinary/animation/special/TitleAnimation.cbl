@@ -1,237 +1,546 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.special
+*> Java class TitleAnimation
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.special
-unit TitleAnimation;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, AnimationBehavior, IndexedAnimation, BasicColor, DisplayInfoSingleton, ABSystemWrapper, SpecialAnimation;
-
-type
-  {AB:TYPES}
-  TTitleAnimation = class(TSpecialAnimation)
-  public
-    systemWrapper: TABSystemWrapper;
-    deltaX: Single;
-    deltaY: Single;
-    deltaZ: Single;
-    basicColorArray: TArray<TBasicColor>;
-    dxArray: TArray<Integer>;
-    dyArray: TArray<Integer>;
-    widthP: Integer;
-    animationInterfaceArray: TArray<TIndexedAnimation>;
-    sizeP: Integer;
-    y: Integer;
-    lastFrameStartTime: Int64;
-    displayInfoSingleton: TDisplayInfoSingleton;
-    CLEAR_COLOR: TBasicColor;
-    procedure InitFields;
-        class function createAnimation(animationInterfaceArray: TArray<TIndexedAnimation>; basicColorArray: TArray<TBasicColor>; dxArray: TArray<Integer>; dyArray: TArray<Integer>; y: Integer; width: Integer): TTitleAnimation; static;
-        constructor Create(animationInterfaceArray: TArray<TIndexedAnimation>; basicColorArray: TArray<TBasicColor>; dxArray: TArray<Integer>; dyArray: TArray<Integer>; y: Integer; width: Integer; animationBehavior_: TAnimationBehavior);
-        procedure nextFrame; override;
-        function isComplete: Boolean; override;
-        procedure setSequence(sequence: TArray<Integer>); override;
-        function getSequence: TArray<Integer>; override;
-        function getSize: Integer; override;
-        function getFrame: Integer; override;
-        procedure setFrame(frame: Integer); override;
-        procedure setLastFrame; override;
-        procedure reset; override;
-        procedure previousFrame; override;
-        procedure paintFrameXY(graphics_: TGraphics; frame: Integer; x: Integer; y: Integer); virtual;
-        procedure paintXY(graphics_: TGraphics; ax: Integer; ay: Integer); override;
-  end;
-
-implementation
-uses
-  IndexedAnimationBehavior, BasicColorFactory, PrimitiveIntUtil;
-
-
-{AB:CODE}
-
-procedure TTitleAnimation.InitFields;
-begin
-  Self.systemWrapper := TABSystemWrapper.getInstance();
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  Self.displayInfoSingleton := TDisplayInfoSingleton.getInstance();
-  Self.CLEAR_COLOR := TBasicColorFactory.getInstance().CLEAR_COLOR;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TitleAnimation-new7.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-animationInterfaceArray BINARY-DOUBLE.
+01 J-basicColorArray BINARY-DOUBLE.
+01 J-dxArray BINARY-DOUBLE.
+01 J-dyArray BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-animationBehavior BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-animationInterfaceArray J-basicColorArray J-dxArray J-dyArray J-y J-width J-animationBehavior RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("TitleAnimation")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_systemWrapper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_deltaX")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_deltaY")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_deltaZ")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_basicColorArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_dxArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_dyArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_widthP")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_animationInterfaceArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_sizeP")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_y")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_lastFrameStartTime")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_displayInfoSingleton")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_CLEAR_COLOR")
+    COMPUTE JVALUE = FUNCTION ABSystemWrapper-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_systemWrapper", JVALUE)
     
-
-class function TTitleAnimation.createAnimation(animationInterfaceArray: TArray<TIndexedAnimation>; basicColorArray: TArray<TBasicColor>; dxArray: TArray<Integer>; dyArray: TArray<Integer>; y: Integer; width: Integer): TTitleAnimation;
-begin
-        Exit(TTitleAnimation.Create(animationInterfaceArray, basicColorArray, dxArray, dyArray, y, width, TIndexedAnimationBehavior.Create(1, 250)));
-end;
     
-
-constructor TTitleAnimation.Create(animationInterfaceArray: TArray<TIndexedAnimation>; basicColorArray: TArray<TBasicColor>; dxArray: TArray<Integer>; dyArray: TArray<Integer>; y: Integer; width: Integer; animationBehavior_: TAnimationBehavior);
-begin
-        inherited Create(animationBehavior_);
-        InitFields;
-        Self.lastFrameStartTime := Self.systemWrapper.currentTimeMillis();
-        Self.animationInterfaceArray := animationInterfaceArray;
-        Self.sizeP := System.Length(Self.animationInterfaceArray);
-        Self.basicColorArray := basicColorArray;
-        Self.dxArray := dxArray;
-        Self.dyArray := dyArray;
-        Self.y := y;
-        Self.widthP := width;
-        Self.reset();
-end;
     
-
-procedure TTitleAnimation.nextFrame;
-var
-  currentTime: Int64;
-  totalTimeElapsed: Int64;
-  indexedAnimationBehavior_: TIndexedAnimationBehavior;
-begin
-        currentTime := Self.systemWrapper.currentTimeMillis();
-        totalTimeElapsed := (currentTime) - (Self.lastFrameStartTime);
-        indexedAnimationBehavior_ := TIndexedAnimationBehavior(TJava.ToObject(Self.getAnimationBehavior()));
-        if (totalTimeElapsed) > (indexedAnimationBehavior_.frameDelayTime) then begin
-            Self.previousFrame();
-            Self.lastFrameStartTime := currentTime;
-        end;
-        if (Self.animationInterfaceArray[0].getFrame()) = (0) then begin
-            Inc(indexedAnimationBehavior_.loopIndex);
-        end;
-end;
     
-
-function TTitleAnimation.isComplete: Boolean;
-var
-  indexedAnimationBehavior_: TIndexedAnimationBehavior;
-begin
-        indexedAnimationBehavior_ := TIndexedAnimationBehavior(TJava.ToObject(Self.getAnimationBehavior()));
-        if (((indexedAnimationBehavior_.loopTotal) = (-1)) or ((indexedAnimationBehavior_.loopIndex) < (indexedAnimationBehavior_.loopTotal))) or ((Self.getFrame()) <> (0)) then begin
-            Exit(False);
-        end else begin
-            Exit(True);
-        end;
-end;
     
-
-procedure TTitleAnimation.setSequence(sequence: TArray<Integer>);
-begin
-end;
     
-
-function TTitleAnimation.getSequence: TArray<Integer>;
-begin
-        Exit(TPrimitiveIntUtil.getArrayInstance());
-end;
     
-
-function TTitleAnimation.getSize: Integer;
-begin
-        Exit(Self.animationInterfaceArray[0].getSize());
-end;
     
-
-function TTitleAnimation.getFrame: Integer;
-begin
-        Exit(Self.animationInterfaceArray[0].getFrame());
-end;
     
-
-procedure TTitleAnimation.setFrame(frame: Integer);
-var
-  index: Integer;
-begin
-        for index := 0 to Self.sizeP - 1 do begin
-            Self.animationInterfaceArray[index].setFrame(frame);
-        end;
-end;
     
-
-procedure TTitleAnimation.setLastFrame;
-begin
-        Self.setFrame((Self.getSize()) - (1));
-end;
     
+    COMPUTE JVALUE = FUNCTION DsplyInfSngltn-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_displayInfoSingleton", JVALUE)
+    COMPUTE jtemp7 = FUNCTION BasicColorFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp7, "f_CLEAR_COLOR")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_CLEAR_COLOR", JVALUE)
+        CONTINUE
+        COMPUTE JVALUE = FUNCTION ABSystmWrppr-crrntTmMlls0(FUNCTION JR-GET(J-THIS, "f_systemWrapper"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lastFrameStartTime", JVALUE)
+        COMPUTE JVALUE = J-animationInterfaceArray
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animationInterfaceArray", JVALUE)
+        COMPUTE JVALUE = FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_animationInterfaceArray"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_sizeP", JVALUE)
+        COMPUTE JVALUE = J-basicColorArray
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicColorArray", JVALUE)
+        COMPUTE JVALUE = J-dxArray
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_dxArray", JVALUE)
+        COMPUTE JVALUE = J-dyArray
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_dyArray", JVALUE)
+        COMPUTE JVALUE = J-y
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_y", JVALUE)
+        COMPUTE JVALUE = J-width
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_widthP", JVALUE)
+        COMPUTE JDISCARD = FUNCTION TitleAnimation-reset0(J-THIS)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION TitleAnimation-new7.
 
-procedure TTitleAnimation.reset;
-var
-  indexedAnimationBehavior_: TIndexedAnimationBehavior;
-begin
-        Self.setLastFrame();
-        indexedAnimationBehavior_ := (TIndexedAnimationBehavior(TJava.ToObject(Self.getAnimationBehavior())));
-        indexedAnimationBehavior_.reset();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TtlAnmtn-createAnimation6.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-animationInterfaceArray BINARY-DOUBLE.
+01 J-basicColorArray BINARY-DOUBLE.
+01 J-dxArray BINARY-DOUBLE.
+01 J-dyArray BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-animationInterfaceArray J-basicColorArray J-dxArray J-dyArray J-y J-width RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = 1
+        COMPUTE jtemp2 = 250
+        COMPUTE J-RESULT = FUNCTION TitleAnimation-new7(J-animationInterfaceArray, J-basicColorArray, J-dxArray, J-dyArray, J-y, J-width, FUNCTION IndexedAnimationBehavior-new2(jtemp1, jtemp2))
+        GOBACK
+    GOBACK.
+END FUNCTION TtlAnmtn-createAnimation6.
 
-procedure TTitleAnimation.previousFrame;
-var
-  index: Integer;
-begin
-        for index := 0 to Self.sizeP - 1 do begin
-            Self.animationInterfaceArray[index].previousFrame();
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TitleAnimation-nextFrame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-currentTime BINARY-DOUBLE.
+01 J-totalTimeElapsed BINARY-DOUBLE.
+01 J-indexedAnimationBehavior BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-currentTime = FUNCTION ABSystmWrppr-crrntTmMlls0(FUNCTION JR-GET(J-THIS, "f_systemWrapper"))
+        COMPUTE J-totalTimeElapsed = (J-currentTime - FUNCTION JR-GET(J-THIS, "f_lastFrameStartTime"))
+        COMPUTE J-indexedAnimationBehavior = FUNCTION IndxdAnmtn-gtAnmtnBhvr0(J-THIS)
+        IF (J-totalTimeElapsed > FUNCTION JR-GET(J-indexedAnimationBehavior, "f_frameDelayTime"))
+            COMPUTE JDISCARD = FUNCTION TitleAnimation-previousFrame0(J-THIS)
+            COMPUTE JVALUE = J-currentTime
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lastFrameStartTime", JVALUE)
+        END-IF
+        COMPUTE jtemp3 = 0
+        IF (FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_animationInterfaceArray"), jtemp3)) = 0)
+            COMPUTE JVALUE = (FUNCTION MOD(FUNCTION JR-GET(J-indexedAnimationBehavior, "f_loopIndex") + 1 + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-indexedAnimationBehavior, "f_loopIndex", JVALUE)
+        END-IF
+    GOBACK.
+END FUNCTION TitleAnimation-nextFrame0.
 
-procedure TTitleAnimation.paintFrameXY(graphics_: TGraphics; frame: Integer; x: Integer; y: Integer);
-begin
-        Self.setFrame(frame);
-        Self.paintXY(graphics_, x, y);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TitleAnimation-isComplete0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-indexedAnimationBehavior BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-indexedAnimationBehavior = FUNCTION IndxdAnmtn-gtAnmtnBhvr0(J-THIS)
+        IF (((FUNCTION JR-GET(J-indexedAnimationBehavior, "f_loopTotal") = (0 - 1)) OR (FUNCTION JR-GET(J-indexedAnimationBehavior, "f_loopIndex") < FUNCTION JR-GET(J-indexedAnimationBehavior, "f_loopTotal"))) OR (FUNCTION
+        TitleAnimation-getFrame0(J-THIS) NOT = 0))
+            COMPUTE J-RESULT = 0
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = 1
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION TitleAnimation-isComplete0.
 
-procedure TTitleAnimation.paintXY(graphics_: TGraphics; ax: Integer; ay: Integer);
-var
-  x: Integer;
-  deltaX: Integer;
-  deltaY: Integer;
-  index: Integer;
-begin
-        x := 0;
-        if (Self.widthP) <> (Low(Integer)) then begin
-            x := (TJava.Divide(((Self.displayInfoSingleton.getLastWidth()) - (Self.widthP)), 2));
-        end;
-        
-        
-        for index := 0 to Self.sizeP - 1 do begin
-            deltaX := (Self.dxArray[index]) + (x);
-            deltaY := (Self.dyArray[index]) + (Self.y);
-            if (Self.basicColorArray[index]) <> (Self.CLEAR_COLOR) then begin
-                Self.basicSetColorUtil.setBasicColorP(graphics_, Self.basicColorArray[index]);
-            end;
-            Self.animationInterfaceArray[index].paintXY(graphics_, deltaX, deltaY);
-        end;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TitleAnimation-setSequence1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-sequence BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-sequence RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION TitleAnimation-setSequence1.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TitleAnimation-getSequence0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION PrmtvIntUtl-getArrayInstance0
+        GOBACK
+    GOBACK.
+END FUNCTION TitleAnimation-getSequence0.
 
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TitleAnimation-getSize0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp4 = 0
+        COMPUTE J-RESULT = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_animationInterfaceArray"), jtemp4))
+        GOBACK
+    GOBACK.
+END FUNCTION TitleAnimation-getSize0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TitleAnimation-getFrame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp5 = 0
+        COMPUTE J-RESULT = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_animationInterfaceArray"), jtemp5))
+        GOBACK
+    GOBACK.
+END FUNCTION TitleAnimation-getFrame0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TitleAnimation-setFrame1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-index BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-frame BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-frame RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < FUNCTION JR-GET(J-THIS, "f_sizeP")) EXIT PERFORM END-IF
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_animationInterfaceArray"), J-index))
+        END-PERFORM
+    GOBACK.
+END FUNCTION TitleAnimation-setFrame1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TitleAnimation-setLastFrame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp6 = (FUNCTION MOD((FUNCTION TitleAnimation-getSize0(J-THIS) - 1) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION TitleAnimation-setFrame1(J-THIS, jtemp6)
+    GOBACK.
+END FUNCTION TitleAnimation-setLastFrame0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TitleAnimation-reset0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-indexedAnimationBehavior BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION TitleAnimation-setLastFrame0(J-THIS)
+        COMPUTE J-indexedAnimationBehavior = (FUNCTION IndxdAnmtn-gtAnmtnBhvr0(J-THIS))
+        COMPUTE JDISCARD = FUNCTION IndxdAnmtnBhvr-reset0(J-indexedAnimationBehavior)
+    GOBACK.
+END FUNCTION TitleAnimation-reset0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TitleAnimation-previousFrame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-index BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST2
+        PERFORM FOREVER
+            IF JFIRST2 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST2
+            IF NOT (J-index < FUNCTION JR-GET(J-THIS, "f_sizeP")) EXIT PERFORM END-IF
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_animationInterfaceArray"), J-index))
+        END-PERFORM
+    GOBACK.
+END FUNCTION TitleAnimation-previousFrame0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TitleAnimation-paintFrameXY4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-frame BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-frame J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION TitleAnimation-setFrame1(J-THIS, J-frame)
+        COMPUTE JDISCARD = FUNCTION TitleAnimation-paintXY3(J-THIS, J-graphics, J-x, J-y)
+    GOBACK.
+END FUNCTION TitleAnimation-paintFrameXY4.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TitleAnimation-paintXY3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-x BINARY-DOUBLE.
+01 J-deltaX BINARY-DOUBLE.
+01 J-deltaY BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 JFIRST3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-ax BINARY-DOUBLE.
+01 J-ay BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-ax J-ay RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-x = 0
+        IF (FUNCTION JR-GET(J-THIS, "f_widthP") NOT = FUNCTION Integer-static-MIN-VALUE)
+            COMPUTE J-x = ((FUNCTION MOD(FUNCTION INTEGER-PART(((FUNCTION MOD((FUNCTION DsplyInfSngltn-getLastWidth0(FUNCTION JR-GET(J-THIS, "f_displayInfoSingleton")) - FUNCTION JR-GET(J-THIS, "f_widthP")) + 2147483648, 4294967296) -
+        2147483648)) / 2) + 2147483648, 4294967296) - 2147483648))
+        END-IF
+        CONTINUE
+        CONTINUE
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST3
+        PERFORM FOREVER
+            IF JFIRST3 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST3
+            IF NOT (J-index < FUNCTION JR-GET(J-THIS, "f_sizeP")) EXIT PERFORM END-IF
+            COMPUTE J-deltaX = (FUNCTION MOD((FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_dxArray"), J-index) + J-x) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE J-deltaY = (FUNCTION MOD((FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_dyArray"), J-index) + FUNCTION JR-GET(J-THIS, "f_y")) + 2147483648, 4294967296) - 2147483648)
+            IF (FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_basicColorArray"), J-index) NOT = FUNCTION JR-GET(J-THIS, "f_CLEAR_COLOR"))
+                COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_basicSetColorUtil"))
+            END-IF
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_animationInterfaceArray"), J-index))
+        END-PERFORM
+    GOBACK.
+END FUNCTION TitleAnimation-paintXY3.
 

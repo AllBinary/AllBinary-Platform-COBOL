@@ -1,77 +1,162 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2022 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.media
+*> Java class ScaleProperties
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SclPrprts-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ScaleProperties-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 ScaleProperties-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF ScaleProperties-jset-instance = 0
+        MOVE 1 TO ScaleProperties-jset-instance
+        COMPUTE ScaleProperties-jcell-instance = FUNCTION ScaleProperties-new0
+    END-IF
+    MOVE ScaleProperties-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION SclPrprts-static-instance.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SclPrprtsstaticinstaS81401.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ScaleProperties-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION SclPrprts-static-instance TO J-RESULT
+    MOVE J-VALUE TO ScaleProperties-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION SclPrprtsstaticinstaS81401.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScaleProperties-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ScaleProperties")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_scaleX")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_scaleY")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_scaleWidth")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_scaleHeight")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_shouldScale")
+    COMPUTE JVALUEF = 1.0
+    COMPUTE JDISCARD = FUNCTION JR-SETF(J-THIS, "f_scaleX", JVALUEF)
+    COMPUTE JVALUEF = 1.0
+    COMPUTE JDISCARD = FUNCTION JR-SETF(J-THIS, "f_scaleY", JVALUEF)
     
-}
-// Generated Code Do Not Modify
-// package org.allbinary.media
-unit ScaleProperties;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
-
-type
-  {AB:TYPES}
-  TScaleProperties = class(TObject)
-  public
-    scaleX: Single;
-    scaleY: Single;
-    scaleWidth: Integer;
-    scaleHeight: Integer;
-    shouldScale: Boolean;
-    class var instance: TScaleProperties;
-    procedure InitFields;
-    constructor Create;
-        function toString: string; virtual;
-  end;
-
-implementation
-uses
-  StringMaker, CommonLabels;
-
-
-{AB:CODE}
-
-procedure TScaleProperties.InitFields;
-begin
-  Self.scaleX := 1.0;
-  Self.scaleY := 1.0;
-  
-  
-  
-end;
-
-constructor TScaleProperties.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
     
+    
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ScaleProperties-new0.
 
-function TScaleProperties.toString: string;
-begin
-        Exit(TStringMaker.Create().append(TCommonLabels.getInstance().COLON_SEP).appendboolean(Self.shouldScale).append('scaleX: ').appendfloat(Self.scaleX).append('scaleY: ').appendfloat(Self.scaleY).append('scaleWidth: ').appendint(Self.scaleWidth).append('scaleHeight: ').appendint(Self.scaleHeight).toString());
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScaleProperties-toString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp12 = FUNCTION CommonLabels-getInstance0
+        COMPUTE jtemp11 = FUNCTION StringMaker-new0
+        COMPUTE jtemp10 = FUNCTION StringMaker-append1(jtemp11, FUNCTION JR-GET(jtemp12, "f_COLON_SEP"))
+        COMPUTE jtemp9 = FUNCTION StringMaker-appendboolean1(jtemp10, FUNCTION JR-GET(J-THIS, "f_shouldScale"))
+        COMPUTE jtemp8 = FUNCTION StringMaker-append1(jtemp9, FUNCTION JR-STR("scaleX: "))
+        COMPUTE jtemp7 = FUNCTION StringMaker-appendfloat1(jtemp8, FUNCTION JR-GETF(J-THIS, "f_scaleX"))
+        COMPUTE jtemp6 = FUNCTION StringMaker-append1(jtemp7, FUNCTION JR-STR("scaleY: "))
+        COMPUTE jtemp5 = FUNCTION StringMaker-appendfloat1(jtemp6, FUNCTION JR-GETF(J-THIS, "f_scaleY"))
+        COMPUTE jtemp4 = FUNCTION StringMaker-append1(jtemp5, FUNCTION JR-STR("scaleWidth: "))
+        COMPUTE jtemp3 = FUNCTION StringMaker-appendint1(jtemp4, FUNCTION JR-GET(J-THIS, "f_scaleWidth"))
+        COMPUTE jtemp2 = FUNCTION StringMaker-append1(jtemp3, FUNCTION JR-STR("scaleHeight: "))
+        COMPUTE jtemp1 = FUNCTION StringMaker-appendint1(jtemp2, FUNCTION JR-GET(J-THIS, "f_scaleHeight"))
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(jtemp1)
+        GOBACK
+    GOBACK.
+END FUNCTION ScaleProperties-toString0.
 
-initialization
-  {AB:INITIALIZATION}
-  TScaleProperties.instance := TScaleProperties.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+PROGRAM-ID. ScaleProperties-toString.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ScaleProperties-toString0(J-THIS)
+    GOBACK.
+END PROGRAM ScaleProperties-toString.
 

@@ -1,286 +1,733 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.input.mapping
+*> Java class InputToGameKeyMapping
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.input.mapping
-unit InputToGameKeyMapping;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InptTGmKyMppng-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 InputToGameKeyMapping-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 InputToGameKeyMapping-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF InputToGameKeyMapping-jset-instance = 0
+        MOVE 1 TO InputToGameKeyMapping-jset-instance
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE InputToGameKeyMapping-jcell-instance = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+    END-IF
+    MOVE InputToGameKeyMapping-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION InptTGmKyMppng-sttc-nstnc.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InptTGmKyMppngsttcnsS30014.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 InputToGameKeyMapping-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION InptTGmKyMppng-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO InputToGameKeyMapping-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION InptTGmKyMppngsttcnsS30014.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InputToGameKeyMapping-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("InputToGameKeyMapping")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameKeyFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_mappedGameKeys")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_platformToGameKeyMapping")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_negativePlatformToGameKeyMapping")
+    COMPUTE JVALUE = FUNCTION GameKeyFactory-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameKeyFactory", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-NEW-ARRAY(JZERO), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_UP")), FUNCTION JR-GET(FUNCTION
+        JR-GET(J-THIS, "f_gameKeyFactory"), "f_DOWN")), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_LEFT")), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_RIGHT"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_mappedGameKeys", JVALUE)
+    COMPUTE jtemp3 = FUNCTION InputFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY(FUNCTION JR-GET(jtemp3, "f_MAX"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_platformToGameKeyMapping", JVALUE)
+    COMPUTE jtemp4 = 0
+    COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY(jtemp4)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_negativePlatformToGameKeyMapping", JVALUE)
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-clear0(J-THIS)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION InputToGameKeyMapping-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Canvas, GameKey, GameKeyFactory, Input, BasicArrayList, InputMapping;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InptTGmKyMppng-gtNllInstnc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+        IF (FUNCTION InptTGmKyMppng-sttc-nstnc = FUNCTION JR-GET(jtemp2, "f_NULL_OBJECT"))
+            COMPUTE JDISCARD = FUNCTION InptTGmKyMppngsttcnsS30014(FUNCTION InputToGameKeyMapping-new0)
+        END-IF
+        COMPUTE J-RESULT = FUNCTION InptTGmKyMppng-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION InptTGmKyMppng-gtNllInstnc0.
 
-type
-  {AB:TYPES}
-  TInputToGameKeyMapping = class(TInputMapping)
-  public
-    gameKeyFactory: TGameKeyFactory;
-    mappedGameKeys: TArray<TGameKey>;
-    platformToGameKeyMapping: TArray<TGameKey>;
-    negativePlatformToGameKeyMapping: TArray<TGameKey>;
-    class var instance: TObject;
-    procedure InitFields;
-        class function getNullInstance: TInputToGameKeyMapping; static;
-        constructor Create;
-        procedure clear;
-        procedure removeAll; override;
-        procedure addMapping(inputToGameKeyMapping_: TInputToGameKeyMapping); override;
-        procedure addAll(input_: TInput; list: TBasicArrayList);
-        procedure add(input_: TInput; mappedToInput: TInput); override;
-        procedure remove(input_: TInput; mappedToInput: TInput); override;
-        procedure set_(input_: TInput; mappedToInput: TInput);
-        function getMaxMappable: Integer; virtual;
-        function getReverseInstance(id: Integer): TBasicArrayList; virtual;
-        procedure initGameKey(canvas_: TCanvas; gameKey_: TGameKey);
-        function getSmallestCanvasGameKeyCode(canvas_: TCanvas): Integer;
-        procedure init(canvas_: TCanvas); virtual;
-        function getInstanceForCanvas(canvas_: TCanvas; id: Integer): TGameKey; virtual;
-        function getInstance(id: Integer): TGameKey; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InputToGameKeyMapping-clear0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-index BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-index = (FUNCTION MOD((FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_platformToGameKeyMapping")) - 1) + 2147483648, 4294967296) - 2147483648)
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index >= 0) EXIT PERFORM END-IF
+            COMPUTE JVALUE = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_NONE")
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_platformToGameKeyMapping"), J-index, JVALUE)
+        END-PERFORM
+    GOBACK.
+END FUNCTION InputToGameKeyMapping-clear0.
 
-implementation
-uses
-  InputFactory, NullUtil, PreLogUtil, StringMaker, StringUtil, CommonLabels, CommonSeps, BasicArrayListD;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InptTGmKyMppng-removeAll0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION InputMapping-removeAll0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-clear0(J-THIS)
+    GOBACK.
+END FUNCTION InptTGmKyMppng-removeAll0.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InptTGmKyMppng-addMapping1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-input BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-inputToGameKeyMapping BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-inputToGameKeyMapping RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-index = (FUNCTION MOD((FUNCTION InptTGmKyMppng-getMaxMappable0(J-inputToGameKeyMapping) - 1) + 2147483648, 4294967296) - 2147483648)
+        MOVE 1 TO JFIRST2
+        PERFORM FOREVER
+            IF JFIRST2 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST2
+            IF NOT (J-index >= 0) EXIT PERFORM END-IF
+            COMPUTE J-input = FUNCTION InptTGmKyMppng-getInstance1(J-inputToGameKeyMapping, J-index)
+            IF (J-input NOT = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_NONE"))
+                COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-addAll2(J-THIS, J-input, FUNCTION InputMapping-getMappedInput1(J-inputToGameKeyMapping, J-input))
+            END-IF
+        END-PERFORM
+    GOBACK.
+END FUNCTION InptTGmKyMppng-addMapping1.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InputToGameKeyMapping-addAll2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-mappedToInput BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 JFIRST3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-input BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-input J-list RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-index = (FUNCTION MOD((FUNCTION BasicArrayList-size0(J-list) - 1) + 2147483648, 4294967296) - 2147483648)
+        MOVE 1 TO JFIRST3
+        PERFORM FOREVER
+            IF JFIRST3 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST3
+            IF NOT (J-index >= 0) EXIT PERFORM END-IF
+            COMPUTE J-mappedToInput = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
+            COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-THIS, J-input, J-mappedToInput)
+        END-PERFORM
+    GOBACK.
+END FUNCTION InputToGameKeyMapping-addAll2.
 
-procedure TInputToGameKeyMapping.InitFields;
-begin
-  Self.gameKeyFactory := TGameKeyFactory.getInstance();
-  Self.mappedGameKeys := TArray<TGameKey>.Create(Self.gameKeyFactory.UP, Self.gameKeyFactory.DOWN, Self.gameKeyFactory.LEFT, Self.gameKeyFactory.RIGHT);
-  Self.platformToGameKeyMapping := TJava.NewArray<TGameKey>(TInputFactory.getInstance().MAX);
-  Self.negativePlatformToGameKeyMapping := nil;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InputToGameKeyMapping-add2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-input BINARY-DOUBLE.
+01 J-mappedToInput BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-input J-mappedToInput RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION InputMapping-add2(J-THIS, J-input, J-mappedToInput)
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-set2(J-THIS, J-input, J-mappedToInput)
+    GOBACK.
+END FUNCTION InputToGameKeyMapping-add2.
 
-class function TInputToGameKeyMapping.getNullInstance: TInputToGameKeyMapping;
-begin
-        if (TInputToGameKeyMapping.instance) = (TNullUtil.getInstance().NULL_OBJECT) then begin
-            TInputToGameKeyMapping.instance := TInputToGameKeyMapping.Create();
-        end;
-        Exit(TInputToGameKeyMapping(TJava.ToObject(TInputToGameKeyMapping.instance)));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InputToGameKeyMapping-remove2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-input BINARY-DOUBLE.
+01 J-mappedToInput BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-input J-mappedToInput RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp10 = FUNCTION CommonLabels-getInstance0
+        COMPUTE jtemp11 = FUNCTION StringUtil-getInstance0
+        COMPUTE jtemp9 = FUNCTION StringMaker-new0
+        COMPUTE jtemp8 = FUNCTION StringMaker-append1(jtemp9, FUNCTION JR-GET(jtemp10, "f_START_LABEL"))
+        COMPUTE jtemp12 = FUNCTION StringUtil-getInstance0
+        COMPUTE jtemp7 = FUNCTION StringMaker-append1(jtemp8, FUNCTION StringUtil-toString1(jtemp11, J-input))
+        COMPUTE jtemp6 = FUNCTION StringMaker-append1(jtemp7, FUNCTION JR-STR(" == "))
+        COMPUTE jtemp5 = FUNCTION StringMaker-append1(jtemp6, FUNCTION StringUtil-toString1(jtemp12, J-mappedToInput))
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        COMPUTE JDISCARD = FUNCTION InputMapping-remove2(J-THIS, J-input, J-mappedToInput)
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-set2(J-THIS, J-input, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_NONE"))
+    GOBACK.
+END FUNCTION InputToGameKeyMapping-remove2.
 
-constructor TInputToGameKeyMapping.Create;
-begin
-    inherited Create;
-    InitFields;
-        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_);
-        Self.clear();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InputToGameKeyMapping-set2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-id BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-input BINARY-DOUBLE.
+01 J-mappedToInput BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-input J-mappedToInput RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-id = FUNCTION Input-getId0(J-mappedToInput)
+        IF ((J-id >= 0) AND (J-id < FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_platformToGameKeyMapping"))))
+            COMPUTE JVALUE = J-input
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_platformToGameKeyMapping"), J-id, JVALUE)
+        END-IF
+    GOBACK.
+END FUNCTION InputToGameKeyMapping-set2.
 
-procedure TInputToGameKeyMapping.clear;
-var
-  index: Integer;
-begin
-        for index := (System.Length(Self.platformToGameKeyMapping)) - (1) downto 0 do begin
-            Self.platformToGameKeyMapping[index] := Self.gameKeyFactory.NONE;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InptTGmKyMppng-getMaxMappable0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_platformToGameKeyMapping"))
+        GOBACK
+    GOBACK.
+END FUNCTION InptTGmKyMppng-getMaxMappable0.
 
-procedure TInputToGameKeyMapping.removeAll;
-begin
-        inherited removeAll();
-        Self.clear();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InptTGmKyMppng-gtRvrsInstnc1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-list BINARY-DOUBLE.
+01 J-inputFactory BINARY-DOUBLE.
+01 J-input BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 JFIRST4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-id BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-id RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-list = FUNCTION BasicArrayListD-new0
+        COMPUTE J-inputFactory = FUNCTION InputFactory-getInstance0
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST4
+        PERFORM FOREVER
+            IF JFIRST4 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST4
+            IF NOT (J-index < FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_platformToGameKeyMapping"))) EXIT PERFORM END-IF
+            IF (FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_platformToGameKeyMapping"), J-index)) = J-id)
+                COMPUTE J-input = FUNCTION InputFactory-getInstanceById1(J-inputFactory, J-index)
+                IF (J-input NOT = 0)
+                    COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-list, J-input)
+                END-IF
+            END-IF
+        END-PERFORM
+        COMPUTE J-RESULT = J-list
+        GOBACK
+    GOBACK.
+END FUNCTION InptTGmKyMppng-gtRvrsInstnc1.
 
-procedure TInputToGameKeyMapping.addMapping(inputToGameKeyMapping_: TInputToGameKeyMapping);
-var
-  input_: TInput;
-  index: Integer;
-begin
-        for index := (inputToGameKeyMapping_.getMaxMappable()) - (1) downto 0 do begin
-            input_ := inputToGameKeyMapping_.getInstance(index);
-            if (input_) <> (Self.gameKeyFactory.NONE) then begin
-                Self.addAll(input_, inputToGameKeyMapping_.getMappedInput(input_));
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InptTGmKyMppng-initGameKey2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-key BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+01 jtemp18 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-canvas BINARY-DOUBLE.
+01 J-gameKey BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-canvas J-gameKey RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-key = FUNCTION Canvas-getKeyCode1(J-canvas, FUNCTION Input-getId0(J-gameKey))
+        IF ((J-key < 0) AND ((0 - J-key) < FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_negativePlatformToGameKeyMapping"))))
+            COMPUTE jtemp18 = (0 - J-key)
+            COMPUTE JVALUE = J-gameKey
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_negativePlatformToGameKeyMapping"), jtemp18, JVALUE)
+        ELSE
+            IF (J-key > 0)
+            IF (FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_platformToGameKeyMapping"), J-key) = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_NONE"))
+                COMPUTE JVALUE = J-gameKey
+                COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_platformToGameKeyMapping"), J-key, JVALUE)
+            END-IF
+        ELSE
+            COMPUTE jtemp17 = FUNCTION CommonSeps-getInstance0
+            COMPUTE jtemp16 = FUNCTION StringMaker-new0
+            COMPUTE jtemp15 = FUNCTION StringMaker-append1(jtemp16, FUNCTION JR-TO-STRING(J-gameKey))
+            COMPUTE jtemp14 = FUNCTION StringMaker-append1(jtemp15, FUNCTION JR-GET(jtemp17, "f_COLON_SEP"))
+            COMPUTE jtemp13 = FUNCTION StringMaker-appendint1(jtemp14, J-key)
+            COMPUTE JDISCARD = FUNCTION PreLogUtil-putOE4(FUNCTION JR-TO-STRING(jtemp13), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_INIT"), FUNCTION JR-NEW-OBJECT("Exception"))
+        END-IF
+        END-IF
+    GOBACK.
+END FUNCTION InptTGmKyMppng-initGameKey2.
 
-procedure TInputToGameKeyMapping.addAll(input_: TInput; list: TBasicArrayList);
-var
-  mappedToInput: TInput;
-  index: Integer;
-begin
-        for index := (list.size()) - (1) downto 0 do begin
-            mappedToInput := TInput(TJava.ToObject(list.objectArray[index]));
-            Self.add(input_, mappedToInput);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InptTGmKyMppng-gtSmllstCn13918.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-nextKey BINARY-DOUBLE.
+01 J-smallestKey BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp19 BINARY-DOUBLE.
+01 JFIRST5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-canvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-canvas RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-nextKey = 0
+        COMPUTE J-smallestKey = 0
+        COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp19 = J-index
+        COMPUTE J-index = FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_mappedGameKeys"))
+        MOVE 1 TO JFIRST5
+        PERFORM FOREVER
+            MOVE 0 TO JFIRST5
+            IF NOT (jtemp19 >= 0) EXIT PERFORM END-IF
+            COMPUTE J-nextKey = FUNCTION Canvas-getKeyCode1(J-canvas, FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_mappedGameKeys"), J-index)))
+            IF (J-nextKey < J-smallestKey)
+                COMPUTE J-smallestKey = J-nextKey
+            END-IF
+        END-PERFORM
+        COMPUTE J-RESULT = J-smallestKey
+        GOBACK
+    GOBACK.
+END FUNCTION InptTGmKyMppng-gtSmllstCn13918.
 
-procedure TInputToGameKeyMapping.add(input_: TInput; mappedToInput: TInput);
-begin
-        inherited add(input_, mappedToInput);
-        Self.set_(input_, mappedToInput);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InputToGameKeyMapping-init1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-negativePlatformToGameKeyMapping BINARY-DOUBLE.
+01 J-smallestKey BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp20 BINARY-DOUBLE.
+01 jtemp21 BINARY-DOUBLE.
+01 jtemp22 BINARY-DOUBLE.
+01 jtemp23 BINARY-DOUBLE.
+01 JFIRST6 BINARY-DOUBLE.
+01 JFIRST7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-canvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-canvas RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE jtemp20 = 0
+            COMPUTE J-negativePlatformToGameKeyMapping = FUNCTION JR-NEW-ARRAY(jtemp20)
+            COMPUTE J-smallestKey = FUNCTION InptTGmKyMppng-gtSmllstCn13918(J-THIS, J-canvas)
+            IF (J-smallestKey < 0)
+                COMPUTE J-smallestKey = (FUNCTION MOD(J-smallestKey - 1 + 2147483648, 4294967296) - 2147483648)
+                IF (J-smallestKey < (0 - 256))
+                    COMPUTE J-smallestKey = (0 - 256)
+                END-IF
+                COMPUTE jtemp21 = (0 - J-smallestKey)
+                COMPUTE J-negativePlatformToGameKeyMapping = FUNCTION JR-NEW-ARRAY(jtemp21)
+                COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+                COMPUTE jtemp22 = J-index
+                COMPUTE J-index = FUNCTION JR-ARRAY-LENGTH(J-negativePlatformToGameKeyMapping)
+                MOVE 1 TO JFIRST6
+                PERFORM FOREVER
+                    MOVE 0 TO JFIRST6
+                    IF NOT (jtemp22 >= 0) EXIT PERFORM END-IF
+                    COMPUTE JVALUE = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_NONE")
+                    COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-negativePlatformToGameKeyMapping, J-index, JVALUE)
+                END-PERFORM
+                COMPUTE JVALUE = J-negativePlatformToGameKeyMapping
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_negativePlatformToGameKeyMapping", JVALUE)
+            END-IF
+            COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+            COMPUTE jtemp23 = J-index
+            COMPUTE J-index = FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_mappedGameKeys"))
+            MOVE 1 TO JFIRST7
+            PERFORM FOREVER
+                MOVE 0 TO JFIRST7
+                IF NOT (jtemp23 >= 0) EXIT PERFORM END-IF
+                COMPUTE JDISCARD = FUNCTION InptTGmKyMppng-initGameKey2(J-THIS, J-canvas, FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_mappedGameKeys"), J-index))
+            END-PERFORM
+    GOBACK.
+END FUNCTION InputToGameKeyMapping-init1.
 
-procedure TInputToGameKeyMapping.remove(input_: TInput; mappedToInput: TInput);
-begin
-        Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().START_LABEL).append(TStringUtil.getInstance().toString(input_)).append(' == ').append(TStringUtil.getInstance().toString(mappedToInput)).toString(), TJava.Box(Self), 'InputToGameKeyMapping::remove');
-        inherited remove(input_, mappedToInput);
-        Self.set_(input_, Self.gameKeyFactory.NONE);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InptTGmKyMppng-gtInstncFrCnvs2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp24 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-canvas BINARY-DOUBLE.
+01 J-id BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-canvas J-id RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF ((J-id >= 0) AND (J-id < FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_platformToGameKeyMapping"))))
+            COMPUTE J-RESULT = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_platformToGameKeyMapping"), J-id)
+            GOBACK
+        ELSE
+            IF ((J-id < 0) AND ((0 - J-id) < FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_negativePlatformToGameKeyMapping"))))
+            COMPUTE jtemp24 = (0 - J-id)
+            COMPUTE J-RESULT = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_negativePlatformToGameKeyMapping"), jtemp24)
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_NONE")
+            GOBACK
+        END-IF
+        END-IF
+    GOBACK.
+END FUNCTION InptTGmKyMppng-gtInstncFrCnvs2.
 
-procedure TInputToGameKeyMapping.set_(input_: TInput; mappedToInput: TInput);
-var
-  id: Integer;
-begin
-        id := mappedToInput.getId();
-        if ((id) >= (0)) and ((id) < (System.Length(Self.platformToGameKeyMapping))) then begin
-            Self.platformToGameKeyMapping[id] := TGameKey(TJava.ToObject(input_));
-        end;
-end;
-    
-
-function TInputToGameKeyMapping.getMaxMappable: Integer;
-begin
-        Exit(System.Length(Self.platformToGameKeyMapping));
-end;
-    
-
-function TInputToGameKeyMapping.getReverseInstance(id: Integer): TBasicArrayList;
-var
-  list: TBasicArrayList;
-  inputFactory_: TInputFactory;
-  input_: TInput;
-  index: Integer;
-begin
-        list := TBasicArrayListD.Create();
-        inputFactory_ := TInputFactory.getInstance();
-        for index := 0 to System.Length(Self.platformToGameKeyMapping) - 1 do begin
-            if (Self.platformToGameKeyMapping[index].getId()) = (id) then begin
-                input_ := inputFactory_.getInstanceById(index);
-                if (input_) <> (nil) then begin
-                    list.add(TJava.Box(input_));
-                end;
-            end;
-        end;
-        Exit(list);
-end;
-    
-
-// throws Exception
-procedure TInputToGameKeyMapping.initGameKey(canvas_: TCanvas; gameKey_: TGameKey);
-var
-  key: Integer;
-begin
-        key := canvas_.getKeyCode(gameKey_.getId());
-        if ((key) < (0)) and ((-key) < (System.Length(Self.negativePlatformToGameKeyMapping))) then begin
-            Self.negativePlatformToGameKeyMapping[-key] := gameKey_;
-        end else if (key) > (0) then begin
-            if (Self.platformToGameKeyMapping[key]) = (Self.gameKeyFactory.NONE) then begin
-                Self.platformToGameKeyMapping[key] := gameKey_;
-            end;
-        end else begin
-            TPreLogUtil.putOE(TStringMaker.Create().append(gameKey_.toString()).append(TCommonSeps.getInstance().COLON_SEP).appendint(key).toString(), TJava.Box(Self), Self.commonStrings.INIT, TJava.Box(SysUtils.Exception.Create('')));
-        end;
-end;
-    
-
-// throws Exception
-function TInputToGameKeyMapping.getSmallestCanvasGameKeyCode(canvas_: TCanvas): Integer;
-var
-  nextKey: Integer;
-  smallestKey: Integer;
-  index: Integer;
-begin
-        nextKey := 0;
-        smallestKey := 0;
-        index := System.Length(Self.mappedGameKeys);
-        while (TJava.PreDec(index)) >= (0) do begin
-            nextKey := canvas_.getKeyCode(Self.mappedGameKeys[index].getId());
-            if (nextKey) < (smallestKey) then begin
-                smallestKey := nextKey;
-            end;
-        end;
-        Exit(smallestKey);
-end;
-    
-
-procedure TInputToGameKeyMapping.init(canvas_: TCanvas);
-var
-  negativePlatformToGameKeyMapping: TArray<TGameKey>;
-  smallestKey: Integer;
-  index: Integer;
-begin
-        try
-            negativePlatformToGameKeyMapping := nil;
-            smallestKey := Self.getSmallestCanvasGameKeyCode(canvas_);
-            if (smallestKey) < (0) then begin
-                Dec(smallestKey);
-                if (smallestKey) < (-256) then begin
-                    smallestKey := -256;
-                end;
-                negativePlatformToGameKeyMapping := TJava.NewArray<TGameKey>(-smallestKey);
-                index := System.Length(negativePlatformToGameKeyMapping);
-                while (TJava.PreDec(index)) >= (0) do begin
-                    negativePlatformToGameKeyMapping[index] := Self.gameKeyFactory.NONE;
-                end;
-                Self.negativePlatformToGameKeyMapping := negativePlatformToGameKeyMapping;
-            end;
-            index := System.Length(Self.mappedGameKeys);
-            while (TJava.PreDec(index)) >= (0) do begin
-                Self.initGameKey(canvas_, Self.mappedGameKeys[index]);
-            end;
-        except
-            on t: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.INIT, TJava.Box(t));
-            end;
-        end;
-end;
-    
-
-function TInputToGameKeyMapping.getInstanceForCanvas(canvas_: TCanvas; id: Integer): TGameKey;
-begin
-        if ((id) >= (0)) and ((id) < (System.Length(Self.platformToGameKeyMapping))) then begin
-            Exit(Self.platformToGameKeyMapping[id]);
-        end else if ((id) < (0)) and ((-id) < (System.Length(Self.negativePlatformToGameKeyMapping))) then begin
-            Exit(Self.negativePlatformToGameKeyMapping[-id]);
-        end else begin
-            Exit(Self.gameKeyFactory.NONE);
-        end;
-end;
-    
-
-function TInputToGameKeyMapping.getInstance(id: Integer): TGameKey;
-begin
-        if ((id) >= (0)) and ((id) < (System.Length(Self.platformToGameKeyMapping))) then begin
-            Exit(Self.platformToGameKeyMapping[id]);
-        end else if ((id) < (0)) and ((-id) < (System.Length(Self.negativePlatformToGameKeyMapping))) then begin
-            Exit(Self.negativePlatformToGameKeyMapping[-id]);
-        end else begin
-            Exit(Self.gameKeyFactory.NONE);
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TInputToGameKeyMapping.instance := TJava.Box(TNullUtil.getInstance().NULL_OBJECT);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InptTGmKyMppng-getInstance1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp25 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-id BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-id RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF ((J-id >= 0) AND (J-id < FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_platformToGameKeyMapping"))))
+            COMPUTE J-RESULT = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_platformToGameKeyMapping"), J-id)
+            GOBACK
+        ELSE
+            IF ((J-id < 0) AND ((0 - J-id) < FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_negativePlatformToGameKeyMapping"))))
+            COMPUTE jtemp25 = (0 - J-id)
+            COMPUTE J-RESULT = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_negativePlatformToGameKeyMapping"), jtemp25)
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyFactory"), "f_NONE")
+            GOBACK
+        END-IF
+        END-IF
+    GOBACK.
+END FUNCTION InptTGmKyMppng-getInstance1.
 

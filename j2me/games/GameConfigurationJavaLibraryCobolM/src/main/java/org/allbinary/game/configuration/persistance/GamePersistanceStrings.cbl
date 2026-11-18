@@ -1,72 +1,122 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2025 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.configuration.persistance
-unit GamePersistanceStrings;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.configuration.persistance
+*> Java class GamePersistanceStrings
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmPrsstncStrngs-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GamePersistanceStrings-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 GamePersistanceStrings-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GamePersistanceStrings-jset-instance = 0
+        MOVE 1 TO GamePersistanceStrings-jset-instance
+        COMPUTE GamePersistanceStrings-jcell-instance = FUNCTION GamePersistanceStrings-new0
+    END-IF
+    MOVE GamePersistanceStrings-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION GmPrsstncStrngs-sttc-nstnc.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmPrsstncStrngssttcnS95988.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GamePersistanceStrings-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GmPrsstncStrngs-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO GamePersistanceStrings-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GmPrsstncStrngssttcnS95988.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GamePersistanceStrings-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GamePersistanceStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SAVED_GAME_RECORD_ID")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SAVED_GAME_CONFIGURATION_RECORD_ID")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DEFAULT_INPUT_MAPPING_RECORD_ID")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SAVED_INPUT_CONFIGURATION_RECORD_ID")
+    COMPUTE JVALUE = FUNCTION JR-STR("_SG")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SAVED_GAME_RECORD_ID", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("_SGC")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SAVED_GAME_CONFIGURATION_RECORD_ID", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("_DIM")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DEFAULT_INPUT_MAPPING_RECORD_ID", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("_SIC")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SAVED_INPUT_CONFIGURATION_RECORD_ID", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GamePersistanceStrings-new0.
 
-type
-  {AB:TYPES}
-  TGamePersistanceStrings = class(TObject)
-  public
-    SAVED_GAME_RECORD_ID: string;
-    SAVED_GAME_CONFIGURATION_RECORD_ID: string;
-    DEFAULT_INPUT_MAPPING_RECORD_ID: string;
-    SAVED_INPUT_CONFIGURATION_RECORD_ID: string;
-    class var instance: TGamePersistanceStrings;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TGamePersistanceStrings; static;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TGamePersistanceStrings.InitFields;
-begin
-  Self.SAVED_GAME_RECORD_ID := '_SG';
-  Self.SAVED_GAME_CONFIGURATION_RECORD_ID := '_SGC';
-  Self.DEFAULT_INPUT_MAPPING_RECORD_ID := '_DIM';
-  Self.SAVED_INPUT_CONFIGURATION_RECORD_ID := '_SIC';
-end;
-
-constructor TGamePersistanceStrings.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TGamePersistanceStrings.getInstance: TGamePersistanceStrings;
-begin
-        Exit(TGamePersistanceStrings.instance);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TGamePersistanceStrings.instance := TGamePersistanceStrings.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmPrsstncStrngs-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION GmPrsstncStrngs-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION GmPrsstncStrngs-getInstance0.
 

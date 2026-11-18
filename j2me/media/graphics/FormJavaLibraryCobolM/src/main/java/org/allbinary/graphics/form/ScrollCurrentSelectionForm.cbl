@@ -1,272 +1,583 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.form
+*> Java class ScrollCurrentSelectionForm
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.form
-unit ScrollCurrentSelectionForm;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, Processor, Rectangle, BasicColor, MyFontProcessor, UpdateMyFontInterface, ABCustomItem, ItemIndexDx, ItemPaintableFactory, FormType, ScrollSelectionForm;
-
-type
-  {AB:TYPES}
-  TScrollCurrentSelectionForm = class(TScrollSelectionForm, IUpdateMyFontInterface)
-  public
-    moveForSmallScreen: Boolean;
-    updateMyFontProcessor: TMyFontProcessor;
-    myFontProcessor: TMyFontProcessor;
-    processor: TProcessor;
-    preItemIndexDx: TItemIndexDx;
-    dx: Integer;
-    dy: Integer;
-    maxWidth: Integer;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(title: string; items: TArray<TABCustomItem>; formPaintableFactory: TItemPaintableFactory; border: Integer; adjustedExtraBorder: Integer; moveForSmallScreen: Boolean; backgroundBasicColor: TBasicColor; foregroundBasicColor: TBasicColor);
-        procedure init(rectangle_: TRectangle; formType_: TFormType); virtual;
-        procedure updateMeasurement(graphics_: TGraphics); virtual;
-        procedure processTempHorizontalForm; virtual;
-        procedure processHorizontalForm; virtual;
-        procedure processVerticalForm; virtual;
-        function getXTempHorizontalForm(index: Integer; item: TABCustomItem; dx: Integer; dy: Integer): Integer; virtual;
-        function getXHorizontalForm(index: Integer; item: TABCustomItem; dx: Integer; dy: Integer): Integer; virtual;
-        function getXVerticalForm(index: Integer; item: TABCustomItem; dx: Integer; dy: Integer): Integer; virtual;
-        function getDiffX(item: TABCustomItem): Integer; virtual;
-        function getDx: Integer; virtual;
-        function getDy: Integer; virtual;
-        procedure paint(graphics_: TGraphics); virtual;
-  end;
-
-implementation
-uses
-  FormTypeFactory, VerticalFormProcessor, VerticalItemIndexDx, HorizontalFormProcessor, HorizontalItemIndexDx, TempHorizontalFormProcessor, TempHorizontalItemIndexDx, UpdateMyFontProcessor;
-
-
-{AB:CODE}
-
-procedure TScrollCurrentSelectionForm.InitFields;
-begin
-  
-  Self.updateMyFontProcessor := TUpdateMyFontProcessor.Create(Self);
-  Self.myFontProcessor := Self.updateMyFontProcessor;
-  Self.processor := TProcessor.getInstance();
-  Self.preItemIndexDx := TItemIndexDx.getInstance();
-  
-  
-  Self.maxWidth := 0;
-end;
-
-function TScrollCurrentSelectionForm.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScrllCrrntSlctnFrm-new8.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-title BINARY-DOUBLE.
+01 J-items BINARY-DOUBLE.
+01 J-formPaintableFactory BINARY-DOUBLE.
+01 J-border BINARY-DOUBLE.
+01 J-adjustedExtraBorder BINARY-DOUBLE.
+01 J-moveForSmallScreen BINARY-DOUBLE.
+01 J-backgroundBasicColor BINARY-DOUBLE.
+01 J-foregroundBasicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-title J-items J-formPaintableFactory J-border J-adjustedExtraBorder J-moveForSmallScreen J-backgroundBasicColor J-foregroundBasicColor RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ScrollCurrentSelectionForm")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_moveForSmallScreen")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_updateMyFontProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_myFontProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_processor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_preItemIndexDx")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_dx")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_dy")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_maxWidth")
     
-
-constructor TScrollCurrentSelectionForm.Create(title: string; items: TArray<TABCustomItem>; formPaintableFactory: TItemPaintableFactory; border: Integer; adjustedExtraBorder: Integer; moveForSmallScreen: Boolean; backgroundBasicColor: TBasicColor; foregroundBasicColor: TBasicColor);
-begin
-        inherited Create(title, items, formPaintableFactory, border, adjustedExtraBorder, backgroundBasicColor, foregroundBasicColor);
-        InitFields;
-        Self.moveForSmallScreen := moveForSmallScreen;
-end;
+    COMPUTE JVALUE = FUNCTION UpdateMyFontProcessor-new1(J-THIS)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_updateMyFontProcessor", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_updateMyFontProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
+    COMPUTE JVALUE = FUNCTION Processor-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_processor", JVALUE)
+    COMPUTE JVALUE = FUNCTION ItemIndexDx-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_preItemIndexDx", JVALUE)
     
-
-// throws Exception
-procedure TScrollCurrentSelectionForm.init(rectangle_: TRectangle; formType_: TFormType);
-var
-  formTypeFactory_: TFormTypeFactory;
-begin
-        inherited init(rectangle_, formType_);
-        formTypeFactory_ := TFormTypeFactory.getInstance();
-        if (formType_) = (formTypeFactory_.TEMP_HORIZONTAL_FORM) then begin
-            Self.processor := TTempHorizontalFormProcessor.Create(Self);
-            Self.preItemIndexDx := TTempHorizontalItemIndexDx.Create(Self);
-        end else if (formType_) = (formTypeFactory_.HORIZONTAL_FORM) then begin
-            Self.processor := THorizontalFormProcessor.Create(Self);
-            Self.preItemIndexDx := THorizontalItemIndexDx.Create(Self);
-        end else if (formType_) = (formTypeFactory_.VERTICAL_CENTER_FORM) then begin
-            Self.processor := TVerticalFormProcessor.Create(Self);
-            Self.preItemIndexDx := TVerticalItemIndexDx.Create(Self);
-        end else if (formType_) = (formTypeFactory_.NULL_FORM_TYPE) then begin
-        end else begin
-            Self.logUtil.putF(formTypeFactory_.UNK, TJava.Box(Self), Self.commonStrings.INIT);
-        end;
-        Self.myFontProcessor := Self.updateMyFontProcessor;
-end;
     
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_maxWidth", JVALUE)
+        CONTINUE
+        COMPUTE JVALUE = J-moveForSmallScreen
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_moveForSmallScreen", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ScrllCrrntSlctnFrm-new8.
 
-procedure TScrollCurrentSelectionForm.updateMeasurement(graphics_: TGraphics);
-begin
-        Self.myFontProcessor := TMyFontProcessor.getInstance();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScrllCrrntSlctnFrm-init2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-formTypeFactory BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-rectangle BINARY-DOUBLE.
+01 J-formType BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-rectangle J-formType RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION ScrollSelectionForm-init2(J-THIS, J-rectangle, J-formType)
+        COMPUTE J-formTypeFactory = FUNCTION FormTypeFactory-getInstance0
+        IF (J-formType = FUNCTION JR-GET(J-formTypeFactory, "f_TEMP_HORIZONTAL_FORM"))
+            COMPUTE JVALUE = FUNCTION TmpHrzntlFrmPrcssr-new1(J-THIS)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_processor", JVALUE)
+            COMPUTE JVALUE = FUNCTION TempHorizontalItemIndexDx-new1(J-THIS)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_preItemIndexDx", JVALUE)
+        ELSE
+            IF (J-formType = FUNCTION JR-GET(J-formTypeFactory, "f_HORIZONTAL_FORM"))
+            COMPUTE JVALUE = FUNCTION HorizontalFormProcessor-new1(J-THIS)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_processor", JVALUE)
+            COMPUTE JVALUE = FUNCTION HorizontalItemIndexDx-new1(J-THIS)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_preItemIndexDx", JVALUE)
+        ELSE
+            IF (J-formType = FUNCTION JR-GET(J-formTypeFactory, "f_VERTICAL_CENTER_FORM"))
+            COMPUTE JVALUE = FUNCTION VerticalFormProcessor-new1(J-THIS)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_processor", JVALUE)
+            COMPUTE JVALUE = FUNCTION VerticalItemIndexDx-new1(J-THIS)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_preItemIndexDx", JVALUE)
+        ELSE
+            IF (J-formType = FUNCTION JR-GET(J-formTypeFactory, "f_NULL_FORM_TYPE"))
+            CONTINUE
+        ELSE
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        END-IF
+        END-IF
+        END-IF
+        END-IF
+        COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_updateMyFontProcessor")
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
+    GOBACK.
+END FUNCTION ScrllCrrntSlctnFrm-init2.
 
-procedure TScrollCurrentSelectionForm.processTempHorizontalForm;
-begin
-        Self.dx := ((Self.x) - (30)) + ((TJava.SignedRightShift(Self.rectangle.getWidth(), 1)));
-        Self.dy := Self.y;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScrllCrrntSlctnFrm-updtMsrmnt1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = FUNCTION MyFontProcessor-getInstance0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
+    GOBACK.
+END FUNCTION ScrllCrrntSlctnFrm-updtMsrmnt1.
 
-procedure TScrollCurrentSelectionForm.processHorizontalForm;
-var
-  size: Integer;
-  totalWidth: Integer;
-  item: TABCustomItem;
-  index: Integer;
-  maxTitleHeight: Integer;
-begin
-        size := Self.size();
-        totalWidth := 0;
-        
-        for index := 0 to size - 1 do begin
-            item := Self.get(index);
-            totalWidth := (totalWidth) + ((item.getMinimumWidth()) + (Self.border));
-        end;
-        Self.dx := ((Self.x) + ((TJava.SignedRightShift(Self.rectangle.getWidth(), 1)))) - ((TJava.SignedRightShift(totalWidth, 1)));
-        Self.dy := (Self.y) + ((TJava.SignedRightShift(Self.rectangle.getHeight(), 1)));
-        if Self.moveForSmallScreen then begin
-            maxTitleHeight := 175;
-            if (Self.dy) < (maxTitleHeight) then begin
-                Self.dy := maxTitleHeight;
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScrllCrrntSlctnFrm-prcssT20177.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_x") - 30) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp2 = (FUNCTION JR-SHIFT(JFIVE, FUNCTION Rectangle-getWidth0(FUNCTION JR-GET(J-THIS, "f_rectangle")), 1))
+        COMPUTE JVALUE = (FUNCTION MOD((jtemp1 + jtemp2) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_dx", JVALUE)
+        COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_y")
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_dy", JVALUE)
+    GOBACK.
+END FUNCTION ScrllCrrntSlctnFrm-prcssT20177.
 
-procedure TScrollCurrentSelectionForm.processVerticalForm;
-var
-  totalHeight: Integer;
-  size: Integer;
-  item2: TABCustomItem;
-  index: Integer;
-  maxTitleHeight: Integer;
-begin
-        totalHeight := 0;
-        size := Self.size();
-        
-        for index := 0 to size - 1 do begin
-            item2 := Self.get(index);
-            if (Self.maxWidth) < (item2.getMinimumWidth()) then begin
-                Self.maxWidth := item2.getMinimumWidth();
-            end;
-            totalHeight := (totalHeight) + ((item2.getMinimumHeight()) + (Self.border));
-        end;
-        Self.dx := (TJava.Divide(((Self.rectangle.getWidth()) - (Self.maxWidth)), 2));
-        if (Self.size()) > (0) then begin
-            Self.dy := (Self.y) + ((TJava.Divide(((Self.rectangle.getHeight()) - (totalHeight)), 2)));
-            if Self.moveForSmallScreen then begin
-                maxTitleHeight := 175;
-                if (Self.dy) < (maxTitleHeight) then begin
-                    Self.dy := maxTitleHeight;
-                end;
-            end;
-        end else begin
-            Self.dy := Self.y;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScrllCrrntSlctnFrm-prcssH21797.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-size BINARY-DOUBLE.
+01 J-totalWidth BINARY-DOUBLE.
+01 J-item BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-maxTitleHeight BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-size = FUNCTION ABCustomForm-size0(J-THIS)
+        COMPUTE J-totalWidth = 0
+        CONTINUE
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-item = FUNCTION ABCustomForm-get1(J-THIS, J-index)
+            COMPUTE J-totalWidth = (FUNCTION MOD((J-totalWidth + (FUNCTION MOD((FUNCTION ABCustomItem-getMinimumWidth0(J-item) + FUNCTION JR-GET(J-THIS, "f_border")) + 2147483648, 4294967296) - 2147483648)) + 2147483648, 4294967296) -
+        2147483648)
+        END-PERFORM
+        COMPUTE jtemp3 = (FUNCTION JR-SHIFT(JFIVE, FUNCTION Rectangle-getWidth0(FUNCTION JR-GET(J-THIS, "f_rectangle")), 1))
+        COMPUTE JVALUE = (FUNCTION MOD(((FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_x") + jtemp3) + 2147483648, 4294967296) - 2147483648) - (FUNCTION JR-SHIFT(JFIVE, J-totalWidth, 1))) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_dx", JVALUE)
+        COMPUTE jtemp4 = (FUNCTION JR-SHIFT(JFIVE, FUNCTION Rectangle-getHeight0(FUNCTION JR-GET(J-THIS, "f_rectangle")), 1))
+        COMPUTE JVALUE = (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_y") + jtemp4) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_dy", JVALUE)
+        IF (FUNCTION JR-GET(J-THIS, "f_moveForSmallScreen") = 1)
+            COMPUTE J-maxTitleHeight = 175
+            IF (FUNCTION JR-GET(J-THIS, "f_dy") < J-maxTitleHeight)
+                COMPUTE JVALUE = J-maxTitleHeight
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_dy", JVALUE)
+            END-IF
+        END-IF
+    GOBACK.
+END FUNCTION ScrllCrrntSlctnFrm-prcssH21797.
 
-function TScrollCurrentSelectionForm.getXTempHorizontalForm(index: Integer; item: TABCustomItem; dx: Integer; dy: Integer): Integer;
-begin
-        Exit(Self.getDiffX(item));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScrllCrrntSlctnFrm-prcssV82060.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-totalHeight BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-item2 BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-maxTitleHeight BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-totalHeight = 0
+        COMPUTE J-size = FUNCTION ABCustomForm-size0(J-THIS)
+        CONTINUE
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST2
+        PERFORM FOREVER
+            IF JFIRST2 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST2
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-item2 = FUNCTION ABCustomForm-get1(J-THIS, J-index)
+            IF (FUNCTION JR-GET(J-THIS, "f_maxWidth") < FUNCTION ABCustomItem-getMinimumWidth0(J-item2))
+                COMPUTE JVALUE = FUNCTION ABCustomItem-getMinimumWidth0(J-item2)
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_maxWidth", JVALUE)
+            END-IF
+            COMPUTE J-totalHeight = (FUNCTION MOD((J-totalHeight + (FUNCTION MOD((FUNCTION ABCustomItem-getMinimumHeight0(J-item2) + FUNCTION JR-GET(J-THIS, "f_border")) + 2147483648, 4294967296) - 2147483648)) + 2147483648, 4294967296) -
+        2147483648)
+        END-PERFORM
+        COMPUTE JVALUE = ((FUNCTION MOD(FUNCTION INTEGER-PART(((FUNCTION MOD((FUNCTION Rectangle-getWidth0(FUNCTION JR-GET(J-THIS, "f_rectangle")) - FUNCTION JR-GET(J-THIS, "f_maxWidth")) + 2147483648, 4294967296) - 2147483648)) / 2) +
+        2147483648, 4294967296) - 2147483648))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_dx", JVALUE)
+        IF (FUNCTION ABCustomForm-size0(J-THIS) > 0)
+            COMPUTE jtemp5 = ((FUNCTION MOD(FUNCTION INTEGER-PART(((FUNCTION MOD((FUNCTION Rectangle-getHeight0(FUNCTION JR-GET(J-THIS, "f_rectangle")) - J-totalHeight) + 2147483648, 4294967296) - 2147483648)) / 2) + 2147483648,
+        4294967296) - 2147483648))
+            COMPUTE JVALUE = (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_y") + jtemp5) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_dy", JVALUE)
+            IF (FUNCTION JR-GET(J-THIS, "f_moveForSmallScreen") = 1)
+                COMPUTE J-maxTitleHeight = 175
+                IF (FUNCTION JR-GET(J-THIS, "f_dy") < J-maxTitleHeight)
+                    COMPUTE JVALUE = J-maxTitleHeight
+                    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_dy", JVALUE)
+                END-IF
+            END-IF
+        ELSE
+            COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_y")
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_dy", JVALUE)
+        END-IF
+    GOBACK.
+END FUNCTION ScrllCrrntSlctnFrm-prcssV82060.
 
-function TScrollCurrentSelectionForm.getXHorizontalForm(index: Integer; item: TABCustomItem; dx: Integer; dy: Integer): Integer;
-begin
-        Exit(0);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScrllCrrntSlctnFrm-gtXTmp32251.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-item BINARY-DOUBLE.
+01 J-dx BINARY-DOUBLE.
+01 J-dy BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-index J-item J-dx J-dy RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION ScrllCrrntSlctnFrm-getDiffX1(J-THIS, J-item)
+        GOBACK
+    GOBACK.
+END FUNCTION ScrllCrrntSlctnFrm-gtXTmp32251.
 
-function TScrollCurrentSelectionForm.getXVerticalForm(index: Integer; item: TABCustomItem; dx: Integer; dy: Integer): Integer;
-begin
-        Exit((Self.getDiffX(item)) + (Self.halfBorder));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScrllCrrntSlctnFrm-gtXHrz24851.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-item BINARY-DOUBLE.
+01 J-dx BINARY-DOUBLE.
+01 J-dy BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-index J-item J-dx J-dy RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION ScrllCrrntSlctnFrm-gtXHrz24851.
 
-function TScrollCurrentSelectionForm.getDiffX(item: TABCustomItem): Integer;
-begin
-        Exit((TJava.SignedRightShift(((Self.maxWidth) - (item.getMinimumWidth())), 1)));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScrllCrrntSlctnFrm-gtXVrt96939.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-item BINARY-DOUBLE.
+01 J-dx BINARY-DOUBLE.
+01 J-dy BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-index J-item J-dx J-dy RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = (FUNCTION MOD((FUNCTION ScrllCrrntSlctnFrm-getDiffX1(J-THIS, J-item) + FUNCTION JR-GET(J-THIS, "f_halfBorder")) + 2147483648, 4294967296) - 2147483648)
+        GOBACK
+    GOBACK.
+END FUNCTION ScrllCrrntSlctnFrm-gtXVrt96939.
 
-function TScrollCurrentSelectionForm.getDx: Integer;
-begin
-        Exit(Self.dx);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScrllCrrntSlctnFrm-getDiffX1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-item BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-item RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = (FUNCTION JR-SHIFT(JFIVE, ((FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_maxWidth") - FUNCTION ABCustomItem-getMinimumWidth0(J-item)) + 2147483648, 4294967296) - 2147483648)), 1))
+        GOBACK
+    GOBACK.
+END FUNCTION ScrllCrrntSlctnFrm-getDiffX1.
 
-function TScrollCurrentSelectionForm.getDy: Integer;
-begin
-        Exit(Self.dy);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScrllCrrntSlctnFrm-getDx0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_dx")
+        GOBACK
+    GOBACK.
+END FUNCTION ScrllCrrntSlctnFrm-getDx0.
 
-procedure TScrollCurrentSelectionForm.paint(graphics_: TGraphics);
-var
-  delta: Integer;
-  deltaX: Integer;
-  deltaY: Integer;
-  size: Integer;
-  formTypeFactory_: TFormTypeFactory;
-  item: TABCustomItem;
-  diffX: Integer;
-  index: Integer;
-begin
-        try
-            Self.processor.process();
-            delta := 0;
-            deltaX := Self.getDx();
-            deltaY := Self.getDy();
-            size := Self.size();
-            formTypeFactory_ := TFormTypeFactory.getInstance();
-            
-            for index := 0 to size - 1 do begin
-                item := Self.get(index);
-                diffX := Self.preItemIndexDx.getDx(index, item, Self.dx, Self.dy);
-                if (index) = (Self.getSelectedIndex()) then begin
-                    delta := Self.paintItem(graphics_, index, item, (deltaX) + (diffX), deltaY);
-                    Self.paintable.paint(graphics_, index, (deltaX) + (diffX), deltaY);
-                end else begin
-                    delta := Self.paintUnselectedItem(graphics_, index, item, (deltaX) + (diffX), deltaY);
-                    Self.paintable.paint(graphics_, index, (deltaX) + (diffX), deltaY);
-                end;
-                if (Self.formType) = (formTypeFactory_.TEMP_HORIZONTAL_FORM) then begin
-                end else if (Self.formType) = (formTypeFactory_.HORIZONTAL_FORM) then begin
-                    deltaX := delta;
-                end else if (Self.formType) = (formTypeFactory_.VERTICAL_CENTER_FORM) then begin
-                    deltaY := delta;
-                end else begin
-                    raise SysUtils.Exception.Create(formTypeFactory_.UNK);
-                end;
-            end;
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.canvasStrings.PAINT, TJava.Box(e));
-            end;
-        end;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScrllCrrntSlctnFrm-getDy0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_dy")
+        GOBACK
+    GOBACK.
+END FUNCTION ScrllCrrntSlctnFrm-getDy0.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScrllCrrntSlctnFrm-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-delta BINARY-DOUBLE.
+01 J-deltaX BINARY-DOUBLE.
+01 J-deltaY BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-formTypeFactory BINARY-DOUBLE.
+01 J-item BINARY-DOUBLE.
+01 J-diffX BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 JFIRST3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE JDISCARD = FUNCTION Processor-process0(FUNCTION JR-GET(J-THIS, "f_processor"))
+            COMPUTE J-delta = 0
+            COMPUTE J-deltaX = FUNCTION ScrllCrrntSlctnFrm-getDx0(J-THIS)
+            COMPUTE J-deltaY = FUNCTION ScrllCrrntSlctnFrm-getDy0(J-THIS)
+            COMPUTE J-size = FUNCTION ABCustomForm-size0(J-THIS)
+            COMPUTE J-formTypeFactory = FUNCTION FormTypeFactory-getInstance0
+            CONTINUE
+            COMPUTE J-index = 0
+            MOVE 1 TO JFIRST3
+            PERFORM FOREVER
+                IF JFIRST3 = 0
+                    COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+                END-IF
+                MOVE 0 TO JFIRST3
+                IF NOT (J-index < J-size) EXIT PERFORM END-IF
+                COMPUTE J-item = FUNCTION ABCustomForm-get1(J-THIS, J-index)
+                COMPUTE J-diffX = FUNCTION ItemIndexDx-getDx4(FUNCTION JR-GET(J-THIS, "f_preItemIndexDx"), J-index, J-item, FUNCTION JR-GET(J-THIS, "f_dx"), FUNCTION JR-GET(J-THIS, "f_dy"))
+                IF (J-index = FUNCTION ABCustomForm-getSelectedIndex0(J-THIS))
+                    COMPUTE jtemp8 = (FUNCTION MOD((J-deltaX + J-diffX) + 2147483648, 4294967296) - 2147483648)
+                    COMPUTE J-delta = FUNCTION ScrollSelectionForm-paintItem5(J-THIS, J-graphics, J-index, J-item, jtemp8, J-deltaY)
+                    COMPUTE jtemp9 = (FUNCTION MOD((J-deltaX + J-diffX) + 2147483648, 4294967296) - 2147483648)
+                    COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_paintable"))
+                ELSE
+                    COMPUTE jtemp6 = (FUNCTION MOD((J-deltaX + J-diffX) + 2147483648, 4294967296) - 2147483648)
+                    COMPUTE J-delta = FUNCTION ScrllSlctnFrm-pntUnslctdItm5(J-THIS, J-graphics, J-index, J-item, jtemp6, J-deltaY)
+                    COMPUTE jtemp7 = (FUNCTION MOD((J-deltaX + J-diffX) + 2147483648, 4294967296) - 2147483648)
+                    COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_paintable"))
+                END-IF
+                IF (FUNCTION JR-GET(J-THIS, "f_formType") = FUNCTION JR-GET(J-formTypeFactory, "f_TEMP_HORIZONTAL_FORM"))
+                    CONTINUE
+                ELSE
+                    IF (FUNCTION JR-GET(J-THIS, "f_formType") = FUNCTION JR-GET(J-formTypeFactory, "f_HORIZONTAL_FORM"))
+                    COMPUTE J-deltaX = J-delta
+                ELSE
+                    IF (FUNCTION JR-GET(J-THIS, "f_formType") = FUNCTION JR-GET(J-formTypeFactory, "f_VERTICAL_CENTER_FORM"))
+                    COMPUTE J-deltaY = J-delta
+                ELSE
+                    COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+                END-IF
+                END-IF
+                END-IF
+            END-PERFORM
+    GOBACK.
+END FUNCTION ScrllCrrntSlctnFrm-paint1.
 

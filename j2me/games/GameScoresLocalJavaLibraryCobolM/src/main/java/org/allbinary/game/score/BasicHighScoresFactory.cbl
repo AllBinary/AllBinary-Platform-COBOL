@@ -1,99 +1,188 @@
-// Generated Code Do Not Modify
-// package org.allbinary.game.score
-unit BasicHighScoresFactory;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.score
+*> Java class BasicHighScoresFactory
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameInfo, LogUtil, SoftwareInformation, AbeClientInformationInterface, HighScoresResultsListener, HighScoresHelperBaseInterface, HighScores, HighScoresBase;
-
-type
-  {AB:TYPES}
-  TBasicHighScoresFactory = class(THighScoresBase)
-  public
-    logUtil: TLogUtil;
-    abeClientInformation: IAbeClientInformationInterface;
-    highScoresArray: TArray<THighScores>;
-    TOP: string;
-    SCORES: string;
-    PERSONAL_HIGH_SCORES: string;
-    FETCH: string;
-    procedure InitFields;
-        constructor Create(abeClientInformation: IAbeClientInformationInterface; softwareInformation_: TSoftwareInformation);
-        procedure fetchHighScores(gameInfo_: TGameInfo; highScoresResultsListener_: IHighScoresResultsListener); override;
-        procedure fetchHighScoresPreload(gameInfo_: TGameInfo; highScoresResultsListener_: IHighScoresResultsListener; preload: Boolean); override;
-        function createHighScoresHelper: IHighScoresHelperBaseInterface; override;
-        class function loaded(index2: Integer): Boolean; static;
-  end;
-
-implementation
-uses
-  RecordStoreHighScores, ScoreComparator, HighScoresHelper2;
-
-
-{AB:CODE}
-
-procedure TBasicHighScoresFactory.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  
-  Self.highScoresArray := TJava.NewArray<THighScores>(1);
-  Self.TOP := 'Top';
-  Self.SCORES := 'Scores';
-  Self.PERSONAL_HIGH_SCORES := 'Personal Top Scores';
-  Self.FETCH := 'fetchHighScores';
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicHighScoresFactory-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-abeClientInformation BINARY-DOUBLE.
+01 J-softwareInformation BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-abeClientInformation J-softwareInformation RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("BasicHighScoresFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_abeClientInformation")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_highScoresArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_TOP")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SCORES")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_PERSONAL_HIGH_SCORES")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_FETCH")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
     
+    COMPUTE jtemp1 = 1
+    COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY(jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_highScoresArray", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Top")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_TOP", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Scores")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SCORES", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Personal Top Scores")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_PERSONAL_HIGH_SCORES", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("fetchHighScores")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_FETCH", JVALUE)
+        COMPUTE JVALUE = J-abeClientInformation
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_abeClientInformation", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION BasicHighScoresFactory-new2.
 
-constructor TBasicHighScoresFactory.Create(abeClientInformation: IAbeClientInformationInterface; softwareInformation_: TSoftwareInformation);
-begin
-    inherited Create;
-    InitFields;
-        Self.abeClientInformation := abeClientInformation;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscHghScrsFctry-ftchHghScrs2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameInfo BINARY-DOUBLE.
+01 J-highScoresResultsListener BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gameInfo J-highScoresResultsListener RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-STR("Getting Local HighScores"), J-THIS, FUNCTION JR-GET(J-THIS, "f_FETCH"))
+        COMPUTE jtemp2 = 1
+        COMPUTE JDISCARD = FUNCTION BscHghScrsFctry-ftchHghSc44476(J-THIS, J-gameInfo, J-highScoresResultsListener, jtemp2)
+    GOBACK.
+END FUNCTION BscHghScrsFctry-ftchHghScrs2.
 
-procedure TBasicHighScoresFactory.fetchHighScores(gameInfo_: TGameInfo; highScoresResultsListener_: IHighScoresResultsListener);
-begin
-        Self.logUtil.putF('Getting Local HighScores', TJava.Box(Self), Self.FETCH);
-        Self.fetchHighScoresPreload(gameInfo_, highScoresResultsListener_, True);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscHghScrsFctry-ftchHghSc44476.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameInfo BINARY-DOUBLE.
+01 J-highScoresResultsListener BINARY-DOUBLE.
+01 J-preload BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gameInfo J-highScoresResultsListener J-preload RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE jtemp4 = 1
+            COMPUTE jtemp3 = 0
+            COMPUTE JVALUE = FUNCTION RcrdStrHghScrs-getInstance6(FUNCTION JR-GET(J-THIS, "f_abeClientInformation"), J-gameInfo, FUNCTION JR-GET(J-THIS, "f_TOP"), FUNCTION JR-GET(J-THIS, "f_PERSONAL_HIGH_SCORES"), FUNCTION JR-GET(J-THIS,
+        "f_SCORES"), FUNCTION ScoreComparator-new1(jtemp4))
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_highScoresArray"), jtemp3, JVALUE)
+            COMPUTE JDISCARD = FUNCTION HghScrsRsltsLstnr-stHghSc24250(J-highScoresResultsListener, FUNCTION JR-GET(J-THIS, "f_highScoresArray"))
+    GOBACK.
+END FUNCTION BscHghScrsFctry-ftchHghSc44476.
 
-procedure TBasicHighScoresFactory.fetchHighScoresPreload(gameInfo_: TGameInfo; highScoresResultsListener_: IHighScoresResultsListener; preload: Boolean);
-begin
-        try
-            Self.highScoresArray[0] := TRecordStoreHighScores.getInstance(Self.abeClientInformation, gameInfo_, Self.TOP, Self.PERSONAL_HIGH_SCORES, Self.SCORES, TScoreComparator.Create(True));
-            highScoresResultsListener_.setHighScoresArray(Self.highScoresArray);
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.FETCH, TJava.Box(e));
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscHghScrsFctry-crtHghScr34561.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION HighScoresHelper2-new0
+        GOBACK
+    GOBACK.
+END FUNCTION BscHghScrsFctry-crtHghScr34561.
 
-function TBasicHighScoresFactory.createHighScoresHelper: IHighScoresHelperBaseInterface;
-begin
-        Exit(THighScoresHelper2.Create());
-end;
-    
-
-class function TBasicHighScoresFactory.loaded(index2: Integer): Boolean;
-begin
-        if (index2) >= (0) then begin
-            Exit(True);
-        end;
-        Exit(False);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicHighScoresFactory-loaded1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-index2 BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-index2 RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (J-index2 >= 0)
+            COMPUTE J-RESULT = 1
+            GOBACK
+        END-IF
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION BasicHighScoresFactory-loaded1.
 

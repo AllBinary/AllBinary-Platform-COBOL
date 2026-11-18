@@ -1,84 +1,105 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion.gesture.observer
+*> Java class MotionEventCircularPool
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion.gesture.observer
-unit MotionEventCircularPool;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MotionEventCircularPool-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-id BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-id RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("MotionEventCircularPool")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_MIN")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_eventPool")
+    COMPUTE jtemp1 = FUNCTION TchMtnGstrFctry-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(jtemp1, "f_LAST_MOTION"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_MIN", JVALUE)
+    COMPUTE jtemp3 = FUNCTION InputFactory-getInstance0
+    COMPUTE jtemp2 = (FUNCTION MOD((((FUNCTION MOD((FUNCTION JR-GET(jtemp3, "f_MAX") - 1) + 2147483648, 4294967296) - 2147483648)) - FUNCTION JR-GET(J-THIS, "f_MIN")) + 2147483648, 4294967296) - 2147483648)
+    COMPUTE JVALUE = FUNCTION AllBnryEvntCrclrPl-new1(jtemp2)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_eventPool", JVALUE)
+        COMPUTE JDISCARD = FUNCTION AllBnryEvntCrclrPl-intAll51988(FUNCTION JR-GET(J-THIS, "f_eventPool"), FUNCTION MotionEventFactory-new2(FUNCTION JR-GET(J-THIS, "f_eventPool"), J-id))
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION MotionEventCircularPool-new1.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnEvntCrclrPl-createPool1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-id BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-id RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION MotionEventCircularPool-new1(J-id)
+        GOBACK
+    GOBACK.
+END FUNCTION MtnEvntCrclrPl-createPool1.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, MotionGestureInput, AllBinaryEventCircularPool, MotionGestureEvent;
-
-type
-  {AB:TYPES}
-  TMotionEventCircularPool = class(TObject)
-  public
-    MIN: Integer;
-    eventPool: TAllBinaryEventCircularPool;
-    procedure InitFields;
-        class function createPool(id: Integer): TMotionEventCircularPool; static;
-        constructor Create(id: Integer);
-        function getInstance(motionGestureInput_: TMotionGestureInput): TMotionGestureEvent; virtual;
-  end;
-
-implementation
-uses
-  MotionEventFactory, InputFactory, TouchMotionGestureFactory;
-
-
-{AB:CODE}
-
-procedure TMotionEventCircularPool.InitFields;
-begin
-  Self.MIN := TTouchMotionGestureFactory.getInstance().LAST_MOTION.getId();
-  Self.eventPool := TAllBinaryEventCircularPool.Create((((TInputFactory.getInstance().MAX) - (1))) - (Self.MIN));
-end;
-    
-
-class function TMotionEventCircularPool.createPool(id: Integer): TMotionEventCircularPool;
-begin
-        Exit(TMotionEventCircularPool.Create(id));
-end;
-    
-
-constructor TMotionEventCircularPool.Create(id: Integer);
-begin
-    inherited Create;
-    InitFields;
-        Self.eventPool.initAllBinaryEventCircularPool(TMotionEventFactory.Create(TJava.Box(Self.eventPool), id));
-end;
-    
-
-// throws Exception
-function TMotionEventCircularPool.getInstance(motionGestureInput_: TMotionGestureInput): TMotionGestureEvent;
-begin
-    TJava.MonitorEnter(Self);
-    try
-        Exit(TMotionGestureEvent(TJava.ToObject(Self.eventPool.getInstance((motionGestureInput_.getId()) - (Self.MIN)))));
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnEvntCrclrPl-getInstance1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-motionGestureInput BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-motionGestureInput RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp4 = (FUNCTION MOD((FUNCTION Input-getId0(J-motionGestureInput) - FUNCTION JR-GET(J-THIS, "f_MIN")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE J-RESULT = FUNCTION BaseCircularPool-getInstance1(FUNCTION JR-GET(J-THIS, "f_eventPool"), jtemp4)
+        GOBACK
+    GOBACK.
+END FUNCTION MtnEvntCrclrPl-getInstance1.
 

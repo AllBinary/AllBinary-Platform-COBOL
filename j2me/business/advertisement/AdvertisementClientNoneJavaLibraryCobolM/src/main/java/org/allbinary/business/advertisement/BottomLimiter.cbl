@@ -1,115 +1,248 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.business.advertisement
+*> Java class BottomLimiter
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.business.advertisement
-unit BottomLimiter;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BottomLimiter-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BottomLimiter-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 BottomLimiter-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF BottomLimiter-jset-instance = 0
+        MOVE 1 TO BottomLimiter-jset-instance
+        COMPUTE BottomLimiter-jcell-instance = FUNCTION BottomLimiter-new0
+    END-IF
+    MOVE BottomLimiter-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION BottomLimiter-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BottomLimiterstaticiS47294.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BottomLimiter-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION BottomLimiter-static-instance TO J-RESULT
+    MOVE J-VALUE TO BottomLimiter-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION BottomLimiterstaticiS47294.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
-
-type
-  {AB:TYPES}
-  TBottomLimiter = class(TObject)
-  public
-    bottom: Integer;
-    deltaY: Integer;
-    lower: Integer;
-    higher: Integer;
-    class var instance: TBottomLimiter;
-    procedure InitFields;
-        class function getInstance: TBottomLimiter; static;
-        constructor Create;
-        procedure init(lower: Integer; higher: Integer); virtual;
-        procedure update; virtual;
-        function getDeltaY: Integer; virtual;
-        function getBottom: Integer; virtual;
-  end;
-
-implementation
-uses
-  GameAdStateFactory, GameAdState, DisplayInfoSingleton;
-
-
-{AB:CODE}
-
-procedure TBottomLimiter.InitFields;
-begin
-  
-  
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BottomLimiter-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("BottomLimiter")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_bottom")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_deltaY")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_lower")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_higher")
     
-
-class function TBottomLimiter.getInstance: TBottomLimiter;
-begin
-        Exit(TBottomLimiter.instance);
-end;
     
-
-constructor TBottomLimiter.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
     
-
-procedure TBottomLimiter.init(lower: Integer; higher: Integer);
-begin
-        Self.lower := lower;
-        Self.higher := higher;
-end;
     
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION BottomLimiter-new0.
 
-procedure TBottomLimiter.update;
-var
-  displayInfo: TDisplayInfoSingleton;
-  gameAdState_: TGameAdState;
-begin
-        displayInfo := TDisplayInfoSingleton.getInstance();
-        gameAdState_ := TGameAdStateFactory.getInstance().getCurrentInstance();
-        if gameAdState_.isShowingAt() then begin
-            Self.deltaY := Self.higher;
-        end else begin
-            Self.deltaY := Self.lower;
-        end;
-        Self.bottom := (displayInfo.getLastHeight()) - (Self.deltaY);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BottomLimiter-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION BottomLimiter-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION BottomLimiter-getInstance0.
 
-function TBottomLimiter.getDeltaY: Integer;
-begin
-        Exit(Self.deltaY);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BottomLimiter-init2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-lower BINARY-DOUBLE.
+01 J-higher BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-lower J-higher RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-lower
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lower", JVALUE)
+        COMPUTE JVALUE = J-higher
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_higher", JVALUE)
+    GOBACK.
+END FUNCTION BottomLimiter-init2.
 
-function TBottomLimiter.getBottom: Integer;
-begin
-        Exit(Self.bottom);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BottomLimiter-update0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-displayInfo BINARY-DOUBLE.
+01 J-gameAdState BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-displayInfo = FUNCTION DsplyInfSngltn-getInstance0
+        COMPUTE jtemp1 = FUNCTION GmAdSttFctry-getInstance0
+        COMPUTE J-gameAdState = FUNCTION GmAdSttFctry-gtCrrntInstnc0(jtemp1)
+        IF (FUNCTION GameAdStateBase-isShowingAt0(J-gameAdState) = 1)
+            COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_higher")
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_deltaY", JVALUE)
+        ELSE
+            COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_lower")
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_deltaY", JVALUE)
+        END-IF
+        COMPUTE JVALUE = (FUNCTION MOD((FUNCTION DsplyInfSngltn-getLastHeight0(J-displayInfo) - FUNCTION JR-GET(J-THIS, "f_deltaY")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_bottom", JVALUE)
+    GOBACK.
+END FUNCTION BottomLimiter-update0.
 
-initialization
-  {AB:INITIALIZATION}
-  TBottomLimiter.instance := TBottomLimiter.Create();
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BottomLimiter-getDeltaY0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_deltaY")
+        GOBACK
+    GOBACK.
+END FUNCTION BottomLimiter-getDeltaY0.
 
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BottomLimiter-getBottom0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_bottom")
+        GOBACK
+    GOBACK.
+END FUNCTION BottomLimiter-getBottom0.
 

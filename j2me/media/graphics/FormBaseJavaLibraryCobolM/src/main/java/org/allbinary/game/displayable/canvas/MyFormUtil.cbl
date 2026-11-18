@@ -1,106 +1,215 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.displayable.canvas
+*> Java class MyFormUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.displayable.canvas
-unit MyFormUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MyFormUtil-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 MyFormUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 MyFormUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF MyFormUtil-jset-instance = 0
+        MOVE 1 TO MyFormUtil-jset-instance
+        COMPUTE MyFormUtil-jcell-instance = FUNCTION MyFormUtil-new0
+    END-IF
+    MOVE MyFormUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION MyFormUtil-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MyFormUtilstaticinstS86535.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 MyFormUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION MyFormUtil-static-instance TO J-RESULT
+    MOVE J-VALUE TO MyFormUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION MyFormUtilstaticinstS86535.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MyFormUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("MyFormUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_popupMenuRectangle")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
+    COMPUTE JVALUE = FUNCTION RctnglFctry-static-SINGLETON
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_popupMenuRectangle", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION MyFormUtil-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, Rectangle, LogUtil, CommonStrings;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MyFormUtil-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION MyFormUtil-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION MyFormUtil-getInstance0.
 
-type
-  {AB:TYPES}
-  TMyFormUtil = class(TObject)
-  public
-    logUtil: TLogUtil;
-    commonStrings: TCommonStrings;
-    popupMenuRectangle: TRectangle;
-    class var instance: TMyFormUtil;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TMyFormUtil; static;
-        procedure updateMeasurement(graphics_: TGraphics); virtual;
-        function getPopupMenuRectangle: TRectangle; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MyFormUtil-updateMeasurement1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-font BINARY-DOUBLE.
+01 J-displayInfo BINARY-DOUBLE.
+01 J-features BINARY-DOUBLE.
+01 J-isOpenGL BINARY-DOUBLE.
+01 J-TOTAL_CHAR_WIDTH BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-pointFactory BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-font = FUNCTION Graphics-getFont0(J-graphics)
+        COMPUTE J-displayInfo = FUNCTION DsplyInfSngltn-getInstance0
+        COMPUTE J-features = FUNCTION Features-getInstance0
+        COMPUTE jtemp1 = FUNCTION OpnGLFtrFctry-getInstance0
+        COMPUTE J-isOpenGL = FUNCTION Features-isDefault1(J-features, FUNCTION JR-GET(jtemp1, "f_OPENGL"))
+        COMPUTE jtemp2 = FUNCTION SWTJOGLProcessor-getInstance0
+        COMPUTE J-TOTAL_CHAR_WIDTH = (((FUNCTION SWTJOGLProcessor-isJOGL0(jtemp2) * J-isOpenGL)) * (2) + (1 - ((FUNCTION SWTJOGLProcessor-isJOGL0(jtemp2) * J-isOpenGL))) * (3))
+        COMPUTE J-width = FUNCTION MyFntPrcssr-dfltStrngWdth2(J-font, J-TOTAL_CHAR_WIDTH)
+        COMPUTE J-pointFactory = FUNCTION PointFactory-getInstance0
+        IF (FUNCTION DsplyInfSngltn-getLastHeight0(J-displayInfo) < 320)
+            COMPUTE jtemp6 = 0
+            COMPUTE jtemp7 = 25
+            COMPUTE jtemp9 = ((FUNCTION MOD((FUNCTION Font-getHeight0(J-font) * 4) + 2147483648, 4294967296) - 2147483648))
+            COMPUTE jtemp10 = 2
+            COMPUTE jtemp8 = (FUNCTION MOD((jtemp9 + jtemp10) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JVALUE = FUNCTION Rectangle-new3(FUNCTION PointFactory-createXY2(J-pointFactory, jtemp6, jtemp7), J-width, jtemp8)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_popupMenuRectangle", JVALUE)
+        ELSE
+            COMPUTE jtemp3 = 0
+            COMPUTE jtemp4 = (FUNCTION MOD((FUNCTION DsplyInfSngltn-gtLstHlfHght0(J-displayInfo) - 70) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE jtemp5 = ((FUNCTION MOD((FUNCTION Font-getHeight0(J-font) * 5) + 2147483648, 4294967296) - 2147483648))
+            COMPUTE JVALUE = FUNCTION Rectangle-new3(FUNCTION PointFactory-createXY2(J-pointFactory, jtemp3, jtemp4), J-width, jtemp5)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_popupMenuRectangle", JVALUE)
+        END-IF
+    GOBACK.
+END FUNCTION MyFormUtil-updateMeasurement1.
 
-implementation
-uses
-  Font, Features, PointFactory, RectangleFactory, DisplayInfoSingleton, MyFontProcessor, OpenGLFeatureFactory, SWTJOGLProcessor;
-
-
-{AB:CODE}
-
-procedure TMyFormUtil.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.commonStrings := TCommonStrings.getInstance();
-  Self.popupMenuRectangle := TRectangleFactory.SINGLETON;
-end;
-
-constructor TMyFormUtil.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TMyFormUtil.getInstance: TMyFormUtil;
-begin
-        Exit(TMyFormUtil.instance);
-end;
-    
-
-procedure TMyFormUtil.updateMeasurement(graphics_: TGraphics);
-var
-  font_: TFont;
-  displayInfo: TDisplayInfoSingleton;
-  features_: TFeatures;
-  isOpenGL: Boolean;
-  TOTAL_CHAR_WIDTH: Integer;
-  width: Integer;
-  pointFactory_: TPointFactory;
-begin
-        font_ := graphics_.getFont();
-        displayInfo := TDisplayInfoSingleton.getInstance();
-        features_ := TFeatures.getInstance();
-        isOpenGL := features_.isDefault(TOpenGLFeatureFactory.getInstance().OPENGL);
-        TOTAL_CHAR_WIDTH := TJava.IfThen<Variant>((TSWTJOGLProcessor.getInstance().isJOGL()) and (isOpenGL), 2, 3);
-        width := TMyFontProcessor.defaultStringWidth(font_, TOTAL_CHAR_WIDTH);
-        pointFactory_ := TPointFactory.getInstance();
-        if (displayInfo.getLastHeight()) < (320) then begin
-            Self.popupMenuRectangle := TRectangle.Create(pointFactory_.createXY(0, 25), width, (((font_.getHeight()) * (4))) + (2));
-        end else begin
-            Self.popupMenuRectangle := TRectangle.Create(pointFactory_.createXY(0, (displayInfo.getLastHalfHeight()) - (70)), width, ((font_.getHeight()) * (5)));
-        end;
-end;
-    
-
-function TMyFormUtil.getPopupMenuRectangle: TRectangle;
-begin
-        Exit(Self.popupMenuRectangle);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TMyFormUtil.instance := TMyFormUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MyFrmUtl-gtPppMnRctngl0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_popupMenuRectangle")
+        GOBACK
+    GOBACK.
+END FUNCTION MyFrmUtl-gtPppMnRctngl0.
 

@@ -1,202 +1,568 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2022 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.input.event
+*> Java class RawKeyEventHandler
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RwKyEvntHndlr-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 RawKeyEventHandler-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 RawKeyEventHandler-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF RawKeyEventHandler-jset-instance = 0
+        MOVE 1 TO RawKeyEventHandler-jset-instance
+        COMPUTE RawKeyEventHandler-jcell-instance = FUNCTION RawKeyEventHandler-new0
+    END-IF
+    MOVE RawKeyEventHandler-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION RwKyEvntHndlr-static-instance.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RwKyEvntHndlrstaticiS13347.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 RawKeyEventHandler-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION RwKyEvntHndlr-static-instance TO J-RESULT
+    MOVE J-VALUE TO RawKeyEventHandler-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION RwKyEvntHndlrstaticiS13347.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RwKyEvntHndlr-sttc-TOTA70003.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 RawKeyEventHandler-jcell-TOTAL_LISTENERS BINARY-DOUBLE EXTERNAL.
+01 RawKeyEventHandler-jset-TOTAL_LISTENERS BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF RawKeyEventHandler-jset-TOTAL_LISTENERS = 0
+        MOVE 1 TO RawKeyEventHandler-jset-TOTAL_LISTENERS
+        COMPUTE RawKeyEventHandler-jcell-TOTAL_LISTENERS = FUNCTION JR-STR("Total Listeners: ")
+    END-IF
+    MOVE RawKeyEventHandler-jcell-TOTAL_LISTENERS TO J-RESULT
+    GOBACK.
+END FUNCTION RwKyEvntHndlr-sttc-TOTA70003.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RwKyEvntHndlrsttcTOTS33323.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 RawKeyEventHandler-jcell-TOTAL_LISTENERS BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION RwKyEvntHndlr-sttc-TOTA70003 TO J-RESULT
+    MOVE J-VALUE TO RawKeyEventHandler-jcell-TOTAL_LISTENERS
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION RwKyEvntHndlrsttcTOTS33323.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RwKyEvntHndlr-sttc-LIST23925.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 RawKeyEventHandler-jcell-LISTENER_LABEL BINARY-DOUBLE EXTERNAL.
+01 RawKeyEventHandler-jset-LISTENER_LABEL BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF RawKeyEventHandler-jset-LISTENER_LABEL = 0
+        MOVE 1 TO RawKeyEventHandler-jset-LISTENER_LABEL
+        COMPUTE RawKeyEventHandler-jcell-LISTENER_LABEL = FUNCTION JR-STR(" Listener: ")
+    END-IF
+    MOVE RawKeyEventHandler-jcell-LISTENER_LABEL TO J-RESULT
+    GOBACK.
+END FUNCTION RwKyEvntHndlr-sttc-LIST23925.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RwKyEvntHndlrsttcLISS12565.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 RawKeyEventHandler-jcell-LISTENER_LABEL BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION RwKyEvntHndlr-sttc-LIST23925 TO J-RESULT
+    MOVE J-VALUE TO RawKeyEventHandler-jcell-LISTENER_LABEL
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION RwKyEvntHndlrsttcLISS12565.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RawKeyEventHandler-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("RawKeyEventHandler")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_eventListenerInterfaceList")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
     
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.input.event
-unit RawKeyEventHandler;
+        COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_eventListenerInterfaceList", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION RawKeyEventHandler-new0.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RwKyEvntHndlr-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION RwKyEvntHndlr-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION RwKyEvntHndlr-getInstance0.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RwKyEvntHndlr-rmvAllLstnrs0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_eventListenerInterfaceList", JVALUE)
+    GOBACK.
+END FUNCTION RwKyEvntHndlr-rmvAllLstnrs0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LogUtil, BasicArrayList, RawKeyEventListener;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RwKyEvntHndlr-addListeners1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-eventListenerInterface BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-vector BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-vector RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(J-vector)
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-eventListenerInterface = FUNCTION BasicArrayList-get1(J-vector, J-index)
+            COMPUTE JDISCARD = FUNCTION RwKyEvntHndlr-addListener1(J-THIS, J-eventListenerInterface)
+        END-PERFORM
+    GOBACK.
+END FUNCTION RwKyEvntHndlr-addListeners1.
 
-type
-  {AB:TYPES}
-  TRawKeyEventHandler = class(TObject)
-  public
-    logUtil: TLogUtil;
-    eventListenerInterfaceList: TBasicArrayList;
-    class var instance: TRawKeyEventHandler;
-    class var TOTAL_LISTENERS: string;
-    class var LISTENER_LABEL: string;
-    procedure InitFields;
-        class function getInstance: TRawKeyEventHandler; static;
-        constructor Create;
-        procedure removeAllListeners; virtual;
-        procedure addListeners(vector: TBasicArrayList); virtual;
-        procedure addListenerSingleThreaded(eventListenerInterface: IRawKeyEventListener); virtual;
-        procedure addListener(eventListenerInterface: IRawKeyEventListener); virtual;
-        procedure removeListenerSingleThreaded(eventListenerInterface: IRawKeyEventListener); virtual;
-        procedure removeListener(eventListenerInterface: IRawKeyEventListener); virtual;
-        procedure fireEvent(keyCode: Integer; deviceId: Integer; repeated: Boolean); virtual;
-        procedure process(keyCode: Integer; deviceId: Integer; repeated: Boolean; eventListenerInterface: IRawKeyEventListener); virtual;
-        function getEventListenerInterfaceListP: TBasicArrayList; virtual;
-        function toString: string; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RwKyEvntHndlr-addLstnrSng45725.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventListenerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventListenerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (NOT (FUNCTION BasicArrayList-contains1(FUNCTION JR-GET(J-THIS, "f_eventListenerInterfaceList"), J-eventListenerInterface) = 1))
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_eventListenerInterfaceList"), J-eventListenerInterface)
+        END-IF
+    GOBACK.
+END FUNCTION RwKyEvntHndlr-addLstnrSng45725.
 
-implementation
-uses
-  StringMaker, EventStrings, CommonStrings, BasicArrayListD;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RwKyEvntHndlr-addListener1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventListenerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventListenerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (NOT (FUNCTION BasicArrayList-contains1(FUNCTION JR-GET(J-THIS, "f_eventListenerInterfaceList"), J-eventListenerInterface) = 1))
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_eventListenerInterfaceList"), J-eventListenerInterface)
+        END-IF
+    GOBACK.
+END FUNCTION RwKyEvntHndlr-addListener1.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RwKyEvntHndlr-rmvLstnrSng11238.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventListenerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventListenerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-remove1(FUNCTION JR-GET(J-THIS, "f_eventListenerInterfaceList"), J-eventListenerInterface)
+    GOBACK.
+END FUNCTION RwKyEvntHndlr-rmvLstnrSng11238.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RwKyEvntHndlr-removeListener1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventListenerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventListenerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-remove1(FUNCTION JR-GET(J-THIS, "f_eventListenerInterfaceList"), J-eventListenerInterface)
+    GOBACK.
+END FUNCTION RwKyEvntHndlr-removeListener1.
 
-procedure TRawKeyEventHandler.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RawKeyEventHandler-fireEvent3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-eventListenerInterface BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-commonStrings BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-keyCode BINARY-DOUBLE.
+01 J-deviceId BINARY-DOUBLE.
+01 J-repeated BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-keyCode J-deviceId J-repeated RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+        COMPUTE J-index = 0
+        PERFORM FOREVER
+            IF NOT (J-index < FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_eventListenerInterfaceList"))) EXIT PERFORM END-IF
+            CONTINUE
+                COMPUTE J-eventListenerInterface = FUNCTION BasicArrayList-get1(FUNCTION JR-GET(J-THIS, "f_eventListenerInterfaceList"), J-index)
+                COMPUTE JDISCARD = FUNCTION RawKeyEventHandler-process4(J-THIS, J-keyCode, J-deviceId, J-repeated, J-eventListenerInterface)
+            COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+        END-PERFORM
+    GOBACK.
+END FUNCTION RawKeyEventHandler-fireEvent3.
 
-class function TRawKeyEventHandler.getInstance: TRawKeyEventHandler;
-begin
-        Exit(TRawKeyEventHandler.instance);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RawKeyEventHandler-process4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-keyCode BINARY-DOUBLE.
+01 J-deviceId BINARY-DOUBLE.
+01 J-repeated BINARY-DOUBLE.
+01 J-eventListenerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-keyCode J-deviceId J-repeated J-eventListenerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION RwKyEvntLstnr-onEventRaw3(J-eventListenerInterface, J-keyCode, J-deviceId, J-repeated)
+    GOBACK.
+END FUNCTION RawKeyEventHandler-process4.
 
-constructor TRawKeyEventHandler.Create;
-begin
-    inherited Create;
-    InitFields;
-        Self.eventListenerInterfaceList := TBasicArrayListD.Create();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RwKyEvntHndlr-gtEvntLstnr21078.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_eventListenerInterfaceList")
+        GOBACK
+    GOBACK.
+END FUNCTION RwKyEvntHndlr-gtEvntLstnr21078.
 
-procedure TRawKeyEventHandler.removeAllListeners;
-begin
-        Self.eventListenerInterfaceList := TBasicArrayListD.Create();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RawKeyEventHandler-toString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringBuffer BINARY-DOUBLE.
+01 J-eventListenerInterface BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-commonStrings BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION RwKyEvntHndlr-sttc-TOTA70003)
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_eventListenerInterfaceList")))
+        CONTINUE
+        COMPUTE J-index = 0
+        PERFORM FOREVER
+            IF NOT (J-index < FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_eventListenerInterfaceList"))) EXIT PERFORM END-IF
+            CONTINUE
+                COMPUTE J-eventListenerInterface = FUNCTION BasicArrayList-get1(FUNCTION JR-GET(J-THIS, "f_eventListenerInterfaceList"), J-index)
+                COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION RwKyEvntHndlr-sttc-LIST23925)
+                COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-TO-STRING(J-eventListenerInterface))
+            COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+        END-PERFORM
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(J-stringBuffer)
+        GOBACK
+    GOBACK.
+END FUNCTION RawKeyEventHandler-toString0.
 
-procedure TRawKeyEventHandler.addListeners(vector: TBasicArrayList);
-var
-  eventListenerInterface: IRawKeyEventListener;
-  size: Integer;
-  index: Integer;
-begin
-        
-        size := vector.size();
-        for index := 0 to size - 1 do begin
-            eventListenerInterface := (TJava.ToObject(vector.get(index)) as IRawKeyEventListener);
-            Self.addListener(eventListenerInterface);
-        end;
-end;
-    
-
-procedure TRawKeyEventHandler.addListenerSingleThreaded(eventListenerInterface: IRawKeyEventListener);
-begin
-        if not (Self.eventListenerInterfaceList.contains(TJava.Box(eventListenerInterface))) then begin
-            Self.eventListenerInterfaceList.add(TJava.Box(eventListenerInterface));
-        end;
-end;
-    
-
-procedure TRawKeyEventHandler.addListener(eventListenerInterface: IRawKeyEventListener);
-begin
-        if not (Self.eventListenerInterfaceList.contains(TJava.Box(eventListenerInterface))) then begin
-            Self.eventListenerInterfaceList.add(TJava.Box(eventListenerInterface));
-        end;
-end;
-    
-
-procedure TRawKeyEventHandler.removeListenerSingleThreaded(eventListenerInterface: IRawKeyEventListener);
-begin
-        Self.eventListenerInterfaceList.remove(TJava.ToObject(eventListenerInterface));
-end;
-    
-
-procedure TRawKeyEventHandler.removeListener(eventListenerInterface: IRawKeyEventListener);
-begin
-        Self.eventListenerInterfaceList.remove(TJava.ToObject(eventListenerInterface));
-end;
-    
-
-// throws Exception
-procedure TRawKeyEventHandler.fireEvent(keyCode: Integer; deviceId: Integer; repeated: Boolean);
-var
-  eventListenerInterface: IRawKeyEventListener;
-  index: Integer;
-  commonStrings_: TCommonStrings;
-begin
-        
-        index := 0;
-        while (index) < (Self.eventListenerInterfaceList.size()) do begin
-            try
-                eventListenerInterface := (TJava.ToObject(Self.eventListenerInterfaceList.get(index)) as IRawKeyEventListener);
-                Self.process(keyCode, deviceId, repeated, eventListenerInterface);
-            except
-                on e: SysUtils.Exception do begin
-                commonStrings_ := TCommonStrings.getInstance();
-                Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), TEventStrings.getInstance().FIRE_EVENT, TJava.Box(e));
-                end;
-            end;
-            Inc(index);
-        end;
-end;
-    
-
-// throws Exception
-procedure TRawKeyEventHandler.process(keyCode: Integer; deviceId: Integer; repeated: Boolean; eventListenerInterface: IRawKeyEventListener);
-begin
-        eventListenerInterface.onEventRaw(keyCode, deviceId, repeated);
-end;
-    
-
-function TRawKeyEventHandler.getEventListenerInterfaceListP: TBasicArrayList;
-begin
-        Exit(Self.eventListenerInterfaceList);
-end;
-    
-
-function TRawKeyEventHandler.toString: string;
-var
-  stringBuffer: TStringMaker;
-  eventListenerInterface: IRawKeyEventListener;
-  index: Integer;
-  commonStrings_: TCommonStrings;
-begin
-        stringBuffer := TStringMaker.Create();
-        stringBuffer.append(TRawKeyEventHandler.TOTAL_LISTENERS);
-        stringBuffer.appendint(Self.eventListenerInterfaceList.size());
-        
-        index := 0;
-        while (index) < (Self.eventListenerInterfaceList.size()) do begin
-            try
-                eventListenerInterface := (TJava.ToObject(Self.eventListenerInterfaceList.get(index)) as IRawKeyEventListener);
-                stringBuffer.append(TRawKeyEventHandler.LISTENER_LABEL);
-                stringBuffer.append(TJava.ToString(TJava.ToObject(eventListenerInterface)));
-            except
-                on e: SysUtils.Exception do begin
-                commonStrings_ := TCommonStrings.getInstance();
-                Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.TOSTRING, TJava.Box(e));
-                end;
-            end;
-            Inc(index);
-        end;
-        Exit(stringBuffer.toString());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TRawKeyEventHandler.instance := TRawKeyEventHandler.Create();
-  TRawKeyEventHandler.TOTAL_LISTENERS := 'Total Listeners: ';
-  TRawKeyEventHandler.LISTENER_LABEL := ' Listener: ';
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+PROGRAM-ID. RawKeyEventHandler-toString.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION RawKeyEventHandler-toString0(J-THIS)
+    GOBACK.
+END PROGRAM RawKeyEventHandler-toString.
 

@@ -1,40 +1,116 @@
-// Generated Code Do Not Modify
-// package org.allbinary.view
-unit AllBinaryMidletViewInterface;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.view
+*> Java class AllBinaryMidletViewInterface
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryMdltVwIntrfc-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("AllBinaryMidletViewInterface")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION AllBnryMdltVwIntrfc-new0.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryMdltVwIntrfc-onResume0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+    DISPLAY "AbstractMethodError: AllBinaryMidletViewInterface.onResume"
+    STOP RUN
+    GOBACK.
+END FUNCTION AllBnryMdltVwIntrfc-onResume0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameInitializedListenerInterface, DemoGameMidletEventListener, MidletCompositeInterface, Displayable, MIDlet, DemoGameMidletEvent, AllBinaryEventObject, GameInitializedEvent, EmulatorViewInterface;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryMdltVwIntrfc-onPause0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+    DISPLAY "AbstractMethodError: AllBinaryMidletViewInterface.onPause"
+    STOP RUN
+    GOBACK.
+END FUNCTION AllBnryMdltVwIntrfc-onPause0.
 
-type
-  {AB:TYPES}
-  IAllBinaryMidletViewInterface = interface(IMidletCompositeInterface) ['IAllBinaryMidletViewInterface']
-        procedure onResume;
-        procedure onPause;
-        procedure onDestroy;
-        procedure onEmulatorInitComplete(midletActivity: TObject); overload;
-        procedure onSetDisplayable(displayable_: TDisplayable); overload;
-        procedure setMidlet(midlet_: TMIDlet); overload;
-        procedure onDemoGameMidletEvent(demoGameMidletEvent_: TDemoGameMidletEvent); overload;
-        procedure onDemoStart; overload;
-        procedure onGameStart; overload;
-        procedure onEvent(eventObject: TAllBinaryEventObject); overload;
-        procedure onGameInitialized(gameInitializedEvent_: TGameInitializedEvent); overload;
-  end;
-  TAllBinaryMidletViewInterface = IAllBinaryMidletViewInterface;
-
-implementation
-
-{AB:CODE}
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryMdltVwIntrfc-onDestroy0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+    DISPLAY "AbstractMethodError: AllBinaryMidletViewInterface.onDestroy"
+    STOP RUN
+    GOBACK.
+END FUNCTION AllBnryMdltVwIntrfc-onDestroy0.
 

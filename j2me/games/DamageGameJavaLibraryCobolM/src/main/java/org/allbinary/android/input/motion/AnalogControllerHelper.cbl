@@ -1,116 +1,194 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.android.input.motion
+*> Java class AnalogControllerHelper
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.android.input.motion
-unit AnalogControllerHelper;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, CollidableDestroyableDamageableLayer, TimeDelayHelper;
-
-type
-  {AB:TYPES}
-  TAnalogControllerHelper = class(TObject)
-  public
-    reduceTimeFactor: Integer;
-    SCALE_VALUE: Integer;
-    rightTimeElapsedHelper: TTimeDelayHelper;
-    leftTimeElapsedHelper: TTimeDelayHelper;
-    downTimeElapsedHelper: TTimeDelayHelper;
-    upTimeElapsedHelper: TTimeDelayHelper;
-    procedure InitFields;
-        constructor Create(reduceTimeFactor: Integer);
-        procedure right(collidableDestroyableDamageableLayer_: TCollidableDestroyableDamageableLayer; xAnalogValue: Integer); virtual;
-        procedure left(collidableDestroyableDamageableLayer_: TCollidableDestroyableDamageableLayer; xAnalogValue: Integer); virtual;
-        procedure up(collidableDestroyableDamageableLayer_: TCollidableDestroyableDamageableLayer; xAnalogValue: Integer); virtual;
-        procedure down(collidableDestroyableDamageableLayer_: TCollidableDestroyableDamageableLayer; xAnalogValue: Integer); virtual;
-  end;
-
-implementation
-uses
-  AnalogControllerConfigurationFactory;
-
-
-{AB:CODE}
-
-procedure TAnalogControllerHelper.InitFields;
-begin
-  
-  Self.SCALE_VALUE := TAnalogControllerConfigurationFactory.getInstance().SCALE_VALUE;
-  Self.rightTimeElapsedHelper := TTimeDelayHelper.Create(0);
-  Self.leftTimeElapsedHelper := TTimeDelayHelper.Create(0);
-  Self.downTimeElapsedHelper := TTimeDelayHelper.Create(0);
-  Self.upTimeElapsedHelper := TTimeDelayHelper.Create(0);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnalogControllerHelper-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-reduceTimeFactor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-reduceTimeFactor RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("AnalogControllerHelper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_reduceTimeFactor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SCALE_VALUE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_rightTimeElapsedHelper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_leftTimeElapsedHelper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_downTimeElapsedHelper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_upTimeElapsedHelper")
     
+    COMPUTE jtemp1 = FUNCTION AnlgCntrllrCnfgrtnFctry-g35385
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_SCALE_VALUE")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SCALE_VALUE", JVALUE)
+    COMPUTE jtemp2 = 0
+    COMPUTE JVALUE = FUNCTION TimeDelayHelper-new1(jtemp2)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_rightTimeElapsedHelper", JVALUE)
+    COMPUTE jtemp3 = 0
+    COMPUTE JVALUE = FUNCTION TimeDelayHelper-new1(jtemp3)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_leftTimeElapsedHelper", JVALUE)
+    COMPUTE jtemp4 = 0
+    COMPUTE JVALUE = FUNCTION TimeDelayHelper-new1(jtemp4)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_downTimeElapsedHelper", JVALUE)
+    COMPUTE jtemp5 = 0
+    COMPUTE JVALUE = FUNCTION TimeDelayHelper-new1(jtemp5)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_upTimeElapsedHelper", JVALUE)
+        COMPUTE JVALUE = J-reduceTimeFactor
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_reduceTimeFactor", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION AnalogControllerHelper-new1.
 
-constructor TAnalogControllerHelper.Create(reduceTimeFactor: Integer);
-begin
-    inherited Create;
-    InitFields;
-        Self.reduceTimeFactor := reduceTimeFactor;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnalogControllerHelper-right2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-collidableDestroyableDamageableLayer BINARY-DOUBLE.
+01 J-xAnalogValue BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-collidableDestroyableDamageableLayer J-xAnalogValue RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = (FUNCTION JR-SHIFT(JFIVE, ((FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_SCALE_VALUE") - J-xAnalogValue) + 2147483648, 4294967296) - 2147483648)), FUNCTION JR-GET(J-THIS, "f_reduceTimeFactor")))
+        COMPUTE JDISCARD = FUNCTION JR-SET(FUNCTION JR-GET(J-THIS, "f_rightTimeElapsedHelper"), "f_delay", JVALUE)
+        IF (FUNCTION TimeDelayHelper-isTimeTNT0(FUNCTION JR-GET(J-THIS, "f_rightTimeElapsedHelper")) = 1)
+            COMPUTE JDISCARD = FUNCTION ClldblDstryblDmgblLyr-right0(J-collidableDestroyableDamageableLayer)
+        END-IF
+    GOBACK.
+END FUNCTION AnalogControllerHelper-right2.
 
-// throws Exception
-procedure TAnalogControllerHelper.right(collidableDestroyableDamageableLayer_: TCollidableDestroyableDamageableLayer; xAnalogValue: Integer);
-begin
-        Self.rightTimeElapsedHelper.delay := (TJava.SignedRightShift(((Self.SCALE_VALUE) - (xAnalogValue)), Self.reduceTimeFactor));
-        if Self.rightTimeElapsedHelper.isTimeTNT() then begin
-            collidableDestroyableDamageableLayer_.right();
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnalogControllerHelper-left2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-collidableDestroyableDamageableLayer BINARY-DOUBLE.
+01 J-xAnalogValue BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-collidableDestroyableDamageableLayer J-xAnalogValue RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = (FUNCTION JR-SHIFT(JFIVE, ((FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_SCALE_VALUE") + J-xAnalogValue) + 2147483648, 4294967296) - 2147483648)), FUNCTION JR-GET(J-THIS, "f_reduceTimeFactor")))
+        COMPUTE JDISCARD = FUNCTION JR-SET(FUNCTION JR-GET(J-THIS, "f_leftTimeElapsedHelper"), "f_delay", JVALUE)
+        IF (FUNCTION TimeDelayHelper-isTimeTNT0(FUNCTION JR-GET(J-THIS, "f_leftTimeElapsedHelper")) = 1)
+            COMPUTE JDISCARD = FUNCTION ClldblDstryblDmgblLyr-left0(J-collidableDestroyableDamageableLayer)
+        END-IF
+    GOBACK.
+END FUNCTION AnalogControllerHelper-left2.
 
-// throws Exception
-procedure TAnalogControllerHelper.left(collidableDestroyableDamageableLayer_: TCollidableDestroyableDamageableLayer; xAnalogValue: Integer);
-begin
-        Self.leftTimeElapsedHelper.delay := (TJava.SignedRightShift(((Self.SCALE_VALUE) + (xAnalogValue)), Self.reduceTimeFactor));
-        if Self.leftTimeElapsedHelper.isTimeTNT() then begin
-            collidableDestroyableDamageableLayer_.left();
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnalogControllerHelper-up2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-collidableDestroyableDamageableLayer BINARY-DOUBLE.
+01 J-xAnalogValue BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-collidableDestroyableDamageableLayer J-xAnalogValue RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = (FUNCTION JR-SHIFT(JFIVE, ((FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_SCALE_VALUE") - J-xAnalogValue) + 2147483648, 4294967296) - 2147483648)), FUNCTION JR-GET(J-THIS, "f_reduceTimeFactor")))
+        COMPUTE JDISCARD = FUNCTION JR-SET(FUNCTION JR-GET(J-THIS, "f_upTimeElapsedHelper"), "f_delay", JVALUE)
+        IF (FUNCTION TimeDelayHelper-isTimeTNT0(FUNCTION JR-GET(J-THIS, "f_upTimeElapsedHelper")) = 1)
+            COMPUTE JDISCARD = FUNCTION ClldblDstryblDmgblLyr-up0(J-collidableDestroyableDamageableLayer)
+        END-IF
+    GOBACK.
+END FUNCTION AnalogControllerHelper-up2.
 
-// throws Exception
-procedure TAnalogControllerHelper.up(collidableDestroyableDamageableLayer_: TCollidableDestroyableDamageableLayer; xAnalogValue: Integer);
-begin
-        Self.upTimeElapsedHelper.delay := (TJava.SignedRightShift(((Self.SCALE_VALUE) - (xAnalogValue)), Self.reduceTimeFactor));
-        if Self.upTimeElapsedHelper.isTimeTNT() then begin
-            collidableDestroyableDamageableLayer_.up();
-        end;
-end;
-    
-
-// throws Exception
-procedure TAnalogControllerHelper.down(collidableDestroyableDamageableLayer_: TCollidableDestroyableDamageableLayer; xAnalogValue: Integer);
-begin
-        Self.downTimeElapsedHelper.delay := (TJava.SignedRightShift(((Self.SCALE_VALUE) + (xAnalogValue)), Self.reduceTimeFactor));
-        if Self.downTimeElapsedHelper.isTimeTNT() then begin
-            collidableDestroyableDamageableLayer_.down();
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnalogControllerHelper-down2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-collidableDestroyableDamageableLayer BINARY-DOUBLE.
+01 J-xAnalogValue BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-collidableDestroyableDamageableLayer J-xAnalogValue RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = (FUNCTION JR-SHIFT(JFIVE, ((FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_SCALE_VALUE") + J-xAnalogValue) + 2147483648, 4294967296) - 2147483648)), FUNCTION JR-GET(J-THIS, "f_reduceTimeFactor")))
+        COMPUTE JDISCARD = FUNCTION JR-SET(FUNCTION JR-GET(J-THIS, "f_downTimeElapsedHelper"), "f_delay", JVALUE)
+        IF (FUNCTION TimeDelayHelper-isTimeTNT0(FUNCTION JR-GET(J-THIS, "f_downTimeElapsedHelper")) = 1)
+            COMPUTE JDISCARD = FUNCTION ClldblDstryblDmgblLyr-down0(J-collidableDestroyableDamageableLayer)
+        END-IF
+    GOBACK.
+END FUNCTION AnalogControllerHelper-down2.
 

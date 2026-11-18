@@ -1,87 +1,155 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.collision
+*> Java class LayerCollisionUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.collision
-unit LayerCollisionUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LyrCllsnUtl-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 LayerCollisionUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 LayerCollisionUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF LayerCollisionUtil-jset-instance = 0
+        MOVE 1 TO LayerCollisionUtil-jset-instance
+        COMPUTE LayerCollisionUtil-jcell-instance = FUNCTION LayerCollisionUtil-new0
+    END-IF
+    MOVE LayerCollisionUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION LyrCllsnUtl-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LyrCllsnUtlstaticinsS88518.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 LayerCollisionUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION LyrCllsnUtl-static-instance TO J-RESULT
+    MOVE J-VALUE TO LayerCollisionUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION LyrCllsnUtlstaticinsS88518.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AllBinaryLayer, CollisionProcessor;
-
-type
-  {AB:TYPES}
-  TLayerCollisionUtil = class(TObject)
-  public
-    collisionProcessor: TCollisionProcessor;
-    class var instance: TLayerCollisionUtil;
-    procedure InitFields;
-        class function getInstance: TLayerCollisionUtil; static;
-        constructor Create;
-        function isCollision(myLayer: TAllBinaryLayer; myLayer2: TAllBinaryLayer): Boolean; virtual;
-  end;
-
-implementation
-uses
-  Collision2DProcessor, CollisionThreedProcessor, Features, GameFeatureFactory, OpenGLFeatureUtil;
-
-
-{AB:CODE}
-
-procedure TLayerCollisionUtil.InitFields;
-begin
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LayerCollisionUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-features BINARY-DOUBLE.
+01 J-gameFeatureFactory BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("LayerCollisionUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_collisionProcessor")
     
+        COMPUTE J-features = FUNCTION Features-getInstance0
+        COMPUTE J-gameFeatureFactory = FUNCTION GmFtrFctry-getInstance0
+        COMPUTE jtemp1 = FUNCTION OpenGLFeatureUtil-getInstance0
+        IF ((FUNCTION OpenGLFeatureUtil-isAnyThreed0(jtemp1) = 1) AND (NOT (FUNCTION Features-isFeature1(J-features, FUNCTION JR-GET(J-gameFeatureFactory, "f_COLLISIONS_FORCED_TWO_DIMENSIONAL")) = 1)))
+            COMPUTE JVALUE = FUNCTION CollisionThreedProcessor-new0
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_collisionProcessor", JVALUE)
+        ELSE
+            COMPUTE JVALUE = FUNCTION Collision2DProcessor-new0
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_collisionProcessor", JVALUE)
+        END-IF
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION LayerCollisionUtil-new0.
 
-class function TLayerCollisionUtil.getInstance: TLayerCollisionUtil;
-begin
-        Exit(TLayerCollisionUtil.instance);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LyrCllsnUtl-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION LyrCllsnUtl-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION LyrCllsnUtl-getInstance0.
 
-constructor TLayerCollisionUtil.Create;
-var
-  features_: TFeatures;
-  gameFeatureFactory_: TGameFeatureFactory;
-begin
-    inherited Create;
-    InitFields;
-        features_ := TFeatures.getInstance();
-        gameFeatureFactory_ := TGameFeatureFactory.getInstance();
-        if (TOpenGLFeatureUtil.getInstance().isAnyThreed()) and (not (features_.isFeature(gameFeatureFactory_.COLLISIONS_FORCED_TWO_DIMENSIONAL))) then begin
-            Self.collisionProcessor := TCollisionThreedProcessor.Create();
-        end else begin
-            Self.collisionProcessor := TCollision2DProcessor.Create();
-        end;
-end;
-    
-
-function TLayerCollisionUtil.isCollision(myLayer: TAllBinaryLayer; myLayer2: TAllBinaryLayer): Boolean;
-begin
-        Exit(Self.collisionProcessor.isCollision(myLayer, myLayer2));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TLayerCollisionUtil.instance := TLayerCollisionUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LyrCllsnUtl-isCollision2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-myLayer BINARY-DOUBLE.
+01 J-myLayer2 BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-myLayer J-myLayer2 RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION CllsnPrcssr-isCollision2(FUNCTION JR-GET(J-THIS, "f_collisionProcessor"), J-myLayer, J-myLayer2)
+        GOBACK
+    GOBACK.
+END FUNCTION LyrCllsnUtl-isCollision2.
 

@@ -1,78 +1,149 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.transition.shake
+*> Java class ShakeEventFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.transition.shake
-unit ShakeEventFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ShkEvntFctry-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ShakeEventFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 ShakeEventFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF ShakeEventFactory-jset-instance = 0
+        MOVE 1 TO ShakeEventFactory-jset-instance
+        COMPUTE ShakeEventFactory-jcell-instance = FUNCTION ShakeEventFactory-new0
+    END-IF
+    MOVE ShakeEventFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION ShkEvntFctry-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ShkEvntFctrystaticinS16046.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ShakeEventFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION ShkEvntFctry-static-instance TO J-RESULT
+    MOVE J-VALUE TO ShakeEventFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION ShkEvntFctrystaticinS16046.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ShakeEventFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ShakeEventFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_MICRO")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SMALL")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_MEDIUM")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_LARGE")
+    COMPUTE JVALUE = FUNCTION ShakeEvent-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_MICRO", JVALUE)
+    COMPUTE JVALUE = FUNCTION ShakeEvent-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SMALL", JVALUE)
+    COMPUTE JVALUE = FUNCTION ShakeEvent-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_MEDIUM", JVALUE)
+    COMPUTE JVALUE = FUNCTION ShakeEvent-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_LARGE", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ShakeEventFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, ShakeEvent;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ShakeEventFactory-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION ShkEvntFctry-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION ShakeEventFactory-getInstance0.
 
-type
-  {AB:TYPES}
-  TShakeEventFactory = class(TObject)
-  public
-    MICRO: TShakeEvent;
-    SMALL: TShakeEvent;
-    MEDIUM: TShakeEvent;
-    LARGE: TShakeEvent;
-    class var instance: TShakeEventFactory;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TShakeEventFactory; static;
-        procedure init; virtual;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TShakeEventFactory.InitFields;
-begin
-  Self.MICRO := TShakeEvent.Create();
-  Self.SMALL := TShakeEvent.Create();
-  Self.MEDIUM := TShakeEvent.Create();
-  Self.LARGE := TShakeEvent.Create();
-end;
-
-constructor TShakeEventFactory.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TShakeEventFactory.getInstance: TShakeEventFactory;
-begin
-        Exit(TShakeEventFactory.instance);
-end;
-    
-
-procedure TShakeEventFactory.init;
-begin
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TShakeEventFactory.instance := TShakeEventFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ShakeEventFactory-init0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION ShakeEventFactory-init0.
 

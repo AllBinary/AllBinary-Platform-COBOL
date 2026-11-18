@@ -1,122 +1,175 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.input
+*> Java class InputPersistance
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.input
-unit InputPersistance;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InputPersistance-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-name BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-name RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("InputPersistance")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_hashtableUtil")
+    COMPUTE JVALUE = FUNCTION HashtableUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hashtableUtil", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION InputPersistance-new1.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InputPersistance-loadAll1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-recordStore BINARY-DOUBLE.
+01 J-recordEnum BINARY-DOUBLE.
+01 J-hashtable BINARY-DOUBLE.
+01 J-stringBuffer BINARY-DOUBLE.
+01 J-smallIntegerSingletonFactory BINARY-DOUBLE.
+01 J-id BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-abeClientInformation BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-abeClientInformation RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = 1
+        COMPUTE J-recordStore = FUNCTION RecordStore-openRecordStore2(FUNCTION BasicPersitance-getRecordId1(J-THIS, J-abeClientInformation), jtemp1)
+        COMPUTE jtemp2 = 1
+        COMPUTE J-recordEnum = FUNCTION RecordStore-enumerateRecords3(J-recordStore, FUNCTION NllRcrdFltr-sttc-NULL-79613, FUNCTION NllRcrdCmprtr-sttc-NUL41497, jtemp2)
+        CONTINUE
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE J-smallIntegerSingletonFactory = FUNCTION SmllIntgrSngltnFctry-gtInstnc0
+        CONTINUE
+        PERFORM FOREVER
+            IF NOT (FUNCTION RcrdEnmrtn-hasNextElement0(J-recordEnum) = 1) EXIT PERFORM END-IF
+            COMPUTE J-id = FUNCTION RcrdEnmrtn-nextRecordId0(J-recordEnum)
+            COMPUTE jtemp3 = 0
+            COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringBuffer, jtemp3, FUNCTION StringMaker-length0(J-stringBuffer))
+            COMPUTE jtemp5 = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_persistanceStrings"), "f_LOADING_ID"))
+            COMPUTE jtemp4 = FUNCTION StringMaker-appendint1(jtemp5, J-id)
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+            COMPUTE jtemp6 = FUNCTION StdUtil-getInstance0
+            COMPUTE J-hashtable = FUNCTION StdUtil-createHashtable0(jtemp6)
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_valueList"))
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_idList"))
+        END-PERFORM
+        COMPUTE JDISCARD = FUNCTION RecordStore-closeRecordStore0(J-recordStore)
+    GOBACK.
+END FUNCTION InputPersistance-loadAll1.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, BasicPersitance, AbeClientInformationInterface, HashtableUtil, ABHashtable;
-
-type
-  {AB:TYPES}
-  // GameInputNoPersistanceLibrary
-  TInputPersistance = class(TBasicPersitance)
-  public
-    hashtableUtil: THashtableUtil;
-    procedure InitFields;
-        constructor Create(name: string);
-        procedure loadAll(abeClientInformation: IAbeClientInformationInterface); virtual;
-        procedure save(abeClientInformation: IAbeClientInformationInterface; hashtable: TABHashtable<TObject, TObject>); virtual;
-  end;
-
-implementation
-uses
-  Input, RecordEnumeration, RecordStore, NullRecordComparator, NullRecordFilter, PreLogUtil, SmallIntegerSingletonFactory, StringMaker, StringUtil, BasicArrayList, StdUtil;
-
-
-{AB:CODE}
-
-procedure TInputPersistance.InitFields;
-begin
-  Self.hashtableUtil := THashtableUtil.getInstance();
-end;
-    
-
-constructor TInputPersistance.Create(name: string);
-begin
-        inherited Create(name);
-        InitFields;
-end;
-    
-
-// throws Exception
-procedure TInputPersistance.loadAll(abeClientInformation: IAbeClientInformationInterface);
-var
-  recordStore_: TRecordStore;
-  recordEnum: IRecordEnumeration;
-  hashtable: TABHashtable<TObject, TObject>;
-  stringBuffer: TStringMaker;
-  smallIntegerSingletonFactory_: TSmallIntegerSingletonFactory;
-  id: Integer;
-begin
-        recordStore_ := TRecordStore.openRecordStore(Self.getRecordId(abeClientInformation), True);
-        recordEnum := recordStore_.enumerateRecords(TNullRecordFilter.NULL_RECORD_FILTER, TNullRecordComparator.NULL_RECORD_COMPARATOR, True);
-        
-        stringBuffer := TStringMaker.Create();
-        smallIntegerSingletonFactory_ := TSmallIntegerSingletonFactory.getInstance();
-        
-        while recordEnum.hasNextElement() do begin
-            id := recordEnum.nextRecordId();
-            stringBuffer.delete_(0, stringBuffer.length());
-            Self.logUtil.putF(stringBuffer.append(Self.persistanceStrings.LOADING_ID).appendint(id).toString(), TJava.Box(Self), Self.persistanceStrings.LOAD_ALL);
-            hashtable := TStdUtil.getInstance().createHashtable();
-            Self.valueList.add(TJava.Box(hashtable));
-            Self.idList.add(TJava.Box(smallIntegerSingletonFactory_.getAt(id)));
-        end;
-        recordStore_.closeRecordStore();
-end;
-    
-
-// throws Exception
-procedure TInputPersistance.save(abeClientInformation: IAbeClientInformationInterface; hashtable: TABHashtable<TObject, TObject>);
-var
-  recordStore_: TRecordStore;
-  gameActionInput: TInput;
-  list: TBasicArrayList;
-  input_: TInput;
-  inputObjectArray: TArray<TObject>;
-  size: Integer;
-  index2: Integer;
-  index: Integer;
-begin
-        TPreLogUtil.put(TStringMaker.Create().append(Self.persistanceStrings.NOT_SAVING).append(TStringUtil.getInstance().toString(hashtable)).toString(), TJava.Box(Self), Self.commonStrings.SAVE);
-        recordStore_ := TRecordStore.openRecordStore(Self.getRecordId(abeClientInformation), True);
-        
-        
-        
-        inputObjectArray := Self.hashtableUtil.getKeysAsArray(hashtable);
-        size := System.Length(inputObjectArray);
-        for index := 0 to size - 1 do begin
-            gameActionInput := TInput(TJava.ToObject(inputObjectArray[index]));
-            list := TBasicArrayList(TJava.ToObject(hashtable.get(TJava.Box(inputObjectArray[index]))));
-            for index2 := 0 to list.size() - 1 do begin
-                input_ := TInput(TJava.ToObject(list.get(index2)));
-            end;
-        end;
-        recordStore_.closeRecordStore();
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InputPersistance-save2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-recordStore BINARY-DOUBLE.
+01 J-gameActionInput BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-input BINARY-DOUBLE.
+01 J-inputObjectArray BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-index2 BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-abeClientInformation BINARY-DOUBLE.
+01 J-hashtable BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-abeClientInformation J-hashtable RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp10 = FUNCTION StringUtil-getInstance0
+        COMPUTE jtemp9 = FUNCTION StringMaker-new0
+        COMPUTE jtemp8 = FUNCTION StringMaker-append1(jtemp9, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_persistanceStrings"), "f_NOT_SAVING"))
+        COMPUTE jtemp7 = FUNCTION StringMaker-append1(jtemp8, FUNCTION StringUtil-toString1(jtemp10, J-hashtable))
+        COMPUTE JDISCARD = FUNCTION PreLogUtil-put3(FUNCTION JR-TO-STRING(jtemp7), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_SAVE"))
+        COMPUTE jtemp11 = 1
+        COMPUTE J-recordStore = FUNCTION RecordStore-openRecordStore2(FUNCTION BasicPersitance-getRecordId1(J-THIS, J-abeClientInformation), jtemp11)
+        CONTINUE
+        CONTINUE
+        CONTINUE
+        COMPUTE J-inputObjectArray = FUNCTION HashtableUtil-getKeysAsArray1(FUNCTION JR-GET(J-THIS, "f_hashtableUtil"), J-hashtable)
+        COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(J-inputObjectArray)
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-gameActionInput = FUNCTION JR-ARRAY-GET(J-inputObjectArray, J-index)
+            COMPUTE J-list = FUNCTION Hashtable-get1(J-hashtable, FUNCTION JR-ARRAY-GET(J-inputObjectArray, J-index))
+            COMPUTE J-index2 = 0
+            MOVE 1 TO JFIRST2
+            PERFORM FOREVER
+                IF JFIRST2 = 0
+                    COMPUTE J-index2 = (FUNCTION MOD(J-index2 + 1 + 2147483648, 4294967296) - 2147483648)
+                END-IF
+                MOVE 0 TO JFIRST2
+                IF NOT (J-index2 < FUNCTION BasicArrayList-size0(J-list)) EXIT PERFORM END-IF
+                COMPUTE J-input = FUNCTION BasicArrayList-get1(J-list, J-index2)
+            END-PERFORM
+        END-PERFORM
+        COMPUTE JDISCARD = FUNCTION RecordStore-closeRecordStore0(J-recordStore)
+    GOBACK.
+END FUNCTION InputPersistance-save2.
 

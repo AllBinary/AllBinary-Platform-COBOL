@@ -1,103 +1,166 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2022 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.displayable
-unit CanvasStrings;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.displayable
+*> Java class CanvasStrings
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CanvasStrings-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CanvasStrings-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 CanvasStrings-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF CanvasStrings-jset-instance = 0
+        MOVE 1 TO CanvasStrings-jset-instance
+        COMPUTE CanvasStrings-jcell-instance = FUNCTION CanvasStrings-new0
+    END-IF
+    MOVE CanvasStrings-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION CanvasStrings-static-instance.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CanvasStringsstaticiS77677.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CanvasStrings-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION CanvasStrings-static-instance TO J-RESULT
+    MOVE J-VALUE TO CanvasStrings-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION CanvasStringsstaticiS77677.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, BasicArrayList;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CanvasStrings-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CanvasStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_CONSTRUCTOR")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_PAUSE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_UN_PAUSE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SET_FULL_SCREEN_MODE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SIZE_CHANGED")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SCALED_IMAGES")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_PAINT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ON_DISPLAY_CHANGE_EVENT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_UPDATE_MEASUREMENT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_FD_WIDTH")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_FD_HEIGHT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_EMPTY_CHILD_NAME_LIST")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ABOUT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_OPTIONS")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_FONT_ATLAS")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_OBJ_MODEL")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_MD2_MODEL")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f__PNG")
+    COMPUTE JVALUE = FUNCTION JR-STR("MyCanvas::MyCanvas")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_CONSTRUCTOR", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("MyCanvas::pause")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_PAUSE", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("MyCanvas::unPause")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_UN_PAUSE", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("setFullScreenMode")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SET_FULL_SCREEN_MODE", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("sizeChanged")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SIZE_CHANGED", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("scaledImages")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SCALED_IMAGES", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("paint")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_PAINT", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("onDisplayChangeEvent")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ON_DISPLAY_CHANGE_EVENT", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("updateMeasurement")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_UPDATE_MEASUREMENT", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR(" font/display width: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_FD_WIDTH", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR(" font/display height: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_FD_HEIGHT", JVALUE)
+    COMPUTE jtemp1 = FUNCTION BscArryLstUtl-getInstance0
+    COMPUTE JVALUE = FUNCTION BscArryLstUtl-gtImmtblInstnc0(jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_EMPTY_CHILD_NAME_LIST", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("About")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ABOUT", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Options")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_OPTIONS", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("/font.png")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_FONT_ATLAS", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("_obj")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_OBJ_MODEL", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("_md2")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_MD2_MODEL", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR(".png")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f__PNG", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CanvasStrings-new0.
 
-type
-  {AB:TYPES}
-  TCanvasStrings = class(TObject)
-  public
-    CONSTRUCTOR_: string;
-    PAUSE: string;
-    UN_PAUSE: string;
-    SET_FULL_SCREEN_MODE: string;
-    SIZE_CHANGED: string;
-    SCALED_IMAGES: string;
-    PAINT: string;
-    ON_DISPLAY_CHANGE_EVENT: string;
-    UPDATE_MEASUREMENT: string;
-    FD_WIDTH: string;
-    FD_HEIGHT: string;
-    EMPTY_CHILD_NAME_LIST: TBasicArrayList;
-    ABOUT: string;
-    OPTIONS: string;
-    FONT_ATLAS: string;
-    OBJ_MODEL: string;
-    MD2_MODEL: string;
-    _PNG: string;
-    class var instance: TCanvasStrings;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TCanvasStrings; static;
-  end;
-
-implementation
-uses
-  BasicArrayListUtil;
-
-
-{AB:CODE}
-
-procedure TCanvasStrings.InitFields;
-begin
-  Self.CONSTRUCTOR_ := 'MyCanvas::MyCanvas';
-  Self.PAUSE := 'MyCanvas::pause';
-  Self.UN_PAUSE := 'MyCanvas::unPause';
-  Self.SET_FULL_SCREEN_MODE := 'setFullScreenMode';
-  Self.SIZE_CHANGED := 'sizeChanged';
-  Self.SCALED_IMAGES := 'scaledImages';
-  Self.PAINT := 'paint';
-  Self.ON_DISPLAY_CHANGE_EVENT := 'onDisplayChangeEvent';
-  Self.UPDATE_MEASUREMENT := 'updateMeasurement';
-  Self.FD_WIDTH := ' font/display width: ';
-  Self.FD_HEIGHT := ' font/display height: ';
-  Self.EMPTY_CHILD_NAME_LIST := TBasicArrayListUtil.getInstance().getImmutableInstance();
-  Self.ABOUT := 'About';
-  Self.OPTIONS := 'Options';
-  Self.FONT_ATLAS := '/font.png';
-  Self.OBJ_MODEL := '_obj';
-  Self.MD2_MODEL := '_md2';
-  Self._PNG := '.png';
-end;
-
-constructor TCanvasStrings.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TCanvasStrings.getInstance: TCanvasStrings;
-begin
-        Exit(TCanvasStrings.instance);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TCanvasStrings.instance := TCanvasStrings.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CanvasStrings-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION CanvasStrings-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION CanvasStrings-getInstance0.
 

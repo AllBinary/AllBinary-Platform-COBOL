@@ -1,91 +1,181 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.pipeline
+*> Java class RandomRotationFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.pipeline
-unit RandomRotationFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RndmRttnFctry-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 RandomRotationFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 RandomRotationFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF RandomRotationFactory-jset-instance = 0
+        MOVE 1 TO RandomRotationFactory-jset-instance
+        COMPUTE RandomRotationFactory-jcell-instance = FUNCTION RandomRotationFactory-new0
+    END-IF
+    MOVE RandomRotationFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION RndmRttnFctry-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RndmRttnFctrystaticiS54651.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 RandomRotationFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION RndmRttnFctry-static-instance TO J-RESULT
+    MOVE J-VALUE TO RandomRotationFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION RndmRttnFctrystaticiS54651.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RandomRotationFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("RandomRotationFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_myRandomFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_angleFactory")
+    COMPUTE JVALUE = FUNCTION MyRandomFactory-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myRandomFactory", JVALUE)
+    COMPUTE JVALUE = FUNCTION AngleFactory-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_angleFactory", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION RandomRotationFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, MyRandomFactory, AngleFactory, BasicArrayList;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RndmRttnFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION RndmRttnFctry-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION RndmRttnFctry-getInstance0.
 
-type
-  {AB:TYPES}
-  TRandomRotationFactory = class(TObject)
-  public
-    myRandomFactory: TMyRandomFactory;
-    angleFactory: TAngleFactory;
-    class var instance: TRandomRotationFactory;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TRandomRotationFactory; static;
-        function getInstanceList(vector: TBasicArrayList; howMuch: Integer): TBasicArrayList; virtual;
-        function getNextRandomAngle(howMuch: Integer): Integer; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RndmRttnFctry-getInstanceList2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-graphicsPipe BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-vector BINARY-DOUBLE.
+01 J-howMuch BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-vector J-howMuch RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-graphicsPipe = FUNCTION BasicGraphicsPipeline-new1(J-vector)
+        COMPUTE JDISCARD = FUNCTION BscGrphcsPpln-createMatrix0(J-graphicsPipe)
+        COMPUTE JDISCARD = FUNCTION BscGrphcsPpln-rotateToAngle1(J-graphicsPipe, FUNCTION AngleFactory-getAt1(FUNCTION JR-GET(J-THIS, "f_angleFactory"), FUNCTION RndmRttnFctry-gtNxtRndmAngl1(J-THIS, J-howMuch)))
+        COMPUTE J-RESULT = FUNCTION BscGrphcsPpln-getMatrix0(J-graphicsPipe)
+        GOBACK
+    GOBACK.
+END FUNCTION RndmRttnFctry-getInstanceList2.
 
-implementation
-uses
-  BasicGraphicsPipeline;
-
-
-{AB:CODE}
-
-procedure TRandomRotationFactory.InitFields;
-begin
-  Self.myRandomFactory := TMyRandomFactory.getInstance();
-  Self.angleFactory := TAngleFactory.getInstance();
-end;
-
-constructor TRandomRotationFactory.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TRandomRotationFactory.getInstance: TRandomRotationFactory;
-begin
-        Exit(TRandomRotationFactory.instance);
-end;
-    
-
-// throws Exception
-function TRandomRotationFactory.getInstanceList(vector: TBasicArrayList; howMuch: Integer): TBasicArrayList;
-var
-  graphicsPipe: TBasicGraphicsPipeline;
-begin
-        graphicsPipe := TBasicGraphicsPipeline.Create(vector);
-        graphicsPipe.createMatrix();
-        graphicsPipe.rotateToAngle(Self.angleFactory.getAt(Self.getNextRandomAngle(howMuch)));
-        Exit(graphicsPipe.getMatrix());
-end;
-    
-
-function TRandomRotationFactory.getNextRandomAngle(howMuch: Integer): Integer;
-begin
-        Exit(Self.myRandomFactory.getNextInt((howMuch) * (10)));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TRandomRotationFactory.instance := TRandomRotationFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RndmRttnFctry-gtNxtRndmAngl1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-howMuch BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-howMuch RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = (FUNCTION MOD((J-howMuch * 10) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE J-RESULT = FUNCTION MyRandomFactory-getNextInt1(FUNCTION JR-GET(J-THIS, "f_myRandomFactory"), jtemp1)
+        GOBACK
+    GOBACK.
+END FUNCTION RndmRttnFctry-gtNxtRndmAngl1.
 

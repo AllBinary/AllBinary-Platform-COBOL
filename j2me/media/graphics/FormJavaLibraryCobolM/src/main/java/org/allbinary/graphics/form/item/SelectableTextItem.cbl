@@ -1,74 +1,110 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.form.item
+*> Java class SelectableTextItem
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.form.item
-unit SelectableTextItem;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SelectableTextItem-new5.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-label BINARY-DOUBLE.
+01 J-layout BINARY-DOUBLE.
+01 J-altText BINARY-DOUBLE.
+01 J-backgroundBasicColor BINARY-DOUBLE.
+01 J-foregroundBasicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-label J-layout J-altText J-backgroundBasicColor J-foregroundBasicColor RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("SelectableTextItem")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION SelectableTextItem-new5.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SlctblTxtItm-isFocusable0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = 1
+        GOBACK
+    GOBACK.
+END FUNCTION SlctblTxtItm-isFocusable0.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, BasicColor, ABTextItem;
-
-type
-  {AB:TYPES}
-  TSelectableTextItem = class(TABTextItem)
-  public
-        constructor Create(label_: string; layout: Integer; altText: string; backgroundBasicColor: TBasicColor; foregroundBasicColor: TBasicColor);
-        function isFocusable: Boolean; override;
-        procedure paintXY(graphics_: TGraphics; x: Integer; y: Integer); override;
-  end;
-
-implementation
-uses
-  ABStringComponent;
-
-
-{AB:CODE}
-    
-
-constructor TSelectableTextItem.Create(label_: string; layout: Integer; altText: string; backgroundBasicColor: TBasicColor; foregroundBasicColor: TBasicColor);
-begin
-        inherited Create(label_, layout, altText, backgroundBasicColor, foregroundBasicColor);
-end;
-    
-
-function TSelectableTextItem.isFocusable: Boolean;
-begin
-        Exit(True);
-end;
-    
-
-procedure TSelectableTextItem.paintXY(graphics_: TGraphics; x: Integer; y: Integer);
-var
-  stringComponent: TABStringComponent;
-begin
-        Self.myFontProcessor.process(graphics_);
-        stringComponent := Self.getLabelStringComponent();
-        if (stringComponent) <> (nil) then begin
-            graphics_.setColor(stringComponent.getForegroundBasicColor().intValue());
-        end;
-        graphics_.drawString(Self.getLabel(), (x) + (2), y, 0);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SelectableTextItem-paintXY3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringComponent BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_myFontProcessor"))
+        COMPUTE J-stringComponent = FUNCTION ABTxtItm-gtLblStrngCmpnnt0(J-THIS)
+        IF (J-stringComponent NOT = 0)
+            COMPUTE jtemp1 = FUNCTION ABStrngCmpnnt-gtFrgrndBscClr0(J-stringComponent)
+            COMPUTE JDISCARD = FUNCTION Graphics-setColor1(J-graphics, FUNCTION JR-CLASS-NAME(jtemp1))
+        END-IF
+        COMPUTE jtemp3 = 2
+        COMPUTE jtemp2 = (FUNCTION MOD((J-x + jtemp3) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp4 = 0
+        COMPUTE JDISCARD = FUNCTION Graphics-drawString4(J-graphics, FUNCTION ABTextItem-getLabel0(J-THIS), jtemp2, J-y, jtemp4)
+    GOBACK.
+END FUNCTION SelectableTextItem-paintXY3.
 

@@ -1,112 +1,286 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion.button
+*> Java class CurrentlyPressedTouchButtonSingleton
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion.button
-unit CurrentlyPressedTouchButtonSingleton;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CrrntlyPrssdTchBttnSngl-10560.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CurrentlyPressedTouchButtonSingleton-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 CurrentlyPressedTouchButtonSingleton-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF CurrentlyPressedTouchButtonSingleton-jset-instance = 0
+        MOVE 1 TO CurrentlyPressedTouchButtonSingleton-jset-instance
+        COMPUTE CurrentlyPressedTouchButtonSingleton-jcell-instance = FUNCTION CrrntlyPrssdTchBttnSngltn-new0
+    END-IF
+    MOVE CurrentlyPressedTouchButtonSingleton-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION CrrntlyPrssdTchBttnSngl-10560.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CrrntlyPrssdTchBttnSS11316.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CurrentlyPressedTouchButtonSingleton-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION CrrntlyPrssdTchBttnSngl-10560 TO J-RESULT
+    MOVE J-VALUE TO CurrentlyPressedTouchButtonSingleton-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION CrrntlyPrssdTchBttnSS11316.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CrrntlyPrssdTchBttnSngltn-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CurrentlyPressedTouchButtonSingleton")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_list")
+    COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CrrntlyPrssdTchBttnSngltn-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, BasicArrayList, TouchButtonInput;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CrrntlyPrssdTchBttnSngl-19967.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION CrrntlyPrssdTchBttnSngl-10560
+        GOBACK
+    GOBACK.
+END FUNCTION CrrntlyPrssdTchBttnSngl-19967.
 
-type
-  {AB:TYPES}
-  TCurrentlyPressedTouchButtonSingleton = class(TObject)
-  public
-    list: TBasicArrayList;
-    class var instance: TCurrentlyPressedTouchButtonSingleton;
-    procedure InitFields;
-        class function getInstance: TCurrentlyPressedTouchButtonSingleton; static;
-        constructor Create;
-        function size: Integer; virtual;
-        function removeAt(index: Integer): TTouchButtonInput; virtual;
-        function remove(touchButtonInput_: TTouchButtonInput): Boolean; virtual;
-        function get(index: Integer): TTouchButtonInput; virtual;
-        function contains(touchButtonInput_: TTouchButtonInput): Boolean; virtual;
-        procedure add(touchButtonInput_: TTouchButtonInput); virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CrrntlyPrssdTchBttnSngltn-sz0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_list"))
+        GOBACK
+    GOBACK.
+END FUNCTION CrrntlyPrssdTchBttnSngltn-sz0.
 
-implementation
-uses
-  BasicArrayListD;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CrrntlyPrssdTchBttnSngl-12717.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-index RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION BasicArrayList-removeAt1(FUNCTION JR-GET(J-THIS, "f_list"), J-index)
+        GOBACK
+    GOBACK.
+END FUNCTION CrrntlyPrssdTchBttnSngl-12717.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CrrntlyPrssdTchBttnSngltn-rmv1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-touchButtonInput BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-touchButtonInput RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION BasicArrayList-remove1(FUNCTION JR-GET(J-THIS, "f_list"), J-touchButtonInput)
+        GOBACK
+    GOBACK.
+END FUNCTION CrrntlyPrssdTchBttnSngltn-rmv1.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CrrntlyPrssdTchBttnSngltn-get1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-index RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_list"), "f_objectArray"), J-index)
+        GOBACK
+    GOBACK.
+END FUNCTION CrrntlyPrssdTchBttnSngltn-get1.
 
-procedure TCurrentlyPressedTouchButtonSingleton.InitFields;
-begin
-  Self.list := TBasicArrayListD.Create();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CrrntlyPrssdTchBttnSngl-78025.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-touchButtonInput BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-touchButtonInput RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION BasicArrayList-contains1(FUNCTION JR-GET(J-THIS, "f_list"), J-touchButtonInput)
+        GOBACK
+    GOBACK.
+END FUNCTION CrrntlyPrssdTchBttnSngl-78025.
 
-class function TCurrentlyPressedTouchButtonSingleton.getInstance: TCurrentlyPressedTouchButtonSingleton;
-begin
-        Exit(TCurrentlyPressedTouchButtonSingleton.instance);
-end;
-    
-
-constructor TCurrentlyPressedTouchButtonSingleton.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
-
-function TCurrentlyPressedTouchButtonSingleton.size: Integer;
-begin
-        Exit(Self.list.size());
-end;
-    
-
-function TCurrentlyPressedTouchButtonSingleton.removeAt(index: Integer): TTouchButtonInput;
-begin
-        Exit(TTouchButtonInput(TJava.ToObject(Self.list.removeAt(index))));
-end;
-    
-
-function TCurrentlyPressedTouchButtonSingleton.remove(touchButtonInput_: TTouchButtonInput): Boolean;
-begin
-        Exit(Self.list.remove(touchButtonInput_));
-end;
-    
-
-function TCurrentlyPressedTouchButtonSingleton.get(index: Integer): TTouchButtonInput;
-begin
-        Exit(TTouchButtonInput(TJava.ToObject(Self.list.objectArray[index])));
-end;
-    
-
-function TCurrentlyPressedTouchButtonSingleton.contains(touchButtonInput_: TTouchButtonInput): Boolean;
-begin
-        Exit(Self.list.contains(TJava.Box(touchButtonInput_)));
-end;
-    
-
-procedure TCurrentlyPressedTouchButtonSingleton.add(touchButtonInput_: TTouchButtonInput);
-begin
-        Self.list.add(TJava.Box(touchButtonInput_));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TCurrentlyPressedTouchButtonSingleton.instance := TCurrentlyPressedTouchButtonSingleton.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CrrntlyPrssdTchBttnSngltn-add1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-touchButtonInput BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-touchButtonInput RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), J-touchButtonInput)
+    GOBACK.
+END FUNCTION CrrntlyPrssdTchBttnSngltn-add1.
 

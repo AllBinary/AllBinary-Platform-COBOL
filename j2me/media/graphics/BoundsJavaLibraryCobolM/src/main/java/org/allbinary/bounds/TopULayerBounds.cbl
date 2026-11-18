@@ -1,65 +1,74 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.bounds
+*> Java class TopULayerBounds
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.bounds
-unit TopULayerBounds;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TopULayerBounds-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-rectangle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-rectangle RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("TopULayerBounds")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION TopULayerBounds-new1.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Rectangle, BoundsVisitorInterface, LayerBounds;
-
-type
-  {AB:TYPES}
-  TTopULayerBounds = class(TLayerBounds)
-  public
-        constructor Create(rectangle_: TRectangle);
-        procedure visit(boundsVisitorInterface_: IBoundsVisitorInterface); override;
-  end;
-
-implementation
-
-{AB:CODE}
-    
-
-constructor TTopULayerBounds.Create(rectangle_: TRectangle);
-begin
-        inherited Create(rectangle_);
-end;
-    
-
-procedure TTopULayerBounds.visit(boundsVisitorInterface_: IBoundsVisitorInterface);
-begin
-        if (boundsVisitorInterface_.getX()) > (Self.rectangle.getMaxX()) then begin
-            boundsVisitorInterface_.maxX();
-        end;
-        if (boundsVisitorInterface_.getX()) < (Self.rectangle.getPoint().getX()) then begin
-            boundsVisitorInterface_.minX();
-        end;
-        if (boundsVisitorInterface_.getY()) < (Self.rectangle.getPoint().getY()) then begin
-            boundsVisitorInterface_.minY();
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TopULayerBounds-visit1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-boundsVisitorInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-boundsVisitorInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION BoundsVisitorInterface-getX0(J-boundsVisitorInterface) > FUNCTION Rectangle-getMaxX0(FUNCTION JR-GET(J-THIS, "f_rectangle")))
+            COMPUTE JDISCARD = FUNCTION BoundsVisitorInterface-maxX0(J-boundsVisitorInterface)
+        END-IF
+        COMPUTE jtemp1 = FUNCTION Rectangle-getPoint0(FUNCTION JR-GET(J-THIS, "f_rectangle"))
+        IF (FUNCTION BoundsVisitorInterface-getX0(J-boundsVisitorInterface) < FUNCTION JR-CLASS-NAME(jtemp1))
+            COMPUTE JDISCARD = FUNCTION BoundsVisitorInterface-minX0(J-boundsVisitorInterface)
+        END-IF
+        COMPUTE jtemp2 = FUNCTION Rectangle-getPoint0(FUNCTION JR-GET(J-THIS, "f_rectangle"))
+        IF (FUNCTION BoundsVisitorInterface-getY0(J-boundsVisitorInterface) < FUNCTION JR-CLASS-NAME(jtemp2))
+            COMPUTE JDISCARD = FUNCTION BoundsVisitorInterface-minY0(J-boundsVisitorInterface)
+        END-IF
+    GOBACK.
+END FUNCTION TopULayerBounds-visit1.
 

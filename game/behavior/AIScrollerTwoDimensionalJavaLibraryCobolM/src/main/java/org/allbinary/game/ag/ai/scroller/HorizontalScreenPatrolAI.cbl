@@ -1,125 +1,227 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.ai.scroller
+*> Java class HorizontalScreenPatrolAI
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.ai.scroller
-unit HorizontalScreenPatrolAI;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HrzntlScrnPtrlAI-static-SOUND.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 HorizontalScreenPatrolAI-jcell-SOUND BINARY-DOUBLE EXTERNAL.
+01 HorizontalScreenPatrolAI-jset-SOUND BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF HorizontalScreenPatrolAI-jset-SOUND = 0
+        MOVE 1 TO HorizontalScreenPatrolAI-jset-SOUND
+        COMPUTE jtemp3 = 433
+    COMPUTE jtemp2 = FUNCTION SmllIntgrSngltnFctry-gtInstnc0
+    COMPUTE HorizontalScreenPatrolAI-jcell-SOUND = FUNCTION SmllIntgrSngltnFctry-getAt1(jtemp2, jtemp3)
+    END-IF
+    MOVE HorizontalScreenPatrolAI-jcell-SOUND TO J-RESULT
+    GOBACK.
+END FUNCTION HrzntlScrnPtrlAI-static-SOUND.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HrzntlScrnPtrlAIstatS33325.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 HorizontalScreenPatrolAI-jcell-SOUND BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION HrzntlScrnPtrlAI-static-SOUND TO J-RESULT
+    MOVE J-VALUE TO HorizontalScreenPatrolAI-jcell-SOUND
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION HrzntlScrnPtrlAIstatS33325.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, BasicAI, GameInput, DisplayInfoSingleton, AllBinaryLayer, AllBinaryLayerManager, PlayerQueue, Sound, TimeDelayHelper, ABHashtable;
-
-type
-  {AB:TYPES}
-  THorizontalScreenPatrolAI = class(TBasicAI)
-  public
-    keyDirection: Integer;
-    displayInfoSingleton: TDisplayInfoSingleton;
-    firingX: Integer;
-    firedIndex: Integer;
-    MAX_FIRE: Integer;
-    timeDelayHelper: TTimeDelayHelper;
-    secondaryPlayerQueue: TPlayerQueue;
-    sound: TSound;
-    class var SOUND_: Integer;
-    procedure InitFields;
-        constructor Create(hashtable: TABHashtable<TObject, TObject>; ownerLayerInterface: TAllBinaryLayer; gameInput_: TGameInput);
-        procedure processAI(allBinaryLayerManager_: TAllBinaryLayerManager); override;
-        procedure nextDirection; virtual;
-  end;
-
-implementation
-uses
-  Canvas, AllBinaryGameLayerManager, MyRandomFactory, SmallIntegerSingletonFactory, SecondaryPlayerQueueFactory;
-
-
-{AB:CODE}
-
-procedure THorizontalScreenPatrolAI.InitFields;
-begin
-  Self.keyDirection := TCanvas.LEFT;
-  Self.displayInfoSingleton := TDisplayInfoSingleton.getInstance();
-  Self.firingX := Self.displayInfoSingleton.getLastHalfWidth();
-  Self.firedIndex := 0;
-  Self.MAX_FIRE := 28;
-  Self.timeDelayHelper := TTimeDelayHelper.Create(240);
-  Self.secondaryPlayerQueue := TSecondaryPlayerQueueFactory.getInstance();
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HorizontalScreenPatrolAI-new3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-hashtable BINARY-DOUBLE.
+01 J-ownerLayerInterface BINARY-DOUBLE.
+01 J-gameInput BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-hashtable J-ownerLayerInterface J-gameInput RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("HorizontalScreenPatrolAI")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_keyDirection")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_displayInfoSingleton")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_firingX")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_firedIndex")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_MAX_FIRE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_timeDelayHelper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_secondaryPlayerQueue")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_sound")
+    COMPUTE JVALUE = FUNCTION Canvas-static-LEFT
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_keyDirection", JVALUE)
+    COMPUTE JVALUE = FUNCTION DsplyInfSngltn-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_displayInfoSingleton", JVALUE)
+    COMPUTE JVALUE = FUNCTION DsplyInfSngltn-gtLstHlfWdth0(FUNCTION JR-GET(J-THIS, "f_displayInfoSingleton"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_firingX", JVALUE)
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_firedIndex", JVALUE)
+    COMPUTE JVALUE = 28
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_MAX_FIRE", JVALUE)
+    COMPUTE jtemp1 = 240
+    COMPUTE JVALUE = FUNCTION TimeDelayHelper-new1(jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_timeDelayHelper", JVALUE)
+    COMPUTE JVALUE = FUNCTION ScndryPlyrQFctry-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_secondaryPlayerQueue", JVALUE)
     
+        CONTINUE
+        COMPUTE JVALUE = FUNCTION Hashtable-get1(J-hashtable, FUNCTION HrzntlScrnPtrlAI-static-SOUND)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_sound", JVALUE)
+        IF (FUNCTION JR-GET(J-THIS, "f_sound") = 0)
+            COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+        END-IF
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION HorizontalScreenPatrolAI-new3.
 
-constructor THorizontalScreenPatrolAI.Create(hashtable: TABHashtable<TObject, TObject>; ownerLayerInterface: TAllBinaryLayer; gameInput_: TGameInput);
-begin
-        inherited Create(ownerLayerInterface, gameInput_);
-        InitFields;
-        Self.sound := TSound(TJava.ToObject(hashtable.get(TJava.Box(THorizontalScreenPatrolAI.SOUND_))));
-        if (Self.sound) = (nil) then begin
-            raise SysUtils.Exception.Create('No Sound Provided!!');
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HrzntlScrnPtrlAI-processAI1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-currentOwnerLayerX BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-gameLayerManager BINARY-DOUBLE.
+01 J-FIRE BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryLayerManager BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicAI-processKeyAI1(J-THIS, FUNCTION JR-GET(J-THIS, "f_keyDirection"))
+        IF (FUNCTION TimeDelayHelper-isTimeTNT0(FUNCTION JR-GET(J-THIS, "f_timeDelayHelper")) = 1)
+            COMPUTE J-layerInterface = FUNCTION BscAI-getOwnerLayerInterface0(J-THIS)
+            COMPUTE J-currentOwnerLayerX = FUNCTION AllBinaryLayer-getXP0(J-layerInterface)
+            IF (J-currentOwnerLayerX < (0 - FUNCTION AllBinaryLayer-getWidth0(J-layerInterface)))
+                COMPUTE jtemp5 = 50
+                COMPUTE jtemp4 = FUNCTION MyRandomFactory-getInstance0
+                COMPUTE J-y = FUNCTION MyRndmFctry-gtAbsltNxtInt45945(jtemp4, jtemp5)
+                COMPUTE jtemp7 = (FUNCTION MOD((FUNCTION DsplyInfSngltn-getLastWidth0(FUNCTION JR-GET(J-THIS, "f_displayInfoSingleton")) + FUNCTION AllBinaryLayer-getWidth0(J-layerInterface)) + 2147483648, 4294967296) - 2147483648)
+                COMPUTE jtemp8 = 50
+                COMPUTE jtemp6 = (FUNCTION MOD((jtemp7 + jtemp8) + 2147483648, 4294967296) - 2147483648)
+                COMPUTE JDISCARD = FUNCTION AllBinaryLayer-setPosition3(J-layerInterface, jtemp6, J-y, FUNCTION AllBinaryLayer-getZP0(J-layerInterface))
+                COMPUTE JVALUE = 0
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_firedIndex", JVALUE)
+                COMPUTE jtemp9 = FUNCTION MyRandomFactory-getInstance0
+                COMPUTE JVALUE = (FUNCTION MOD((FUNCTION DsplyInfSngltn-gtLstHlfWdth0(FUNCTION JR-GET(J-THIS, "f_displayInfoSingleton")) + FUNCTION MyRandomFactory-getNextInt1(jtemp9, FUNCTION DsplyInfSngltn-gtLstHlfWdth0(FUNCTION
+        JR-GET(J-THIS, "f_displayInfoSingleton")))) + 2147483648, 4294967296) - 2147483648)
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_firingX", JVALUE)
+                COMPUTE JDISCARD = FUNCTION PlayerQueue-add1(FUNCTION JR-GET(J-THIS, "f_secondaryPlayerQueue"), FUNCTION JR-GET(J-THIS, "f_sound"))
+            END-IF
+            IF ((J-currentOwnerLayerX < FUNCTION JR-GET(J-THIS, "f_firingX")) AND (J-currentOwnerLayerX > (0 - FUNCTION AllBinaryLayer-getWidth0(J-layerInterface))))
+                COMPUTE JDISCARD = FUNCTION BasicAI-processKeyAI1(J-THIS, FUNCTION Canvas-static-KEY-NUM1)
+                COMPUTE J-gameLayerManager = J-allBinaryLayerManager
+                COMPUTE jtemp10 = FUNCTION AllBnryGmLyrMngr-getGameInfo0(J-gameLayerManager)
+                COMPUTE jtemp11 = 12
+                COMPUTE J-FIRE = FUNCTION JR-SHIFT(JFIVE, ((FUNCTION MOD((FUNCTION JR-CLASS-NAME(jtemp10) + jtemp11) + 2147483648, 4294967296) - 2147483648)), 2)
+                IF (J-FIRE > FUNCTION JR-GET(J-THIS, "f_MAX_FIRE"))
+                    COMPUTE J-FIRE = FUNCTION JR-GET(J-THIS, "f_MAX_FIRE")
+                END-IF
+                IF (FUNCTION JR-GET(J-THIS, "f_firedIndex") > J-FIRE)
+                    COMPUTE JVALUE = 0
+                    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_firedIndex", JVALUE)
+                    COMPUTE JVALUE = FUNCTION Integer-static-MIN-VALUE
+                    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_firingX", JVALUE)
+                END-IF
+                COMPUTE JVALUE = (FUNCTION MOD(FUNCTION JR-GET(J-THIS, "f_firedIndex") + 1 + 2147483648, 4294967296) - 2147483648)
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_firedIndex", JVALUE)
+            END-IF
+        END-IF
+    GOBACK.
+END FUNCTION HrzntlScrnPtrlAI-processAI1.
 
-// throws Exception
-procedure THorizontalScreenPatrolAI.processAI(allBinaryLayerManager_: TAllBinaryLayerManager);
-var
-  layerInterface: TAllBinaryLayer;
-  currentOwnerLayerX: Integer;
-  y: Integer;
-  gameLayerManager: TAllBinaryGameLayerManager;
-  FIRE: Integer;
-begin
-        inherited processKeyAI(Self.keyDirection);
-        if Self.timeDelayHelper.isTimeTNT() then begin
-            layerInterface := Self.getOwnerLayerInterface();
-            currentOwnerLayerX := layerInterface.getXP();
-            if (currentOwnerLayerX) < (-layerInterface.getWidth()) then begin
-                y := TMyRandomFactory.getInstance().getAbsoluteNextIntAllowZero(50);
-                layerInterface.setPosition(((Self.displayInfoSingleton.getLastWidth()) + (layerInterface.getWidth())) + (50), y, layerInterface.getZP());
-                Self.firedIndex := 0;
-                Self.firingX := (Self.displayInfoSingleton.getLastHalfWidth()) + (TMyRandomFactory.getInstance().getNextInt(Self.displayInfoSingleton.getLastHalfWidth()));
-                Self.secondaryPlayerQueue.add(Self.sound);
-            end;
-            if ((currentOwnerLayerX) < (Self.firingX)) and ((currentOwnerLayerX) > (-layerInterface.getWidth())) then begin
-                inherited processKeyAI(TCanvas.KEY_NUM1);
-                gameLayerManager := TAllBinaryGameLayerManager(TJava.ToObject(allBinaryLayerManager_));
-                FIRE := TJava.SignedRightShift(((gameLayerManager.getGameInfo().getCurrentLevel()) + (12)), 2);
-                if (FIRE) > (Self.MAX_FIRE) then begin
-                    FIRE := Self.MAX_FIRE;
-                end;
-                if (Self.firedIndex) > (FIRE) then begin
-                    Self.firedIndex := 0;
-                    Self.firingX := Low(Integer);
-                end;
-                Inc(Self.firedIndex);
-            end;
-        end;
-end;
-    
-
-procedure THorizontalScreenPatrolAI.nextDirection;
-begin
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  THorizontalScreenPatrolAI.SOUND_ := TSmallIntegerSingletonFactory.getInstance().getAt(433);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HrzntlScrnPtrlAI-nxtDrctn0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION HrzntlScrnPtrlAI-nxtDrctn0.
 

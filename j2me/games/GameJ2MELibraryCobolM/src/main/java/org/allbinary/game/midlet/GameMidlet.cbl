@@ -1,794 +1,1692 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.midlet
+*> Java class GameMidlet
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.midlet
-unit GameMidlet;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Command, CommandListener, Displayable, TsUtil, GameAdStateFactory, FullScreenUtil, DebugInterface, GameStrings, LoadGameForm, Features, GameCanvasRunnableInterface, AllBinaryGameLayerManager, HelpPaintable, HighScoresCanvas, GameStateFactory, BasicColorFactory, MyCanvas, MyCommandsFactory, AboutCommandProcessor, CommandForm, WebCommandProcessor, ClientInformationFactory, AllBinaryEventObject, MidletStrings, ProgressMidlet, TimeDelayHelper, EnumerationUtil, ABHashtable, GameMidletStateFactory;
-
-type
-  {AB:TYPES}
-  TGameMidlet = class(TProgressMidlet, ICommandListener)
-  public
-    enumerationUtil: TEnumerationUtil;
-    basicColorFactory: TBasicColorFactory;
-    features: TFeatures;
-    midletStrings: TMidletStrings;
-    myCommandsFactory: TMyCommandsFactory;
-    gameStrings: TGameStrings;
-    gameAdStateFactory: TGameAdStateFactory;
-    gameStateFactory: TGameStateFactory;
-    tsUtil: TTsUtil;
-    DISPLAYABLE: string;
-    COMMAND_NAME: string;
-    NO_COMMAND: string;
-    NO_DISPLAYABLE: string;
-    COMMAND_ACTION: string;
-    PAUSE_APP_BACKGROUND: string;
-    UN_PAUSE_APP_BACKGROUND: string;
-    aboutCommandProcessor: TAboutCommandProcessor;
-    webCommandProcessor: TWebCommandProcessor;
-    gameMidletStateFactory: TGameMidletStateFactory;
-    gameStartTimeHelper: TTimeDelayHelper;
-    fullScreenUtil: TFullScreenUtil;
-    debugInterface: IDebugInterface;
-    allbinaryGameCanvasRunnableInterface: IGameCanvasRunnableInterface;
-    thread: TThread;
-    loadGameForm: TCommandForm;
-    isFullScreen: Boolean;
-    resized: Boolean;
-    startedBefore: Boolean;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(clientInformationFactory_: TClientInformationFactory);
-        procedure init; virtual;
-        procedure setDemo; virtual;
-        procedure createGame; virtual;
-        procedure mediaShutdown; virtual;
-        procedure stopAll; virtual;
-        procedure pauseApp; virtual;
-        procedure pauseAppBackground(background: Boolean); virtual;
-        procedure unPauseApp; virtual;
-        procedure unPauseAppBackground(background: Boolean); virtual;
-        procedure destroyAppInRunnable(unconditional: Boolean; isProgress: Boolean); virtual;
-        procedure destroyApp(unconditional: Boolean); virtual;
-        procedure startApp; virtual;
-        procedure commandAction(command_: TCommand; displayable_: TDisplayable); virtual;
-        procedure updateFullScreen;
-        procedure onEvent(eventObject: TAllBinaryEventObject); virtual;
-        function getInputMappingInstructionsCanvas: TMyCanvas; virtual;
-        function getInputMappingCanvas: TMyCanvas; virtual;
-        function getAboutCanvas: TMyCanvas; virtual;
-        function getHelpPaintable: THelpPaintable; virtual;
-        function createHighScoresCanvas: THighScoresCanvas; virtual;
-        procedure startGameCanvasRunnableInterface; virtual;
-        procedure stopGameCanvasRunnableInterface; virtual;
-        function getGameCanvasRunnableInterface: IGameCanvasRunnableInterface; virtual;
-        procedure setGameCanvasRunnableInterface(gameCanvasRunnableInterface_: IGameCanvasRunnableInterface); virtual;
-        function createGameLayerManager: TAllBinaryGameLayerManager; virtual;
-        function getGameOptionsForm: TCommandForm; virtual;
-        procedure save; virtual;
-        function getCurrentStateHashtable: TABHashtable<TObject, TObject>; virtual;
-        procedure setLoadGameForm(loadGameForm_: TLoadGameForm); virtual;
-        function getLoadGameForm: TCommandForm; virtual;
-        procedure setResized(resized: Boolean); virtual;
-        function isResized: Boolean; virtual;
-        function isDemoLoading: Boolean; virtual;
-  end;
-
-implementation
-uses
-  GameMidletEventHandler, DemoGameMidletEvent, DemoGameMidletStateFactory, Canvas, NullCanvas, MIDletStateChangeException, J2MEUtil, GameStatisticsFactory, DebugFactory, GameAdState, GameInfo, GameMode, GameTypeFactory, PlayerTypesFactory, GameCommandsFactory, GameOptionsForm, GameOptionsFormFactory, InGameFeatures, InGameOptionsForm, InGameOptionsFormFactory, ChangedGameFeatureListener, GameFeatureEventHandler, GameFeatureFormUtil, MainFeatureFactory, GamePersistanceSingleton, KeyValuePersistance, AllBinaryGameCanvas, BasicPaintablesCanvas, DemoCanvas, GameEventHandlerUtil, GameInputMappingCanvas, GameInputMappingInstructionsCanvas, MenuListener, NullGameCanvasRunnable, TextNotificationUtil, GameNotificationEventHandler, HighScoreCommands, HighScoreCommandsFactory, HighScoreTextBox, HighScoreUtil, ResizableListenerHandler, ProgressCanvas, ProgressCanvasFactory, ColorChangeEventHandler, CanvasStrings, AboutPaintableFactory, AllBinarySensorManager, VirtualKeyboardEventHandler, BasicMotionGesturesHandler, ForcedLogUtil, PreLogUtil, SmallIntegerSingletonFactory, StringMaker, InApplicationPurchaseFactory, LockableFeature, LockableFeatureFactory, EventStrings, AllBinaryMediaManager, NullThread, ThreadFactoryUtil, ThreadUtil, BasicArrayList, StdUtil, ItemStateListener;
-
-
-{AB:CODE}
-
-procedure TGameMidlet.InitFields;
-begin
-  Self.enumerationUtil := TEnumerationUtil.getInstance();
-  Self.basicColorFactory := TBasicColorFactory.getInstance();
-  Self.features := TFeatures.getInstance();
-  Self.midletStrings := TMidletStrings.getInstance();
-  Self.myCommandsFactory := TMyCommandsFactory.getInstance();
-  Self.gameStrings := TGameStrings.getInstance();
-  Self.gameAdStateFactory := TGameAdStateFactory.getInstance();
-  Self.gameStateFactory := TGameStateFactory.getInstance();
-  Self.tsUtil := TTsUtil.getInstance();
-  Self.DISPLAYABLE := ' Displayable: ';
-  Self.COMMAND_NAME := 'command Name/Label: ';
-  Self.NO_COMMAND := 'No Command';
-  Self.NO_DISPLAYABLE := 'No Displayable';
-  Self.COMMAND_ACTION := TStringMaker.Create().append('GameMidlet::').append(Self.midletStrings.COMMAND_ACTION).toString();
-  Self.PAUSE_APP_BACKGROUND := 'pauseAppBackground';
-  Self.UN_PAUSE_APP_BACKGROUND := 'unPauseAppBackground';
-  Self.aboutCommandProcessor := TAboutCommandProcessor.getInstance();
-  Self.webCommandProcessor := TWebCommandProcessor.getInstance();
-  Self.gameMidletStateFactory := TGameMidletStateFactory.getInstance();
-  Self.gameStartTimeHelper := TTimeDelayHelper.Create(240);
-  Self.fullScreenUtil := TFullScreenUtil.getInstance();
-  
-  Self.allbinaryGameCanvasRunnableInterface := TNullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE;
-  Self.thread := TNullThread.NULL_THREAD;
-  
-  
-  
-  Self.startedBefore := False;
-end;
-
-function TGameMidlet.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameMidlet-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-progressCanvas BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-clientInformationFactory BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-clientInformationFactory RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameMidlet")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_enumerationUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_basicColorFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_features")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_midletStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_myCommandsFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameAdStateFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameStateFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_tsUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DISPLAYABLE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_COMMAND_NAME")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NO_COMMAND")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NO_DISPLAYABLE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_COMMAND_ACTION")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_PAUSE_APP_BACKGROUND")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_UN_PAUSE_APP_BACKGROUND")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_aboutCommandProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_webCommandProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameMidletStateFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameStartTimeHelper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_fullScreenUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_debugInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_allbinaryGameCanvasRunnableInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_thread")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_loadGameForm")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_isFullScreen")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_resized")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_startedBefore")
+    COMPUTE JVALUE = FUNCTION EnumerationUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_enumerationUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION BasicColorFactory-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicColorFactory", JVALUE)
+    COMPUTE JVALUE = FUNCTION Features-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_features", JVALUE)
+    COMPUTE JVALUE = FUNCTION MidletStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_midletStrings", JVALUE)
+    COMPUTE JVALUE = FUNCTION MyCommandsFactory-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myCommandsFactory", JVALUE)
+    COMPUTE JVALUE = FUNCTION GameStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameStrings", JVALUE)
+    COMPUTE JVALUE = FUNCTION GmAdSttFctry-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameAdStateFactory", JVALUE)
+    COMPUTE JVALUE = FUNCTION GameStateFactory-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameStateFactory", JVALUE)
+    COMPUTE JVALUE = FUNCTION TsUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_tsUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR(" Displayable: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DISPLAYABLE", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("command Name/Label: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_COMMAND_NAME", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("No Command")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NO_COMMAND", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("No Displayable")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NO_DISPLAYABLE", JVALUE)
+    COMPUTE jtemp3 = FUNCTION StringMaker-new0
+    COMPUTE jtemp2 = FUNCTION StringMaker-append1(jtemp3, FUNCTION JR-STR("GameMidlet::"))
+    COMPUTE jtemp1 = FUNCTION StringMaker-append1(jtemp2, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_midletStrings"), "f_COMMAND_ACTION"))
+    COMPUTE JVALUE = FUNCTION JR-TO-STRING(jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_COMMAND_ACTION", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("pauseAppBackground")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_PAUSE_APP_BACKGROUND", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("unPauseAppBackground")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_UN_PAUSE_APP_BACKGROUND", JVALUE)
+    COMPUTE JVALUE = FUNCTION AbtCmmndPrcssr-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_aboutCommandProcessor", JVALUE)
+    COMPUTE JVALUE = FUNCTION WbCmmndPrcssr-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_webCommandProcessor", JVALUE)
+    COMPUTE JVALUE = FUNCTION GmMdltSttFctry-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameMidletStateFactory", JVALUE)
+    COMPUTE jtemp4 = 240
+    COMPUTE JVALUE = FUNCTION TimeDelayHelper-new1(jtemp4)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameStartTimeHelper", JVALUE)
+    COMPUTE JVALUE = FUNCTION FullScreenUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_fullScreenUtil", JVALUE)
     
-
-constructor TGameMidlet.Create(clientInformationFactory_: TClientInformationFactory);
-var
-  progressCanvas_: TProgressCanvas;
-begin
-        inherited Create(clientInformationFactory_);
-        InitFields;
-        TSmallIntegerSingletonFactory.getInstance().initWithRange($291, 6);
-        Self.loadGameForm := TCommandForm.getNullCommandForm();
-        progressCanvas_ := TProgressCanvasFactory.getInstance();
-        progressCanvas_.init(Self);
-        TGameFeatureEventHandler.getInstance().addListenerInterface(TChangedGameFeatureListener.getInstance());
-        TGamePersistanceSingleton.getInstance().clear();
-        Self.debugInterface := TDebugFactory.getInstance();
-        Self.init();
-end;
+    COMPUTE JVALUE = FUNCTION NllGmCnvsRnnbl-sttc-N20955
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_allbinaryGameCanvasRunnableInterface", JVALUE)
+    COMPUTE JVALUE = FUNCTION NllThrd-static-NULL-THREAD
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_thread", JVALUE)
     
-
-procedure TGameMidlet.init;
-begin
-end;
     
-
-// throws Exception
-procedure TGameMidlet.setDemo;
-begin
-        raise SysUtils.Exception.Create(Self.commonStrings.NOT_IMPLEMENTED);
-end;
     
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_startedBefore", JVALUE)
+        CONTINUE
+        COMPUTE jtemp6 = 657
+        COMPUTE jtemp7 = 6
+        COMPUTE jtemp5 = FUNCTION SmllIntgrSngltnFctry-gtInstnc0
+        COMPUTE JDISCARD = FUNCTION SmllIntgrSngltnFctry-intW14090(jtemp5, jtemp6, jtemp7)
+        COMPUTE JVALUE = FUNCTION CmmndFrm-getNullCommandForm0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_loadGameForm", JVALUE)
+        COMPUTE J-progressCanvas = FUNCTION PrgrssCnvsFctry-getInstance0
+        COMPUTE JDISCARD = FUNCTION ProgressCanvas-init1(J-progressCanvas, J-THIS)
+        COMPUTE jtemp8 = FUNCTION GmFtrEvntHndlr-getInstance0
+        COMPUTE JDISCARD = FUNCTION BscEvntHndlr-addLstnrIntrfc1(jtemp8, FUNCTION ChngdGmFtrLstnr-getInstance0)
+        COMPUTE jtemp9 = FUNCTION GmPrsstncSngltn-getInstance0
+        COMPUTE JDISCARD = FUNCTION BasicPersitance-clear0(jtemp9)
+        COMPUTE JVALUE = FUNCTION DebugFactory-getInstance0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_debugInterface", JVALUE)
+        COMPUTE JDISCARD = FUNCTION GameMidlet-init0(J-THIS)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GameMidlet-new1.
 
-// throws Exception
-procedure TGameMidlet.createGame;
-begin
-        raise SysUtils.Exception.Create(Self.commonStrings.NOT_IMPLEMENTED);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameMidlet-init0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION GameMidlet-init0.
 
-// throws Exception
-procedure TGameMidlet.mediaShutdown;
-begin
-        raise SysUtils.Exception.Create(Self.commonStrings.NOT_IMPLEMENTED);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameMidlet-setDemo0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+    GOBACK.
+END FUNCTION GameMidlet-setDemo0.
 
-procedure TGameMidlet.stopAll;
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameMidlet-createGame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+    GOBACK.
+END FUNCTION GameMidlet-createGame0.
 
-procedure TGameMidlet.pauseApp;
-var
-  gameAdState_: TGameAdState;
-begin
-        Self.pauseAppBackground(True);
-        gameAdState_ := Self.gameAdStateFactory.getCurrentInstance();
-        gameAdState_.getAdvertisements().stopAll();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameMidlet-mediaShutdown0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+    GOBACK.
+END FUNCTION GameMidlet-mediaShutdown0.
 
-procedure TGameMidlet.pauseAppBackground(background: Boolean);
-begin
-        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.PAUSE_APP_BACKGROUND);
-        if TJava.ToObject(Self.allbinaryGameCanvasRunnableInterface) <> TJava.ToObject(TNullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE) then begin
-            Self.allbinaryGameCanvasRunnableInterface.pause();
-        end else begin
-            Self.logUtil.putF('<<<<<< Null', TJava.Box(Self), Self.PAUSE_APP_BACKGROUND);
-        end;
-        TAllBinarySensorManager.getInstance().shutdown();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameMidlet-stopAll0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION GameMidlet-stopAll0.
 
-procedure TGameMidlet.unPauseApp;
-var
-  gameAdState_: TGameAdState;
-begin
-        Self.unPauseAppBackground(True);
-        gameAdState_ := Self.gameAdStateFactory.getCurrentInstance();
-        gameAdState_.getAdvertisements().startAll();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameMidlet-pauseApp0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameAdState BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp10 = 1
+        COMPUTE JDISCARD = FUNCTION GameMidlet-pauseAppBackground1(J-THIS, jtemp10)
+        COMPUTE J-gameAdState = FUNCTION GmAdSttFctry-gtCrrntInstnc0(FUNCTION JR-GET(J-THIS, "f_gameAdStateFactory"))
+        COMPUTE jtemp11 = FUNCTION GmAdSttBs-getAdvertisements0(J-gameAdState)
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp11)
+    GOBACK.
+END FUNCTION GameMidlet-pauseApp0.
 
-procedure TGameMidlet.unPauseAppBackground(background: Boolean);
-var
-  gameCanvasRunnableInterface_: IGameCanvasRunnableInterface;
-begin
-        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.UN_PAUSE_APP_BACKGROUND);
-        TAllBinarySensorManager.getInstance().init();
-        gameCanvasRunnableInterface_ := Self.allbinaryGameCanvasRunnableInterface;
-        if TJava.ToObject(gameCanvasRunnableInterface_) <> TJava.ToObject(TNullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE) then begin
-            gameCanvasRunnableInterface_.unPause();
-        end else begin
-            Self.logUtil.putF('<<<<<< Null', TJava.Box(Self), Self.UN_PAUSE_APP_BACKGROUND);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameMidlet-pauseAppBackground1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp12 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-background BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-background RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        IF (FUNCTION JR-GET(J-THIS, "f_allbinaryGameCanvasRunnableInterface") NOT = FUNCTION NllGmCnvsRnnbl-sttc-N20955)
+            COMPUTE JDISCARD = FUNCTION GmCnvsRnnblIntrfc-pause0(FUNCTION JR-GET(J-THIS, "f_allbinaryGameCanvasRunnableInterface"))
+        ELSE
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        END-IF
+        COMPUTE jtemp12 = FUNCTION AllBnrySnsrMngr-getInstance0
+        COMPUTE JDISCARD = FUNCTION AllBnrySnsrMngr-shutdown0(jtemp12)
+    GOBACK.
+END FUNCTION GameMidlet-pauseAppBackground1.
 
-procedure TGameMidlet.destroyAppInRunnable(unconditional: Boolean; isProgress: Boolean);
-var
-  progressCanvas_: TProgressCanvas;
-begin
-        progressCanvas_ := TProgressCanvasFactory.getInstance();
-        if isProgress then begin
-            progressCanvas_.start();
-            Self.commandAction(Self.myCommandsFactory.SET_DISPLAYABLE, progressCanvas_);
-        end;
-        Self.destroyApp(unconditional);
-        if isProgress then begin
-            progressCanvas_.end_();
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameMidlet-unPauseApp0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameAdState BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp13 = 1
+        COMPUTE JDISCARD = FUNCTION GmMdlt-unPauseAppBackground1(J-THIS, jtemp13)
+        COMPUTE J-gameAdState = FUNCTION GmAdSttFctry-gtCrrntInstnc0(FUNCTION JR-GET(J-THIS, "f_gameAdStateFactory"))
+        COMPUTE jtemp14 = FUNCTION GmAdSttBs-getAdvertisements0(J-gameAdState)
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp14)
+    GOBACK.
+END FUNCTION GameMidlet-unPauseApp0.
 
-procedure TGameMidlet.destroyApp(unconditional: Boolean);
-var
-  METHOD_NAME: string;
-  gameAdState_: TGameAdState;
-begin
-        METHOD_NAME := 'GameMidlet::destroyApp';
-        try
-            TPreLogUtil.put(TGameStatisticsFactory.getInstance().toString(), TJava.Box(Self), METHOD_NAME);
-            gameAdState_ := Self.gameAdStateFactory.getCurrentInstance();
-            gameAdState_.getAdvertisements().stopAll();
-            if not (Self.isDestroyed()) then begin
-                Self.stopGameCanvasRunnableInterface();
-                Self.setGameCanvasRunnableInterface(TNullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE);
-                Self.mediaShutdown();
-            end else begin
-                Self.logUtil.putF('Midlet Managment Error: Midlet Should Only Be Destroyed Once', TJava.Box(Self), METHOD_NAME);
-            end;
-            inherited destroyApp(True);
-            TPreLogUtil.put(Self.commonStrings.END_, TJava.Box(Self), METHOD_NAME);
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), METHOD_NAME, TJava.Box(e));
-            end;
-        end;
-        Self.logUtil.putF(Self.commonStrings.END_, TJava.Box(Self), METHOD_NAME);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmMdlt-unPauseAppBackground1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameCanvasRunnableInterface BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-background BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-background RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        COMPUTE jtemp15 = FUNCTION AllBnrySnsrMngr-getInstance0
+        COMPUTE JDISCARD = FUNCTION AllBinarySensorManager-init0(jtemp15)
+        COMPUTE J-gameCanvasRunnableInterface = FUNCTION JR-GET(J-THIS, "f_allbinaryGameCanvasRunnableInterface")
+        IF (J-gameCanvasRunnableInterface NOT = FUNCTION NllGmCnvsRnnbl-sttc-N20955)
+            COMPUTE JDISCARD = FUNCTION GmCnvsRnnblIntrfc-unPause0(J-gameCanvasRunnableInterface)
+        ELSE
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        END-IF
+    GOBACK.
+END FUNCTION GmMdlt-unPauseAppBackground1.
 
-// throws MIDletStateChangeException
-procedure TGameMidlet.startApp;
-var
-  gameAdState_: TGameAdState;
-  START_APP: string;
-  gameCanvasRunnableInterface_: TObject;
-begin
-        try
-            gameAdState_ := Self.gameAdStateFactory.getCurrentInstance();
-            gameAdState_.getAdvertisements().startAll();
-            START_APP := 'startApp';
-            Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), START_APP);
-            gameCanvasRunnableInterface_ := TJava.Box(Self.allbinaryGameCanvasRunnableInterface);
-            if TJava.ToObject(gameCanvasRunnableInterface_) = TJava.ToObject(TNullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE) then begin
-                Self.gameMidletStateFactory.setCurrentGameState(Self.gameStateFactory.NO_GAME_STATE);
-                Self.setDemo();
-            end else begin
-                Self.logUtil.putF('GameCanvasRunnableInterface is available', TJava.Box(Self), START_APP);
-                if TJava.ToObject(gameCanvasRunnableInterface_) = TJava.ToObject(Self.getCurrentDisplayable()) then begin
-                    Self.unPauseAppBackground(False);
-                end else begin
-                    Self.logUtil.putF('GameCanvasRunnableInterface is not current displayable', TJava.Box(Self), START_APP);
-                end;
-            end;
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), 'startApp', TJava.Box(e));
-            Self.destroyApp(False);
-            Self.notifyDestroyed();
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmMdlt-destroyAppInRunnable2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-progressCanvas BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-unconditional BINARY-DOUBLE.
+01 J-isProgress BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-unconditional J-isProgress RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-progressCanvas = FUNCTION PrgrssCnvsFctry-getInstance0
+        IF (J-isProgress = 1)
+            COMPUTE JDISCARD = FUNCTION ProgressCanvas-start0(J-progressCanvas)
+            COMPUTE JDISCARD = FUNCTION GameMidlet-commandAction2(J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_myCommandsFactory"), "f_SET_DISPLAYABLE"), J-progressCanvas)
+        END-IF
+        COMPUTE JDISCARD = FUNCTION GameMidlet-destroyApp1(J-THIS, J-unconditional)
+        IF (J-isProgress = 1)
+            COMPUTE JDISCARD = FUNCTION ProgressCanvas-end0(J-progressCanvas)
+        END-IF
+    GOBACK.
+END FUNCTION GmMdlt-destroyAppInRunnable2.
 
-procedure TGameMidlet.commandAction(command_: TCommand; displayable_: TDisplayable);
-var
-  displayableAsString: string;
-  label_: string;
-  gameCommandsFactory_: TGameCommandsFactory;
-  allbinaryGameCanvasRunnableInterface: IGameCanvasRunnableInterface;
-  gameCanvasRunnableInterface_: TObject;
-  mainFeatureFactory_: TMainFeatureFactory;
-  isFullScreen: Boolean;
-  virtualKeyboardEventHandler_: TVirtualKeyboardEventHandler;
-  highScoreTextBox_: THighScoreTextBox;
-  keyValuePersistance_: TKeyValuePersistance;
-  loadGameForm_: TLoadGameForm;
-  index: Integer;
-  menuListener_: IMenuListener;
-  layerManager: TAllBinaryGameLayerManager;
-  stringBuffer: TStringMaker;
-  inGameOptionsForm_: TInGameOptionsForm;
-  progressCanvas_: TProgressCanvas;
-  inGameOptionsFormFactory_: TInGameOptionsFormFactory;
-  inGameOptionsForm__2: TCommandForm;
-  tempDisplayable: TDisplayable;
-  gameInputMappingCanvas_: TGameInputMappingCanvas;
-  highScoresCanvas_: THighScoresCanvas;
-  gameCanvas: TAllBinaryGameCanvas;
-  inApplicationPurchaseFactory_: TInApplicationPurchaseFactory;
-  list: TBasicArrayList;
-  lockableFeature_: TLockableFeature;
-begin
-    TJava.MonitorEnter(Self);
-    try
-        try
-            displayableAsString := Self.NO_DISPLAYABLE;
-            if (displayable_) <> (nil) then begin
-                displayableAsString := displayable_.toString();
-            end;
-            label_ := Self.NO_COMMAND;
-            if (command_) <> (nil) then begin
-                label_ := command_.getLabel();
-            end;
-            TPreLogUtil.put(TStringMaker.Create().append(Self.COMMAND_NAME).append(label_).append(Self.DISPLAYABLE).append(displayableAsString).toString(), TJava.Box(Self), Self.COMMAND_ACTION);
-            gameCommandsFactory_ := TGameCommandsFactory.getInstance();
-            allbinaryGameCanvasRunnableInterface := Self.allbinaryGameCanvasRunnableInterface;
-            gameCanvasRunnableInterface_ := TJava.Box(allbinaryGameCanvasRunnableInterface);
-            if (command_) = (gameCommandsFactory_.SHOW_GAME_CANVAS) then begin
-                if (TJava.ToObject(Self.getDisplay().getCurrent()) <> TJava.ToObject(gameCanvasRunnableInterface_)) and ((allbinaryGameCanvasRunnableInterface.getType()) <> (TNullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE.getType())) then begin
-                    Self.setDisplay(TDisplayable(TJava.ToObject(gameCanvasRunnableInterface_)));
-                end;
-                Self.unPauseAppBackground(False);
-            end else if (command_) = (gameCommandsFactory_.CLOSE_AND_SHOW_GAME_CANVAS) then begin
-                menuListener_ := (TJava.ToObject(displayable_) as IMenuListener);
-                menuListener_.close();
-                Self.setDisplay(TDisplayable(TJava.ToObject(gameCanvasRunnableInterface_)));
-                Self.unPauseAppBackground(False);
-            end else if (command_) = (gameCommandsFactory_.EXIT_COMMAND) then begin
-                if (TGameMidletEventHandler.getInstance().getEventListenerInterfaceListP().size()) = (0) then begin
-                    Self.exitProgress(True);
-                end;
-                TGameMidletEventHandler.getInstance().fireEvent(TDemoGameMidletEvent.Create(TJava.Box(Self), TDemoGameMidletStateFactory.getInstance().NONE));
-            end else if (command_) = (gameCommandsFactory_.EXIT_WITHOUT_PROGRESS_COMMAND) then begin
-                Self.exitProgress(False);
-            end else if (((command_) = (gameCommandsFactory_.START_COMMAND)) or ((command_) = (gameCommandsFactory_.RESTART_COMMAND))) or ((command_) = (gameCommandsFactory_.CONTINUE_COMMAND)) then begin
-                if ((Self.gameMidletStateFactory.getCurrentGameState()) <> (Self.gameStateFactory.PLAYING_GAME_STATE)) or ((command_) = (gameCommandsFactory_.RESTART_COMMAND)) then begin
-                    if Self.gameStartTimeHelper.isTimeTNT() then begin
-                        if ((command_) = (gameCommandsFactory_.START_COMMAND)) and (Self.isDemoLoading()) then begin
-                            Self.logUtil.putF('Trying to Start Game Before Loading Complete', TJava.Box(Self), Self.midletStrings.COMMAND_ACTION);
-                        end else begin
-                            Self.startedBefore := True;
-                            Self.createGame();
-                            Self.gameMidletStateFactory.setCurrentGameState(Self.gameStateFactory.PLAYING_GAME_STATE);
-                        end;
-                    end else begin
-                        Self.logUtil.putF('Starting Game Too Often', TJava.Box(Self), Self.midletStrings.COMMAND_ACTION);
-                    end;
-                end else begin
-                    Self.logUtil.putF('Already in playing state', TJava.Box(Self), Self.COMMAND_ACTION);
-                end;
-            end else if (command_) = (gameCommandsFactory_.BUY_COMMAND) then begin
-                inApplicationPurchaseFactory_ := TInApplicationPurchaseFactory.getInstance();
-                list := TLockableFeatureFactory.getInstance().getList();
-                lockableFeature_ := TLockableFeature(TJava.ToObject(list.get(0)));
-                if ((list.size()) > (0)) and (not (inApplicationPurchaseFactory_.isPurchased(lockableFeature_))) then begin
-                    inApplicationPurchaseFactory_.purchase(lockableFeature_);
-                end else begin
-                    TTextNotificationUtil.getInstance().fireSuccess('Already Purchased');
-                end;
-            end else if (command_) = (gameCommandsFactory_.QUIT_COMMAND) then begin
-                if Self.gameStartTimeHelper.isTimeTNT() then begin
-                    if (TJava.ToObject(displayable_) is THighScoreTextBox) then begin
-                        menuListener_ := (TJava.ToObject(displayable_) as IMenuListener);
-                        menuListener_.close();
-                    end;
-                    Self.stopGameCanvasRunnableInterface();
-                    Self.gameMidletStateFactory.setCurrentGameState(Self.gameStateFactory.NO_GAME_STATE);
-                    Self.setDemo();
-                end;
-            end else if (command_) = (Self.myCommandsFactory.RESUME_COMMAND) then begin
-                Self.unPauseAppBackground(False);
-            end else if (command_) = (Self.myCommandsFactory.PAUSE_COMMAND) then begin
-                Self.pauseAppBackground(False);
-            end else if (command_) = (Self.myCommandsFactory.SET_DISPLAYABLE) then begin
-                Self.pauseAppBackground(False);
-                Self.setDisplay(displayable_);
-            end else if (command_) = (gameCommandsFactory_.SET_MENU_DISPLAYABLE) then begin
-                Self.pauseAppBackground(False);
-                menuListener_ := (TJava.ToObject(displayable_) as IMenuListener);
-                menuListener_.open();
-                Self.setDisplay(displayable_);
-            end else if (command_) = (gameCommandsFactory_.START_TRACE) then begin
-                Self.debugInterface.start();
-                gameCanvas := TAllBinaryGameCanvas(TJava.ToObject(allbinaryGameCanvasRunnableInterface));
-                gameCanvas.addCommand(gameCommandsFactory_.STOP_TRACE);
-                gameCanvas.removeCommand(gameCommandsFactory_.START_TRACE);
-            end else if (command_) = (gameCommandsFactory_.STOP_TRACE) then begin
-                Self.pauseAppBackground(False);
-                Self.debugInterface.stop();
-                Self.unPauseAppBackground(False);
-                gameCanvas := TAllBinaryGameCanvas(TJava.ToObject(allbinaryGameCanvasRunnableInterface));
-                gameCanvas.addCommand(gameCommandsFactory_.START_TRACE);
-                gameCanvas.removeCommand(gameCommandsFactory_.STOP_TRACE);
-            end else if (command_) = (gameCommandsFactory_.DEFAULT_OPTIONS) then begin
-                tempDisplayable := displayable_;
-                if (TJava.ToObject(tempDisplayable) is TGameOptionsForm) then begin
-                    TGameFeatureFormUtil.getInstance().setDefault(TCommandForm(TJava.ToObject(tempDisplayable)));
-                end;
-            end else if (command_) = (TGameInputMappingInstructionsCanvas.DISPLAY) then begin
-                tempDisplayable := displayable_;
-                if (TJava.ToObject(tempDisplayable) is TGameInputMappingCanvas) then begin
-                    gameInputMappingCanvas_ := TGameInputMappingCanvas(TJava.ToObject(tempDisplayable));
-                    gameInputMappingCanvas_.update();
-                end;
-                Self.commandAction(gameCommandsFactory_.SET_MENU_DISPLAYABLE, Self.getInputMappingInstructionsCanvas());
-            end else if THighScoreCommandsFactory.getInstance().isHighScoreCommand(command_) then begin
-                tempDisplayable := displayable_;
-                if (TJava.ToObject(tempDisplayable) is THighScoresCanvas) then begin
-                    highScoresCanvas_ := THighScoresCanvas(TJava.ToObject(tempDisplayable));
-                    highScoresCanvas_.updateCommand(command_);
-                end;
-            end else if (command_) = (THighScoreCommands.getInstance().DISPLAY) then begin
-                Self.commandAction(gameCommandsFactory_.SET_MENU_DISPLAYABLE, Self.createHighScoresCanvas());
-            end else if (command_) = (TGameInputMappingInstructionsCanvas.CLOSE) then begin
-                menuListener_ := (TJava.ToObject(displayable_) as IMenuListener);
-                menuListener_.close();
-                Self.commandAction(TGameInputMappingCanvas.DISPLAY, TNullCanvas.NULL_CANVAS);
-            end else if (command_) = (TGameInputMappingCanvas.DISPLAY) then begin
-                if TJ2MEUtil.isHTML() then begin
-                    Self.pauseAppBackground(False);
-                end;
-                Self.commandAction(gameCommandsFactory_.SET_MENU_DISPLAYABLE, Self.getInputMappingCanvas());
-            end else if (command_) = (TGameInputMappingCanvas.DEFAULT) then begin
-                tempDisplayable := displayable_;
-                if (TJava.ToObject(tempDisplayable) is TGameInputMappingCanvas) then begin
-                    gameInputMappingCanvas_ := TGameInputMappingCanvas(TJava.ToObject(tempDisplayable));
-                    gameInputMappingCanvas_.setDefault();
-                end;
-            end else if (command_) = (TInGameOptionsForm.DISPLAY) then begin
-                Self.pauseAppBackground(False);
-                progressCanvas_ := TProgressCanvasFactory.getInstance();
-                progressCanvas_.addNormalPortion(50, 'In Game Options');
-                layerManager := Self.createGameLayerManager();
-                inGameOptionsFormFactory_ := TInGameOptionsFormFactory.getInstance();
-                inGameOptionsFormFactory_.init(Self, TInGameFeatures.Create(), 'Options In Game', layerManager.getBackgroundBasicColor(), layerManager.getForegroundBasicColor());
-                inGameOptionsForm__2 := inGameOptionsFormFactory_.get();
-                inGameOptionsForm__2.setItemStateListener((TJava.ToObject(allbinaryGameCanvasRunnableInterface) as IItemStateListener));
-                Self.commandAction(gameCommandsFactory_.SET_MENU_DISPLAYABLE, inGameOptionsForm__2);
-            end else if (command_) = (TInGameOptionsForm.DEFAULT) then begin
-                inGameOptionsForm_ := TInGameOptionsForm(TJava.ToObject(TInGameOptionsFormFactory.getInstance().get()));
-                TGameFeatureFormUtil.getInstance().setDefault(inGameOptionsForm_);
-            end else if (command_) = (gameCommandsFactory_.DISPLAY_OPTIONS) then begin
-                TAllBinaryMediaManager.setMuted(True);
-                Self.stopAll();
-                mainFeatureFactory_ := TMainFeatureFactory.getInstance();
-                Self.isFullScreen := Self.features.isFeature(mainFeatureFactory_.FULL_SCREEN);
-                TResizableListenerHandler.getInstance().fireEvent(True);
-                Self.setResized(False);
-                Self.commandAction(gameCommandsFactory_.SET_MENU_DISPLAYABLE, Self.getGameOptionsForm());
-            end else if (command_) = (gameCommandsFactory_.CLOSE_OPTIONS) then begin
-                TResizableListenerHandler.getInstance().fireEvent(False);
-                Self.commandAction(gameCommandsFactory_.CLOSE_AND_SHOW_GAME_CANVAS, displayable_);
-                stringBuffer := TStringMaker.Create();
-                stringBuffer.append('Close isFullScreen/change: ');
-                stringBuffer.appendboolean(Self.isFullScreen);
-                stringBuffer.appendboolean(Self.fullScreenUtil.isScreenChange(Self.isFullScreen));
-                stringBuffer.append(' isResized: ');
-                stringBuffer.appendboolean(Self.isResized());
-                TPreLogUtil.put(stringBuffer.toString(), TJava.Box(Self), Self.COMMAND_ACTION);
-                if (Self.isResized()) or (Self.fullScreenUtil.isScreenChange(Self.isFullScreen)) then begin
-                    Self.updateFullScreen();
-                end;
-                TAllBinaryMediaManager.setMuted(False);
-            end else if (command_) = (gameCommandsFactory_.DISPLAY_LOAD_FORM) then begin
-                Self.pauseAppBackground(False);
-                keyValuePersistance_ := TGamePersistanceSingleton.getInstance();
-                keyValuePersistance_.clear();
-                keyValuePersistance_.loadAll(Self.abeClientInformation);
-                if (Self.getLoadGameForm()) = (TCommandForm.getNullCommandForm()) then begin
-                    layerManager := Self.createGameLayerManager();
-                    Self.setLoadGameForm(TLoadGameForm.Create(Self, 'Load Game', layerManager.getBackgroundBasicColor(), layerManager.getForegroundBasicColor()));
-                end else begin
-                    Self.getLoadGameForm().update();
-                end;
-                Self.commandAction(gameCommandsFactory_.SET_MENU_DISPLAYABLE, Self.getLoadGameForm());
-            end else if (command_) = (gameCommandsFactory_.LOAD_FILE) then begin
-                loadGameForm_ := TLoadGameForm(TJava.ToObject(Self.getLoadGameForm()));
-                index := loadGameForm_.getSelectedId();
-                if (index) <> (-1) then begin
-                    keyValuePersistance_ := TGamePersistanceSingleton.getInstance();
-                    Self.setStartStateHashtable(keyValuePersistance_.get(index));
-                    menuListener_ := Self.getLoadGameForm();
-                    menuListener_.close();
-                    TPreLogUtil.put(TBasicMotionGesturesHandler.getInstance().toString(), TJava.Box(Self), Self.COMMAND_ACTION);
-                    Self.commandAction(gameCommandsFactory_.START_COMMAND, TNullCanvas.NULL_CANVAS);
-                    TPreLogUtil.put(TBasicMotionGesturesHandler.getInstance().toString(), TJava.Box(Self), Self.COMMAND_ACTION);
-                end;
-            end else if (command_) = (gameCommandsFactory_.DELETE_FILE) then begin
-                loadGameForm_ := TLoadGameForm(TJava.ToObject(Self.getLoadGameForm()));
-                index := loadGameForm_.getSelectedText();
-                if (index) <> (-1) then begin
-                    keyValuePersistance_ := TGamePersistanceSingleton.getInstance();
-                    keyValuePersistance_.delete_(Self.abeClientInformation, index);
-                    keyValuePersistance_.clear();
-                    keyValuePersistance_.loadAllSize(Self.abeClientInformation, 1);
-                    Self.getLoadGameForm().update();
-                end;
-            end else if (command_) = (gameCommandsFactory_.SAVE) then begin
-                keyValuePersistance_ := TGamePersistanceSingleton.getInstance();
-                Self.pauseAppBackground(False);
-                keyValuePersistance_.save(Self.abeClientInformation, Self.getCurrentStateHashtable());
-                Self.unPauseAppBackground(False);
-            end else if (command_) = (THighScoreUtil.SUBMIT_TEXTBOX_COMMAND) then begin
-                Self.logUtil.putF('Submitted Score', TJava.Box(Self), Self.COMMAND_ACTION);
-                if (TJava.ToObject(displayable_) is THighScoreTextBox) then begin
-                    highScoreTextBox_ := THighScoreTextBox(TJava.ToObject(displayable_));
-                    highScoreTextBox_.submitted := True;
-                end;
-                allbinaryGameCanvasRunnableInterface.setHighScoreSubmitted(True);
-                Self.commandAction(gameCommandsFactory_.CLOSE_AND_SHOW_GAME_CANVAS, displayable_);
-            end else if (command_) = (gameCommandsFactory_.DISPLAY_ABOUT) then begin
-                Self.aboutCommandProcessor.process(Self, gameCommandsFactory_.SET_MENU_DISPLAYABLE, Self.getAboutCanvas());
-            end else if (command_) = (gameCommandsFactory_.OPEN_WEB_URL) then begin
-                Self.webCommandProcessor.process(Self, gameCommandsFactory_.OPEN_WEB_URL, TNullCanvas.NULL_CANVAS);
-            end else if (command_) = (gameCommandsFactory_.TOGGLE_KEYBOARD) then begin
-                virtualKeyboardEventHandler_ := TVirtualKeyboardEventHandler.getInstance();
-                virtualKeyboardEventHandler_.fireEvent(virtualKeyboardEventHandler_.SHOW_EVENT);
-            end else if (Self.tsUtil.compareTo(command_.getLabel(), gameCommandsFactory_.TOGGLE_FULLSCREEN.getLabel())) = (0) then begin
-                mainFeatureFactory_ := TMainFeatureFactory.getInstance();
-                isFullScreen := Self.features.isFeature(mainFeatureFactory_.FULL_SCREEN);
-                if isFullScreen then begin
-                    Self.features.removeDefault(mainFeatureFactory_.FULL_SCREEN);
-                end else begin
-                    Self.features.addDefault(mainFeatureFactory_.FULL_SCREEN);
-                end;
-                Self.updateFullScreen();
-            end;
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(TStringMaker.Create().append(Self.commonStrings.EXCEPTION_LABEL).append(command_.getLabel()).toString(), TJava.Box(Self), Self.midletStrings.COMMAND_ACTION, TJava.Box(e));
-            if (command_) <> (TGameCommandsFactory.getInstance().EXIT_COMMAND) then begin
-                Self.exitProgress(False);
-            end;
-            end;
-        end;
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameMidlet-destroyApp1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-METHOD_NAME BINARY-DOUBLE.
+01 J-gameAdState BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+01 jtemp18 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-unconditional BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-unconditional RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-METHOD_NAME = FUNCTION JR-STR("GameMidlet::destroyApp")
+        CONTINUE
+            COMPUTE jtemp16 = FUNCTION GmSttstcsFctry-getInstance0
+            COMPUTE JDISCARD = FUNCTION PreLogUtil-put3(FUNCTION JR-TO-STRING(jtemp16), J-THIS, J-METHOD_NAME)
+            COMPUTE J-gameAdState = FUNCTION GmAdSttFctry-gtCrrntInstnc0(FUNCTION JR-GET(J-THIS, "f_gameAdStateFactory"))
+            COMPUTE jtemp17 = FUNCTION GmAdSttBs-getAdvertisements0(J-gameAdState)
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp17)
+            IF (NOT (FUNCTION AllBinaryMidlet-isDestroyed0(J-THIS) = 1))
+                COMPUTE JDISCARD = FUNCTION GmMdlt-stpGmCnvsRnnblIntrfc0(J-THIS)
+                COMPUTE JDISCARD = FUNCTION GmMdlt-stGmCnvsRnnblIntrfc1(J-THIS, FUNCTION NllGmCnvsRnnbl-sttc-N20955)
+                COMPUTE JDISCARD = FUNCTION GameMidlet-mediaShutdown0(J-THIS)
+            ELSE
+                COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+            END-IF
+            COMPUTE jtemp18 = 1
+            COMPUTE JDISCARD = FUNCTION AllBinaryMidlet-destroyApp1(J-THIS, jtemp18)
+            COMPUTE JDISCARD = FUNCTION PreLogUtil-put3(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_END"), J-THIS, J-METHOD_NAME)
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+    GOBACK.
+END FUNCTION GameMidlet-destroyApp1.
 
-procedure TGameMidlet.updateFullScreen;
-var
-  mainFeatureFactory_: TMainFeatureFactory;
-  isFullScreen: Boolean;
-  displayable_: TDisplayable;
-  canvas_: TCanvas;
-begin
-        mainFeatureFactory_ := TMainFeatureFactory.getInstance();
-        isFullScreen := Self.features.isFeature(mainFeatureFactory_.FULL_SCREEN);
-        displayable_ := Self.getDisplay().getCurrent();
-        if (TJava.ToObject(displayable_) is TCanvas) then begin
-            canvas_ := TCanvas(TJava.ToObject(displayable_));
-            canvas_.setFullScreenMode(isFullScreen);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameMidlet-startApp0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameAdState BINARY-DOUBLE.
+01 J-START_APP BINARY-DOUBLE.
+01 J-gameCanvasRunnableInterface BINARY-DOUBLE.
+01 jtemp19 BINARY-DOUBLE.
+01 jtemp20 BINARY-DOUBLE.
+01 jtemp21 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE J-gameAdState = FUNCTION GmAdSttFctry-gtCrrntInstnc0(FUNCTION JR-GET(J-THIS, "f_gameAdStateFactory"))
+            COMPUTE jtemp19 = FUNCTION GmAdSttBs-getAdvertisements0(J-gameAdState)
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp19)
+            COMPUTE J-START_APP = FUNCTION JR-STR("startApp")
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+            COMPUTE J-gameCanvasRunnableInterface = FUNCTION JR-GET(J-THIS, "f_allbinaryGameCanvasRunnableInterface")
+            IF (J-gameCanvasRunnableInterface = FUNCTION NllGmCnvsRnnbl-sttc-N20955)
+                COMPUTE JDISCARD = FUNCTION GmMdltSttFctry-stCrrntGmStt1(FUNCTION JR-GET(J-THIS, "f_gameMidletStateFactory"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameStateFactory"), "f_NO_GAME_STATE"))
+                COMPUTE JDISCARD = FUNCTION GameMidlet-setDemo0(J-THIS)
+            ELSE
+                COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+                IF (J-gameCanvasRunnableInterface = FUNCTION AllBnryMdlt-gtCrrntDsplybl0(J-THIS))
+                    COMPUTE jtemp20 = 0
+                    COMPUTE JDISCARD = FUNCTION GmMdlt-unPauseAppBackground1(J-THIS, jtemp20)
+                ELSE
+                    COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+                END-IF
+            END-IF
+    GOBACK.
+END FUNCTION GameMidlet-startApp0.
 
-procedure TGameMidlet.onEvent(eventObject: TAllBinaryEventObject);
-begin
-        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, TJava.Box(Self));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameMidlet-commandAction2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-displayableAsString BINARY-DOUBLE.
+01 J-label BINARY-DOUBLE.
+01 J-gameCommandsFactory BINARY-DOUBLE.
+01 J-allbinaryGameCanvasRunnableInterface BINARY-DOUBLE.
+01 J-gameCanvasRunnableInterface BINARY-DOUBLE.
+01 J-mainFeatureFactory BINARY-DOUBLE.
+01 J-isFullScreen BINARY-DOUBLE.
+01 J-virtualKeyboardEventHandler BINARY-DOUBLE.
+01 J-highScoreTextBox BINARY-DOUBLE.
+01 J-keyValuePersistance BINARY-DOUBLE.
+01 J-loadGameForm BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-menuListener BINARY-DOUBLE.
+01 J-layerManager BINARY-DOUBLE.
+01 J-stringBuffer BINARY-DOUBLE.
+01 J-inGameOptionsForm BINARY-DOUBLE.
+01 J-progressCanvas BINARY-DOUBLE.
+01 J-inGameOptionsFormFactory BINARY-DOUBLE.
+01 J-tempDisplayable BINARY-DOUBLE.
+01 J-gameInputMappingCanvas BINARY-DOUBLE.
+01 J-highScoresCanvas BINARY-DOUBLE.
+01 J-gameCanvas BINARY-DOUBLE.
+01 J-inApplicationPurchaseFactory BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-lockableFeature BINARY-DOUBLE.
+01 jtemp22 BINARY-DOUBLE.
+01 jtemp23 BINARY-DOUBLE.
+01 jtemp24 BINARY-DOUBLE.
+01 jtemp25 BINARY-DOUBLE.
+01 jtemp26 BINARY-DOUBLE.
+01 jtemp27 BINARY-DOUBLE.
+01 jtemp28 BINARY-DOUBLE.
+01 jtemp29 BINARY-DOUBLE.
+01 jtemp30 BINARY-DOUBLE.
+01 jtemp31 BINARY-DOUBLE.
+01 jtemp32 BINARY-DOUBLE.
+01 jtemp33 BINARY-DOUBLE.
+01 jtemp34 BINARY-DOUBLE.
+01 jtemp35 BINARY-DOUBLE.
+01 jtemp36 BINARY-DOUBLE.
+01 jtemp37 BINARY-DOUBLE.
+01 jtemp38 BINARY-DOUBLE.
+01 jtemp39 BINARY-DOUBLE.
+01 jtemp40 BINARY-DOUBLE.
+01 jtemp41 BINARY-DOUBLE.
+01 jtemp42 BINARY-DOUBLE.
+01 jtemp43 BINARY-DOUBLE.
+01 jtemp44 BINARY-DOUBLE.
+01 jtemp45 BINARY-DOUBLE.
+01 jtemp46 BINARY-DOUBLE.
+01 jtemp47 BINARY-DOUBLE.
+01 jtemp48 BINARY-DOUBLE.
+01 jtemp49 BINARY-DOUBLE.
+01 jtemp50 BINARY-DOUBLE.
+01 jtemp51 BINARY-DOUBLE.
+01 jtemp52 BINARY-DOUBLE.
+01 jtemp53 BINARY-DOUBLE.
+01 jtemp54 BINARY-DOUBLE.
+01 jtemp55 BINARY-DOUBLE.
+01 jtemp56 BINARY-DOUBLE.
+01 jtemp57 BINARY-DOUBLE.
+01 jtemp58 BINARY-DOUBLE.
+01 jtemp59 BINARY-DOUBLE.
+01 jtemp60 BINARY-DOUBLE.
+01 jtemp61 BINARY-DOUBLE.
+01 jtemp62 BINARY-DOUBLE.
+01 jtemp63 BINARY-DOUBLE.
+01 jtemp64 BINARY-DOUBLE.
+01 jtemp65 BINARY-DOUBLE.
+01 jtemp66 BINARY-DOUBLE.
+01 jtemp67 BINARY-DOUBLE.
+01 jtemp68 BINARY-DOUBLE.
+01 jtemp69 BINARY-DOUBLE.
+01 jtemp70 BINARY-DOUBLE.
+01 jtemp71 BINARY-DOUBLE.
+01 jtemp72 BINARY-DOUBLE.
+01 jtemp73 BINARY-DOUBLE.
+01 jtemp74 BINARY-DOUBLE.
+01 jtemp75 BINARY-DOUBLE.
+01 jtemp76 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-command BINARY-DOUBLE.
+01 J-displayable BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-command J-displayable RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE J-displayableAsString = FUNCTION JR-GET(J-THIS, "f_NO_DISPLAYABLE")
+            IF (J-displayable NOT = 0)
+                COMPUTE J-displayableAsString = FUNCTION JR-TO-STRING(J-displayable)
+            END-IF
+            COMPUTE J-label = FUNCTION JR-GET(J-THIS, "f_NO_COMMAND")
+            IF (J-command NOT = 0)
+                COMPUTE J-label = FUNCTION Command-getLabel0(J-command)
+            END-IF
+            COMPUTE jtemp26 = FUNCTION StringMaker-new0
+            COMPUTE jtemp25 = FUNCTION StringMaker-append1(jtemp26, FUNCTION JR-GET(J-THIS, "f_COMMAND_NAME"))
+            COMPUTE jtemp24 = FUNCTION StringMaker-append1(jtemp25, J-label)
+            COMPUTE jtemp23 = FUNCTION StringMaker-append1(jtemp24, FUNCTION JR-GET(J-THIS, "f_DISPLAYABLE"))
+            COMPUTE jtemp22 = FUNCTION StringMaker-append1(jtemp23, J-displayableAsString)
+            COMPUTE JDISCARD = FUNCTION PreLogUtil-put3(FUNCTION JR-TO-STRING(jtemp22), J-THIS, FUNCTION JR-GET(J-THIS, "f_COMMAND_ACTION"))
+            COMPUTE J-gameCommandsFactory = FUNCTION GmCmmndsFctry-getInstance0
+            COMPUTE J-allbinaryGameCanvasRunnableInterface = FUNCTION JR-GET(J-THIS, "f_allbinaryGameCanvasRunnableInterface")
+            COMPUTE J-gameCanvasRunnableInterface = J-allbinaryGameCanvasRunnableInterface
+            IF (J-command = FUNCTION JR-GET(J-gameCommandsFactory, "f_SHOW_GAME_CANVAS"))
+                COMPUTE jtemp69 = FUNCTION AllBinaryMidlet-getDisplay0(J-THIS)
+                IF ((FUNCTION JR-CLASS-NAME(jtemp69) NOT = J-gameCanvasRunnableInterface) AND (FUNCTION GmCnvsRnnblIntrfc-getType0(J-allbinaryGameCanvasRunnableInterface) NOT = FUNCTION JR-CLASS-NAME(FUNCTION NllGmCnvsRnnbl-sttc-N20955)))
+                    COMPUTE jtemp70 = J-gameCanvasRunnableInterface
+                    COMPUTE JDISCARD = FUNCTION AllBinaryMidlet-setDisplay1(J-THIS, jtemp70)
+                END-IF
+                COMPUTE jtemp71 = 0
+                COMPUTE JDISCARD = FUNCTION GmMdlt-unPauseAppBackground1(J-THIS, jtemp71)
+            ELSE
+                IF (J-command = FUNCTION JR-GET(J-gameCommandsFactory, "f_CLOSE_AND_SHOW_GAME_CANVAS"))
+                COMPUTE J-menuListener = J-displayable
+                COMPUTE JDISCARD = FUNCTION MenuListener-close0(J-menuListener)
+                COMPUTE jtemp67 = J-gameCanvasRunnableInterface
+                COMPUTE JDISCARD = FUNCTION AllBinaryMidlet-setDisplay1(J-THIS, jtemp67)
+                COMPUTE jtemp68 = 0
+                COMPUTE JDISCARD = FUNCTION GmMdlt-unPauseAppBackground1(J-THIS, jtemp68)
+            ELSE
+                IF (J-command = FUNCTION JR-GET(J-gameCommandsFactory, "f_EXIT_COMMAND"))
+                COMPUTE jtemp63 = FUNCTION GmMdltEvntHndlr-getInstance0
+                COMPUTE jtemp62 = FUNCTION BscEvntHndlr-gtEvntLstnrI98392(jtemp63)
+                IF (FUNCTION JR-CLASS-NAME(jtemp62) = 0)
+                    COMPUTE jtemp64 = 1
+                    COMPUTE JDISCARD = FUNCTION ProgressMidlet-exitProgress1(J-THIS, jtemp64)
+                END-IF
+                COMPUTE jtemp66 = FUNCTION DmGmMdltSttFctry-getInstance0
+                COMPUTE jtemp65 = FUNCTION GmMdltEvntHndlr-getInstance0
+                COMPUTE JDISCARD = FUNCTION BasicEventHandler-fireEvent1(jtemp65, FUNCTION DemoGameMidletEvent-new2(J-THIS, FUNCTION JR-GET(jtemp66, "f_NONE")))
+            ELSE
+                IF (J-command = FUNCTION JR-GET(J-gameCommandsFactory, "f_EXIT_WITHOUT_PROGRESS_COMMAND"))
+                COMPUTE jtemp61 = 0
+                COMPUTE JDISCARD = FUNCTION ProgressMidlet-exitProgress1(J-THIS, jtemp61)
+            ELSE
+                IF (((J-command = FUNCTION JR-GET(J-gameCommandsFactory, "f_START_COMMAND")) OR (J-command = FUNCTION JR-GET(J-gameCommandsFactory, "f_RESTART_COMMAND"))) OR (J-command = FUNCTION JR-GET(J-gameCommandsFactory,
+        "f_CONTINUE_COMMAND")))
+                IF ((FUNCTION GmMdltSttFctry-gtCrrntGmStt0(FUNCTION JR-GET(J-THIS, "f_gameMidletStateFactory")) NOT = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameStateFactory"), "f_PLAYING_GAME_STATE")) OR (J-command = FUNCTION
+        JR-GET(J-gameCommandsFactory, "f_RESTART_COMMAND")))
+                    IF (FUNCTION TimeDelayHelper-isTimeTNT0(FUNCTION JR-GET(J-THIS, "f_gameStartTimeHelper")) = 1)
+                        IF ((J-command = FUNCTION JR-GET(J-gameCommandsFactory, "f_START_COMMAND")) AND (FUNCTION GameMidlet-isDemoLoading0(J-THIS) = 1))
+                            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+                        ELSE
+                            COMPUTE JVALUE = 1
+                            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_startedBefore", JVALUE)
+                            COMPUTE JDISCARD = FUNCTION GameMidlet-createGame0(J-THIS)
+                            COMPUTE JDISCARD = FUNCTION GmMdltSttFctry-stCrrntGmStt1(FUNCTION JR-GET(J-THIS, "f_gameMidletStateFactory"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameStateFactory"), "f_PLAYING_GAME_STATE"))
+                        END-IF
+                    ELSE
+                        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+                    END-IF
+                ELSE
+                    COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+                END-IF
+            ELSE
+                IF (J-command = FUNCTION JR-GET(J-gameCommandsFactory, "f_BUY_COMMAND"))
+                COMPUTE J-inApplicationPurchaseFactory = FUNCTION InApplctnPrchsFctry-gtInstnc0
+                COMPUTE jtemp58 = FUNCTION LckblFtrFctry-getInstance0
+                COMPUTE J-list = FUNCTION LckblFtrFctry-getList0(jtemp58)
+                COMPUTE jtemp59 = 0
+                COMPUTE J-lockableFeature = FUNCTION BasicArrayList-get1(J-list, jtemp59)
+                IF ((FUNCTION BasicArrayList-size0(J-list) > 0) AND (NOT (FUNCTION InApplctnPrchsFctry-isPrchsd1(J-inApplicationPurchaseFactory, J-lockableFeature) = 1)))
+                    COMPUTE JDISCARD = FUNCTION InApplctnPrchsFctry-purchase1(J-inApplicationPurchaseFactory, J-lockableFeature)
+                ELSE
+                    COMPUTE jtemp60 = FUNCTION TxtNtfctnUtl-getInstance0
+                    COMPUTE JDISCARD = FUNCTION TxtNtfctnUtl-fireSuccess1(jtemp60, FUNCTION JR-STR("Already Purchased"))
+                END-IF
+            ELSE
+                IF (J-command = FUNCTION JR-GET(J-gameCommandsFactory, "f_QUIT_COMMAND"))
+                IF (FUNCTION TimeDelayHelper-isTimeTNT0(FUNCTION JR-GET(J-THIS, "f_gameStartTimeHelper")) = 1)
+                    IF (FUNCTION JR-STR-EQUALS(FUNCTION JR-CLASS-NAME(J-displayable), FUNCTION JR-STR("HighScoreTextBox")) = 1)
+                        COMPUTE J-menuListener = J-displayable
+                        COMPUTE JDISCARD = FUNCTION MenuListener-close0(J-menuListener)
+                    END-IF
+                    COMPUTE JDISCARD = FUNCTION GmMdlt-stpGmCnvsRnnblIntrfc0(J-THIS)
+                    COMPUTE JDISCARD = FUNCTION GmMdltSttFctry-stCrrntGmStt1(FUNCTION JR-GET(J-THIS, "f_gameMidletStateFactory"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameStateFactory"), "f_NO_GAME_STATE"))
+                    COMPUTE JDISCARD = FUNCTION GameMidlet-setDemo0(J-THIS)
+                END-IF
+            ELSE
+                IF (J-command = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_myCommandsFactory"), "f_RESUME_COMMAND"))
+                COMPUTE jtemp57 = 0
+                COMPUTE JDISCARD = FUNCTION GmMdlt-unPauseAppBackground1(J-THIS, jtemp57)
+            ELSE
+                IF (J-command = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_myCommandsFactory"), "f_PAUSE_COMMAND"))
+                COMPUTE jtemp56 = 0
+                COMPUTE JDISCARD = FUNCTION GameMidlet-pauseAppBackground1(J-THIS, jtemp56)
+            ELSE
+                IF (J-command = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_myCommandsFactory"), "f_SET_DISPLAYABLE"))
+                COMPUTE jtemp55 = 0
+                COMPUTE JDISCARD = FUNCTION GameMidlet-pauseAppBackground1(J-THIS, jtemp55)
+                COMPUTE JDISCARD = FUNCTION AllBinaryMidlet-setDisplay1(J-THIS, J-displayable)
+            ELSE
+                IF (J-command = FUNCTION JR-GET(J-gameCommandsFactory, "f_SET_MENU_DISPLAYABLE"))
+                COMPUTE jtemp54 = 0
+                COMPUTE JDISCARD = FUNCTION GameMidlet-pauseAppBackground1(J-THIS, jtemp54)
+                COMPUTE J-menuListener = J-displayable
+                COMPUTE JDISCARD = FUNCTION MenuListener-open0(J-menuListener)
+                COMPUTE JDISCARD = FUNCTION AllBinaryMidlet-setDisplay1(J-THIS, J-displayable)
+            ELSE
+                IF (J-command = FUNCTION JR-GET(J-gameCommandsFactory, "f_START_TRACE"))
+                COMPUTE JDISCARD = FUNCTION DebugInterface-start0(FUNCTION JR-GET(J-THIS, "f_debugInterface"))
+                COMPUTE J-gameCanvas = J-allbinaryGameCanvasRunnableInterface
+                COMPUTE JDISCARD = FUNCTION MyCanvas-addCommand1(J-gameCanvas, FUNCTION JR-GET(J-gameCommandsFactory, "f_STOP_TRACE"))
+                COMPUTE JDISCARD = FUNCTION MyCanvas-removeCommand1(J-gameCanvas, FUNCTION JR-GET(J-gameCommandsFactory, "f_START_TRACE"))
+            ELSE
+                IF (J-command = FUNCTION JR-GET(J-gameCommandsFactory, "f_STOP_TRACE"))
+                COMPUTE jtemp52 = 0
+                COMPUTE JDISCARD = FUNCTION GameMidlet-pauseAppBackground1(J-THIS, jtemp52)
+                COMPUTE JDISCARD = FUNCTION DebugInterface-stop0(FUNCTION JR-GET(J-THIS, "f_debugInterface"))
+                COMPUTE jtemp53 = 0
+                COMPUTE JDISCARD = FUNCTION GmMdlt-unPauseAppBackground1(J-THIS, jtemp53)
+                COMPUTE J-gameCanvas = J-allbinaryGameCanvasRunnableInterface
+                COMPUTE JDISCARD = FUNCTION MyCanvas-addCommand1(J-gameCanvas, FUNCTION JR-GET(J-gameCommandsFactory, "f_START_TRACE"))
+                COMPUTE JDISCARD = FUNCTION MyCanvas-removeCommand1(J-gameCanvas, FUNCTION JR-GET(J-gameCommandsFactory, "f_STOP_TRACE"))
+            ELSE
+                IF (J-command = FUNCTION JR-GET(J-gameCommandsFactory, "f_DEFAULT_OPTIONS"))
+                COMPUTE J-tempDisplayable = J-displayable
+                IF (FUNCTION JR-STR-EQUALS(FUNCTION JR-CLASS-NAME(J-tempDisplayable), FUNCTION JR-STR("GameOptionsForm")) = 1)
+                    COMPUTE jtemp51 = J-tempDisplayable
+                    COMPUTE jtemp50 = FUNCTION GmFtrFrmUtl-getInstance0
+                    COMPUTE JDISCARD = FUNCTION GmFtrFrmUtl-setDefault1(jtemp50, jtemp51)
+                END-IF
+            ELSE
+                IF (J-command = FUNCTION GmInptMppngInstrctnsCnv-38097)
+                COMPUTE J-tempDisplayable = J-displayable
+                IF (FUNCTION JR-STR-EQUALS(FUNCTION JR-CLASS-NAME(J-tempDisplayable), FUNCTION JR-STR("GameInputMappingCanvas")) = 1)
+                    COMPUTE J-gameInputMappingCanvas = J-tempDisplayable
+                    COMPUTE JDISCARD = FUNCTION GameInputMappingCanvas-update0(J-gameInputMappingCanvas)
+                END-IF
+                COMPUTE JDISCARD = FUNCTION GameMidlet-commandAction2(J-THIS, FUNCTION JR-GET(J-gameCommandsFactory, "f_SET_MENU_DISPLAYABLE"), FUNCTION GmMdlt-gtInptMppngInstrct11438(J-THIS))
+            ELSE
+                COMPUTE jtemp27 = FUNCTION HghScrCmmndsFctry-getInstance0
+            IF (FUNCTION HghScrCmmndsBsFctry-isHgh46252(jtemp27, J-command) = 1)
+                COMPUTE J-tempDisplayable = J-displayable
+                IF (FUNCTION JR-STR-EQUALS(FUNCTION JR-CLASS-NAME(J-tempDisplayable), FUNCTION JR-STR("HighScoresCanvas")) = 1)
+                    COMPUTE J-highScoresCanvas = J-tempDisplayable
+                    COMPUTE JDISCARD = FUNCTION HghScrsCnvs-updateCommand1(J-highScoresCanvas, J-command)
+                END-IF
+            ELSE
+                COMPUTE jtemp28 = FUNCTION HighScoreCommands-getInstance0
+            IF (J-command = FUNCTION JR-GET(jtemp28, "f_DISPLAY"))
+                COMPUTE JDISCARD = FUNCTION GameMidlet-commandAction2(J-THIS, FUNCTION JR-GET(J-gameCommandsFactory, "f_SET_MENU_DISPLAYABLE"), FUNCTION GmMdlt-createHighScoresCanvas0(J-THIS))
+            ELSE
+                IF (J-command = FUNCTION GmInptMppngInstrctnsCnv-66178)
+                COMPUTE J-menuListener = J-displayable
+                COMPUTE JDISCARD = FUNCTION MenuListener-close0(J-menuListener)
+                COMPUTE JDISCARD = FUNCTION GameMidlet-commandAction2(J-THIS, FUNCTION GmInptMppngCnvs-sttc-DISPLAY, FUNCTION NllCnvs-static-NULL-CANVAS)
+            ELSE
+                IF (J-command = FUNCTION GmInptMppngCnvs-sttc-DISPLAY)
+                IF (FUNCTION J2MEUtil-isHTML0 = 1)
+                    COMPUTE jtemp49 = 0
+                    COMPUTE JDISCARD = FUNCTION GameMidlet-pauseAppBackground1(J-THIS, jtemp49)
+                END-IF
+                COMPUTE JDISCARD = FUNCTION GameMidlet-commandAction2(J-THIS, FUNCTION JR-GET(J-gameCommandsFactory, "f_SET_MENU_DISPLAYABLE"), FUNCTION GmMdlt-getInputMappingCanvas0(J-THIS))
+            ELSE
+                IF (J-command = FUNCTION GmInptMppngCnvs-sttc-DEFAULT)
+                COMPUTE J-tempDisplayable = J-displayable
+                IF (FUNCTION JR-STR-EQUALS(FUNCTION JR-CLASS-NAME(J-tempDisplayable), FUNCTION JR-STR("GameInputMappingCanvas")) = 1)
+                    COMPUTE J-gameInputMappingCanvas = J-tempDisplayable
+                    COMPUTE JDISCARD = FUNCTION GmInptMppngCnvs-setDefault0(J-gameInputMappingCanvas)
+                END-IF
+            ELSE
+                IF (J-command = FUNCTION InGmOptnsFrm-static-DISPLAY)
+                COMPUTE jtemp47 = 0
+                COMPUTE JDISCARD = FUNCTION GameMidlet-pauseAppBackground1(J-THIS, jtemp47)
+                COMPUTE J-progressCanvas = FUNCTION PrgrssCnvsFctry-getInstance0
+                COMPUTE jtemp48 = 50
+                COMPUTE JDISCARD = FUNCTION PrgrssCnvs-addNormalPortion2(J-progressCanvas, jtemp48, FUNCTION JR-STR("In Game Options"))
+                COMPUTE J-layerManager = FUNCTION GmMdlt-createGameLayerManager0(J-THIS)
+                COMPUTE J-inGameOptionsFormFactory = FUNCTION InGmOptnsFrmFctry-getInstance0
+                COMPUTE JDISCARD = FUNCTION InGameOptionsFormFactory-init5(J-inGameOptionsFormFactory, J-THIS, FUNCTION InGameFeatures-new0, FUNCTION JR-STR("Options In Game"), FUNCTION AllBnryGmLyrMngr-gtBckgrn74413(J-layerManager),
+        FUNCTION AllBnryGmLyrMngr-gtFrgrnd84733(J-layerManager))
+                COMPUTE J-inGameOptionsForm = FUNCTION InGameOptionsFormFactory-get0(J-inGameOptionsFormFactory)
+                COMPUTE JDISCARD = FUNCTION Form-setItemStateListener1(J-inGameOptionsForm, J-allbinaryGameCanvasRunnableInterface)
+                COMPUTE JDISCARD = FUNCTION GameMidlet-commandAction2(J-THIS, FUNCTION JR-GET(J-gameCommandsFactory, "f_SET_MENU_DISPLAYABLE"), J-inGameOptionsForm)
+            ELSE
+                IF (J-command = FUNCTION InGmOptnsFrm-static-DEFAULT)
+                COMPUTE jtemp45 = FUNCTION InGmOptnsFrmFctry-getInstance0
+                COMPUTE J-inGameOptionsForm = FUNCTION InGameOptionsFormFactory-get0(jtemp45)
+                COMPUTE jtemp46 = FUNCTION GmFtrFrmUtl-getInstance0
+                COMPUTE JDISCARD = FUNCTION GmFtrFrmUtl-setDefault1(jtemp46, J-inGameOptionsForm)
+            ELSE
+                IF (J-command = FUNCTION JR-GET(J-gameCommandsFactory, "f_DISPLAY_OPTIONS"))
+                COMPUTE jtemp41 = 1
+                COMPUTE JDISCARD = FUNCTION AllBnryMdMngr-setMuted1(jtemp41)
+                COMPUTE JDISCARD = FUNCTION GameMidlet-stopAll0(J-THIS)
+                COMPUTE J-mainFeatureFactory = FUNCTION MnFtrFctry-getInstance0
+                COMPUTE JVALUE = FUNCTION Features-isFeature1(FUNCTION JR-GET(J-THIS, "f_features"), FUNCTION JR-GET(J-mainFeatureFactory, "f_FULL_SCREEN"))
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_isFullScreen", JVALUE)
+                COMPUTE jtemp43 = 1
+                COMPUTE jtemp42 = FUNCTION RszblLstnrHndlr-getInstance0
+                COMPUTE JDISCARD = FUNCTION RszblLstnrHndlr-fireEvent1(jtemp42, jtemp43)
+                COMPUTE jtemp44 = 0
+                COMPUTE JDISCARD = FUNCTION GameMidlet-setResized1(J-THIS, jtemp44)
+                COMPUTE JDISCARD = FUNCTION GameMidlet-commandAction2(J-THIS, FUNCTION JR-GET(J-gameCommandsFactory, "f_SET_MENU_DISPLAYABLE"), FUNCTION GameMidlet-getGameOptionsForm0(J-THIS))
+            ELSE
+                IF (J-command = FUNCTION JR-GET(J-gameCommandsFactory, "f_CLOSE_OPTIONS"))
+                COMPUTE jtemp39 = 0
+                COMPUTE jtemp38 = FUNCTION RszblLstnrHndlr-getInstance0
+                COMPUTE JDISCARD = FUNCTION RszblLstnrHndlr-fireEvent1(jtemp38, jtemp39)
+                COMPUTE JDISCARD = FUNCTION GameMidlet-commandAction2(J-THIS, FUNCTION JR-GET(J-gameCommandsFactory, "f_CLOSE_AND_SHOW_GAME_CANVAS"), J-displayable)
+                COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+                COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR("Close isFullScreen/change: "))
+                COMPUTE JDISCARD = FUNCTION StringMaker-appendboolean1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_isFullScreen"))
+                COMPUTE JDISCARD = FUNCTION StringMaker-appendboolean1(J-stringBuffer, FUNCTION FullScreenUtil-isScreenChange1(FUNCTION JR-GET(J-THIS, "f_fullScreenUtil"), FUNCTION JR-GET(J-THIS, "f_isFullScreen")))
+                COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR(" isResized: "))
+                COMPUTE JDISCARD = FUNCTION StringMaker-appendboolean1(J-stringBuffer, FUNCTION GameMidlet-isResized0(J-THIS))
+                COMPUTE JDISCARD = FUNCTION PreLogUtil-put3(FUNCTION JR-TO-STRING(J-stringBuffer), J-THIS, FUNCTION JR-GET(J-THIS, "f_COMMAND_ACTION"))
+                IF ((FUNCTION GameMidlet-isResized0(J-THIS) = 1) OR (FUNCTION FullScreenUtil-isScreenChange1(FUNCTION JR-GET(J-THIS, "f_fullScreenUtil"), FUNCTION JR-GET(J-THIS, "f_isFullScreen")) = 1))
+                    COMPUTE JDISCARD = FUNCTION GameMidlet-updateFullScreen0(J-THIS)
+                END-IF
+                COMPUTE jtemp40 = 0
+                COMPUTE JDISCARD = FUNCTION AllBnryMdMngr-setMuted1(jtemp40)
+            ELSE
+                IF (J-command = FUNCTION JR-GET(J-gameCommandsFactory, "f_DISPLAY_LOAD_FORM"))
+                COMPUTE jtemp36 = 0
+                COMPUTE JDISCARD = FUNCTION GameMidlet-pauseAppBackground1(J-THIS, jtemp36)
+                COMPUTE J-keyValuePersistance = FUNCTION GmPrsstncSngltn-getInstance0
+                COMPUTE JDISCARD = FUNCTION BasicPersitance-clear0(J-keyValuePersistance)
+                COMPUTE JDISCARD = FUNCTION KeyValuePersistance-loadAll1(J-keyValuePersistance, FUNCTION JR-GET(J-THIS, "f_abeClientInformation"))
+                IF (FUNCTION GameMidlet-getLoadGameForm0(J-THIS) = FUNCTION CmmndFrm-getNullCommandForm0)
+                    COMPUTE J-layerManager = FUNCTION GmMdlt-createGameLayerManager0(J-THIS)
+                    COMPUTE JDISCARD = FUNCTION GameMidlet-setLoadGameForm1(J-THIS, FUNCTION LoadGameForm-new4(J-THIS, FUNCTION JR-STR("Load Game"), FUNCTION AllBnryGmLyrMngr-gtBckgrn74413(J-layerManager), FUNCTION
+        AllBnryGmLyrMngr-gtFrgrnd84733(J-layerManager)))
+                ELSE
+                    COMPUTE jtemp37 = FUNCTION GameMidlet-getLoadGameForm0(J-THIS)
+                    COMPUTE JDISCARD = FUNCTION CommandForm-update0(jtemp37)
+                END-IF
+                COMPUTE JDISCARD = FUNCTION GameMidlet-commandAction2(J-THIS, FUNCTION JR-GET(J-gameCommandsFactory, "f_SET_MENU_DISPLAYABLE"), FUNCTION GameMidlet-getLoadGameForm0(J-THIS))
+            ELSE
+                IF (J-command = FUNCTION JR-GET(J-gameCommandsFactory, "f_LOAD_FILE"))
+                COMPUTE J-loadGameForm = FUNCTION GameMidlet-getLoadGameForm0(J-THIS)
+                COMPUTE J-index = FUNCTION LoadGameForm-getSelectedId0(J-loadGameForm)
+                IF (J-index NOT = (0 - 1))
+                    COMPUTE J-keyValuePersistance = FUNCTION GmPrsstncSngltn-getInstance0
+                    COMPUTE JDISCARD = FUNCTION AllBnryMdlt-stStrtSttHshtbl1(J-THIS, FUNCTION KeyValuePersistance-get1(J-keyValuePersistance, J-index))
+                    COMPUTE J-menuListener = FUNCTION GameMidlet-getLoadGameForm0(J-THIS)
+                    COMPUTE JDISCARD = FUNCTION MenuListener-close0(J-menuListener)
+                    COMPUTE jtemp34 = FUNCTION BscMtnGstrsHndlr-getInstance0
+                    COMPUTE JDISCARD = FUNCTION PreLogUtil-put3(FUNCTION JR-TO-STRING(jtemp34), J-THIS, FUNCTION JR-GET(J-THIS, "f_COMMAND_ACTION"))
+                    COMPUTE JDISCARD = FUNCTION GameMidlet-commandAction2(J-THIS, FUNCTION JR-GET(J-gameCommandsFactory, "f_START_COMMAND"), FUNCTION NllCnvs-static-NULL-CANVAS)
+                    COMPUTE jtemp35 = FUNCTION BscMtnGstrsHndlr-getInstance0
+                    COMPUTE JDISCARD = FUNCTION PreLogUtil-put3(FUNCTION JR-TO-STRING(jtemp35), J-THIS, FUNCTION JR-GET(J-THIS, "f_COMMAND_ACTION"))
+                END-IF
+            ELSE
+                IF (J-command = FUNCTION JR-GET(J-gameCommandsFactory, "f_DELETE_FILE"))
+                COMPUTE J-loadGameForm = FUNCTION GameMidlet-getLoadGameForm0(J-THIS)
+                COMPUTE J-index = FUNCTION LoadGameForm-getSelectedText0(J-loadGameForm)
+                IF (J-index NOT = (0 - 1))
+                    COMPUTE J-keyValuePersistance = FUNCTION GmPrsstncSngltn-getInstance0
+                    COMPUTE JDISCARD = FUNCTION BasicPersitance-delete2(J-keyValuePersistance, FUNCTION JR-GET(J-THIS, "f_abeClientInformation"), J-index)
+                    COMPUTE JDISCARD = FUNCTION BasicPersitance-clear0(J-keyValuePersistance)
+                    COMPUTE jtemp32 = 1
+                    COMPUTE JDISCARD = FUNCTION KyVlPrsstnc-loadAllSize2(J-keyValuePersistance, FUNCTION JR-GET(J-THIS, "f_abeClientInformation"), jtemp32)
+                    COMPUTE jtemp33 = FUNCTION GameMidlet-getLoadGameForm0(J-THIS)
+                    COMPUTE JDISCARD = FUNCTION CommandForm-update0(jtemp33)
+                END-IF
+            ELSE
+                IF (J-command = FUNCTION JR-GET(J-gameCommandsFactory, "f_SAVE"))
+                COMPUTE J-keyValuePersistance = FUNCTION GmPrsstncSngltn-getInstance0
+                COMPUTE jtemp30 = 0
+                COMPUTE JDISCARD = FUNCTION GameMidlet-pauseAppBackground1(J-THIS, jtemp30)
+                COMPUTE JDISCARD = FUNCTION KeyValuePersistance-save2(J-keyValuePersistance, FUNCTION JR-GET(J-THIS, "f_abeClientInformation"), FUNCTION GmMdlt-gtCrrntSttHshtbl0(J-THIS))
+                COMPUTE jtemp31 = 0
+                COMPUTE JDISCARD = FUNCTION GmMdlt-unPauseAppBackground1(J-THIS, jtemp31)
+            ELSE
+                IF (J-command = FUNCTION HghScrUtl-sttc-SUBMIT-88575)
+                COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+                IF (FUNCTION JR-STR-EQUALS(FUNCTION JR-CLASS-NAME(J-displayable), FUNCTION JR-STR("HighScoreTextBox")) = 1)
+                    COMPUTE J-highScoreTextBox = J-displayable
+                    COMPUTE JVALUE = 1
+                    COMPUTE JDISCARD = FUNCTION JR-SET(J-highScoreTextBox, "f_submitted", JVALUE)
+                END-IF
+                COMPUTE jtemp29 = 1
+                COMPUTE JDISCARD = FUNCTION GmCnvsRnnblIntrfc-stHghSc42918(J-allbinaryGameCanvasRunnableInterface, jtemp29)
+                COMPUTE JDISCARD = FUNCTION GameMidlet-commandAction2(J-THIS, FUNCTION JR-GET(J-gameCommandsFactory, "f_CLOSE_AND_SHOW_GAME_CANVAS"), J-displayable)
+            ELSE
+                IF (J-command = FUNCTION JR-GET(J-gameCommandsFactory, "f_DISPLAY_ABOUT"))
+                COMPUTE JDISCARD = FUNCTION AboutCommandProcessor-process3(FUNCTION JR-GET(J-THIS, "f_aboutCommandProcessor"), J-THIS, FUNCTION JR-GET(J-gameCommandsFactory, "f_SET_MENU_DISPLAYABLE"), FUNCTION
+        GameMidlet-getAboutCanvas0(J-THIS))
+            ELSE
+                IF (J-command = FUNCTION JR-GET(J-gameCommandsFactory, "f_OPEN_WEB_URL"))
+                COMPUTE JDISCARD = FUNCTION WebCommandProcessor-process3(FUNCTION JR-GET(J-THIS, "f_webCommandProcessor"), J-THIS, FUNCTION JR-GET(J-gameCommandsFactory, "f_OPEN_WEB_URL"), FUNCTION NllCnvs-static-NULL-CANVAS)
+            ELSE
+                IF (J-command = FUNCTION JR-GET(J-gameCommandsFactory, "f_TOGGLE_KEYBOARD"))
+                COMPUTE J-virtualKeyboardEventHandler = FUNCTION VrtlKybrdEvntHndlr-gtInstnc0
+                COMPUTE JDISCARD = FUNCTION BasicEventHandler-fireEvent1(J-virtualKeyboardEventHandler, FUNCTION JR-GET(J-virtualKeyboardEventHandler, "f_SHOW_EVENT"))
+            ELSE
+                IF (FUNCTION TsUtil-compareTo2(FUNCTION JR-GET(J-THIS, "f_tsUtil"), FUNCTION Command-getLabel0(J-command), FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-gameCommandsFactory, "f_TOGGLE_FULLSCREEN"))) = 0)
+                COMPUTE J-mainFeatureFactory = FUNCTION MnFtrFctry-getInstance0
+                COMPUTE J-isFullScreen = FUNCTION Features-isFeature1(FUNCTION JR-GET(J-THIS, "f_features"), FUNCTION JR-GET(J-mainFeatureFactory, "f_FULL_SCREEN"))
+                IF (J-isFullScreen = 1)
+                    COMPUTE JDISCARD = FUNCTION Features-removeDefault1(FUNCTION JR-GET(J-THIS, "f_features"), FUNCTION JR-GET(J-mainFeatureFactory, "f_FULL_SCREEN"))
+                ELSE
+                    COMPUTE JDISCARD = FUNCTION Features-addDefault1(FUNCTION JR-GET(J-THIS, "f_features"), FUNCTION JR-GET(J-mainFeatureFactory, "f_FULL_SCREEN"))
+                END-IF
+                COMPUTE JDISCARD = FUNCTION GameMidlet-updateFullScreen0(J-THIS)
+            END-IF
+            END-IF
+            END-IF
+            END-IF
+            END-IF
+            END-IF
+            END-IF
+            END-IF
+            END-IF
+            END-IF
+            END-IF
+            END-IF
+            END-IF
+            END-IF
+            END-IF
+            END-IF
+            END-IF
+            END-IF
+            END-IF
+            END-IF
+            END-IF
+            END-IF
+            END-IF
+            END-IF
+            END-IF
+            END-IF
+            END-IF
+            END-IF
+            END-IF
+            END-IF
+            END-IF
+            END-IF
+            END-IF
+    GOBACK.
+END FUNCTION GameMidlet-commandAction2.
 
-// throws Exception
-function TGameMidlet.getInputMappingInstructionsCanvas: TMyCanvas;
-begin
-        Exit(TGameInputMappingInstructionsCanvas.Create(Self, Self.createGameLayerManager()));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameMidlet-updateFullScreen0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-mainFeatureFactory BINARY-DOUBLE.
+01 J-isFullScreen BINARY-DOUBLE.
+01 J-displayable BINARY-DOUBLE.
+01 J-canvas BINARY-DOUBLE.
+01 jtemp77 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-mainFeatureFactory = FUNCTION MnFtrFctry-getInstance0
+        COMPUTE J-isFullScreen = FUNCTION Features-isFeature1(FUNCTION JR-GET(J-THIS, "f_features"), FUNCTION JR-GET(J-mainFeatureFactory, "f_FULL_SCREEN"))
+        COMPUTE jtemp77 = FUNCTION AllBinaryMidlet-getDisplay0(J-THIS)
+        COMPUTE J-displayable = FUNCTION JR-CLASS-NAME(jtemp77)
+        IF (FUNCTION JR-STR-EQUALS(FUNCTION JR-CLASS-NAME(J-displayable), FUNCTION JR-STR("Canvas")) = 1)
+            COMPUTE J-canvas = J-displayable
+            COMPUTE JDISCARD = FUNCTION Canvas-setFullScreenMode1(J-canvas, J-isFullScreen)
+        END-IF
+    GOBACK.
+END FUNCTION GameMidlet-updateFullScreen0.
 
-// throws Exception
-function TGameMidlet.getInputMappingCanvas: TMyCanvas;
-begin
-        Exit(TGameInputMappingCanvas.Create(Self.abeClientInformation, Self, Self.createGameLayerManager(), Self.getHelpPaintable()));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameMidlet-onEvent1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp78 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp78 = FUNCTION EventStrings-getInstance0
+        COMPUTE JDISCARD = FUNCTION ForcedLogUtil-log2(FUNCTION JR-GET(jtemp78, "f_PERFORMANCE_MESSAGE"), J-THIS)
+    GOBACK.
+END FUNCTION GameMidlet-onEvent1.
 
-// throws Exception
-function TGameMidlet.getAboutCanvas: TMyCanvas;
-begin
-        Exit(TBasicPaintablesCanvas.Create(Self, TCanvasStrings.getInstance().ABOUT, Self.createGameLayerManager(), TAboutPaintableFactory.getInstance().paintableArray));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmMdlt-gtInptMppngInstrct11438.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION GmInptMppngInstrctnsCnvs-new2(J-THIS, FUNCTION GmMdlt-createGameLayerManager0(J-THIS))
+        GOBACK
+    GOBACK.
+END FUNCTION GmMdlt-gtInptMppngInstrct11438.
 
-// throws Exception
-function TGameMidlet.getHelpPaintable: THelpPaintable;
-begin
-        raise SysUtils.Exception.Create(Self.commonStrings.NOT_IMPLEMENTED);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmMdlt-getInputMappingCanvas0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION GameInputMappingCanvas-new4(FUNCTION JR-GET(J-THIS, "f_abeClientInformation"), J-THIS, FUNCTION GmMdlt-createGameLayerManager0(J-THIS), FUNCTION GameMidlet-getHelpPaintable0(J-THIS))
+        GOBACK
+    GOBACK.
+END FUNCTION GmMdlt-getInputMappingCanvas0.
 
-// throws Exception
-function TGameMidlet.createHighScoresCanvas: THighScoresCanvas;
-begin
-        raise SysUtils.Exception.Create(Self.commonStrings.NOT_IMPLEMENTED);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameMidlet-getAboutCanvas0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp79 BINARY-DOUBLE.
+01 jtemp80 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp79 = FUNCTION CanvasStrings-getInstance0
+        COMPUTE jtemp80 = FUNCTION AbtPntblFctry-getInstance0
+        COMPUTE J-RESULT = FUNCTION BasicPaintablesCanvas-new4(J-THIS, FUNCTION JR-GET(jtemp79, "f_ABOUT"), FUNCTION GmMdlt-createGameLayerManager0(J-THIS), FUNCTION JR-GET(jtemp80, "f_paintableArray"))
+        GOBACK
+    GOBACK.
+END FUNCTION GameMidlet-getAboutCanvas0.
 
-// throws Exception
-procedure TGameMidlet.startGameCanvasRunnableInterface;
-var
-  threadFactoryUtil_: TThreadFactoryUtil;
-begin
-        threadFactoryUtil_ := TThreadFactoryUtil.getInstance();
-        Self.thread := threadFactoryUtil_.getInstanceGameCanvasRunnable(Self.allbinaryGameCanvasRunnableInterface);
-        Self.logUtil.putF(TStringMaker.Create().append('Thread Priority: ').appendint(Integer(Trunc(5))).toString(), TJava.Box(Self), 'startGameCanvasRunnableInterface');
-        Self.allbinaryGameCanvasRunnableInterface.setThread(Self.thread);
-        threadFactoryUtil_.start(Self.thread);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameMidlet-getHelpPaintable0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+    GOBACK.
+END FUNCTION GameMidlet-getHelpPaintable0.
 
-// throws Exception
-procedure TGameMidlet.stopGameCanvasRunnableInterface;
-var
-  gameCanvasRunnableInterface_: IGameCanvasRunnableInterface;
-  progressCanvas_: TProgressCanvas;
-begin
-        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
-        TGameNotificationEventHandler.getInstance().removeAllListeners();
-        TColorChangeEventHandler.getInstance().removeAllListeners();
-        TGameEventHandlerUtil.removeAllListeners();
-        gameCanvasRunnableInterface_ := Self.allbinaryGameCanvasRunnableInterface;
-        if TJava.ToObject(gameCanvasRunnableInterface_) <> TJava.ToObject(TNullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE) then begin
-            Self.logUtil.putF(TStringMaker.Create().append('Set Running False: ').append(TJava.ToString(TJava.ToObject(gameCanvasRunnableInterface_))).toString(), TJava.Box(Self), Self.gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
-            gameCanvasRunnableInterface_.setRunning(False);
-        end else begin
-            Self.logUtil.putF('StopGame - Could Not Stop', TJava.Box(Self), Self.gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
-        end;
-        TThreadUtil.getInstance().join(Self.thread);
-        progressCanvas_ := TProgressCanvasFactory.getInstance();
-        if Self.features.isFeature(TMainFeatureFactory.getInstance().LOAD_ALL) then begin
-            progressCanvas_.addNormalPortion(50, 'Stopped Game Runnable');
-        end else begin
-            progressCanvas_.addNormalPortion(50, 'Stopped Main Runnable');
-        end;
-        Self.logUtil.putF(Self.commonStrings.END_, TJava.Box(Self), Self.gameStrings.STOP_GAME_CANVAS_RUNNABLE_INTERFACE);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmMdlt-createHighScoresCanvas0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+    GOBACK.
+END FUNCTION GmMdlt-createHighScoresCanvas0.
 
-function TGameMidlet.getGameCanvasRunnableInterface: IGameCanvasRunnableInterface;
-begin
-        Exit(Self.allbinaryGameCanvasRunnableInterface);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmMdlt-strtGmCnvsRnnblIntrfc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-threadFactoryUtil BINARY-DOUBLE.
+01 jtemp81 BINARY-DOUBLE.
+01 jtemp82 BINARY-DOUBLE.
+01 jtemp83 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-threadFactoryUtil = FUNCTION ThreadFactoryUtil-getInstance0
+        COMPUTE JVALUE = FUNCTION ThrdFctryUtl-gtInstncGmCn83703(J-threadFactoryUtil, FUNCTION JR-GET(J-THIS, "f_allbinaryGameCanvasRunnableInterface"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_thread", JVALUE)
+        COMPUTE jtemp83 = FUNCTION StringMaker-new0
+        COMPUTE jtemp82 = FUNCTION StringMaker-append1(jtemp83, FUNCTION JR-STR("Thread Priority: "))
+        COMPUTE jtemp81 = FUNCTION StringMaker-appendint1(jtemp82, FUNCTION Thread-getPriority0(FUNCTION JR-GET(J-THIS, "f_thread")))
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        COMPUTE JDISCARD = FUNCTION GmCnvsRnnblIntrfc-setThread1(FUNCTION JR-GET(J-THIS, "f_allbinaryGameCanvasRunnableInterface"), FUNCTION JR-GET(J-THIS, "f_thread"))
+        COMPUTE JDISCARD = FUNCTION ThreadFactoryUtil-start1(J-threadFactoryUtil, FUNCTION JR-GET(J-THIS, "f_thread"))
+    GOBACK.
+END FUNCTION GmMdlt-strtGmCnvsRnnblIntrfc0.
 
-procedure TGameMidlet.setGameCanvasRunnableInterface(gameCanvasRunnableInterface_: IGameCanvasRunnableInterface);
-begin
-        Self.allbinaryGameCanvasRunnableInterface := gameCanvasRunnableInterface_;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmMdlt-stpGmCnvsRnnblIntrfc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameCanvasRunnableInterface BINARY-DOUBLE.
+01 J-progressCanvas BINARY-DOUBLE.
+01 jtemp84 BINARY-DOUBLE.
+01 jtemp85 BINARY-DOUBLE.
+01 jtemp86 BINARY-DOUBLE.
+01 jtemp87 BINARY-DOUBLE.
+01 jtemp88 BINARY-DOUBLE.
+01 jtemp89 BINARY-DOUBLE.
+01 jtemp90 BINARY-DOUBLE.
+01 jtemp91 BINARY-DOUBLE.
+01 jtemp92 BINARY-DOUBLE.
+01 jtemp93 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        COMPUTE jtemp84 = FUNCTION GmNtfctnEvntHndlr-getInstance0
+        COMPUTE JDISCARD = FUNCTION GmNtfctnEvntHndlr-rmvAllL40116(jtemp84)
+        COMPUTE jtemp85 = FUNCTION ClrChngEvntHndlr-getInstance0
+        COMPUTE JDISCARD = FUNCTION BscEvntHndlr-rmvAllLstnrs0(jtemp85)
+        COMPUTE JDISCARD = FUNCTION GmEvntHndlrUtl-rmvAllLstnrs0
+        COMPUTE J-gameCanvasRunnableInterface = FUNCTION JR-GET(J-THIS, "f_allbinaryGameCanvasRunnableInterface")
+        IF (J-gameCanvasRunnableInterface NOT = FUNCTION NllGmCnvsRnnbl-sttc-N20955)
+            COMPUTE jtemp88 = FUNCTION StringMaker-new0
+            COMPUTE jtemp87 = FUNCTION StringMaker-append1(jtemp88, FUNCTION JR-STR("Set Running False: "))
+            COMPUTE jtemp86 = FUNCTION StringMaker-append1(jtemp87, FUNCTION JR-TO-STRING(J-gameCanvasRunnableInterface))
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+            COMPUTE jtemp89 = 0
+            COMPUTE JDISCARD = FUNCTION GmCnvsRnnblIntrfc-setRunning1(J-gameCanvasRunnableInterface, jtemp89)
+        ELSE
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        END-IF
+        COMPUTE jtemp90 = FUNCTION ThreadUtil-getInstance0
+        COMPUTE JDISCARD = FUNCTION ThreadUtil-join1(jtemp90, FUNCTION JR-GET(J-THIS, "f_thread"))
+        COMPUTE J-progressCanvas = FUNCTION PrgrssCnvsFctry-getInstance0
+        COMPUTE jtemp91 = FUNCTION MnFtrFctry-getInstance0
+        IF (FUNCTION Features-isFeature1(FUNCTION JR-GET(J-THIS, "f_features"), FUNCTION JR-GET(jtemp91, "f_LOAD_ALL")) = 1)
+            COMPUTE jtemp93 = 50
+            COMPUTE JDISCARD = FUNCTION PrgrssCnvs-addNormalPortion2(J-progressCanvas, jtemp93, FUNCTION JR-STR("Stopped Game Runnable"))
+        ELSE
+            COMPUTE jtemp92 = 50
+            COMPUTE JDISCARD = FUNCTION PrgrssCnvs-addNormalPortion2(J-progressCanvas, jtemp92, FUNCTION JR-STR("Stopped Main Runnable"))
+        END-IF
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+    GOBACK.
+END FUNCTION GmMdlt-stpGmCnvsRnnblIntrfc0.
 
-function TGameMidlet.createGameLayerManager: TAllBinaryGameLayerManager;
-var
-  gameInfo_: TGameInfo;
-begin
-        gameInfo_ := TGameInfo.Create(TGameTypeFactory.getInstance().SINGLE_PLAYER, TGameMode.SERVER, TPlayerTypesFactory.getInstance().PLAYER_TYPE_ONE, 1, 1);
-        Exit(TAllBinaryGameLayerManager.Create(Self.basicColorFactory.BLACK, Self.basicColorFactory.WHITE, gameInfo_));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmMdlt-gtGmCnvsRnnblIntrfc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_allbinaryGameCanvasRunnableInterface")
+        GOBACK
+    GOBACK.
+END FUNCTION GmMdlt-gtGmCnvsRnnblIntrfc0.
 
-function TGameMidlet.getGameOptionsForm: TCommandForm;
-var
-  layerManager: TAllBinaryGameLayerManager;
-begin
-        layerManager := Self.createGameLayerManager();
-        Exit(TGameOptionsFormFactory.getInstance().init(Self, 'Game Options', layerManager.getBackgroundBasicColor(), layerManager.getForegroundBasicColor()));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmMdlt-stGmCnvsRnnblIntrfc1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameCanvasRunnableInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gameCanvasRunnableInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-gameCanvasRunnableInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_allbinaryGameCanvasRunnableInterface", JVALUE)
+    GOBACK.
+END FUNCTION GmMdlt-stGmCnvsRnnblIntrfc1.
 
-// throws Exception
-procedure TGameMidlet.save;
-var
-  hashtable: TABHashtable<TObject, TObject>;
-begin
-        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.SAVE);
-        hashtable := Self.getCurrentStateHashtable();
-        TGamePersistanceSingleton.getInstance().save(Self.abeClientInformation, hashtable);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmMdlt-createGameLayerManager0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameInfo BINARY-DOUBLE.
+01 jtemp94 BINARY-DOUBLE.
+01 jtemp95 BINARY-DOUBLE.
+01 jtemp96 BINARY-DOUBLE.
+01 jtemp97 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp94 = FUNCTION GameTypeFactory-getInstance0
+        COMPUTE jtemp95 = FUNCTION PlyrTypsFctry-getInstance0
+        COMPUTE jtemp96 = 1
+        COMPUTE jtemp97 = 1
+        COMPUTE J-gameInfo = FUNCTION GameInfo-new5(FUNCTION JR-GET(jtemp94, "f_SINGLE_PLAYER"), FUNCTION GameMode-static-SERVER, FUNCTION JR-GET(jtemp95, "f_PLAYER_TYPE_ONE"), jtemp96, jtemp97)
+        COMPUTE J-RESULT = FUNCTION AllBinaryGameLayerManager-new3(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_basicColorFactory"), "f_BLACK"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_basicColorFactory"), "f_WHITE"), J-gameInfo)
+        GOBACK
+    GOBACK.
+END FUNCTION GmMdlt-createGameLayerManager0.
 
-// throws Exception
-function TGameMidlet.getCurrentStateHashtable: TABHashtable<TObject, TObject>;
-var
-  hashtable: TABHashtable<TObject, TObject>;
-  currentHashtable: TABHashtable<TObject, TObject>;
-  enumeration: TObject;
-  key: TObject;
-begin
-        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), 'getCurrentStateHashtable');
-        hashtable := TStdUtil.getInstance().createHashtable();
-        if TJava.ToObject(Self.allbinaryGameCanvasRunnableInterface) <> TJava.ToObject(TNullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE) then begin
-            currentHashtable := Self.allbinaryGameCanvasRunnableInterface.getCurrentStateHashtable();
-            enumeration := currentHashtable.keys();
-            
-            while Self.enumerationUtil.hasMoreElements(enumeration) do begin
-                key := TJava.Box(Self.enumerationUtil.nextElement(enumeration));
-                hashtable.put(TJava.Box(key), TJava.Box(currentHashtable.get(TJava.Box(key))));
-            end;
-        end;
-        Exit(hashtable);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameMidlet-getGameOptionsForm0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-layerManager BINARY-DOUBLE.
+01 jtemp98 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-layerManager = FUNCTION GmMdlt-createGameLayerManager0(J-THIS)
+        COMPUTE jtemp98 = FUNCTION GmOptnsFrmFctry-getInstance0
+        COMPUTE J-RESULT = FUNCTION GameOptionsFormFactory-init4(jtemp98, J-THIS, FUNCTION JR-STR("Game Options"), FUNCTION AllBnryGmLyrMngr-gtBckgrn74413(J-layerManager), FUNCTION AllBnryGmLyrMngr-gtFrgrnd84733(J-layerManager))
+        GOBACK
+    GOBACK.
+END FUNCTION GameMidlet-getGameOptionsForm0.
 
-procedure TGameMidlet.setLoadGameForm(loadGameForm_: TLoadGameForm);
-begin
-        Self.loadGameForm := loadGameForm_;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameMidlet-save0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-hashtable BINARY-DOUBLE.
+01 jtemp99 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        COMPUTE J-hashtable = FUNCTION GmMdlt-gtCrrntSttHshtbl0(J-THIS)
+        COMPUTE jtemp99 = FUNCTION GmPrsstncSngltn-getInstance0
+        COMPUTE JDISCARD = FUNCTION KeyValuePersistance-save2(jtemp99, FUNCTION JR-GET(J-THIS, "f_abeClientInformation"), J-hashtable)
+    GOBACK.
+END FUNCTION GameMidlet-save0.
 
-function TGameMidlet.getLoadGameForm: TCommandForm;
-begin
-        Exit(Self.loadGameForm);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmMdlt-gtCrrntSttHshtbl0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-hashtable BINARY-DOUBLE.
+01 J-currentHashtable BINARY-DOUBLE.
+01 J-enumeration BINARY-DOUBLE.
+01 J-key BINARY-DOUBLE.
+01 jtemp100 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        COMPUTE jtemp100 = FUNCTION StdUtil-getInstance0
+        COMPUTE J-hashtable = FUNCTION StdUtil-createHashtable0(jtemp100)
+        IF (FUNCTION JR-GET(J-THIS, "f_allbinaryGameCanvasRunnableInterface") NOT = FUNCTION NllGmCnvsRnnbl-sttc-N20955)
+            COMPUTE J-currentHashtable = FUNCTION GmCnvsRnnblIntrfc-gtCrrnt52346(FUNCTION JR-GET(J-THIS, "f_allbinaryGameCanvasRunnableInterface"))
+            COMPUTE J-enumeration = FUNCTION Hashtable-keys0(J-currentHashtable)
+            CONTINUE
+            PERFORM FOREVER
+                IF NOT (FUNCTION EnmrtnUtl-hasMoreElements1(FUNCTION JR-GET(J-THIS, "f_enumerationUtil"), J-enumeration) = 1) EXIT PERFORM END-IF
+                COMPUTE J-key = FUNCTION EnumerationUtil-nextElement1(FUNCTION JR-GET(J-THIS, "f_enumerationUtil"), J-enumeration)
+                COMPUTE JDISCARD = FUNCTION Hashtable-put2(J-hashtable, J-key, FUNCTION Hashtable-get1(J-currentHashtable, J-key))
+            END-PERFORM
+        END-IF
+        COMPUTE J-RESULT = J-hashtable
+        GOBACK
+    GOBACK.
+END FUNCTION GmMdlt-gtCrrntSttHshtbl0.
 
-procedure TGameMidlet.setResized(resized: Boolean);
-begin
-        Self.resized := resized;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameMidlet-setLoadGameForm1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-loadGameForm BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-loadGameForm RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-loadGameForm
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_loadGameForm", JVALUE)
+    GOBACK.
+END FUNCTION GameMidlet-setLoadGameForm1.
 
-function TGameMidlet.isResized: Boolean;
-begin
-        Exit(Self.resized);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameMidlet-getLoadGameForm0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_loadGameForm")
+        GOBACK
+    GOBACK.
+END FUNCTION GameMidlet-getLoadGameForm0.
 
-function TGameMidlet.isDemoLoading: Boolean;
-var
-  displayable_: TDisplayable;
-  demoCanvas_: TDemoCanvas;
-begin
-        if Self.startedBefore then begin
-            Exit(False);
-        end;
-        displayable_ := Self.getDisplay().getCurrent();
-        if (TJava.ToObject(displayable_) is TDemoCanvas) then begin
-            demoCanvas_ := TDemoCanvas(TJava.ToObject(displayable_));
-            if demoCanvas_.isDemoLoading() then begin
-                Exit(True);
-            end;
-        end;
-        Exit(False);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameMidlet-setResized1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-resized BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-resized RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-resized
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_resized", JVALUE)
+    GOBACK.
+END FUNCTION GameMidlet-setResized1.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameMidlet-isResized0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_resized")
+        GOBACK
+    GOBACK.
+END FUNCTION GameMidlet-isResized0.
 
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameMidlet-isDemoLoading0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-displayable BINARY-DOUBLE.
+01 J-demoCanvas BINARY-DOUBLE.
+01 jtemp101 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION JR-GET(J-THIS, "f_startedBefore") = 1)
+            COMPUTE J-RESULT = 0
+            GOBACK
+        END-IF
+        COMPUTE jtemp101 = FUNCTION AllBinaryMidlet-getDisplay0(J-THIS)
+        COMPUTE J-displayable = FUNCTION JR-CLASS-NAME(jtemp101)
+        IF (FUNCTION JR-STR-EQUALS(FUNCTION JR-CLASS-NAME(J-displayable), FUNCTION JR-STR("DemoCanvas")) = 1)
+            COMPUTE J-demoCanvas = J-displayable
+            IF (FUNCTION DemoCanvas-isDemoLoading0(J-demoCanvas) = 1)
+                COMPUTE J-RESULT = 1
+                GOBACK
+            END-IF
+        END-IF
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION GameMidlet-isDemoLoading0.
 

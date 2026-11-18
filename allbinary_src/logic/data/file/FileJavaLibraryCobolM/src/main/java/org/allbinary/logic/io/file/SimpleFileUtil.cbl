@@ -1,177 +1,368 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2025 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.logic.io.file
-unit SimpleFileUtil;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.io.file
+*> Java class SimpleFileUtil
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SmplFlUtl-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 SimpleFileUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 SimpleFileUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF SimpleFileUtil-jset-instance = 0
+        MOVE 1 TO SimpleFileUtil-jset-instance
+        COMPUTE SimpleFileUtil-jcell-instance = FUNCTION SimpleFileUtil-new0
+    END-IF
+    MOVE SimpleFileUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION SmplFlUtl-static-instance.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SmplFlUtlstaticinstaS17372.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 SimpleFileUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION SmplFlUtl-static-instance TO J-RESULT
+    MOVE J-VALUE TO SimpleFileUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION SmplFlUtlstaticinstaS17372.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, NullUtil, LogUtil, StreamUtil, CommonStrings, BasicArrayList;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SimpleFileUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("SimpleFileUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NULL_WRITER")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NULL_READER")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_nullUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_streamUtil")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION SimpleFileUtil-nullWriter0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NULL_WRITER", JVALUE)
+    COMPUTE JVALUE = FUNCTION SimpleFileUtil-nullReader0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NULL_READER", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
+    COMPUTE JVALUE = FUNCTION NullUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_nullUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION StreamUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_streamUtil", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION SimpleFileUtil-new0.
 
-type
-  {AB:TYPES}
-  TSimpleFileUtil = class(TObject)
-  public
-    logUtil: TLogUtil;
-    NULL_WRITER: TWriter;
-    NULL_READER: TReader;
-    commonStrings: TCommonStrings;
-    nullUtil: TNullUtil;
-    streamUtil: TStreamUtil;
-    class var instance: TSimpleFileUtil;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TSimpleFileUtil; static;
-        class function nullOutputStream: TOutputStream; static;
-        class function nullWriter: TWriter; static;
-        class function nullReader: TReader; static;
-        function loadFileAsList(inputStream_: TInputStream; max: Integer; byteArray1: TArray<ShortInt>): TBasicArrayList; virtual;
-        function loadFileAsListReturnLine(inputStream_: TInputStream; max: Integer; byteArray1: TArray<ShortInt>; includeReturnLine: Integer): TBasicArrayList; virtual;
-        function createStringFromArrayOfStrings(stringArray: TArray<string>): string; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SimpleFileUtil-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION SmplFlUtl-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION SimpleFileUtil-getInstance0.
 
-implementation
-uses
-  NullOutputStream, NullReader, NullWriter, StringMaker, BasicArrayListD;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SmplFlUtl-nullOutputStream0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION NllOtptStrm-sttc-NULL-20085
+        GOBACK
+    GOBACK.
+END FUNCTION SmplFlUtl-nullOutputStream0.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SimpleFileUtil-nullWriter0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION NllWrtr-static-NULL-WRITER
+        GOBACK
+    GOBACK.
+END FUNCTION SimpleFileUtil-nullWriter0.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SimpleFileUtil-nullReader0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION NllRdr-static-NULL-READER
+        GOBACK
+    GOBACK.
+END FUNCTION SimpleFileUtil-nullReader0.
 
-procedure TSimpleFileUtil.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.NULL_WRITER := TSimpleFileUtil.nullWriter();
-  Self.NULL_READER := TSimpleFileUtil.nullReader();
-  Self.commonStrings := TCommonStrings.getInstance();
-  Self.nullUtil := TNullUtil.getInstance();
-  Self.streamUtil := TStreamUtil.getInstance();
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SimpleFileUtil-loadFileAsList3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-inputStream BINARY-DOUBLE.
+01 J-max BINARY-DOUBLE.
+01 J-byteArray1 BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-inputStream J-max J-byteArray1 RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = 0
+        COMPUTE J-RESULT = FUNCTION SmplFlUtl-ldFlAsLstRtrnLn4(J-THIS, J-inputStream, J-max, J-byteArray1, jtemp1)
+        GOBACK
+    GOBACK.
+END FUNCTION SimpleFileUtil-loadFileAsList3.
 
-constructor TSimpleFileUtil.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SmplFlUtl-ldFlAsLstRtrnLn4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringList BINARY-DOUBLE.
+01 J-byteArray BINARY-DOUBLE.
+01 J-outputStream2 BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-startIndex BINARY-DOUBLE.
+01 J-returnLine BINARY-DOUBLE.
+01 J-s BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-inputStream BINARY-DOUBLE.
+01 J-max BINARY-DOUBLE.
+01 J-byteArray1 BINARY-DOUBLE.
+01 J-includeReturnLine BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-inputStream J-max J-byteArray1 J-includeReturnLine RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringList = FUNCTION BasicArrayListD-new0
+        IF (J-inputStream = 0)
+            COMPUTE J-RESULT = J-stringList
+            GOBACK
+        END-IF
+        COMPUTE J-byteArray = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_nullUtil"), "f_NULL_BYTE_ARRAY")
+        CONTINUE
+            COMPUTE J-outputStream2 = FUNCTION ByteArrayOutputStream-new1(J-max)
+            COMPUTE J-byteArray = FUNCTION StreamUtil-getByteArray3(FUNCTION JR-GET(J-THIS, "f_streamUtil"), J-inputStream, J-outputStream2, J-byteArray1)
+            COMPUTE JDISCARD = FUNCTION StreamUtil-close1(FUNCTION JR-GET(J-THIS, "f_streamUtil"), J-inputStream)
+        IF (J-byteArray = 0)
+            COMPUTE J-RESULT = J-stringList
+            GOBACK
+        END-IF
+        COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(J-byteArray)
+        COMPUTE J-index = 0
+        CONTINUE
+        COMPUTE J-returnLine = 0
+        PERFORM FOREVER
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-startIndex = J-index
+            PERFORM FOREVER
+                IF NOT ((J-index < (FUNCTION MOD((J-size - 1) + 2147483648, 4294967296) - 2147483648)) AND (FUNCTION JR-ARRAY-GET(J-byteArray, J-index) NOT = (FUNCTION MOD(FUNCTION INTEGER-PART(10) + 128, 256) - 128))) EXIT PERFORM END-IF
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-PERFORM
+            IF (J-includeReturnLine = 0)
+                COMPUTE jtemp2 = (FUNCTION MOD((J-index - 1) + 2147483648, 4294967296) - 2147483648)
+                IF ((J-index > 0) AND (FUNCTION JR-ARRAY-GET(J-byteArray, jtemp2) = (FUNCTION MOD(FUNCTION INTEGER-PART(13) + 128, 256) - 128)))
+                    COMPUTE J-returnLine = 1
+                ELSE
+                    COMPUTE J-returnLine = 0
+                END-IF
+            END-IF
+            COMPUTE jtemp3 = ((FUNCTION MOD(((FUNCTION MOD(((FUNCTION MOD((J-index + J-includeReturnLine) + 2147483648, 4294967296) - 2147483648) - J-returnLine) + 2147483648, 4294967296) - 2147483648) - J-startIndex) + 2147483648,
+        4294967296) - 2147483648))
+            COMPUTE J-s = FUNCTION JR-CHARS-STRING(J-byteArray, J-startIndex, jtemp3)
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-stringList, J-s)
+            COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+        END-PERFORM
+        COMPUTE J-RESULT = J-stringList
+        GOBACK
+    GOBACK.
+END FUNCTION SmplFlUtl-ldFlAsLstRtrnLn4.
 
-class function TSimpleFileUtil.getInstance: TSimpleFileUtil;
-begin
-        Exit(TSimpleFileUtil.instance);
-end;
-    
-
-class function TSimpleFileUtil.nullOutputStream: TOutputStream;
-begin
-        Exit(TNullOutputStream.NULL_OUTPUT_STREAM);
-end;
-    
-
-class function TSimpleFileUtil.nullWriter: TWriter;
-begin
-        Exit(TNullWriter.NULL_WRITER);
-end;
-    
-
-class function TSimpleFileUtil.nullReader: TReader;
-begin
-        Exit(TNullReader.NULL_READER);
-end;
-    
-
-function TSimpleFileUtil.loadFileAsList(inputStream_: TInputStream; max: Integer; byteArray1: TArray<ShortInt>): TBasicArrayList;
-begin
-        Exit(Self.loadFileAsListReturnLine(inputStream_, max, byteArray1, 0));
-end;
-    
-
-function TSimpleFileUtil.loadFileAsListReturnLine(inputStream_: TInputStream; max: Integer; byteArray1: TArray<ShortInt>; includeReturnLine: Integer): TBasicArrayList;
-var
-  stringList: TBasicArrayList;
-  byteArray: TArray<ShortInt>;
-  outputStream2: TByteArrayOutputStream;
-  size: Integer;
-  index: Integer;
-  startIndex: Integer;
-  returnLine: Integer;
-  s: string;
-begin
-        stringList := TBasicArrayListD.Create();
-        if (inputStream_) = (nil) then begin
-            Exit(stringList);
-        end;
-        byteArray := Self.nullUtil.NULL_BYTE_ARRAY;
-        try
-            outputStream2 := TByteArrayOutputStream.Create;
-            byteArray := Self.streamUtil.getByteArray(inputStream_, outputStream2, byteArray1);
-            Self.streamUtil.close(inputStream_);
-        except
-            on e: SysUtils.Exception do begin
-            Self.streamUtil.close(inputStream_);
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.ADD, TJava.Box(e));
-            end;
-        end;
-        if (byteArray) = (nil) then begin
-            Exit(stringList);
-        end;
-        size := System.Length(byteArray);
-        index := 0;
-        
-        returnLine := 0;
-        while (index) < (size) do begin
-            startIndex := index;
-            while ((index) < ((size) - (1))) and ((byteArray[index]) <> (Ord(#10))) do begin
-                Inc(index);
-            end;
-            if (includeReturnLine) = (0) then begin
-                if ((index) > (0)) and ((byteArray[(index) - (1)]) = (Ord(#13))) then begin
-                    returnLine := 1;
-                end else begin
-                    returnLine := 0;
-                end;
-            end;
-            s := TJava.NewString(byteArray, startIndex, ((((index) + (includeReturnLine)) - (returnLine)) - (startIndex)));
-            stringList.add(TJava.Box(s));
-            Inc(index);
-        end;
-        Exit(stringList);
-end;
-    
-
-function TSimpleFileUtil.createStringFromArrayOfStrings(stringArray: TArray<string>): string;
-var
-  stringMaker_: TStringMaker;
-  size: Integer;
-  index: Integer;
-begin
-        stringMaker_ := TStringMaker.Create();
-        size := System.Length(stringArray);
-        for index := 0 to size - 1 do begin
-            stringMaker_.append(stringArray[index]);
-        end;
-        Exit(stringMaker_.toString());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TSimpleFileUtil.instance := TSimpleFileUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SmplFlUtl-crtStrngFrmArry82680.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringMaker BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-stringArray BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-stringArray RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringMaker = FUNCTION StringMaker-new0
+        COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(J-stringArray)
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringMaker, FUNCTION JR-ARRAY-GET(J-stringArray, J-index))
+        END-PERFORM
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(J-stringMaker)
+        GOBACK
+    GOBACK.
+END FUNCTION SmplFlUtl-crtStrngFrmArry82680.
 

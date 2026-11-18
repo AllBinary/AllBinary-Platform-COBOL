@@ -29,7 +29,7 @@ PROCEDURE DIVISION RETURNING J-RESULT.
     COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("BaseCircularPool")
     COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_circularIndexUtil")
     COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_OBJECT_ARRAY")
-    COMPUTE JVALUE = FUNCTION CrclrIndxUtl-sttc-NULL-CIL
+    COMPUTE JVALUE = FUNCTION CrclrIndxUtl-sttc-NUL94203
     COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_circularIndexUtil", JVALUE)
     COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
     COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT_ARRAY")
@@ -108,7 +108,7 @@ PROCEDURE DIVISION USING J-THIS J-allBinaryObjectFactoryInterface RETURNING J-RE
             END-IF
             MOVE 0 TO JFIRST1
             IF NOT (J-index < J-size) EXIT PERFORM END-IF
-            COMPUTE JVALUE = FUNCTION AllBnryObjctFctryIntrfc-gtInc0(J-allBinaryObjectFactoryInterface)
+            COMPUTE JVALUE = FUNCTION AllBnryObjctFctryIntrfc-g16888(J-allBinaryObjectFactoryInterface)
             COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_OBJECT_ARRAY"), J-index, JVALUE)
         END-PERFORM
     GOBACK.

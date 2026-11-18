@@ -1,77 +1,90 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion.button
+*> Java class MultitouchReleaseHelper
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
- 
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
- 
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
- 
-  Created By: Travis Berthelot
-  
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion.button
-unit MultitouchReleaseHelper;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MultitouchReleaseHelper-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-touchButtonRecognizer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-touchButtonRecognizer RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("MultitouchReleaseHelper")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION MultitouchReleaseHelper-new1.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, TouchButtonRecognizer, TouchButtonInput, ReleaseHelper;
-
-type
-  {AB:TYPES}
-  TMultitouchReleaseHelper = class(TReleaseHelper)
-  public
-        constructor Create(touchButtonRecognizer_: TTouchButtonRecognizer);
-        procedure release(touchButtonInput_: TTouchButtonInput; deviceId: Integer); override;
-  end;
-
-implementation
-uses
-  CancelTouchButtonInputFactory, GameKeyEvent;
-
-
-{AB:CODE}
-    
-
-constructor TMultitouchReleaseHelper.Create(touchButtonRecognizer_: TTouchButtonRecognizer);
-begin
-        inherited Create(touchButtonRecognizer_);
-end;
-    
-
-// throws Exception
-procedure TMultitouchReleaseHelper.release(touchButtonInput_: TTouchButtonInput; deviceId: Integer);
-var
-  cancelTouchButtonInput: TTouchButtonInput;
-  nextTouchButtonInput: TTouchButtonInput;
-  gameKeyEvent_: TGameKeyEvent;
-  index: Integer;
-begin
-        cancelTouchButtonInput := TCancelTouchButtonInputFactory.getInstance().getCancel(touchButtonInput_);
-        
-        
-        for index := (Self.touchButtonRecognizer.currentlyPressedTouchButtonSingleton.size()) - (1) downto 0 do begin
-            nextTouchButtonInput := Self.touchButtonRecognizer.currentlyPressedTouchButtonSingleton.get(index);
-            if (cancelTouchButtonInput) = (nextTouchButtonInput) then begin
-                gameKeyEvent_ := nextTouchButtonInput.getGameKeyEvent();
-                Self.touchButtonRecognizer.upGameKeyEventHandler.fireEvent(gameKeyEvent_);
-                Self.touchButtonRecognizer.upGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent_);
-                Self.touchButtonRecognizer.currentlyPressedTouchButtonSingleton.removeAt(index);
-            end;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MlttchRlsHlpr-release2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-cancelTouchButtonInput BINARY-DOUBLE.
+01 J-nextTouchButtonInput BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-touchButtonInput BINARY-DOUBLE.
+01 J-deviceId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-touchButtonInput J-deviceId RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = FUNCTION CnclTchBttnInptFctry-gtInstnc0
+        COMPUTE J-cancelTouchButtonInput = FUNCTION CnclTchBttnInptFctry-gtCncl1(jtemp1, J-touchButtonInput)
+        CONTINUE
+        CONTINUE
+        COMPUTE J-index = (FUNCTION MOD((FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_touchButtonRecognizer"), "f_currentlyPressedTouchButtonSingleton")) - 1) + 2147483648, 4294967296) - 2147483648)
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index >= 0) EXIT PERFORM END-IF
+            COMPUTE J-nextTouchButtonInput = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_touchButtonRecognizer"), "f_currentlyPressedTouchButtonSingleton"))
+            IF (J-cancelTouchButtonInput = J-nextTouchButtonInput)
+                COMPUTE J-gameKeyEvent = FUNCTION TchBttnInpt-getGameKeyEvent0(J-nextTouchButtonInput)
+                COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_touchButtonRecognizer"), "f_upGameKeyEventHandler"))
+                COMPUTE jtemp2 = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_touchButtonRecognizer"), "f_upGameKeyEventHandler"))
+                COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp2)
+                COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_touchButtonRecognizer"), "f_currentlyPressedTouchButtonSingleton"))
+            END-IF
+        END-PERFORM
+    GOBACK.
+END FUNCTION MlttchRlsHlpr-release2.
 

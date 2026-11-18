@@ -1,150 +1,356 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2002 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.displayable.screen
+*> Java class CommandForm
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmmndFrm-sttc-NULL-COM53204.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CommandForm-jcell-NULL_COMMAND_FORM BINARY-DOUBLE EXTERNAL.
+01 CommandForm-jset-NULL_COMMAND_FORM BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF CommandForm-jset-NULL_COMMAND_FORM = 0
+        MOVE 1 TO CommandForm-jset-NULL_COMMAND_FORM
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE CommandForm-jcell-NULL_COMMAND_FORM = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+    END-IF
+    MOVE CommandForm-jcell-NULL_COMMAND_FORM TO J-RESULT
+    GOBACK.
+END FUNCTION CmmndFrm-sttc-NULL-COM53204.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmmndFrmsttcNULLCOM5S17500.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CommandForm-jcell-NULL_COMMAND_FORM BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION CmmndFrm-sttc-NULL-COM53204 TO J-RESULT
+    MOVE J-VALUE TO CommandForm-jcell-NULL_COMMAND_FORM
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION CmmndFrmsttcNULLCOM5S17500.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CommandForm-new4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-commandListener BINARY-DOUBLE.
+01 J-formTitle BINARY-DOUBLE.
+01 J-backgrounBasicColor BINARY-DOUBLE.
+01 J-foregroundBasicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-commandListener J-formTitle J-backgrounBasicColor J-foregroundBasicColor RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CommandForm")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_repaintProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commandStack")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
+    COMPUTE jtemp6 = FUNCTION ScrnRpntPrcssrFctry-gtInstnc0
+    COMPUTE JVALUE = FUNCTION ScrnRpntPrcssrFctry-create1(jtemp6, J-THIS)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_repaintProcessor", JVALUE)
     
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.displayable.screen
-unit CommandForm;
+        CONTINUE
+        COMPUTE jtemp7 = FUNCTION StdUtil-getInstance0
+        COMPUTE JVALUE = FUNCTION StdUtil-createStack0(jtemp7)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commandStack", JVALUE)
+        CONTINUE
+            COMPUTE JDISCARD = FUNCTION Processor-process0(FUNCTION JR-GET(J-THIS, "f_repaintProcessor"))
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CommandForm-new4.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmmndFrm-getNullCommandForm0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+        IF (FUNCTION CmmndFrm-sttc-NULL-COM53204 = FUNCTION JR-GET(jtemp2, "f_NULL_OBJECT"))
+            COMPUTE jtemp3 = FUNCTION StringUtil-getInstance0
+            COMPUTE jtemp4 = FUNCTION BasicColorFactory-getInstance0
+            COMPUTE jtemp5 = FUNCTION BasicColorFactory-getInstance0
+            COMPUTE JDISCARD = FUNCTION CmmndFrmsttcNULLCOM5S17500(FUNCTION CommandForm-new4(FUNCTION NllCmmndLstnr-sttc-NUL29514, FUNCTION JR-GET(jtemp3, "f_EMPTY_STRING"), FUNCTION JR-GET(jtemp4, "f_BLACK"), FUNCTION JR-GET(jtemp5,
+        "f_WHITE")))
+        END-IF
+        COMPUTE J-RESULT = FUNCTION CmmndFrm-sttc-NULL-COM53204
+        GOBACK
+    GOBACK.
+END FUNCTION CmmndFrm-getNullCommandForm0.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CommandForm-initCommands1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-cmdListener BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-cmdListener RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION CommandForm-initCommands1.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Command, CommandListener, Form, Processor, MenuListener, BasicColor, MyCommandInterface, LogUtil, CommonStrings, ABStack, EventListener, GameKeyEventSourceInterface, SWTEventListener;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CommandForm-open0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_START"), J-THIS, FUNCTION JR-STR("open"))
+    GOBACK.
+END FUNCTION CommandForm-open0.
 
-type
-  {AB:TYPES}
-  TCommandForm = class(TForm, IMyCommandInterface, IMenuListener, IEventListener, IGameKeyEventSourceInterface, ISWTEventListener)
-  public
-    logUtil: TLogUtil;
-    commonStrings: TCommonStrings;
-    repaintProcessor: TProcessor;
-    commandStack: TABStack<TObject>;
-    class var NULL_COMMAND_FORM: TObject;
-    procedure InitFields;
-    function JavaObject: TObject;
-        class function getNullCommandForm: TCommandForm; static;
-        constructor Create(commandListener_: ICommandListener; formTitle: string; backgrounBasicColor: TBasicColor; foregroundBasicColor: TBasicColor);
-        procedure initCommands(cmdListener: ICommandListener); virtual;
-        procedure open; virtual;
-        procedure close; virtual;
-        procedure update; virtual;
-        function getSourceId: Integer; virtual;
-        procedure addCommand(command_: TCommand); virtual;
-        procedure removeAllCommands; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CommandForm-close0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_START"), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_CLOSE"))
+    GOBACK.
+END FUNCTION CommandForm-close0.
 
-implementation
-uses
-  ScreenRepaintProcessorFactory, NullCommandListener, BasicColorFactory, NullUtil, StringUtil, StdUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CommandForm-update0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Processor-process0(FUNCTION JR-GET(J-THIS, "f_repaintProcessor"))
+    GOBACK.
+END FUNCTION CommandForm-update0.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CommandForm-getSourceId0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION CommandForm-getSourceId0.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CommandForm-addCommand1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-command BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-command RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Stack-push1(FUNCTION JR-GET(J-THIS, "f_commandStack"), J-command)
+        COMPUTE JDISCARD = FUNCTION Form-addCommand1(J-THIS, J-command)
+    GOBACK.
+END FUNCTION CommandForm-addCommand1.
 
-procedure TCommandForm.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.commonStrings := TCommonStrings.getInstance();
-  Self.repaintProcessor := TScreenRepaintProcessorFactory.getInstance().create_(Self);
-  
-end;
-
-function TCommandForm.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-    
-
-class function TCommandForm.getNullCommandForm: TCommandForm;
-begin
-        if (TCommandForm.NULL_COMMAND_FORM) = (TNullUtil.getInstance().NULL_OBJECT) then begin
-            TCommandForm.NULL_COMMAND_FORM := TCommandForm.Create(TNullCommandListener.NULL_COMMAND_LISTENER, TStringUtil.getInstance().EMPTY_STRING, TBasicColorFactory.getInstance().BLACK, TBasicColorFactory.getInstance().WHITE);
-        end;
-        Exit(TCommandForm(TJava.ToObject(TCommandForm.NULL_COMMAND_FORM)));
-end;
-    
-
-constructor TCommandForm.Create(commandListener_: ICommandListener; formTitle: string; backgrounBasicColor: TBasicColor; foregroundBasicColor: TBasicColor);
-begin
-        inherited Create(formTitle);
-        InitFields;
-        Self.commandStack := TStdUtil.getInstance().createStack();
-        try
-            Self.repaintProcessor.process();
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_, TJava.Box(e));
-            end;
-        end;
-end;
-    
-
-procedure TCommandForm.initCommands(cmdListener: ICommandListener);
-begin
-end;
-    
-
-procedure TCommandForm.open;
-begin
-        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), 'open');
-end;
-    
-
-// throws Exception
-procedure TCommandForm.close;
-begin
-        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.CLOSE);
-end;
-    
-
-// throws Exception
-procedure TCommandForm.update;
-begin
-        Self.repaintProcessor.process();
-end;
-    
-
-function TCommandForm.getSourceId: Integer;
-begin
-        Exit(0);
-end;
-    
-
-procedure TCommandForm.addCommand(command_: TCommand);
-begin
-        Self.commandStack.push(command_);
-        inherited addCommand(command_);
-end;
-    
-
-procedure TCommandForm.removeAllCommands;
-var
-  size: Integer;
-  index: Integer;
-begin
-        size := Self.commandStack.size();
-        for index := 0 to size - 1 do begin
-            inherited removeCommand(TCommand(TJava.ToObject(Self.commandStack.pop())));
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TCommandForm.NULL_COMMAND_FORM := TJava.Box(TNullUtil.getInstance().NULL_OBJECT);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CommandForm-removeAllCommands0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-size BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-size = FUNCTION Stack-size0(FUNCTION JR-GET(J-THIS, "f_commandStack"))
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE jtemp8 = FUNCTION Stack-pop0(FUNCTION JR-GET(J-THIS, "f_commandStack"))
+            COMPUTE JDISCARD = FUNCTION Form-removeCommand1(J-THIS, jtemp8)
+        END-PERFORM
+    GOBACK.
+END FUNCTION CommandForm-removeAllCommands0.
 

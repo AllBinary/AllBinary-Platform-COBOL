@@ -1,63 +1,73 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.layer.weapon
+*> Java class WeaponLayerCircularPool
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.layer.weapon
-unit WeaponLayerCircularPool;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WeaponLayerCircularPool-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("WeaponLayerCircularPool")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION WeaponLayerCircularPool-new0.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, WeaponProperties, ScoreableInterface, AllBinaryLayer, AllBinaryLayerCircularPool, WeaponLayer;
-
-type
-  {AB:TYPES}
-  TWeaponLayerCircularPool = class(TAllBinaryLayerCircularPool)
-  public
-        constructor Create;
-        function getInstanceWeaponLayer(sourceLayerInterface: TAllBinaryLayer; x: Integer; y: Integer; z: Integer; angle: Integer; otherAngle: Integer; weaponProperties_: TWeaponProperties; scoreable: IScoreableInterface): TWeaponLayer; virtual;
-  end;
-
-implementation
-
-{AB:CODE}
-    
-
-constructor TWeaponLayerCircularPool.Create;
-begin
-    inherited Create;
-end;
-    
-
-// throws Exception
-function TWeaponLayerCircularPool.getInstanceWeaponLayer(sourceLayerInterface: TAllBinaryLayer; x: Integer; y: Integer; z: Integer; angle: Integer; otherAngle: Integer; weaponProperties_: TWeaponProperties; scoreable: IScoreableInterface): TWeaponLayer;
-var
-  weaponLayer_: TWeaponLayer;
-begin
-        weaponLayer_ := TWeaponLayer(TJava.ToObject(inherited getNextInstance()));
-        weaponLayer_.initXYZ(x, y, z);
-        weaponLayer_.init(sourceLayerInterface, angle, otherAngle, weaponProperties_, scoreable);
-        Exit(weaponLayer_);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WpnLyrCrclrPl-gtInstncWpnLyr8.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-weaponLayer BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-sourceLayerInterface BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-z BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-otherAngle BINARY-DOUBLE.
+01 J-weaponProperties BINARY-DOUBLE.
+01 J-scoreable BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-sourceLayerInterface J-x J-y J-z J-angle J-otherAngle J-weaponProperties J-scoreable RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-weaponLayer = FUNCTION BsCrclrPl-getNextInstance0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION WeaponLayer-initXYZ3(J-weaponLayer, J-x, J-y, J-z)
+        COMPUTE JDISCARD = FUNCTION WeaponLayer-init5(J-weaponLayer, J-sourceLayerInterface, J-angle, J-otherAngle, J-weaponProperties, J-scoreable)
+        COMPUTE J-RESULT = J-weaponLayer
+        GOBACK
+    GOBACK.
+END FUNCTION WpnLyrCrclrPl-gtInstncWpnLyr8.
 

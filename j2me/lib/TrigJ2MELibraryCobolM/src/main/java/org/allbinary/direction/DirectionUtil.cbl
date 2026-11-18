@@ -1,99 +1,198 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.direction
+*> Java class DirectionUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.direction
-unit DirectionUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DirectionUtil-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 DirectionUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 DirectionUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF DirectionUtil-jset-instance = 0
+        MOVE 1 TO DirectionUtil-jset-instance
+        COMPUTE DirectionUtil-jcell-instance = FUNCTION DirectionUtil-new0
+    END-IF
+    MOVE DirectionUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION DirectionUtil-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DirectionUtilstaticiS44420.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 DirectionUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION DirectionUtil-static-instance TO J-RESULT
+    MOVE J-VALUE TO DirectionUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION DirectionUtilstaticiS44420.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DirectionUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-angleFactory BINARY-DOUBLE.
+01 J-directionFactory BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("DirectionUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_directionArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_directionArray2")
+    COMPUTE jtemp1 = 10
+    COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY(jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_directionArray", JVALUE)
+    COMPUTE jtemp2 = 10
+    COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY(jtemp2)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_directionArray2", JVALUE)
+        COMPUTE J-angleFactory = FUNCTION AngleFactory-getInstance0
+        COMPUTE J-directionFactory = FUNCTION DirectionFactory-getInstance0
+        COMPUTE JVALUE = FUNCTION JR-GET(J-angleFactory, "f_LEFT")
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_directionArray"), FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-directionFactory, "f_LEFT")), JVALUE)
+        COMPUTE JVALUE = FUNCTION JR-GET(J-angleFactory, "f_RIGHT")
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_directionArray"), FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-directionFactory, "f_RIGHT")), JVALUE)
+        COMPUTE JVALUE = FUNCTION JR-GET(J-angleFactory, "f_UP")
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_directionArray"), FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-directionFactory, "f_UP")), JVALUE)
+        COMPUTE JVALUE = FUNCTION JR-GET(J-angleFactory, "f_DOWN")
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_directionArray"), FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-directionFactory, "f_DOWN")), JVALUE)
+        COMPUTE JVALUE = FUNCTION JR-GET(J-angleFactory, "f_LEFT")
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_directionArray2"), FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-directionFactory, "f_LEFT")), JVALUE)
+        COMPUTE JVALUE = FUNCTION JR-GET(J-angleFactory, "f_RIGHT")
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_directionArray2"), FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-directionFactory, "f_RIGHT")), JVALUE)
+        COMPUTE JVALUE = FUNCTION JR-GET(J-angleFactory, "f_UP")
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_directionArray2"), FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-directionFactory, "f_UP")), JVALUE)
+        COMPUTE JVALUE = FUNCTION JR-GET(J-angleFactory, "f_DOWN")
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_directionArray2"), FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-directionFactory, "f_DOWN")), JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION DirectionUtil-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Angle, Direction;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DirectionUtil-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION DirectionUtil-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION DirectionUtil-getInstance0.
 
-type
-  {AB:TYPES}
-  TDirectionUtil = class(TObject)
-  public
-    directionArray: TArray<TAngle>;
-    directionArray2: TArray<TAngle>;
-    class var instance: TDirectionUtil;
-    procedure InitFields;
-        class function getInstance: TDirectionUtil; static;
-        constructor Create;
-        function getAngle(direction_: TDirection): TAngle; virtual;
-        function getFrameAngle(direction_: TDirection): TAngle; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DirectionUtil-getAngle1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-direction BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-direction RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_directionArray2"), FUNCTION Direction-getValue0(J-direction))
+        GOBACK
+    GOBACK.
+END FUNCTION DirectionUtil-getAngle1.
 
-implementation
-uses
-  DirectionFactory, AngleFactory;
-
-
-{AB:CODE}
-
-procedure TDirectionUtil.InitFields;
-begin
-  Self.directionArray := TJava.NewArray<TAngle>(10);
-  Self.directionArray2 := TJava.NewArray<TAngle>(10);
-end;
-    
-
-class function TDirectionUtil.getInstance: TDirectionUtil;
-begin
-        Exit(TDirectionUtil.instance);
-end;
-    
-
-constructor TDirectionUtil.Create;
-var
-  angleFactory_: TAngleFactory;
-  directionFactory_: TDirectionFactory;
-begin
-    inherited Create;
-    InitFields;
-        angleFactory_ := TAngleFactory.getInstance();
-        directionFactory_ := TDirectionFactory.getInstance();
-        Self.directionArray[directionFactory_.LEFT.getValue()] := angleFactory_.LEFT;
-        Self.directionArray[directionFactory_.RIGHT.getValue()] := angleFactory_.RIGHT;
-        Self.directionArray[directionFactory_.UP.getValue()] := angleFactory_.UP;
-        Self.directionArray[directionFactory_.DOWN.getValue()] := angleFactory_.DOWN;
-        Self.directionArray2[directionFactory_.LEFT.getValue()] := angleFactory_.LEFT;
-        Self.directionArray2[directionFactory_.RIGHT.getValue()] := angleFactory_.RIGHT;
-        Self.directionArray2[directionFactory_.UP.getValue()] := angleFactory_.UP;
-        Self.directionArray2[directionFactory_.DOWN.getValue()] := angleFactory_.DOWN;
-end;
-    
-
-function TDirectionUtil.getAngle(direction_: TDirection): TAngle;
-begin
-        Exit(Self.directionArray2[direction_.getValue()]);
-end;
-    
-
-function TDirectionUtil.getFrameAngle(direction_: TDirection): TAngle;
-begin
-        Exit(Self.directionArray[direction_.getValue()]);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TDirectionUtil.instance := TDirectionUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DirectionUtil-getFrameAngle1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-direction BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-direction RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_directionArray"), FUNCTION Direction-getValue0(J-direction))
+        GOBACK
+    GOBACK.
+END FUNCTION DirectionUtil-getFrameAngle1.
 

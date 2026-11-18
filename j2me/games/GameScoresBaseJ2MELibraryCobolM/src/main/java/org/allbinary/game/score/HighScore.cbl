@@ -1,141 +1,316 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.score
+*> Java class HighScore
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.score
-unit HighScore;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameInfo;
-
-type
-  {AB:TYPES}
-  THighScore = class(TObject)
-  public
-    id: Integer;
-    name: string;
-    gameInfo: TGameInfo;
-    score: Int64;
-    scoreString: string;
-    procedure InitFields;
-        constructor Create(id: Integer; name: string; gameInfo_: TGameInfo; score: Int64);
-        function getId: Integer; virtual;
-        function getName: string; virtual;
-        function getScore: Int64; virtual;
-        function getAsBytes: TArray<ShortInt>; virtual;
-        function getGameInfo: TGameInfo; virtual;
-        function getScoreString: string; virtual;
-        procedure setName(name: string); virtual;
-        function toString: string; virtual;
-  end;
-
-implementation
-uses
-  StringMaker, CommonSeps;
-
-
-{AB:CODE}
-
-procedure THighScore.InitFields;
-begin
-  
-  
-  
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HighScore-new4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-id BINARY-DOUBLE.
+01 J-name BINARY-DOUBLE.
+01 J-gameInfo BINARY-DOUBLE.
+01 J-score BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-id J-name J-gameInfo J-score RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("HighScore")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_id")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_name")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameInfo")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_score")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_scoreString")
     
-
-constructor THighScore.Create(id: Integer; name: string; gameInfo_: TGameInfo; score: Int64);
-begin
-    inherited Create;
-    InitFields;
-        Self.id := id;
-        Self.name := name;
-        Self.gameInfo := gameInfo_;
-        Self.score := score;
-        Self.scoreString := IntToStr(Self.score);
-end;
     
-
-function THighScore.getId: Integer;
-begin
-        Exit(Self.id);
-end;
     
-
-function THighScore.getName: string;
-begin
-        Exit(Self.name);
-end;
     
-
-function THighScore.getScore: Int64;
-begin
-        Exit(Self.score);
-end;
     
+        COMPUTE JVALUE = J-id
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_id", JVALUE)
+        COMPUTE JVALUE = J-name
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_name", JVALUE)
+        COMPUTE JVALUE = J-gameInfo
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameInfo", JVALUE)
+        COMPUTE JVALUE = J-score
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_score", JVALUE)
+        COMPUTE JVALUE = FUNCTION JR-INT-STRING(FUNCTION JR-GET(J-THIS, "f_score"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_scoreString", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION HighScore-new4.
 
-// throws Exception
-function THighScore.getAsBytes: TArray<ShortInt>;
-var
-  byteArrayOutputStream: TByteArrayOutputStream;
-  outputStream: TDataOutputStream;
-begin
-        byteArrayOutputStream := TByteArrayOutputStream.Create;
-        outputStream := TDataOutputStream.Create(byteArrayOutputStream);
-        outputStream.writeUTF(Self.getName());
-        outputStream.writeLong(Self.getScore());
-        Exit(byteArrayOutputStream.toByteArray());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HighScore-getId0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_id")
+        GOBACK
+    GOBACK.
+END FUNCTION HighScore-getId0.
 
-function THighScore.getGameInfo: TGameInfo;
-begin
-        Exit(Self.gameInfo);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HighScore-getName0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_name")
+        GOBACK
+    GOBACK.
+END FUNCTION HighScore-getName0.
 
-function THighScore.getScoreString: string;
-begin
-        Exit(Self.scoreString);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HighScore-getScore0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_score")
+        GOBACK
+    GOBACK.
+END FUNCTION HighScore-getScore0.
 
-procedure THighScore.setName(name: string);
-begin
-        Self.name := name;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HighScore-getAsBytes0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-byteArrayOutputStream BINARY-DOUBLE.
+01 J-outputStream BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-byteArrayOutputStream = FUNCTION ByteArrayOutputStream-new0
+        COMPUTE J-outputStream = FUNCTION DataOutputStream-new1(J-byteArrayOutputStream)
+        COMPUTE JDISCARD = FUNCTION DataOutputStream-writeUTF1(J-outputStream, FUNCTION HighScore-getName0(J-THIS))
+        COMPUTE JDISCARD = FUNCTION DataOutputStream-writeLong1(J-outputStream, FUNCTION HighScore-getScore0(J-THIS))
+        COMPUTE J-RESULT = FUNCTION BytArryOtptStrm-toByteArray0(J-byteArrayOutputStream)
+        GOBACK
+    GOBACK.
+END FUNCTION HighScore-getAsBytes0.
 
-function THighScore.toString: string;
-var
-  commonSeps_: TCommonSeps;
-begin
-        commonSeps_ := TCommonSeps.getInstance();
-        Exit(TStringMaker.Create().append(Self.name).append(commonSeps_.COLON).appendlong(Self.score).append(commonSeps_.FORWARD_SLASH).append(Self.scoreString).toString());
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HighScore-getGameInfo0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_gameInfo")
+        GOBACK
+    GOBACK.
+END FUNCTION HighScore-getGameInfo0.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HighScore-getScoreString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_scoreString")
+        GOBACK
+    GOBACK.
+END FUNCTION HighScore-getScoreString0.
 
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HighScore-setName1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-name BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-name RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-name
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_name", JVALUE)
+    GOBACK.
+END FUNCTION HighScore-setName1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HighScore-toString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-commonSeps BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-commonSeps = FUNCTION CommonSeps-getInstance0
+        COMPUTE jtemp6 = FUNCTION StringMaker-new0
+        COMPUTE jtemp5 = FUNCTION StringMaker-append1(jtemp6, FUNCTION JR-GET(J-THIS, "f_name"))
+        COMPUTE jtemp4 = FUNCTION StringMaker-append1(jtemp5, FUNCTION JR-GET(J-commonSeps, "f_COLON"))
+        COMPUTE jtemp3 = FUNCTION StringMaker-appendlong1(jtemp4, FUNCTION JR-GET(J-THIS, "f_score"))
+        COMPUTE jtemp2 = FUNCTION StringMaker-append1(jtemp3, FUNCTION JR-GET(J-commonSeps, "f_FORWARD_SLASH"))
+        COMPUTE jtemp1 = FUNCTION StringMaker-append1(jtemp2, FUNCTION JR-GET(J-THIS, "f_scoreString"))
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(jtemp1)
+        GOBACK
+    GOBACK.
+END FUNCTION HighScore-toString0.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. HighScore-toString.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION HighScore-toString0(J-THIS)
+    GOBACK.
+END PROGRAM HighScore-toString.
 

@@ -1,114 +1,218 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.init
+*> Java class GameInitializationUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.init
-unit GameInitializationUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmIntlztnUtl-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameInitializationUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 GameInitializationUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GameInitializationUtil-jset-instance = 0
+        MOVE 1 TO GameInitializationUtil-jset-instance
+        COMPUTE GameInitializationUtil-jcell-instance = FUNCTION GameInitializationUtil-new0
+    END-IF
+    MOVE GameInitializationUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION GmIntlztnUtl-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmIntlztnUtlstaticinS74810.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameInitializationUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GmIntlztnUtl-static-instance TO J-RESULT
+    MOVE J-VALUE TO GameInitializationUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GmIntlztnUtlstaticinS74810.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameInitializationUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameInitializationUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_EVENT")
+    COMPUTE JVALUE = FUNCTION GameInitializedEvent-new1(J-THIS)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_EVENT", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GameInitializationUtil-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameInitializedEvent, MyCanvas, AbeClientInformationInterface, BasicBuildGameInitializerFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmIntlztnUtl-initDemo3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-mainFeatureFactory BINARY-DOUBLE.
+01 J-gameInitializationInterface BINARY-DOUBLE.
+01 J-features BINARY-DOUBLE.
+01 J-resourceLoadingLevelFactory BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-abeClientInformation BINARY-DOUBLE.
+01 J-canvas BINARY-DOUBLE.
+01 J-gameInitializationInterfaceFactoryInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-abeClientInformation J-canvas J-gameInitializationInterfaceFactoryInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-mainFeatureFactory = FUNCTION MnFtrFctry-getInstance0
+        COMPUTE jtemp1 = FUNCTION ChngdGmFtrLstnr-getInstance0
+        IF (FUNCTION BsChngdGmFtrLstnr-isChngdFtr1(jtemp1, FUNCTION JR-GET(J-mainFeatureFactory, "f_STATIC")) = 1)
+            COMPUTE J-gameInitializationInterface = FUNCTION BscBldGmIntlzrFctry-gtInstnc0(J-gameInitializationInterfaceFactoryInterface)
+            COMPUTE J-features = FUNCTION Features-getInstance0
+            IF (FUNCTION Features-isFeature1(J-features, FUNCTION JR-GET(J-mainFeatureFactory, "f_LOAD_ALL")) = 1)
+                COMPUTE JDISCARD = FUNCTION GmIntlztnUtl-initGame3(J-THIS, J-abeClientInformation, J-canvas, J-gameInitializationInterfaceFactoryInterface)
+            ELSE
+                IF (FUNCTION Features-isFeature1(J-features, FUNCTION JR-GET(J-mainFeatureFactory, "f_LOAD_ONDEMAND")) = 1)
+                COMPUTE J-resourceLoadingLevelFactory = FUNCTION RsrcLdngLvlFctry-getInstance0
+                COMPUTE JDISCARD = FUNCTION GmIntlztnIntrfc-init3(J-gameInitializationInterface, J-abeClientInformation, FUNCTION MyCnvs-gtCstmCmmndLstnr0(J-canvas), FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-resourceLoadingLevelFactory,
+        "f_LOAD_EARLY")))
+                COMPUTE JDISCARD = FUNCTION GmIntlzdEvnt-stRsrcLdngLvl1(FUNCTION JR-GET(J-THIS, "f_EVENT"), FUNCTION JR-GET(J-resourceLoadingLevelFactory, "f_LOAD_EARLY"))
+            ELSE
+                COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+            END-IF
+            END-IF
+            COMPUTE jtemp2 = FUNCTION GmIntlzdEvntHndlr-getInstance0
+            COMPUTE JDISCARD = FUNCTION BasicEventHandler-fireEvent1(jtemp2, FUNCTION JR-GET(J-THIS, "f_EVENT"))
+        END-IF
+    GOBACK.
+END FUNCTION GmIntlztnUtl-initDemo3.
 
-type
-  {AB:TYPES}
-  TGameInitializationUtil = class(TObject)
-  public
-    EVENT: TGameInitializedEvent;
-    class var instance: TGameInitializationUtil;
-    procedure InitFields;
-    constructor Create;
-        procedure initDemo(abeClientInformation: IAbeClientInformationInterface; canvas: TMyCanvas; gameInitializationInterfaceFactoryInterface: TBasicBuildGameInitializerFactory);
-        procedure initGame(abeClientInformation: IAbeClientInformationInterface; canvas: TMyCanvas; gameInitializationInterfaceFactoryInterface: TBasicBuildGameInitializerFactory);
-        class function getInstance: TGameInitializationUtil; static;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmIntlztnUtl-initGame3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameInitializationInterface BINARY-DOUBLE.
+01 J-resourceLoadingLevelFactory BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-abeClientInformation BINARY-DOUBLE.
+01 J-canvas BINARY-DOUBLE.
+01 J-gameInitializationInterfaceFactoryInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-abeClientInformation J-canvas J-gameInitializationInterfaceFactoryInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp4 = FUNCTION MnFtrFctry-getInstance0
+        COMPUTE jtemp3 = FUNCTION ChngdGmFtrLstnr-getInstance0
+        IF (FUNCTION BsChngdGmFtrLstnr-isChngdFtr1(jtemp3, FUNCTION JR-GET(jtemp4, "f_STATIC")) = 1)
+            COMPUTE J-gameInitializationInterface = FUNCTION BscBldGmIntlzrFctry-gtInstnc0(J-gameInitializationInterfaceFactoryInterface)
+            COMPUTE J-resourceLoadingLevelFactory = FUNCTION RsrcLdngLvlFctry-getInstance0
+            COMPUTE JDISCARD = FUNCTION GmIntlztnIntrfc-init3(J-gameInitializationInterface, J-abeClientInformation, FUNCTION MyCnvs-gtCstmCmmndLstnr0(J-canvas), FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-resourceLoadingLevelFactory,
+        "f_LOAD_ALL")))
+            COMPUTE JDISCARD = FUNCTION GmIntlzdEvnt-stRsrcLdngLvl1(FUNCTION JR-GET(J-THIS, "f_EVENT"), FUNCTION JR-GET(J-resourceLoadingLevelFactory, "f_LOAD_ALL"))
+            COMPUTE jtemp5 = FUNCTION GmIntlzdEvntHndlr-getInstance0
+            COMPUTE JDISCARD = FUNCTION BasicEventHandler-fireEvent1(jtemp5, FUNCTION JR-GET(J-THIS, "f_EVENT"))
+            COMPUTE jtemp7 = FUNCTION MnFtrFctry-getInstance0
+            COMPUTE jtemp6 = FUNCTION ChngdGmFtrLstnr-getInstance0
+            COMPUTE JDISCARD = FUNCTION BsChngdGmFtrLstnr-remove1(jtemp6, FUNCTION JR-GET(jtemp7, "f_STATIC"))
+        END-IF
+    GOBACK.
+END FUNCTION GmIntlztnUtl-initGame3.
 
-implementation
-uses
-  GameInitializationInterface, ChangedGameFeatureListener, GameInitializedEventHandler, Features, MainFeatureFactory, ResourceLoadingLevelFactory;
-
-
-{AB:CODE}
-
-procedure TGameInitializationUtil.InitFields;
-begin
-  Self.EVENT := TGameInitializedEvent.Create(TJava.Box(Self));
-end;
-
-constructor TGameInitializationUtil.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-// throws Exception
-procedure TGameInitializationUtil.initDemo(abeClientInformation: IAbeClientInformationInterface; canvas: TMyCanvas; gameInitializationInterfaceFactoryInterface: TBasicBuildGameInitializerFactory);
-var
-  mainFeatureFactory_: TMainFeatureFactory;
-  gameInitializationInterface_: IGameInitializationInterface;
-  features_: TFeatures;
-  resourceLoadingLevelFactory_: TResourceLoadingLevelFactory;
-begin
-        mainFeatureFactory_ := TMainFeatureFactory.getInstance();
-        if TChangedGameFeatureListener.getInstance().isChangedFeature(mainFeatureFactory_.STATIC_) then begin
-            gameInitializationInterface_ := gameInitializationInterfaceFactoryInterface.getInstance();
-            features_ := TFeatures.getInstance();
-            if features_.isFeature(mainFeatureFactory_.LOAD_ALL) then begin
-                Self.initGame(abeClientInformation, canvas, gameInitializationInterfaceFactoryInterface);
-            end else if features_.isFeature(mainFeatureFactory_.LOAD_ONDEMAND) then begin
-                resourceLoadingLevelFactory_ := TResourceLoadingLevelFactory.getInstance();
-                gameInitializationInterface_.init(abeClientInformation, canvas.getCustomCommandListener(), resourceLoadingLevelFactory_.LOAD_EARLY.getLevel());
-                Self.EVENT.setResourceLoadingLevel(resourceLoadingLevelFactory_.LOAD_EARLY);
-            end else begin
-                raise SysUtils.Exception.Create('No Loading Feature Available');
-            end;
-            TGameInitializedEventHandler.getInstance().fireEvent(Self.EVENT);
-        end;
-end;
-    
-
-// throws Exception
-procedure TGameInitializationUtil.initGame(abeClientInformation: IAbeClientInformationInterface; canvas: TMyCanvas; gameInitializationInterfaceFactoryInterface: TBasicBuildGameInitializerFactory);
-var
-  gameInitializationInterface_: IGameInitializationInterface;
-  resourceLoadingLevelFactory_: TResourceLoadingLevelFactory;
-begin
-        if TChangedGameFeatureListener.getInstance().isChangedFeature(TMainFeatureFactory.getInstance().STATIC_) then begin
-            gameInitializationInterface_ := gameInitializationInterfaceFactoryInterface.getInstance();
-            resourceLoadingLevelFactory_ := TResourceLoadingLevelFactory.getInstance();
-            gameInitializationInterface_.init(abeClientInformation, canvas.getCustomCommandListener(), resourceLoadingLevelFactory_.LOAD_ALL.getLevel());
-            Self.EVENT.setResourceLoadingLevel(resourceLoadingLevelFactory_.LOAD_ALL);
-            TGameInitializedEventHandler.getInstance().fireEvent(Self.EVENT);
-            TChangedGameFeatureListener.getInstance().remove(TMainFeatureFactory.getInstance().STATIC_);
-        end;
-end;
-    
-
-class function TGameInitializationUtil.getInstance: TGameInitializationUtil;
-begin
-        Exit(TGameInitializationUtil.instance);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TGameInitializationUtil.instance := TGameInitializationUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmIntlztnUtl-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION GmIntlztnUtl-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION GmIntlztnUtl-getInstance0.
 

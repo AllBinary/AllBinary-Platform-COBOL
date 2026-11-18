@@ -1,68 +1,80 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.string
+*> Java class StringValidationJSEUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.logic.string
-unit StringValidationJSEUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StringValidationJSEUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("StringValidationJSEUtil")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION StringValidationJSEUtil-new0.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
-
-type
-  {AB:TYPES}
-  TStringValidationJSEUtil = class(TObject)
-  public
-        constructor Create;
-        class function isBlank(string_: string): Boolean; static;
-  end;
-
-implementation
-
-{AB:CODE}
-    
-
-constructor TStringValidationJSEUtil.Create;
-begin
-    inherited Create;
-end;
-    
-
-class function TStringValidationJSEUtil.isBlank(string_: string): Boolean;
-var
-  len: Integer;
-  c: WideChar;
-  i: Integer;
-begin
-        len := System.Length(string_);
-        for i := 0 to len - 1 do begin
-            c := string_[(i) + 1];
-            if (IsWhiteSpace(c)) = (False) then begin
-                Exit(False);
-            end;
-        end;
-        Exit(True);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrngVldtnJSEUtl-isBlank1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-len BINARY-DOUBLE.
+01 J-c BINARY-DOUBLE.
+01 J-i BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-string BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-string RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-len = FUNCTION JR-STR-LENGTH(J-string)
+        COMPUTE J-i = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-i = (FUNCTION MOD(J-i + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-i < J-len) EXIT PERFORM END-IF
+            COMPUTE J-c = FUNCTION JR-CHAR-AT(J-string, J-i)
+            IF (FUNCTION Character-isWhitespace1(J-c) = 0)
+                COMPUTE J-RESULT = 0
+                GOBACK
+            END-IF
+        END-PERFORM
+        COMPUTE J-RESULT = 1
+        GOBACK
+    GOBACK.
+END FUNCTION StrngVldtnJSEUtl-isBlank1.
 

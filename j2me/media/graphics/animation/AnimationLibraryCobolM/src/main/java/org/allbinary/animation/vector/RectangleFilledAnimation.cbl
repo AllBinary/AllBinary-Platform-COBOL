@@ -1,111 +1,216 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.vector
+*> Java class RectangleFilledAnimation
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.vector
-unit RectangleFilledAnimation;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, Animation, BasicColor, ColorCompositeInterface, BasicColorCompositeSetterInterface;
-
-type
-  {AB:TYPES}
-  TRectangleFilledAnimation = class(TAnimation, IColorCompositeInterface, IBasicColorCompositeSetterInterface)
-  public
-    widthP: Integer;
-    heightP: Integer;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(width: Integer; height: Integer; basicColor_: TBasicColor);
-        procedure nextFrame; virtual;
-        procedure paintXY(graphics_: TGraphics; x: Integer; y: Integer); virtual;
-        procedure setWidth(width: Integer); virtual;
-        procedure setHeight(height: Integer); virtual;
-        function getBasicColorP: TBasicColor; virtual;
-        procedure setBasicColorP(basicColor_: TBasicColor); virtual;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TRectangleFilledAnimation.InitFields;
-begin
-  
-  
-end;
-
-function TRectangleFilledAnimation.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RectangleFilledAnimation-new3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-width J-height J-basicColor RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("RectangleFilledAnimation")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_widthP")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_heightP")
     
-
-constructor TRectangleFilledAnimation.Create(width: Integer; height: Integer; basicColor_: TBasicColor);
-begin
-    inherited Create;
-    InitFields;
-        Self.widthP := width;
-        Self.heightP := height;
-        Self.setBasicColorP(basicColor_);
-end;
     
+        COMPUTE JVALUE = J-width
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_widthP", JVALUE)
+        COMPUTE JVALUE = J-height
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_heightP", JVALUE)
+        COMPUTE JDISCARD = FUNCTION RctnglFlldAnmtn-stBscClrP1(J-THIS, J-basicColor)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION RectangleFilledAnimation-new3.
 
-procedure TRectangleFilledAnimation.nextFrame;
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RctnglFlldAnmtn-nextFrame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION RctnglFlldAnmtn-nextFrame0.
 
-procedure TRectangleFilledAnimation.paintXY(graphics_: TGraphics; x: Integer; y: Integer);
-begin
-        Self.basicSetColorUtil.setBasicColorP3(graphics_, Self.getBasicColorP(), Self.getColor());
-        graphics_.fillRect(x, y, Self.widthP, Self.heightP);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RctnglFlldAnmtn-paintXY3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_basicSetColorUtil"))
+        COMPUTE JDISCARD = FUNCTION Graphics-fillRect4(J-graphics, J-x, J-y, FUNCTION JR-GET(J-THIS, "f_widthP"), FUNCTION JR-GET(J-THIS, "f_heightP"))
+    GOBACK.
+END FUNCTION RctnglFlldAnmtn-paintXY3.
 
-procedure TRectangleFilledAnimation.setWidth(width: Integer);
-begin
-        Self.widthP := width;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RctnglFlldAnmtn-setWidth1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-width RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-width
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_widthP", JVALUE)
+    GOBACK.
+END FUNCTION RctnglFlldAnmtn-setWidth1.
 
-procedure TRectangleFilledAnimation.setHeight(height: Integer);
-begin
-        Self.heightP := height;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RctnglFlldAnmtn-setHeight1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-height RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-height
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_heightP", JVALUE)
+    GOBACK.
+END FUNCTION RctnglFlldAnmtn-setHeight1.
 
-function TRectangleFilledAnimation.getBasicColorP: TBasicColor;
-begin
-        Exit(inherited getBasicColorP());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RctnglFlldAnmtn-gtBscClrP0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION Animation-getBasicColorP0(J-THIS)
+        GOBACK
+    GOBACK.
+END FUNCTION RctnglFlldAnmtn-gtBscClrP0.
 
-procedure TRectangleFilledAnimation.setBasicColorP(basicColor_: TBasicColor);
-begin
-        inherited setBasicColorP(basicColor_);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RctnglFlldAnmtn-stBscClrP1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-basicColor RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Animation-setBasicColorP1(J-THIS, J-basicColor)
+    GOBACK.
+END FUNCTION RctnglFlldAnmtn-stBscClrP1.
 

@@ -1,93 +1,251 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.configuration.feature
+*> Java class GameFeatureChoiceGroups
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.configuration.feature
-unit GameFeatureChoiceGroups;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmFtrChcGrps-sttc-gmFtrC55776.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameFeatureChoiceGroups-jcell-gameFeatureChoiceGroupsExclusive BINARY-DOUBLE EXTERNAL.
+01 GameFeatureChoiceGroups-jset-gameFeatureChoiceGroupsExclusive BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GameFeatureChoiceGroups-jset-gameFeatureChoiceGroupsExclusive = 0
+        MOVE 1 TO GameFeatureChoiceGroups-jset-gameFeatureChoiceGroupsExclusive
+        COMPUTE GameFeatureChoiceGroups-jcell-gameFeatureChoiceGroupsExclusive = FUNCTION GameFeatureChoiceGroups-new0
+    END-IF
+    MOVE GameFeatureChoiceGroups-jcell-gameFeatureChoiceGroupsExclusive TO J-RESULT
+    GOBACK.
+END FUNCTION GmFtrChcGrps-sttc-gmFtrC55776.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmFtrChcGrpssttcgmFtS43344.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameFeatureChoiceGroups-jcell-gameFeatureChoiceGroupsExclusive BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GmFtrChcGrps-sttc-gmFtrC55776 TO J-RESULT
+    MOVE J-VALUE TO GameFeatureChoiceGroups-jcell-gameFeatureChoiceGroupsExclusive
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GmFtrChcGrpssttcgmFtS43344.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmFtrChcGrps-sttc-gmFtrC22583.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameFeatureChoiceGroups-jcell-gameFeatureChoiceGroupsMultiple BINARY-DOUBLE EXTERNAL.
+01 GameFeatureChoiceGroups-jset-gameFeatureChoiceGroupsMultiple BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GameFeatureChoiceGroups-jset-gameFeatureChoiceGroupsMultiple = 0
+        MOVE 1 TO GameFeatureChoiceGroups-jset-gameFeatureChoiceGroupsMultiple
+        COMPUTE GameFeatureChoiceGroups-jcell-gameFeatureChoiceGroupsMultiple = FUNCTION GameFeatureChoiceGroups-new0
+    END-IF
+    MOVE GameFeatureChoiceGroups-jcell-gameFeatureChoiceGroupsMultiple TO J-RESULT
+    GOBACK.
+END FUNCTION GmFtrChcGrps-sttc-gmFtrC22583.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, ABHashtable, BasicArrayList;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmFtrChcGrpssttcgmFtS38917.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameFeatureChoiceGroups-jcell-gameFeatureChoiceGroupsMultiple BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GmFtrChcGrps-sttc-gmFtrC22583 TO J-RESULT
+    MOVE J-VALUE TO GameFeatureChoiceGroups-jcell-gameFeatureChoiceGroupsMultiple
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GmFtrChcGrpssttcgmFtS38917.
 
-type
-  {AB:TYPES}
-  TGameFeatureChoiceGroups = class(TObject)
-  public
-    hashtable: TABHashtable<TObject, TObject>;
-    class var gameFeatureChoiceGroupsExclusive: TGameFeatureChoiceGroups;
-    class var gameFeatureChoiceGroupsMultiple: TGameFeatureChoiceGroups;
-    procedure InitFields;
-        constructor Create;
-        class function getExclusiveInstance: TGameFeatureChoiceGroups; static;
-        class function getMultipleInstance: TGameFeatureChoiceGroups; static;
-        function get: TABHashtable<TObject, TObject>; virtual;
-        procedure add(name: string; list: TBasicArrayList); virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameFeatureChoiceGroups-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameFeatureChoiceGroups")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_hashtable")
+    COMPUTE jtemp1 = FUNCTION StdUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION StdUtil-createHashtable0(jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hashtable", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GameFeatureChoiceGroups-new0.
 
-implementation
-uses
-  StdUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmFtrChcGrps-gtExclsvInstnc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION GmFtrChcGrps-sttc-gmFtrC55776
+        GOBACK
+    GOBACK.
+END FUNCTION GmFtrChcGrps-gtExclsvInstnc0.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmFtrChcGrps-gtMltplInstnc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION GmFtrChcGrps-sttc-gmFtrC22583
+        GOBACK
+    GOBACK.
+END FUNCTION GmFtrChcGrps-gtMltplInstnc0.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameFeatureChoiceGroups-get0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_hashtable")
+        GOBACK
+    GOBACK.
+END FUNCTION GameFeatureChoiceGroups-get0.
 
-procedure TGameFeatureChoiceGroups.InitFields;
-begin
-  Self.hashtable := TStdUtil.getInstance().createHashtable();
-end;
-    
-
-constructor TGameFeatureChoiceGroups.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
-
-class function TGameFeatureChoiceGroups.getExclusiveInstance: TGameFeatureChoiceGroups;
-begin
-        Exit(TGameFeatureChoiceGroups.gameFeatureChoiceGroupsExclusive);
-end;
-    
-
-class function TGameFeatureChoiceGroups.getMultipleInstance: TGameFeatureChoiceGroups;
-begin
-        Exit(TGameFeatureChoiceGroups.gameFeatureChoiceGroupsMultiple);
-end;
-    
-
-function TGameFeatureChoiceGroups.get: TABHashtable<TObject, TObject>;
-begin
-        Exit(Self.hashtable);
-end;
-    
-
-procedure TGameFeatureChoiceGroups.add(name: string; list: TBasicArrayList);
-begin
-        Self.hashtable.put(TJava.Box(name), TJava.Box(list));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TGameFeatureChoiceGroups.gameFeatureChoiceGroupsExclusive := TGameFeatureChoiceGroups.Create();
-  TGameFeatureChoiceGroups.gameFeatureChoiceGroupsMultiple := TGameFeatureChoiceGroups.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameFeatureChoiceGroups-add2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-name BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-name J-list RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Hashtable-put2(FUNCTION JR-GET(J-THIS, "f_hashtable"), J-name, J-list)
+    GOBACK.
+END FUNCTION GameFeatureChoiceGroups-add2.
 

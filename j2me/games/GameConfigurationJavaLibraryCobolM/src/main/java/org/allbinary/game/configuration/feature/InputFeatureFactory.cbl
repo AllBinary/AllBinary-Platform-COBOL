@@ -1,92 +1,161 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.configuration.feature
+*> Java class InputFeatureFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.configuration.feature
-unit InputFeatureFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InptFtrFctry-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 InputFeatureFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 InputFeatureFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF InputFeatureFactory-jset-instance = 0
+        MOVE 1 TO InputFeatureFactory-jset-instance
+        COMPUTE InputFeatureFactory-jcell-instance = FUNCTION InputFeatureFactory-new0
+    END-IF
+    MOVE InputFeatureFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION InptFtrFctry-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InptFtrFctrystaticinS42275.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 InputFeatureFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION InptFtrFctry-static-instance TO J-RESULT
+    MOVE J-VALUE TO InputFeatureFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION InptFtrFctrystaticinS42275.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InputFeatureFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("InputFeatureFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_REMOVE_DUPLICATE_KEY_PRESSES")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_INPUT_MAPPING")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_MULTI_KEY_PRESS")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SINGLE_KEY_REPEAT_PRESS")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SINGLE_KEY_PRESS")
+    COMPUTE JVALUE = FUNCTION InputFeature-new1(FUNCTION JR-STR("Remove Duplicate Key Presses"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_REMOVE_DUPLICATE_KEY_PRESSES", JVALUE)
+    COMPUTE JVALUE = FUNCTION InputFeature-new1(FUNCTION JR-STR("Input Mapping"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_INPUT_MAPPING", JVALUE)
+    COMPUTE JVALUE = FUNCTION InputFeature-new1(FUNCTION JR-STR("Multi Key Press"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_MULTI_KEY_PRESS", JVALUE)
+    COMPUTE JVALUE = FUNCTION InputFeature-new1(FUNCTION JR-STR("Single Key Repeat Press"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SINGLE_KEY_REPEAT_PRESS", JVALUE)
+    COMPUTE JVALUE = FUNCTION InputFeature-new1(FUNCTION JR-STR("Single Key Press"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SINGLE_KEY_PRESS", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION InputFeatureFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, InputFeature;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InptFtrFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION InptFtrFctry-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION InptFtrFctry-getInstance0.
 
-type
-  {AB:TYPES}
-  TInputFeatureFactory = class(TObject)
-  public
-    REMOVE_DUPLICATE_KEY_PRESSES: TInputFeature;
-    INPUT_MAPPING: TInputFeature;
-    MULTI_KEY_PRESS: TInputFeature;
-    SINGLE_KEY_REPEAT_PRESS: TInputFeature;
-    SINGLE_KEY_PRESS: TInputFeature;
-    class var instance: TInputFeatureFactory;
-    procedure InitFields;
-        class function getInstance: TInputFeatureFactory; static;
-        constructor Create;
-        function isSingleKeyProcessing: Boolean; virtual;
-  end;
-
-implementation
-uses
-  Features;
-
-
-{AB:CODE}
-
-procedure TInputFeatureFactory.InitFields;
-begin
-  Self.REMOVE_DUPLICATE_KEY_PRESSES := TInputFeature.Create('Remove Duplicate Key Presses');
-  Self.INPUT_MAPPING := TInputFeature.Create('Input Mapping');
-  Self.MULTI_KEY_PRESS := TInputFeature.Create('Multi Key Press');
-  Self.SINGLE_KEY_REPEAT_PRESS := TInputFeature.Create('Single Key Repeat Press');
-  Self.SINGLE_KEY_PRESS := TInputFeature.Create('Single Key Press');
-end;
-    
-
-class function TInputFeatureFactory.getInstance: TInputFeatureFactory;
-begin
-        Exit(TInputFeatureFactory.instance);
-end;
-    
-
-constructor TInputFeatureFactory.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
-
-function TInputFeatureFactory.isSingleKeyProcessing: Boolean;
-var
-  features_: TFeatures;
-begin
-        features_ := TFeatures.getInstance();
-        if (features_.isFeature(Self.SINGLE_KEY_REPEAT_PRESS)) or (features_.isFeature(Self.SINGLE_KEY_PRESS)) then begin
-            Exit(True);
-        end else begin
-            Exit(False);
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TInputFeatureFactory.instance := TInputFeatureFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InptFtrFctry-isSnglKyPrcssng0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-features BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-features = FUNCTION Features-getInstance0
+        IF ((FUNCTION Features-isFeature1(J-features, FUNCTION JR-GET(J-THIS, "f_SINGLE_KEY_REPEAT_PRESS")) = 1) OR (FUNCTION Features-isFeature1(J-features, FUNCTION JR-GET(J-THIS, "f_SINGLE_KEY_PRESS")) = 1))
+            COMPUTE J-RESULT = 1
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = 0
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION InptFtrFctry-isSnglKyPrcssng0.
 

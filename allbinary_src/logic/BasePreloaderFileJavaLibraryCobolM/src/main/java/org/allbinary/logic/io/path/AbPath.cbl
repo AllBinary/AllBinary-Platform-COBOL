@@ -1,234 +1,522 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.io.path
+*> Java class AbPath
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.logic.io.path
-unit AbPath;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbPath-static-NETWORK-SEP.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AbPath-jcell-NETWORK_SEP BINARY-DOUBLE EXTERNAL.
+01 AbPath-jset-NETWORK_SEP BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF AbPath-jset-NETWORK_SEP = 0
+        MOVE 1 TO AbPath-jset-NETWORK_SEP
+        COMPUTE AbPath-jcell-NETWORK_SEP = FUNCTION JR-STR(":/")
+    END-IF
+    MOVE AbPath-jcell-NETWORK_SEP TO J-RESULT
+    GOBACK.
+END FUNCTION AbPath-static-NETWORK-SEP.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbPathstaticNETWORKSS62837.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AbPath-jcell-NETWORK_SEP BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION AbPath-static-NETWORK-SEP TO J-RESULT
+    MOVE J-VALUE TO AbPath-jcell-NETWORK_SEP
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION AbPathstaticNETWORKSS62837.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbPath-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-stringValidationUtil BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-aPath BINARY-DOUBLE.
+01 J-name BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-aPath J-name RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("AbPath")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonSeps")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_abPathData")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_abPathUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_EMPTY_STRING")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_schema")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_path")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_nameP")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_hasSchemaP")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_numberOfSeps")
+    COMPUTE JVALUE = FUNCTION CommonSeps-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonSeps", JVALUE)
+    COMPUTE JVALUE = FUNCTION AbPathData-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_abPathData", JVALUE)
+    COMPUTE JVALUE = FUNCTION PathUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_abPathUtil", JVALUE)
+    COMPUTE jtemp2 = FUNCTION StringUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp2, "f_EMPTY_STRING")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_EMPTY_STRING", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_EMPTY_STRING")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_schema", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_EMPTY_STRING")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_path", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_EMPTY_STRING")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_nameP", JVALUE)
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hasSchemaP", JVALUE)
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_numberOfSeps", JVALUE)
+        COMPUTE J-stringValidationUtil = FUNCTION StrngVldtnUtl-getInstance0
+        IF (NOT (FUNCTION StringValidationUtil-isEmpty1(J-stringValidationUtil, J-aPath) = 1))
+            COMPUTE JVALUE = FUNCTION AbPath-getSchema1(J-THIS, J-aPath)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_schema", JVALUE)
+            COMPUTE JVALUE = J-name
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_nameP", JVALUE)
+            COMPUTE JVALUE = FUNCTION PathUtil-adjustEnd1(FUNCTION JR-GET(J-THIS, "f_abPathUtil"), FUNCTION PathUtil-adjust1(FUNCTION JR-GET(J-THIS, "f_abPathUtil"), FUNCTION AbPath-getPathFromPath1(J-THIS, J-aPath)))
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_path", JVALUE)
+        ELSE
+            COMPUTE JDISCARD = FUNCTION AbPath-init0(J-THIS)
+            IF (NOT (FUNCTION StringValidationUtil-isEmpty1(J-stringValidationUtil, J-name) = 1))
+                COMPUTE JVALUE = J-name
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_nameP", JVALUE)
+            END-IF
+        END-IF
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION AbPath-new2.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, CommonSeps, AbPathData, PathUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbPath-createAbPath0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-EMPTY_STRING BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+            COMPUTE J-EMPTY_STRING = FUNCTION JR-GET(jtemp1, "f_EMPTY_STRING")
+            COMPUTE J-RESULT = FUNCTION AbPath-new2(J-EMPTY_STRING, J-EMPTY_STRING)
+            GOBACK
+    GOBACK.
+END FUNCTION AbPath-createAbPath0.
 
-type
-  {AB:TYPES}
-  TAbPath = class(TObject)
-  public
-    commonSeps: TCommonSeps;
-    abPathData: TAbPathData;
-    abPathUtil: TPathUtil;
-    EMPTY_STRING: string;
-    schema: string;
-    path: string;
-    nameP: string;
-    hasSchemaP: Boolean;
-    numberOfSeps: Integer;
-    class var NETWORK_SEP: string;
-    procedure InitFields;
-        class function createAbPath: TAbPath; static;
-        constructor Create(aPath: string; name: string);
-        procedure init;
-        function getSchema(aPath: string): string; virtual;
-        function hasSchema: Boolean; virtual;
-        function getPathFromPath(aPath: string): string; virtual;
-        procedure setName(name: string); virtual;
-        function getName: string; virtual;
-        function toString: string; virtual;
-        function toFileSystemString: string; virtual;
-        function getPath: string; virtual;
-        procedure setPath(path: string); virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbPath-init0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_EMPTY_STRING")
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_schema", JVALUE)
+        COMPUTE JDISCARD = FUNCTION AbPath-setPath1(J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_abPathData"), "f_SEPARATOR"))
+        COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_EMPTY_STRING")
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_nameP", JVALUE)
+    GOBACK.
+END FUNCTION AbPath-init0.
 
-implementation
-uses
-  FilePathData, FilePathUtil, StringMaker, StringUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbPath-getSchema1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-beginIndex BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-aPath BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-aPath RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-beginIndex = FUNCTION JR-INDEX-OF(J-aPath, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonSeps"), "f_COLON"))
+        IF (J-beginIndex >= 0)
+            COMPUTE JVALUE = 1
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hasSchemaP", JVALUE)
+            COMPUTE jtemp3 = 0
+            COMPUTE J-RESULT = FUNCTION JR-SUBSTRING(J-aPath, jtemp3, J-beginIndex)
+            GOBACK
+        END-IF
+        COMPUTE JVALUE = 0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hasSchemaP", JVALUE)
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_EMPTY_STRING")
+        GOBACK
+    GOBACK.
+END FUNCTION AbPath-getSchema1.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbPath-hasSchema0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_hasSchemaP")
+        GOBACK
+    GOBACK.
+END FUNCTION AbPath-hasSchema0.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbPath-getPathFromPath1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-filePathData BINARY-DOUBLE.
+01 J-tempPath BINARY-DOUBLE.
+01 J-beginIndex BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-aPath BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-aPath RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-filePathData = FUNCTION FilePathData-getInstance0
+        COMPUTE J-tempPath = J-aPath
+        IF (NOT (FUNCTION AbPath-hasSchema0(J-THIS) = 1))
+            COMPUTE J-tempPath = FUNCTION PathUtil-adjustStart1(FUNCTION JR-GET(J-THIS, "f_abPathUtil"), J-tempPath)
+        ELSE
+            COMPUTE J-beginIndex = FUNCTION JR-INDEX-OF(J-tempPath, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonSeps"), "f_COLON"))
+            IF (J-beginIndex >= 0)
+                COMPUTE J-beginIndex = (FUNCTION MOD(J-beginIndex + 1 + 2147483648, 4294967296) - 2147483648)
+                PERFORM FOREVER
+                    IF NOT ((FUNCTION JR-CHAR-AT(J-tempPath, J-beginIndex) = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_abPathData"), "f_SEPARATORCHAR")) OR (FUNCTION JR-CHAR-AT(J-tempPath, J-beginIndex) = FUNCTION JR-GET(J-filePathData,
+        "f_SEPARATORCHAR"))) EXIT PERFORM END-IF
+                    COMPUTE J-beginIndex = (FUNCTION MOD(J-beginIndex + 1 + 2147483648, 4294967296) - 2147483648)
+                    COMPUTE JVALUE = (FUNCTION MOD(FUNCTION JR-GET(J-THIS, "f_numberOfSeps") + 1 + 2147483648, 4294967296) - 2147483648)
+                    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_numberOfSeps", JVALUE)
+                    IF (FUNCTION JR-GET(J-THIS, "f_numberOfSeps") > 2)
+                        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+                    END-IF
+                END-PERFORM
+                COMPUTE J-tempPath = FUNCTION JR-SUBSTRING(J-tempPath, J-beginIndex, FUNCTION JR-STR-LENGTH(J-tempPath))
+            END-IF
+        END-IF
+        COMPUTE J-RESULT = J-tempPath
+        GOBACK
+    GOBACK.
+END FUNCTION AbPath-getPathFromPath1.
 
-procedure TAbPath.InitFields;
-begin
-  Self.commonSeps := TCommonSeps.getInstance();
-  Self.abPathData := TAbPathData.getInstance();
-  Self.abPathUtil := TPathUtil.getInstance();
-  Self.EMPTY_STRING := TStringUtil.getInstance().EMPTY_STRING;
-  Self.schema := Self.EMPTY_STRING;
-  Self.path := Self.EMPTY_STRING;
-  Self.nameP := Self.EMPTY_STRING;
-  Self.hasSchemaP := False;
-  Self.numberOfSeps := 0;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbPath-setName1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-name BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-name RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-name
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_nameP", JVALUE)
+    GOBACK.
+END FUNCTION AbPath-setName1.
 
-class function TAbPath.createAbPath: TAbPath;
-var
-  EMPTY_STRING: string;
-begin
-        try
-            EMPTY_STRING := TStringUtil.getInstance().EMPTY_STRING;
-            Exit(TAbPath.Create(EMPTY_STRING, EMPTY_STRING));
-        except
-            on ex: SysUtils.Exception do begin
-            raise SysUtils.Exception.Create('');
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbPath-getName0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_nameP")
+        GOBACK
+    GOBACK.
+END FUNCTION AbPath-getName0.
 
-constructor TAbPath.Create(aPath: string; name: string);
-var
-  stringValidationUtil_: TObject;
-begin
-    inherited Create;
-    InitFields;
-        stringValidationUtil_ := nil;
-        if not ((aPath = '')) then begin
-            Self.schema := Self.getSchema(aPath);
-            Self.nameP := name;
-            Self.path := Self.abPathUtil.adjustEnd(Self.abPathUtil.adjust(Self.getPathFromPath(aPath)));
-        end else begin
-            Self.init();
-            if not ((name = '')) then begin
-                Self.nameP := name;
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbPath-toString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringBuffer BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        IF (FUNCTION AbPath-hasSchema0(J-THIS) = 1)
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_schema"))
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION AbPath-static-NETWORK-SEP)
+        END-IF
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION AbPath-getPath0(J-THIS))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_nameP"))
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(J-stringBuffer)
+        GOBACK
+    GOBACK.
+END FUNCTION AbPath-toString0.
 
-procedure TAbPath.init;
-begin
-        Self.schema := Self.EMPTY_STRING;
-        Self.setPath(Self.abPathData.SEPARATOR);
-        Self.nameP := Self.EMPTY_STRING;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbPath-toFileSystemString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-filePathData BINARY-DOUBLE.
+01 J-stringBuffer BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION AbPath-hasSchema0(J-THIS) = 1)
+            COMPUTE J-filePathData = FUNCTION FilePathData-getInstance0
+            COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_schema"))
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonSeps"), "f_COLON"))
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-filePathData, "f_PATH_START"))
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION FilePathUtil-adjust1(FUNCTION AbPath-getPath0(J-THIS)))
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_nameP"))
+            COMPUTE J-RESULT = FUNCTION JR-TO-STRING(J-stringBuffer)
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = FUNCTION JR-CONCAT(FUNCTION FilePathUtil-adjust1(FUNCTION AbPath-getPath0(J-THIS)), FUNCTION JR-GET(J-THIS, "f_nameP"))
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION AbPath-toFileSystemString0.
 
-function TAbPath.getSchema(aPath: string): string;
-var
-  beginIndex: Integer;
-begin
-        beginIndex := (Pos(TJava.ToString(Self.commonSeps.COLON), aPath) - 1);
-        if (beginIndex) >= (0) then begin
-            Self.hasSchemaP := True;
-            Exit(Copy(aPath, (0) + 1, (beginIndex) - (0)));
-        end;
-        Self.hasSchemaP := False;
-        Exit(Self.EMPTY_STRING);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbPath-getPath0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_path")
+        GOBACK
+    GOBACK.
+END FUNCTION AbPath-getPath0.
 
-function TAbPath.hasSchema: Boolean;
-begin
-        Exit(Self.hasSchemaP);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbPath-setPath1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-path BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-path RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-path
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_path", JVALUE)
+    GOBACK.
+END FUNCTION AbPath-setPath1.
 
-// throws Exception
-function TAbPath.getPathFromPath(aPath: string): string;
-var
-  filePathData_: TFilePathData;
-  tempPath: string;
-  beginIndex: Integer;
-begin
-        filePathData_ := TFilePathData.getInstance();
-        tempPath := aPath;
-        if not (Self.hasSchema()) then begin
-            tempPath := Self.abPathUtil.adjustStart(tempPath);
-        end else begin
-            beginIndex := (Pos(TJava.ToString(Self.commonSeps.COLON), tempPath) - 1);
-            if (beginIndex) >= (0) then begin
-                Inc(beginIndex);
-                while ((tempPath[(beginIndex) + 1]) = (Self.abPathData.SEPARATORCHAR)) or ((tempPath[(beginIndex) + 1]) = (filePathData_.SEPARATORCHAR)) do begin
-                    Inc(beginIndex);
-                    Inc(Self.numberOfSeps);
-                    if (Self.numberOfSeps) > (2) then begin
-                        raise SysUtils.Exception.Create('Should Not Have More Than Two Seps');
-                    end;
-                end;
-                tempPath := Copy(tempPath, (beginIndex) + 1, (System.Length(tempPath)) - (beginIndex));
-            end;
-        end;
-        Exit(tempPath);
-end;
-    
-
-procedure TAbPath.setName(name: string);
-begin
-        Self.nameP := name;
-end;
-    
-
-function TAbPath.getName: string;
-begin
-        Exit(Self.nameP);
-end;
-    
-
-function TAbPath.toString: string;
-var
-  stringBuffer: TStringMaker;
-begin
-        stringBuffer := TStringMaker.Create();
-        if Self.hasSchema() then begin
-            stringBuffer.append(Self.schema);
-            stringBuffer.append(TAbPath.NETWORK_SEP);
-        end;
-        stringBuffer.append(Self.getPath());
-        stringBuffer.append(Self.nameP);
-        Exit(stringBuffer.toString());
-end;
-    
-
-function TAbPath.toFileSystemString: string;
-var
-  filePathData_: TFilePathData;
-  stringBuffer: TStringMaker;
-begin
-        if Self.hasSchema() then begin
-            filePathData_ := TFilePathData.getInstance();
-            stringBuffer := TStringMaker.Create();
-            stringBuffer.append(Self.schema);
-            stringBuffer.append(Self.commonSeps.COLON);
-            stringBuffer.append(filePathData_.PATH_START);
-            stringBuffer.append(TFilePathUtil.adjust(Self.getPath()));
-            stringBuffer.append(Self.nameP);
-            Exit(stringBuffer.toString());
-        end else begin
-            Exit(TJava.ToString(TFilePathUtil.adjust(Self.getPath())) + Self.nameP);
-        end;
-end;
-    
-
-function TAbPath.getPath: string;
-begin
-        Exit(Self.path);
-end;
-    
-
-procedure TAbPath.setPath(path: string);
-begin
-        Self.path := path;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TAbPath.NETWORK_SEP := ':/';
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+PROGRAM-ID. AbPath-toString.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION AbPath-toString0(J-THIS)
+    GOBACK.
+END PROGRAM AbPath-toString.
 

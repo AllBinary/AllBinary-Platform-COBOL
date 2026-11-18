@@ -1,111 +1,223 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.vector
+*> Java class RectangleFilledAdjustedAnimation
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.vector
-unit RectangleFilledAdjustedAnimation;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, BasicColor, ColorCompositeInterface, RectangleFilledAnimation, BasicColorCompositeSetterInterface;
-
-type
-  {AB:TYPES}
-  TRectangleFilledAdjustedAnimation = class(TRectangleFilledAnimation, IColorCompositeInterface, IBasicColorCompositeSetterInterface)
-  public
-    offsetX: Integer;
-    offsetY: Integer;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(width: Integer; height: Integer; offsetX: Integer; offsetY: Integer; basicColor_: TBasicColor);
-        procedure nextFrame; virtual;
-        procedure paintXY(graphics_: TGraphics; x: Integer; y: Integer); virtual;
-        procedure setOffsetX(offsetX: Integer); virtual;
-        procedure setOffsetY(offsetY: Integer); virtual;
-        function getBasicColorP: TBasicColor; virtual;
-        procedure setBasicColorP(basicColor_: TBasicColor); virtual;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TRectangleFilledAdjustedAnimation.InitFields;
-begin
-  
-  
-end;
-
-function TRectangleFilledAdjustedAnimation.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RctnglFlldAdjstdAnmtn-new5.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-offsetX BINARY-DOUBLE.
+01 J-offsetY BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-width J-height J-offsetX J-offsetY J-basicColor RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("RectangleFilledAdjustedAnimation")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_offsetX")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_offsetY")
     
-
-constructor TRectangleFilledAdjustedAnimation.Create(width: Integer; height: Integer; offsetX: Integer; offsetY: Integer; basicColor_: TBasicColor);
-begin
-        inherited Create(width, height, basicColor_);
-        InitFields;
-        Self.offsetX := offsetX;
-        Self.offsetY := offsetY;
-        Self.setBasicColorP(basicColor_);
-end;
     
+        CONTINUE
+        COMPUTE JVALUE = J-offsetX
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_offsetX", JVALUE)
+        COMPUTE JVALUE = J-offsetY
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_offsetY", JVALUE)
+        COMPUTE JDISCARD = FUNCTION RctnglFlldAdjstdAnmtn-stB93629(J-THIS, J-basicColor)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION RctnglFlldAdjstdAnmtn-new5.
 
-procedure TRectangleFilledAdjustedAnimation.nextFrame;
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RctnglFlldAdjstdAnmtn-nxtFrm0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION RctnglFlldAdjstdAnmtn-nxtFrm0.
 
-procedure TRectangleFilledAdjustedAnimation.paintXY(graphics_: TGraphics; x: Integer; y: Integer);
-begin
-        Self.basicSetColorUtil.setBasicColorP3(graphics_, Self.getBasicColorP(), Self.getColor());
-        inherited paintXY(graphics_, (x) + (Self.offsetX), (y) + (Self.offsetY));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RctnglFlldAdjstdAnmtn-paintXY3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_basicSetColorUtil"))
+        COMPUTE jtemp1 = (FUNCTION MOD((J-x + FUNCTION JR-GET(J-THIS, "f_offsetX")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp2 = (FUNCTION MOD((J-y + FUNCTION JR-GET(J-THIS, "f_offsetY")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION RctnglFlldAnmtn-paintXY3(J-THIS, J-graphics, jtemp1, jtemp2)
+    GOBACK.
+END FUNCTION RctnglFlldAdjstdAnmtn-paintXY3.
 
-procedure TRectangleFilledAdjustedAnimation.setOffsetX(offsetX: Integer);
-begin
-        Self.offsetX := offsetX;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RctnglFlldAdjstdAnmtn-stO92851.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-offsetX BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-offsetX RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-offsetX
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_offsetX", JVALUE)
+    GOBACK.
+END FUNCTION RctnglFlldAdjstdAnmtn-stO92851.
 
-procedure TRectangleFilledAdjustedAnimation.setOffsetY(offsetY: Integer);
-begin
-        Self.offsetY := offsetY;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RctnglFlldAdjstdAnmtn-stO92918.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-offsetY BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-offsetY RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-offsetY
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_offsetY", JVALUE)
+    GOBACK.
+END FUNCTION RctnglFlldAdjstdAnmtn-stO92918.
 
-function TRectangleFilledAdjustedAnimation.getBasicColorP: TBasicColor;
-begin
-        Exit(inherited getBasicColorP());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RctnglFlldAdjstdAnmtn-gtB10020.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION RctnglFlldAnmtn-gtBscClrP0(J-THIS)
+        GOBACK
+    GOBACK.
+END FUNCTION RctnglFlldAdjstdAnmtn-gtB10020.
 
-procedure TRectangleFilledAdjustedAnimation.setBasicColorP(basicColor_: TBasicColor);
-begin
-        inherited setBasicColorP(basicColor_);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RctnglFlldAdjstdAnmtn-stB93629.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-basicColor RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION RctnglFlldAnmtn-stBscClrP1(J-THIS, J-basicColor)
+    GOBACK.
+END FUNCTION RctnglFlldAdjstdAnmtn-stB93629.
 

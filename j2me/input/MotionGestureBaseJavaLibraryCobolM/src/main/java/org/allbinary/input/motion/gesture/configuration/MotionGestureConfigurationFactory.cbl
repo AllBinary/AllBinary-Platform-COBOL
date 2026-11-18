@@ -1,59 +1,111 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion.gesture.configuration
+*> Java class MotionGestureConfigurationFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion.gesture.configuration
-unit MotionGestureConfigurationFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrCnfgrtnFctry-sttc-cnfg.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 MotionGestureConfigurationFactory-jcell-config BINARY-DOUBLE EXTERNAL.
+01 MotionGestureConfigurationFactory-jset-config BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF MotionGestureConfigurationFactory-jset-config = 0
+        MOVE 1 TO MotionGestureConfigurationFactory-jset-config
+        COMPUTE MotionGestureConfigurationFactory-jcell-config = FUNCTION MtnGstrCnfgrtn-new0
+    END-IF
+    MOVE MotionGestureConfigurationFactory-jcell-config TO J-RESULT
+    GOBACK.
+END FUNCTION MtnGstrCnfgrtnFctry-sttc-cnfg.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrCnfgrtnFctrysS49851.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 MotionGestureConfigurationFactory-jcell-config BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION MtnGstrCnfgrtnFctry-sttc-cnfg TO J-RESULT
+    MOVE J-VALUE TO MotionGestureConfigurationFactory-jcell-config
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION MtnGstrCnfgrtnFctrysS49851.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrCnfgrtnFctry-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("MotionGestureConfigurationFactory")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION MtnGstrCnfgrtnFctry-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, MotionGestureConfiguration;
-
-type
-  {AB:TYPES}
-  TMotionGestureConfigurationFactory = class(TObject)
-  public
-    class var config: TMotionGestureConfiguration;
-        constructor Create;
-        class function getInstance: TMotionGestureConfiguration; static;
-  end;
-
-implementation
-
-{AB:CODE}
-    
-
-constructor TMotionGestureConfigurationFactory.Create;
-begin
-    inherited Create;
-end;
-    
-
-class function TMotionGestureConfigurationFactory.getInstance: TMotionGestureConfiguration;
-begin
-        Exit(TMotionGestureConfigurationFactory.config);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TMotionGestureConfigurationFactory.config := TMotionGestureConfiguration.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrCnfgrtnFctry-gtInstnc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION MtnGstrCnfgrtnFctry-sttc-cnfg
+        GOBACK
+    GOBACK.
+END FUNCTION MtnGstrCnfgrtnFctry-gtInstnc0.
 

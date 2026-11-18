@@ -1,135 +1,266 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.layer.hud.basic.life
+*> Java class LivesHudWidget
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.layer.hud.basic.life
-unit LivesHudWidget;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, Animation, Life, BasicHud, DisplayChangeEvent, PaintableInterface;
-
-type
-  {AB:TYPES}
-  TLivesHudWidget = class(TBasicHud, IPaintableInterface)
-  public
-    lifeInterface: TLife;
-    xArray: TArray<Integer>;
-    animationInterface: TAnimation;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(animationInterface: TAnimation; lifeInterface: TLife; location: Integer; direction: Integer);
-        procedure updateMeasurement(graphics_: TGraphics); virtual;
-        procedure onDisplayChangeEvent(displayChangeEvent_: TDisplayChangeEvent); virtual;
-        procedure setX(x: Integer); virtual;
-        procedure paint(graphics_: TGraphics); virtual;
-        procedure paintThreed(graphics_: TGraphics); virtual;
-        function getLifeInterface: TLife; virtual;
-  end;
-
-implementation
-uses
-  BasicColorFactory;
-
-
-{AB:CODE}
-
-procedure TLivesHudWidget.InitFields;
-begin
-  
-  
-  
-end;
-
-function TLivesHudWidget.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LivesHudWidget-new4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-animationInterface BINARY-DOUBLE.
+01 J-lifeInterface BINARY-DOUBLE.
+01 J-location BINARY-DOUBLE.
+01 J-direction BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-animationInterface J-lifeInterface J-location J-direction RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("LivesHudWidget")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_lifeInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_xArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_animationInterface")
     
-
-constructor TLivesHudWidget.Create(animationInterface: TAnimation; lifeInterface: TLife; location: Integer; direction: Integer);
-var
-  size: Integer;
-begin
-        inherited Create(location, direction, 2, TBasicColorFactory.getInstance().WHITE);
-        InitFields;
-        Self.lifeInterface := lifeInterface;
-        size := Integer(Trunc(Self.getLifeInterface().getMaxlives()));
-        Self.xArray := TJava.NewArray<Integer>(size);
-        Self.animationInterface := animationInterface;
-        Self.updateMaxWidth := (Self.lifeInterface.getMaxlives()) * (16);
-        Self.updateMaxHeight := 16;
-end;
     
-
-procedure TLivesHudWidget.updateMeasurement(graphics_: TGraphics);
-var
-  maxLives: Integer;
-  index: Integer;
-begin
-        inherited updateMeasurement(graphics_);
-        maxLives := Integer(Trunc(Self.getLifeInterface().getMaxlives()));
-        for index := 0 to maxLives - 1 do begin
-            Self.xArray[index] := (Self.getX()) + (((index) * (16)));
-        end;
-end;
     
+        COMPUTE jtemp2 = FUNCTION BasicColorFactory-getInstance0
+        COMPUTE jtemp1 = 2
+        CONTINUE
+        COMPUTE JVALUE = J-lifeInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lifeInterface", JVALUE)
+        COMPUTE jtemp3 = FUNCTION LvsHdWdgt-getLifeInterface0(J-THIS)
+        COMPUTE J-size = FUNCTION Life-getMaxlives0(jtemp3)
+        COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY(J-size)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_xArray", JVALUE)
+        COMPUTE JVALUE = J-animationInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animationInterface", JVALUE)
+        COMPUTE JVALUE = (FUNCTION MOD((FUNCTION Life-getMaxlives0(FUNCTION JR-GET(J-THIS, "f_lifeInterface")) * 16) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_updateMaxWidth", JVALUE)
+        COMPUTE JVALUE = 16
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_updateMaxHeight", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION LivesHudWidget-new4.
 
-procedure TLivesHudWidget.onDisplayChangeEvent(displayChangeEvent_: TDisplayChangeEvent);
-begin
-        inherited onDisplayChangeEvent(displayChangeEvent_);
-        Self.myFontProcessor := Self.updateMyFontProcessor;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LvsHdWdgt-updateMeasurement1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-maxLives BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicHud-updateMeasurement1(J-THIS, J-graphics)
+        COMPUTE jtemp4 = FUNCTION LvsHdWdgt-getLifeInterface0(J-THIS)
+        COMPUTE J-maxLives = FUNCTION Life-getMaxlives0(jtemp4)
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-maxLives) EXIT PERFORM END-IF
+            COMPUTE jtemp5 = ((FUNCTION MOD((J-index * 16) + 2147483648, 4294967296) - 2147483648))
+            COMPUTE JVALUE = (FUNCTION MOD((FUNCTION BasicHud-getX0(J-THIS) + jtemp5) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_xArray"), J-index, JVALUE)
+        END-PERFORM
+    GOBACK.
+END FUNCTION LvsHdWdgt-updateMeasurement1.
 
-procedure TLivesHudWidget.setX(x: Integer);
-begin
-        inherited setX(x);
-        Self.myFontProcessor := Self.updateMyFontProcessor;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LvsHdWdgt-onDsplyChngEvnt1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-displayChangeEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-displayChangeEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicHud-onDisplayChangeEvent1(J-THIS, J-displayChangeEvent)
+        COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_updateMyFontProcessor")
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
+    GOBACK.
+END FUNCTION LvsHdWdgt-onDsplyChngEvnt1.
 
-procedure TLivesHudWidget.paint(graphics_: TGraphics);
-var
-  index: Integer;
-begin
-        Self.myFontProcessor.process(graphics_);
-        index := Integer(Trunc(Self.getLifeInterface().get()));
-        while (TJava.PreDec(index)) >= (0) do begin
-            Self.animationInterface.paintXY(graphics_, Self.xArray[index], Self.getY());
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LivesHudWidget-setX1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-x RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicHud-setX1(J-THIS, J-x)
+        COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_updateMyFontProcessor")
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
+    GOBACK.
+END FUNCTION LivesHudWidget-setX1.
 
-procedure TLivesHudWidget.paintThreed(graphics_: TGraphics);
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LivesHudWidget-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-index BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_myFontProcessor"))
+        COMPUTE jtemp7 = FUNCTION LvsHdWdgt-getLifeInterface0(J-THIS)
+        COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp6 = J-index
+        COMPUTE J-index = FUNCTION Life-get0(jtemp7)
+        MOVE 1 TO JFIRST2
+        PERFORM FOREVER
+            MOVE 0 TO JFIRST2
+            IF NOT (jtemp6 >= 0) EXIT PERFORM END-IF
+            COMPUTE JDISCARD = FUNCTION Animation-paintXY3(FUNCTION JR-GET(J-THIS, "f_animationInterface"), J-graphics, FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_xArray"), J-index), FUNCTION BasicHud-getY0(J-THIS))
+        END-PERFORM
+    GOBACK.
+END FUNCTION LivesHudWidget-paint1.
 
-function TLivesHudWidget.getLifeInterface: TLife;
-begin
-        Exit(Self.lifeInterface);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LivesHudWidget-paintThreed1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION LivesHudWidget-paintThreed1.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LvsHdWdgt-getLifeInterface0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_lifeInterface")
+        GOBACK
+    GOBACK.
+END FUNCTION LvsHdWdgt-getLifeInterface0.
 

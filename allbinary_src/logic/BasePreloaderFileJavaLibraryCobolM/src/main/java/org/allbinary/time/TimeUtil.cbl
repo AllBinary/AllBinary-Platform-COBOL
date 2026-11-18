@@ -1,129 +1,366 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.time
+*> Java class TimeUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.time
-unit TimeUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TimeUtil-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 TimeUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 TimeUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF TimeUtil-jset-instance = 0
+        MOVE 1 TO TimeUtil-jset-instance
+        COMPUTE TimeUtil-jcell-instance = FUNCTION TimeUtil-new0
+    END-IF
+    MOVE TimeUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION TimeUtil-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TimeUtilstaticinstanS74278.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 TimeUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION TimeUtil-static-instance TO J-RESULT
+    MOVE J-VALUE TO TimeUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION TimeUtilstaticinstanS74278.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TimeUtil-static-calendar.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 TimeUtil-jcell-calendar BINARY-DOUBLE EXTERNAL.
+01 TimeUtil-jset-calendar BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF TimeUtil-jset-calendar = 0
+        MOVE 1 TO TimeUtil-jset-calendar
+        COMPUTE TimeUtil-jcell-calendar = FUNCTION Calendar-getInstance0
+    END-IF
+    MOVE TimeUtil-jcell-calendar TO J-RESULT
+    GOBACK.
+END FUNCTION TimeUtil-static-calendar.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TimeUtilstaticcalendS36184.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 TimeUtil-jcell-calendar BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION TimeUtil-static-calendar TO J-RESULT
+    MOVE J-VALUE TO TimeUtil-jcell-calendar
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION TimeUtilstaticcalendS36184.
 
-type
-  {AB:TYPES}
-  TTimeUtil = class(TObject)
-  public
-    class var instance: TTimeUtil;
-    class var calendar: TCalendar;
-    constructor Create;
-        class function getInstance: TTimeUtil; static;
-        procedure setCalendar(calendar: TCalendar; yearString: string; monthString: string; dayString: string; hourString: string); virtual;
-        procedure setCalendarWithTime(calendar: TCalendar; yearString: string; monthString: string; dayString: string; hourString: string; minuteString: string; secondString: string); virtual;
-        procedure setExpirationCalendar(calendar: TCalendar; yearsString: string; monthsString: string; daysString: string; hoursString: string; minutesString: string; secondsString: string); virtual;
-        function getTotalTime(yearString: string; monthString: string; dayString: string; hourString: string; minuteString: string; secondString: string): Int64; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TimeUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("TimeUtil")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION TimeUtil-new0.
 
-implementation
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TimeUtil-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION TimeUtil-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION TimeUtil-getInstance0.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TimeUtil-setCalendar5.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-year BINARY-DOUBLE.
+01 J-month BINARY-DOUBLE.
+01 J-day BINARY-DOUBLE.
+01 J-hour BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-calendar BINARY-DOUBLE.
+01 J-yearString BINARY-DOUBLE.
+01 J-monthString BINARY-DOUBLE.
+01 J-dayString BINARY-DOUBLE.
+01 J-hourString BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-calendar J-yearString J-monthString J-dayString J-hourString RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = J-yearString
+        COMPUTE J-year = jtemp1
+        COMPUTE jtemp2 = J-monthString
+        COMPUTE J-month = jtemp2
+        COMPUTE jtemp3 = J-dayString
+        COMPUTE J-day = jtemp3
+        COMPUTE jtemp4 = J-hourString
+        COMPUTE J-hour = jtemp4
+        COMPUTE jtemp5 = 0
+        COMPUTE JDISCARD = FUNCTION Calendar-set5(J-calendar, J-year, J-month, J-day, J-hour, jtemp5)
+    GOBACK.
+END FUNCTION TimeUtil-setCalendar5.
 
-constructor TTimeUtil.Create;
-begin
-  inherited Create;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TimeUtil-setCalendarWithTime7.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-year BINARY-DOUBLE.
+01 J-month BINARY-DOUBLE.
+01 J-day BINARY-DOUBLE.
+01 J-hour BINARY-DOUBLE.
+01 J-minute BINARY-DOUBLE.
+01 J-second BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-calendar BINARY-DOUBLE.
+01 J-yearString BINARY-DOUBLE.
+01 J-monthString BINARY-DOUBLE.
+01 J-dayString BINARY-DOUBLE.
+01 J-hourString BINARY-DOUBLE.
+01 J-minuteString BINARY-DOUBLE.
+01 J-secondString BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-calendar J-yearString J-monthString J-dayString J-hourString J-minuteString J-secondString RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp6 = J-yearString
+        COMPUTE J-year = jtemp6
+        COMPUTE jtemp7 = J-monthString
+        COMPUTE J-month = jtemp7
+        COMPUTE jtemp8 = J-dayString
+        COMPUTE J-day = jtemp8
+        COMPUTE jtemp9 = J-hourString
+        COMPUTE J-hour = jtemp9
+        COMPUTE jtemp10 = J-minuteString
+        COMPUTE J-minute = jtemp10
+        COMPUTE jtemp11 = J-secondString
+        COMPUTE J-second = jtemp11
+        COMPUTE JDISCARD = FUNCTION Calendar-set6(J-calendar, J-year, J-month, J-day, J-hour, J-minute, J-second)
+    GOBACK.
+END FUNCTION TimeUtil-setCalendarWithTime7.
 
-class function TTimeUtil.getInstance: TTimeUtil;
-begin
-        Exit(TTimeUtil.instance);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TmUtl-setExpirationCalendar7.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-year BINARY-DOUBLE.
+01 J-month BINARY-DOUBLE.
+01 J-day BINARY-DOUBLE.
+01 J-hour BINARY-DOUBLE.
+01 J-minute BINARY-DOUBLE.
+01 J-second BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-calendar BINARY-DOUBLE.
+01 J-yearsString BINARY-DOUBLE.
+01 J-monthsString BINARY-DOUBLE.
+01 J-daysString BINARY-DOUBLE.
+01 J-hoursString BINARY-DOUBLE.
+01 J-minutesString BINARY-DOUBLE.
+01 J-secondsString BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-calendar J-yearsString J-monthsString J-daysString J-hoursString J-minutesString J-secondsString RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp12 = J-yearsString
+        COMPUTE J-year = (FUNCTION MOD((FUNCTION Calendar-get1(J-calendar, FUNCTION Calendar-static-YEAR) + jtemp12) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp13 = J-monthsString
+        COMPUTE J-month = (FUNCTION MOD((FUNCTION Calendar-get1(J-calendar, FUNCTION Calendar-static-MONTH) + jtemp13) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp14 = J-daysString
+        COMPUTE J-day = (FUNCTION MOD((FUNCTION Calendar-get1(J-calendar, FUNCTION Clndr-static-DAY-OF-MONTH) + jtemp14) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp15 = J-hoursString
+        COMPUTE J-hour = (FUNCTION MOD((FUNCTION Calendar-get1(J-calendar, FUNCTION Calendar-static-HOUR) + jtemp15) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp16 = J-minutesString
+        COMPUTE J-minute = (FUNCTION MOD((FUNCTION Calendar-get1(J-calendar, FUNCTION Calendar-static-MINUTE) + jtemp16) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp17 = J-secondsString
+        COMPUTE J-second = (FUNCTION MOD((FUNCTION Calendar-get1(J-calendar, FUNCTION Calendar-static-SECOND) + jtemp17) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION Calendar-set6(J-calendar, J-year, J-month, J-day, J-hour, J-minute, J-second)
+    GOBACK.
+END FUNCTION TmUtl-setExpirationCalendar7.
 
-procedure TTimeUtil.setCalendar(calendar: TCalendar; yearString: string; monthString: string; dayString: string; hourString: string);
-var
-  year: Integer;
-  month: Integer;
-  day: Integer;
-  hour: Integer;
-begin
-        year := StrToInt(yearString);
-        month := StrToInt(monthString);
-        day := StrToInt(dayString);
-        hour := StrToInt(hourString);
-        calendar.set_(year, month, day, hour, 0);
-end;
-    
-
-procedure TTimeUtil.setCalendarWithTime(calendar: TCalendar; yearString: string; monthString: string; dayString: string; hourString: string; minuteString: string; secondString: string);
-var
-  year: Integer;
-  month: Integer;
-  day: Integer;
-  hour: Integer;
-  minute: Integer;
-  second: Integer;
-begin
-        year := StrToInt(yearString);
-        month := StrToInt(monthString);
-        day := StrToInt(dayString);
-        hour := StrToInt(hourString);
-        minute := StrToInt(minuteString);
-        second := StrToInt(secondString);
-        calendar.set_(year, month, day, hour, minute, second);
-end;
-    
-
-procedure TTimeUtil.setExpirationCalendar(calendar: TCalendar; yearsString: string; monthsString: string; daysString: string; hoursString: string; minutesString: string; secondsString: string);
-var
-  year: Integer;
-  month: Integer;
-  day: Integer;
-  hour: Integer;
-  minute: Integer;
-  second: Integer;
-begin
-        year := (calendar.get(TCalendar.YEAR)) + (StrToInt(yearsString));
-        month := (calendar.get(TCalendar.MONTH)) + (StrToInt(monthsString));
-        day := (calendar.get(TCalendar.DAY_OF_MONTH)) + (StrToInt(daysString));
-        hour := (calendar.get(TCalendar.HOUR)) + (StrToInt(hoursString));
-        minute := (calendar.get(TCalendar.MINUTE)) + (StrToInt(minutesString));
-        second := (calendar.get(TCalendar.SECOND)) + (StrToInt(secondsString));
-        calendar.set_(year, month, day, hour, minute, second);
-end;
-    
-
-function TTimeUtil.getTotalTime(yearString: string; monthString: string; dayString: string; hourString: string; minuteString: string; secondString: string): Int64;
-var
-  time: Int64;
-  timeDelta: Int64;
-begin
-        time := TTimeUtil.calendar.getTimeInMillis();
-        Self.setExpirationCalendar(TTimeUtil.calendar, yearString, monthString, dayString, hourString, minuteString, secondString);
-        timeDelta := TTimeUtil.calendar.getTimeInMillis();
-        Exit((timeDelta) - (time));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TTimeUtil.instance := TTimeUtil.Create();
-  TTimeUtil.calendar := TCalendar.getInstance();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TimeUtil-getTotalTime6.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-time BINARY-DOUBLE.
+01 J-timeDelta BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-yearString BINARY-DOUBLE.
+01 J-monthString BINARY-DOUBLE.
+01 J-dayString BINARY-DOUBLE.
+01 J-hourString BINARY-DOUBLE.
+01 J-minuteString BINARY-DOUBLE.
+01 J-secondString BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-yearString J-monthString J-dayString J-hourString J-minuteString J-secondString RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-time = FUNCTION JR-CLASS-NAME(FUNCTION TimeUtil-static-calendar)
+        COMPUTE JDISCARD = FUNCTION TmUtl-setExpirationCalendar7(J-THIS, FUNCTION TimeUtil-static-calendar, J-yearString, J-monthString, J-dayString, J-hourString, J-minuteString, J-secondString)
+        COMPUTE J-timeDelta = FUNCTION JR-CLASS-NAME(FUNCTION TimeUtil-static-calendar)
+        COMPUTE J-RESULT = (J-timeDelta - J-time)
+        GOBACK
+    GOBACK.
+END FUNCTION TimeUtil-getTotalTime6.
 

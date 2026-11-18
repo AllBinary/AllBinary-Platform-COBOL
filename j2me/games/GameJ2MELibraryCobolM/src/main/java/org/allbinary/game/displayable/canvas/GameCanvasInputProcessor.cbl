@@ -1,138 +1,204 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.displayable.canvas
+*> Java class GameCanvasInputProcessor
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.displayable.canvas
-unit GameCanvasInputProcessor;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Canvas, GameKey, InputProcessor, DownGameKeyEventHandler, DownKeyEventHandler, GameKeyEventFactory, UpGameKeyEventHandler, InputToGameKeyMapping, LogUtil, SmallIntegerSingletonFactory, AllBinaryGameCanvas;
-
-type
-  {AB:TYPES}
-  TGameCanvasInputProcessor = class(TInputProcessor)
-  public
-    logUtil: TLogUtil;
-    allBinaryGameCanvas: TAllBinaryGameCanvas;
-    downGameKeyEventHandler: TDownGameKeyEventHandler;
-    upGameKeyEventHandler: TUpGameKeyEventHandler;
-    downKeyEventHandler: TDownKeyEventHandler;
-    smallIntegerSingletonFactory: TSmallIntegerSingletonFactory;
-    inputToGameKeyMapping: TInputToGameKeyMapping;
-    NONE: TGameKey;
-    gameKeyEventFactory: TGameKeyEventFactory;
-    procedure InitFields;
-        constructor Create(allBinaryGameCanvas_: TAllBinaryGameCanvas);
-        procedure keyPressedByDevice(keyCode: Integer; deviceId: Integer); override;
-        procedure keyReleasedByDevice(canvas_: TCanvas; keyCode: Integer; deviceId: Integer); override;
-        procedure removeGameKeyEvent(canvas_: TCanvas; keyCode: Integer; deviceId: Integer; repeated: Boolean);
-  end;
-
-implementation
-uses
-  GameKeyEventSourceInterface, GameKeyFactory, PlatformInputMappingFactory, GameKeyEvent, StringMaker;
-
-
-{AB:CODE}
-
-procedure TGameCanvasInputProcessor.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  
-  Self.downGameKeyEventHandler := TDownGameKeyEventHandler.getInstance();
-  Self.upGameKeyEventHandler := TUpGameKeyEventHandler.getInstance();
-  Self.downKeyEventHandler := TDownKeyEventHandler.getInstance();
-  Self.smallIntegerSingletonFactory := TSmallIntegerSingletonFactory.getInstance();
-  Self.inputToGameKeyMapping := TPlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping();
-  Self.NONE := TGameKeyFactory.getInstance().NONE;
-  Self.gameKeyEventFactory := TGameKeyEventFactory.getInstance();
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameCanvasInputProcessor-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-allBinaryGameCanvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-allBinaryGameCanvas RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameCanvasInputProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_allBinaryGameCanvas")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_downGameKeyEventHandler")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_upGameKeyEventHandler")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_downKeyEventHandler")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_smallIntegerSingletonFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_inputToGameKeyMapping")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NONE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameKeyEventFactory")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
     
+    COMPUTE JVALUE = FUNCTION DwnGmKyEvntHndlr-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_downGameKeyEventHandler", JVALUE)
+    COMPUTE JVALUE = FUNCTION UpGmKyEvntHndlr-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_upGameKeyEventHandler", JVALUE)
+    COMPUTE JVALUE = FUNCTION DwnKyEvntHndlr-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_downKeyEventHandler", JVALUE)
+    COMPUTE JVALUE = FUNCTION SmllIntgrSngltnFctry-gtInstnc0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_smallIntegerSingletonFactory", JVALUE)
+    COMPUTE jtemp2 = FUNCTION PltfrmInptMppngFctry-gtInstnc0
+    COMPUTE jtemp1 = FUNCTION PltfrmInptMppngFctry-gtPr75051(jtemp2)
+    COMPUTE JVALUE = FUNCTION JR-CLASS-NAME(jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_inputToGameKeyMapping", JVALUE)
+    COMPUTE jtemp3 = FUNCTION GameKeyFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp3, "f_NONE")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NONE", JVALUE)
+    COMPUTE JVALUE = FUNCTION GmKyEvntFctry-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameKeyEventFactory", JVALUE)
+        COMPUTE JVALUE = J-allBinaryGameCanvas
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_allBinaryGameCanvas", JVALUE)
+        COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-init1(FUNCTION JR-GET(J-THIS, "f_inputToGameKeyMapping"), FUNCTION JR-GET(J-THIS, "f_allBinaryGameCanvas"))
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GameCanvasInputProcessor-new1.
 
-constructor TGameCanvasInputProcessor.Create(allBinaryGameCanvas_: TAllBinaryGameCanvas);
-begin
-    inherited Create;
-    InitFields;
-        Self.allBinaryGameCanvas := allBinaryGameCanvas_;
-        Self.inputToGameKeyMapping.init(Self.allBinaryGameCanvas);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnvsInptPrcssr-kyPrssdByDvc2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameKey BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 J-keyCodeAsInteger BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-keyCode BINARY-DOUBLE.
+01 J-deviceId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-keyCode J-deviceId RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE J-gameKey = FUNCTION InptTGmKyMppng-gtInstncFrCnvs2(FUNCTION JR-GET(J-THIS, "f_inputToGameKeyMapping"), FUNCTION JR-GET(J-THIS, "f_allBinaryGameCanvas"), J-keyCode)
+            IF (J-gameKey NOT = FUNCTION JR-GET(J-THIS, "f_NONE"))
+                COMPUTE J-gameKeyEvent = FUNCTION GmKyEvntFctry-gtInstncFrInpt2(FUNCTION JR-GET(J-THIS, "f_gameKeyEventFactory"), FUNCTION JR-GET(J-THIS, "f_allBinaryGameCanvas"), J-gameKey)
+                COMPUTE JDISCARD = FUNCTION DwnGmKyEvntHndlrBs-fireEvent1(FUNCTION JR-GET(J-THIS, "f_downGameKeyEventHandler"), J-gameKeyEvent)
+                COMPUTE jtemp7 = FUNCTION DwnGmKyEvntHndlr-gtInstnc21989(FUNCTION JR-GET(J-THIS, "f_downGameKeyEventHandler"), J-deviceId)
+                COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp7)
+            ELSE
+                COMPUTE jtemp6 = FUNCTION StringMaker-new0
+                COMPUTE jtemp5 = FUNCTION StringMaker-append1(jtemp6, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameInputStrings"), "f_NO_KEY"))
+                COMPUTE jtemp4 = FUNCTION StringMaker-appendint1(jtemp5, J-keyCode)
+                COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp4), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameInputStrings"), "f_ADD_KEY_EVENT"))
+            END-IF
+            COMPUTE J-keyCodeAsInteger = FUNCTION SmllIntgrSngltnFctry-gtAt69109(FUNCTION JR-GET(J-THIS, "f_smallIntegerSingletonFactory"), J-keyCode)
+            COMPUTE JDISCARD = FUNCTION DwnKyEvntHndlrBs-fireEventI1(FUNCTION JR-GET(J-THIS, "f_downKeyEventHandler"), J-keyCodeAsInteger)
+            COMPUTE jtemp8 = FUNCTION DwnKyEvntHndlr-gtInstncFrDvc1(FUNCTION JR-GET(J-THIS, "f_downKeyEventHandler"), J-deviceId)
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp8)
+    GOBACK.
+END FUNCTION GmCnvsInptPrcssr-kyPrssdByDvc2.
 
-procedure TGameCanvasInputProcessor.keyPressedByDevice(keyCode: Integer; deviceId: Integer);
-var
-  gameKey_: TGameKey;
-  gameKeyEvent_: TGameKeyEvent;
-  keyCodeAsInteger: Integer;
-begin
-        try
-            gameKey_ := Self.inputToGameKeyMapping.getInstanceForCanvas(Self.allBinaryGameCanvas, keyCode);
-            if (gameKey_) <> (Self.NONE) then begin
-                gameKeyEvent_ := Self.gameKeyEventFactory.getInstanceForInput(Self.allBinaryGameCanvas, gameKey_);
-                Self.downGameKeyEventHandler.fireEvent(gameKeyEvent_);
-                Self.downGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent_);
-            end else begin
-                Self.logUtil.putF(TStringMaker.Create().append(Self.gameInputStrings.NO_KEY).appendint(keyCode).toString(), TJava.Box(Self), Self.gameInputStrings.ADD_KEY_EVENT);
-            end;
-            keyCodeAsInteger := Self.smallIntegerSingletonFactory.getAtNoThrow(keyCode);
-            Self.downKeyEventHandler.fireEventI(keyCodeAsInteger);
-            Self.downKeyEventHandler.getInstanceForDevice(deviceId).fireEventI(keyCodeAsInteger);
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put('Key Event Error', TJava.Box(Self), Self.gameInputStrings.ADD_KEY_EVENT, TJava.Box(e));
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnvsInptPrcssr-kyRlsdByDvc3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp9 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-canvas BINARY-DOUBLE.
+01 J-keyCode BINARY-DOUBLE.
+01 J-deviceId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-canvas J-keyCode J-deviceId RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp9 = 0
+        COMPUTE JDISCARD = FUNCTION GmCnvsInptPrcssr-rmvGmKyEvnt4(J-THIS, J-canvas, J-keyCode, J-deviceId, jtemp9)
+    GOBACK.
+END FUNCTION GmCnvsInptPrcssr-kyRlsdByDvc3.
 
-procedure TGameCanvasInputProcessor.keyReleasedByDevice(canvas_: TCanvas; keyCode: Integer; deviceId: Integer);
-begin
-        Self.removeGameKeyEvent(canvas_, keyCode, deviceId, False);
-end;
-    
-
-procedure TGameCanvasInputProcessor.removeGameKeyEvent(canvas_: TCanvas; keyCode: Integer; deviceId: Integer; repeated: Boolean);
-var
-  gameKey_: TGameKey;
-  gameKeyEventSourceInterface_: IGameKeyEventSourceInterface;
-  gameKeyEvent_: TGameKeyEvent;
-begin
-        try
-            gameKey_ := Self.inputToGameKeyMapping.getInstanceForCanvas(canvas_, keyCode);
-            if (gameKey_) <> (Self.NONE) then begin
-                gameKeyEventSourceInterface_ := (TJava.ToObject(canvas_) as IGameKeyEventSourceInterface);
-                gameKeyEvent_ := Self.gameKeyEventFactory.getInstanceForInput(gameKeyEventSourceInterface_, gameKey_);
-                Self.upGameKeyEventHandler.fireEvent(gameKeyEvent_);
-                Self.upGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent_);
-            end else begin
-                Self.logUtil.putF(TStringMaker.Create().append(Self.gameInputStrings.NO_KEY).appendint(keyCode).toString(), TJava.Box(Self), Self.gameInputStrings.REMOVE_KEY_EVENT);
-            end;
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put('Key Event Error', TJava.Box(Self), Self.gameInputStrings.REMOVE_KEY_EVENT, TJava.Box(e));
-            end;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnvsInptPrcssr-rmvGmKyEvnt4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameKey BINARY-DOUBLE.
+01 J-gameKeyEventSourceInterface BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-canvas BINARY-DOUBLE.
+01 J-keyCode BINARY-DOUBLE.
+01 J-deviceId BINARY-DOUBLE.
+01 J-repeated BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-canvas J-keyCode J-deviceId J-repeated RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE J-gameKey = FUNCTION InptTGmKyMppng-gtInstncFrCnvs2(FUNCTION JR-GET(J-THIS, "f_inputToGameKeyMapping"), J-canvas, J-keyCode)
+            IF (J-gameKey NOT = FUNCTION JR-GET(J-THIS, "f_NONE"))
+                COMPUTE J-gameKeyEventSourceInterface = J-canvas
+                COMPUTE J-gameKeyEvent = FUNCTION GmKyEvntFctry-gtInstncFrInpt2(FUNCTION JR-GET(J-THIS, "f_gameKeyEventFactory"), J-gameKeyEventSourceInterface, J-gameKey)
+                COMPUTE JDISCARD = FUNCTION UpGmKyEvntHndlrBs-fireEvent1(FUNCTION JR-GET(J-THIS, "f_upGameKeyEventHandler"), J-gameKeyEvent)
+                COMPUTE jtemp13 = FUNCTION UpGmKyEvntHndlr-gtInstncFrDvc1(FUNCTION JR-GET(J-THIS, "f_upGameKeyEventHandler"), J-deviceId)
+                COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp13)
+            ELSE
+                COMPUTE jtemp12 = FUNCTION StringMaker-new0
+                COMPUTE jtemp11 = FUNCTION StringMaker-append1(jtemp12, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameInputStrings"), "f_NO_KEY"))
+                COMPUTE jtemp10 = FUNCTION StringMaker-appendint1(jtemp11, J-keyCode)
+                COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp10), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameInputStrings"), "f_REMOVE_KEY_EVENT"))
+            END-IF
+    GOBACK.
+END FUNCTION GmCnvsInptPrcssr-rmvGmKyEvnt4.
 

@@ -31,7 +31,7 @@ PROCEDURE DIVISION RETURNING J-RESULT.
 END FUNCTION CchblIntrfcFctryIntrfc-new0.
 
 IDENTIFICATION DIVISION.
-FUNCTION-ID. CchblIntrfcFctryIntrfc-gtInsc1.
+FUNCTION-ID. CchblIntrfcFctryIntrfc-gt45790.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
 REPOSITORY.
@@ -57,5 +57,5 @@ PROCEDURE DIVISION USING J-THIS J-key RETURNING J-RESULT.
     DISPLAY "AbstractMethodError: CacheableInterfaceFactoryInterface.getInstance"
     STOP RUN
     GOBACK.
-END FUNCTION CchblIntrfcFctryIntrfc-gtInsc1.
+END FUNCTION CchblIntrfcFctryIntrfc-gt45790.
 

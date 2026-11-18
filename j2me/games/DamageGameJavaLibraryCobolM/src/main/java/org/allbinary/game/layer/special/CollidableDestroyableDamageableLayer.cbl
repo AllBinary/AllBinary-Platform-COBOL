@@ -1,443 +1,1441 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.layer.special
+*> Java class CollidableDestroyableDamageableLayer
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.layer.special
-unit CollidableDestroyableDamageableLayer;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-68603.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CollidableDestroyableDamageableLayer-jcell-NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER BINARY-DOUBLE EXTERNAL.
+01 CollidableDestroyableDamageableLayer-jset-NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF CollidableDestroyableDamageableLayer-jset-NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER = 0
+        MOVE 1 TO CollidableDestroyableDamageableLayer-jset-NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE CollidableDestroyableDamageableLayer-jcell-NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+    END-IF
+    MOVE CollidableDestroyableDamageableLayer-jcell-NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER TO J-RESULT
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-68603.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyS33746.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CollidableDestroyableDamageableLayer-jcell-NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION ClldblDstryblDmgblLyr-68603 TO J-RESULT
+    MOVE J-VALUE TO CollidableDestroyableDamageableLayer-jcell-NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyS33746.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-st61818.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CollidableDestroyableDamageableLayer-jcell-READYFOREXPLOSION BINARY-DOUBLE EXTERNAL.
+01 CollidableDestroyableDamageableLayer-jset-READYFOREXPLOSION BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF CollidableDestroyableDamageableLayer-jset-READYFOREXPLOSION = 0
+        MOVE 1 TO CollidableDestroyableDamageableLayer-jset-READYFOREXPLOSION
+        COMPUTE CollidableDestroyableDamageableLayer-jcell-READYFOREXPLOSION = FUNCTION JR-STR("ReadyForExplosion: ")
+    END-IF
+    MOVE CollidableDestroyableDamageableLayer-jcell-READYFOREXPLOSION TO J-RESULT
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-st61818.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, DamageableInterface, DestroyableInterface, DestroyedEvent, Group, GameKeyEvent, AllBinaryGameLayerManager, CollidableCompositeLayer, PickedUpLayerInterfaceFactoryInterface, PickupBehavior, PickupCompositeInterface, PartInterface, Rectangle, AllBinaryLayerManager, StringMaker, ViewPositionBase, SpecialGameInputInterface, NamedInterface, PaintableInterface;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyS11283.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CollidableDestroyableDamageableLayer-jcell-READYFOREXPLOSION BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION ClldblDstryblDmgblLyr-st61818 TO J-RESULT
+    MOVE J-VALUE TO CollidableDestroyableDamageableLayer-jcell-READYFOREXPLOSION
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyS11283.
 
-type
-  {AB:TYPES}
-  TCollidableDestroyableDamageableLayer = class(TCollidableCompositeLayer, IDestroyableInterface, IDamageableInterface, IPickupCompositeInterface, ISpecialGameInputInterface, INamedInterface, IPaintableInterface)
-  public
-    groupInterface: TArray<TGroup>;
-    readyForExplosion: Boolean;
-    initWidth: Integer;
-    initHeight: Integer;
-    initX: Integer;
-    initY: Integer;
-    initZ: Integer;
-    partInterfaceArrayP: TArray<IPartInterface>;
-    pickupBehavior: TPickupBehavior;
-    allBinaryGameLayerManagerP: TAllBinaryGameLayerManager;
-    isDraggable: Boolean;
-    isDragged: Boolean;
-    isDropped: Boolean;
-    class var NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER: TObject;
-    class var READYFOREXPLOSION_: string;
-    procedure InitFields;
-    function JavaObject: TObject;
-        class function getNullInstance: TCollidableDestroyableDamageableLayer; static;
-        constructor Create(groupInterface: TArray<TGroup>; name: string; layerInfo: TRectangle; viewPosition: TViewPositionBase);
-        procedure initPosition; virtual;
-        procedure initPositionXYZ(x: Integer; y: Integer; z: Integer); virtual;
-        procedure paint(graphics_: TGraphics); virtual;
-        procedure damage(damage: Integer; damageType: Integer); virtual;
-        function getDamage(damageType: Integer): Integer; virtual;
-        function isDestroyed: Boolean; virtual;
-        function getGroupInterface: TArray<TGroup>; virtual;
-        procedure setGroupInterface(teamInterface: TArray<TGroup>); virtual;
-        procedure setAllBinaryGameLayerManager(allBinaryGameLayerManager_: TAllBinaryGameLayerManager); virtual;
-        function isReadyForExplosion: Boolean;
-        procedure setReadyForExplosion(isReadyForExplosion: Boolean);
-        function getInitWidth: Integer; virtual;
-        function getInitHeight: Integer; virtual;
-        function getInitX: Integer; virtual;
-        function getInitY: Integer; virtual;
-        procedure up; virtual;
-        procedure down; virtual;
-        procedure right; virtual;
-        procedure left; virtual;
-        procedure strafeLeft; virtual;
-        procedure strafeRight; virtual;
-        procedure fire(layerManager: TAllBinaryLayerManager; gameKeyEvent_: TGameKeyEvent); virtual;
-        procedure special1(layerManager: TAllBinaryLayerManager; gameKeyEvent_: TGameKeyEvent); virtual;
-        procedure special2(layerManager: TAllBinaryLayerManager; gameKeyEvent_: TGameKeyEvent); virtual;
-        procedure special3(layerManager: TAllBinaryLayerManager; gameKeyEvent_: TGameKeyEvent); virtual;
-        procedure special4(layerManager: TAllBinaryLayerManager; gameKeyEvent_: TGameKeyEvent); virtual;
-        procedure special5(layerManager: TAllBinaryLayerManager; gameKeyEvent_: TGameKeyEvent); virtual;
-        procedure upAnalog(yAnalogValue: Integer); virtual;
-        procedure downAnalog(yAnalogValue: Integer); virtual;
-        procedure rightAnalog(xAnalogValue: Integer); virtual;
-        procedure leftAnalog(xAnalogValue: Integer); virtual;
-        procedure rightTrigger(layerManager: TAllBinaryLayerManager; gameKeyEvent_: TGameKeyEvent; xAnalogValue: Integer); virtual;
-        procedure leftTrigger(layerManager: TAllBinaryLayerManager; gameKeyEvent_: TGameKeyEvent; xAnalogValue: Integer); virtual;
-        procedure onDestroyed(destroyedEvent_: TDestroyedEvent); virtual;
-        function getPickupBehavior: TPickupBehavior; virtual;
-        procedure setPickupBehavior(pickupBehavior_: TPickupBehavior); virtual;
-        procedure addPart(pickedUpLayerInterfaceFactoryInterface_: IPickedUpLayerInterfaceFactoryInterface); virtual;
-        procedure setPartInterfaceArray(partInterfaceArray: TArray<IPartInterface>); virtual;
-        function getPartInterfaceArray: TArray<IPartInterface>; virtual;
-        procedure toStringAppend(stringBuffer: TStringMaker); virtual;
-        function toString: string; override;
-  end;
-
-implementation
-uses
-  CollidableNeverCollideBehaviorFactory, BasicGroupFactory, PartInterfaceUtil, RectangleFactory, NullUtil, StringUtil, PositionStrings, CommonSeps;
-
-
-{AB:CODE}
-
-procedure TCollidableDestroyableDamageableLayer.InitFields;
-begin
-  
-  
-  
-  
-  
-  
-  
-  Self.partInterfaceArrayP := TPartInterfaceUtil.getZeroArray();
-  
-  Self.allBinaryGameLayerManagerP := TAllBinaryGameLayerManager.getNullInstance();
-  Self.isDraggable := False;
-  Self.isDragged := False;
-  Self.isDropped := False;
-end;
-
-function TCollidableDestroyableDamageableLayer.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-new4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-groupInterface BINARY-DOUBLE.
+01 J-name BINARY-DOUBLE.
+01 J-layerInfo BINARY-DOUBLE.
+01 J-viewPosition BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-groupInterface J-name J-layerInfo J-viewPosition RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CollidableDestroyableDamageableLayer")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_groupInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_readyForExplosion")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_initWidth")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_initHeight")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_initX")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_initY")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_initZ")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_partInterfaceArrayP")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_pickupBehavior")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_allBinaryGameLayerManagerP")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_isDraggable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_isDragged")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_isDropped")
     
-
-class function TCollidableDestroyableDamageableLayer.getNullInstance: TCollidableDestroyableDamageableLayer;
-begin
-        if (TCollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER) = (TNullUtil.getInstance().NULL_OBJECT) then begin
-            TCollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER := TCollidableDestroyableDamageableLayer.Create(TBasicGroupFactory.getInstance().NONE_ARRAY, TStringUtil.getInstance().EMPTY_STRING, TRectangleFactory.SINGLETON, TViewPositionBase.NULL_VIEW_POSITION);
-        end;
-        Exit(TCollidableDestroyableDamageableLayer(TJava.ToObject(TCollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER)));
-end;
     
-
-constructor TCollidableDestroyableDamageableLayer.Create(groupInterface: TArray<TGroup>; name: string; layerInfo: TRectangle; viewPosition: TViewPositionBase);
-begin
-        inherited Create(name, layerInfo, viewPosition, TCollidableNeverCollideBehaviorFactory.getInstance());
-        InitFields;
-        Self.initWidth := layerInfo.getWidth();
-        Self.initHeight := layerInfo.getHeight();
-        Self.groupInterface := groupInterface;
-        Self.pickupBehavior := TPickupBehavior.getNullInstance();
-end;
     
-
-// throws Exception
-procedure TCollidableDestroyableDamageableLayer.initPosition;
-begin
-        Self.setPosition(Self.initX, Self.initY, Self.initZ);
-end;
     
-
-// throws Exception
-procedure TCollidableDestroyableDamageableLayer.initPositionXYZ(x: Integer; y: Integer; z: Integer);
-begin
-        Self.initX := x;
-        Self.initY := y;
-        Self.initZ := z;
-end;
     
-
-procedure TCollidableDestroyableDamageableLayer.paint(graphics_: TGraphics);
-begin
-        inherited paint(graphics_);
-end;
     
-
-// throws Exception
-procedure TCollidableDestroyableDamageableLayer.damage(damage: Integer; damageType: Integer);
-begin
-        raise SysUtils.Exception.Create(Self.commonStrings.NOT_IMPLEMENTED);
-end;
     
-
-// throws Exception
-function TCollidableDestroyableDamageableLayer.getDamage(damageType: Integer): Integer;
-begin
-        raise SysUtils.Exception.Create(Self.commonStrings.NOT_IMPLEMENTED);
-end;
+    COMPUTE JVALUE = FUNCTION PrtIntrfcUtl-getZeroArray0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_partInterfaceArrayP", JVALUE)
     
+    COMPUTE JVALUE = FUNCTION AllBnryGmLyrMngr-gtNllInstnc0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_allBinaryGameLayerManagerP", JVALUE)
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_isDraggable", JVALUE)
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_isDragged", JVALUE)
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_isDropped", JVALUE)
+        CONTINUE
+        COMPUTE JVALUE = FUNCTION Rectangle-getWidth0(J-layerInfo)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_initWidth", JVALUE)
+        COMPUTE JVALUE = FUNCTION Rectangle-getHeight0(J-layerInfo)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_initHeight", JVALUE)
+        COMPUTE JVALUE = J-groupInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_groupInterface", JVALUE)
+        COMPUTE JVALUE = FUNCTION PckpBhvr-getNullInstance0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_pickupBehavior", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-new4.
 
-// throws Exception
-function TCollidableDestroyableDamageableLayer.isDestroyed: Boolean;
-begin
-        raise SysUtils.Exception.Create(Self.commonStrings.NOT_IMPLEMENTED);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-gtN31703.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+        IF (FUNCTION ClldblDstryblDmgblLyr-68603 = FUNCTION JR-GET(jtemp2, "f_NULL_OBJECT"))
+            COMPUTE jtemp3 = FUNCTION BasicGroupFactory-getInstance0
+            COMPUTE jtemp4 = FUNCTION StringUtil-getInstance0
+            COMPUTE JDISCARD = FUNCTION ClldblDstryblDmgblLyS33746(FUNCTION ClldblDstryblDmgblLyr-new4(FUNCTION JR-GET(jtemp3, "f_NONE_ARRAY"), FUNCTION JR-GET(jtemp4, "f_EMPTY_STRING"), FUNCTION RctnglFctry-static-SINGLETON, FUNCTION
+        VwPstnBs-sttc-NULL-VIE72744))
+        END-IF
+        COMPUTE J-RESULT = FUNCTION ClldblDstryblDmgblLyr-68603
+        GOBACK
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-gtN31703.
 
-function TCollidableDestroyableDamageableLayer.getGroupInterface: TArray<TGroup>;
-begin
-        Exit(Self.groupInterface);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-intPstn0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION AllBinaryLayer-setPosition3(J-THIS, FUNCTION JR-GET(J-THIS, "f_initX"), FUNCTION JR-GET(J-THIS, "f_initY"), FUNCTION JR-GET(J-THIS, "f_initZ"))
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-intPstn0.
 
-procedure TCollidableDestroyableDamageableLayer.setGroupInterface(teamInterface: TArray<TGroup>);
-begin
-        Self.groupInterface := teamInterface;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-int75716.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-z BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-x J-y J-z RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-x
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_initX", JVALUE)
+        COMPUTE JVALUE = J-y
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_initY", JVALUE)
+        COMPUTE JVALUE = J-z
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_initZ", JVALUE)
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-int75716.
 
-// throws Exception
-procedure TCollidableDestroyableDamageableLayer.setAllBinaryGameLayerManager(allBinaryGameLayerManager_: TAllBinaryGameLayerManager);
-begin
-        Self.allBinaryGameLayerManagerP := allBinaryGameLayerManager_;
-        if (Self.allBinaryGameLayerManagerP) = (nil) then begin
-            raise SysUtils.Exception.Create('');
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION AllBinaryLayer-paint1(J-THIS, J-graphics)
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-paint1.
 
-function TCollidableDestroyableDamageableLayer.isReadyForExplosion: Boolean;
-begin
-        Exit(Self.readyForExplosion);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-damage2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-damage BINARY-DOUBLE.
+01 J-damageType BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-damage J-damageType RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-damage2.
 
-procedure TCollidableDestroyableDamageableLayer.setReadyForExplosion(isReadyForExplosion: Boolean);
-begin
-        Self.readyForExplosion := isReadyForExplosion;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-gtDmg1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-damageType BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-damageType RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-gtDmg1.
 
-function TCollidableDestroyableDamageableLayer.getInitWidth: Integer;
-begin
-        Exit(Self.initWidth);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-isD84277.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-isD84277.
 
-function TCollidableDestroyableDamageableLayer.getInitHeight: Integer;
-begin
-        Exit(Self.initHeight);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-gtG11873.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_groupInterface")
+        GOBACK
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-gtG11873.
 
-function TCollidableDestroyableDamageableLayer.getInitX: Integer;
-begin
-        Exit(Self.initX);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-stG60562.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-teamInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-teamInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-teamInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_groupInterface", JVALUE)
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-stG60562.
 
-function TCollidableDestroyableDamageableLayer.getInitY: Integer;
-begin
-        Exit(Self.initY);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-stA18863.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryGameLayerManager BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryGameLayerManager RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-allBinaryGameLayerManager
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_allBinaryGameLayerManagerP", JVALUE)
+        IF (FUNCTION JR-GET(J-THIS, "f_allBinaryGameLayerManagerP") = 0)
+            COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+        END-IF
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-stA18863.
 
-// throws Exception
-procedure TCollidableDestroyableDamageableLayer.up;
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-isR91717.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_readyForExplosion")
+        GOBACK
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-isR91717.
 
-// throws Exception
-procedure TCollidableDestroyableDamageableLayer.down;
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-stR19074.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-isReadyForExplosion BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-isReadyForExplosion RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-isReadyForExplosion
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_readyForExplosion", JVALUE)
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-stR19074.
 
-// throws Exception
-procedure TCollidableDestroyableDamageableLayer.right;
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-gtI36459.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_initWidth")
+        GOBACK
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-gtI36459.
 
-// throws Exception
-procedure TCollidableDestroyableDamageableLayer.left;
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-gtI27129.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_initHeight")
+        GOBACK
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-gtI27129.
 
-// throws Exception
-procedure TCollidableDestroyableDamageableLayer.strafeLeft;
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-gtIntX0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_initX")
+        GOBACK
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-gtIntX0.
 
-// throws Exception
-procedure TCollidableDestroyableDamageableLayer.strafeRight;
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-gtIntY0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_initY")
+        GOBACK
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-gtIntY0.
 
-// throws Exception
-procedure TCollidableDestroyableDamageableLayer.fire(layerManager: TAllBinaryLayerManager; gameKeyEvent_: TGameKeyEvent);
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-up0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-up0.
 
-// throws Exception
-procedure TCollidableDestroyableDamageableLayer.special1(layerManager: TAllBinaryLayerManager; gameKeyEvent_: TGameKeyEvent);
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-down0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-down0.
 
-// throws Exception
-procedure TCollidableDestroyableDamageableLayer.special2(layerManager: TAllBinaryLayerManager; gameKeyEvent_: TGameKeyEvent);
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-right0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-right0.
 
-// throws Exception
-procedure TCollidableDestroyableDamageableLayer.special3(layerManager: TAllBinaryLayerManager; gameKeyEvent_: TGameKeyEvent);
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-left0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-left0.
 
-// throws Exception
-procedure TCollidableDestroyableDamageableLayer.special4(layerManager: TAllBinaryLayerManager; gameKeyEvent_: TGameKeyEvent);
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-strfLft0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-strfLft0.
 
-// throws Exception
-procedure TCollidableDestroyableDamageableLayer.special5(layerManager: TAllBinaryLayerManager; gameKeyEvent_: TGameKeyEvent);
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-str46832.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-str46832.
 
-// throws Exception
-procedure TCollidableDestroyableDamageableLayer.upAnalog(yAnalogValue: Integer);
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-fire2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerManager BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerManager J-gameKeyEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-fire2.
 
-// throws Exception
-procedure TCollidableDestroyableDamageableLayer.downAnalog(yAnalogValue: Integer);
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-spcl12.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerManager BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerManager J-gameKeyEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-spcl12.
 
-// throws Exception
-procedure TCollidableDestroyableDamageableLayer.rightAnalog(xAnalogValue: Integer);
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-spcl22.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerManager BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerManager J-gameKeyEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-spcl22.
 
-// throws Exception
-procedure TCollidableDestroyableDamageableLayer.leftAnalog(xAnalogValue: Integer);
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-spcl32.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerManager BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerManager J-gameKeyEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-spcl32.
 
-// throws Exception
-procedure TCollidableDestroyableDamageableLayer.rightTrigger(layerManager: TAllBinaryLayerManager; gameKeyEvent_: TGameKeyEvent; xAnalogValue: Integer);
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-spcl42.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerManager BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerManager J-gameKeyEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-spcl42.
 
-// throws Exception
-procedure TCollidableDestroyableDamageableLayer.leftTrigger(layerManager: TAllBinaryLayerManager; gameKeyEvent_: TGameKeyEvent; xAnalogValue: Integer);
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-spcl52.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerManager BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerManager J-gameKeyEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-spcl52.
 
-procedure TCollidableDestroyableDamageableLayer.onDestroyed(destroyedEvent_: TDestroyedEvent);
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-upAnlg1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-yAnalogValue BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-yAnalogValue RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-upAnlg1.
 
-function TCollidableDestroyableDamageableLayer.getPickupBehavior: TPickupBehavior;
-begin
-        Exit(Self.pickupBehavior);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-dwnAnlg1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-yAnalogValue BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-yAnalogValue RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-dwnAnlg1.
 
-procedure TCollidableDestroyableDamageableLayer.setPickupBehavior(pickupBehavior_: TPickupBehavior);
-begin
-        Self.pickupBehavior := pickupBehavior_;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-rgh79368.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-xAnalogValue BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-xAnalogValue RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-rgh79368.
 
-// throws Exception
-procedure TCollidableDestroyableDamageableLayer.addPart(pickedUpLayerInterfaceFactoryInterface_: IPickedUpLayerInterfaceFactoryInterface);
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-lftAnlg1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-xAnalogValue BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-xAnalogValue RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-lftAnlg1.
 
-procedure TCollidableDestroyableDamageableLayer.setPartInterfaceArray(partInterfaceArray: TArray<IPartInterface>);
-begin
-        Self.partInterfaceArrayP := partInterfaceArray;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-rgh86119.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerManager BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 J-xAnalogValue BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerManager J-gameKeyEvent J-xAnalogValue RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-rgh86119.
 
-function TCollidableDestroyableDamageableLayer.getPartInterfaceArray: TArray<IPartInterface>;
-begin
-        Exit(Self.partInterfaceArrayP);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-lft19292.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerManager BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 J-xAnalogValue BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerManager J-gameKeyEvent J-xAnalogValue RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-lft19292.
 
-procedure TCollidableDestroyableDamageableLayer.toStringAppend(stringBuffer: TStringMaker);
-var
-  commonSeps_: TCommonSeps;
-  positionStrings_: TPositionStrings;
-  groupInterfaceArray: TArray<TGroup>;
-  size: Integer;
-  index: Integer;
-  pickupBehavior_: TPickupBehavior;
-begin
-        commonSeps_ := TCommonSeps.getInstance();
-        positionStrings_ := TPositionStrings.getInstance();
-        inherited toStringAppend(stringBuffer);
-        stringBuffer.append(commonSeps_.NEW_LINE);
-        groupInterfaceArray := Self.getGroupInterface();
-        size := System.Length(groupInterfaceArray);
-        for index := 0 to size - 1 do begin
-            stringBuffer.append(groupInterfaceArray[index].toString());
-            stringBuffer.append(commonSeps_.COMMA);
-        end;
-        pickupBehavior_ := Self.getPickupBehavior();
-        if (pickupBehavior_) <> (nil) then begin
-            stringBuffer.append(commonSeps_.NEW_LINE);
-            stringBuffer.append(pickupBehavior_.toString());
-        end;
-        stringBuffer.append(commonSeps_.NEW_LINE);
-        stringBuffer.append(TCollidableDestroyableDamageableLayer.READYFOREXPLOSION_);
-        stringBuffer.appendboolean(Self.readyForExplosion);
-        stringBuffer.append(commonSeps_.NEW_LINE);
-        stringBuffer.append(Self.commonStrings.INIT);
-        stringBuffer.append(commonSeps_.SPACE);
-        stringBuffer.append(positionStrings_.X_LABEL);
-        stringBuffer.appendint(Self.initX);
-        stringBuffer.append(positionStrings_.Y_LABEL);
-        stringBuffer.appendint(Self.initX);
-        stringBuffer.append(positionStrings_.Z_LABEL);
-        stringBuffer.appendint(Self.initZ);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-onD48331.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-destroyedEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-destroyedEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-onD48331.
 
-function TCollidableDestroyableDamageableLayer.toString: string;
-var
-  stringBuffer: TStringMaker;
-begin
-        stringBuffer := TStringMaker.Create();
-        Self.toStringAppend(stringBuffer);
-        Exit(stringBuffer.toString());
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-gtP91554.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_pickupBehavior")
+        GOBACK
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-gtP91554.
 
-initialization
-  {AB:INITIALIZATION}
-  TCollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER := TJava.Box(TNullUtil.getInstance().NULL_OBJECT);
-  TCollidableDestroyableDamageableLayer.READYFOREXPLOSION_ := 'ReadyForExplosion: ';
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-stP50254.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-pickupBehavior BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-pickupBehavior RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-pickupBehavior
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_pickupBehavior", JVALUE)
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-stP50254.
 
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-addPart1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-pickedUpLayerInterfaceFactoryInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-pickedUpLayerInterfaceFactoryInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-addPart1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-stP40158.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-partInterfaceArray BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-partInterfaceArray RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-partInterfaceArray
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_partInterfaceArrayP", JVALUE)
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-stP40158.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-gtP81790.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_partInterfaceArrayP")
+        GOBACK
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-gtP81790.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-tSt60700.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-commonSeps BINARY-DOUBLE.
+01 J-positionStrings BINARY-DOUBLE.
+01 J-groupInterfaceArray BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-pickupBehavior BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-stringBuffer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-stringBuffer RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-commonSeps = FUNCTION CommonSeps-getInstance0
+        COMPUTE J-positionStrings = FUNCTION PositionStrings-getInstance0
+        COMPUTE JDISCARD = FUNCTION ClldblCmpstLyr-toStringAppend1(J-THIS, J-stringBuffer)
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-commonSeps, "f_NEW_LINE"))
+        COMPUTE J-groupInterfaceArray = FUNCTION ClldblDstryblDmgblLyr-gtG11873(J-THIS)
+        COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(J-groupInterfaceArray)
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-TO-STRING(FUNCTION JR-ARRAY-GET(J-groupInterfaceArray, J-index)))
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-commonSeps, "f_COMMA"))
+        END-PERFORM
+        COMPUTE J-pickupBehavior = FUNCTION ClldblDstryblDmgblLyr-gtP91554(J-THIS)
+        IF (J-pickupBehavior NOT = 0)
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-commonSeps, "f_NEW_LINE"))
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-TO-STRING(J-pickupBehavior))
+        END-IF
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-commonSeps, "f_NEW_LINE"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION ClldblDstryblDmgblLyr-st61818)
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendboolean1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_readyForExplosion"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-commonSeps, "f_NEW_LINE"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_INIT"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-commonSeps, "f_SPACE"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-positionStrings, "f_X_LABEL"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_initX"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-positionStrings, "f_Y_LABEL"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_initX"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-positionStrings, "f_Z_LABEL"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_initZ"))
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-tSt60700.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblDstryblDmgblLyr-tStrng0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringBuffer BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE JDISCARD = FUNCTION ClldblDstryblDmgblLyr-tSt60700(J-THIS, J-stringBuffer)
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(J-stringBuffer)
+        GOBACK
+    GOBACK.
+END FUNCTION ClldblDstryblDmgblLyr-tStrng0.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. CollidableDestroyable-toString.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ClldblDstryblDmgblLyr-tStrng0(J-THIS)
+    GOBACK.
+END PROGRAM CollidableDestroyable-toString.
 

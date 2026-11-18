@@ -36,6 +36,25 @@ PROCEDURE DIVISION RETURNING J-RESULT.
 END FUNCTION MyRndmFctry-static-instance.
 
 IDENTIFICATION DIVISION.
+FUNCTION-ID. MyRndmFctrystaticinsS56511.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 MyRandomFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION MyRndmFctry-static-instance TO J-RESULT
+    MOVE J-VALUE TO MyRandomFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION MyRndmFctrystaticinsS56511.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. MyRandomFactory-new0.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -190,7 +209,7 @@ PROCEDURE DIVISION USING J-THIS J-range RETURNING J-RESULT.
 END FUNCTION MyRndmFctry-gtAbsltNxtInt1.
 
 IDENTIFICATION DIVISION.
-FUNCTION-ID. MyRndmFctry-gtAbsltNxtIntAllr1.
+FUNCTION-ID. MyRndmFctry-gtAbsltNxtInt45945.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
 REPOSITORY.
@@ -221,7 +240,7 @@ PROCEDURE DIVISION USING J-THIS J-range RETURNING J-RESULT.
             GOBACK
         END-IF
     GOBACK.
-END FUNCTION MyRndmFctry-gtAbsltNxtIntAllr1.
+END FUNCTION MyRndmFctry-gtAbsltNxtInt45945.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. MyRandomFactory-shuffle1.
@@ -296,8 +315,8 @@ PROCEDURE DIVISION USING J-THIS J-intArray J-shuffleTotal RETURNING J-RESULT.
             END-IF
             MOVE 0 TO JFIRST1
             IF NOT (J-index < J-shuffleTotal) EXIT PERFORM END-IF
-            COMPUTE J-randomIndex = FUNCTION MyRndmFctry-gtAbsltNxtIntAllr1(J-THIS, J-size)
-            COMPUTE J-randomIndex2 = FUNCTION MyRndmFctry-gtAbsltNxtIntAllr1(J-THIS, J-size)
+            COMPUTE J-randomIndex = FUNCTION MyRndmFctry-gtAbsltNxtInt45945(J-THIS, J-size)
+            COMPUTE J-randomIndex2 = FUNCTION MyRndmFctry-gtAbsltNxtInt45945(J-THIS, J-size)
             COMPUTE J-value = FUNCTION JR-ARRAY-GET(J-intArray, J-randomIndex)
             COMPUTE JVALUE = FUNCTION JR-ARRAY-GET(J-intArray, J-randomIndex2)
             COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-intArray, J-randomIndex, JVALUE)
@@ -384,8 +403,8 @@ PROCEDURE DIVISION USING J-THIS J-intArray J-intArray2 J-shuffleTotal RETURNING 
             END-IF
             MOVE 0 TO JFIRST2
             IF NOT (J-index < J-shuffleTotal) EXIT PERFORM END-IF
-            COMPUTE J-randomIndex = FUNCTION MyRndmFctry-gtAbsltNxtIntAllr1(J-THIS, J-size)
-            COMPUTE J-randomIndex2 = FUNCTION MyRndmFctry-gtAbsltNxtIntAllr1(J-THIS, J-size)
+            COMPUTE J-randomIndex = FUNCTION MyRndmFctry-gtAbsltNxtInt45945(J-THIS, J-size)
+            COMPUTE J-randomIndex2 = FUNCTION MyRndmFctry-gtAbsltNxtInt45945(J-THIS, J-size)
             COMPUTE J-value = FUNCTION JR-ARRAY-GET(J-intArray, J-randomIndex)
             COMPUTE J-value2 = FUNCTION JR-ARRAY-GET(J-intArray2, J-randomIndex)
             COMPUTE JVALUE = FUNCTION JR-ARRAY-GET(J-intArray, J-randomIndex2)

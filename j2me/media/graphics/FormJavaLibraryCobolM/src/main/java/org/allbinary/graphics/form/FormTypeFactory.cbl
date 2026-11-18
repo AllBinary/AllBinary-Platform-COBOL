@@ -1,94 +1,164 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.form
+*> Java class FormTypeFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.form
-unit FormTypeFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FrmTypFctry-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 FormTypeFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 FormTypeFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF FormTypeFactory-jset-instance = 0
+        MOVE 1 TO FormTypeFactory-jset-instance
+        COMPUTE FormTypeFactory-jcell-instance = FUNCTION FormTypeFactory-new0
+    END-IF
+    MOVE FormTypeFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION FrmTypFctry-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FrmTypFctrystaticinsS69431.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 FormTypeFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION FrmTypFctry-static-instance TO J-RESULT
+    MOVE J-VALUE TO FormTypeFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION FrmTypFctrystaticinsS69431.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FormTypeFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("FormTypeFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_UNK")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NULL_FORM_TYPE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_TEMP_HORIZONTAL_FORM")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_HORIZONTAL_FORM")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_VERTICAL_CENTER_FORM")
+    COMPUTE JVALUE = FUNCTION JR-STR("Unknown FormType")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_UNK", JVALUE)
+    COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION FormType-new1(FUNCTION JR-GET(jtemp1, "f_NULL_STRING"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NULL_FORM_TYPE", JVALUE)
+    COMPUTE JVALUE = FUNCTION FormType-new1(FUNCTION JR-STR("TempHorizontal"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_TEMP_HORIZONTAL_FORM", JVALUE)
+    COMPUTE JVALUE = FUNCTION FormType-new1(FUNCTION JR-STR("Horizontal"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_HORIZONTAL_FORM", JVALUE)
+    COMPUTE JVALUE = FUNCTION FormType-new1(FUNCTION JR-STR("Vertical"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_VERTICAL_CENTER_FORM", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION FormTypeFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, FormType;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FormTypeFactory-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION FrmTypFctry-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION FormTypeFactory-getInstance0.
 
-type
-  {AB:TYPES}
-  TFormTypeFactory = class(TObject)
-  public
-    UNK: string;
-    NULL_FORM_TYPE: TFormType;
-    TEMP_HORIZONTAL_FORM: TFormType;
-    HORIZONTAL_FORM: TFormType;
-    VERTICAL_CENTER_FORM: TFormType;
-    class var instance: TFormTypeFactory;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TFormTypeFactory; static;
-        function getFormType: TFormType; virtual;
-  end;
-
-implementation
-uses
-  DisplayInfoSingleton, StringUtil;
-
-
-{AB:CODE}
-
-procedure TFormTypeFactory.InitFields;
-begin
-  Self.UNK := 'Unknown FormType';
-  Self.NULL_FORM_TYPE := TFormType.Create(TStringUtil.getInstance().NULL_STRING);
-  Self.TEMP_HORIZONTAL_FORM := TFormType.Create('TempHorizontal');
-  Self.HORIZONTAL_FORM := TFormType.Create('Horizontal');
-  Self.VERTICAL_CENTER_FORM := TFormType.Create('Vertical');
-end;
-
-constructor TFormTypeFactory.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TFormTypeFactory.getInstance: TFormTypeFactory;
-begin
-        Exit(TFormTypeFactory.instance);
-end;
-    
-
-function TFormTypeFactory.getFormType: TFormType;
-var
-  displayInfo: TDisplayInfoSingleton;
-  formType_: TFormType;
-begin
-        displayInfo := TDisplayInfoSingleton.getInstance();
-        
-        if displayInfo.isPortrait() then begin
-            formType_ := Self.VERTICAL_CENTER_FORM;
-        end else begin
-            formType_ := Self.HORIZONTAL_FORM;
-        end;
-        Exit(formType_);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TFormTypeFactory.instance := TFormTypeFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FormTypeFactory-getFormType0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-displayInfo BINARY-DOUBLE.
+01 J-formType BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-displayInfo = FUNCTION DsplyInfSngltn-getInstance0
+        CONTINUE
+        IF (FUNCTION DsplyInfSngltn-isPortrait0(J-displayInfo) = 1)
+            COMPUTE J-formType = FUNCTION JR-GET(J-THIS, "f_VERTICAL_CENTER_FORM")
+        ELSE
+            COMPUTE J-formType = FUNCTION JR-GET(J-THIS, "f_HORIZONTAL_FORM")
+        END-IF
+        COMPUTE J-RESULT = J-formType
+        GOBACK
+    GOBACK.
+END FUNCTION FormTypeFactory-getFormType0.
 

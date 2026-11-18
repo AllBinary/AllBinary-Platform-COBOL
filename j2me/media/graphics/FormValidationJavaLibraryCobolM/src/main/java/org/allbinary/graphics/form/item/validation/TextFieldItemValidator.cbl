@@ -1,121 +1,164 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.form.item.validation
+*> Java class TextFieldItemValidator
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.form.item.validation
-unit TextFieldItemValidator;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, ABTextFieldItem, ValidatorBase, BasicArrayList;
-
-type
-  {AB:TYPES}
-  TTextFieldItemValidator = class(TValidatorBase)
-  public
-    textFieldItem: TABTextFieldItem;
-    min: Integer;
-    max: Integer;
-    allowOnEmpty: Boolean;
-    procedure InitFields;
-        constructor Create(textFieldItem: TABTextFieldItem; min: Integer; max: Integer; allowOnEmpty: Boolean);
-        function isValid: Boolean; override;
-        function toList: TBasicArrayList; override;
-  end;
-
-implementation
-uses
-  BooleanFactory, StringMaker, BasicArrayListD;
-
-
-{AB:CODE}
-
-procedure TTextFieldItemValidator.InitFields;
-begin
-  
-  
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TextFieldItemValidator-new4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-textFieldItem BINARY-DOUBLE.
+01 J-min BINARY-DOUBLE.
+01 J-max BINARY-DOUBLE.
+01 J-allowOnEmpty BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-textFieldItem J-min J-max J-allowOnEmpty RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("TextFieldItemValidator")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_textFieldItem")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_min")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_max")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_allowOnEmpty")
     
-
-constructor TTextFieldItemValidator.Create(textFieldItem: TABTextFieldItem; min: Integer; max: Integer; allowOnEmpty: Boolean);
-begin
-    inherited Create;
-    InitFields;
-        Self.textFieldItem := textFieldItem;
-        Self.min := min;
-        Self.max := max;
-        Self.allowOnEmpty := allowOnEmpty;
-end;
     
-
-function TTextFieldItemValidator.isValid: Boolean;
-var
-  booleanFactory_: TBooleanFactory;
-  result_: Boolean;
-  string_: string;
-  textLength: Integer;
-begin
-        booleanFactory_ := TBooleanFactory.getInstance();
-        result_ := booleanFactory_.TRUE_;
-        string_ := Self.textFieldItem.getString();
-        textLength := System.Length(string_);
-        if ((((textLength) = (0)) and (Self.allowOnEmpty))) or (((textLength) > (Self.min)) and ((textLength) < (Self.max))) then begin
-        end else begin
-            if (textLength) < (Self.min) then begin
-                result_ := booleanFactory_.FALSE_;
-            end else if (textLength) > (Self.max) then begin
-                result_ := booleanFactory_.FALSE_;
-            end;
-        end;
-        Exit(result_);
-end;
     
+    
+        COMPUTE JVALUE = J-textFieldItem
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_textFieldItem", JVALUE)
+        COMPUTE JVALUE = J-min
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_min", JVALUE)
+        COMPUTE JVALUE = J-max
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_max", JVALUE)
+        COMPUTE JVALUE = J-allowOnEmpty
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_allowOnEmpty", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION TextFieldItemValidator-new4.
 
-function TTextFieldItemValidator.toList: TBasicArrayList;
-var
-  list: TBasicArrayList;
-  string_: string;
-  textLength: Integer;
-  label_: string;
-  name: string;
-begin
-        list := TBasicArrayListD.Create();
-        string_ := Self.textFieldItem.getString();
-        textLength := System.Length(string_);
-        if ((textLength) > (Self.min)) and ((textLength) < (Self.max)) then begin
-        end else begin
-            label_ := Self.textFieldItem.getLabel();
-            name := Copy(label_, (0) + 1, ((System.Length(label_)) - (2)) - (0));
-            if (textLength) < (Self.min) then begin
-                list.add(TJava.Box(TStringMaker.Create().append(name).append(' is to short').toString()));
-            end else if (textLength) > (Self.max) then begin
-                list.add(TJava.Box(TStringMaker.Create().append(name).append(' is to long').toString()));
-            end;
-        end;
-        Exit(list);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TxtFldItmVldtr-isValid0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-booleanFactory BINARY-DOUBLE.
+01 J-result-L BINARY-DOUBLE.
+01 J-string BINARY-DOUBLE.
+01 J-textLength BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-booleanFactory = FUNCTION BooleanFactory-getInstance0
+        COMPUTE J-result-L = FUNCTION JR-GET(J-booleanFactory, "f_TRUE")
+        COMPUTE J-string = FUNCTION ABTextFieldItem-getString0(FUNCTION JR-GET(J-THIS, "f_textFieldItem"))
+        COMPUTE J-textLength = FUNCTION JR-STR-LENGTH(J-string)
+        IF ((((J-textLength = 0) AND (FUNCTION JR-GET(J-THIS, "f_allowOnEmpty") = 1))) OR ((J-textLength > FUNCTION JR-GET(J-THIS, "f_min")) AND (J-textLength < FUNCTION JR-GET(J-THIS, "f_max"))))
+            CONTINUE
+        ELSE
+            IF (J-textLength < FUNCTION JR-GET(J-THIS, "f_min"))
+                COMPUTE J-result-L = FUNCTION JR-GET(J-booleanFactory, "f_FALSE")
+            ELSE
+                IF (J-textLength > FUNCTION JR-GET(J-THIS, "f_max"))
+                COMPUTE J-result-L = FUNCTION JR-GET(J-booleanFactory, "f_FALSE")
+            END-IF
+            END-IF
+        END-IF
+        COMPUTE J-RESULT = J-result-L
+        GOBACK
+    GOBACK.
+END FUNCTION TxtFldItmVldtr-isValid0.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TextFieldItemValidator-toList0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-list BINARY-DOUBLE.
+01 J-string BINARY-DOUBLE.
+01 J-textLength BINARY-DOUBLE.
+01 J-label BINARY-DOUBLE.
+01 J-name BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-list = FUNCTION BasicArrayListD-new0
+        COMPUTE J-string = FUNCTION ABTextFieldItem-getString0(FUNCTION JR-GET(J-THIS, "f_textFieldItem"))
+        COMPUTE J-textLength = FUNCTION JR-STR-LENGTH(J-string)
+        IF ((J-textLength > FUNCTION JR-GET(J-THIS, "f_min")) AND (J-textLength < FUNCTION JR-GET(J-THIS, "f_max")))
+            CONTINUE
+        ELSE
+            COMPUTE J-label = FUNCTION ABTextFieldItem-getLabel0(FUNCTION JR-GET(J-THIS, "f_textFieldItem"))
+            COMPUTE jtemp1 = 0
+            COMPUTE jtemp2 = (FUNCTION MOD((FUNCTION JR-STR-LENGTH(J-label) - 2) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE J-name = FUNCTION JR-SUBSTRING(J-label, jtemp1, jtemp2)
+            IF (J-textLength < FUNCTION JR-GET(J-THIS, "f_min"))
+                COMPUTE jtemp8 = FUNCTION StringMaker-new0
+                COMPUTE jtemp7 = FUNCTION StringMaker-append1(jtemp8, J-name)
+                COMPUTE jtemp6 = FUNCTION StringMaker-append1(jtemp7, FUNCTION JR-STR(" is to short"))
+                COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-list, FUNCTION JR-TO-STRING(jtemp6))
+            ELSE
+                IF (J-textLength > FUNCTION JR-GET(J-THIS, "f_max"))
+                COMPUTE jtemp5 = FUNCTION StringMaker-new0
+                COMPUTE jtemp4 = FUNCTION StringMaker-append1(jtemp5, J-name)
+                COMPUTE jtemp3 = FUNCTION StringMaker-append1(jtemp4, FUNCTION JR-STR(" is to long"))
+                COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-list, FUNCTION JR-TO-STRING(jtemp3))
+            END-IF
+            END-IF
+        END-IF
+        COMPUTE J-RESULT = J-list
+        GOBACK
+    GOBACK.
+END FUNCTION TextFieldItemValidator-toList0.
 

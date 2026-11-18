@@ -1,102 +1,158 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2025 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.system.security.crypt.jcehelper
+*> Java class SecretComposite
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SecretComposite-new3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-secretKey BINARY-DOUBLE.
+01 J-cipher BINARY-DOUBLE.
+01 J-key BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-secretKey J-cipher J-key RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("SecretComposite")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_byteUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_cipher")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_secretKey")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_key")
+    COMPUTE JVALUE = FUNCTION ByteUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_byteUtil", JVALUE)
     
-}
-// Generated Code Do Not Modify
-// package org.allbinary.logic.system.security.crypt.jcehelper
-unit SecretComposite;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, ByteUtil, BaseSecretComposite;
-
-type
-  {AB:TYPES}
-  TSecretComposite = class(TBaseSecretComposite)
-  public
-    byteUtil: TByteUtil;
-    cipher: TCipher;
-    secretKey: TSecretKey;
-    key: TArray<ShortInt>;
-    procedure InitFields;
-        constructor Create(secretKey_: TSecretKey; cipher_: TCipher; key: TArray<ShortInt>);
-        function encrypt(array_: TArray<ShortInt>): TArray<ShortInt>; override;
-        function decrypt(array_: TArray<ShortInt>): TArray<ShortInt>; override;
-        function mutilate(array_: TArray<ShortInt>): TArray<ShortInt>;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TSecretComposite.InitFields;
-begin
-  Self.byteUtil := TByteUtil.getInstance();
-  
-  
-  
-end;
     
-
-constructor TSecretComposite.Create(secretKey_: TSecretKey; cipher_: TCipher; key: TArray<ShortInt>);
-begin
-    inherited Create;
-    InitFields;
-        Self.secretKey := secretKey_;
-        Self.cipher := cipher_;
-        Self.key := key;
-end;
     
+        COMPUTE JVALUE = J-secretKey
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_secretKey", JVALUE)
+        COMPUTE JVALUE = J-cipher
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_cipher", JVALUE)
+        COMPUTE JVALUE = J-key
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_key", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION SecretComposite-new3.
 
-// throws Exception
-function TSecretComposite.encrypt(array_: TArray<ShortInt>): TArray<ShortInt>;
-begin
-        array_ := Self.mutilate(array_);
-        Self.cipher.init(TCipher.ENCRYPT_MODE, Self.secretKey);
-        Exit(Self.cipher.doFinal(array_));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SecretComposite-encrypt1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-array BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-array RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-array = FUNCTION SecretComposite-mutilate1(J-THIS, J-array)
+        COMPUTE JDISCARD = FUNCTION Cipher-init2(FUNCTION JR-GET(J-THIS, "f_cipher"), FUNCTION Cipher-static-ENCRYPT-MODE, FUNCTION JR-GET(J-THIS, "f_secretKey"))
+        COMPUTE J-RESULT = FUNCTION Cipher-doFinal1(FUNCTION JR-GET(J-THIS, "f_cipher"), J-array)
+        GOBACK
+    GOBACK.
+END FUNCTION SecretComposite-encrypt1.
 
-// throws Exception
-function TSecretComposite.decrypt(array_: TArray<ShortInt>): TArray<ShortInt>;
-begin
-        Self.cipher.init(TCipher.DECRYPT_MODE, Self.secretKey);
-        Exit(Self.mutilate(Self.cipher.doFinal(array_)));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SecretComposite-decrypt1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-array BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-array RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Cipher-init2(FUNCTION JR-GET(J-THIS, "f_cipher"), FUNCTION Cipher-static-DECRYPT-MODE, FUNCTION JR-GET(J-THIS, "f_secretKey"))
+        COMPUTE J-RESULT = FUNCTION SecretComposite-mutilate1(J-THIS, FUNCTION Cipher-doFinal1(FUNCTION JR-GET(J-THIS, "f_cipher"), J-array))
+        GOBACK
+    GOBACK.
+END FUNCTION SecretComposite-decrypt1.
 
-function TSecretComposite.mutilate(array_: TArray<ShortInt>): TArray<ShortInt>;
-var
-  value: ShortInt;
-  index: Integer;
-begin
-        for index := 0 to System.Length(Self.key) - 1 do begin
-            value := Self.key[index];
-            if ((Integer(value)) < (8)) and ((Integer(value)) > (0)) then begin
-                array_ := Self.byteUtil.xorByte(array_, Integer(value));
-            end;
-        end;
-        Exit(array_);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SecretComposite-mutilate1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-value BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-array BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-array RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_key"))) EXIT PERFORM END-IF
+            COMPUTE J-value = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_key"), J-index)
+            IF ((J-value < 8) AND (J-value > 0))
+                COMPUTE jtemp1 = J-value
+                COMPUTE J-array = FUNCTION ByteUtil-xorByte2(FUNCTION JR-GET(J-THIS, "f_byteUtil"), J-array, jtemp1)
+            END-IF
+        END-PERFORM
+        COMPUTE J-RESULT = J-array
+        GOBACK
+    GOBACK.
+END FUNCTION SecretComposite-mutilate1.
 

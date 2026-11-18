@@ -1,94 +1,170 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.displayable.canvas
+*> Java class BufferedGameCanvasPaintHelper
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.displayable.canvas
-unit BufferedGameCanvasPaintHelper;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BffrdGmCnvsPntHlpr-sttc66317.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BufferedGameCanvasPaintHelper-jcell-MAX_IMAGES BINARY-DOUBLE EXTERNAL.
+01 BufferedGameCanvasPaintHelper-jset-MAX_IMAGES BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF BufferedGameCanvasPaintHelper-jset-MAX_IMAGES = 0
+        MOVE 1 TO BufferedGameCanvasPaintHelper-jset-MAX_IMAGES
+        COMPUTE BufferedGameCanvasPaintHelper-jcell-MAX_IMAGES = 4
+    END-IF
+    MOVE BufferedGameCanvasPaintHelper-jcell-MAX_IMAGES TO J-RESULT
+    GOBACK.
+END FUNCTION BffrdGmCnvsPntHlpr-sttc66317.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BffrdGmCnvsPntHlprstS98052.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BufferedGameCanvasPaintHelper-jcell-MAX_IMAGES BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION BffrdGmCnvsPntHlpr-sttc66317 TO J-RESULT
+    MOVE J-VALUE TO BufferedGameCanvasPaintHelper-jcell-MAX_IMAGES
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION BffrdGmCnvsPntHlprstS98052.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BffrdGmCnvsPntHlpr-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-gameCanvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-gameCanvas RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("BufferedGameCanvasPaintHelper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameCanvas")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_offScreenImage")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_previousImage")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_circularIndexUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_drawCircularIndexUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_anchor")
+    COMPUTE JVALUE = FUNCTION NllCnvs-static-NULL-CANVAS
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameCanvas", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY(FUNCTION BffrdGmCnvsPntHlpr-sttc66317)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_offScreenImage", JVALUE)
+    COMPUTE JVALUE = FUNCTION NullImage-static-NULL-IMAGE
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_previousImage", JVALUE)
+    COMPUTE JVALUE = FUNCTION CrclrIndxUtl-createInstance1(FUNCTION BffrdGmCnvsPntHlpr-sttc66317)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_circularIndexUtil", JVALUE)
+    COMPUTE jtemp1 = (FUNCTION MOD((FUNCTION BffrdGmCnvsPntHlpr-sttc66317 - 1) + 2147483648, 4294967296) - 2147483648)
+    COMPUTE JVALUE = FUNCTION CrclrIndxUtl-createInstanceAt2(jtemp1, FUNCTION BffrdGmCnvsPntHlpr-sttc66317)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_drawCircularIndexUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION Anchor-static-TOP-LEFT
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_anchor", JVALUE)
+        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION BffrdGmCnvsPntHlpr-new1.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Canvas, Graphics, Image, ProcessPaintable, CircularIndexUtil, AllBinaryGameCanvas;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BffrdGmCnvsPntHlpr-process0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-myCanvas BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-myCanvas = (FUNCTION JR-GET(J-THIS, "f_gameCanvas"))
+        COMPUTE JDISCARD = FUNCTION MyCanvas-draw1(J-myCanvas, FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_offScreenImage"), FUNCTION CircularIndexUtil-getIndex0(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil")))))
+        COMPUTE JDISCARD = FUNCTION CircularIndexUtil-next0(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil"))
+        COMPUTE JDISCARD = FUNCTION CircularIndexUtil-next0(FUNCTION JR-GET(J-THIS, "f_drawCircularIndexUtil"))
+    GOBACK.
+END FUNCTION BffrdGmCnvsPntHlpr-process0.
 
-type
-  {AB:TYPES}
-  TBufferedGameCanvasPaintHelper = class(TProcessPaintable)
-  public
-    gameCanvas: TCanvas;
-    offScreenImage: TArray<TImage>;
-    previousImage: TImage;
-    circularIndexUtil: TCircularIndexUtil;
-    drawCircularIndexUtil: TCircularIndexUtil;
-    anchor: Integer;
-    class var MAX_IMAGES: Integer;
-    procedure InitFields;
-        constructor Create(gameCanvas: TAllBinaryGameCanvas);
-        procedure process; override;
-        procedure paint(graphics_: TGraphics); override;
-  end;
-
-implementation
-uses
-  NullCanvas, NullImage, Anchor, MyCanvas;
-
-
-{AB:CODE}
-
-procedure TBufferedGameCanvasPaintHelper.InitFields;
-begin
-  Self.gameCanvas := TNullCanvas.NULL_CANVAS;
-  Self.offScreenImage := TJava.NewArray<TImage>(TBufferedGameCanvasPaintHelper.MAX_IMAGES);
-  Self.previousImage := TNullImage.NULL_IMAGE;
-  Self.circularIndexUtil := TCircularIndexUtil.createInstance(TBufferedGameCanvasPaintHelper.MAX_IMAGES);
-  Self.drawCircularIndexUtil := TCircularIndexUtil.createInstanceAt((TBufferedGameCanvasPaintHelper.MAX_IMAGES) - (1), TBufferedGameCanvasPaintHelper.MAX_IMAGES);
-  Self.anchor := TAnchor.TOP_LEFT;
-end;
-    
-
-constructor TBufferedGameCanvasPaintHelper.Create(gameCanvas: TAllBinaryGameCanvas);
-begin
-    inherited Create;
-    InitFields;
-        raise SysUtils.Exception.Create('No Longer Used');
-end;
-    
-
-procedure TBufferedGameCanvasPaintHelper.process;
-var
-  myCanvas_: TMyCanvas;
-begin
-        myCanvas_ := (TMyCanvas(TJava.ToObject(Self.gameCanvas)));
-        myCanvas_.draw(Self.offScreenImage[Self.circularIndexUtil.getIndex()].getGraphics());
-        Self.circularIndexUtil.next();
-        Self.drawCircularIndexUtil.next();
-end;
-    
-
-procedure TBufferedGameCanvasPaintHelper.paint(graphics_: TGraphics);
-begin
-        Self.previousImage := Self.offScreenImage[Self.drawCircularIndexUtil.getIndex()];
-        graphics_.drawImage(Self.previousImage, 0, 0, Self.anchor);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TBufferedGameCanvasPaintHelper.MAX_IMAGES := 4;
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BffrdGmCnvsPntHlpr-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_offScreenImage"), FUNCTION CircularIndexUtil-getIndex0(FUNCTION JR-GET(J-THIS, "f_drawCircularIndexUtil")))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_previousImage", JVALUE)
+        COMPUTE jtemp2 = 0
+        COMPUTE jtemp3 = 0
+        COMPUTE JDISCARD = FUNCTION Graphics-drawImage4(J-graphics, FUNCTION JR-GET(J-THIS, "f_previousImage"), jtemp2, jtemp3, FUNCTION JR-GET(J-THIS, "f_anchor"))
+    GOBACK.
+END FUNCTION BffrdGmCnvsPntHlpr-paint1.
 

@@ -1,77 +1,109 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.image
+*> Java class AdjustedLeftToRightImageAnimation
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.image
-unit AdjustedLeftToRightImageAnimation;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, Image, AnimationBehavior, LeftToRightImageAnimation;
-
-type
-  {AB:TYPES}
-  TAdjustedLeftToRightImageAnimation = class(TLeftToRightImageAnimation)
-  public
-    dx: Integer;
-    dy: Integer;
-    procedure InitFields;
-        constructor Create(image_: TImage; sequenceArray: TArray<Integer>; dx: Integer; dy: Integer; animationBehavior_: TAnimationBehavior);
-        procedure init(dx: Integer; dy: Integer); virtual;
-        procedure paintXY(graphics_: TGraphics; x: Integer; y: Integer); override;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TAdjustedLeftToRightImageAnimation.InitFields;
-begin
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AdjstdLftTRghtImgAnmtn-new5.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-image BINARY-DOUBLE.
+01 J-sequenceArray BINARY-DOUBLE.
+01 J-dx BINARY-DOUBLE.
+01 J-dy BINARY-DOUBLE.
+01 J-animationBehavior BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-image J-sequenceArray J-dx J-dy J-animationBehavior RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("AdjustedLeftToRightImageAnimation")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_dx")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_dy")
     
-
-constructor TAdjustedLeftToRightImageAnimation.Create(image_: TImage; sequenceArray: TArray<Integer>; dx: Integer; dy: Integer; animationBehavior_: TAnimationBehavior);
-begin
-        inherited Create(image_, sequenceArray, animationBehavior_);
-        InitFields;
-        Self.init(dx, dy);
-end;
     
+        CONTINUE
+        COMPUTE JDISCARD = FUNCTION AdjstdLftTRghtImgAnmtn-init2(J-THIS, J-dx, J-dy)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION AdjstdLftTRghtImgAnmtn-new5.
 
-// throws Exception
-procedure TAdjustedLeftToRightImageAnimation.init(dx: Integer; dy: Integer);
-begin
-        Self.dx := dx;
-        Self.dy := dy;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AdjstdLftTRghtImgAnmtn-init2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-dx BINARY-DOUBLE.
+01 J-dy BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-dx J-dy RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-dx
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_dx", JVALUE)
+        COMPUTE JVALUE = J-dy
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_dy", JVALUE)
+    GOBACK.
+END FUNCTION AdjstdLftTRghtImgAnmtn-init2.
 
-procedure TAdjustedLeftToRightImageAnimation.paintXY(graphics_: TGraphics; x: Integer; y: Integer);
-begin
-        inherited paintXY(graphics_, (x) + (Self.dx), (y) + (Self.dy));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AdjstdLftTRghtImgAnmtn-pntXY3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = (FUNCTION MOD((J-x + FUNCTION JR-GET(J-THIS, "f_dx")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp2 = (FUNCTION MOD((J-y + FUNCTION JR-GET(J-THIS, "f_dy")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION LftTRghtImgAnmtn-paintXY3(J-THIS, J-graphics, jtemp1, jtemp2)
+    GOBACK.
+END FUNCTION AdjstdLftTRghtImgAnmtn-pntXY3.
 

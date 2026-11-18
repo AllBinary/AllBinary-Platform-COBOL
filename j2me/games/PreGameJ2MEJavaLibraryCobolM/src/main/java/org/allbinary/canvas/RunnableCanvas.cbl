@@ -1,355 +1,822 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.canvas
+*> Java class RunnableCanvas
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.canvas
-unit RunnableCanvas;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, CommandListener, TsUtil, MyCanvas, ABSystemWrapper, NullUtil, StdUtil, CommonLabels, RunnableInterface, ThreadObjectUtil, TimeDelayHelper, BasicArrayList, Processor;
-
-type
-  {AB:TYPES}
-  TRunnableCanvas = class(TMyCanvas, IRunnableInterface, IRunnable)
-  public
-    nullUtil: TNullUtil;
-    stdUtil: TStdUtil;
-    systemWrapper: TABSystemWrapper;
-    tsUtil: TTsUtil;
-    thread: TThread;
-    currentThread: TThread;
-    running: Boolean;
-    loopTimeHelper: TTimeDelayHelper;
-    runnableCanvasRefreshHelper: TProcessor;
-    commonLabels: TCommonLabels;
-    threadObjectUtil: TThreadObjectUtil;
-    SET_RUNNING: string;
-    IS_RUNNING: string;
-    THREAD_: string;
-    NOT_EQUAL: string;
-    PAUSE_SLEEP: string;
-    START_PAUSE: string;
-    END_PAUSE: string;
-    PROCESS_LOOP_SLEEP: string;
-    pauseWait: Int64;
-    notified: Boolean;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(commandListener_: ICommandListener; childNameList: TBasicArrayList; hasParam: Boolean);
-        procedure initCommands(cmdListener: ICommandListener); virtual;
-        function isMainCanvas: Boolean; virtual;
-        procedure setThread(thread: TThread); virtual;
-        procedure setRunning(running: Boolean); virtual;
-        function isRunning: Boolean; virtual;
-        function getLoopTimeHelperP: TTimeDelayHelper; virtual;
-        procedure setWait(wait: Integer); virtual;
-        function getWait: Integer; virtual;
-        procedure setCurrentThread; virtual;
-        procedure setCurrentThreadFake; virtual;
-        procedure showNotify; virtual;
-        procedure stopWaiting;
-        procedure waitOnNotify(wait: Int64); virtual;
-        procedure processSleep; virtual;
-        function isPausable: Boolean; virtual;
-        procedure processGameSleep(sleep: Int64); virtual;
-        procedure processLoopSleep; virtual;
-        function isSingleThread: Boolean; virtual;
-        procedure run; virtual;
-        procedure end2; virtual;
-        function getType: Integer; virtual;
-  end;
-
-implementation
-uses
-  RunnableCanvasRefreshHelper, NullWaitGameRunnable, StringMaker, StringUtil, CommonStrings, NullThread;
-
-
-{AB:CODE}
-
-procedure TRunnableCanvas.InitFields;
-begin
-  Self.nullUtil := TNullUtil.getInstance();
-  Self.stdUtil := TStdUtil.getInstance();
-  Self.systemWrapper := TABSystemWrapper.getInstance();
-  Self.tsUtil := TTsUtil.getInstance();
-  Self.thread := TNullThread.NULL_THREAD;
-  Self.currentThread := TNullThread.NULL_THREAD;
-  
-  Self.loopTimeHelper := TTimeDelayHelper.Create(TNullWaitGameRunnable.getInstance().WAIT);
-  Self.runnableCanvasRefreshHelper := TProcessor.getInstance();
-  Self.commonLabels := TCommonLabels.getInstance();
-  Self.threadObjectUtil := TThreadObjectUtil.getInstance();
-  Self.SET_RUNNING := 'setRunning';
-  Self.IS_RUNNING := 'isRunning';
-  Self.THREAD_ := 'Thread: ';
-  Self.NOT_EQUAL := ' != ';
-  Self.PAUSE_SLEEP := 'pause sleep';
-  Self.START_PAUSE := 'start pause - game thread sleep at: ';
-  Self.END_PAUSE := 'end pause - game thread sleep at: ';
-  Self.PROCESS_LOOP_SLEEP := 'processLoopSleep';
-  Self.pauseWait := 0;
-  Self.notified := False;
-end;
-
-function TRunnableCanvas.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RunnableCanvas-new3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-commandListener BINARY-DOUBLE.
+01 J-childNameList BINARY-DOUBLE.
+01 J-hasParam BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-commandListener J-childNameList J-hasParam RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("RunnableCanvas")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_nullUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_stdUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_systemWrapper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_tsUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_thread")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_currentThread")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_running")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_loopTimeHelper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_runnableCanvasRefreshHelper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonLabels")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_threadObjectUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SET_RUNNING")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_IS_RUNNING")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_THREAD")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NOT_EQUAL")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_PAUSE_SLEEP")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_START_PAUSE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_END_PAUSE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_PROCESS_LOOP_SLEEP")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_pauseWait")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_notified")
+    COMPUTE JVALUE = FUNCTION NullUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_nullUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION StdUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_stdUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION ABSystemWrapper-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_systemWrapper", JVALUE)
+    COMPUTE JVALUE = FUNCTION TsUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_tsUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION NllThrd-static-NULL-THREAD
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_thread", JVALUE)
+    COMPUTE JVALUE = FUNCTION NllThrd-static-NULL-THREAD
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_currentThread", JVALUE)
     
+    COMPUTE jtemp1 = FUNCTION NllWtGmRnnbl-getInstance0
+    COMPUTE JVALUE = FUNCTION TimeDelayHelper-new1(FUNCTION JR-GET(jtemp1, "f_WAIT"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_loopTimeHelper", JVALUE)
+    COMPUTE JVALUE = FUNCTION Processor-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_runnableCanvasRefreshHelper", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonLabels-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonLabels", JVALUE)
+    COMPUTE JVALUE = FUNCTION ThreadObjectUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_threadObjectUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("setRunning")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SET_RUNNING", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("isRunning")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_IS_RUNNING", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Thread: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_THREAD", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR(" != ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NOT_EQUAL", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("pause sleep")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_PAUSE_SLEEP", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("start pause - game thread sleep at: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_START_PAUSE", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("end pause - game thread sleep at: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_END_PAUSE", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("processLoopSleep")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_PROCESS_LOOP_SLEEP", JVALUE)
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_pauseWait", JVALUE)
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_notified", JVALUE)
+        COMPUTE jtemp2 = FUNCTION CommonStrings-getInstance0
+        CONTINUE
+        COMPUTE jtemp5 = FUNCTION StringMaker-new0
+        COMPUTE jtemp4 = FUNCTION StringMaker-append1(jtemp5, FUNCTION JR-STR("RunnableCanvas delay: "))
+        COMPUTE jtemp3 = FUNCTION StringMaker-appendint1(jtemp4, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_loopTimeHelper"), "f_delay"))
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        COMPUTE JVALUE = FUNCTION RnnblCnvsRfrshHlpr-new1(J-THIS)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_runnableCanvasRefreshHelper", JVALUE)
+        IF (J-commandListener NOT = 0)
+            COMPUTE JDISCARD = FUNCTION RunnableCanvas-initCommands1(J-THIS, J-commandListener)
+        ELSE
+            IF (J-hasParam = 1)
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        END-IF
+        END-IF
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION RunnableCanvas-new3.
 
-constructor TRunnableCanvas.Create(commandListener_: ICommandListener; childNameList: TBasicArrayList; hasParam: Boolean);
-begin
-        inherited Create(TCommonStrings.getInstance().UNKNOWN, childNameList);
-        InitFields;
-        Self.logUtil.putF(TStringMaker.Create().append('RunnableCanvas delay: ').appendint(Integer(Trunc(Self.loopTimeHelper.delay))).toString(), TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_);
-        Self.runnableCanvasRefreshHelper := TRunnableCanvasRefreshHelper.Create(Self);
-        if (commandListener_) <> (nil) then begin
-            Self.initCommands(commandListener_);
-        end else if hasParam then begin
-            Self.logUtil.putF('commandListener was null', TJava.Box(Self), 'initCommands');
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RunnableCanvas-initCommands1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-cmdListener BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-cmdListener RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+    GOBACK.
+END FUNCTION RunnableCanvas-initCommands1.
 
-procedure TRunnableCanvas.initCommands(cmdListener: ICommandListener);
-begin
-        Self.logUtil.putF(Self.commonStrings.NOT_IMPLEMENTED, TJava.Box(Self), 'initCommands');
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RunnableCanvas-isMainCanvas0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION MyCnvs-gtCstmCmmndLstnr0(J-THIS) NOT = 0)
+            COMPUTE J-RESULT = 1
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = 0
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION RunnableCanvas-isMainCanvas0.
 
-function TRunnableCanvas.isMainCanvas: Boolean;
-begin
-        if not TJava.IsNull(Self.getCustomCommandListener()) then begin
-            Exit(True);
-        end else begin
-            Exit(False);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RunnableCanvas-setThread1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-thread BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-thread RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-thread
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_thread", JVALUE)
+    GOBACK.
+END FUNCTION RunnableCanvas-setThread1.
 
-procedure TRunnableCanvas.setThread(thread: TThread);
-begin
-        Self.thread := thread;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RunnableCanvas-setRunning1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-running BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-running RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-running
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_running", JVALUE)
+        IF (NOT (FUNCTION JR-GET(J-THIS, "f_running") = 1))
+            COMPUTE JVALUE = FUNCTION NllThrd-static-NULL-THREAD
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_thread", JVALUE)
+            CONTINUE
+                COMPUTE JDISCARD = FUNCTION ThreadObjectUtil-notifyObject1(FUNCTION JR-GET(J-THIS, "f_threadObjectUtil"), J-THIS)
+        END-IF
+        COMPUTE jtemp8 = FUNCTION StringMaker-new0
+        COMPUTE jtemp7 = FUNCTION StringMaker-append1(jtemp8, FUNCTION JR-GET(J-THIS, "f_IS_RUNNING"))
+        COMPUTE jtemp6 = FUNCTION StringMaker-appendboolean1(jtemp7, FUNCTION JR-GET(J-THIS, "f_running"))
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+    GOBACK.
+END FUNCTION RunnableCanvas-setRunning1.
 
-procedure TRunnableCanvas.setRunning(running: Boolean);
-begin
-        Self.running := running;
-        if not (Self.running) then begin
-            Self.thread := TNullThread.NULL_THREAD;
-            TJava.MonitorEnter(Self);
-            try
-                Self.threadObjectUtil.notifyObject(TJava.Box(Self));
-            finally
-                TJava.MonitorExit(Self);
-            end;
-        end;
-        Self.logUtil.putF(TStringMaker.Create().append(Self.IS_RUNNING).appendboolean(Self.running).toString(), TJava.Box(Self), Self.SET_RUNNING);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RunnableCanvas-isRunning0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringBuffer BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION JR-GET(J-THIS, "f_thread") = FUNCTION JR-GET(J-THIS, "f_currentThread"))
+            COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_running")
+            GOBACK
+        ELSE
+            COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_THREAD"))
+            IF (FUNCTION JR-GET(J-THIS, "f_thread") NOT = 0)
+                COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-TO-STRING(FUNCTION JR-GET(J-THIS, "f_thread")))
+            END-IF
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_NOT_EQUAL"))
+            IF (FUNCTION JR-GET(J-THIS, "f_currentThread") NOT = 0)
+                COMPUTE jtemp9 = FUNCTION StringUtil-getInstance0
+                COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION StringUtil-toString1(jtemp9, FUNCTION JR-GET(J-THIS, "f_currentThread")))
+            END-IF
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+            COMPUTE J-RESULT = 0
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION RunnableCanvas-isRunning0.
 
-function TRunnableCanvas.isRunning: Boolean;
-var
-  stringBuffer: TStringMaker;
-begin
-    TJava.MonitorEnter(Self);
-    try
-        if (Self.thread) = (Self.currentThread) then begin
-            Exit(Self.running);
-        end else begin
-            stringBuffer := TStringMaker.Create();
-            stringBuffer.append(Self.THREAD_);
-            if (Self.thread) <> (nil) then begin
-                stringBuffer.append(Self.thread.toString());
-            end;
-            stringBuffer.append(Self.NOT_EQUAL);
-            if (Self.currentThread) <> (nil) then begin
-                stringBuffer.append(TStringUtil.getInstance().toString(Self.currentThread));
-            end;
-            Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), Self.IS_RUNNING);
-            Exit(False);
-        end;
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RnnblCnvs-getLoopTimeHelperP0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_loopTimeHelper")
+        GOBACK
+    GOBACK.
+END FUNCTION RnnblCnvs-getLoopTimeHelperP0.
 
-function TRunnableCanvas.getLoopTimeHelperP: TTimeDelayHelper;
-begin
-        Exit(Self.loopTimeHelper);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RunnableCanvas-setWait1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-wait BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-wait RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-wait
+        COMPUTE JDISCARD = FUNCTION JR-SET(FUNCTION JR-GET(J-THIS, "f_loopTimeHelper"), "f_delay", JVALUE)
+        COMPUTE JVALUE = (J-wait * 3)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_pauseWait", JVALUE)
+        COMPUTE jtemp12 = FUNCTION StringMaker-new0
+        COMPUTE jtemp11 = FUNCTION StringMaker-append1(jtemp12, FUNCTION JR-STR("setWait - delay: "))
+        COMPUTE jtemp10 = FUNCTION StringMaker-appendint1(jtemp11, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_loopTimeHelper"), "f_delay"))
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+    GOBACK.
+END FUNCTION RunnableCanvas-setWait1.
 
-procedure TRunnableCanvas.setWait(wait: Integer);
-begin
-        Self.loopTimeHelper.delay := wait;
-        Self.pauseWait := (Int64(wait)) * (3);
-        Self.logUtil.putF(TStringMaker.Create().append('setWait - delay: ').appendint(Integer(Trunc(Self.loopTimeHelper.delay))).toString(), TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RunnableCanvas-getWait0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_loopTimeHelper"), "f_delay")
+        GOBACK
+    GOBACK.
+END FUNCTION RunnableCanvas-getWait0.
 
-function TRunnableCanvas.getWait: Integer;
-begin
-        Exit(Self.loopTimeHelper.delay);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RnnblCnvs-setCurrentThread0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = FUNCTION Thread-currentThread0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_currentThread", JVALUE)
+    GOBACK.
+END FUNCTION RnnblCnvs-setCurrentThread0.
 
-procedure TRunnableCanvas.setCurrentThread;
-begin
-        Self.currentThread := TThread.CurrentThread;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RnnblCnvs-stCrrntThrdFk0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_thread")
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_currentThread", JVALUE)
+    GOBACK.
+END FUNCTION RnnblCnvs-stCrrntThrdFk0.
 
-procedure TRunnableCanvas.setCurrentThreadFake;
-begin
-        Self.currentThread := Self.thread;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RunnableCanvas-showNotify0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE JDISCARD = FUNCTION RunnableCanvas-stopWaiting0(J-THIS)
+    GOBACK.
+END FUNCTION RunnableCanvas-showNotify0.
 
-procedure TRunnableCanvas.showNotify;
-begin
-        try
-            Self.stopWaiting();
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), 'showNotify', TJava.Box(e));
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RunnableCanvas-stopWaiting0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = 1
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_notified", JVALUE)
+        CONTINUE
+            COMPUTE JDISCARD = FUNCTION ThreadObjectUtil-notifyObject1(FUNCTION JR-GET(J-THIS, "f_threadObjectUtil"), J-THIS)
+        COMPUTE JDISCARD = FUNCTION Canvas-repaint0(J-THIS)
+    GOBACK.
+END FUNCTION RunnableCanvas-stopWaiting0.
 
-// throws Exception
-procedure TRunnableCanvas.stopWaiting;
-begin
-        Self.notified := True;
-        TJava.MonitorEnter(Self);
-        try
-            Self.threadObjectUtil.notifyObject(TJava.Box(Self));
-        finally
-            TJava.MonitorExit(Self);
-        end;
-        Self.repaint();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RunnableCanvas-waitOnNotify1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp13 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-wait BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-wait RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (NOT (FUNCTION JR-GET(J-THIS, "f_notified") = 1))
+            IF (J-wait > 0)
+                COMPUTE jtemp13 = J-wait
+                COMPUTE JDISCARD = FUNCTION ThrdObjctUtl-waitObjectFor2(FUNCTION JR-GET(J-THIS, "f_threadObjectUtil"), J-THIS, jtemp13)
+            ELSE
+                COMPUTE JDISCARD = FUNCTION ThreadObjectUtil-waitObject1(FUNCTION JR-GET(J-THIS, "f_threadObjectUtil"), J-THIS)
+            END-IF
+        END-IF
+    GOBACK.
+END FUNCTION RunnableCanvas-waitOnNotify1.
 
-// throws Exception
-procedure TRunnableCanvas.waitOnNotify(wait: Int64);
-begin
-    TJava.MonitorEnter(Self);
-    try
-        if not (Self.notified) then begin
-            if (wait) > (0) then begin
-                Self.threadObjectUtil.waitObjectFor(TJava.Box(Self), wait);
-            end else begin
-                Self.threadObjectUtil.waitObject(TJava.Box(Self));
-            end;
-        end;
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RunnableCanvas-processSleep0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Thread-sleep1(FUNCTION JR-GET(J-THIS, "f_pauseWait"))
+    GOBACK.
+END FUNCTION RunnableCanvas-processSleep0.
 
-// throws Exception
-procedure TRunnableCanvas.processSleep;
-begin
-        SysUtils.Sleep(Self.pauseWait);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RunnableCanvas-isPausable0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION RunnableCanvas-isPausable0.
 
-function TRunnableCanvas.isPausable: Boolean;
-begin
-        Exit(False);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RnnblCnvs-processGameSleep1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-sleep BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-sleep RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Thread-sleep1(J-sleep)
+    GOBACK.
+END FUNCTION RnnblCnvs-processGameSleep1.
 
-// throws Exception
-procedure TRunnableCanvas.processGameSleep(sleep: Int64);
-begin
-        SysUtils.Sleep(sleep);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RnnblCnvs-processLoopSleep0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringMaker BINARY-DOUBLE.
+01 J-currentTimeMillis BINARY-DOUBLE.
+01 J-elapsedTime BINARY-DOUBLE.
+01 J-wait BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+01 jtemp18 BINARY-DOUBLE.
+01 jtemp19 BINARY-DOUBLE.
+01 jtemp20 BINARY-DOUBLE.
+01 jtemp21 BINARY-DOUBLE.
+01 jtemp22 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Processor-process0(FUNCTION JR-GET(J-THIS, "f_runnableCanvasRefreshHelper"))
+        IF (FUNCTION MyCanvas-isPaused0(J-THIS) = 1)
+            COMPUTE J-stringMaker = FUNCTION StringMaker-new0
+            IF ((FUNCTION RunnableCanvas-isRunning0(J-THIS) = 1) AND (NOT (FUNCTION RunnableCanvas-isSingleThread0(J-THIS) = 1)))
+                COMPUTE jtemp14 = 0
+                COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringMaker, jtemp14, FUNCTION StringMaker-length0(J-stringMaker))
+                COMPUTE J-currentTimeMillis = FUNCTION ABSystmWrppr-crrntTmMlls0(FUNCTION JR-GET(J-THIS, "f_systemWrapper"))
+                COMPUTE jtemp18 = FUNCTION StringMaker-append1(J-stringMaker, FUNCTION JR-GET(J-THIS, "f_START_PAUSE"))
+                COMPUTE jtemp17 = FUNCTION StringMaker-appendlong1(jtemp18, J-currentTimeMillis)
+                COMPUTE jtemp16 = FUNCTION StringMaker-append1(jtemp17, FUNCTION JR-GET(J-THIS, "f_PAUSE_SLEEP"))
+                COMPUTE jtemp15 = FUNCTION StringMaker-appendlong1(jtemp16, FUNCTION JR-GET(J-THIS, "f_pauseWait"))
+                COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+                PERFORM FOREVER
+                    IF NOT (((FUNCTION MyCanvas-isPaused0(J-THIS) = 1) AND (FUNCTION RunnableCanvas-isRunning0(J-THIS) = 1)) AND (NOT (FUNCTION RunnableCanvas-isSingleThread0(J-THIS) = 1))) EXIT PERFORM END-IF
+                    COMPUTE JDISCARD = FUNCTION RunnableCanvas-processSleep0(J-THIS)
+                    IF (NOT (FUNCTION RunnableCanvas-isPausable0(J-THIS) = 1))
+                        COMPUTE jtemp19 = 0
+                        COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringMaker, jtemp19, FUNCTION StringMaker-length0(J-stringMaker))
+                        COMPUTE jtemp21 = FUNCTION StringMaker-append1(J-stringMaker, FUNCTION JR-GET(J-THIS, "f_END_PAUSE"))
+                        COMPUTE jtemp20 = FUNCTION StringMaker-appendlong1(jtemp21, J-currentTimeMillis)
+                        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+                        GOBACK
+                    END-IF
+                END-PERFORM
+            END-IF
+        END-IF
+        COMPUTE J-elapsedTime = FUNCTION TimeDelayHelper-getElapsedTNT0(FUNCTION JR-GET(J-THIS, "f_loopTimeHelper"))
+        COMPUTE J-wait = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_loopTimeHelper"), "f_delay")
+        IF (J-elapsedTime > J-wait)
+            COMPUTE J-elapsedTime = J-wait
+        ELSE
+            COMPUTE jtemp22 = (J-wait - J-elapsedTime)
+            COMPUTE JDISCARD = FUNCTION RnnblCnvs-processGameSleep1(J-THIS, jtemp22)
+        END-IF
+    GOBACK.
+END FUNCTION RnnblCnvs-processLoopSleep0.
 
-// throws Exception
-procedure TRunnableCanvas.processLoopSleep;
-var
-  stringMaker_: TStringMaker;
-  currentTimeMillis: Int64;
-  elapsedTime: Int64;
-  wait: Int64;
-begin
-        Self.runnableCanvasRefreshHelper.process();
-        if Self.isPaused() then begin
-            stringMaker_ := TStringMaker.Create();
-            if (Self.isRunning()) and (not (Self.isSingleThread())) then begin
-                stringMaker_.delete_(0, stringMaker_.length());
-                currentTimeMillis := Self.systemWrapper.currentTimeMillis();
-                Self.logUtil.putF(stringMaker_.append(Self.START_PAUSE).appendlong(currentTimeMillis).append(Self.PAUSE_SLEEP).appendlong(Self.pauseWait).toString(), TJava.Box(Self), Self.PROCESS_LOOP_SLEEP);
-                while ((Self.isPaused()) and (Self.isRunning())) and (not (Self.isSingleThread())) do begin
-                    Self.processSleep();
-                    if not (Self.isPausable()) then begin
-                        stringMaker_.delete_(0, stringMaker_.length());
-                        Self.logUtil.putF(stringMaker_.append(Self.END_PAUSE).appendlong(currentTimeMillis).toString(), TJava.Box(Self), Self.PROCESS_LOOP_SLEEP);
-                        Exit;
-                    end;
-                end;
-            end;
-        end;
-        elapsedTime := Self.loopTimeHelper.getElapsedTNT();
-        wait := Int64(Trunc(Self.loopTimeHelper.delay));
-        if (elapsedTime) > (wait) then begin
-            elapsedTime := wait;
-        end else begin
-            Self.processGameSleep((wait) - (elapsedTime));
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RunnableCanvas-isSingleThread0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION RunnableCanvas-isSingleThread0.
 
-function TRunnableCanvas.isSingleThread: Boolean;
-begin
-        Exit(False);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RunnableCanvas-run0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION RnnblCnvs-setCurrentThread0(J-THIS)
+    GOBACK.
+END FUNCTION RunnableCanvas-run0.
 
-procedure TRunnableCanvas.run;
-begin
-        Self.setCurrentThread();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RunnableCanvas-end20.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION RunnableCanvas-end20.
 
-// throws Exception
-procedure TRunnableCanvas.end2;
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RunnableCanvas-getType0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = (0 - 1)
+        GOBACK
+    GOBACK.
+END FUNCTION RunnableCanvas-getType0.
 
-function TRunnableCanvas.getType: Integer;
-begin
-        Exit(-1);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+PROGRAM-ID. RunnableCanvas-run.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION RunnableCanvas-run0(J-THIS)
+    GOBACK.
+END PROGRAM RunnableCanvas-run.
 

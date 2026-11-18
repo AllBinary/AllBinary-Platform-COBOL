@@ -1,70 +1,140 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.layer.weapon.mine
+*> Java class MineLayerCircularStaticPool
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.layer.weapon.mine
-unit MineLayerCircularStaticPool;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MnLyrCrclrSttcPl-stt25550.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 MineLayerCircularStaticPool-jcell-WEAPON_LAYER_CIRCULAR_STATIC_POOL BINARY-DOUBLE EXTERNAL.
+01 MineLayerCircularStaticPool-jset-WEAPON_LAYER_CIRCULAR_STATIC_POOL BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF MineLayerCircularStaticPool-jset-WEAPON_LAYER_CIRCULAR_STATIC_POOL = 0
+        MOVE 1 TO MineLayerCircularStaticPool-jset-WEAPON_LAYER_CIRCULAR_STATIC_POOL
+        COMPUTE MineLayerCircularStaticPool-jcell-WEAPON_LAYER_CIRCULAR_STATIC_POOL = FUNCTION WeaponLayerCircularPool-new0
+    END-IF
+    MOVE MineLayerCircularStaticPool-jcell-WEAPON_LAYER_CIRCULAR_STATIC_POOL TO J-RESULT
+    GOBACK.
+END FUNCTION MnLyrCrclrSttcPl-stt25550.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MnLyrCrclrSttcPlstt2S95929.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 MineLayerCircularStaticPool-jcell-WEAPON_LAYER_CIRCULAR_STATIC_POOL BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION MnLyrCrclrSttcPl-stt25550 TO J-RESULT
+    MOVE J-VALUE TO MineLayerCircularStaticPool-jcell-WEAPON_LAYER_CIRCULAR_STATIC_POOL
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION MnLyrCrclrSttcPlstt2S95929.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MnLyrCrclrSttcPl-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("MineLayerCircularStaticPool")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION MnLyrCrclrSttcPl-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, WeaponLayerCircularPool, ViewPositionFactoryInterface;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MnLyrCrclrSttcPl-init1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-viewPositionFactoryInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-viewPositionFactoryInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION MnCntdPckdUpLyrIntrfcFc-75646
+        COMPUTE jtemp1 = 20
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION MnLyrCrclrSttcPl-stt25550)
+    GOBACK.
+END FUNCTION MnLyrCrclrSttcPl-init1.
 
-type
-  {AB:TYPES}
-  TMineLayerCircularStaticPool = class(TObject)
-  public
-    class var WEAPON_LAYER_CIRCULAR_STATIC_POOL: TWeaponLayerCircularPool;
-    constructor Create;
-        class procedure init(viewPositionFactoryInterface_: IViewPositionFactoryInterface); static;
-        class function getInstance: TWeaponLayerCircularPool; static;
-  end;
-
-implementation
-uses
-  MineCountedPickedUpLayerInterfaceFactory, MineLayerFactory;
-
-
-{AB:CODE}
-
-constructor TMineLayerCircularStaticPool.Create;
-begin
-  inherited Create;
-end;
-    
-
-// throws Exception
-class procedure TMineLayerCircularStaticPool.init(viewPositionFactoryInterface_: IViewPositionFactoryInterface);
-begin
-        TMineCountedPickedUpLayerInterfaceFactory.init();
-        TMineLayerCircularStaticPool.WEAPON_LAYER_CIRCULAR_STATIC_POOL.initAllBinaryLayerCircularPool(TMineLayerFactory.Create(viewPositionFactoryInterface_), 20);
-end;
-    
-
-class function TMineLayerCircularStaticPool.getInstance: TWeaponLayerCircularPool;
-begin
-        Exit(TMineLayerCircularStaticPool.WEAPON_LAYER_CIRCULAR_STATIC_POOL);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TMineLayerCircularStaticPool.WEAPON_LAYER_CIRCULAR_STATIC_POOL := TWeaponLayerCircularPool.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MnLyrCrclrSttcPl-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION MnLyrCrclrSttcPl-stt25550
+        GOBACK
+    GOBACK.
+END FUNCTION MnLyrCrclrSttcPl-getInstance0.
 

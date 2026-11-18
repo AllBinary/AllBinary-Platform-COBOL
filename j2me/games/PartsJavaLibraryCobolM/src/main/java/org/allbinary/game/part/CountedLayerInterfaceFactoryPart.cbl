@@ -1,195 +1,546 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.part
+*> Java class CountedLayerInterfaceFactoryPart
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CntdLyrIntrfcFctryPrt-60998.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CountedLayerInterfaceFactoryPart-jcell-NULL_COUNTED_LAYER_INTERFACE_FACTORY BINARY-DOUBLE EXTERNAL.
+01 CountedLayerInterfaceFactoryPart-jset-NULL_COUNTED_LAYER_INTERFACE_FACTORY BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF CountedLayerInterfaceFactoryPart-jset-NULL_COUNTED_LAYER_INTERFACE_FACTORY = 0
+        MOVE 1 TO CountedLayerInterfaceFactoryPart-jset-NULL_COUNTED_LAYER_INTERFACE_FACTORY
+        COMPUTE jtemp1 = 0
+    COMPUTE CountedLayerInterfaceFactoryPart-jcell-NULL_COUNTED_LAYER_INTERFACE_FACTORY = FUNCTION CntdLyrIntrfcFctryPrt-new2(jtemp1, FUNCTION CntdPckdUpLyrIntrfcFctr-47319)
+    END-IF
+    MOVE CountedLayerInterfaceFactoryPart-jcell-NULL_COUNTED_LAYER_INTERFACE_FACTORY TO J-RESULT
+    GOBACK.
+END FUNCTION CntdLyrIntrfcFctryPrt-60998.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CntdLyrIntrfcFctryPrS77754.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CountedLayerInterfaceFactoryPart-jcell-NULL_COUNTED_LAYER_INTERFACE_FACTORY BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION CntdLyrIntrfcFctryPrt-60998 TO J-RESULT
+    MOVE J-VALUE TO CountedLayerInterfaceFactoryPart-jcell-NULL_COUNTED_LAYER_INTERFACE_FACTORY
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION CntdLyrIntrfcFctryPrS77754.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CntdLyrIntrfcFctryPrt-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-total BINARY-DOUBLE.
+01 J-countedPickedUpLayerInterfaceFactory BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-total J-countedPickedUpLayerInterfaceFactory RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CountedLayerInterfaceFactoryPart")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_updateMyFontProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_myFontProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_animationInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_total")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_totalString")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_xOffset")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_countedPickedUpLayerInterfaceFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_primitiveLongUtil")
+    COMPUTE JVALUE = FUNCTION UpdateMyFontProcessor-new1(J-THIS)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_updateMyFontProcessor", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_updateMyFontProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
+    COMPUTE jtemp3 = 0
+    COMPUTE jtemp2 = FUNCTION NllAnmtnFctry-gtFctryInstnc0
+    COMPUTE JVALUE = FUNCTION JR-CLASS-NAME(jtemp2)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animationInterface", JVALUE)
     
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.part
-unit CountedLayerInterfaceFactoryPart;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, Animation, CountedPickedUpLayerInterfaceFactory, MyFontProcessor, UpdateMyFontInterface, AllBinaryLayer, PrimitiveLongUtil, ABHashtable, PartInterface, AnimationInterfaceCompositeInterface, PaintableInterface;
-
-type
-  {AB:TYPES}
-  TCountedLayerInterfaceFactoryPart = class(TInterfacedObject, IPartInterface, IUpdateMyFontInterface, IAnimationInterfaceCompositeInterface, IPaintableInterface)
-  public
-    updateMyFontProcessor: TMyFontProcessor;
-    myFontProcessor: TMyFontProcessor;
-    animationInterface: TAnimation;
-    total: Integer;
-    totalString: TArray<WideChar>;
-    xOffset: Integer;
-    countedPickedUpLayerInterfaceFactory: TCountedPickedUpLayerInterfaceFactory;
-    primitiveLongUtil: TPrimitiveLongUtil;
-    class var NULL_COUNTED_LAYER_INTERFACE_FACTORY: TCountedLayerInterfaceFactoryPart;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(total: Integer; countedPickedUpLayerInterfaceFactory_: TCountedPickedUpLayerInterfaceFactory);
-        procedure updateMeasurement(graphics_: TGraphics); virtual;
-        procedure init(total: Integer; countedPickedUpLayerInterfaceFactory_: TCountedPickedUpLayerInterfaceFactory);
-        function getInstance(hashtable: TABHashtable<TObject, TObject>; x: Integer; y: Integer; z: Integer): TAllBinaryLayer; virtual;
-        function getTotal: Integer; virtual;
-        procedure setTotal(total: Integer); virtual;
-        procedure paint(graphics_: TGraphics); virtual;
-        procedure paintThreed(graphics_: TGraphics); virtual;
-        function getAnimationInterface: TAnimation; virtual;
-        procedure setAnimationInterface(animationInterface: TAnimation); virtual;
-        function getXOffset: Integer; virtual;
-        procedure setXOffset(totalStringWidth: Integer);
-        function getTotalString: TArray<WideChar>; virtual;
-        function getCountedPickedUpLayerInterfaceFactory: TCountedPickedUpLayerInterfaceFactory; virtual;
-        procedure setCountedPickedUpLayerInterfaceFactory(countedPickedUpLayerInterfaceFactory_: TCountedPickedUpLayerInterfaceFactory); virtual;
-  end;
-
-implementation
-uses
-  Font, NullAnimationFactory, UpdateMyFontProcessor, NullUtil;
-
-
-{AB:CODE}
-
-procedure TCountedLayerInterfaceFactoryPart.InitFields;
-begin
-  Self.updateMyFontProcessor := TUpdateMyFontProcessor.Create(Self);
-  Self.myFontProcessor := Self.updateMyFontProcessor;
-  Self.animationInterface := TNullAnimationFactory.getFactoryInstance().getInstance(0);
-  
-  Self.totalString := TNullUtil.getInstance().NULL_CHAR_ARRAY;
-  
-  Self.countedPickedUpLayerInterfaceFactory := TCountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY;
-  
-end;
-
-function TCountedLayerInterfaceFactoryPart.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+    COMPUTE jtemp4 = FUNCTION NullUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp4, "f_NULL_CHAR_ARRAY")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_totalString", JVALUE)
     
-
-constructor TCountedLayerInterfaceFactoryPart.Create(total: Integer; countedPickedUpLayerInterfaceFactory_: TCountedPickedUpLayerInterfaceFactory);
-begin
-    inherited Create;
-    InitFields;
-        Self.primitiveLongUtil := TPrimitiveLongUtil.createPowerOfTen(1000);
-        Self.init(total, countedPickedUpLayerInterfaceFactory_);
-end;
+    COMPUTE JVALUE = FUNCTION CntdPckdUpLyrIntrfcFctr-47319
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_countedPickedUpLayerInterfaceFactory", JVALUE)
     
+        COMPUTE jtemp5 = 1000
+        COMPUTE JVALUE = FUNCTION PrmtvLngUtl-createPowerOfTen1(jtemp5)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_primitiveLongUtil", JVALUE)
+        COMPUTE JDISCARD = FUNCTION CntdLyrIntrfcFctryPrt-init2(J-THIS, J-total, J-countedPickedUpLayerInterfaceFactory)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CntdLyrIntrfcFctryPrt-new2.
 
-procedure TCountedLayerInterfaceFactoryPart.updateMeasurement(graphics_: TGraphics);
-var
-  font_: TFont;
-begin
-        font_ := graphics_.getFont();
-        Self.setXOffset((font_.charsWidth(Self.totalString, 0, Self.primitiveLongUtil.getCurrentTotalDigits())) + ((TJava.SignedRightShift(font_.getSize(), 1))));
-        Self.myFontProcessor := TMyFontProcessor.getInstance();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CntdLyrIntrfcFctryPrt-upd30753.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-font BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-font = FUNCTION Graphics-getFont0(J-graphics)
+        COMPUTE jtemp7 = 0
+        COMPUTE jtemp8 = (FUNCTION JR-SHIFT(JFIVE, FUNCTION Font-getSize0(J-font), 1))
+        COMPUTE jtemp6 = (FUNCTION MOD((FUNCTION Font-charsWidth3(J-font, FUNCTION JR-GET(J-THIS, "f_totalString"), jtemp7, FUNCTION PrmtvLngUtl-gtCrrntTtlDgts0(FUNCTION JR-GET(J-THIS, "f_primitiveLongUtil"))) + jtemp8) + 2147483648,
+        4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION CntdLyrIntrfcFctryPrt-stX40384(J-THIS, jtemp6)
+        COMPUTE JVALUE = FUNCTION MyFontProcessor-getInstance0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
+    GOBACK.
+END FUNCTION CntdLyrIntrfcFctryPrt-upd30753.
 
-procedure TCountedLayerInterfaceFactoryPart.init(total: Integer; countedPickedUpLayerInterfaceFactory_: TCountedPickedUpLayerInterfaceFactory);
-begin
-        Self.setCountedPickedUpLayerInterfaceFactory(countedPickedUpLayerInterfaceFactory_);
-        Self.total := total;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CntdLyrIntrfcFctryPrt-init2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-total BINARY-DOUBLE.
+01 J-countedPickedUpLayerInterfaceFactory BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-total J-countedPickedUpLayerInterfaceFactory RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION CntdLyrIntrfcFctryPrt-stC93517(J-THIS, J-countedPickedUpLayerInterfaceFactory)
+        COMPUTE JVALUE = J-total
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_total", JVALUE)
+    GOBACK.
+END FUNCTION CntdLyrIntrfcFctryPrt-init2.
 
-// throws Exception
-function TCountedLayerInterfaceFactoryPart.getInstance(hashtable: TABHashtable<TObject, TObject>; x: Integer; y: Integer; z: Integer): TAllBinaryLayer;
-begin
-        if (Self.total) > (0) then begin
-            Self.setTotal((Self.total) - (1));
-            Exit(Self.getCountedPickedUpLayerInterfaceFactory().getNextInstance(hashtable, x, y, z));
-        end else begin
-            raise SysUtils.Exception.Create('No more left. Could use a listener to automatically remove');
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CntdLyrIntrfcFctryPrt-gtI66827.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-hashtable BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-z BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-hashtable J-x J-y J-z RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION JR-GET(J-THIS, "f_total") > 0)
+            COMPUTE jtemp9 = (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_total") - 1) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JDISCARD = FUNCTION CntdLyrIntrfcFctryPrt-stTtl1(J-THIS, jtemp9)
+            COMPUTE jtemp10 = FUNCTION CntdLyrIntrfcFctryPrt-gtC10786(J-THIS)
+            COMPUTE J-RESULT = FUNCTION CntdPckdUpLyrIntrfcFctr-64058(jtemp10, J-hashtable, J-x, J-y, J-z)
+            GOBACK
+        ELSE
+            COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+        END-IF
+    GOBACK.
+END FUNCTION CntdLyrIntrfcFctryPrt-gtI66827.
 
-function TCountedLayerInterfaceFactoryPart.getTotal: Integer;
-begin
-        Exit(Self.total);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CntdLyrIntrfcFctryPrt-gtTtl0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_total")
+        GOBACK
+    GOBACK.
+END FUNCTION CntdLyrIntrfcFctryPrt-gtTtl0.
 
-procedure TCountedLayerInterfaceFactoryPart.setTotal(total: Integer);
-begin
-        Self.total := total;
-        Self.totalString := Self.primitiveLongUtil.getCharArray(total);
-        Self.myFontProcessor := Self.updateMyFontProcessor;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CntdLyrIntrfcFctryPrt-stTtl1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-total BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-total RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-total
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_total", JVALUE)
+        COMPUTE JVALUE = FUNCTION PrmtvLngUtl-getCharArray1(FUNCTION JR-GET(J-THIS, "f_primitiveLongUtil"), J-total)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_totalString", JVALUE)
+        COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_updateMyFontProcessor")
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
+    GOBACK.
+END FUNCTION CntdLyrIntrfcFctryPrt-stTtl1.
 
-procedure TCountedLayerInterfaceFactoryPart.paint(graphics_: TGraphics);
-begin
-        Self.myFontProcessor.process(graphics_);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CntdLyrIntrfcFctryPrt-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION MyFontProcessor-process1(FUNCTION JR-GET(J-THIS, "f_myFontProcessor"), J-graphics)
+    GOBACK.
+END FUNCTION CntdLyrIntrfcFctryPrt-paint1.
 
-procedure TCountedLayerInterfaceFactoryPart.paintThreed(graphics_: TGraphics);
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CntdLyrIntrfcFctryPrt-pntThrd1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION CntdLyrIntrfcFctryPrt-pntThrd1.
 
-function TCountedLayerInterfaceFactoryPart.getAnimationInterface: TAnimation;
-begin
-        Exit(Self.animationInterface);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CntdLyrIntrfcFctryPrt-gtA60802.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_animationInterface")
+        GOBACK
+    GOBACK.
+END FUNCTION CntdLyrIntrfcFctryPrt-gtA60802.
 
-procedure TCountedLayerInterfaceFactoryPart.setAnimationInterface(animationInterface: TAnimation);
-begin
-        Self.animationInterface := animationInterface;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CntdLyrIntrfcFctryPrt-stA19170.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-animationInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-animationInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-animationInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animationInterface", JVALUE)
+    GOBACK.
+END FUNCTION CntdLyrIntrfcFctryPrt-stA19170.
 
-function TCountedLayerInterfaceFactoryPart.getXOffset: Integer;
-begin
-        Exit(Self.xOffset);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CntdLyrIntrfcFctryPrt-gtX90955.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_xOffset")
+        GOBACK
+    GOBACK.
+END FUNCTION CntdLyrIntrfcFctryPrt-gtX90955.
 
-procedure TCountedLayerInterfaceFactoryPart.setXOffset(totalStringWidth: Integer);
-begin
-        Self.xOffset := totalStringWidth;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CntdLyrIntrfcFctryPrt-stX40384.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-totalStringWidth BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-totalStringWidth RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-totalStringWidth
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_xOffset", JVALUE)
+    GOBACK.
+END FUNCTION CntdLyrIntrfcFctryPrt-stX40384.
 
-function TCountedLayerInterfaceFactoryPart.getTotalString: TArray<WideChar>;
-begin
-        Exit(Self.totalString);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CntdLyrIntrfcFctryPrt-gtT30088.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_totalString")
+        GOBACK
+    GOBACK.
+END FUNCTION CntdLyrIntrfcFctryPrt-gtT30088.
 
-function TCountedLayerInterfaceFactoryPart.getCountedPickedUpLayerInterfaceFactory: TCountedPickedUpLayerInterfaceFactory;
-begin
-        Exit(Self.countedPickedUpLayerInterfaceFactory);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CntdLyrIntrfcFctryPrt-gtC10786.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_countedPickedUpLayerInterfaceFactory")
+        GOBACK
+    GOBACK.
+END FUNCTION CntdLyrIntrfcFctryPrt-gtC10786.
 
-procedure TCountedLayerInterfaceFactoryPart.setCountedPickedUpLayerInterfaceFactory(countedPickedUpLayerInterfaceFactory_: TCountedPickedUpLayerInterfaceFactory);
-begin
-        Self.countedPickedUpLayerInterfaceFactory := countedPickedUpLayerInterfaceFactory_;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TCountedLayerInterfaceFactoryPart.NULL_COUNTED_LAYER_INTERFACE_FACTORY := TCountedLayerInterfaceFactoryPart.Create(0, TCountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CntdLyrIntrfcFctryPrt-stC93517.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-countedPickedUpLayerInterfaceFactory BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-countedPickedUpLayerInterfaceFactory RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-countedPickedUpLayerInterfaceFactory
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_countedPickedUpLayerInterfaceFactory", JVALUE)
+    GOBACK.
+END FUNCTION CntdLyrIntrfcFctryPrt-stC93517.
 

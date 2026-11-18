@@ -1,161 +1,237 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.media.audio
+*> Java class Sounds
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.media.audio
-unit Sounds;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LogUtil, CommonStrings, SoundStrings, SoundsFactoryInterface;
-
-type
-  {AB:TYPES}
-  TSounds = class(TObject)
-  public
-    logUtil: TLogUtil;
-    commonStrings: TCommonStrings;
-    soundStrings: TSoundStrings;
-    soundsFactoryInterface: ISoundsFactoryInterface;
-    procedure InitFields;
-        constructor Create(soundsFactoryInterface_: ISoundsFactoryInterface);
-        procedure init; virtual;
-        procedure stopAll; virtual;
-        procedure closeAll; virtual;
-  end;
-
-implementation
-uses
-  Sound, Player, ProgressCanvas, ProgressCanvasFactory, SmallIntegerSingletonFactory, StringMaker, CommonLabels;
-
-
-{AB:CODE}
-
-procedure TSounds.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.commonStrings := TCommonStrings.getInstance();
-  Self.soundStrings := TSoundStrings.getInstance();
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Sounds-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-soundsFactoryInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-soundsFactoryInterface RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("Sounds")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_soundStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_soundsFactoryInterface")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
+    COMPUTE JVALUE = FUNCTION SoundStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_soundStrings", JVALUE)
     
+        COMPUTE JVALUE = J-soundsFactoryInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_soundsFactoryInterface", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION Sounds-new1.
 
-constructor TSounds.Create(soundsFactoryInterface_: ISoundsFactoryInterface);
-begin
-    inherited Create;
-    InitFields;
-        Self.soundsFactoryInterface := soundsFactoryInterface_;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Sounds-init0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-commonLabels BINARY-DOUBLE.
+01 J-progressCanvas BINARY-DOUBLE.
+01 J-soundInterfaceArray BINARY-DOUBLE.
+01 J-smallIntegerSingletonFactory BINARY-DOUBLE.
+01 J-indexInteger BINARY-DOUBLE.
+01 J-indexString BINARY-DOUBLE.
+01 J-stringBuffer BINARY-DOUBLE.
+01 J-soundInterface BINARY-DOUBLE.
+01 J-i BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_START"), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_INIT"))
+        COMPUTE J-commonLabels = FUNCTION CommonLabels-getInstance0
+        COMPUTE J-progressCanvas = FUNCTION PrgrssCnvsFctry-getInstance0
+        COMPUTE JDISCARD = FUNCTION SoundsFactoryInterface-init0(FUNCTION JR-GET(J-THIS, "f_soundsFactoryInterface"))
+        COMPUTE J-soundInterfaceArray = FUNCTION SndsFctryIntrfc-gtSndIntr23380(FUNCTION JR-GET(J-THIS, "f_soundsFactoryInterface"))
+        COMPUTE J-smallIntegerSingletonFactory = FUNCTION SmllIntgrSngltnFctry-gtInstnc0
+        CONTINUE
+        CONTINUE
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE J-i = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-i = (FUNCTION MOD(J-i + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-i < FUNCTION JR-ARRAY-LENGTH(J-soundInterfaceArray)) EXIT PERFORM END-IF
+            COMPUTE J-soundInterface = FUNCTION JR-ARRAY-GET(J-soundInterfaceArray, J-i)
+            IF (J-soundInterface NOT = 0)
+                COMPUTE J-indexInteger = FUNCTION SmllIntgrSngltnFctry-getAt1(J-smallIntegerSingletonFactory, J-i)
+                COMPUTE J-indexString = FUNCTION JR-TO-STRING(J-indexInteger)
+                COMPUTE jtemp1 = 0
+                COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringBuffer, jtemp1, FUNCTION StringMaker-length0(J-stringBuffer))
+                COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-commonLabels, "f_INDEX_LABEL"))
+                COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-indexString)
+                COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_soundStrings"), "f_SOUND"))
+                COMPUTE jtemp2 = FUNCTION JR-CLASS-NAME(J-soundInterface)
+                COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, jtemp2)
+                COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-stringBuffer), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_INIT"))
+                COMPUTE JDISCARD = FUNCTION Sound-init0(J-soundInterface)
+                COMPUTE jtemp6 = FUNCTION StringMaker-new0
+                COMPUTE jtemp5 = FUNCTION StringMaker-append1(jtemp6, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_soundStrings"), "f_INIT_SOUND"))
+                COMPUTE jtemp4 = FUNCTION StringMaker-append1(jtemp5, J-indexString)
+                COMPUTE jtemp3 = 100
+                COMPUTE JDISCARD = FUNCTION PrgrssCnvs-addNormalPortion2(J-progressCanvas, jtemp3, FUNCTION JR-TO-STRING(jtemp4))
+            END-IF
+        END-PERFORM
+        COMPUTE jtemp7 = 1
+        COMPUTE JDISCARD = FUNCTION SndsFctryIntrfc-stIntlzd1(FUNCTION JR-GET(J-THIS, "f_soundsFactoryInterface"), jtemp7)
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_END"), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_INIT"))
+    GOBACK.
+END FUNCTION Sounds-init0.
 
-// throws Exception
-procedure TSounds.init;
-var
-  commonLabels_: TCommonLabels;
-  progressCanvas_: TProgressCanvas;
-  soundInterfaceArray: TArray<TSound>;
-  smallIntegerSingletonFactory_: TSmallIntegerSingletonFactory;
-  indexInteger: Integer;
-  indexString: string;
-  stringBuffer: TStringMaker;
-  soundInterface: TSound;
-  i: Integer;
-begin
-        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.INIT);
-        commonLabels_ := TCommonLabels.getInstance();
-        progressCanvas_ := TProgressCanvasFactory.getInstance();
-        Self.soundsFactoryInterface.init();
-        soundInterfaceArray := Self.soundsFactoryInterface.getSoundInterfaceArray();
-        smallIntegerSingletonFactory_ := TSmallIntegerSingletonFactory.getInstance();
-        
-        
-        stringBuffer := TStringMaker.Create();
-        for i := 0 to System.Length(soundInterfaceArray) - 1 do begin
-            soundInterface := soundInterfaceArray[i];
-            if (soundInterface) <> (nil) then begin
-                indexInteger := smallIntegerSingletonFactory_.getAt(i);
-                indexString := indexInteger.toString();
-                stringBuffer.delete_(0, stringBuffer.length());
-                stringBuffer.append(commonLabels_.INDEX_LABEL);
-                stringBuffer.append(indexString);
-                stringBuffer.append(Self.soundStrings.SOUND);
-                stringBuffer.append(TJava.ToObject(soundInterface).ClassType.ClassName);
-                Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), Self.commonStrings.INIT);
-                soundInterface.init();
-                progressCanvas_.addNormalPortion(100, TStringMaker.Create().append(Self.soundStrings.INIT_SOUND).append(indexString).toString());
-            end;
-        end;
-        Self.soundsFactoryInterface.setInitialized(True);
-        Self.logUtil.putF(Self.commonStrings.END_, TJava.Box(Self), Self.commonStrings.INIT);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Sounds-stopAll0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-soundInterfaceArray BINARY-DOUBLE.
+01 J-progressCanvas BINARY-DOUBLE.
+01 J-player BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_START"), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_soundStrings"),
+        "f_STOP_ALL"))
+        COMPUTE J-soundInterfaceArray = FUNCTION SndsFctryIntrfc-gtSndIntr23380(FUNCTION JR-GET(J-THIS, "f_soundsFactoryInterface"))
+        COMPUTE J-progressCanvas = FUNCTION PrgrssCnvsFctry-getInstance0
+        CONTINUE
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST2
+        PERFORM FOREVER
+            IF JFIRST2 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST2
+            IF NOT (J-index < FUNCTION JR-ARRAY-LENGTH(J-soundInterfaceArray)) EXIT PERFORM END-IF
+            IF (FUNCTION JR-ARRAY-GET(J-soundInterfaceArray, J-index) NOT = 0)
+                COMPUTE J-player = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(J-soundInterfaceArray, J-index))
+                IF (J-player NOT = 0)
+                    COMPUTE JDISCARD = FUNCTION Player-stop0(J-player)
+                    COMPUTE jtemp8 = 100
+                    COMPUTE JDISCARD = FUNCTION ProgressCanvas-addPortion3(J-progressCanvas, jtemp8, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_soundStrings"), "f_STOPPING_SOUND"), J-index)
+                END-IF
+            END-IF
+        END-PERFORM
+    GOBACK.
+END FUNCTION Sounds-stopAll0.
 
-// throws Exception
-procedure TSounds.stopAll;
-var
-  soundInterfaceArray: TArray<TSound>;
-  progressCanvas_: TProgressCanvas;
-  player_: IPlayer;
-  index: Integer;
-begin
-        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.soundStrings.STOP_ALL);
-        soundInterfaceArray := Self.soundsFactoryInterface.getSoundInterfaceArray();
-        progressCanvas_ := TProgressCanvasFactory.getInstance();
-        
-        for index := 0 to System.Length(soundInterfaceArray) - 1 do begin
-            if (soundInterfaceArray[index]) <> (nil) then begin
-                player_ := soundInterfaceArray[index].getPlayerP();
-                if (player_) <> (nil) then begin
-                    player_.stop();
-                    progressCanvas_.addPortion(100, Self.soundStrings.STOPPING_SOUND, index);
-                end;
-            end;
-        end;
-end;
-    
-
-// throws Exception
-procedure TSounds.closeAll;
-var
-  soundInterfaceArray: TArray<TSound>;
-  progressCanvas_: TProgressCanvas;
-  player_: IPlayer;
-  index: Integer;
-begin
-        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.soundStrings.CLOSE_ALL);
-        soundInterfaceArray := Self.soundsFactoryInterface.getSoundInterfaceArray();
-        progressCanvas_ := TProgressCanvasFactory.getInstance();
-        
-        for index := 0 to System.Length(soundInterfaceArray) - 1 do begin
-            if (soundInterfaceArray[index]) <> (nil) then begin
-                player_ := soundInterfaceArray[index].getPlayerP();
-                if (player_) <> (nil) then begin
-                    player_.close();
-                    progressCanvas_.addPortion(100, Self.soundStrings.CLOSING_SOUND, index);
-                end;
-            end;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Sounds-closeAll0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-soundInterfaceArray BINARY-DOUBLE.
+01 J-progressCanvas BINARY-DOUBLE.
+01 J-player BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 JFIRST3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_START"), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_soundStrings"),
+        "f_CLOSE_ALL"))
+        COMPUTE J-soundInterfaceArray = FUNCTION SndsFctryIntrfc-gtSndIntr23380(FUNCTION JR-GET(J-THIS, "f_soundsFactoryInterface"))
+        COMPUTE J-progressCanvas = FUNCTION PrgrssCnvsFctry-getInstance0
+        CONTINUE
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST3
+        PERFORM FOREVER
+            IF JFIRST3 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST3
+            IF NOT (J-index < FUNCTION JR-ARRAY-LENGTH(J-soundInterfaceArray)) EXIT PERFORM END-IF
+            IF (FUNCTION JR-ARRAY-GET(J-soundInterfaceArray, J-index) NOT = 0)
+                COMPUTE J-player = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(J-soundInterfaceArray, J-index))
+                IF (J-player NOT = 0)
+                    COMPUTE JDISCARD = FUNCTION Player-close0(J-player)
+                    COMPUTE jtemp9 = 100
+                    COMPUTE JDISCARD = FUNCTION ProgressCanvas-addPortion3(J-progressCanvas, jtemp9, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_soundStrings"), "f_CLOSING_SOUND"), J-index)
+                END-IF
+            END-IF
+        END-PERFORM
+    GOBACK.
+END FUNCTION Sounds-closeAll0.
 

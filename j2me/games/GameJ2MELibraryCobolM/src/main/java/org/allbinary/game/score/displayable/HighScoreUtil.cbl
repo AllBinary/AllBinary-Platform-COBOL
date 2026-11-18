@@ -1,145 +1,288 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.score.displayable
+*> Java class HighScoreUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.score.displayable
-unit HighScoreUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrUtl-sttc-SUBMIT-88575.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 HighScoreUtil-jcell-SUBMIT_TEXTBOX_COMMAND BINARY-DOUBLE EXTERNAL.
+01 HighScoreUtil-jset-SUBMIT_TEXTBOX_COMMAND BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF HighScoreUtil-jset-SUBMIT_TEXTBOX_COMMAND = 0
+        MOVE 1 TO HighScoreUtil-jset-SUBMIT_TEXTBOX_COMMAND
+        COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp2 = 1
+    COMPUTE HighScoreUtil-jcell-SUBMIT_TEXTBOX_COMMAND = FUNCTION Command-new4(FUNCTION JR-STR("Submit"), FUNCTION JR-GET(jtemp1, "f_EMPTY_STRING"), FUNCTION Command-static-SCREEN, jtemp2)
+    END-IF
+    MOVE HighScoreUtil-jcell-SUBMIT_TEXTBOX_COMMAND TO J-RESULT
+    GOBACK.
+END FUNCTION HghScrUtl-sttc-SUBMIT-88575.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrUtlsttcSUBMIT8S22340.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 HighScoreUtil-jcell-SUBMIT_TEXTBOX_COMMAND BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION HghScrUtl-sttc-SUBMIT-88575 TO J-RESULT
+    MOVE J-VALUE TO HighScoreUtil-jcell-SUBMIT_TEXTBOX_COMMAND
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION HghScrUtlsttcSUBMIT8S22340.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Command, CommandListener, GameInfo, HighScore, HighScores, HighScoresFactoryInterface, HighScoresHelperBaseInterface, HighScoresResultsListener, MyCanvas, LogUtil, AbeClientInformationInterface, CommonStrings;
-
-type
-  {AB:TYPES}
-  THighScoreUtil = class(TInterfacedObject, IHighScoresResultsListener)
-  public
-    logUtil: TLogUtil;
-    commonStrings: TCommonStrings;
-    highScoresFactoryInterface: IHighScoresFactoryInterface;
-    highScoresArray: TArray<THighScores>;
-    highScore: THighScore;
-    abeClientInformation: IAbeClientInformationInterface;
-    gameInfo: TGameInfo;
-    highScoresHelper: IHighScoresHelperBaseInterface;
-    firstTime: Boolean;
-    class var SUBMIT_TEXTBOX_COMMAND: TCommand;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(highScoresFactoryInterface_: IHighScoresFactoryInterface; highScoresHelper: IHighScoresHelperBaseInterface; abeClientInformation: IAbeClientInformationInterface; gameInfo_: TGameInfo; cmdListener: ICommandListener; name: string; highScore_: THighScore);
-        procedure setHighScoresArray(highScoresArray: TArray<THighScores>); virtual;
-        procedure update(name: string); virtual;
-        procedure saveHighScore; virtual;
-        procedure submit(myCanvas_: TMyCanvas); virtual;
-  end;
-
-implementation
-uses
-  HighScoreNamePersistanceSingleton, StringMaker, StringUtil;
-
-
-{AB:CODE}
-
-procedure THighScoreUtil.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.commonStrings := TCommonStrings.getInstance();
-  
-  
-  
-  
-  
-  
-  Self.firstTime := True;
-end;
-
-function THighScoreUtil.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HighScoreUtil-new7.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-highScoresFactoryInterface BINARY-DOUBLE.
+01 J-highScoresHelper BINARY-DOUBLE.
+01 J-abeClientInformation BINARY-DOUBLE.
+01 J-gameInfo BINARY-DOUBLE.
+01 J-cmdListener BINARY-DOUBLE.
+01 J-name BINARY-DOUBLE.
+01 J-highScore BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-highScoresFactoryInterface J-highScoresHelper J-abeClientInformation J-gameInfo J-cmdListener J-name J-highScore RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("HighScoreUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_highScoresFactoryInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_highScoresArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_highScore")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_abeClientInformation")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameInfo")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_highScoresHelper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_firstTime")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
     
-
-constructor THighScoreUtil.Create(highScoresFactoryInterface_: IHighScoresFactoryInterface; highScoresHelper: IHighScoresHelperBaseInterface; abeClientInformation: IAbeClientInformationInterface; gameInfo_: TGameInfo; cmdListener: ICommandListener; name: string; highScore_: THighScore);
-begin
-    inherited Create;
-    InitFields;
-        Self.highScoresFactoryInterface := highScoresFactoryInterface_;
-        Self.highScoresHelper := highScoresHelper;
-        Self.highScoresArray := Self.highScoresHelper.getHighScoresArray();
-        Self.highScore := highScore_;
-        Self.abeClientInformation := abeClientInformation;
-        Self.gameInfo := gameInfo_;
-end;
     
-
-procedure THighScoreUtil.setHighScoresArray(highScoresArray: TArray<THighScores>);
-begin
-        Self.highScoresArray := highScoresArray;
-        Self.firstTime := False;
-        Self.saveHighScore();
-end;
     
-
-procedure THighScoreUtil.update(name: string);
-begin
-        THighScoreNamePersistanceSingleton.getInstance().save(Self.abeClientInformation, Self.gameInfo, name);
-        Self.highScore.setName(name);
-end;
     
-
-procedure THighScoreUtil.saveHighScore;
-var
-  size: Integer;
-  highScores_: THighScores;
-  highScoresAsString: string;
-  index: Integer;
-begin
-        Self.logUtil.putF(TStringMaker.Create().append(Self.commonStrings.START).append(TStringUtil.getInstance().toString(Self.highScore)).toString(), TJava.Box(Self), 'saveHighScore');
-        size := System.Length(Self.highScoresArray);
-        if (Self.firstTime) and ((size) = (0)) then begin
-            Self.logUtil.putF('Games canvas did not give us any HighScores', TJava.Box(Self), 'saveHighScore');
-            Self.highScoresFactoryInterface.fetchHighScores(Self.gameInfo, Self);
-            Exit;
-        end;
-        
-        
-        for index := 0 to size - 1 do begin
-            highScores_ := Self.highScoresArray[index];
-            highScores_.addHighScore(Self.highScore);
-            highScoresAsString := highScores_.toString();
-            Self.logUtil.putF(TStringMaker.Create().append('Added/Adding Score: ').append(highScoresAsString).toString(), TJava.Box(Self), 'saveHighScore');
-        end;
-        Self.highScoresHelper.setHighScoresArray(Self.highScoresArray);
-end;
     
+    
+    COMPUTE JVALUE = 1
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_firstTime", JVALUE)
+        COMPUTE JVALUE = J-highScoresFactoryInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_highScoresFactoryInterface", JVALUE)
+        COMPUTE JVALUE = J-highScoresHelper
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_highScoresHelper", JVALUE)
+        COMPUTE JVALUE = FUNCTION HghScrsHlprBsIntrfc-gtHgh82838(FUNCTION JR-GET(J-THIS, "f_highScoresHelper"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_highScoresArray", JVALUE)
+        COMPUTE JVALUE = J-highScore
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_highScore", JVALUE)
+        COMPUTE JVALUE = J-abeClientInformation
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_abeClientInformation", JVALUE)
+        COMPUTE JVALUE = J-gameInfo
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameInfo", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION HighScoreUtil-new7.
 
-procedure THighScoreUtil.submit(myCanvas_: TMyCanvas);
-var
-  commandListener_: ICommandListener;
-begin
-        commandListener_ := myCanvas_.getCustomCommandListener();
-        commandListener_.commandAction(THighScoreUtil.SUBMIT_TEXTBOX_COMMAND, myCanvas_);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrUtl-setHighScoresArray1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-highScoresArray BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-highScoresArray RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-highScoresArray
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_highScoresArray", JVALUE)
+        COMPUTE JVALUE = 0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_firstTime", JVALUE)
+        COMPUTE JDISCARD = FUNCTION HighScoreUtil-saveHighScore0(J-THIS)
+    GOBACK.
+END FUNCTION HghScrUtl-setHighScoresArray1.
 
-initialization
-  {AB:INITIALIZATION}
-  THighScoreUtil.SUBMIT_TEXTBOX_COMMAND := TCommand.Create('Submit', TStringUtil.getInstance().EMPTY_STRING, TCommand.SCREEN, 1);
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HighScoreUtil-update1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-name BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-name RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp3 = FUNCTION HghScrNmPrsstncSngltn-gtI97948
+        COMPUTE JDISCARD = FUNCTION HghScrNmPrsstncSngltn-save3(jtemp3, FUNCTION JR-GET(J-THIS, "f_abeClientInformation"), FUNCTION JR-GET(J-THIS, "f_gameInfo"), J-name)
+        COMPUTE JDISCARD = FUNCTION HighScore-setName1(FUNCTION JR-GET(J-THIS, "f_highScore"), J-name)
+    GOBACK.
+END FUNCTION HighScoreUtil-update1.
 
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HighScoreUtil-saveHighScore0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-size BINARY-DOUBLE.
+01 J-highScores BINARY-DOUBLE.
+01 J-highScoresAsString BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp7 = FUNCTION StringUtil-getInstance0
+        COMPUTE jtemp6 = FUNCTION StringMaker-new0
+        COMPUTE jtemp5 = FUNCTION StringMaker-append1(jtemp6, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_START"))
+        COMPUTE jtemp4 = FUNCTION StringMaker-append1(jtemp5, FUNCTION StringUtil-toString1(jtemp7, FUNCTION JR-GET(J-THIS, "f_highScore")))
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp4), J-THIS, FUNCTION JR-STR("saveHighScore"))
+        COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_highScoresArray"))
+        IF ((FUNCTION JR-GET(J-THIS, "f_firstTime") = 1) AND (J-size = 0))
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-STR("Games canvas did not give us any HighScores"), J-THIS, FUNCTION JR-STR("saveHighScore"))
+            COMPUTE JDISCARD = FUNCTION HghScrsFctryIntrfc-ftchHg32573(FUNCTION JR-GET(J-THIS, "f_highScoresFactoryInterface"), FUNCTION JR-GET(J-THIS, "f_gameInfo"), J-THIS)
+            GOBACK
+        END-IF
+        CONTINUE
+        CONTINUE
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-highScores = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_highScoresArray"), J-index)
+            COMPUTE JDISCARD = FUNCTION HighScores-addHighScore1(J-highScores, FUNCTION JR-GET(J-THIS, "f_highScore"))
+            COMPUTE J-highScoresAsString = FUNCTION JR-TO-STRING(J-highScores)
+            COMPUTE jtemp10 = FUNCTION StringMaker-new0
+            COMPUTE jtemp9 = FUNCTION StringMaker-append1(jtemp10, FUNCTION JR-STR("Added/Adding Score: "))
+            COMPUTE jtemp8 = FUNCTION StringMaker-append1(jtemp9, J-highScoresAsString)
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp8), J-THIS, FUNCTION JR-STR("saveHighScore"))
+        END-PERFORM
+        COMPUTE JDISCARD = FUNCTION HghScrsHlprBsIntrfc-stHgh45714(FUNCTION JR-GET(J-THIS, "f_highScoresHelper"), FUNCTION JR-GET(J-THIS, "f_highScoresArray"))
+    GOBACK.
+END FUNCTION HighScoreUtil-saveHighScore0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HighScoreUtil-submit1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-commandListener BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-myCanvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-myCanvas RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-commandListener = FUNCTION MyCnvs-gtCstmCmmndLstnr0(J-myCanvas)
+        COMPUTE JDISCARD = FUNCTION CommandListener-commandAction2(J-commandListener, FUNCTION HghScrUtl-sttc-SUBMIT-88575, J-myCanvas)
+    GOBACK.
+END FUNCTION HighScoreUtil-submit1.
 

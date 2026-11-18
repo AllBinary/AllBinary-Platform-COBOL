@@ -1,130 +1,268 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.displayable.canvas
+*> Java class GamePerformanceInitUpdatePaintable
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.displayable.canvas
-unit GamePerformanceInitUpdatePaintable;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, MyFontProcessor, UpdateMyFontInterface, InitUpdatePaintable;
-
-type
-  {AB:TYPES}
-  TGamePerformanceInitUpdatePaintable = class(TInitUpdatePaintable, IUpdateMyFontInterface)
-  public
-    halfHeight: Integer;
-    yArray: TArray<Integer>;
-    myFontProcessor: TMyFontProcessor;
-    baseRefreshHelperCharArray: TArray<TArray<WideChar>>;
-    defaultStringWidth: Integer;
-    RED: Integer;
-    procedure InitFields;
-    function JavaObject: TObject;
-    constructor Create;
-        procedure updateMeasurement(graphics_: TGraphics); virtual;
-        procedure init; virtual;
-        procedure update; virtual;
-        procedure paint(graphics_: TGraphics); virtual;
-  end;
-
-implementation
-uses
-  Font, GameStatisticsFactory, BasicColorFactory, DisplayInfoSingleton, UpdateMyFontProcessor;
-
-
-{AB:CODE}
-
-procedure TGamePerformanceInitUpdatePaintable.InitFields;
-begin
-  Self.halfHeight := TDisplayInfoSingleton.getInstance().getLastHalfHeight();
-  Self.yArray := TArray<Integer>.Create((Self.halfHeight) + (30), (Self.halfHeight) + (30), ((Self.halfHeight) + (30)) + (15), ((Self.halfHeight) + (30)) + (15), ((Self.halfHeight) + (30)) + (30), ((Self.halfHeight) + (30)) + (30), ((Self.halfHeight) + (30)) + (45), ((Self.halfHeight) + (30)) + (45));
-  Self.myFontProcessor := TUpdateMyFontProcessor.Create(Self);
-  Self.baseRefreshHelperCharArray := TJava.NewArray2<WideChar>(0, 0);
-  
-  Self.RED := TBasicColorFactory.getInstance().RED.intValue();
-end;
-
-function TGamePerformanceInitUpdatePaintable.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-
-constructor TGamePerformanceInitUpdatePaintable.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmPrfrmncIntUpdtPntbl-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+01 jtemp18 BINARY-DOUBLE.
+01 jtemp19 BINARY-DOUBLE.
+01 jtemp20 BINARY-DOUBLE.
+01 jtemp21 BINARY-DOUBLE.
+01 jtemp22 BINARY-DOUBLE.
+01 jtemp23 BINARY-DOUBLE.
+01 jtemp26 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GamePerformanceInitUpdatePaintable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_halfHeight")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_yArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_myFontProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_baseRefreshHelperCharArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_defaultStringWidth")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_RED")
+    COMPUTE jtemp1 = FUNCTION DsplyInfSngltn-getInstance0
+    COMPUTE JVALUE = FUNCTION DsplyInfSngltn-gtLstHlfHght0(jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_halfHeight", JVALUE)
+    COMPUTE jtemp5 = 30
+    COMPUTE jtemp8 = 30
+    COMPUTE jtemp11 = 30
+    COMPUTE jtemp14 = 30
+    COMPUTE jtemp17 = 30
+    COMPUTE jtemp20 = 30
+    COMPUTE jtemp2 = 30
+    COMPUTE jtemp3 = 30
+    COMPUTE jtemp4 = (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_halfHeight") + jtemp5) + 2147483648, 4294967296) - 2147483648)
+    COMPUTE jtemp6 = 15
+    COMPUTE jtemp7 = (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_halfHeight") + jtemp8) + 2147483648, 4294967296) - 2147483648)
+    COMPUTE jtemp9 = 15
+    COMPUTE jtemp10 = (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_halfHeight") + jtemp11) + 2147483648, 4294967296) - 2147483648)
+    COMPUTE jtemp12 = 30
+    COMPUTE jtemp13 = (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_halfHeight") + jtemp14) + 2147483648, 4294967296) - 2147483648)
+    COMPUTE jtemp15 = 30
+    COMPUTE jtemp16 = (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_halfHeight") + jtemp17) + 2147483648, 4294967296) - 2147483648)
+    COMPUTE jtemp18 = 45
+    COMPUTE jtemp19 = (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_halfHeight") + jtemp20) + 2147483648, 4294967296) - 2147483648)
+    COMPUTE jtemp21 = 45
+    COMPUTE JVALUE = FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-NEW-ARRAY(JZERO), (FUNCTION
+        MOD((FUNCTION JR-GET(J-THIS, "f_halfHeight") + jtemp2) + 2147483648, 4294967296) - 2147483648)), (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_halfHeight") + jtemp3) + 2147483648, 4294967296) - 2147483648)), (FUNCTION MOD((jtemp4 +
+        jtemp6) + 2147483648, 4294967296) - 2147483648)), (FUNCTION MOD((jtemp7 + jtemp9) + 2147483648, 4294967296) - 2147483648)), (FUNCTION MOD((jtemp10 + jtemp12) + 2147483648, 4294967296) - 2147483648)), (FUNCTION MOD((jtemp13 +
+        jtemp15) + 2147483648, 4294967296) - 2147483648)), (FUNCTION MOD((jtemp16 + jtemp18) + 2147483648, 4294967296) - 2147483648)), (FUNCTION MOD((jtemp19 + jtemp21) + 2147483648, 4294967296) - 2147483648))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_yArray", JVALUE)
+    COMPUTE JVALUE = FUNCTION UpdateMyFontProcessor-new1(J-THIS)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
+    COMPUTE jtemp22 = 0
+    COMPUTE jtemp23 = 0
+    COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY2(jtemp22, jtemp23)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_baseRefreshHelperCharArray", JVALUE)
     
+    COMPUTE jtemp26 = FUNCTION BasicColorFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(jtemp26, "f_RED"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_RED", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GmPrfrmncIntUpdtPntbl-new0.
 
-procedure TGamePerformanceInitUpdatePaintable.updateMeasurement(graphics_: TGraphics);
-var
-  font_: TFont;
-begin
-        font_ := graphics_.getFont();
-        Self.defaultStringWidth := TMyFontProcessor.defaultStringWidth(font_, 2);
-        Self.myFontProcessor := TMyFontProcessor.getInstance();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmPrfrmncIntUpdtPntbl-upd49124.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-font BINARY-DOUBLE.
+01 jtemp24 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-font = FUNCTION Graphics-getFont0(J-graphics)
+        COMPUTE jtemp24 = 2
+        COMPUTE JVALUE = FUNCTION MyFntPrcssr-dfltStrngWdth2(J-font, jtemp24)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_defaultStringWidth", JVALUE)
+        COMPUTE JVALUE = FUNCTION MyFontProcessor-getInstance0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
+    GOBACK.
+END FUNCTION GmPrfrmncIntUpdtPntbl-upd49124.
 
-procedure TGamePerformanceInitUpdatePaintable.init;
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmPrfrmncIntUpdtPntbl-init0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION GmPrfrmncIntUpdtPntbl-init0.
 
-procedure TGamePerformanceInitUpdatePaintable.update;
-begin
-        Self.baseRefreshHelperCharArray := TGameStatisticsFactory.getInstance().to2DCharArray();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmPrfrmncIntUpdtPntbl-update0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp25 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp25 = FUNCTION GmSttstcsFctry-getInstance0
+        COMPUTE JVALUE = FUNCTION BsGmSttstcs-to2DCharArray0(jtemp25)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_baseRefreshHelperCharArray", JVALUE)
+    GOBACK.
+END FUNCTION GmPrfrmncIntUpdtPntbl-update0.
 
-procedure TGamePerformanceInitUpdatePaintable.paint(graphics_: TGraphics);
-var
-  charArray: TArray<WideChar>;
-  charArray2: TArray<WideChar>;
-  size2: Integer;
-  size3: Integer;
-  size: Integer;
-  index: Integer;
-begin
-        Self.myFontProcessor.process(graphics_);
-        graphics_.setColor(Self.RED);
-        
-        
-        
-        
-        size := (System.Length(Self.baseRefreshHelperCharArray)) - (2);
-        index := size;
-        while (index) >= (0) do begin
-            charArray := Self.baseRefreshHelperCharArray[index];
-            charArray2 := Self.baseRefreshHelperCharArray[(index) + (1)];
-            size2 := System.Length(charArray);
-            size3 := System.Length(charArray2);
-            graphics_.drawChars(charArray, 0, size2, 0, Self.yArray[index], 0);
-            graphics_.drawChars(charArray2, 0, size3, (size2) * (Self.defaultStringWidth), Self.yArray[(index) + (1)], 0);
-            index := (index) - (2);
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmPrfrmncIntUpdtPntbl-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-charArray BINARY-DOUBLE.
+01 J-charArray2 BINARY-DOUBLE.
+01 J-size2 BINARY-DOUBLE.
+01 J-size3 BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp27 BINARY-DOUBLE.
+01 jtemp28 BINARY-DOUBLE.
+01 jtemp29 BINARY-DOUBLE.
+01 jtemp30 BINARY-DOUBLE.
+01 jtemp31 BINARY-DOUBLE.
+01 jtemp32 BINARY-DOUBLE.
+01 jtemp33 BINARY-DOUBLE.
+01 jtemp34 BINARY-DOUBLE.
+01 jtemp35 BINARY-DOUBLE.
+01 jtemp36 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION MyFontProcessor-process1(FUNCTION JR-GET(J-THIS, "f_myFontProcessor"), J-graphics)
+        COMPUTE JDISCARD = FUNCTION Graphics-setColor1(J-graphics, FUNCTION JR-GET(J-THIS, "f_RED"))
+        CONTINUE
+        CONTINUE
+        CONTINUE
+        CONTINUE
+        COMPUTE J-size = (FUNCTION MOD((FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_baseRefreshHelperCharArray")) - 2) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE J-index = J-size
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD((J-index - 2) + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index >= 0) EXIT PERFORM END-IF
+            COMPUTE J-charArray = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_baseRefreshHelperCharArray"), J-index)
+            COMPUTE jtemp28 = 1
+            COMPUTE jtemp27 = (FUNCTION MOD((J-index + jtemp28) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE J-charArray2 = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_baseRefreshHelperCharArray"), jtemp27)
+            COMPUTE J-size2 = FUNCTION JR-ARRAY-LENGTH(J-charArray)
+            COMPUTE J-size3 = FUNCTION JR-ARRAY-LENGTH(J-charArray2)
+            COMPUTE jtemp29 = 0
+            COMPUTE jtemp30 = 0
+            COMPUTE jtemp31 = 0
+            COMPUTE JDISCARD = FUNCTION Graphics-drawChars6(J-graphics, J-charArray, jtemp29, J-size2, jtemp30, FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_yArray"), J-index), jtemp31)
+            COMPUTE jtemp35 = 1
+            COMPUTE jtemp34 = (FUNCTION MOD((J-index + jtemp35) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE jtemp32 = 0
+            COMPUTE jtemp33 = (FUNCTION MOD((J-size2 * FUNCTION JR-GET(J-THIS, "f_defaultStringWidth")) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE jtemp36 = 0
+            COMPUTE JDISCARD = FUNCTION Graphics-drawChars6(J-graphics, J-charArray2, jtemp32, J-size3, jtemp33, FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_yArray"), jtemp34), jtemp36)
+        END-PERFORM
+    GOBACK.
+END FUNCTION GmPrfrmncIntUpdtPntbl-paint1.
 

@@ -1,66 +1,113 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.system.security.licensing
+*> Java class LockedResources
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.logic.system.security.licensing
-unit LockedResources;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LckdRsrcs-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 LockedResources-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 LockedResources-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF LockedResources-jset-instance = 0
+        MOVE 1 TO LockedResources-jset-instance
+        COMPUTE LockedResources-jcell-instance = FUNCTION LockedResources-new0
+    END-IF
+    MOVE LockedResources-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION LckdRsrcs-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LckdRsrcsstaticinstaS76071.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 LockedResources-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION LckdRsrcs-static-instance TO J-RESULT
+    MOVE J-VALUE TO LockedResources-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION LckdRsrcsstaticinstaS76071.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LockedResources-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("LockedResources")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_LOCKED_DEMO_GAME_FEATURE_RESOURCE")
+    COMPUTE JVALUE = FUNCTION JR-STR("/locked_demo_game_feature_64_by_64.png")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_LOCKED_DEMO_GAME_FEATURE_RESOURCE", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION LockedResources-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
-
-type
-  {AB:TYPES}
-  TLockedResources = class(TObject)
-  public
-    LOCKED_DEMO_GAME_FEATURE_RESOURCE: string;
-    class var instance: TLockedResources;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TLockedResources; static;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TLockedResources.InitFields;
-begin
-  Self.LOCKED_DEMO_GAME_FEATURE_RESOURCE := '/locked_demo_game_feature_64_by_64.png';
-end;
-
-constructor TLockedResources.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TLockedResources.getInstance: TLockedResources;
-begin
-        Exit(TLockedResources.instance);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TLockedResources.instance := TLockedResources.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LockedResources-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION LckdRsrcs-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION LockedResources-getInstance0.
 

@@ -1,51 +1,83 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2025 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.layer.special
-unit SpecialGameInputFactory;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.layer.special
+*> Java class SpecialGameInputFactory
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SpclGmInptFctry-sttc-41428.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 SpecialGameInputFactory-jcell-NO_SPECIAL_GAME_INPUT BINARY-DOUBLE EXTERNAL.
+01 SpecialGameInputFactory-jset-NO_SPECIAL_GAME_INPUT BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF SpecialGameInputFactory-jset-NO_SPECIAL_GAME_INPUT = 0
+        MOVE 1 TO SpecialGameInputFactory-jset-NO_SPECIAL_GAME_INPUT
+        COMPUTE SpecialGameInputFactory-jcell-NO_SPECIAL_GAME_INPUT = FUNCTION SpecialGameInput-new0
+    END-IF
+    MOVE SpecialGameInputFactory-jcell-NO_SPECIAL_GAME_INPUT TO J-RESULT
+    GOBACK.
+END FUNCTION SpclGmInptFctry-sttc-41428.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SpclGmInptFctrysttc4S51172.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 SpecialGameInputFactory-jcell-NO_SPECIAL_GAME_INPUT BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION SpclGmInptFctry-sttc-41428 TO J-RESULT
+    MOVE J-VALUE TO SpecialGameInputFactory-jcell-NO_SPECIAL_GAME_INPUT
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION SpclGmInptFctrysttc4S51172.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, SpecialGameInput;
-
-type
-  {AB:TYPES}
-  TSpecialGameInputFactory = class(TObject)
-  public
-    class var NO_SPECIAL_GAME_INPUT: TSpecialGameInput;
-    constructor Create;
-  end;
-
-implementation
-
-{AB:CODE}
-
-constructor TSpecialGameInputFactory.Create;
-begin
-  inherited Create;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TSpecialGameInputFactory.NO_SPECIAL_GAME_INPUT := TSpecialGameInput.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SpecialGameInputFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("SpecialGameInputFactory")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION SpecialGameInputFactory-new0.
 

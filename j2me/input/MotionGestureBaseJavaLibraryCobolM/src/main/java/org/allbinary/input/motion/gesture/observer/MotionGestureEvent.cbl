@@ -1,143 +1,416 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion.gesture.observer
+*> Java class MotionGestureEvent
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion.gesture.observer
-unit MotionGestureEvent;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrEvnt-static-PREVIOUS.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 MotionGestureEvent-jcell-PREVIOUS BINARY-DOUBLE EXTERNAL.
+01 MotionGestureEvent-jset-PREVIOUS BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF MotionGestureEvent-jset-PREVIOUS = 0
+        MOVE 1 TO MotionGestureEvent-jset-PREVIOUS
+        COMPUTE MotionGestureEvent-jcell-PREVIOUS = FUNCTION JR-STR(" Previous: ")
+    END-IF
+    MOVE MotionGestureEvent-jcell-PREVIOUS TO J-RESULT
+    GOBACK.
+END FUNCTION MtnGstrEvnt-static-PREVIOUS.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrEvntstaticPRES63123.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 MotionGestureEvent-jcell-PREVIOUS BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION MtnGstrEvnt-static-PREVIOUS TO J-RESULT
+    MOVE J-VALUE TO MotionGestureEvent-jcell-PREVIOUS
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION MtnGstrEvntstaticPRES63123.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrEvnt-static-HASHCODE.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 MotionGestureEvent-jcell-HASHCODE BINARY-DOUBLE EXTERNAL.
+01 MotionGestureEvent-jset-HASHCODE BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF MotionGestureEvent-jset-HASHCODE = 0
+        MOVE 1 TO MotionGestureEvent-jset-HASHCODE
+        COMPUTE MotionGestureEvent-jcell-HASHCODE = FUNCTION JR-STR(" hashcode: ")
+    END-IF
+    MOVE MotionGestureEvent-jcell-HASHCODE TO J-RESULT
+    GOBACK.
+END FUNCTION MtnGstrEvnt-static-HASHCODE.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GPoint, MotionGestureInput, AllBinaryEventObject, CommonLabels;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrEvntstaticHASS27959.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 MotionGestureEvent-jcell-HASHCODE BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION MtnGstrEvnt-static-HASHCODE TO J-RESULT
+    MOVE J-VALUE TO MotionGestureEvent-jcell-HASHCODE
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION MtnGstrEvntstaticHASS27959.
 
-type
-  {AB:TYPES}
-  TMotionGestureEvent = class(TAllBinaryEventObject)
-  public
-    motionGesture: TMotionGestureInput;
-    id: Integer;
-    previousPoint: TGPoint;
-    currentPoint: TGPoint;
-    commonLabels: TCommonLabels;
-    class var PREVIOUS: string;
-    class var HASHCODE: string;
-    procedure InitFields;
-        constructor Create(source: TObject; id: Integer; motionGesture: TMotionGestureInput);
-        function getMotionGesture: TMotionGestureInput; virtual;
-        procedure setMotionGesture(motionGesture: TMotionGestureInput); virtual;
-        function getPreviousPoint: TGPoint; virtual;
-        procedure setPreviousPoint(previousPoint: TGPoint); virtual;
-        function getCurrentPoint: TGPoint; virtual;
-        procedure setCurrentPoint(currentPoint: TGPoint); virtual;
-        function toString: string; override;
-        function getId: Integer; virtual;
-  end;
-
-implementation
-uses
-  PointFactory, TouchMotionGestureFactory, TsUtil, StringMaker, StringUtil;
-
-
-{AB:CODE}
-
-procedure TMotionGestureEvent.InitFields;
-begin
-  Self.motionGesture := TTouchMotionGestureFactory.getInstance().NO_MOTION;
-  
-  Self.previousPoint := TPointFactory.getInstance().ZERO_ZERO;
-  Self.currentPoint := TPointFactory.getInstance().ZERO_ZERO;
-  Self.commonLabels := TCommonLabels.getInstance();
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MotionGestureEvent-new3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-source BINARY-DOUBLE.
+01 J-id BINARY-DOUBLE.
+01 J-motionGesture BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-source J-id J-motionGesture RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("MotionGestureEvent")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_motionGesture")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_id")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_previousPoint")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_currentPoint")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonLabels")
+    COMPUTE jtemp1 = FUNCTION TchMtnGstrFctry-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_NO_MOTION")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_motionGesture", JVALUE)
     
+    COMPUTE jtemp2 = FUNCTION PointFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp2, "f_ZERO_ZERO")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_previousPoint", JVALUE)
+    COMPUTE jtemp3 = FUNCTION PointFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp3, "f_ZERO_ZERO")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_currentPoint", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonLabels-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonLabels", JVALUE)
+        CONTINUE
+        COMPUTE JVALUE = J-id
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_id", JVALUE)
+        COMPUTE JDISCARD = FUNCTION MtnGstrEvnt-setMotionGesture1(J-THIS, J-motionGesture)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION MotionGestureEvent-new3.
 
-constructor TMotionGestureEvent.Create(source: TObject; id: Integer; motionGesture: TMotionGestureInput);
-begin
-        inherited Create(source);
-        InitFields;
-        Self.id := id;
-        Self.setMotionGesture(motionGesture);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrEvnt-getMotionGesture0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_motionGesture")
+        GOBACK
+    GOBACK.
+END FUNCTION MtnGstrEvnt-getMotionGesture0.
 
-function TMotionGestureEvent.getMotionGesture: TMotionGestureInput;
-begin
-        Exit(Self.motionGesture);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrEvnt-setMotionGesture1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-motionGesture BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-motionGesture RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-motionGesture
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_motionGesture", JVALUE)
+    GOBACK.
+END FUNCTION MtnGstrEvnt-setMotionGesture1.
 
-procedure TMotionGestureEvent.setMotionGesture(motionGesture: TMotionGestureInput);
-begin
-        Self.motionGesture := motionGesture;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrEvnt-getPreviousPoint0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_previousPoint")
+        GOBACK
+    GOBACK.
+END FUNCTION MtnGstrEvnt-getPreviousPoint0.
 
-function TMotionGestureEvent.getPreviousPoint: TGPoint;
-begin
-        Exit(Self.previousPoint);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrEvnt-setPreviousPoint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-previousPoint BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-previousPoint RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-previousPoint
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_previousPoint", JVALUE)
+    GOBACK.
+END FUNCTION MtnGstrEvnt-setPreviousPoint1.
 
-procedure TMotionGestureEvent.setPreviousPoint(previousPoint: TGPoint);
-begin
-        Self.previousPoint := previousPoint;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrEvnt-getCurrentPoint0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_currentPoint")
+        GOBACK
+    GOBACK.
+END FUNCTION MtnGstrEvnt-getCurrentPoint0.
 
-function TMotionGestureEvent.getCurrentPoint: TGPoint;
-begin
-        Exit(Self.currentPoint);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrEvnt-setCurrentPoint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-currentPoint BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-currentPoint RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-currentPoint
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_currentPoint", JVALUE)
+    GOBACK.
+END FUNCTION MtnGstrEvnt-setCurrentPoint1.
 
-procedure TMotionGestureEvent.setCurrentPoint(currentPoint: TGPoint);
-begin
-        Self.currentPoint := currentPoint;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MotionGestureEvent-toString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringBuffer BINARY-DOUBLE.
+01 J-stringUtil BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE J-stringUtil = FUNCTION StringUtil-getInstance0
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION StringUtil-toString1(J-stringUtil, FUNCTION JR-GET(J-THIS, "f_motionGesture")))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonLabels"), "f_CURRENT"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION StringUtil-toString1(J-stringUtil, FUNCTION JR-GET(J-THIS, "f_currentPoint")))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION MtnGstrEvnt-static-PREVIOUS)
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION StringUtil-toString1(J-stringUtil, FUNCTION JR-GET(J-THIS, "f_previousPoint")))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION MtnGstrEvnt-static-HASHCODE)
+        COMPUTE jtemp4 = FUNCTION TsUtil-getInstance0
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, FUNCTION TsUtil-hashCode1(jtemp4, J-THIS))
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(J-stringBuffer)
+        GOBACK
+    GOBACK.
+END FUNCTION MotionGestureEvent-toString0.
 
-function TMotionGestureEvent.toString: string;
-var
-  stringBuffer: TStringMaker;
-  stringUtil_: TStringUtil;
-begin
-        stringBuffer := TStringMaker.Create();
-        stringUtil_ := TStringUtil.getInstance();
-        stringBuffer.append(stringUtil_.toString(Self.motionGesture));
-        stringBuffer.append(Self.commonLabels.CURRENT);
-        stringBuffer.append(stringUtil_.toString(Self.currentPoint));
-        stringBuffer.append(TMotionGestureEvent.PREVIOUS);
-        stringBuffer.append(stringUtil_.toString(Self.previousPoint));
-        stringBuffer.append(TMotionGestureEvent.HASHCODE);
-        stringBuffer.appendint(Integer(Trunc(TTsUtil.getInstance().hashCode(TJava.Box(Self)))));
-        Exit(stringBuffer.toString());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MotionGestureEvent-getId0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_id")
+        GOBACK
+    GOBACK.
+END FUNCTION MotionGestureEvent-getId0.
 
-function TMotionGestureEvent.getId: Integer;
-begin
-        Exit(Self.id);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TMotionGestureEvent.PREVIOUS := ' Previous: ';
-  TMotionGestureEvent.HASHCODE := ' hashcode: ';
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+PROGRAM-ID. MotionGestureEvent-toString.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION MotionGestureEvent-toString0(J-THIS)
+    GOBACK.
+END PROGRAM MotionGestureEvent-toString.
 

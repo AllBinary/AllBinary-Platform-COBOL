@@ -1,87 +1,141 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.form
+*> Java class LockablePaintable
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.form
-unit LockablePaintable;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, Animation, ItemPaintable;
-
-type
-  {AB:TYPES}
-  TLockablePaintable = class(TItemPaintable)
-  public
-    animation: TAnimation;
-    lockedIndex: Integer;
-    procedure InitFields;
-        constructor Create(lockedIndex: Integer);
-        procedure paint(graphics_: TGraphics; currentIndex: Integer; x: Integer; y: Integer); override;
-        function getLockedIndex: Integer; virtual;
-        function getAnimation: TAnimation; virtual;
-  end;
-
-implementation
-uses
-  FeaturedAnimationInterfaceFactoryInterfaceFactory, LockedResources, LockedUtil;
-
-
-{AB:CODE}
-
-procedure TLockablePaintable.InitFields;
-begin
-  Self.animation := TFeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(TLockedResources.getInstance().LOCKED_DEMO_GAME_FEATURE_RESOURCE).getInstance(0);
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LockablePaintable-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-lockedIndex BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-lockedIndex RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("LockablePaintable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_animation")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_lockedIndex")
+    COMPUTE jtemp3 = FUNCTION LockedResources-getInstance0
+    COMPUTE jtemp2 = FUNCTION FtrdAnmtnIntrfcFctryInt-53898
+    COMPUTE jtemp4 = 0
+    COMPUTE jtemp1 = FUNCTION FtrdAnmtnIntrfcFctryInt-13097(jtemp2, FUNCTION JR-GET(jtemp3, "f_LOCKED_DEMO_GAME_FEATURE_RESOURCE"))
+    COMPUTE JVALUE = FUNCTION JR-CLASS-NAME(jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animation", JVALUE)
     
+        COMPUTE JVALUE = J-lockedIndex
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lockedIndex", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION LockablePaintable-new1.
 
-constructor TLockablePaintable.Create(lockedIndex: Integer);
-begin
-    inherited Create;
-    InitFields;
-        Self.lockedIndex := lockedIndex;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LockablePaintable-paint4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-currentIndex BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-currentIndex J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp5 = FUNCTION LockedUtil-getInstance0
+        IF ((FUNCTION LockedUtil-isLocked0(jtemp5) = 1) AND (J-currentIndex >= FUNCTION LckblPntbl-getLockedIndex0(J-THIS)))
+            COMPUTE jtemp6 = FUNCTION LckblPntbl-getAnimation0(J-THIS)
+            COMPUTE JDISCARD = FUNCTION Animation-paintXY3(jtemp6, J-graphics, J-x, J-y)
+        END-IF
+    GOBACK.
+END FUNCTION LockablePaintable-paint4.
 
-procedure TLockablePaintable.paint(graphics_: TGraphics; currentIndex: Integer; x: Integer; y: Integer);
-begin
-        if (TLockedUtil.getInstance().isLocked()) and ((currentIndex) >= (Self.getLockedIndex())) then begin
-            Self.getAnimation().paintXY(graphics_, x, y);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LckblPntbl-getLockedIndex0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_lockedIndex")
+        GOBACK
+    GOBACK.
+END FUNCTION LckblPntbl-getLockedIndex0.
 
-function TLockablePaintable.getLockedIndex: Integer;
-begin
-        Exit(Self.lockedIndex);
-end;
-    
-
-function TLockablePaintable.getAnimation: TAnimation;
-begin
-        Exit(Self.animation);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LckblPntbl-getAnimation0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_animation")
+        GOBACK
+    GOBACK.
+END FUNCTION LckblPntbl-getAnimation0.
 

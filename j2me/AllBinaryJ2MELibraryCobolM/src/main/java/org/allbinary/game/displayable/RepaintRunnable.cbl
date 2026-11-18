@@ -1,81 +1,85 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2022 AllBinary 
-  
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-  
-  Created By: Travis Berthelot 
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.displayable
-unit RepaintRunnable;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.displayable
+*> Java class RepaintRunnable
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Canvas, ARunnable;
-
-type
-  {AB:TYPES}
-  TRepaintRunnable = class(TARunnable)
-  public
-    canvas: TCanvas;
-    procedure InitFields;
-        constructor Create(canvas_: TCanvas);
-        procedure run; override;
-  end;
-
-implementation
-uses
-  DisplayInfoSingleton, LogUtil, CommonStrings;
-
-
-{AB:CODE}
-
-procedure TRepaintRunnable.InitFields;
-begin
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RepaintRunnable-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-canvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-canvas RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("RepaintRunnable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_canvas")
     
+        COMPUTE JVALUE = J-canvas
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_canvas", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION RepaintRunnable-new1.
 
-constructor TRepaintRunnable.Create(canvas_: TCanvas);
-begin
-    inherited Create;
-    InitFields;
-        Self.canvas := canvas_;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RepaintRunnable-run0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-commonStrings BINARY-DOUBLE.
+01 J-logUtil BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE JDISCARD = FUNCTION Canvas-repaint0(FUNCTION JR-GET(J-THIS, "f_canvas"))
+            COMPUTE jtemp1 = FUNCTION DsplyInfSngltn-getInstance0
+            COMPUTE JDISCARD = FUNCTION DisplayInfoSingleton-process0(jtemp1)
+    GOBACK.
+END FUNCTION RepaintRunnable-run0.
 
-procedure TRepaintRunnable.run;
-var
-  commonStrings_: TCommonStrings;
-  logUtil_: TLogUtil;
-begin
-        try
-            Self.canvas.repaint();
-            TDisplayInfoSingleton.getInstance().process();
-        except
-            on e: SysUtils.Exception do begin
-            commonStrings_ := TCommonStrings.getInstance();
-            logUtil_ := TLogUtil.getInstance();
-            logUtil_.put(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.RUN, TJava.Box(e));
-            end;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+PROGRAM-ID. RepaintRunnable-run.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION RepaintRunnable-run0(J-THIS)
+    GOBACK.
+END PROGRAM RepaintRunnable-run.
 

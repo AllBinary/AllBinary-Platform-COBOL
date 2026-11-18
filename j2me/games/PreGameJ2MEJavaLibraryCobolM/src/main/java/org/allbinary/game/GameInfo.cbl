@@ -1,214 +1,603 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game
+*> Java class GameInfo
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game
-unit GameInfo;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameInfo-static-NONE.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameInfo-jcell-NONE BINARY-DOUBLE EXTERNAL.
+01 GameInfo-jset-NONE BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GameInfo-jset-NONE = 0
+        MOVE 1 TO GameInfo-jset-NONE
+        COMPUTE jtemp1 = FUNCTION GameTypeFactory-getInstance0
+    COMPUTE jtemp2 = FUNCTION PlyrTypsFctry-getInstance0
+    COMPUTE jtemp3 = (0 - 1)
+    COMPUTE jtemp4 = (0 - 1)
+    COMPUTE GameInfo-jcell-NONE = FUNCTION GameInfo-new5(FUNCTION JR-GET(jtemp1, "f_NONE"), FUNCTION GameMode-static-NONE, FUNCTION JR-GET(jtemp2, "f_PLAYER_TYPE_ONE"), jtemp3, jtemp4)
+    END-IF
+    MOVE GameInfo-jcell-NONE TO J-RESULT
+    GOBACK.
+END FUNCTION GameInfo-static-NONE.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameInfostaticNONES38213.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameInfo-jcell-NONE BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GameInfo-static-NONE TO J-RESULT
+    MOVE J-VALUE TO GameInfo-jcell-NONE
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GameInfostaticNONES38213.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameInfo-static-LEVEL-NAME.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameInfo-jcell-LEVEL_NAME BINARY-DOUBLE EXTERNAL.
+01 GameInfo-jset-LEVEL_NAME BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GameInfo-jset-LEVEL_NAME = 0
+        MOVE 1 TO GameInfo-jset-LEVEL_NAME
+        COMPUTE GameInfo-jcell-LEVEL_NAME = FUNCTION JR-STR("LEVEL")
+    END-IF
+    MOVE GameInfo-jcell-LEVEL_NAME TO J-RESULT
+    GOBACK.
+END FUNCTION GameInfo-static-LEVEL-NAME.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LogUtil, ABHashtable, GameInfoData, GameType, GameMode, PlayerType;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameInfostaticLEVELNS10965.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameInfo-jcell-LEVEL_NAME BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GameInfo-static-LEVEL-NAME TO J-RESULT
+    MOVE J-VALUE TO GameInfo-jcell-LEVEL_NAME
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GameInfostaticLEVELNS10965.
 
-type
-  {AB:TYPES}
-  TGameInfo = class(TObject)
-  public
-    logUtil: TLogUtil;
-    gameInfoData: TGameInfoData;
-    gameType: TGameType;
-    gameMode: TGameMode;
-    playerType: TPlayerType;
-    highestLevel: Integer;
-    currentLevel: Integer;
-    NEW_LEVEL: string;
-    SET_CURRENT_LEVEL: string;
-    NEXT_GAME_LEVEL: string;
-    class var NONE: TGameInfo;
-    class var LEVEL_NAME: string;
-    procedure InitFields;
-        constructor Create(gameType_: TGameType; gameMode_: TGameMode; playerType_: TPlayerType; highestLevel: Integer; currentLevel: Integer);
-        function getGameType: TGameType; virtual;
-        function getGameMode: TGameMode; virtual;
-        function getPlayerType: TPlayerType; virtual;
-        function getHighestLevel: Integer; virtual;
-        procedure setHighestLevel(highestLevel: Integer); virtual;
-        function getCurrentLevel: Integer; virtual;
-        procedure setCurrentLevel(currentLevel: Integer); virtual;
-        procedure nextGameLevel; virtual;
-        procedure previousGameLevel; virtual;
-        function isLastLevel: Boolean; virtual;
-        function toHashtable: TABHashtable<TObject, TObject>; virtual;
-        function toString: string; virtual;
-  end;
-
-implementation
-uses
-  GameTypeFactory, PlayerTypesFactory, StringMaker, StringUtil, CommonSeps, StdUtil, CommonLabels;
-
-
-{AB:CODE}
-
-procedure TGameInfo.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.gameInfoData := TGameInfoData.getInstance();
-  
-  
-  
-  
-  
-  Self.NEW_LEVEL := 'New Level: ';
-  Self.SET_CURRENT_LEVEL := 'setCurrentLevel';
-  Self.NEXT_GAME_LEVEL := 'nextGameLevel';
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameInfo-new5.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-gameType BINARY-DOUBLE.
+01 J-gameMode BINARY-DOUBLE.
+01 J-playerType BINARY-DOUBLE.
+01 J-highestLevel BINARY-DOUBLE.
+01 J-currentLevel BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-gameType J-gameMode J-playerType J-highestLevel J-currentLevel RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameInfo")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameInfoData")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameType")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameMode")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_playerType")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_highestLevel")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_currentLevel")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NEW_LEVEL")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SET_CURRENT_LEVEL")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NEXT_GAME_LEVEL")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION GameInfoData-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameInfoData", JVALUE)
     
-
-constructor TGameInfo.Create(gameType_: TGameType; gameMode_: TGameMode; playerType_: TPlayerType; highestLevel: Integer; currentLevel: Integer);
-begin
-    inherited Create;
-    InitFields;
-        Self.gameType := gameType_;
-        Self.gameMode := gameMode_;
-        Self.setHighestLevel(highestLevel);
-        Self.currentLevel := currentLevel;
-        Self.playerType := playerType_;
-end;
     
-
-function TGameInfo.getGameType: TGameType;
-begin
-        Exit(Self.gameType);
-end;
     
-
-function TGameInfo.getGameMode: TGameMode;
-begin
-        Exit(Self.gameMode);
-end;
     
-
-function TGameInfo.getPlayerType: TPlayerType;
-begin
-        Exit(Self.playerType);
-end;
     
+    COMPUTE JVALUE = FUNCTION JR-STR("New Level: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NEW_LEVEL", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("setCurrentLevel")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SET_CURRENT_LEVEL", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("nextGameLevel")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NEXT_GAME_LEVEL", JVALUE)
+        COMPUTE JVALUE = J-gameType
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameType", JVALUE)
+        COMPUTE JVALUE = J-gameMode
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameMode", JVALUE)
+        COMPUTE JDISCARD = FUNCTION GameInfo-setHighestLevel1(J-THIS, J-highestLevel)
+        COMPUTE JVALUE = J-currentLevel
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_currentLevel", JVALUE)
+        COMPUTE JVALUE = J-playerType
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_playerType", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GameInfo-new5.
 
-function TGameInfo.getHighestLevel: Integer;
-begin
-        Exit(Self.highestLevel);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameInfo-getGameType0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_gameType")
+        GOBACK
+    GOBACK.
+END FUNCTION GameInfo-getGameType0.
 
-procedure TGameInfo.setHighestLevel(highestLevel: Integer);
-begin
-        Self.highestLevel := highestLevel;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameInfo-getGameMode0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_gameMode")
+        GOBACK
+    GOBACK.
+END FUNCTION GameInfo-getGameMode0.
 
-function TGameInfo.getCurrentLevel: Integer;
-begin
-        Exit(Self.currentLevel);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameInfo-getPlayerType0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_playerType")
+        GOBACK
+    GOBACK.
+END FUNCTION GameInfo-getPlayerType0.
 
-procedure TGameInfo.setCurrentLevel(currentLevel: Integer);
-begin
-        Self.currentLevel := currentLevel;
-        Self.logUtil.putF(TStringMaker.Create().append(Self.NEW_LEVEL).appendint(Self.getCurrentLevel()).toString(), TJava.Box(Self), Self.SET_CURRENT_LEVEL);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameInfo-getHighestLevel0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_highestLevel")
+        GOBACK
+    GOBACK.
+END FUNCTION GameInfo-getHighestLevel0.
 
-procedure TGameInfo.nextGameLevel;
-begin
-        if (Self.getCurrentLevel()) < (Self.getHighestLevel()) then begin
-            Inc(Self.currentLevel);
-        end;
-        Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().NEXT).append(TCommonSeps.getInstance().SPACE).append(Self.NEW_LEVEL).appendint(Self.getCurrentLevel()).toString(), TJava.Box(Self), Self.NEXT_GAME_LEVEL);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameInfo-setHighestLevel1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-highestLevel BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-highestLevel RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-highestLevel
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_highestLevel", JVALUE)
+    GOBACK.
+END FUNCTION GameInfo-setHighestLevel1.
 
-procedure TGameInfo.previousGameLevel;
-begin
-        if (Self.getCurrentLevel()) > (1) then begin
-            Dec(Self.currentLevel);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameInfo-getCurrentLevel0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_currentLevel")
+        GOBACK
+    GOBACK.
+END FUNCTION GameInfo-getCurrentLevel0.
 
-function TGameInfo.isLastLevel: Boolean;
-begin
-        if (Self.getCurrentLevel()) >= (Self.getHighestLevel()) then begin
-            Exit(True);
-        end else begin
-            Exit(False);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameInfo-setCurrentLevel1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-currentLevel BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-currentLevel RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-currentLevel
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_currentLevel", JVALUE)
+        COMPUTE jtemp7 = FUNCTION StringMaker-new0
+        COMPUTE jtemp6 = FUNCTION StringMaker-append1(jtemp7, FUNCTION JR-GET(J-THIS, "f_NEW_LEVEL"))
+        COMPUTE jtemp5 = FUNCTION StringMaker-appendint1(jtemp6, FUNCTION GameInfo-getCurrentLevel0(J-THIS))
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp5), J-THIS, FUNCTION JR-GET(J-THIS, "f_SET_CURRENT_LEVEL"))
+    GOBACK.
+END FUNCTION GameInfo-setCurrentLevel1.
 
-function TGameInfo.toHashtable: TABHashtable<TObject, TObject>;
-var
-  hashtable: TABHashtable<TObject, TObject>;
-begin
-        hashtable := TStdUtil.getInstance().createHashtable();
-        hashtable.put(TJava.Box(Self.gameInfoData.GAME_TYPE), TJava.Box(Self.getGameType().toString()));
-        hashtable.put(TJava.Box(Self.gameInfoData.GAME_MODE), TJava.Box(Self.gameMode.toString()));
-        hashtable.put(TJava.Box(Self.gameInfoData.PLAYER_TYPE), TJava.Box(Self.playerType.toString()));
-        hashtable.put(TJava.Box(Self.gameInfoData.HIGHEST_LEVEL), TJava.Box(IntToStr(Self.getHighestLevel())));
-        hashtable.put(TJava.Box(Self.gameInfoData.CURRENT_LEVEL), TJava.Box(IntToStr(Self.currentLevel)));
-        Exit(hashtable);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameInfo-nextGameLevel0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION GameInfo-getCurrentLevel0(J-THIS) < FUNCTION GameInfo-getHighestLevel0(J-THIS))
+            COMPUTE JVALUE = (FUNCTION MOD(FUNCTION JR-GET(J-THIS, "f_currentLevel") + 1 + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_currentLevel", JVALUE)
+        END-IF
+        COMPUTE jtemp13 = FUNCTION CommonLabels-getInstance0
+        COMPUTE jtemp14 = FUNCTION CommonSeps-getInstance0
+        COMPUTE jtemp12 = FUNCTION StringMaker-new0
+        COMPUTE jtemp11 = FUNCTION StringMaker-append1(jtemp12, FUNCTION JR-GET(jtemp13, "f_NEXT"))
+        COMPUTE jtemp10 = FUNCTION StringMaker-append1(jtemp11, FUNCTION JR-GET(jtemp14, "f_SPACE"))
+        COMPUTE jtemp9 = FUNCTION StringMaker-append1(jtemp10, FUNCTION JR-GET(J-THIS, "f_NEW_LEVEL"))
+        COMPUTE jtemp8 = FUNCTION StringMaker-appendint1(jtemp9, FUNCTION GameInfo-getCurrentLevel0(J-THIS))
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp8), J-THIS, FUNCTION JR-GET(J-THIS, "f_NEXT_GAME_LEVEL"))
+    GOBACK.
+END FUNCTION GameInfo-nextGameLevel0.
 
-function TGameInfo.toString: string;
-var
-  stringBuffer: TStringMaker;
-  commonSeps_: TCommonSeps;
-begin
-        stringBuffer := TStringMaker.Create();
-        commonSeps_ := TCommonSeps.getInstance();
-        stringBuffer.append(Self.gameInfoData.GAME_TYPE);
-        stringBuffer.append(commonSeps_.EQUALS);
-        stringBuffer.append(Self.getGameType().toString());
-        stringBuffer.append(commonSeps_.COMMA_SEP);
-        stringBuffer.append(Self.gameInfoData.GAME_MODE);
-        stringBuffer.append(commonSeps_.EQUALS);
-        stringBuffer.append(Self.gameMode.toString());
-        stringBuffer.append(commonSeps_.COMMA_SEP);
-        stringBuffer.append(Self.gameInfoData.PLAYER_TYPE);
-        stringBuffer.append(commonSeps_.EQUALS);
-        stringBuffer.append(TStringUtil.getInstance().toString(Self.playerType));
-        stringBuffer.append(commonSeps_.COMMA_SEP);
-        stringBuffer.append(Self.gameInfoData.HIGHEST_LEVEL);
-        stringBuffer.append(commonSeps_.EQUALS);
-        stringBuffer.appendint(Self.getHighestLevel());
-        stringBuffer.append(commonSeps_.COMMA_SEP);
-        stringBuffer.append(Self.gameInfoData.CURRENT_LEVEL);
-        stringBuffer.append(commonSeps_.EQUALS);
-        stringBuffer.appendint(Self.currentLevel);
-        Exit(stringBuffer.toString());
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameInfo-previousGameLevel0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION GameInfo-getCurrentLevel0(J-THIS) > 1)
+            COMPUTE JVALUE = (FUNCTION MOD(FUNCTION JR-GET(J-THIS, "f_currentLevel") - 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_currentLevel", JVALUE)
+        END-IF
+    GOBACK.
+END FUNCTION GameInfo-previousGameLevel0.
 
-initialization
-  {AB:INITIALIZATION}
-  TGameInfo.NONE := TGameInfo.Create(TGameTypeFactory.getInstance().NONE, TGameMode.NONE, TPlayerTypesFactory.getInstance().PLAYER_TYPE_ONE, -1, -1);
-  TGameInfo.LEVEL_NAME := 'LEVEL';
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameInfo-isLastLevel0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION GameInfo-getCurrentLevel0(J-THIS) >= FUNCTION GameInfo-getHighestLevel0(J-THIS))
+            COMPUTE J-RESULT = 1
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = 0
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION GameInfo-isLastLevel0.
 
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameInfo-toHashtable0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-hashtable BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp15 = FUNCTION StdUtil-getInstance0
+        COMPUTE J-hashtable = FUNCTION StdUtil-createHashtable0(jtemp15)
+        COMPUTE jtemp16 = FUNCTION GameInfo-getGameType0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION Hashtable-put2(J-hashtable, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameInfoData"), "f_GAME_TYPE"), FUNCTION JR-TO-STRING(jtemp16))
+        COMPUTE JDISCARD = FUNCTION Hashtable-put2(J-hashtable, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameInfoData"), "f_GAME_MODE"), FUNCTION JR-TO-STRING(FUNCTION JR-GET(J-THIS, "f_gameMode")))
+        COMPUTE JDISCARD = FUNCTION Hashtable-put2(J-hashtable, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameInfoData"), "f_PLAYER_TYPE"), FUNCTION JR-TO-STRING(FUNCTION JR-GET(J-THIS, "f_playerType")))
+        COMPUTE JDISCARD = FUNCTION Hashtable-put2(J-hashtable, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameInfoData"), "f_HIGHEST_LEVEL"), FUNCTION JR-INT-STRING(FUNCTION GameInfo-getHighestLevel0(J-THIS)))
+        COMPUTE JDISCARD = FUNCTION Hashtable-put2(J-hashtable, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameInfoData"), "f_CURRENT_LEVEL"), FUNCTION JR-INT-STRING(FUNCTION JR-GET(J-THIS, "f_currentLevel")))
+        COMPUTE J-RESULT = J-hashtable
+        GOBACK
+    GOBACK.
+END FUNCTION GameInfo-toHashtable0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameInfo-toString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringBuffer BINARY-DOUBLE.
+01 J-commonSeps BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+01 jtemp18 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE J-commonSeps = FUNCTION CommonSeps-getInstance0
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameInfoData"), "f_GAME_TYPE"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-commonSeps, "f_EQUALS"))
+        COMPUTE jtemp17 = FUNCTION GameInfo-getGameType0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-TO-STRING(jtemp17))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-commonSeps, "f_COMMA_SEP"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameInfoData"), "f_GAME_MODE"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-commonSeps, "f_EQUALS"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-TO-STRING(FUNCTION JR-GET(J-THIS, "f_gameMode")))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-commonSeps, "f_COMMA_SEP"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameInfoData"), "f_PLAYER_TYPE"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-commonSeps, "f_EQUALS"))
+        COMPUTE jtemp18 = FUNCTION StringUtil-getInstance0
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION StringUtil-toString1(jtemp18, FUNCTION JR-GET(J-THIS, "f_playerType")))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-commonSeps, "f_COMMA_SEP"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameInfoData"), "f_HIGHEST_LEVEL"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-commonSeps, "f_EQUALS"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, FUNCTION GameInfo-getHighestLevel0(J-THIS))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-commonSeps, "f_COMMA_SEP"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameInfoData"), "f_CURRENT_LEVEL"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-commonSeps, "f_EQUALS"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_currentLevel"))
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(J-stringBuffer)
+        GOBACK
+    GOBACK.
+END FUNCTION GameInfo-toString0.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. GameInfo-toString.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION GameInfo-toString0(J-THIS)
+    GOBACK.
+END PROGRAM GameInfo-toString.
 

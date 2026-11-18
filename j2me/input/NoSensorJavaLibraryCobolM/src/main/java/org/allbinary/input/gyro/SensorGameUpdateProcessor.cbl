@@ -1,106 +1,208 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.gyro
+*> Java class SensorGameUpdateProcessor
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.gyro
-unit SensorGameUpdateProcessor;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SensorGameUpdateProcessor-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("SensorGameUpdateProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_inputSensor")
+    COMPUTE JVALUE = FUNCTION NoAllBinarySensor-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_inputSensor", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION SensorGameUpdateProcessor-new0.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SnsrGmUpdtPrcssr-stInptSnsr1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-inputSensor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-inputSensor RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-inputSensor
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_inputSensor", JVALUE)
+    GOBACK.
+END FUNCTION SnsrGmUpdtPrcssr-stInptSnsr1.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SnsrGmUpdtPrcssr-gtInptSnsr0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_inputSensor")
+        GOBACK
+    GOBACK.
+END FUNCTION SnsrGmUpdtPrcssr-gtInptSnsr0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AllBinarySensor;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SnsrGmUpdtPrcssr-process1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-anyType BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-anyType RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION SnsrGmUpdtPrcssr-process1.
 
-type
-  {AB:TYPES}
-  TSensorGameUpdateProcessor = class(TObject)
-  public
-    inputSensor: TAllBinarySensor;
-    procedure InitFields;
-    constructor Create;
-        procedure setInputSensor(inputSensor: TAllBinarySensor); virtual;
-        function getInputSensor: TAllBinarySensor; virtual;
-        procedure process(anyType: TObject); virtual;
-        procedure sendNotifications(anyType: TObject); virtual;
-        function isAnySensor: Boolean; virtual;
-        procedure setNoSensors; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SnsrGmUpdtPrcssr-sndNtfctns1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-anyType BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-anyType RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION SnsrGmUpdtPrcssr-sndNtfctns1.
 
-implementation
-uses
-  NoAllBinarySensor;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SnsrGmUpdtPrcssr-isAnySensor0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION JR-GET(J-THIS, "f_inputSensor") = FUNCTION NoAllBinarySensor-getInstance0)
+            COMPUTE J-RESULT = 0
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = 1
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION SnsrGmUpdtPrcssr-isAnySensor0.
 
-
-{AB:CODE}
-
-procedure TSensorGameUpdateProcessor.InitFields;
-begin
-  Self.inputSensor := TNoAllBinarySensor.getInstance();
-end;
-
-constructor TSensorGameUpdateProcessor.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-procedure TSensorGameUpdateProcessor.setInputSensor(inputSensor: TAllBinarySensor);
-begin
-        Self.inputSensor := inputSensor;
-end;
-    
-
-function TSensorGameUpdateProcessor.getInputSensor: TAllBinarySensor;
-begin
-        Exit(Self.inputSensor);
-end;
-    
-
-// throws Exception
-procedure TSensorGameUpdateProcessor.process(anyType: TObject);
-begin
-end;
-    
-
-// throws Exception
-procedure TSensorGameUpdateProcessor.sendNotifications(anyType: TObject);
-begin
-end;
-    
-
-function TSensorGameUpdateProcessor.isAnySensor: Boolean;
-begin
-        if (Self.inputSensor) = (TNoAllBinarySensor.getInstance()) then begin
-            Exit(False);
-        end else begin
-            Exit(True);
-        end;
-end;
-    
-
-procedure TSensorGameUpdateProcessor.setNoSensors;
-begin
-        Self.setInputSensor(TNoAllBinarySensor.getInstance());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SnsrGmUpdtPrcssr-setNoSensors0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION SnsrGmUpdtPrcssr-stInptSnsr1(J-THIS, FUNCTION NoAllBinarySensor-getInstance0)
+    GOBACK.
+END FUNCTION SnsrGmUpdtPrcssr-setNoSensors0.
 

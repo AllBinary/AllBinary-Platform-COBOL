@@ -1,133 +1,204 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.ai.tactical
+*> Java class HorizontalManeuverAI
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.ai.tactical
-unit HorizontalManeuverAI;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, BasicAI, GameInput, AllBinaryLayer, AllBinaryLayerManager;
-
-type
-  {AB:TYPES}
-  THorizontalManeuverAI = class(TBasicAI)
-  public
-    currentRelativeAngle: Integer;
-    currentSpeed: Integer;
-    procedure InitFields;
-        constructor Create(ownerLayerInterface: TAllBinaryLayer; gameInput_: TGameInput);
-        procedure processAI(allBinaryLayerManager_: TAllBinaryLayerManager); override;
-        procedure reverse; virtual;
-        procedure accelerate;
-        procedure drop;
-  end;
-
-implementation
-uses
-  Canvas, DisplayInfoSingleton;
-
-
-{AB:CODE}
-
-procedure THorizontalManeuverAI.InitFields;
-begin
-  Self.currentRelativeAngle := 0;
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HorizontalManeuverAI-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-ownerLayerInterface BINARY-DOUBLE.
+01 J-gameInput BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-ownerLayerInterface J-gameInput RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("HorizontalManeuverAI")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_currentRelativeAngle")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_currentSpeed")
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_currentRelativeAngle", JVALUE)
     
+        CONTINUE
+        COMPUTE JVALUE = 5
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_currentSpeed", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION HorizontalManeuverAI-new2.
 
-constructor THorizontalManeuverAI.Create(ownerLayerInterface: TAllBinaryLayer; gameInput_: TGameInput);
-begin
-        inherited Create(ownerLayerInterface, gameInput_);
-        InitFields;
-        Self.currentSpeed := 5;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HrzntlMnvrAI-processAI1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-ownerLayerInterface BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryLayerManager BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-ownerLayerInterface = FUNCTION BscAI-getOwnerLayerInterface0(J-THIS)
+        COMPUTE J-x = FUNCTION AllBinaryLayer-getXP0(J-ownerLayerInterface)
+        IF ((FUNCTION MOD((FUNCTION AllBinaryLayer-getXP0(J-ownerLayerInterface) - FUNCTION JR-GET(J-THIS, "f_currentSpeed")) + 2147483648, 4294967296) - 2147483648) <= 0)
+            COMPUTE JDISCARD = FUNCTION HorizontalManeuverAI-reverse0(J-THIS)
+            COMPUTE JDISCARD = FUNCTION HorizontalManeuverAI-drop0(J-THIS)
+        END-IF
+        COMPUTE jtemp1 = FUNCTION DsplyInfSngltn-getInstance0
+        IF ((FUNCTION MOD((FUNCTION AllBinaryLayer-getX20(J-ownerLayerInterface) + FUNCTION JR-GET(J-THIS, "f_currentSpeed")) + 2147483648, 4294967296) - 2147483648) > FUNCTION DsplyInfSngltn-getLastWidth0(jtemp1))
+            COMPUTE JDISCARD = FUNCTION HorizontalManeuverAI-reverse0(J-THIS)
+            COMPUTE JDISCARD = FUNCTION HrzntlMnvrAI-accelerate0(J-THIS)
+            COMPUTE JDISCARD = FUNCTION HorizontalManeuverAI-drop0(J-THIS)
+        END-IF
+        IF (FUNCTION JR-GET(J-THIS, "f_currentRelativeAngle") = 0)
+            COMPUTE J-x = (FUNCTION MOD((J-x + FUNCTION JR-GET(J-THIS, "f_currentSpeed")) + 2147483648, 4294967296) - 2147483648)
+        ELSE
+            IF (FUNCTION JR-GET(J-THIS, "f_currentRelativeAngle") = 180)
+            COMPUTE J-x = (FUNCTION MOD((J-x - FUNCTION JR-GET(J-THIS, "f_currentSpeed")) + 2147483648, 4294967296) - 2147483648)
+        END-IF
+        END-IF
+        COMPUTE JDISCARD = FUNCTION AllBinaryLayer-setPosition3(J-ownerLayerInterface, J-x, FUNCTION AllBinaryLayer-getYP0(J-ownerLayerInterface), FUNCTION AllBinaryLayer-getZP0(J-ownerLayerInterface))
+        IF (FUNCTION JR-GET(J-THIS, "f_currentRelativeAngle") = 0)
+            COMPUTE JDISCARD = FUNCTION BasicAI-processKeyAI1(J-THIS, FUNCTION Canvas-static-KEY-NUM0)
+        ELSE
+            IF (FUNCTION JR-GET(J-THIS, "f_currentRelativeAngle") = 180)
+            COMPUTE JDISCARD = FUNCTION BasicAI-processKeyAI1(J-THIS, FUNCTION Canvas-static-KEY-POUND)
+        END-IF
+        END-IF
+    GOBACK.
+END FUNCTION HrzntlMnvrAI-processAI1.
 
-// throws Exception
-procedure THorizontalManeuverAI.processAI(allBinaryLayerManager_: TAllBinaryLayerManager);
-var
-  ownerLayerInterface: TAllBinaryLayer;
-  x: Integer;
-begin
-        ownerLayerInterface := Self.getOwnerLayerInterface();
-        x := ownerLayerInterface.getXP();
-        if ((ownerLayerInterface.getXP()) - (Self.currentSpeed)) <= (0) then begin
-            Self.reverse();
-            Self.drop();
-        end;
-        if ((ownerLayerInterface.getX2()) + (Self.currentSpeed)) > (TDisplayInfoSingleton.getInstance().getLastWidth()) then begin
-            Self.reverse();
-            Self.accelerate();
-            Self.drop();
-        end;
-        if (Self.currentRelativeAngle) = (0) then begin
-            x := (x) + (Self.currentSpeed);
-        end else if (Self.currentRelativeAngle) = (180) then begin
-            x := (x) - (Self.currentSpeed);
-        end;
-        ownerLayerInterface.setPosition(x, ownerLayerInterface.getYP(), ownerLayerInterface.getZP());
-        if (Self.currentRelativeAngle) = (0) then begin
-            inherited processKeyAI(TCanvas.KEY_NUM0);
-        end else if (Self.currentRelativeAngle) = (180) then begin
-            inherited processKeyAI(TCanvas.KEY_POUND);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HorizontalManeuverAI-reverse0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION JR-GET(J-THIS, "f_currentRelativeAngle") = 180)
+            COMPUTE JVALUE = 0
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_currentRelativeAngle", JVALUE)
+        ELSE
+            IF (FUNCTION JR-GET(J-THIS, "f_currentRelativeAngle") = 0)
+            COMPUTE JVALUE = 180
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_currentRelativeAngle", JVALUE)
+        END-IF
+        END-IF
+    GOBACK.
+END FUNCTION HorizontalManeuverAI-reverse0.
 
-procedure THorizontalManeuverAI.reverse;
-begin
-        if (Self.currentRelativeAngle) = (180) then begin
-            Self.currentRelativeAngle := 0;
-        end else if (Self.currentRelativeAngle) = (0) then begin
-            Self.currentRelativeAngle := 180;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HrzntlMnvrAI-accelerate0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION JR-GET(J-THIS, "f_currentSpeed") < 20)
+            COMPUTE JVALUE = (FUNCTION MOD(FUNCTION JR-GET(J-THIS, "f_currentSpeed") + 1 + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_currentSpeed", JVALUE)
+        END-IF
+    GOBACK.
+END FUNCTION HrzntlMnvrAI-accelerate0.
 
-procedure THorizontalManeuverAI.accelerate;
-begin
-        if (Self.currentSpeed) < (20) then begin
-            Inc(Self.currentSpeed);
-        end;
-end;
-    
-
-procedure THorizontalManeuverAI.drop;
-var
-  ownerLayerInterface: TAllBinaryLayer;
-  y: Integer;
-begin
-        ownerLayerInterface := Self.getOwnerLayerInterface();
-        y := ownerLayerInterface.getYP();
-        if ((ownerLayerInterface.getY2()) + (ownerLayerInterface.getHeight())) > (TDisplayInfoSingleton.getInstance().getLastHeight()) then begin
-            y := 0;
-        end else begin
-            y := (y) + ((ownerLayerInterface.getHeight()) + (1));
-        end;
-        ownerLayerInterface.setPosition(ownerLayerInterface.getXP(), y, ownerLayerInterface.getZP());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HorizontalManeuverAI-drop0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-ownerLayerInterface BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-ownerLayerInterface = FUNCTION BscAI-getOwnerLayerInterface0(J-THIS)
+        COMPUTE J-y = FUNCTION AllBinaryLayer-getYP0(J-ownerLayerInterface)
+        COMPUTE jtemp2 = FUNCTION DsplyInfSngltn-getInstance0
+        IF ((FUNCTION MOD((FUNCTION AllBinaryLayer-getY20(J-ownerLayerInterface) + FUNCTION AllBinaryLayer-getHeight0(J-ownerLayerInterface)) + 2147483648, 4294967296) - 2147483648) > FUNCTION DsplyInfSngltn-getLastHeight0(jtemp2))
+            COMPUTE J-y = 0
+        ELSE
+            COMPUTE jtemp3 = 1
+            COMPUTE J-y = (FUNCTION MOD((J-y + (FUNCTION MOD((FUNCTION AllBinaryLayer-getHeight0(J-ownerLayerInterface) + jtemp3) + 2147483648, 4294967296) - 2147483648)) + 2147483648, 4294967296) - 2147483648)
+        END-IF
+        COMPUTE JDISCARD = FUNCTION AllBinaryLayer-setPosition3(J-ownerLayerInterface, FUNCTION AllBinaryLayer-getXP0(J-ownerLayerInterface), J-y, FUNCTION AllBinaryLayer-getZP0(J-ownerLayerInterface))
+    GOBACK.
+END FUNCTION HorizontalManeuverAI-drop0.
 

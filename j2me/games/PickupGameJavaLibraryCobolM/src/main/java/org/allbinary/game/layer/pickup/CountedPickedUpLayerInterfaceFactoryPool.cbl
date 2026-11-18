@@ -1,85 +1,168 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.layer.pickup
+*> Java class CountedPickedUpLayerInterfaceFactoryPool
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.layer.pickup
-unit CountedPickedUpLayerInterfaceFactoryPool;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CntdPckdUpLyrIntrfcFctr-77225.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CountedPickedUpLayerInterfaceFactoryPool-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+01 CountedPickedUpLayerInterfaceFactoryPool-jset-SINGLETON BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF CountedPickedUpLayerInterfaceFactoryPool-jset-SINGLETON = 0
+        MOVE 1 TO CountedPickedUpLayerInterfaceFactoryPool-jset-SINGLETON
+        COMPUTE CountedPickedUpLayerInterfaceFactoryPool-jcell-SINGLETON = FUNCTION CntdPckdUpLyrIntrfcFctryPl-nw0
+    END-IF
+    MOVE CountedPickedUpLayerInterfaceFactoryPool-jcell-SINGLETON TO J-RESULT
+    GOBACK.
+END FUNCTION CntdPckdUpLyrIntrfcFctr-77225.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CntdPckdUpLyrIntrfcFS40801.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CountedPickedUpLayerInterfaceFactoryPool-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION CntdPckdUpLyrIntrfcFctr-77225 TO J-RESULT
+    MOVE J-VALUE TO CountedPickedUpLayerInterfaceFactoryPool-jcell-SINGLETON
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION CntdPckdUpLyrIntrfcFS40801.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, BasicArrayList;
-
-type
-  {AB:TYPES}
-  TCountedPickedUpLayerInterfaceFactoryPool = class(TObject)
-  public
-    list: TBasicArrayList;
-    class var SINGLETON: TCountedPickedUpLayerInterfaceFactoryPool;
-    procedure InitFields;
-        constructor Create;
-        function getList: TBasicArrayList; virtual;
-        class function getInstance: TCountedPickedUpLayerInterfaceFactoryPool; static;
-        class procedure init; static;
-  end;
-
-implementation
-uses
-  BasicArrayListD;
-
-
-{AB:CODE}
-
-procedure TCountedPickedUpLayerInterfaceFactoryPool.InitFields;
-begin
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CntdPckdUpLyrIntrfcFctryPl-nw0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CountedPickedUpLayerInterfaceFactoryPool")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_list")
     
+        COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CntdPckdUpLyrIntrfcFctryPl-nw0.
 
-constructor TCountedPickedUpLayerInterfaceFactoryPool.Create;
-begin
-    inherited Create;
-    InitFields;
-        Self.list := TBasicArrayListD.Create();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CntdPckdUpLyrIntrfcFctr-12081.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_list")
+        GOBACK
+    GOBACK.
+END FUNCTION CntdPckdUpLyrIntrfcFctr-12081.
 
-function TCountedPickedUpLayerInterfaceFactoryPool.getList: TBasicArrayList;
-begin
-        Exit(Self.list);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CntdPckdUpLyrIntrfcFctr-76924.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION CntdPckdUpLyrIntrfcFctr-77225
+        GOBACK
+    GOBACK.
+END FUNCTION CntdPckdUpLyrIntrfcFctr-76924.
 
-class function TCountedPickedUpLayerInterfaceFactoryPool.getInstance: TCountedPickedUpLayerInterfaceFactoryPool;
-begin
-        Exit(TCountedPickedUpLayerInterfaceFactoryPool.SINGLETON);
-end;
-    
-
-class procedure TCountedPickedUpLayerInterfaceFactoryPool.init;
-begin
-        TCountedPickedUpLayerInterfaceFactoryPool.SINGLETON := TCountedPickedUpLayerInterfaceFactoryPool.Create();
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TCountedPickedUpLayerInterfaceFactoryPool.SINGLETON := TCountedPickedUpLayerInterfaceFactoryPool.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CntdPckdUpLyrIntrfcFctr-12960.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION CntdPckdUpLyrIntrfcFS40801(FUNCTION CntdPckdUpLyrIntrfcFctryPl-nw0)
+    GOBACK.
+END FUNCTION CntdPckdUpLyrIntrfcFctr-12960.
 

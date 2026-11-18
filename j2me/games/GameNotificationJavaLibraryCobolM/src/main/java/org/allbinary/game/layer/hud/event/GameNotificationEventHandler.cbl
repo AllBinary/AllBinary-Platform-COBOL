@@ -1,107 +1,189 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.layer.hud.event
+*> Java class GameNotificationEventHandler
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.layer.hud.event
-unit GameNotificationEventHandler;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmNtfctnEvntHndlr-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameNotificationEventHandler-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 GameNotificationEventHandler-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GameNotificationEventHandler-jset-instance = 0
+        MOVE 1 TO GameNotificationEventHandler-jset-instance
+        COMPUTE GameNotificationEventHandler-jcell-instance = FUNCTION GmNtfctnEvntHndlr-new0
+    END-IF
+    MOVE GameNotificationEventHandler-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION GmNtfctnEvntHndlr-sttc-nstnc.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmNtfctnEvntHndlrsttS92931.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameNotificationEventHandler-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GmNtfctnEvntHndlr-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO GameNotificationEventHandler-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GmNtfctnEvntHndlrsttS92931.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmNtfctnEvntHndlr-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameNotificationEventHandler")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_enabled")
+    COMPUTE JVALUE = 1
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_enabled", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GmNtfctnEvntHndlr-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AllBinaryEventObject, EventListenerInterface, BasicEventHandler;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmNtfctnEvntHndlr-rmvAllL40116.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-eventListenerInterface BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-eventListenerInterface = FUNCTION NllEvntLstnr-sttc-NULL50885
+        COMPUTE J-list = FUNCTION JR-GET(J-THIS, "f_eventListenerInterfaceList")
+        IF (FUNCTION BasicArrayList-size0(J-list) > 0)
+            COMPUTE jtemp1 = 0
+            COMPUTE J-eventListenerInterface = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), jtemp1)
+        END-IF
+        COMPUTE JDISCARD = FUNCTION BscEvntHndlr-rmvAllLstnrs0(J-THIS)
+        IF (J-eventListenerInterface NOT = FUNCTION NllEvntLstnr-sttc-NULL50885)
+            COMPUTE JDISCARD = FUNCTION BscEvntHndlr-addLstnrIntrfc1(J-THIS, J-eventListenerInterface)
+        END-IF
+    GOBACK.
+END FUNCTION GmNtfctnEvntHndlr-rmvAllL40116.
 
-type
-  {AB:TYPES}
-  TGameNotificationEventHandler = class(TBasicEventHandler)
-  public
-    enabled: Boolean;
-    class var instance: TGameNotificationEventHandler;
-    procedure InitFields;
-        constructor Create;
-        procedure removeAllListeners; override;
-        class function getInstance: TGameNotificationEventHandler; static;
-        procedure process(eventObject: TAllBinaryEventObject; eventListenerInterface_: IEventListenerInterface); override;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmNtfctnEvntHndlr-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION GmNtfctnEvntHndlr-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION GmNtfctnEvntHndlr-getInstance0.
 
-implementation
-uses
-  GameNotificationListenerInterface, GameNotificationEvent, NullEventListener, BasicArrayList;
-
-
-{AB:CODE}
-
-procedure TGameNotificationEventHandler.InitFields;
-begin
-  Self.enabled := True;
-end;
-    
-
-constructor TGameNotificationEventHandler.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
-
-procedure TGameNotificationEventHandler.removeAllListeners;
-var
-  eventListenerInterface_: IEventListenerInterface;
-  list: TBasicArrayList;
-begin
-    TJava.MonitorEnter(Self);
-    try
-        eventListenerInterface_ := TNullEventListener.NULL_EVENT_LISTENER;
-        list := Self.eventListenerInterfaceList;
-        if (list.size()) > (0) then begin
-            eventListenerInterface_ := (TJava.ToObject(list.objectArray[0]) as IEventListenerInterface);
-        end;
-        inherited removeAllListeners();
-        if TJava.ToObject(eventListenerInterface_) <> TJava.ToObject(TNullEventListener.NULL_EVENT_LISTENER) then begin
-            Self.addListenerInterface(eventListenerInterface_);
-        end;
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
-
-class function TGameNotificationEventHandler.getInstance: TGameNotificationEventHandler;
-begin
-        Exit(TGameNotificationEventHandler.instance);
-end;
-    
-
-// throws Exception
-procedure TGameNotificationEventHandler.process(eventObject: TAllBinaryEventObject; eventListenerInterface_: IEventListenerInterface);
-var
-  gameNotificationListenerInterface_: IGameNotificationListenerInterface;
-begin
-        if not (Self.enabled) then begin
-            Exit;
-        end;
-        gameNotificationListenerInterface_ := (TJava.ToObject(eventListenerInterface_) as IGameNotificationListenerInterface);
-        gameNotificationListenerInterface_.onGameNotificationEvent(TGameNotificationEvent(TJava.ToObject(eventObject)));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TGameNotificationEventHandler.instance := TGameNotificationEventHandler.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmNtfctnEvntHndlr-process2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameNotificationListenerInterface BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-eventListenerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject J-eventListenerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (NOT (FUNCTION JR-GET(J-THIS, "f_enabled") = 1))
+            GOBACK
+        END-IF
+        COMPUTE J-gameNotificationListenerInterface = J-eventListenerInterface
+        COMPUTE jtemp2 = J-eventObject
+        COMPUTE JDISCARD = FUNCTION GmNtfctnLstnrIntrfc-onGmN90959(J-gameNotificationListenerInterface, jtemp2)
+    GOBACK.
+END FUNCTION GmNtfctnEvntHndlr-process2.
 

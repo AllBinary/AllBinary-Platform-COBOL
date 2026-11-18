@@ -1,63 +1,91 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game
+*> Java class GameInfoCopyFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game
-unit GameInfoCopyFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameInfoCopyFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameInfoCopyFactory")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GameInfoCopyFactory-new0.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmInfCpyFctry-gtInstncMxLvl2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-gameInfo BINARY-DOUBLE.
+01 J-maxLevel BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-gameInfo J-maxLevel RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION GameInfo-new5(FUNCTION GameInfo-getGameType0(J-gameInfo), FUNCTION GameInfo-getGameMode0(J-gameInfo), FUNCTION GameInfo-getPlayerType0(J-gameInfo), J-maxLevel, FUNCTION
+        GameInfo-getCurrentLevel0(J-gameInfo))
+        GOBACK
+    GOBACK.
+END FUNCTION GmInfCpyFctry-gtInstncMxLvl2.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameInfo;
-
-type
-  {AB:TYPES}
-  TGameInfoCopyFactory = class(TObject)
-  public
-    constructor Create;
-        class function getInstanceMaxLevel(gameInfo_: TGameInfo; maxLevel: Integer): TGameInfo; static;
-        class function getInstance(gameInfo_: TGameInfo): TGameInfo; static;
-  end;
-
-implementation
-
-{AB:CODE}
-
-constructor TGameInfoCopyFactory.Create;
-begin
-  inherited Create;
-end;
-    
-
-class function TGameInfoCopyFactory.getInstanceMaxLevel(gameInfo_: TGameInfo; maxLevel: Integer): TGameInfo;
-begin
-        Exit(TGameInfo.Create(gameInfo_.getGameType(), gameInfo_.getGameMode(), gameInfo_.getPlayerType(), maxLevel, gameInfo_.getCurrentLevel()));
-end;
-    
-
-class function TGameInfoCopyFactory.getInstance(gameInfo_: TGameInfo): TGameInfo;
-begin
-        Exit(TGameInfo.Create(gameInfo_.getGameType(), gameInfo_.getGameMode(), gameInfo_.getPlayerType(), gameInfo_.getHighestLevel(), gameInfo_.getCurrentLevel()));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmInfCpyFctry-getInstance1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-gameInfo BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-gameInfo RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION GameInfo-new5(FUNCTION GameInfo-getGameType0(J-gameInfo), FUNCTION GameInfo-getGameMode0(J-gameInfo), FUNCTION GameInfo-getPlayerType0(J-gameInfo), FUNCTION GameInfo-getHighestLevel0(J-gameInfo),
+        FUNCTION GameInfo-getCurrentLevel0(J-gameInfo))
+        GOBACK
+    GOBACK.
+END FUNCTION GmInfCpyFctry-getInstance1.
 

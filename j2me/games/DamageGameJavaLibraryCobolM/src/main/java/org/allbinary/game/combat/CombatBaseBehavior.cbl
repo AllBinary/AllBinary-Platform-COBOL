@@ -1,94 +1,208 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.combat
+*> Java class CombatBaseBehavior
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.combat
-unit CombatBaseBehavior;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmbtBsBhvr-sttc-NULL-C95429.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CombatBaseBehavior-jcell-NULL_COMBAT_BEHAVIOR BINARY-DOUBLE EXTERNAL.
+01 CombatBaseBehavior-jset-NULL_COMBAT_BEHAVIOR BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF CombatBaseBehavior-jset-NULL_COMBAT_BEHAVIOR = 0
+        MOVE 1 TO CombatBaseBehavior-jset-NULL_COMBAT_BEHAVIOR
+        COMPUTE CombatBaseBehavior-jcell-NULL_COMBAT_BEHAVIOR = FUNCTION CombatBaseBehavior-new2(FUNCTION DmgblBsBhvr-getInstance0, FUNCTION DstryblBsBhvr-getInstance0)
+    END-IF
+    MOVE CombatBaseBehavior-jcell-NULL_COMBAT_BEHAVIOR TO J-RESULT
+    GOBACK.
+END FUNCTION CmbtBsBhvr-sttc-NULL-C95429.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmbtBsBhvrsttcNULLC9S33243.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CombatBaseBehavior-jcell-NULL_COMBAT_BEHAVIOR BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION CmbtBsBhvr-sttc-NULL-C95429 TO J-RESULT
+    MOVE J-VALUE TO CombatBaseBehavior-jcell-NULL_COMBAT_BEHAVIOR
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION CmbtBsBhvrsttcNULLC9S33243.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, DamageableBaseBehavior, DestroyableBaseBehavior;
-
-type
-  {AB:TYPES}
-  TCombatBaseBehavior = class(TObject)
-  public
-    damageableBaseBehavior: TDamageableBaseBehavior;
-    destroyableBaseBehavior: TDestroyableBaseBehavior;
-    readyForExplosion: Boolean;
-    class var NULL_COMBAT_BEHAVIOR: TCombatBaseBehavior;
-    procedure InitFields;
-        constructor Create(damageableBaseBehavior_: TDamageableBaseBehavior; destroyableBaseBehavior_: TDestroyableBaseBehavior);
-        function getDamageableBaseBehavior: TDamageableBaseBehavior; virtual;
-        function getDestroyableBaseBehavior: TDestroyableBaseBehavior; virtual;
-        function isReadyForExplosion: Boolean;
-        procedure setReadyForExplosion(readyForExplosion: Boolean);
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TCombatBaseBehavior.InitFields;
-begin
-  
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CombatBaseBehavior-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-damageableBaseBehavior BINARY-DOUBLE.
+01 J-destroyableBaseBehavior BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-damageableBaseBehavior J-destroyableBaseBehavior RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CombatBaseBehavior")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_damageableBaseBehavior")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_destroyableBaseBehavior")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_readyForExplosion")
     
-
-constructor TCombatBaseBehavior.Create(damageableBaseBehavior_: TDamageableBaseBehavior; destroyableBaseBehavior_: TDestroyableBaseBehavior);
-begin
-    inherited Create;
-    InitFields;
-        Self.damageableBaseBehavior := damageableBaseBehavior_;
-        Self.destroyableBaseBehavior := destroyableBaseBehavior_;
-end;
     
-
-function TCombatBaseBehavior.getDamageableBaseBehavior: TDamageableBaseBehavior;
-begin
-        Exit(Self.damageableBaseBehavior);
-end;
     
+        COMPUTE JVALUE = J-damageableBaseBehavior
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_damageableBaseBehavior", JVALUE)
+        COMPUTE JVALUE = J-destroyableBaseBehavior
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_destroyableBaseBehavior", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CombatBaseBehavior-new2.
 
-function TCombatBaseBehavior.getDestroyableBaseBehavior: TDestroyableBaseBehavior;
-begin
-        Exit(Self.destroyableBaseBehavior);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmbtBsBhvr-gtDmgblBsBhvr0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_damageableBaseBehavior")
+        GOBACK
+    GOBACK.
+END FUNCTION CmbtBsBhvr-gtDmgblBsBhvr0.
 
-function TCombatBaseBehavior.isReadyForExplosion: Boolean;
-begin
-        Exit(Self.readyForExplosion);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmbtBsBhvr-gtDstryblBsBhvr0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_destroyableBaseBehavior")
+        GOBACK
+    GOBACK.
+END FUNCTION CmbtBsBhvr-gtDstryblBsBhvr0.
 
-procedure TCombatBaseBehavior.setReadyForExplosion(readyForExplosion: Boolean);
-begin
-        Self.readyForExplosion := readyForExplosion;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmbtBsBhvr-isRdyFrExplsn0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_readyForExplosion")
+        GOBACK
+    GOBACK.
+END FUNCTION CmbtBsBhvr-isRdyFrExplsn0.
 
-initialization
-  {AB:INITIALIZATION}
-  TCombatBaseBehavior.NULL_COMBAT_BEHAVIOR := TCombatBaseBehavior.Create(TDamageableBaseBehavior.getInstance(), TDestroyableBaseBehavior.getInstance());
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmbtBsBhvr-stRdyFrExplsn1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-readyForExplosion BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-readyForExplosion RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-readyForExplosion
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_readyForExplosion", JVALUE)
+    GOBACK.
+END FUNCTION CmbtBsBhvr-stRdyFrExplsn1.
 

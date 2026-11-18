@@ -1,416 +1,923 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.ai
+*> Java class DiveAndDirectionalTrackingAI
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.ai
-unit DiveAndDirectionalTrackingAI;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, ArtificialIntelligenceInterface, Direction, DirectionFactory, DirectionalInterface, BasicAI, DestroyedEvent, DestroyedEventListenerInterface, GameInput, BasicVelocityProperties, TrackingEvent, TrackingEventListenerInterface, AllBinaryLayer, AllBinaryLayerManager, MathUtil, AllBinaryEventObject, Visitor, GameTickTimeDelayHelper, TimeDelayHelper, BasicArrayList, EventListenerInterface;
-
-type
-  {AB:TYPES}
-  TDiveAndDirectionalTrackingAI = class(TBasicAI, ITrackingEventListenerInterface, IDestroyedEventListenerInterface, IEventListenerInterface)
-  public
-    mathUtil: TMathUtil;
-    directionFactory: TDirectionFactory;
-    gameTickTimeDelayHelper: TGameTickTimeDelayHelper;
-    timeDelayHelper: TTimeDelayHelper;
-    list: TBasicArrayList;
-    directionalInterface: IDirectionalInterface;
-    velocityInterface: TBasicVelocityProperties;
-    directionToKeyMap: TArray<Integer>;
-    initialDropped: Boolean;
-    diveP: Boolean;
-    directionOfTarget: TDirection;
-    MIN_DISTANCE: Integer;
-    lastTrackingLayerInterface: TAllBinaryLayer;
-    artificialIntelligenceInterface: IArtificialIntelligenceInterface;
-    aiVistor: TVisitor;
-    lastDirection: TDirection;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(ownerLayerInterface: TAllBinaryLayer; artificialIntelligenceInterface_: IArtificialIntelligenceInterface; gameInput_: TGameInput; visitor_: TVisitor);
-        procedure processAI(allBinaryLayerManager_: TAllBinaryLayerManager); virtual;
-        procedure init;
-        procedure target(allBinaryLayerManager_: TAllBinaryLayerManager);
-        procedure verticalTargeting(x: Integer);
-        procedure horizontalTargeting(y: Integer);
-        procedure setDive;
-        procedure moveRight;
-        procedure moveLeft;
-        procedure moveDown;
-        procedure moveUp;
-        procedure dive;
-        procedure attack;
-        procedure drop;
-        function isBeyondTarget: Boolean;
-        procedure onEvent(eventObject: TAllBinaryEventObject); virtual;
-        procedure onMovement(trackingEvent_: TTrackingEvent); virtual;
-        procedure onDestroyed(destroyedEvent_: TDestroyedEvent); virtual;
-        procedure setLastDirection(lastDirection: TDirection); virtual;
-        procedure setLastKey(lastKey: Integer); virtual;
-        function getLastDirection: TDirection; virtual;
-        function toString: string; override;
-  end;
-
-implementation
-uses
-  Canvas, DirectionalCompositeInterface, DestroyedEventHandler, Group, VelocityInterfaceCompositeInterface, TrackingEventHandler, ForcedLogUtil, StringMaker, StringUtil, EventStrings, GameTickTimeDelayHelperFactory, BasicArrayListD;
-
-
-{AB:CODE}
-
-procedure TDiveAndDirectionalTrackingAI.InitFields;
-begin
-  Self.mathUtil := TMathUtil.getInstance();
-  Self.directionFactory := TDirectionFactory.getInstance();
-  Self.gameTickTimeDelayHelper := TGameTickTimeDelayHelperFactory.getInstance();
-  Self.timeDelayHelper := TTimeDelayHelper.Create(500);
-  Self.list := TBasicArrayListD.Create();
-  
-  
-  Self.directionToKeyMap := TArray<Integer>.Create(TCanvas.LEFT, TCanvas.DOWN, TCanvas.UP, TCanvas.RIGHT);
-  
-  
-  Self.directionOfTarget := TDirection.getInstance(0);
-  Self.MIN_DISTANCE := 40;
-  Self.lastTrackingLayerInterface := TAllBinaryLayer.NULL_ALLBINARY_LAYER;
-  
-  
-  Self.lastDirection := TDirectionFactory.getInstance().NO_DIRECTION;
-end;
-
-function TDiveAndDirectionalTrackingAI.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DvAndDrctnlTrckngAI-new4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-directionalCompositeInterface BINARY-DOUBLE.
+01 J-velocityInterfaceCompositeInterface BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-ownerLayerInterface BINARY-DOUBLE.
+01 J-artificialIntelligenceInterface BINARY-DOUBLE.
+01 J-gameInput BINARY-DOUBLE.
+01 J-visitor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-ownerLayerInterface J-artificialIntelligenceInterface J-gameInput J-visitor RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("DiveAndDirectionalTrackingAI")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_mathUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_directionFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameTickTimeDelayHelper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_timeDelayHelper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_list")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_directionalInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_velocityInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_directionToKeyMap")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_initialDropped")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_diveP")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_directionOfTarget")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_MIN_DISTANCE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_lastTrackingLayerInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_artificialIntelligenceInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_aiVistor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_lastDirection")
+    COMPUTE JVALUE = FUNCTION MathUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_mathUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION DirectionFactory-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_directionFactory", JVALUE)
+    COMPUTE JVALUE = FUNCTION GmTckTmDlyHlprFctry-gtInstnc0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameTickTimeDelayHelper", JVALUE)
+    COMPUTE jtemp1 = 500
+    COMPUTE JVALUE = FUNCTION TimeDelayHelper-new1(jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_timeDelayHelper", JVALUE)
+    COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
     
-
-constructor TDiveAndDirectionalTrackingAI.Create(ownerLayerInterface: TAllBinaryLayer; artificialIntelligenceInterface_: IArtificialIntelligenceInterface; gameInput_: TGameInput; visitor_: TVisitor);
-var
-  directionalCompositeInterface_: IDirectionalCompositeInterface;
-  velocityInterfaceCompositeInterface_: IVelocityInterfaceCompositeInterface;
-begin
-        inherited Create(ownerLayerInterface, gameInput_);
-        InitFields;
-        Self.aiVistor := visitor_;
-        Self.artificialIntelligenceInterface := artificialIntelligenceInterface_;
-        directionalCompositeInterface_ := (TJava.ToObject(Self.getOwnerLayerInterface()) as IDirectionalCompositeInterface);
-        Self.directionalInterface := directionalCompositeInterface_.getDirectionalInterface();
-        velocityInterfaceCompositeInterface_ := (TJava.ToObject(Self.getOwnerLayerInterface()) as IVelocityInterfaceCompositeInterface);
-        Self.velocityInterface := velocityInterfaceCompositeInterface_.getVelocityProperties();
-        TDestroyedEventHandler.getInstance().addListenerInterface(Self);
-        Self.init();
-end;
     
-
-// throws Exception
-procedure TDiveAndDirectionalTrackingAI.processAI(allBinaryLayerManager_: TAllBinaryLayerManager);
-begin
-        if Self.isBeyondTarget() then begin
-            Self.init();
-            Self.velocityInterface.zero();
-        end;
-        if not (Self.diveP) then begin
-            Self.target(allBinaryLayerManager_);
-        end else begin
-            Self.dive();
-            Self.attack();
-        end;
-        Self.list.clear();
-end;
+    COMPUTE JVALUE = FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-NEW-ARRAY(JZERO), FUNCTION Canvas-static-LEFT), FUNCTION Canvas-static-DOWN), FUNCTION Canvas-static-UP), FUNCTION
+        Canvas-static-RIGHT)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_directionToKeyMap", JVALUE)
     
-
-procedure TDiveAndDirectionalTrackingAI.init;
-begin
-        Self.diveP := False;
-        Self.directionOfTarget := TDirectionFactory.getInstance().NOT_BORDERED_WITH;
-        TTrackingEventHandler.getInstance().addListenerInterface(Self);
-end;
     
-
-// throws Exception
-procedure TDiveAndDirectionalTrackingAI.target(allBinaryLayerManager_: TAllBinaryLayerManager);
-var
-  lastTrackingEvent: TTrackingEvent;
-  layerInterface: TAllBinaryLayer;
-  ownerLayerInterface: TAllBinaryLayer;
-  groupArray: TArray<TGroup>;
-  ownerGroupArray: TArray<TGroup>;
-  x: Integer;
-  y: Integer;
-  yDistance: Integer;
-  xDistance: Integer;
-  directionFactory_: TDirectionFactory;
-begin
-        if (Self.list.size()) = (0) then begin
-            Exit;
-        end;
-        lastTrackingEvent := TTrackingEvent(TJava.ToObject(Self.list.removeAt(0)));
-        Self.lastTrackingLayerInterface := lastTrackingEvent.getLayerInterface();
-        layerInterface := Self.lastTrackingLayerInterface;
-        ownerLayerInterface := Self.getOwnerLayerInterface();
-        groupArray := layerInterface.getGroupInterface();
-        ownerGroupArray := ownerLayerInterface.getGroupInterface();
-        if (groupArray) = (ownerGroupArray) then begin
-            Exit;
-        end;
-        x := Self.lastTrackingLayerInterface.getXP();
-        y := Self.lastTrackingLayerInterface.getYP();
-        yDistance := ((ownerLayerInterface.getYP()) - (y)) - (ownerLayerInterface.getHeight());
-        xDistance := ((ownerLayerInterface.getXP()) - (x)) - (ownerLayerInterface.getWidth());
-        directionFactory_ := TDirectionFactory.getInstance();
-        if (Self.mathUtil.abs(yDistance)) > (Self.mathUtil.abs(xDistance)) then begin
-            if (yDistance) > (Self.MIN_DISTANCE) then begin
-                Self.directionOfTarget := directionFactory_.UP;
-            end else if (yDistance) < (-Self.MIN_DISTANCE) then begin
-                Self.directionOfTarget := directionFactory_.DOWN;
-            end;
-        end else begin
-            if (xDistance) > (Self.MIN_DISTANCE) then begin
-                Self.directionOfTarget := directionFactory_.LEFT;
-            end else if (xDistance) < (-Self.MIN_DISTANCE) then begin
-                Self.directionOfTarget := directionFactory_.RIGHT;
-            end;
-        end;
-        if (not (Self.initialDropped)) and ((Self.directionOfTarget) <> (directionFactory_.NOT_BORDERED_WITH)) then begin
-            Self.drop();
-        end;
-        if Self.initialDropped then begin
-            if ((Self.directionOfTarget) = (directionFactory_.UP)) or ((Self.directionOfTarget) = (directionFactory_.DOWN)) then begin
-                Self.verticalTargeting(x);
-            end else if ((Self.directionOfTarget) = (directionFactory_.LEFT)) or ((Self.directionOfTarget) = (directionFactory_.RIGHT)) then begin
-                Self.horizontalTargeting(y);
-            end else begin
-                Self.artificialIntelligenceInterface.processAI(allBinaryLayerManager_);
-            end;
-        end;
-end;
+    COMPUTE jtemp2 = 0
+    COMPUTE JVALUE = FUNCTION Direction-getInstance1(jtemp2)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_directionOfTarget", JVALUE)
+    COMPUTE JVALUE = 40
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_MIN_DISTANCE", JVALUE)
+    COMPUTE JVALUE = FUNCTION AllBnryLyr-sttc-NULL-A70567
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lastTrackingLayerInterface", JVALUE)
     
-
-// throws Exception
-procedure TDiveAndDirectionalTrackingAI.verticalTargeting(x: Integer);
-var
-  ownerLayerInterface: TAllBinaryLayer;
-begin
-        ownerLayerInterface := Self.getOwnerLayerInterface();
-        if (ownerLayerInterface.getXP()) < (x) then begin
-            Self.moveRight();
-        end;
-        if (ownerLayerInterface.getXP()) > (x) then begin
-            Self.moveLeft();
-        end;
-        if ((ownerLayerInterface.getXP()) > ((x) - (3))) and ((ownerLayerInterface.getXP()) < ((x) + (3))) then begin
-            Self.setDive();
-        end;
-end;
     
+    COMPUTE jtemp3 = FUNCTION DirectionFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp3, "f_NO_DIRECTION")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lastDirection", JVALUE)
+        CONTINUE
+        COMPUTE JVALUE = J-visitor
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_aiVistor", JVALUE)
+        COMPUTE JVALUE = J-artificialIntelligenceInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_artificialIntelligenceInterface", JVALUE)
+        COMPUTE J-directionalCompositeInterface = FUNCTION BscAI-getOwnerLayerInterface0(J-THIS)
+        COMPUTE JVALUE = FUNCTION DrctnlCmpstIntrfc-gtDrctn22213(J-directionalCompositeInterface)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_directionalInterface", JVALUE)
+        COMPUTE J-velocityInterfaceCompositeInterface = FUNCTION BscAI-getOwnerLayerInterface0(J-THIS)
+        COMPUTE JVALUE = FUNCTION VlctyIntrfcCmpstIntrfc-gt15512(J-velocityInterfaceCompositeInterface)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_velocityInterface", JVALUE)
+        COMPUTE jtemp4 = FUNCTION DstrydEvntHndlr-getInstance0
+        COMPUTE JDISCARD = FUNCTION BscEvntHndlr-addLstnrIntrfc1(jtemp4, J-THIS)
+        COMPUTE JDISCARD = FUNCTION DvAndDrctnlTrckngAI-init0(J-THIS)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION DvAndDrctnlTrckngAI-new4.
 
-// throws Exception
-procedure TDiveAndDirectionalTrackingAI.horizontalTargeting(y: Integer);
-var
-  ownerLayerInterface: TAllBinaryLayer;
-begin
-        ownerLayerInterface := Self.getOwnerLayerInterface();
-        if (ownerLayerInterface.getYP()) < (y) then begin
-            Self.moveDown();
-        end;
-        if (ownerLayerInterface.getYP()) > (y) then begin
-            Self.moveUp();
-        end;
-        if ((ownerLayerInterface.getYP()) > ((y) - (3))) and ((ownerLayerInterface.getYP()) < ((y) + (3))) then begin
-            Self.setDive();
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DvAndDrctnlTrckngAI-processAI1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryLayerManager BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION DvAndDrctnlTrckngAI-isByn90014(J-THIS) = 1)
+            COMPUTE JDISCARD = FUNCTION DvAndDrctnlTrckngAI-init0(J-THIS)
+            COMPUTE JDISCARD = FUNCTION BasicVelocityProperties-zero0(FUNCTION JR-GET(J-THIS, "f_velocityInterface"))
+        END-IF
+        IF (NOT (FUNCTION JR-GET(J-THIS, "f_diveP") = 1))
+            COMPUTE JDISCARD = FUNCTION DvAndDrctnlTrckngAI-target1(J-THIS, J-allBinaryLayerManager)
+        ELSE
+            COMPUTE JDISCARD = FUNCTION DvAndDrctnlTrckngAI-dive0(J-THIS)
+            COMPUTE JDISCARD = FUNCTION DvAndDrctnlTrckngAI-attack0(J-THIS)
+        END-IF
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-clear0(FUNCTION JR-GET(J-THIS, "f_list"))
+    GOBACK.
+END FUNCTION DvAndDrctnlTrckngAI-processAI1.
 
-procedure TDiveAndDirectionalTrackingAI.setDive;
-begin
-        Self.diveP := True;
-        Self.velocityInterface.zero();
-        TTrackingEventHandler.getInstance().removeListener(Self);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DvAndDrctnlTrckngAI-init0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = 0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_diveP", JVALUE)
+        COMPUTE jtemp5 = FUNCTION DirectionFactory-getInstance0
+        COMPUTE JVALUE = FUNCTION JR-GET(jtemp5, "f_NOT_BORDERED_WITH")
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_directionOfTarget", JVALUE)
+        COMPUTE jtemp6 = FUNCTION TrckngEvntHndlr-getInstance0
+        COMPUTE JDISCARD = FUNCTION BscEvntHndlr-addLstnrIntrfc1(jtemp6, J-THIS)
+    GOBACK.
+END FUNCTION DvAndDrctnlTrckngAI-init0.
 
-// throws Exception
-procedure TDiveAndDirectionalTrackingAI.moveRight;
-begin
-        Self.setLastDirection(Self.directionFactory.RIGHT);
-        Self.directionalInterface.setFrameByDirection(Self.lastDirection);
-        Self.aiVistor.visit(Self);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DvAndDrctnlTrckngAI-target1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-lastTrackingEvent BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-ownerLayerInterface BINARY-DOUBLE.
+01 J-groupArray BINARY-DOUBLE.
+01 J-ownerGroupArray BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-yDistance BINARY-DOUBLE.
+01 J-xDistance BINARY-DOUBLE.
+01 J-directionFactory BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryLayerManager BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_list")) = 0)
+            GOBACK
+        END-IF
+        COMPUTE jtemp7 = 0
+        COMPUTE J-lastTrackingEvent = FUNCTION BasicArrayList-removeAt1(FUNCTION JR-GET(J-THIS, "f_list"), jtemp7)
+        COMPUTE JVALUE = FUNCTION TrckngEvnt-getLayerInterface0(J-lastTrackingEvent)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lastTrackingLayerInterface", JVALUE)
+        COMPUTE J-layerInterface = FUNCTION JR-GET(J-THIS, "f_lastTrackingLayerInterface")
+        COMPUTE J-ownerLayerInterface = FUNCTION BscAI-getOwnerLayerInterface0(J-THIS)
+        COMPUTE J-groupArray = FUNCTION AllBnryLyr-getGroupInterface0(J-layerInterface)
+        COMPUTE J-ownerGroupArray = FUNCTION AllBnryLyr-getGroupInterface0(J-ownerLayerInterface)
+        IF (J-groupArray = J-ownerGroupArray)
+            GOBACK
+        END-IF
+        COMPUTE J-x = FUNCTION AllBinaryLayer-getXP0(FUNCTION JR-GET(J-THIS, "f_lastTrackingLayerInterface"))
+        COMPUTE J-y = FUNCTION AllBinaryLayer-getYP0(FUNCTION JR-GET(J-THIS, "f_lastTrackingLayerInterface"))
+        COMPUTE J-yDistance = (FUNCTION MOD(((FUNCTION MOD((FUNCTION AllBinaryLayer-getYP0(J-ownerLayerInterface) - J-y) + 2147483648, 4294967296) - 2147483648) - FUNCTION AllBinaryLayer-getHeight0(J-ownerLayerInterface)) + 2147483648,
+        4294967296) - 2147483648)
+        COMPUTE J-xDistance = (FUNCTION MOD(((FUNCTION MOD((FUNCTION AllBinaryLayer-getXP0(J-ownerLayerInterface) - J-x) + 2147483648, 4294967296) - 2147483648) - FUNCTION AllBinaryLayer-getWidth0(J-ownerLayerInterface)) + 2147483648,
+        4294967296) - 2147483648)
+        COMPUTE J-directionFactory = FUNCTION DirectionFactory-getInstance0
+        IF (FUNCTION MathUtil-abs1(FUNCTION JR-GET(J-THIS, "f_mathUtil"), J-yDistance) > FUNCTION MathUtil-abs1(FUNCTION JR-GET(J-THIS, "f_mathUtil"), J-xDistance))
+            IF (J-yDistance > FUNCTION JR-GET(J-THIS, "f_MIN_DISTANCE"))
+                COMPUTE JVALUE = FUNCTION JR-GET(J-directionFactory, "f_UP")
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_directionOfTarget", JVALUE)
+            ELSE
+                IF (J-yDistance < (0 - FUNCTION JR-GET(J-THIS, "f_MIN_DISTANCE")))
+                COMPUTE JVALUE = FUNCTION JR-GET(J-directionFactory, "f_DOWN")
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_directionOfTarget", JVALUE)
+            END-IF
+            END-IF
+        ELSE
+            IF (J-xDistance > FUNCTION JR-GET(J-THIS, "f_MIN_DISTANCE"))
+                COMPUTE JVALUE = FUNCTION JR-GET(J-directionFactory, "f_LEFT")
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_directionOfTarget", JVALUE)
+            ELSE
+                IF (J-xDistance < (0 - FUNCTION JR-GET(J-THIS, "f_MIN_DISTANCE")))
+                COMPUTE JVALUE = FUNCTION JR-GET(J-directionFactory, "f_RIGHT")
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_directionOfTarget", JVALUE)
+            END-IF
+            END-IF
+        END-IF
+        IF ((NOT (FUNCTION JR-GET(J-THIS, "f_initialDropped") = 1)) AND (FUNCTION JR-GET(J-THIS, "f_directionOfTarget") NOT = FUNCTION JR-GET(J-directionFactory, "f_NOT_BORDERED_WITH")))
+            COMPUTE JDISCARD = FUNCTION DvAndDrctnlTrckngAI-drop0(J-THIS)
+        END-IF
+        IF (FUNCTION JR-GET(J-THIS, "f_initialDropped") = 1)
+            IF ((FUNCTION JR-GET(J-THIS, "f_directionOfTarget") = FUNCTION JR-GET(J-directionFactory, "f_UP")) OR (FUNCTION JR-GET(J-THIS, "f_directionOfTarget") = FUNCTION JR-GET(J-directionFactory, "f_DOWN")))
+                COMPUTE JDISCARD = FUNCTION DvAndDrctnlTrckngAI-vrtcl41806(J-THIS, J-x)
+            ELSE
+                IF ((FUNCTION JR-GET(J-THIS, "f_directionOfTarget") = FUNCTION JR-GET(J-directionFactory, "f_LEFT")) OR (FUNCTION JR-GET(J-THIS, "f_directionOfTarget") = FUNCTION JR-GET(J-directionFactory, "f_RIGHT")))
+                COMPUTE JDISCARD = FUNCTION DvAndDrctnlTrckngAI-hrznt30119(J-THIS, J-y)
+            ELSE
+                COMPUTE JDISCARD = FUNCTION ArtfclIntllgncIntrfc-prcssAI1(FUNCTION JR-GET(J-THIS, "f_artificialIntelligenceInterface"), J-allBinaryLayerManager)
+            END-IF
+            END-IF
+        END-IF
+    GOBACK.
+END FUNCTION DvAndDrctnlTrckngAI-target1.
 
-// throws Exception
-procedure TDiveAndDirectionalTrackingAI.moveLeft;
-begin
-        Self.setLastDirection(Self.directionFactory.LEFT);
-        Self.directionalInterface.setFrameByDirection(Self.lastDirection);
-        Self.aiVistor.visit(Self);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DvAndDrctnlTrckngAI-vrtcl41806.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-ownerLayerInterface BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-x RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-ownerLayerInterface = FUNCTION BscAI-getOwnerLayerInterface0(J-THIS)
+        IF (FUNCTION AllBinaryLayer-getXP0(J-ownerLayerInterface) < J-x)
+            COMPUTE JDISCARD = FUNCTION DvAndDrctnlTrckngAI-moveRight0(J-THIS)
+        END-IF
+        IF (FUNCTION AllBinaryLayer-getXP0(J-ownerLayerInterface) > J-x)
+            COMPUTE JDISCARD = FUNCTION DvAndDrctnlTrckngAI-moveLeft0(J-THIS)
+        END-IF
+        COMPUTE jtemp8 = 3
+        IF ((FUNCTION AllBinaryLayer-getXP0(J-ownerLayerInterface) > (FUNCTION MOD((J-x - 3) + 2147483648, 4294967296) - 2147483648)) AND (FUNCTION AllBinaryLayer-getXP0(J-ownerLayerInterface) < (FUNCTION MOD((J-x + jtemp8) + 2147483648,
+        4294967296) - 2147483648)))
+            COMPUTE JDISCARD = FUNCTION DvAndDrctnlTrckngAI-setDive0(J-THIS)
+        END-IF
+    GOBACK.
+END FUNCTION DvAndDrctnlTrckngAI-vrtcl41806.
 
-// throws Exception
-procedure TDiveAndDirectionalTrackingAI.moveDown;
-begin
-        Self.setLastDirection(Self.directionFactory.DOWN);
-        Self.directionalInterface.setFrameByDirection(Self.lastDirection);
-        Self.aiVistor.visit(Self);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DvAndDrctnlTrckngAI-hrznt30119.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-ownerLayerInterface BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-ownerLayerInterface = FUNCTION BscAI-getOwnerLayerInterface0(J-THIS)
+        IF (FUNCTION AllBinaryLayer-getYP0(J-ownerLayerInterface) < J-y)
+            COMPUTE JDISCARD = FUNCTION DvAndDrctnlTrckngAI-moveDown0(J-THIS)
+        END-IF
+        IF (FUNCTION AllBinaryLayer-getYP0(J-ownerLayerInterface) > J-y)
+            COMPUTE JDISCARD = FUNCTION DvAndDrctnlTrckngAI-moveUp0(J-THIS)
+        END-IF
+        COMPUTE jtemp9 = 3
+        IF ((FUNCTION AllBinaryLayer-getYP0(J-ownerLayerInterface) > (FUNCTION MOD((J-y - 3) + 2147483648, 4294967296) - 2147483648)) AND (FUNCTION AllBinaryLayer-getYP0(J-ownerLayerInterface) < (FUNCTION MOD((J-y + jtemp9) + 2147483648,
+        4294967296) - 2147483648)))
+            COMPUTE JDISCARD = FUNCTION DvAndDrctnlTrckngAI-setDive0(J-THIS)
+        END-IF
+    GOBACK.
+END FUNCTION DvAndDrctnlTrckngAI-hrznt30119.
 
-// throws Exception
-procedure TDiveAndDirectionalTrackingAI.moveUp;
-begin
-        Self.setLastDirection(Self.directionFactory.UP);
-        Self.directionalInterface.setFrameByDirection(Self.lastDirection);
-        Self.aiVistor.visit(Self);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DvAndDrctnlTrckngAI-setDive0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp10 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = 1
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_diveP", JVALUE)
+        COMPUTE JDISCARD = FUNCTION BasicVelocityProperties-zero0(FUNCTION JR-GET(J-THIS, "f_velocityInterface"))
+        COMPUTE jtemp10 = FUNCTION TrckngEvntHndlr-getInstance0
+        COMPUTE JDISCARD = FUNCTION BscEvntHndlr-removeListener1(jtemp10, J-THIS)
+    GOBACK.
+END FUNCTION DvAndDrctnlTrckngAI-setDive0.
 
-// throws Exception
-procedure TDiveAndDirectionalTrackingAI.dive;
-begin
-        Self.directionalInterface.setFrameByDirection(Self.directionOfTarget);
-        Self.aiVistor.visit(Self);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DvAndDrctnlTrckngAI-moveRight0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION DvAndDrctnlTrckngAI-stLst34477(J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_directionFactory"), "f_RIGHT"))
+        COMPUTE JDISCARD = FUNCTION DrctnlIntrfc-stFrmByDrctn1(FUNCTION JR-GET(J-THIS, "f_directionalInterface"), FUNCTION JR-GET(J-THIS, "f_lastDirection"))
+        COMPUTE JDISCARD = FUNCTION Visitor-visit1(FUNCTION JR-GET(J-THIS, "f_aiVistor"), J-THIS)
+    GOBACK.
+END FUNCTION DvAndDrctnlTrckngAI-moveRight0.
 
-// throws Exception
-procedure TDiveAndDirectionalTrackingAI.attack;
-begin
-        inherited processKeyAI(TCanvas.KEY_NUM1);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DvAndDrctnlTrckngAI-moveLeft0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION DvAndDrctnlTrckngAI-stLst34477(J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_directionFactory"), "f_LEFT"))
+        COMPUTE JDISCARD = FUNCTION DrctnlIntrfc-stFrmByDrctn1(FUNCTION JR-GET(J-THIS, "f_directionalInterface"), FUNCTION JR-GET(J-THIS, "f_lastDirection"))
+        COMPUTE JDISCARD = FUNCTION Visitor-visit1(FUNCTION JR-GET(J-THIS, "f_aiVistor"), J-THIS)
+    GOBACK.
+END FUNCTION DvAndDrctnlTrckngAI-moveLeft0.
 
-// throws Exception
-procedure TDiveAndDirectionalTrackingAI.drop;
-begin
-        if Self.timeDelayHelper.isTime(Self.gameTickTimeDelayHelper.startTime) then begin
-            Self.initialDropped := True;
-            Self.aiVistor.visit(Self);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DvAndDrctnlTrckngAI-moveDown0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION DvAndDrctnlTrckngAI-stLst34477(J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_directionFactory"), "f_DOWN"))
+        COMPUTE JDISCARD = FUNCTION DrctnlIntrfc-stFrmByDrctn1(FUNCTION JR-GET(J-THIS, "f_directionalInterface"), FUNCTION JR-GET(J-THIS, "f_lastDirection"))
+        COMPUTE JDISCARD = FUNCTION Visitor-visit1(FUNCTION JR-GET(J-THIS, "f_aiVistor"), J-THIS)
+    GOBACK.
+END FUNCTION DvAndDrctnlTrckngAI-moveDown0.
 
-function TDiveAndDirectionalTrackingAI.isBeyondTarget: Boolean;
-begin
-        if (Self.directionOfTarget) = (Self.directionFactory.DOWN) then begin
-            if (Self.getOwnerLayerInterface().getYP()) > ((Self.lastTrackingLayerInterface.getYP()) + (Self.MIN_DISTANCE)) then begin
-                Exit(True);
-            end else begin
-                Exit(False);
-            end;
-        end else if (Self.directionOfTarget) = (Self.directionFactory.UP) then begin
-            if (Self.getOwnerLayerInterface().getYP()) < ((Self.lastTrackingLayerInterface.getYP()) + (Self.MIN_DISTANCE)) then begin
-                Exit(True);
-            end else begin
-                Exit(False);
-            end;
-        end else if (Self.directionOfTarget) = (Self.directionFactory.RIGHT) then begin
-            if (Self.getOwnerLayerInterface().getXP()) > ((Self.lastTrackingLayerInterface.getXP()) + (Self.MIN_DISTANCE)) then begin
-                Exit(True);
-            end else begin
-                Exit(False);
-            end;
-        end else if (Self.directionOfTarget) = (Self.directionFactory.LEFT) then begin
-            if (Self.getOwnerLayerInterface().getXP()) < ((Self.lastTrackingLayerInterface.getXP()) + (Self.MIN_DISTANCE)) then begin
-                Exit(True);
-            end else begin
-                Exit(False);
-            end;
-        end else begin
-            Exit(False);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DvAndDrctnlTrckngAI-moveUp0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION DvAndDrctnlTrckngAI-stLst34477(J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_directionFactory"), "f_UP"))
+        COMPUTE JDISCARD = FUNCTION DrctnlIntrfc-stFrmByDrctn1(FUNCTION JR-GET(J-THIS, "f_directionalInterface"), FUNCTION JR-GET(J-THIS, "f_lastDirection"))
+        COMPUTE JDISCARD = FUNCTION Visitor-visit1(FUNCTION JR-GET(J-THIS, "f_aiVistor"), J-THIS)
+    GOBACK.
+END FUNCTION DvAndDrctnlTrckngAI-moveUp0.
 
-procedure TDiveAndDirectionalTrackingAI.onEvent(eventObject: TAllBinaryEventObject);
-begin
-        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, TJava.Box(Self));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DvAndDrctnlTrckngAI-dive0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION DrctnlIntrfc-stFrmByDrctn1(FUNCTION JR-GET(J-THIS, "f_directionalInterface"), FUNCTION JR-GET(J-THIS, "f_directionOfTarget"))
+        COMPUTE JDISCARD = FUNCTION Visitor-visit1(FUNCTION JR-GET(J-THIS, "f_aiVistor"), J-THIS)
+    GOBACK.
+END FUNCTION DvAndDrctnlTrckngAI-dive0.
 
-procedure TDiveAndDirectionalTrackingAI.onMovement(trackingEvent_: TTrackingEvent);
-begin
-        Self.list.add(TJava.Box(trackingEvent_));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DvAndDrctnlTrckngAI-attack0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicAI-processKeyAI1(J-THIS, FUNCTION Canvas-static-KEY-NUM1)
+    GOBACK.
+END FUNCTION DvAndDrctnlTrckngAI-attack0.
 
-procedure TDiveAndDirectionalTrackingAI.onDestroyed(destroyedEvent_: TDestroyedEvent);
-begin
-        if (Self.getOwnerLayerInterface()) = (destroyedEvent_.getLayerInterface()) then begin
-            TTrackingEventHandler.getInstance().removeListener(Self);
-            TDestroyedEventHandler.getInstance().removeListener(Self);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DvAndDrctnlTrckngAI-drop0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION TimeDelayHelper-isTime1(FUNCTION JR-GET(J-THIS, "f_timeDelayHelper"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameTickTimeDelayHelper"), "f_startTime")) = 1)
+            COMPUTE JVALUE = 1
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_initialDropped", JVALUE)
+            COMPUTE JDISCARD = FUNCTION Visitor-visit1(FUNCTION JR-GET(J-THIS, "f_aiVistor"), J-THIS)
+        END-IF
+    GOBACK.
+END FUNCTION DvAndDrctnlTrckngAI-drop0.
 
-procedure TDiveAndDirectionalTrackingAI.setLastDirection(lastDirection: TDirection);
-var
-  value: Integer;
-begin
-        Self.lastDirection := lastDirection;
-        value := Self.getLastDirection().getValue();
-        if (value) < (4) then begin
-            inherited setLastKey(Self.directionToKeyMap[value]);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DvAndDrctnlTrckngAI-isByn90014.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION JR-GET(J-THIS, "f_directionOfTarget") = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_directionFactory"), "f_DOWN"))
+            COMPUTE jtemp14 = FUNCTION BscAI-getOwnerLayerInterface0(J-THIS)
+            IF (FUNCTION JR-CLASS-NAME(jtemp14) > (FUNCTION MOD((FUNCTION AllBinaryLayer-getYP0(FUNCTION JR-GET(J-THIS, "f_lastTrackingLayerInterface")) + FUNCTION JR-GET(J-THIS, "f_MIN_DISTANCE")) + 2147483648, 4294967296) - 2147483648))
+                COMPUTE J-RESULT = 1
+                GOBACK
+            ELSE
+                COMPUTE J-RESULT = 0
+                GOBACK
+            END-IF
+        ELSE
+            IF (FUNCTION JR-GET(J-THIS, "f_directionOfTarget") = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_directionFactory"), "f_UP"))
+            COMPUTE jtemp13 = FUNCTION BscAI-getOwnerLayerInterface0(J-THIS)
+            IF (FUNCTION JR-CLASS-NAME(jtemp13) < (FUNCTION MOD((FUNCTION AllBinaryLayer-getYP0(FUNCTION JR-GET(J-THIS, "f_lastTrackingLayerInterface")) + FUNCTION JR-GET(J-THIS, "f_MIN_DISTANCE")) + 2147483648, 4294967296) - 2147483648))
+                COMPUTE J-RESULT = 1
+                GOBACK
+            ELSE
+                COMPUTE J-RESULT = 0
+                GOBACK
+            END-IF
+        ELSE
+            IF (FUNCTION JR-GET(J-THIS, "f_directionOfTarget") = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_directionFactory"), "f_RIGHT"))
+            COMPUTE jtemp12 = FUNCTION BscAI-getOwnerLayerInterface0(J-THIS)
+            IF (FUNCTION JR-CLASS-NAME(jtemp12) > (FUNCTION MOD((FUNCTION AllBinaryLayer-getXP0(FUNCTION JR-GET(J-THIS, "f_lastTrackingLayerInterface")) + FUNCTION JR-GET(J-THIS, "f_MIN_DISTANCE")) + 2147483648, 4294967296) - 2147483648))
+                COMPUTE J-RESULT = 1
+                GOBACK
+            ELSE
+                COMPUTE J-RESULT = 0
+                GOBACK
+            END-IF
+        ELSE
+            IF (FUNCTION JR-GET(J-THIS, "f_directionOfTarget") = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_directionFactory"), "f_LEFT"))
+            COMPUTE jtemp11 = FUNCTION BscAI-getOwnerLayerInterface0(J-THIS)
+            IF (FUNCTION JR-CLASS-NAME(jtemp11) < (FUNCTION MOD((FUNCTION AllBinaryLayer-getXP0(FUNCTION JR-GET(J-THIS, "f_lastTrackingLayerInterface")) + FUNCTION JR-GET(J-THIS, "f_MIN_DISTANCE")) + 2147483648, 4294967296) - 2147483648))
+                COMPUTE J-RESULT = 1
+                GOBACK
+            ELSE
+                COMPUTE J-RESULT = 0
+                GOBACK
+            END-IF
+        ELSE
+            COMPUTE J-RESULT = 0
+            GOBACK
+        END-IF
+        END-IF
+        END-IF
+        END-IF
+    GOBACK.
+END FUNCTION DvAndDrctnlTrckngAI-isByn90014.
 
-procedure TDiveAndDirectionalTrackingAI.setLastKey(lastKey: Integer);
-begin
-        inherited setLastKey(lastKey);
-        if (Self.getLastKey()) = (TCanvas.LEFT) then begin
-            Self.lastDirection := TDirectionFactory.getInstance().LEFT;
-        end else if (Self.getLastKey()) = (TCanvas.DOWN) then begin
-            Self.lastDirection := TDirectionFactory.getInstance().DOWN;
-        end else if (Self.getLastKey()) = (TCanvas.UP) then begin
-            Self.lastDirection := TDirectionFactory.getInstance().UP;
-        end else if (Self.getLastKey()) = (TCanvas.RIGHT) then begin
-            Self.lastDirection := TDirectionFactory.getInstance().RIGHT;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DvAndDrctnlTrckngAI-onEvent1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp15 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp15 = FUNCTION EventStrings-getInstance0
+        COMPUTE JDISCARD = FUNCTION ForcedLogUtil-log2(FUNCTION JR-GET(jtemp15, "f_PERFORMANCE_MESSAGE"), J-THIS)
+    GOBACK.
+END FUNCTION DvAndDrctnlTrckngAI-onEvent1.
 
-function TDiveAndDirectionalTrackingAI.getLastDirection: TDirection;
-begin
-        Exit(Self.lastDirection);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DvAndDrctnlTrckngAI-onMvmnt1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-trackingEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-trackingEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), J-trackingEvent)
+    GOBACK.
+END FUNCTION DvAndDrctnlTrckngAI-onMvmnt1.
 
-function TDiveAndDirectionalTrackingAI.toString: string;
-var
-  stringBuffer: TStringMaker;
-begin
-        stringBuffer := TStringMaker.Create();
-        stringBuffer.append(inherited toString());
-        stringBuffer.append(' LastDirection: ');
-        stringBuffer.append(TStringUtil.getInstance().toString(Self.getLastDirection()));
-        Exit(stringBuffer.toString());
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DvAndDrctnlTrckngAI-onDstryd1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp16 BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-destroyedEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-destroyedEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION BscAI-getOwnerLayerInterface0(J-THIS) = FUNCTION DstrydEvnt-getLayerInterface0(J-destroyedEvent))
+            COMPUTE jtemp16 = FUNCTION TrckngEvntHndlr-getInstance0
+            COMPUTE JDISCARD = FUNCTION BscEvntHndlr-removeListener1(jtemp16, J-THIS)
+            COMPUTE jtemp17 = FUNCTION DstrydEvntHndlr-getInstance0
+            COMPUTE JDISCARD = FUNCTION DstrydEvntHndlr-rmvLstnr1(jtemp17, J-THIS)
+        END-IF
+    GOBACK.
+END FUNCTION DvAndDrctnlTrckngAI-onDstryd1.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DvAndDrctnlTrckngAI-stLst34477.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-value BINARY-DOUBLE.
+01 jtemp18 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-lastDirection BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-lastDirection RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-lastDirection
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lastDirection", JVALUE)
+        COMPUTE jtemp18 = FUNCTION DvAndDrctnlTrckngAI-gtLst31164(J-THIS)
+        COMPUTE J-value = FUNCTION Direction-getValue0(jtemp18)
+        IF (J-value < 4)
+            COMPUTE JDISCARD = FUNCTION BasicAI-setLastKey1(J-THIS, FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_directionToKeyMap"), J-value))
+        END-IF
+    GOBACK.
+END FUNCTION DvAndDrctnlTrckngAI-stLst34477.
 
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DvAndDrctnlTrckngAI-stLstKy1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp19 BINARY-DOUBLE.
+01 jtemp20 BINARY-DOUBLE.
+01 jtemp21 BINARY-DOUBLE.
+01 jtemp22 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-lastKey BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-lastKey RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicAI-setLastKey1(J-THIS, J-lastKey)
+        IF (FUNCTION BasicAI-getLastKey0(J-THIS) = FUNCTION Canvas-static-LEFT)
+            COMPUTE jtemp22 = FUNCTION DirectionFactory-getInstance0
+            COMPUTE JVALUE = FUNCTION JR-GET(jtemp22, "f_LEFT")
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lastDirection", JVALUE)
+        ELSE
+            IF (FUNCTION BasicAI-getLastKey0(J-THIS) = FUNCTION Canvas-static-DOWN)
+            COMPUTE jtemp21 = FUNCTION DirectionFactory-getInstance0
+            COMPUTE JVALUE = FUNCTION JR-GET(jtemp21, "f_DOWN")
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lastDirection", JVALUE)
+        ELSE
+            IF (FUNCTION BasicAI-getLastKey0(J-THIS) = FUNCTION Canvas-static-UP)
+            COMPUTE jtemp20 = FUNCTION DirectionFactory-getInstance0
+            COMPUTE JVALUE = FUNCTION JR-GET(jtemp20, "f_UP")
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lastDirection", JVALUE)
+        ELSE
+            IF (FUNCTION BasicAI-getLastKey0(J-THIS) = FUNCTION Canvas-static-RIGHT)
+            COMPUTE jtemp19 = FUNCTION DirectionFactory-getInstance0
+            COMPUTE JVALUE = FUNCTION JR-GET(jtemp19, "f_RIGHT")
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lastDirection", JVALUE)
+        END-IF
+        END-IF
+        END-IF
+        END-IF
+    GOBACK.
+END FUNCTION DvAndDrctnlTrckngAI-stLstKy1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DvAndDrctnlTrckngAI-gtLst31164.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_lastDirection")
+        GOBACK
+    GOBACK.
+END FUNCTION DvAndDrctnlTrckngAI-gtLst31164.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DvAndDrctnlTrckngAI-toString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringBuffer BINARY-DOUBLE.
+01 jtemp23 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION BasicAI-toString0(J-THIS))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR(" LastDirection: "))
+        COMPUTE jtemp23 = FUNCTION StringUtil-getInstance0
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION StringUtil-toString1(jtemp23, FUNCTION DvAndDrctnlTrckngAI-gtLst31164(J-THIS)))
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(J-stringBuffer)
+        GOBACK
+    GOBACK.
+END FUNCTION DvAndDrctnlTrckngAI-toString0.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. DiveAndDirectionalTra-toString.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION DvAndDrctnlTrckngAI-toString0(J-THIS)
+    GOBACK.
+END PROGRAM DiveAndDirectionalTra-toString.
 

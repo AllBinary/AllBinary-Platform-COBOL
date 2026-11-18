@@ -1,81 +1,164 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.canvas
+*> Java class SpecialMessageUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.canvas
-unit SpecialMessageUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SpclMssgUtl-static-SINGLETON.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 SpecialMessageUtil-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+01 SpecialMessageUtil-jset-SINGLETON BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF SpecialMessageUtil-jset-SINGLETON = 0
+        MOVE 1 TO SpecialMessageUtil-jset-SINGLETON
+        COMPUTE SpecialMessageUtil-jcell-SINGLETON = FUNCTION SpecialMessageUtil-new0
+    END-IF
+    MOVE SpecialMessageUtil-jcell-SINGLETON TO J-RESULT
+    GOBACK.
+END FUNCTION SpclMssgUtl-static-SINGLETON.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SpclMssgUtlstaticSINS97983.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 SpecialMessageUtil-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION SpclMssgUtl-static-SINGLETON TO J-RESULT
+    MOVE J-VALUE TO SpecialMessageUtil-jcell-SINGLETON
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION SpclMssgUtlstaticSINS97983.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SpecialMessageUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("SpecialMessageUtil")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION SpecialMessageUtil-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SpclMssgUtl-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION SpclMssgUtl-static-SINGLETON
+        GOBACK
+    GOBACK.
+END FUNCTION SpclMssgUtl-getInstance0.
 
-type
-  {AB:TYPES}
-  TSpecialMessageUtil = class(TObject)
-  public
-    class var SINGLETON: TSpecialMessageUtil;
-    constructor Create;
-        class function getInstance: TSpecialMessageUtil; static;
-        function get: string; virtual;
-  end;
-
-implementation
-uses
-  GameStatisticsFactory, Features, OpenGLFeatureFactory, StringMaker, CommonSeps, Memory;
-
-
-{AB:CODE}
-
-constructor TSpecialMessageUtil.Create;
-begin
-  inherited Create;
-end;
-    
-
-class function TSpecialMessageUtil.getInstance: TSpecialMessageUtil;
-begin
-        Exit(TSpecialMessageUtil.SINGLETON);
-end;
-    
-
-function TSpecialMessageUtil.get: string;
-var
-  stringBuffer: TStringMaker;
-begin
-        stringBuffer := TStringMaker.Create();
-        stringBuffer.append(TMemory.getInfo());
-        stringBuffer.append(TCommonSeps.getInstance().SPACE);
-        stringBuffer.append(TGameStatisticsFactory.getInstance().toString());
-        stringBuffer.append(TCommonSeps.getInstance().SPACE);
-        stringBuffer.append(' Option: ');
-        if TFeatures.getInstance().isDefault(TOpenGLFeatureFactory.getInstance().OPENGL_AUTO_SELECT) then begin
-            stringBuffer.append(TOpenGLFeatureFactory.getInstance().OPENGL_AUTO_SELECT.getName());
-        end else begin
-            stringBuffer.append(TOpenGLFeatureFactory.getInstance().OPENGL_MINIMUM.getName());
-        end;
-        Exit(stringBuffer.toString());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TSpecialMessageUtil.SINGLETON := TSpecialMessageUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SpecialMessageUtil-get0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringBuffer BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION Memory-getInfo0)
+        COMPUTE jtemp1 = FUNCTION CommonSeps-getInstance0
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(jtemp1, "f_SPACE"))
+        COMPUTE jtemp2 = FUNCTION GmSttstcsFctry-getInstance0
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-TO-STRING(jtemp2))
+        COMPUTE jtemp3 = FUNCTION CommonSeps-getInstance0
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(jtemp3, "f_SPACE"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR(" Option: "))
+        COMPUTE jtemp5 = FUNCTION OpnGLFtrFctry-getInstance0
+        COMPUTE jtemp4 = FUNCTION Features-getInstance0
+        IF (FUNCTION Features-isDefault1(jtemp4, FUNCTION JR-GET(jtemp5, "f_OPENGL_AUTO_SELECT")) = 1)
+            COMPUTE jtemp7 = FUNCTION OpnGLFtrFctry-getInstance0
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(jtemp7, "f_OPENGL_AUTO_SELECT")))
+        ELSE
+            COMPUTE jtemp6 = FUNCTION OpnGLFtrFctry-getInstance0
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(jtemp6, "f_OPENGL_MINIMUM")))
+        END-IF
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(J-stringBuffer)
+        GOBACK
+    GOBACK.
+END FUNCTION SpecialMessageUtil-get0.
 

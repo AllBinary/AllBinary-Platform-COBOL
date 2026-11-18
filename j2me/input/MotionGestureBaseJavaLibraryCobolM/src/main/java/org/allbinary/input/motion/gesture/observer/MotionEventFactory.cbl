@@ -1,90 +1,142 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion.gesture.observer
+*> Java class MotionEventFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion.gesture.observer
-unit MotionEventFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnEvntFctry-static-index.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 MotionEventFactory-jcell-index BINARY-DOUBLE EXTERNAL.
+01 MotionEventFactory-jset-index BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF MotionEventFactory-jset-index = 0
+        MOVE 1 TO MotionEventFactory-jset-index
+        COMPUTE MotionEventFactory-jcell-index = 0
+    END-IF
+    MOVE MotionEventFactory-jcell-index TO J-RESULT
+    GOBACK.
+END FUNCTION MtnEvntFctry-static-index.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnEvntFctrystaticinS54958.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 MotionEventFactory-jcell-index BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION MtnEvntFctry-static-index TO J-RESULT
+    MOVE J-VALUE TO MotionEventFactory-jcell-index
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION MtnEvntFctrystaticinS54958.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AllBinaryEventObject, AllBinaryEventObjectFactoryInterface;
-
-type
-  {AB:TYPES}
-  TMotionEventFactory = class(TInterfacedObject, IAllBinaryEventObjectFactoryInterface)
-  public
-    source: TObject;
-    id: Integer;
-    class var index: Integer;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(source: TObject; id: Integer);
-        function getInstance: TAllBinaryEventObject; virtual;
-  end;
-
-implementation
-uses
-  MotionGestureEvent, Input, InputFactory, MotionGestureInput, TouchMotionGestureFactory;
-
-
-{AB:CODE}
-
-procedure TMotionEventFactory.InitFields;
-begin
-  
-  
-end;
-
-function TMotionEventFactory.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MotionEventFactory-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-source BINARY-DOUBLE.
+01 J-id BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-source J-id RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("MotionEventFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_source")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_id")
     
-
-constructor TMotionEventFactory.Create(source: TObject; id: Integer);
-begin
-    inherited Create;
-    InitFields;
-        Self.source := TJava.Box(source);
-        Self.id := id;
-        TMotionEventFactory.index := TTouchMotionGestureFactory.getInstance().LAST_MOTION.getId();
-end;
     
+        COMPUTE JVALUE = J-source
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_source", JVALUE)
+        COMPUTE JVALUE = J-id
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_id", JVALUE)
+        COMPUTE jtemp1 = FUNCTION TchMtnGstrFctry-getInstance0
+        COMPUTE JDISCARD = FUNCTION MtnEvntFctrystaticinS54958(FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(jtemp1, "f_LAST_MOTION")))
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION MotionEventFactory-new2.
 
-function TMotionEventFactory.getInstance: TAllBinaryEventObject;
-var
-  inputFactory_: TInputFactory;
-  input_: TInput;
-begin
-        inputFactory_ := TInputFactory.getInstance();
-        input_ := inputFactory_.getInstanceById(TJava.PostInc(TMotionEventFactory.index));
-        if (input_) = (inputFactory_.NO_INPUT) then begin
-            Exit(TMotionGestureEvent.Create(TJava.Box(Self.source), Self.id, TMotionGestureInput(TJava.ToObject(TTouchMotionGestureFactory.getInstance().NO_MOTION))));
-        end else begin
-            Exit(TMotionGestureEvent.Create(TJava.Box(Self.source), Self.id, TMotionGestureInput(TJava.ToObject(input_))));
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TMotionEventFactory.index := 0;
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnEvntFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-inputFactory BINARY-DOUBLE.
+01 J-input BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-inputFactory = FUNCTION InputFactory-getInstance0
+        COMPUTE jtemp2 = FUNCTION MtnEvntFctry-static-index
+        COMPUTE JDISCARD = FUNCTION MtnEvntFctrystaticinS54958((FUNCTION MOD(FUNCTION MtnEvntFctry-static-index + 1 + 2147483648, 4294967296) - 2147483648))
+        COMPUTE J-input = FUNCTION InputFactory-getInstanceById1(J-inputFactory, jtemp2)
+        IF (J-input = FUNCTION JR-GET(J-inputFactory, "f_NO_INPUT"))
+            COMPUTE jtemp5 = FUNCTION TchMtnGstrFctry-getInstance0
+            COMPUTE jtemp4 = FUNCTION JR-GET(jtemp5, "f_NO_MOTION")
+            COMPUTE J-RESULT = FUNCTION MotionGestureEvent-new3(FUNCTION JR-GET(J-THIS, "f_source"), FUNCTION JR-GET(J-THIS, "f_id"), jtemp4)
+            GOBACK
+        ELSE
+            COMPUTE jtemp3 = J-input
+            COMPUTE J-RESULT = FUNCTION MotionGestureEvent-new3(FUNCTION JR-GET(J-THIS, "f_source"), FUNCTION JR-GET(J-THIS, "f_id"), jtemp3)
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION MtnEvntFctry-getInstance0.
 

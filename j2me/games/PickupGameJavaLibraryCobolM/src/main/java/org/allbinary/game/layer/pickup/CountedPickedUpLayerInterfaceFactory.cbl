@@ -1,96 +1,191 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.layer.pickup
+*> Java class CountedPickedUpLayerInterfaceFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.layer.pickup
-unit CountedPickedUpLayerInterfaceFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CntdPckdUpLyrIntrfcFctr-47319.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CountedPickedUpLayerInterfaceFactory-jcell-NULL_COUNTED_PICKUP_LAYER_FACTORY BINARY-DOUBLE EXTERNAL.
+01 CountedPickedUpLayerInterfaceFactory-jset-NULL_COUNTED_PICKUP_LAYER_FACTORY BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF CountedPickedUpLayerInterfaceFactory-jset-NULL_COUNTED_PICKUP_LAYER_FACTORY = 0
+        MOVE 1 TO CountedPickedUpLayerInterfaceFactory-jset-NULL_COUNTED_PICKUP_LAYER_FACTORY
+        COMPUTE jtemp3 = 0
+    COMPUTE jtemp1 = FUNCTION PckdUpLyrTypFctry-getInstance0
+    COMPUTE jtemp2 = FUNCTION NllAnmtnFctry-gtFctryInstnc0
+    COMPUTE CountedPickedUpLayerInterfaceFactory-jcell-NULL_COUNTED_PICKUP_LAYER_FACTORY = FUNCTION CntdPckdUpLyrIntrfcFctry-new3(FUNCTION JR-GET(jtemp1, "f_NONE"), FUNCTION IcnLyr-sttc-NULL-ICON-LAYER, FUNCTION JR-CLASS-NAME(jtemp2))
+    END-IF
+    MOVE CountedPickedUpLayerInterfaceFactory-jcell-NULL_COUNTED_PICKUP_LAYER_FACTORY TO J-RESULT
+    GOBACK.
+END FUNCTION CntdPckdUpLyrIntrfcFctr-47319.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CntdPckdUpLyrIntrfcFS52113.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CountedPickedUpLayerInterfaceFactory-jcell-NULL_COUNTED_PICKUP_LAYER_FACTORY BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION CntdPckdUpLyrIntrfcFctr-47319 TO J-RESULT
+    MOVE J-VALUE TO CountedPickedUpLayerInterfaceFactory-jcell-NULL_COUNTED_PICKUP_LAYER_FACTORY
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION CntdPckdUpLyrIntrfcFS52113.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Animation, AllBinaryLayer, ABHashtable, PickedUpLayerType, IconLayer, PickedUpLayerInterfaceFactory, CountedPickedUpLayerInterfaceFactoryInterface, LayerInterfaceFactoryInterface, PickedUpLayerInterfaceFactoryInterface;
-
-type
-  {AB:TYPES}
-  TCountedPickedUpLayerInterfaceFactory = class(TPickedUpLayerInterfaceFactory, ICountedPickedUpLayerInterfaceFactoryInterface, ILayerInterfaceFactoryInterface, IPickedUpLayerInterfaceFactoryInterface)
-  public
-    id: Integer;
-    class var NULL_COUNTED_PICKUP_LAYER_FACTORY: TCountedPickedUpLayerInterfaceFactory;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(pickeUpLayerType: TPickedUpLayerType; iconLayer_: TIconLayer; animationInterface: TAnimation);
-        function getNextInstance(hashtable: TABHashtable<TObject, TObject>; x: Integer; y: Integer; z: Integer): TAllBinaryLayer; virtual;
-        function getTotal: Integer; virtual;
-        function getId: Integer; virtual;
-  end;
-
-implementation
-uses
-  PickedUpLayerTypeFactory, CountedPickedUpLayerInterfaceFactoryPool, NullAnimationFactory, CommonStrings, BasicArrayList;
-
-
-{AB:CODE}
-
-procedure TCountedPickedUpLayerInterfaceFactory.InitFields;
-begin
-  
-end;
-
-function TCountedPickedUpLayerInterfaceFactory.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CntdPckdUpLyrIntrfcFctry-new3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-pickeUpLayerType BINARY-DOUBLE.
+01 J-iconLayer BINARY-DOUBLE.
+01 J-animationInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-pickeUpLayerType J-iconLayer J-animationInterface RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CountedPickedUpLayerInterfaceFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_id")
     
+        CONTINUE
+        COMPUTE jtemp4 = FUNCTION CntdPckdUpLyrIntrfcFctr-76924
+        COMPUTE J-list = FUNCTION CntdPckdUpLyrIntrfcFctr-12081(jtemp4)
+        COMPUTE JVALUE = FUNCTION BasicArrayList-size0(J-list)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_id", JVALUE)
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-list, J-THIS)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CntdPckdUpLyrIntrfcFctry-new3.
 
-constructor TCountedPickedUpLayerInterfaceFactory.Create(pickeUpLayerType: TPickedUpLayerType; iconLayer_: TIconLayer; animationInterface: TAnimation);
-var
-  list: TBasicArrayList;
-begin
-        inherited Create(pickeUpLayerType, iconLayer_, animationInterface);
-        InitFields;
-        list := TCountedPickedUpLayerInterfaceFactoryPool.getInstance().getList();
-        Self.id := list.size();
-        list.add(TJava.Box(Self));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CntdPckdUpLyrIntrfcFctr-64058.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-hashtable BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-z BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-hashtable J-x J-y J-z RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp5 = FUNCTION CommonStrings-getInstance0
+        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+    GOBACK.
+END FUNCTION CntdPckdUpLyrIntrfcFctr-64058.
 
-// throws Exception
-function TCountedPickedUpLayerInterfaceFactory.getNextInstance(hashtable: TABHashtable<TObject, TObject>; x: Integer; y: Integer; z: Integer): TAllBinaryLayer;
-begin
-        raise SysUtils.Exception.Create(TCommonStrings.getInstance().NOT_IMPLEMENTED);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CntdPckdUpLyrIntrfcFctr-28834.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = (0 - 1)
+        GOBACK
+    GOBACK.
+END FUNCTION CntdPckdUpLyrIntrfcFctr-28834.
 
-function TCountedPickedUpLayerInterfaceFactory.getTotal: Integer;
-begin
-        Exit(-1);
-end;
-    
-
-function TCountedPickedUpLayerInterfaceFactory.getId: Integer;
-begin
-        Exit(Self.id);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TCountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY := TCountedPickedUpLayerInterfaceFactory.Create(TPickedUpLayerTypeFactory.getInstance().NONE, TIconLayer.NULL_ICON_LAYER, TNullAnimationFactory.getFactoryInstance().getInstance(0));
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CntdPckdUpLyrIntrfcFctry-gtId0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_id")
+        GOBACK
+    GOBACK.
+END FUNCTION CntdPckdUpLyrIntrfcFctry-gtId0.
 

@@ -1,76 +1,141 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.displayable.canvas
+*> Java class DemoLimitedCommandTextItemArrayFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.displayable.canvas
-unit DemoLimitedCommandTextItemArrayFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DmLmtdCmmndTxtItmArryFc-32331.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 DemoLimitedCommandTextItemArrayFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 DemoLimitedCommandTextItemArrayFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF DemoLimitedCommandTextItemArrayFactory-jset-instance = 0
+        MOVE 1 TO DemoLimitedCommandTextItemArrayFactory-jset-instance
+        COMPUTE DemoLimitedCommandTextItemArrayFactory-jcell-instance = FUNCTION DmLmtdCmmndTxtItmArryFctry-nw0
+    END-IF
+    MOVE DemoLimitedCommandTextItemArrayFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION DmLmtdCmmndTxtItmArryFc-32331.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DmLmtdCmmndTxtItmArrS31528.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 DemoLimitedCommandTextItemArrayFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION DmLmtdCmmndTxtItmArryFc-32331 TO J-RESULT
+    MOVE J-VALUE TO DemoLimitedCommandTextItemArrayFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION DmLmtdCmmndTxtItmArrS31528.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DmLmtdCmmndTxtItmArryFctry-nw0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("DemoLimitedCommandTextItemArrayFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commandTextItemArrayFactory")
+    COMPUTE JVALUE = FUNCTION CmmndTxtItmArryFctry-new1(FUNCTION LimitCommandsVisitor-new0)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commandTextItemArrayFactory", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION DmLmtdCmmndTxtItmArryFctry-nw0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, CommandTextItemArrayFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DmLmtdCmmndTxtItmArryFc-77076.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION DmLmtdCmmndTxtItmArryFc-32331
+        GOBACK
+    GOBACK.
+END FUNCTION DmLmtdCmmndTxtItmArryFc-77076.
 
-type
-  {AB:TYPES}
-  TDemoLimitedCommandTextItemArrayFactory = class(TObject)
-  public
-    commandTextItemArrayFactory: TCommandTextItemArrayFactory;
-    class var instance: TDemoLimitedCommandTextItemArrayFactory;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TDemoLimitedCommandTextItemArrayFactory; static;
-        function getCommandTextItemArrayFactory: TCommandTextItemArrayFactory; virtual;
-  end;
-
-implementation
-uses
-  LimitCommandsVisitor;
-
-
-{AB:CODE}
-
-procedure TDemoLimitedCommandTextItemArrayFactory.InitFields;
-begin
-  Self.commandTextItemArrayFactory := TCommandTextItemArrayFactory.Create(TLimitCommandsVisitor.Create());
-end;
-
-constructor TDemoLimitedCommandTextItemArrayFactory.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TDemoLimitedCommandTextItemArrayFactory.getInstance: TDemoLimitedCommandTextItemArrayFactory;
-begin
-        Exit(TDemoLimitedCommandTextItemArrayFactory.instance);
-end;
-    
-
-function TDemoLimitedCommandTextItemArrayFactory.getCommandTextItemArrayFactory: TCommandTextItemArrayFactory;
-begin
-        Exit(Self.commandTextItemArrayFactory);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TDemoLimitedCommandTextItemArrayFactory.instance := TDemoLimitedCommandTextItemArrayFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DmLmtdCmmndTxtItmArryFc-73919.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_commandTextItemArrayFactory")
+        GOBACK
+    GOBACK.
+END FUNCTION DmLmtdCmmndTxtItmArryFc-73919.
 

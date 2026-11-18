@@ -1,103 +1,300 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.displayable.canvas
+*> Java class GameInputMappingInstructionsCanvas
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.displayable.canvas
-unit GameInputMappingInstructionsCanvas;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmInptMppngInstrctnsCnv-38097.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameInputMappingInstructionsCanvas-jcell-DISPLAY BINARY-DOUBLE EXTERNAL.
+01 GameInputMappingInstructionsCanvas-jset-DISPLAY BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GameInputMappingInstructionsCanvas-jset-DISPLAY = 0
+        MOVE 1 TO GameInputMappingInstructionsCanvas-jset-DISPLAY
+        COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp2 = 1
+    COMPUTE GameInputMappingInstructionsCanvas-jcell-DISPLAY = FUNCTION Command-new4(FUNCTION JR-STR("Help"), FUNCTION JR-GET(jtemp1, "f_EMPTY_STRING"), FUNCTION Command-static-SCREEN, jtemp2)
+    END-IF
+    MOVE GameInputMappingInstructionsCanvas-jcell-DISPLAY TO J-RESULT
+    GOBACK.
+END FUNCTION GmInptMppngInstrctnsCnv-38097.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmInptMppngInstrctnsS23731.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameInputMappingInstructionsCanvas-jcell-DISPLAY BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GmInptMppngInstrctnsCnv-38097 TO J-RESULT
+    MOVE J-VALUE TO GameInputMappingInstructionsCanvas-jcell-DISPLAY
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GmInptMppngInstrctnsS23731.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmInptMppngInstrctnsCnv-66178.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameInputMappingInstructionsCanvas-jcell-CLOSE BINARY-DOUBLE EXTERNAL.
+01 GameInputMappingInstructionsCanvas-jset-CLOSE BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GameInputMappingInstructionsCanvas-jset-CLOSE = 0
+        MOVE 1 TO GameInputMappingInstructionsCanvas-jset-CLOSE
+        COMPUTE jtemp3 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp4 = 1
+    COMPUTE GameInputMappingInstructionsCanvas-jcell-CLOSE = FUNCTION Command-new4(FUNCTION JR-STR("Close"), FUNCTION JR-GET(jtemp3, "f_EMPTY_STRING"), FUNCTION Command-static-SCREEN, jtemp4)
+    END-IF
+    MOVE GameInputMappingInstructionsCanvas-jcell-CLOSE TO J-RESULT
+    GOBACK.
+END FUNCTION GmInptMppngInstrctnsCnv-66178.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Command, CommandListener, Graphics, AllBinaryGameLayerManager, ColorFillBasePaintable, DrawStringUtil, GameCommandCanvas;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmInptMppngInstrctnsS69846.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameInputMappingInstructionsCanvas-jcell-CLOSE BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GmInptMppngInstrctnsCnv-66178 TO J-RESULT
+    MOVE J-VALUE TO GameInputMappingInstructionsCanvas-jcell-CLOSE
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GmInptMppngInstrctnsS69846.
 
-type
-  {AB:TYPES}
-  TGameInputMappingInstructionsCanvas = class(TGameCommandCanvas)
-  public
-    drawStringUtil: TDrawStringUtil;
-    TITLE: string;
-    instructions: TArray<string>;
-    colorFillPaintable: TColorFillBasePaintable;
-    anchor: Integer;
-    class var DISPLAY: TCommand;
-    class var CLOSE: TCommand;
-    class var NAME: string;
-    procedure InitFields;
-        constructor Create(commandListener_: ICommandListener; allBinaryGameLayerManager_: TAllBinaryGameLayerManager);
-        procedure initCommands(cmdListener: ICommandListener); override;
-        procedure paint(graphics_: TGraphics); override;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmInptMppngInstrctnsCnv-10507.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameInputMappingInstructionsCanvas-jcell-NAME BINARY-DOUBLE EXTERNAL.
+01 GameInputMappingInstructionsCanvas-jset-NAME BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GameInputMappingInstructionsCanvas-jset-NAME = 0
+        MOVE 1 TO GameInputMappingInstructionsCanvas-jset-NAME
+        COMPUTE GameInputMappingInstructionsCanvas-jcell-NAME = FUNCTION JR-STR("GameInputMappingInstructionsCanvas")
+    END-IF
+    MOVE GameInputMappingInstructionsCanvas-jcell-NAME TO J-RESULT
+    GOBACK.
+END FUNCTION GmInptMppngInstrctnsCnv-10507.
 
-implementation
-uses
-  ColorFillPaintableFactory, Anchor, StringUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmInptMppngInstrctnsS67389.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameInputMappingInstructionsCanvas-jcell-NAME BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GmInptMppngInstrctnsCnv-10507 TO J-RESULT
+    MOVE J-VALUE TO GameInputMappingInstructionsCanvas-jcell-NAME
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GmInptMppngInstrctnsS67389.
 
-
-{AB:CODE}
-
-procedure TGameInputMappingInstructionsCanvas.InitFields;
-begin
-  Self.drawStringUtil := TDrawStringUtil.getInstance();
-  Self.TITLE := 'Input Instructions';
-  Self.instructions := TArray<string>.Create('Add Input Mapping:', '1. Select the desired action by generating a currently defined input for a given action.', '(Example: Press the ''1'' key to select the Fire action)', '2. Make the newly desired input for the selected action.', '(Example: Press ''f'' to add it to the selected action)', 'Note: If the input is already mapped to another action then it will not be added. You', 'will need to deleted from the other action before adding it to another.', 'Warning: Not all keys map for a given platform and show as Unknown.', TStringUtil.getInstance().EMPTY_STRING, 'Remove Input Mapping:', '1. Select the desired action by generating a currently defined input for a given action.', '(Example: Press the key ''1'' to select the Fire action)', '2. Select a mapped input for the selected action.', '(Example: Press the key ''1'' to select the ''1'' key input for the selected Fire action)', '3. Press the Delete Key.');
-  
-  Self.anchor := TAnchor.TOP_LEFT;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmInptMppngInstrctnsCnvs-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-commandListener BINARY-DOUBLE.
+01 J-allBinaryGameLayerManager BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-commandListener J-allBinaryGameLayerManager RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameInputMappingInstructionsCanvas")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_drawStringUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_TITLE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_instructions")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_colorFillPaintable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_anchor")
+    COMPUTE JVALUE = FUNCTION DrawStringUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_drawStringUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Input Instructions")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_TITLE", JVALUE)
+    COMPUTE jtemp5 = FUNCTION StringUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION
+        JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-NEW-ARRAY(JZERO), FUNCTION JR-STR("Add Input Mapping:")), FUNCTION
+        JR-STR("1. Select the desired action by generating a currently defined input for a given action.")), FUNCTION JR-STR("(Example: Press the '1' key to select the Fire action)")), FUNCTION
+        JR-STR("2. Make the newly desired input for the selected action.")), FUNCTION JR-STR("(Example: Press 'f' to add it to the selected action)")), FUNCTION
+        JR-STR("Note: If the input is already mapped to another action then it will not be added. You")), FUNCTION JR-STR("will need to deleted from the other action before adding it to another.")), FUNCTION
+        JR-STR("Warning: Not all keys map for a given platform and show as Unknown.")), FUNCTION JR-GET(jtemp5, "f_EMPTY_STRING")), FUNCTION JR-STR("Remove Input Mapping:")), FUNCTION
+        JR-STR("1. Select the desired action by generating a currently defined input for a given action.")), FUNCTION JR-STR("(Example: Press the key '1' to select the Fire action)")), FUNCTION
+        JR-STR("2. Select a mapped input for the selected action.")), FUNCTION JR-STR("(Example: Press the key '1' to select the '1' key input for the selected Fire action)")), FUNCTION JR-STR("3. Press the Delete Key."))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_instructions", JVALUE)
     
+    COMPUTE JVALUE = FUNCTION Anchor-static-TOP-LEFT
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_anchor", JVALUE)
+        CONTINUE
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        COMPUTE jtemp7 = 0
+        COMPUTE jtemp6 = FUNCTION ClrFllPntblFctry-getInstance0
+        COMPUTE JVALUE = FUNCTION ClrFllPntblFctry-getInstance2(jtemp6, FUNCTION AllBnryGmLyrMngr-gtBckgrn74413(J-allBinaryGameLayerManager), jtemp7)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_colorFillPaintable", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GmInptMppngInstrctnsCnvs-new2.
 
-constructor TGameInputMappingInstructionsCanvas.Create(commandListener_: ICommandListener; allBinaryGameLayerManager_: TAllBinaryGameLayerManager);
-begin
-        inherited Create(commandListener_, TGameInputMappingInstructionsCanvas.NAME, allBinaryGameLayerManager_.getBackgroundBasicColor(), allBinaryGameLayerManager_.getForegroundBasicColor());
-        InitFields;
-        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_);
-        Self.colorFillPaintable := TColorFillPaintableFactory.getInstance().getInstance(allBinaryGameLayerManager_.getBackgroundBasicColor(), False);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmInptMppngInstrctnsCnv-23542.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-cmdListener BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-cmdListener RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION MyCanvas-removeAllCommands0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION MyCanvas-addCommand1(J-THIS, FUNCTION GmInptMppngInstrctnsCnv-66178)
+        COMPUTE JDISCARD = FUNCTION MyCanvas-setCommandListener1(J-THIS, J-cmdListener)
+    GOBACK.
+END FUNCTION GmInptMppngInstrctnsCnv-23542.
 
-procedure TGameInputMappingInstructionsCanvas.initCommands(cmdListener: ICommandListener);
-begin
-        Self.removeAllCommands();
-        Self.addCommand(TGameInputMappingInstructionsCanvas.CLOSE);
-        Self.setCommandListener(cmdListener);
-end;
-    
-
-procedure TGameInputMappingInstructionsCanvas.paint(graphics_: TGraphics);
-var
-  halfWidth: Integer;
-  beginWidth: Integer;
-begin
-        Self.myFontProcessor.process(graphics_);
-        Self.colorFillPaintable.paint(graphics_);
-        halfWidth := Self.displayInfo.getLastHalfWidth();
-        beginWidth := (TJava.SignedRightShift(graphics_.getFont().stringWidth(Self.TITLE), 1));
-        graphics_.setColor(Self.foregroundColor);
-        graphics_.drawString(Self.TITLE, (halfWidth) - (beginWidth), Self.fontHeight, Self.anchor);
-        Self.drawStringUtil.drawCenterStrings(graphics_, Self.instructions, Self.displayInfo.getLastWidth(), Self.fontHeight, halfWidth, (3) * (Self.fontHeight));
-        inherited paint(graphics_);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TGameInputMappingInstructionsCanvas.DISPLAY := TCommand.Create('Help', TStringUtil.getInstance().EMPTY_STRING, TCommand.SCREEN, 1);
-  TGameInputMappingInstructionsCanvas.CLOSE := TCommand.Create('Close', TStringUtil.getInstance().EMPTY_STRING, TCommand.SCREEN, 1);
-  TGameInputMappingInstructionsCanvas.NAME := 'GameInputMappingInstructionsCanvas';
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmInptMppngInstrctnsCnvs-pnt1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-halfWidth BINARY-DOUBLE.
+01 J-beginWidth BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_myFontProcessor"))
+        COMPUTE JDISCARD = FUNCTION ColorFillBasePaintable-paint1(FUNCTION JR-GET(J-THIS, "f_colorFillPaintable"), J-graphics)
+        COMPUTE J-halfWidth = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_displayInfo"))
+        COMPUTE jtemp8 = FUNCTION Graphics-getFont0(J-graphics)
+        COMPUTE J-beginWidth = (FUNCTION JR-SHIFT(JFIVE, FUNCTION JR-CLASS-NAME(jtemp8), 1))
+        COMPUTE JDISCARD = FUNCTION Graphics-setColor1(J-graphics, FUNCTION JR-GET(J-THIS, "f_foregroundColor"))
+        COMPUTE jtemp9 = (FUNCTION MOD((J-halfWidth - J-beginWidth) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION Graphics-drawString4(J-graphics, FUNCTION JR-GET(J-THIS, "f_TITLE"), jtemp9, FUNCTION JR-GET(J-THIS, "f_fontHeight"), FUNCTION JR-GET(J-THIS, "f_anchor"))
+        COMPUTE jtemp10 = (FUNCTION MOD((3 * FUNCTION JR-GET(J-THIS, "f_fontHeight")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION DrwStrngUtl-drawCenterStrings6(FUNCTION JR-GET(J-THIS, "f_drawStringUtil"), J-graphics, FUNCTION JR-GET(J-THIS, "f_instructions"), FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_displayInfo")),
+        FUNCTION JR-GET(J-THIS, "f_fontHeight"), J-halfWidth, jtemp10)
+        COMPUTE JDISCARD = FUNCTION GameCommandCanvas-paint1(J-THIS, J-graphics)
+    GOBACK.
+END FUNCTION GmInptMppngInstrctnsCnvs-pnt1.
 

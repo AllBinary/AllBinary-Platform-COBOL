@@ -1,76 +1,112 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2007 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.util.cache
+*> Java class PoolType
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PoolType-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-cacheType BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-cacheType RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("PoolType")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_cacheType")
     
-}
-// Generated Code Do Not Modify
-// package org.allbinary.logic.util.cache
-unit PoolType;
+        COMPUTE JVALUE = J-cacheType
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_cacheType", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION PoolType-new1.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PoolType-getCacheType0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_cacheType")
+        GOBACK
+    GOBACK.
+END FUNCTION PoolType-getCacheType0.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PoolType-toString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-POOL_TYPE BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-POOL_TYPE = FUNCTION JR-STR("PoolType: ")
+        COMPUTE jtemp1 = FUNCTION PoolType-getCacheType0(J-THIS)
+        COMPUTE J-RESULT = FUNCTION JR-CONCAT(J-POOL_TYPE, FUNCTION JR-TO-STRING(jtemp1))
+        GOBACK
+    GOBACK.
+END FUNCTION PoolType-toString0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, CacheType;
-
-type
-  {AB:TYPES}
-  TPoolType = class(TObject)
-  public
-    cacheType: TCacheType;
-    procedure InitFields;
-        constructor Create(cacheType_: TCacheType);
-        function getCacheType: TCacheType; virtual;
-        function toString: string; virtual;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TPoolType.InitFields;
-begin
-  
-end;
-    
-
-constructor TPoolType.Create(cacheType_: TCacheType);
-begin
-    inherited Create;
-    InitFields;
-        Self.cacheType := cacheType_;
-end;
-    
-
-function TPoolType.getCacheType: TCacheType;
-begin
-        Exit(Self.cacheType);
-end;
-    
-
-function TPoolType.toString: string;
-var
-  POOL_TYPE: string;
-begin
-        POOL_TYPE := 'PoolType: ';
-        Exit(POOL_TYPE + Self.getCacheType().toString());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PoolType-toString.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION PoolType-toString0(J-THIS)
+    GOBACK.
+END PROGRAM PoolType-toString.
 

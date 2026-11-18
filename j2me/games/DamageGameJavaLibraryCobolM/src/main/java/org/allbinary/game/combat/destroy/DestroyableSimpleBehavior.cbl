@@ -1,81 +1,102 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.combat.destroy
+*> Java class DestroyableSimpleBehavior
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.combat.destroy
-unit DestroyableSimpleBehavior;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, CollidableCompositeLayer, DestroyableBaseBehavior;
-
-type
-  {AB:TYPES}
-  TDestroyableSimpleBehavior = class(TDestroyableBaseBehavior)
-  public
-    ownerLayer: TCollidableCompositeLayer;
-    destroyed: Boolean;
-    procedure InitFields;
-        constructor Create(ownerLayer: TCollidableCompositeLayer);
-        function isDestroyed: Boolean; override;
-        procedure setDestroyed(destroyed: Boolean); override;
-  end;
-
-implementation
-uses
-  DestroyedLayerProcessor;
-
-
-{AB:CODE}
-
-procedure TDestroyableSimpleBehavior.InitFields;
-begin
-  
-  Self.destroyed := False;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DestroyableSimpleBehavior-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-ownerLayer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-ownerLayer RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("DestroyableSimpleBehavior")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ownerLayer")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_destroyed")
     
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_destroyed", JVALUE)
+        COMPUTE JVALUE = J-ownerLayer
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ownerLayer", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION DestroyableSimpleBehavior-new1.
 
-constructor TDestroyableSimpleBehavior.Create(ownerLayer: TCollidableCompositeLayer);
-begin
-    inherited Create;
-    InitFields;
-        Self.ownerLayer := ownerLayer;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DstryblSmplBhvr-isDestroyed0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_destroyed")
+        GOBACK
+    GOBACK.
+END FUNCTION DstryblSmplBhvr-isDestroyed0.
 
-function TDestroyableSimpleBehavior.isDestroyed: Boolean;
-begin
-        Exit(Self.destroyed);
-end;
-    
-
-procedure TDestroyableSimpleBehavior.setDestroyed(destroyed: Boolean);
-begin
-        Self.destroyed := destroyed;
-        if Self.isDestroyed() then begin
-            TDestroyedLayerProcessor.getInstance().add(Self.ownerLayer);
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DstryblSmplBhvr-setDestroyed1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-destroyed BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-destroyed RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-destroyed
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_destroyed", JVALUE)
+        IF (FUNCTION DstryblSmplBhvr-isDestroyed0(J-THIS) = 1)
+            COMPUTE jtemp1 = FUNCTION DstrydLyrPrcssr-getInstance0
+            COMPUTE JDISCARD = FUNCTION BasicLayerProcessor-add1(jtemp1, FUNCTION JR-GET(J-THIS, "f_ownerLayer"))
+        END-IF
+    GOBACK.
+END FUNCTION DstryblSmplBhvr-setDestroyed1.
 

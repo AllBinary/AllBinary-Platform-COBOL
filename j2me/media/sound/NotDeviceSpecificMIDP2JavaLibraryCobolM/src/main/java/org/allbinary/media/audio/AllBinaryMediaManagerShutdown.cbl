@@ -1,68 +1,115 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.media.audio
+*> Java class AllBinaryMediaManagerShutdown
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.media.audio
-unit AllBinaryMediaManagerShutdown;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryMdMngrShtdwn-sttc53729.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AllBinaryMediaManagerShutdown-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 AllBinaryMediaManagerShutdown-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF AllBinaryMediaManagerShutdown-jset-instance = 0
+        MOVE 1 TO AllBinaryMediaManagerShutdown-jset-instance
+        COMPUTE AllBinaryMediaManagerShutdown-jcell-instance = FUNCTION AllBnryMdMngrShtdwn-new0
+    END-IF
+    MOVE AllBinaryMediaManagerShutdown-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION AllBnryMdMngrShtdwn-sttc53729.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryMdMngrShtdwnsS73630.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AllBinaryMediaManagerShutdown-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION AllBnryMdMngrShtdwn-sttc53729 TO J-RESULT
+    MOVE J-VALUE TO AllBinaryMediaManagerShutdown-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION AllBnryMdMngrShtdwnsS73630.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryMdMngrShtdwn-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("AllBinaryMediaManagerShutdown")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION AllBnryMdMngrShtdwn-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, SoundsFactoryInterface;
-
-type
-  {AB:TYPES}
-  TAllBinaryMediaManagerShutdown = class(TObject)
-  public
-    class var instance: TAllBinaryMediaManagerShutdown;
-    constructor Create;
-        class procedure shutdown(soundsFactoryInterface_: ISoundsFactoryInterface); static;
-  end;
-
-implementation
-uses
-  AllBinaryMediaManager, LogUtil, CommonStrings;
-
-
-{AB:CODE}
-
-constructor TAllBinaryMediaManagerShutdown.Create;
-begin
-  inherited Create;
-end;
-    
-
-// throws Exception
-class procedure TAllBinaryMediaManagerShutdown.shutdown(soundsFactoryInterface_: ISoundsFactoryInterface);
-var
-  logUtil_: TLogUtil;
-  commonStrings_: TCommonStrings;
-begin
-        logUtil_ := TLogUtil.getInstance();
-        commonStrings_ := TCommonStrings.getInstance();
-        logUtil_.putF(commonStrings_.START, TJava.Box(TAllBinaryMediaManagerShutdown.instance), 'shutdown');
-        TAllBinaryMediaManager.shutdown(soundsFactoryInterface_);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TAllBinaryMediaManagerShutdown.instance := TAllBinaryMediaManagerShutdown.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryMdMngrShtdwn-shutdown1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-logUtil BINARY-DOUBLE.
+01 J-commonStrings BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-soundsFactoryInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-soundsFactoryInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-logUtil = FUNCTION LogUtil-getInstance0
+        COMPUTE J-commonStrings = FUNCTION CommonStrings-getInstance0
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(J-logUtil, FUNCTION JR-GET(J-commonStrings, "f_START"), FUNCTION AllBnryMdMngrShtdwn-sttc53729, FUNCTION JR-STR("shutdown"))
+        COMPUTE JDISCARD = FUNCTION AllBnryMdMngr-shutdown1(J-soundsFactoryInterface)
+    GOBACK.
+END FUNCTION AllBnryMdMngrShtdwn-shutdown1.
 

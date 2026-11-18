@@ -1,124 +1,249 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.layer.hud.basic.time
+*> Java class TimeHudWidget
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.layer.hud.basic.time
-unit TimeHudWidget;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, BasicHud, BasicColor, HudTimer;
-
-type
-  {AB:TYPES}
-  TTimeHudWidget = class(TBasicHud)
-  public
-    TIME_STRING: string;
-    TIME_CHAR_ARRAY: TArray<WideChar>;
-    offset: Integer;
-    string_: TArray<WideChar>;
-    totalDigits: Integer;
-    timer: THudTimer;
-    procedure InitFields;
-        class function getInstance(location: Integer; direction: Integer; basicColor_: TBasicColor; timer: THudTimer): TTimeHudWidget; static;
-        constructor Create(location: Integer; direction: Integer; bufferZone: Integer; basicColor_: TBasicColor; timer: THudTimer);
-        procedure updateMeasurement(graphics_: TGraphics); override;
-        procedure update; virtual;
-        procedure set_;
-        function getTimer: THudTimer; virtual;
-        procedure paint(graphics_: TGraphics); virtual;
-  end;
-
-implementation
-uses
-  Font, MyFontProcessor, PrimitiveLongSingleton;
-
-
-{AB:CODE}
-
-procedure TTimeHudWidget.InitFields;
-begin
-  Self.TIME_STRING := 'Time ';
-  Self.TIME_CHAR_ARRAY := TArray<WideChar>.Create('T', 'i', 'm', 'e', ' ');
-  
-  Self.string_ := TPrimitiveLongSingleton.getInstance().ZERO;
-  Self.totalDigits := 1;
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TimeHudWidget-new5.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-location BINARY-DOUBLE.
+01 J-direction BINARY-DOUBLE.
+01 J-bufferZone BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-timer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-location J-direction J-bufferZone J-basicColor J-timer RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("TimeHudWidget")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_TIME_STRING")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_TIME_CHAR_ARRAY")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_offset")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_string")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_totalDigits")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_timer")
+    COMPUTE JVALUE = FUNCTION JR-STR("Time ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_TIME_STRING", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-NEW-ARRAY(JZERO), 84), 105), 109), 101), 32)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_TIME_CHAR_ARRAY", JVALUE)
     
-
-// throws Exception
-class function TTimeHudWidget.getInstance(location: Integer; direction: Integer; basicColor_: TBasicColor; timer: THudTimer): TTimeHudWidget;
-begin
-        Exit(TTimeHudWidget.Create(location, direction, 2, basicColor_, timer));
-end;
+    COMPUTE jtemp2 = FUNCTION PrmtvLngSngltn-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp2, "f_ZERO")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_string", JVALUE)
+    COMPUTE JVALUE = 1
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_totalDigits", JVALUE)
     
+        CONTINUE
+        COMPUTE JVALUE = J-timer
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_timer", JVALUE)
+        COMPUTE JDISCARD = FUNCTION TimeHudWidget-set0(J-THIS)
+        COMPUTE JVALUE = 14
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_updateMaxHeight", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION TimeHudWidget-new5.
 
-constructor TTimeHudWidget.Create(location: Integer; direction: Integer; bufferZone: Integer; basicColor_: TBasicColor; timer: THudTimer);
-begin
-        inherited Create(location, direction, bufferZone, basicColor_);
-        InitFields;
-        Self.timer := timer;
-        Self.set_();
-        Self.updateMaxHeight := 14;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TimeHudWidget-getInstance4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-location BINARY-DOUBLE.
+01 J-direction BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-timer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-location J-direction J-basicColor J-timer RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = 2
+        COMPUTE J-RESULT = FUNCTION TimeHudWidget-new5(J-location, J-direction, jtemp1, J-basicColor, J-timer)
+        GOBACK
+    GOBACK.
+END FUNCTION TimeHudWidget-getInstance4.
 
-procedure TTimeHudWidget.updateMeasurement(graphics_: TGraphics);
-var
-  font_: TFont;
-begin
-        font_ := graphics_.getFont();
-        Self.updateMaxWidth := (font_.getSize()) * (5);
-        Self.offset := (font_.stringWidth(Self.TIME_STRING)) + (TMyFontProcessor.defaultStringWidth(font_, 3));
-        inherited updateMeasurement(graphics_);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TmHdWdgt-updateMeasurement1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-font BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-font = FUNCTION Graphics-getFont0(J-graphics)
+        COMPUTE JVALUE = (FUNCTION MOD((FUNCTION Font-getSize0(J-font) * 5) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_updateMaxWidth", JVALUE)
+        COMPUTE jtemp3 = 3
+        COMPUTE JVALUE = (FUNCTION MOD((FUNCTION Font-stringWidth1(J-font, FUNCTION JR-GET(J-THIS, "f_TIME_STRING")) + FUNCTION MyFntPrcssr-dfltStrngWdth2(J-font, jtemp3)) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_offset", JVALUE)
+        COMPUTE JDISCARD = FUNCTION BasicHud-updateMeasurement1(J-THIS, J-graphics)
+    GOBACK.
+END FUNCTION TmHdWdgt-updateMeasurement1.
 
-procedure TTimeHudWidget.update;
-begin
-        Self.timer.update();
-        Self.set_();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TimeHudWidget-update0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION HudTimer-update0(FUNCTION JR-GET(J-THIS, "f_timer"))
+        COMPUTE JDISCARD = FUNCTION TimeHudWidget-set0(J-THIS)
+    GOBACK.
+END FUNCTION TimeHudWidget-update0.
 
-procedure TTimeHudWidget.set_;
-begin
-        Self.string_ := Self.timer.getTimeChars();
-        Self.totalDigits := Self.timer.getCurrentTotalDigits();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TimeHudWidget-set0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = FUNCTION HudTimer-getTimeChars0(FUNCTION JR-GET(J-THIS, "f_timer"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_string", JVALUE)
+        COMPUTE JVALUE = FUNCTION HdTmr-getCurrentTotalDigits0(FUNCTION JR-GET(J-THIS, "f_timer"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_totalDigits", JVALUE)
+    GOBACK.
+END FUNCTION TimeHudWidget-set0.
 
-function TTimeHudWidget.getTimer: THudTimer;
-begin
-        Exit(Self.timer);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TimeHudWidget-getTimer0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_timer")
+        GOBACK
+    GOBACK.
+END FUNCTION TimeHudWidget-getTimer0.
 
-procedure TTimeHudWidget.paint(graphics_: TGraphics);
-begin
-        inherited paintDX(graphics_, Self.TIME_CHAR_ARRAY, 0, System.Length(Self.TIME_CHAR_ARRAY), Self.string_, 0, Self.totalDigits, Self.offset);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TimeHudWidget-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp4 = 0
+        COMPUTE jtemp5 = 0
+        COMPUTE JDISCARD = FUNCTION BasicHud-paintDX8(J-THIS, J-graphics, FUNCTION JR-GET(J-THIS, "f_TIME_CHAR_ARRAY"), jtemp4, FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_TIME_CHAR_ARRAY")), FUNCTION JR-GET(J-THIS, "f_string"),
+        jtemp5, FUNCTION JR-GET(J-THIS, "f_totalDigits"), FUNCTION JR-GET(J-THIS, "f_offset"))
+    GOBACK.
+END FUNCTION TimeHudWidget-paint1.
 

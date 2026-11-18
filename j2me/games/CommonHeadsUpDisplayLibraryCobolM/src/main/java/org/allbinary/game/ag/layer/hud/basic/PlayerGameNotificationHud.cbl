@@ -1,249 +1,475 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.layer.hud.basic
+*> Java class PlayerGameNotificationHud
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.layer.hud.basic
-unit PlayerGameNotificationHud;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, Processor, GameNotification, GameNotificationHud, CustomGPoint, GPoint, BasicColor, DisplayInfoSingleton, UpdateMyFontInterface, GameTickTimeDelayHelper, TimeDelayHelper, CircularIndexUtil;
-
-type
-  {AB:TYPES}
-  TPlayerGameNotificationHud = class(TGameNotificationHud, IUpdateMyFontInterface)
-  public
-    gameTickTimeDelayHelper: TGameTickTimeDelayHelper;
-    EMPTY_STRING: string;
-    displayInfo: TDisplayInfoSingleton;
-    timeDelayHelper: TTimeDelayHelper;
-    circularIndexUtil: TCircularIndexUtil;
-    gameNotification: TGameNotification;
-    permanentGameNotification: TGameNotification;
-    setAndRemoveProcessor: TProcessor;
-    nextUnremoveableProcessor: TProcessor;
-    processor: TProcessor;
-    PERMANENT_GAME_NOTIFICATION: string;
-    lastString: string;
-    string_: string;
-    point: TCustomGPoint;
-    width: Integer;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(location: Integer; direction: Integer; bufferZone: Integer; basicColor_: TBasicColor);
-        procedure updateMeasurement(graphics_: TGraphics); virtual;
-        function getPoint(x: Integer; y: Integer): TGPoint; virtual;
-        procedure add(string_: string; seconds: Integer; basicColor_: TBasicColor; permanent: Boolean); virtual;
-        procedure processTick; virtual;
-        procedure setAndRemove;
-        procedure setAndRemoveProcess; virtual;
-        procedure setNextUnremoveable;
-        procedure setNextUnremoveableProcess; virtual;
-        procedure clear; virtual;
-        procedure paint(graphics_: TGraphics); virtual;
-  end;
-
-implementation
-uses
-  SetAndRemoveProcessor, NextUnremoveableProcessor, Font, GameAdStateFactory, GameAdState, GameNotificationEventHandler, LogUtil, StringMaker, StringUtil, CommonStrings, GameTickTimeDelayHelperFactory;
-
-
-{AB:CODE}
-
-procedure TPlayerGameNotificationHud.InitFields;
-begin
-  Self.gameTickTimeDelayHelper := TGameTickTimeDelayHelperFactory.getInstance();
-  Self.EMPTY_STRING := TStringUtil.getInstance().EMPTY_STRING;
-  Self.displayInfo := TDisplayInfoSingleton.getInstance();
-  Self.timeDelayHelper := TTimeDelayHelper.Create(0);
-  
-  Self.gameNotification := TGameNotification.Create();
-  Self.permanentGameNotification := TGameNotification.Create();
-  Self.setAndRemoveProcessor := TSetAndRemoveProcessor.Create(Self);
-  Self.nextUnremoveableProcessor := TNextUnremoveableProcessor.Create(Self);
-  Self.processor := TProcessor.getInstance();
-  Self.PERMANENT_GAME_NOTIFICATION := 'Permanent Game Notification: ';
-  Self.lastString := TStringUtil.getInstance().EMPTY_STRING;
-  Self.string_ := Self.EMPTY_STRING;
-  Self.point := TCustomGPoint.NULL_CUSTOM_POINT;
-  
-end;
-
-function TPlayerGameNotificationHud.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlayerGameNotificationHud-new4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameNotificationEventHandler BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-location BINARY-DOUBLE.
+01 J-direction BINARY-DOUBLE.
+01 J-bufferZone BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-location J-direction J-bufferZone J-basicColor RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("PlayerGameNotificationHud")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameTickTimeDelayHelper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_EMPTY_STRING")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_displayInfo")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_timeDelayHelper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_circularIndexUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameNotification")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_permanentGameNotification")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_setAndRemoveProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_nextUnremoveableProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_processor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_PERMANENT_GAME_NOTIFICATION")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_lastString")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_string")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_point")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_width")
+    COMPUTE JVALUE = FUNCTION GmTckTmDlyHlprFctry-gtInstnc0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameTickTimeDelayHelper", JVALUE)
+    COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_EMPTY_STRING")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_EMPTY_STRING", JVALUE)
+    COMPUTE JVALUE = FUNCTION DsplyInfSngltn-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_displayInfo", JVALUE)
+    COMPUTE jtemp2 = 0
+    COMPUTE JVALUE = FUNCTION TimeDelayHelper-new1(jtemp2)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_timeDelayHelper", JVALUE)
     
-
-constructor TPlayerGameNotificationHud.Create(location: Integer; direction: Integer; bufferZone: Integer; basicColor_: TBasicColor);
-var
-  gameNotificationEventHandler_: TGameNotificationEventHandler;
-begin
-        inherited Create(location, direction, bufferZone, basicColor_);
-        InitFields;
-        Self.circularIndexUtil := TCircularIndexUtil.createInstance(0);
-        gameNotificationEventHandler_ := TGameNotificationEventHandler.getInstance();
-        gameNotificationEventHandler_.removeAllListeners();
-        gameNotificationEventHandler_.addListenerInterface(Self);
-end;
+    COMPUTE JVALUE = FUNCTION GameNotification-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameNotification", JVALUE)
+    COMPUTE JVALUE = FUNCTION GameNotification-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_permanentGameNotification", JVALUE)
+    COMPUTE JVALUE = FUNCTION SetAndRemoveProcessor-new1(J-THIS)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_setAndRemoveProcessor", JVALUE)
+    COMPUTE JVALUE = FUNCTION NextUnremoveableProcessor-new1(J-THIS)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_nextUnremoveableProcessor", JVALUE)
+    COMPUTE JVALUE = FUNCTION Processor-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_processor", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Permanent Game Notification: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_PERMANENT_GAME_NOTIFICATION", JVALUE)
+    COMPUTE jtemp3 = FUNCTION StringUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp3, "f_EMPTY_STRING")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lastString", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_EMPTY_STRING")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_string", JVALUE)
+    COMPUTE JVALUE = FUNCTION CstmGPnt-sttc-NULL-CUS39485
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_point", JVALUE)
     
+        CONTINUE
+        COMPUTE jtemp4 = 0
+        COMPUTE JVALUE = FUNCTION CrclrIndxUtl-createInstance1(jtemp4)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_circularIndexUtil", JVALUE)
+        COMPUTE J-gameNotificationEventHandler = FUNCTION GmNtfctnEvntHndlr-getInstance0
+        COMPUTE JDISCARD = FUNCTION GmNtfctnEvntHndlr-rmvAllL40116(J-gameNotificationEventHandler)
+        COMPUTE JDISCARD = FUNCTION BscEvntHndlr-addLstnrIntrfc1(J-gameNotificationEventHandler, J-THIS)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION PlayerGameNotificationHud-new4.
 
-procedure TPlayerGameNotificationHud.updateMeasurement(graphics_: TGraphics);
-var
-  font_: TFont;
-  logUtil_: TLogUtil;
-  commonStrings_: TCommonStrings;
-begin
-        try
-            inherited updateMeasurement(graphics_);
-            font_ := graphics_.getFont();
-            Self.width := font_.stringWidth(Self.string_);
-            Self.processor.process();
-            Self.processor := TProcessor.getInstance();
-        except
-            on e: SysUtils.Exception do begin
-            logUtil_ := TLogUtil.getInstance();
-            commonStrings_ := TCommonStrings.getInstance();
-            logUtil_.put(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.UPDATE, TJava.Box(e));
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlyrGmNtfctnHd-updtMsrmnt1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-font BINARY-DOUBLE.
+01 J-logUtil BINARY-DOUBLE.
+01 J-commonStrings BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE JDISCARD = FUNCTION BasicHud-updateMeasurement1(J-THIS, J-graphics)
+            COMPUTE J-font = FUNCTION Graphics-getFont0(J-graphics)
+            COMPUTE JVALUE = FUNCTION Font-stringWidth1(J-font, FUNCTION JR-GET(J-THIS, "f_string"))
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_width", JVALUE)
+            COMPUTE JDISCARD = FUNCTION Processor-process0(FUNCTION JR-GET(J-THIS, "f_processor"))
+            COMPUTE JVALUE = FUNCTION Processor-getInstance0
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_processor", JVALUE)
+    GOBACK.
+END FUNCTION PlyrGmNtfctnHd-updtMsrmnt1.
 
-function TPlayerGameNotificationHud.getPoint(x: Integer; y: Integer): TGPoint;
-begin
-        Self.point := TCustomGPoint.getInstance3(0, 0);
-        Self.point.setX(x);
-        Self.point.setY(y);
-        Exit(Self.point);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlyrGmNtfctnHd-getPoint2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp5 = 0
+        COMPUTE jtemp6 = 0
+        COMPUTE JVALUE = FUNCTION CustomGPoint-getInstance32(jtemp5, jtemp6)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_point", JVALUE)
+        COMPUTE JDISCARD = FUNCTION CustomGPoint-setX1(FUNCTION JR-GET(J-THIS, "f_point"), J-x)
+        COMPUTE JDISCARD = FUNCTION CustomGPoint-setY1(FUNCTION JR-GET(J-THIS, "f_point"), J-y)
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_point")
+        GOBACK
+    GOBACK.
+END FUNCTION PlyrGmNtfctnHd-getPoint2.
 
-procedure TPlayerGameNotificationHud.add(string_: string; seconds: Integer; basicColor_: TBasicColor; permanent: Boolean);
-begin
-        if (permanent) then begin
-            if (Self.lastString) <> (string_) then begin
-                Self.lastString := string_;
-                Self.logUtil.putF(TStringMaker.Create().append(Self.PERMANENT_GAME_NOTIFICATION).append(string_).toString(), TJava.Box(Self), Self.commonStrings.ADD);
-            end;
-            Self.permanentGameNotification.add(string_, seconds, basicColor_);
-            Self.circularIndexUtil.setSize(Self.permanentGameNotification.getSize());
-        end else begin
-            Self.gameNotification.add(string_, seconds, basicColor_);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlayerGameNotificationHud-add4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-string BINARY-DOUBLE.
+01 J-seconds BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-permanent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-string J-seconds J-basicColor J-permanent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (J-permanent = 1)
+            IF (FUNCTION JR-GET(J-THIS, "f_lastString") NOT = J-string)
+                COMPUTE JVALUE = J-string
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lastString", JVALUE)
+                COMPUTE jtemp9 = FUNCTION StringMaker-new0
+                COMPUTE jtemp8 = FUNCTION StringMaker-append1(jtemp9, FUNCTION JR-GET(J-THIS, "f_PERMANENT_GAME_NOTIFICATION"))
+                COMPUTE jtemp7 = FUNCTION StringMaker-append1(jtemp8, J-string)
+                COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp7), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_ADD"))
+            END-IF
+            COMPUTE JDISCARD = FUNCTION GameNotification-add3(FUNCTION JR-GET(J-THIS, "f_permanentGameNotification"), J-string, J-seconds, J-basicColor)
+            COMPUTE JDISCARD = FUNCTION CircularIndexUtil-setSize1(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil"), FUNCTION GameNotification-getSize0(FUNCTION JR-GET(J-THIS, "f_permanentGameNotification")))
+        ELSE
+            COMPUTE JDISCARD = FUNCTION GameNotification-add3(FUNCTION JR-GET(J-THIS, "f_gameNotification"), J-string, J-seconds, J-basicColor)
+        END-IF
+    GOBACK.
+END FUNCTION PlayerGameNotificationHud-add4.
 
-// throws Exception
-procedure TPlayerGameNotificationHud.processTick;
-var
-  gameAdState_: TGameAdState;
-begin
-        if Self.timeDelayHelper.isTime(Self.gameTickTimeDelayHelper.startTime) then begin
-            gameAdState_ := TGameAdStateFactory.getInstance().getCurrentInstance();
-            if gameAdState_.isShowingAtLocation(Self.getLocation()) then begin
-                Self.offsetY := -54;
-            end else begin
-                Self.offsetY := 0;
-            end;
-            if (Self.gameNotification.getSize()) > (0) then begin
-                Self.setAndRemove();
-            end else if (Self.permanentGameNotification.getSize()) > (0) then begin
-                Self.setNextUnremoveable();
-            end else begin
-                Self.string_ := Self.EMPTY_STRING;
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlyrGmNtfctnHd-processTick0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameAdState BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION TimeDelayHelper-isTime1(FUNCTION JR-GET(J-THIS, "f_timeDelayHelper"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameTickTimeDelayHelper"), "f_startTime")) = 1)
+            COMPUTE jtemp10 = FUNCTION GmAdSttFctry-getInstance0
+            COMPUTE J-gameAdState = FUNCTION GmAdSttFctry-gtCrrntInstnc0(jtemp10)
+            IF (FUNCTION GmAdSttBs-isShowingAtLocation1(J-gameAdState, FUNCTION BasicHud-getLocation0(J-THIS)) = 1)
+                COMPUTE JVALUE = (0 - 54)
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_offsetY", JVALUE)
+            ELSE
+                COMPUTE JVALUE = 0
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_offsetY", JVALUE)
+            END-IF
+            IF (FUNCTION GameNotification-getSize0(FUNCTION JR-GET(J-THIS, "f_gameNotification")) > 0)
+                COMPUTE JDISCARD = FUNCTION PlyrGmNtfctnHd-setAndRemove0(J-THIS)
+            ELSE
+                IF (FUNCTION GameNotification-getSize0(FUNCTION JR-GET(J-THIS, "f_permanentGameNotification")) > 0)
+                COMPUTE JDISCARD = FUNCTION PlyrGmNtfctnHd-stNxtUnrmvbl0(J-THIS)
+            ELSE
+                COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_EMPTY_STRING")
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_string", JVALUE)
+            END-IF
+            END-IF
+        END-IF
+    GOBACK.
+END FUNCTION PlyrGmNtfctnHd-processTick0.
 
-// throws Exception
-procedure TPlayerGameNotificationHud.setAndRemove;
-begin
-        Self.string_ := TJava.UnboxString(TJava.ToObject(Self.gameNotification.stringList.removeAt(0)));
-        Self.processor := Self.setAndRemoveProcessor;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlyrGmNtfctnHd-setAndRemove0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp11 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp11 = 0
+        COMPUTE JVALUE = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameNotification"), "f_stringList"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_string", JVALUE)
+        COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_setAndRemoveProcessor")
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_processor", JVALUE)
+    GOBACK.
+END FUNCTION PlyrGmNtfctnHd-setAndRemove0.
 
-// throws Exception
-procedure TPlayerGameNotificationHud.setAndRemoveProcess;
-var
-  time: Integer;
-  iTime: Integer;
-begin
-        Self.setX(TJava.SignedRightShift(((Self.displayInfo.getLastWidth()) - (Self.width)), 1));
-        Self.point.setX(Self.getX());
-        Self.point.setY(Self.getY());
-        time := Integer(Self.gameNotification.timeList.removeAt(0));
-        iTime := ((time)) * (1000);
-        if (iTime) = (0) then begin
-            iTime := 500;
-        end;
-        Self.timeDelayHelper.delay := iTime;
-        Self.setBasicColorP(TBasicColor(TJava.ToObject(Self.gameNotification.colorList.removeAt(0))));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlyrGmNtfctnHd-stAndRmvPrcss0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-time BINARY-DOUBLE.
+01 J-iTime BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp12 = FUNCTION JR-SHIFT(JFIVE, ((FUNCTION MOD((FUNCTION DsplyInfSngltn-getLastWidth0(FUNCTION JR-GET(J-THIS, "f_displayInfo")) - FUNCTION JR-GET(J-THIS, "f_width")) + 2147483648, 4294967296) - 2147483648)), 1)
+        COMPUTE JDISCARD = FUNCTION BasicHud-setX1(J-THIS, jtemp12)
+        COMPUTE JDISCARD = FUNCTION CustomGPoint-setX1(FUNCTION JR-GET(J-THIS, "f_point"), FUNCTION BasicHud-getX0(J-THIS))
+        COMPUTE JDISCARD = FUNCTION CustomGPoint-setY1(FUNCTION JR-GET(J-THIS, "f_point"), FUNCTION BasicHud-getY0(J-THIS))
+        COMPUTE jtemp13 = 0
+        COMPUTE J-time = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameNotification"), "f_timeList"))
+        COMPUTE J-iTime = (FUNCTION MOD((J-time * 1000) + 2147483648, 4294967296) - 2147483648)
+        IF (J-iTime = 0)
+            COMPUTE J-iTime = 500
+        END-IF
+        COMPUTE JVALUE = J-iTime
+        COMPUTE JDISCARD = FUNCTION JR-SET(FUNCTION JR-GET(J-THIS, "f_timeDelayHelper"), "f_delay", JVALUE)
+        COMPUTE jtemp15 = 0
+        COMPUTE jtemp14 = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameNotification"), "f_colorList"))
+        COMPUTE JDISCARD = FUNCTION BasicHud-setBasicColorP1(J-THIS, jtemp14)
+    GOBACK.
+END FUNCTION PlyrGmNtfctnHd-stAndRmvPrcss0.
 
-// throws Exception
-procedure TPlayerGameNotificationHud.setNextUnremoveable;
-var
-  index: Integer;
-begin
-        index := Self.circularIndexUtil.getIndex();
-        Self.string_ := TJava.UnboxString(TJava.ToObject(Self.permanentGameNotification.stringList.objectArray[index]));
-        Self.processor := Self.nextUnremoveableProcessor;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlyrGmNtfctnHd-stNxtUnrmvbl0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-index BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-index = FUNCTION CircularIndexUtil-getIndex0(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil"))
+        COMPUTE JVALUE = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_permanentGameNotification"), "f_stringList"), "f_objectArray"), J-index)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_string", JVALUE)
+        COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_nextUnremoveableProcessor")
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_processor", JVALUE)
+    GOBACK.
+END FUNCTION PlyrGmNtfctnHd-stNxtUnrmvbl0.
 
-// throws Exception
-procedure TPlayerGameNotificationHud.setNextUnremoveableProcess;
-var
-  index: Integer;
-  time: Integer;
-begin
-        index := Self.circularIndexUtil.getIndex();
-        Self.setX(TJava.SignedRightShift(((Self.displayInfo.getLastWidth()) - (Self.width)), 1));
-        Self.point.setX(Self.getX());
-        Self.point.setY(Self.getY());
-        time := Integer(Self.permanentGameNotification.timeList.objectArray[index]);
-        Self.timeDelayHelper.delay := ((time)) * (1000);
-        Self.setBasicColorP(TBasicColor(TJava.ToObject(Self.permanentGameNotification.colorList.objectArray[index])));
-        Self.circularIndexUtil.next();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlyrGmNtfctnHd-stNxtUnrmv26531.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-index BINARY-DOUBLE.
+01 J-time BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-index = FUNCTION CircularIndexUtil-getIndex0(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil"))
+        COMPUTE jtemp16 = FUNCTION JR-SHIFT(JFIVE, ((FUNCTION MOD((FUNCTION DsplyInfSngltn-getLastWidth0(FUNCTION JR-GET(J-THIS, "f_displayInfo")) - FUNCTION JR-GET(J-THIS, "f_width")) + 2147483648, 4294967296) - 2147483648)), 1)
+        COMPUTE JDISCARD = FUNCTION BasicHud-setX1(J-THIS, jtemp16)
+        COMPUTE JDISCARD = FUNCTION CustomGPoint-setX1(FUNCTION JR-GET(J-THIS, "f_point"), FUNCTION BasicHud-getX0(J-THIS))
+        COMPUTE JDISCARD = FUNCTION CustomGPoint-setY1(FUNCTION JR-GET(J-THIS, "f_point"), FUNCTION BasicHud-getY0(J-THIS))
+        COMPUTE J-time = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_permanentGameNotification"), "f_timeList"), "f_objectArray"), J-index)
+        COMPUTE JVALUE = (FUNCTION MOD((J-time * 1000) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(FUNCTION JR-GET(J-THIS, "f_timeDelayHelper"), "f_delay", JVALUE)
+        COMPUTE jtemp17 = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_permanentGameNotification"), "f_colorList"), "f_objectArray"), J-index)
+        COMPUTE JDISCARD = FUNCTION BasicHud-setBasicColorP1(J-THIS, jtemp17)
+        COMPUTE JDISCARD = FUNCTION CircularIndexUtil-next0(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil"))
+    GOBACK.
+END FUNCTION PlyrGmNtfctnHd-stNxtUnrmv26531.
 
-procedure TPlayerGameNotificationHud.clear;
-begin
-        Self.gameNotification.clear();
-        Self.permanentGameNotification.clear();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlyrGmNtfctnHd-clear0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION GameNotification-clear0(FUNCTION JR-GET(J-THIS, "f_gameNotification"))
+        COMPUTE JDISCARD = FUNCTION GameNotification-clear0(FUNCTION JR-GET(J-THIS, "f_permanentGameNotification"))
+    GOBACK.
+END FUNCTION PlyrGmNtfctnHd-clear0.
 
-procedure TPlayerGameNotificationHud.paint(graphics_: TGraphics);
-begin
-        Self.myFontProcessor.process(graphics_);
-        inherited paintString(graphics_, Self.string_);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PlyrGmNtfctnHd-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_myFontProcessor"))
+        COMPUTE JDISCARD = FUNCTION BasicHud-paintString2(J-THIS, J-graphics, FUNCTION JR-GET(J-THIS, "f_string"))
+    GOBACK.
+END FUNCTION PlyrGmNtfctnHd-paint1.
 

@@ -1,122 +1,167 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.health
+*> Java class HealthBarAnimation
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.health
-unit HealthBarAnimation;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Animation, BasicColorFactory, AllBinaryLayer;
-
-type
-  {AB:TYPES}
-  THealthBarAnimation = class(TAnimation)
-  public
-    basicColorFactory: TBasicColorFactory;
-    x2: Integer;
-    thickness: Integer;
-    location: Integer;
-    allbinaryLayer: TAllBinaryLayer;
-    procedure InitFields;
-        constructor Create(layerInterface: TAllBinaryLayer; location: Integer);
-        procedure onHealthChange(newX2: Integer); virtual;
-        function getY: Integer; virtual;
-  end;
-
-implementation
-uses
-  BasicHudFactory;
-
-
-{AB:CODE}
-
-procedure THealthBarAnimation.InitFields;
-begin
-  Self.basicColorFactory := TBasicColorFactory.getInstance();
-  
-  
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HealthBarAnimation-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-basicHudFactory BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-location BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-layerInterface J-location RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("HealthBarAnimation")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_basicColorFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_x2")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_thickness")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_location")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_allbinaryLayer")
+    COMPUTE JVALUE = FUNCTION BasicColorFactory-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicColorFactory", JVALUE)
     
-
-constructor THealthBarAnimation.Create(layerInterface: TAllBinaryLayer; location: Integer);
-var
-  basicHudFactory_: TBasicHudFactory;
-begin
-    inherited Create;
-    InitFields;
-        Self.allbinaryLayer := layerInterface;
-        Self.location := location;
-        basicHudFactory_ := TBasicHudFactory.getInstance();
-        if ((Self.location) <> (basicHudFactory_.TOPLEFT)) and ((Self.location) <> (basicHudFactory_.BOTTOMLEFT)) then begin
-            raise SysUtils.Exception.Create('Location Not Valid');
-        end;
-        if (layerInterface.getWidth()) > (40) then begin
-            Self.thickness := 3;
-        end else if (layerInterface.getWidth()) > (20) then begin
-            Self.thickness := 2;
-        end else begin
-            Self.thickness := 1;
-        end;
-end;
     
-
-procedure THealthBarAnimation.onHealthChange(newX2: Integer);
-var
-  quarter: Integer;
-begin
-        Self.x2 := newX2;
-        quarter := (TJava.SignedRightShift(Self.allbinaryLayer.getWidth(), 2));
-        if (Self.x2) > ((quarter) * (3)) then begin
-            Self.basicColor := Self.basicColorFactory.GREEN;
-            Self.colorP := Self.basicColor.intValue();
-        end else if (Self.x2) > ((quarter) * (2)) then begin
-            Self.basicColor := Self.basicColorFactory.YELLOW;
-            Self.colorP := Self.basicColor.intValue();
-        end else if (Self.x2) > (quarter) then begin
-            Self.basicColor := Self.basicColorFactory.ORANGE;
-            Self.colorP := Self.basicColor.intValue();
-        end else begin
-            Self.basicColor := Self.basicColorFactory.RED;
-            Self.colorP := Self.basicColor.intValue();
-        end;
-end;
     
+    
+        COMPUTE JVALUE = J-layerInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_allbinaryLayer", JVALUE)
+        COMPUTE JVALUE = J-location
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_location", JVALUE)
+        COMPUTE J-basicHudFactory = FUNCTION BasicHudFactory-getInstance0
+        IF ((FUNCTION JR-GET(J-THIS, "f_location") NOT = FUNCTION JR-GET(J-basicHudFactory, "f_TOPLEFT")) AND (FUNCTION JR-GET(J-THIS, "f_location") NOT = FUNCTION JR-GET(J-basicHudFactory, "f_BOTTOMLEFT")))
+            COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+        END-IF
+        IF (FUNCTION AllBinaryLayer-getWidth0(J-layerInterface) > 40)
+            COMPUTE JVALUE = 3
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_thickness", JVALUE)
+        ELSE
+            IF (FUNCTION AllBinaryLayer-getWidth0(J-layerInterface) > 20)
+            COMPUTE JVALUE = 2
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_thickness", JVALUE)
+        ELSE
+            COMPUTE JVALUE = 1
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_thickness", JVALUE)
+        END-IF
+        END-IF
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION HealthBarAnimation-new2.
 
-function THealthBarAnimation.getY: Integer;
-var
-  basicHudFactory_: TBasicHudFactory;
-begin
-        basicHudFactory_ := TBasicHudFactory.getInstance();
-        if (Self.location) = (basicHudFactory_.TOPLEFT) then begin
-            Exit((Self.allbinaryLayer.getViewPosition().getY()) - (4));
-        end else if (Self.location) = (basicHudFactory_.BOTTOMLEFT) then begin
-            Exit((Self.allbinaryLayer.getViewPosition().getY2()) + (4));
-        end;
-        Exit(-1);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HlthBrAnmtn-onHealthChange1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-quarter BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-newX2 BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-newX2 RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-newX2
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_x2", JVALUE)
+        COMPUTE J-quarter = (FUNCTION JR-SHIFT(JFIVE, FUNCTION AllBinaryLayer-getWidth0(FUNCTION JR-GET(J-THIS, "f_allbinaryLayer")), 2))
+        IF (FUNCTION JR-GET(J-THIS, "f_x2") > (FUNCTION MOD((J-quarter * 3) + 2147483648, 4294967296) - 2147483648))
+            COMPUTE JVALUE = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_basicColorFactory"), "f_GREEN")
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicColor", JVALUE)
+            COMPUTE JVALUE = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_basicColor"))
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_colorP", JVALUE)
+        ELSE
+            IF (FUNCTION JR-GET(J-THIS, "f_x2") > (FUNCTION MOD((J-quarter * 2) + 2147483648, 4294967296) - 2147483648))
+            COMPUTE JVALUE = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_basicColorFactory"), "f_YELLOW")
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicColor", JVALUE)
+            COMPUTE JVALUE = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_basicColor"))
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_colorP", JVALUE)
+        ELSE
+            IF (FUNCTION JR-GET(J-THIS, "f_x2") > J-quarter)
+            COMPUTE JVALUE = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_basicColorFactory"), "f_ORANGE")
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicColor", JVALUE)
+            COMPUTE JVALUE = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_basicColor"))
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_colorP", JVALUE)
+        ELSE
+            COMPUTE JVALUE = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_basicColorFactory"), "f_RED")
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicColor", JVALUE)
+            COMPUTE JVALUE = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_basicColor"))
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_colorP", JVALUE)
+        END-IF
+        END-IF
+        END-IF
+    GOBACK.
+END FUNCTION HlthBrAnmtn-onHealthChange1.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HealthBarAnimation-getY0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-basicHudFactory BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-basicHudFactory = FUNCTION BasicHudFactory-getInstance0
+        IF (FUNCTION JR-GET(J-THIS, "f_location") = FUNCTION JR-GET(J-basicHudFactory, "f_TOPLEFT"))
+            COMPUTE jtemp3 = FUNCTION AllBnryLyr-getViewPosition0(FUNCTION JR-GET(J-THIS, "f_allbinaryLayer"))
+            COMPUTE J-RESULT = (FUNCTION MOD((FUNCTION JR-CLASS-NAME(jtemp3) - 4) + 2147483648, 4294967296) - 2147483648)
+            GOBACK
+        ELSE
+            IF (FUNCTION JR-GET(J-THIS, "f_location") = FUNCTION JR-GET(J-basicHudFactory, "f_BOTTOMLEFT"))
+            COMPUTE jtemp1 = FUNCTION AllBnryLyr-getViewPosition0(FUNCTION JR-GET(J-THIS, "f_allbinaryLayer"))
+            COMPUTE jtemp2 = 4
+            COMPUTE J-RESULT = (FUNCTION MOD((FUNCTION JR-CLASS-NAME(jtemp1) + jtemp2) + 2147483648, 4294967296) - 2147483648)
+            GOBACK
+        END-IF
+        END-IF
+        COMPUTE J-RESULT = (0 - 1)
+        GOBACK
+    GOBACK.
+END FUNCTION HealthBarAnimation-getY0.
 

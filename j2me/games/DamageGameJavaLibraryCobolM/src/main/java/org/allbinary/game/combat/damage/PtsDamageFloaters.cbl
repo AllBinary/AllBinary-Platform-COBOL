@@ -1,123 +1,250 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.combat.damage
+*> Java class PtsDamageFloaters
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.combat.damage
-unit PtsDamageFloaters;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PtsDmgFltrs-sttc-bscClrA35085.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PtsDamageFloaters-jcell-basicColorArrayIndexer BINARY-DOUBLE EXTERNAL.
+01 PtsDamageFloaters-jset-basicColorArrayIndexer BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF PtsDamageFloaters-jset-basicColorArrayIndexer = 0
+        MOVE 1 TO PtsDamageFloaters-jset-basicColorArrayIndexer
+        COMPUTE jtemp7 = FUNCTION BasicColorFactory-getInstance0
+    COMPUTE jtemp8 = FUNCTION BasicColorFactory-getInstance0
+    COMPUTE jtemp9 = FUNCTION BasicColorFactory-getInstance0
+    COMPUTE jtemp10 = FUNCTION BasicColorFactory-getInstance0
+    COMPUTE jtemp6 = FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-NEW-ARRAY(JZERO), FUNCTION JR-GET(jtemp7, "f_WHITE")), FUNCTION JR-GET(jtemp8, "f_RED")), FUNCTION JR-GET(jtemp9,
+        "f_YELLOW")), FUNCTION JR-GET(jtemp10, "f_BLUE"))
+    COMPUTE PtsDamageFloaters-jcell-basicColorArrayIndexer = FUNCTION BasicColorArrayIndexer-new1(jtemp6)
+    END-IF
+    MOVE PtsDamageFloaters-jcell-basicColorArrayIndexer TO J-RESULT
+    GOBACK.
+END FUNCTION PtsDmgFltrs-sttc-bscClrA35085.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PtsDmgFltrssttcbscClS82691.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PtsDamageFloaters-jcell-basicColorArrayIndexer BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION PtsDmgFltrs-sttc-bscClrA35085 TO J-RESULT
+    MOVE J-VALUE TO PtsDamageFloaters-jcell-basicColorArrayIndexer
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION PtsDmgFltrssttcbscClS82691.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, MyRandomFactory, BasicColorArrayIndexer, BasicColorSetUtil, AllBinaryLayer, PrimitiveLongUtil, CircularIndexUtil, DamageFloaters;
-
-type
-  {AB:TYPES}
-  TPtsDamageFloaters = class(TDamageFloaters)
-  public
-    basicSetColorUtil: TBasicColorSetUtil;
-    layerInterface: TAllBinaryLayer;
-    lastDamage: TArray<Integer>;
-    lastDamageString: TArray<TArray<WideChar>>;
-    lastDamageStringSizeArray: TArray<Integer>;
-    circularIndexUtil: TCircularIndexUtil;
-    primitiveLongUtil: TPrimitiveLongUtil;
-    myRandomFactory: TMyRandomFactory;
-    class var basicColorArrayIndexer: TBasicColorArrayIndexer;
-    procedure InitFields;
-        constructor Create(layerInterface: TAllBinaryLayer);
-        procedure add(damage: Integer); override;
-        procedure paint(graphics_: TGraphics); override;
-  end;
-
-implementation
-uses
-  BasicColor, BasicColorFactory, CharArrayFactory, ViewPosition, ViewPositionBase;
-
-
-{AB:CODE}
-
-procedure TPtsDamageFloaters.InitFields;
-begin
-  Self.basicSetColorUtil := TBasicColorSetUtil.getInstance();
-  
-  Self.lastDamage := TJava.NewArray<Integer>(5);
-  Self.lastDamageString := TJava.NewArray2<WideChar>(5, 0);
-  Self.lastDamageStringSizeArray := TJava.NewArray<Integer>(5);
-  Self.circularIndexUtil := TCircularIndexUtil.createInstance(5);
-  
-  Self.myRandomFactory := TMyRandomFactory.getInstance();
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PtsDamageFloaters-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-CHAR_ARRAY BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-layerInterface RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("PtsDamageFloaters")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_basicSetColorUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_layerInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_lastDamage")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_lastDamageString")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_lastDamageStringSizeArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_circularIndexUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_primitiveLongUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_myRandomFactory")
+    COMPUTE JVALUE = FUNCTION BasicColorSetUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicSetColorUtil", JVALUE)
     
-
-constructor TPtsDamageFloaters.Create(layerInterface: TAllBinaryLayer);
-var
-  CHAR_ARRAY: TArray<WideChar>;
-  index: Integer;
-begin
-    inherited Create;
-    InitFields;
-        Self.primitiveLongUtil := TPrimitiveLongUtil.createPowerOfTen(100000);
-        Self.layerInterface := layerInterface;
-        CHAR_ARRAY := TCharArrayFactory.getInstance().getZeroCharArray();
-        for index := (System.Length(Self.lastDamageString)) - (1) downto 0 do begin
-            Self.lastDamageString[index] := CHAR_ARRAY;
-        end;
-end;
+    COMPUTE jtemp1 = 5
+    COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY(jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lastDamage", JVALUE)
+    COMPUTE jtemp2 = 5
+    COMPUTE jtemp3 = 0
+    COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY2(jtemp2, jtemp3)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lastDamageString", JVALUE)
+    COMPUTE jtemp4 = 5
+    COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY(jtemp4)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lastDamageStringSizeArray", JVALUE)
+    COMPUTE jtemp5 = 5
+    COMPUTE JVALUE = FUNCTION CrclrIndxUtl-createInstance1(jtemp5)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_circularIndexUtil", JVALUE)
     
+    COMPUTE JVALUE = FUNCTION MyRandomFactory-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myRandomFactory", JVALUE)
+        COMPUTE jtemp11 = 100000
+        COMPUTE JVALUE = FUNCTION PrmtvLngUtl-createPowerOfTen1(jtemp11)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_primitiveLongUtil", JVALUE)
+        COMPUTE JVALUE = J-layerInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_layerInterface", JVALUE)
+        COMPUTE jtemp12 = FUNCTION CharArrayFactory-getInstance0
+        COMPUTE J-CHAR_ARRAY = FUNCTION ChrArryFctry-getZeroCharArray0(jtemp12)
+        COMPUTE J-index = (FUNCTION MOD((FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_lastDamageString")) - 1) + 2147483648, 4294967296) - 2147483648)
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index >= 0) EXIT PERFORM END-IF
+            COMPUTE JVALUE = J-CHAR_ARRAY
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_lastDamageString"), J-index, JVALUE)
+        END-PERFORM
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION PtsDamageFloaters-new1.
 
-procedure TPtsDamageFloaters.add(damage: Integer);
-var
-  index: Integer;
-begin
-        index := Self.circularIndexUtil.getIndex();
-        Self.lastDamage[index] := damage;
-        Self.lastDamageString[index] := Self.primitiveLongUtil.getCharArray(Self.lastDamage[index]);
-        Self.lastDamageStringSizeArray[index] := Self.primitiveLongUtil.getCurrentTotalDigits();
-        Self.circularIndexUtil.next();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PtsDamageFloaters-add1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-index BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-damage BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-damage RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-index = FUNCTION CircularIndexUtil-getIndex0(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil"))
+        COMPUTE JVALUE = J-damage
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_lastDamage"), J-index, JVALUE)
+        COMPUTE JVALUE = FUNCTION PrmtvLngUtl-getCharArray1(FUNCTION JR-GET(J-THIS, "f_primitiveLongUtil"), FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_lastDamage"), J-index))
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_lastDamageString"), J-index, JVALUE)
+        COMPUTE JVALUE = FUNCTION PrmtvLngUtl-gtCrrntTtlDgts0(FUNCTION JR-GET(J-THIS, "f_primitiveLongUtil"))
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_lastDamageStringSizeArray"), J-index, JVALUE)
+        COMPUTE JDISCARD = FUNCTION CircularIndexUtil-next0(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil"))
+    GOBACK.
+END FUNCTION PtsDamageFloaters-add1.
 
-procedure TPtsDamageFloaters.paint(graphics_: TGraphics);
-var
-  viewPosition: TViewPositionBase;
-  x: Integer;
-  y: Integer;
-  delta: Integer;
-  index: Integer;
-begin
-        viewPosition := Self.layerInterface.getViewPosition();
-        x := viewPosition.getX();
-        y := viewPosition.getY();
-        for index := (System.Length(Self.lastDamage)) - (1) downto 0 do begin
-            if (Self.lastDamage[index]) <> (0) then begin
-                delta := (10) * (((index) + (2)));
-                Self.basicSetColorUtil.setBasicColorP(graphics_, TPtsDamageFloaters.basicColorArrayIndexer.get());
-                graphics_.drawChars(Self.lastDamageString[index], 0, Self.lastDamageStringSizeArray[index], (x) - (Self.myRandomFactory.getNextInt(delta)), (y) - (delta), 0);
-                TPtsDamageFloaters.basicColorArrayIndexer.next();
-            end;
-            Self.lastDamage[index] := 0;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TPtsDamageFloaters.basicColorArrayIndexer := TBasicColorArrayIndexer.Create(TArray<TBasicColor>.Create(TBasicColorFactory.getInstance().WHITE, TBasicColorFactory.getInstance().RED, TBasicColorFactory.getInstance().YELLOW, TBasicColorFactory.getInstance().BLUE));
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PtsDamageFloaters-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-viewPosition BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-delta BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-viewPosition = FUNCTION AllBnryLyr-getViewPosition0(FUNCTION JR-GET(J-THIS, "f_layerInterface"))
+        COMPUTE J-x = FUNCTION GPoint-getX0(J-viewPosition)
+        COMPUTE J-y = FUNCTION GPoint-getY0(J-viewPosition)
+        COMPUTE J-index = (FUNCTION MOD((FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_lastDamage")) - 1) + 2147483648, 4294967296) - 2147483648)
+        MOVE 1 TO JFIRST2
+        PERFORM FOREVER
+            IF JFIRST2 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST2
+            IF NOT (J-index >= 0) EXIT PERFORM END-IF
+            IF (FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_lastDamage"), J-index) NOT = 0)
+                COMPUTE jtemp13 = 2
+                COMPUTE J-delta = (FUNCTION MOD((10 * ((FUNCTION MOD((J-index + jtemp13) + 2147483648, 4294967296) - 2147483648))) + 2147483648, 4294967296) - 2147483648)
+                COMPUTE JDISCARD = FUNCTION BscClrStUtl-setBasicColorP2(FUNCTION JR-GET(J-THIS, "f_basicSetColorUtil"), J-graphics, FUNCTION JR-CLASS-NAME(FUNCTION PtsDmgFltrs-sttc-bscClrA35085))
+                COMPUTE jtemp14 = 0
+                COMPUTE jtemp15 = (FUNCTION MOD((J-x - FUNCTION MyRandomFactory-getNextInt1(FUNCTION JR-GET(J-THIS, "f_myRandomFactory"), J-delta)) + 2147483648, 4294967296) - 2147483648)
+                COMPUTE jtemp16 = (FUNCTION MOD((J-y - J-delta) + 2147483648, 4294967296) - 2147483648)
+                COMPUTE jtemp17 = 0
+                COMPUTE JDISCARD = FUNCTION Graphics-drawChars6(J-graphics, FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_lastDamageString"), J-index), jtemp14, FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS,
+        "f_lastDamageStringSizeArray"), J-index), jtemp15, jtemp16, jtemp17)
+                COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION PtsDmgFltrs-sttc-bscClrA35085)
+            END-IF
+            COMPUTE JVALUE = 0
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_lastDamage"), J-index, JVALUE)
+        END-PERFORM
+    GOBACK.
+END FUNCTION PtsDamageFloaters-paint1.
 

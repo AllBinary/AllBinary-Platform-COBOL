@@ -1,110 +1,166 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.input
+*> Java class CompleteMotionGestureInputEvent
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.input
-unit CompleteMotionGestureInputEvent;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpltMtnGstrInptEvnt-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-commonStrings BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-name BINARY-DOUBLE.
+01 J-motionGestureInput BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-name J-motionGestureInput RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CompleteMotionGestureInputEvent")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_name")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_motionGestureInput")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_EMPTY_STRING")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_name", JVALUE)
+    COMPUTE jtemp2 = FUNCTION TchMtnGstrFctry-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp2, "f_NO_MOTION")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_motionGestureInput", JVALUE)
+        CONTINUE
+        COMPUTE JDISCARD = FUNCTION CmpltMtnGstrInptEvnt-setName1(J-THIS, J-name)
+        CONTINUE
+            COMPUTE JDISCARD = FUNCTION CmpltMtnGstrInptEvnt-stMt28606(J-THIS, J-motionGestureInput)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CmpltMtnGstrInptEvnt-new2.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpltMtnGstrInptEvnt-setName1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-name BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-name RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-name
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_name", JVALUE)
+    GOBACK.
+END FUNCTION CmpltMtnGstrInptEvnt-setName1.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpltMtnGstrInptEvnt-getName0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_name")
+        GOBACK
+    GOBACK.
+END FUNCTION CmpltMtnGstrInptEvnt-getName0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, MotionGestureInput, LogUtil, AllBinaryEventObject, CompleteMotionGestureInputInterface, NamedInterface;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpltMtnGstrInptEvnt-stMt28606.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-motionGestureInput BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-motionGestureInput RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-motionGestureInput
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_motionGestureInput", JVALUE)
+    GOBACK.
+END FUNCTION CmpltMtnGstrInptEvnt-stMt28606.
 
-type
-  {AB:TYPES}
-  TCompleteMotionGestureInputEvent = class(TAllBinaryEventObject, ICompleteMotionGestureInputInterface, INamedInterface)
-  public
-    logUtil: TLogUtil;
-    name: string;
-    motionGestureInput: TMotionGestureInput;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(name: string; motionGestureInput_: TMotionGestureInput);
-        procedure setName(name: string); virtual;
-        function getName: string; virtual;
-        procedure setMotionGestureInput(motionGestureInput_: TMotionGestureInput); virtual;
-        function getMotionGestureInput: TMotionGestureInput; virtual;
-  end;
-
-implementation
-uses
-  TouchMotionGestureFactory, StringUtil, CommonStrings;
-
-
-{AB:CODE}
-
-procedure TCompleteMotionGestureInputEvent.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.name := TStringUtil.getInstance().EMPTY_STRING;
-  Self.motionGestureInput := TTouchMotionGestureFactory.getInstance().NO_MOTION;
-end;
-
-function TCompleteMotionGestureInputEvent.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-    
-
-constructor TCompleteMotionGestureInputEvent.Create(name: string; motionGestureInput_: TMotionGestureInput);
-var
-  commonStrings_: TCommonStrings;
-begin
-        inherited Create(motionGestureInput_);
-        InitFields;
-        Self.setName(name);
-        try
-            Self.setMotionGestureInput(motionGestureInput_);
-        except
-            on e: SysUtils.Exception do begin
-            commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), 'InputToGameKeyEventAction', TJava.Box(e));
-            end;
-        end;
-end;
-    
-
-procedure TCompleteMotionGestureInputEvent.setName(name: string);
-begin
-        Self.name := name;
-end;
-    
-
-function TCompleteMotionGestureInputEvent.getName: string;
-begin
-        Exit(Self.name);
-end;
-    
-
-procedure TCompleteMotionGestureInputEvent.setMotionGestureInput(motionGestureInput_: TMotionGestureInput);
-begin
-        Self.motionGestureInput := motionGestureInput_;
-end;
-    
-
-function TCompleteMotionGestureInputEvent.getMotionGestureInput: TMotionGestureInput;
-begin
-        Exit(Self.motionGestureInput);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpltMtnGstrInptEvnt-gtMt70238.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_motionGestureInput")
+        GOBACK
+    GOBACK.
+END FUNCTION CmpltMtnGstrInptEvnt-gtMt70238.
 

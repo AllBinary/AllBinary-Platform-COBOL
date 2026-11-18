@@ -1,86 +1,162 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.layer.drop
+*> Java class DropLayerProcessor
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.layer.drop
-unit DropLayerProcessor;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DrpLyrPrcssr-sttc-LAYER99706.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 DropLayerProcessor-jcell-LAYER_PROCESSOR BINARY-DOUBLE EXTERNAL.
+01 DropLayerProcessor-jset-LAYER_PROCESSOR BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF DropLayerProcessor-jset-LAYER_PROCESSOR = 0
+        MOVE 1 TO DropLayerProcessor-jset-LAYER_PROCESSOR
+        COMPUTE DropLayerProcessor-jcell-LAYER_PROCESSOR = FUNCTION DropLayerProcessor-new0
+    END-IF
+    MOVE DropLayerProcessor-jcell-LAYER_PROCESSOR TO J-RESULT
+    GOBACK.
+END FUNCTION DrpLyrPrcssr-sttc-LAYER99706.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DrpLyrPrcssrsttcLAYES54754.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 DropLayerProcessor-jcell-LAYER_PROCESSOR BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION DrpLyrPrcssr-sttc-LAYER99706 TO J-RESULT
+    MOVE J-VALUE TO DropLayerProcessor-jcell-LAYER_PROCESSOR
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION DrpLyrPrcssrsttcLAYES54754.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DropLayerProcessor-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("DropLayerProcessor")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION DropLayerProcessor-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AllBinaryLayerManager, BasicLayerProcessor;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DrpLyrPrcssr-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION DrpLyrPrcssr-sttc-LAYER99706
+        GOBACK
+    GOBACK.
+END FUNCTION DrpLyrPrcssr-getInstance0.
 
-type
-  {AB:TYPES}
-  TDropLayerProcessor = class(TBasicLayerProcessor)
-  public
-    class var LAYER_PROCESSOR: TBasicLayerProcessor;
-        constructor Create;
-        class function getInstance: TBasicLayerProcessor; static;
-        procedure process(allBinaryLayerManager_: TAllBinaryLayerManager); override;
-  end;
-
-implementation
-uses
-  DropLayerInterface, AllBinaryLayer, BasicArrayList;
-
-
-{AB:CODE}
-    
-
-constructor TDropLayerProcessor.Create;
-begin
-    inherited Create;
-end;
-    
-
-class function TDropLayerProcessor.getInstance: TBasicLayerProcessor;
-begin
-        Exit(TDropLayerProcessor.LAYER_PROCESSOR);
-end;
-    
-
-// throws Exception
-procedure TDropLayerProcessor.process(allBinaryLayerManager_: TAllBinaryLayerManager);
-var
-  list: TBasicArrayList;
-  size: Integer;
-  layerInterface: TAllBinaryLayer;
-  dropLayerInterface_: IDropLayerInterface;
-  index: Integer;
-begin
-        list := Self.getList();
-        size := list.size();
-        
-        
-        for index := 0 to size - 1 do begin
-            layerInterface := TAllBinaryLayer(TJava.ToObject(list.objectArray[index]));
-            dropLayerInterface_ := (TJava.ToObject(layerInterface) as IDropLayerInterface);
-            layerInterface := TAllBinaryLayer(TJava.ToObject(dropLayerInterface_.getDroppedLayer()));
-            allBinaryLayerManager_.append(layerInterface);
-        end;
-        list.clear();
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TDropLayerProcessor.LAYER_PROCESSOR := TDropLayerProcessor.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DropLayerProcessor-process1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-list BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-dropLayerInterface BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryLayerManager BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-list = FUNCTION BasicLayerProcessor-getList0(J-THIS)
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(J-list)
+        CONTINUE
+        CONTINUE
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-layerInterface = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
+            COMPUTE J-dropLayerInterface = J-layerInterface
+            COMPUTE J-layerInterface = FUNCTION DrpLyrIntrfc-getDroppedLayer0(J-dropLayerInterface)
+            COMPUTE JDISCARD = FUNCTION AllBinaryLayerManager-append1(J-allBinaryLayerManager, J-layerInterface)
+        END-PERFORM
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-clear0(J-list)
+    GOBACK.
+END FUNCTION DropLayerProcessor-process1.
 

@@ -1,109 +1,185 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.util.cache
+*> Java class BasicArrayListPool
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.logic.util.cache
-unit BasicArrayListPool;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicArrayListPool-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-cacheableInterfaceFactoryInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-cacheableInterfaceFactoryInterface RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("BasicArrayListPool")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION BasicArrayListPool-new1.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicArrayListPool-clear0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_buffers"))
+    GOBACK.
+END FUNCTION BasicArrayListPool-clear0.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicArrayListPool-remove1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-size BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-key BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-key RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-size = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_buffers"))
+        IF (J-size > 0)
+            COMPUTE jtemp1 = (FUNCTION MOD((J-size - 1) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE J-RESULT = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_buffers"))
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = FUNCTION CchblIntrfcFctryIntrfc-gt45790(FUNCTION JR-GET(J-THIS, "f_cacheableInterfaceFactoryInterface"), J-key)
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION BasicArrayListPool-remove1.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, BasicArrayList, CacheableInterfaceFactoryInterface, CacheableInterface, AbstractArrayListPool;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicArrayListPool-addAll1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-anyType BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-usedList BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-usedList RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp2 = J-index
+        COMPUTE J-index = FUNCTION BasicArrayList-size0(J-usedList)
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            MOVE 0 TO JFIRST1
+            IF NOT (jtemp2 >= 0) EXIT PERFORM END-IF
+            COMPUTE J-anyType = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-usedList, "f_objectArray"), J-index)
+            COMPUTE JDISCARD = FUNCTION AbstractArrayListPool-add1(J-THIS, J-anyType)
+        END-PERFORM
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-clear0(J-usedList)
+    GOBACK.
+END FUNCTION BasicArrayListPool-addAll1.
 
-type
-  {AB:TYPES}
-  TBasicArrayListPool = class(TAbstractArrayListPool)
-  public
-        constructor Create(cacheableInterfaceFactoryInterface_: ICacheableInterfaceFactoryInterface);
-        procedure clear; override;
-        function remove(key: TObject): ICacheableInterface; override;
-        procedure addAll(usedList: TBasicArrayList); virtual;
-        procedure releaseUsedBackToPool(usedList: TBasicArrayList); virtual;
-  end;
-
-implementation
-uses
-  BasicArrayListCacheable;
-
-
-{AB:CODE}
-    
-
-constructor TBasicArrayListPool.Create(cacheableInterfaceFactoryInterface_: ICacheableInterfaceFactoryInterface);
-begin
-        inherited Create(cacheableInterfaceFactoryInterface_);
-end;
-    
-
-procedure TBasicArrayListPool.clear;
-begin
-        Self.buffers.clear();
-end;
-    
-
-// throws Exception
-function TBasicArrayListPool.remove(key: TObject): ICacheableInterface;
-var
-  size: Integer;
-begin
-        size := Self.buffers.size();
-        if (size) > (0) then begin
-            Exit((TJava.ToObject(Self.buffers.removeAt((size) - (1))) as ICacheableInterface));
-        end else begin
-            Exit(Self.cacheableInterfaceFactoryInterface.getInstance(key));
-        end;
-end;
-    
-
-// throws Exception
-procedure TBasicArrayListPool.addAll(usedList: TBasicArrayList);
-var
-  anyType: ICacheableInterface;
-  index: Integer;
-begin
-        index := usedList.size();
-        while (TJava.PreDec(index)) >= (0) do begin
-            anyType := (TJava.ToObject(usedList.objectArray[index]) as ICacheableInterface);
-            Self.add(anyType);
-        end;
-        usedList.clear();
-end;
-    
-
-// throws Exception
-procedure TBasicArrayListPool.releaseUsedBackToPool(usedList: TBasicArrayList);
-var
-  list: TBasicArrayListCacheable;
-  index: Integer;
-begin
-        index := usedList.size();
-        while (TJava.PreDec(index)) >= (0) do begin
-            list := TBasicArrayListCacheable(TJava.ToObject(usedList.objectArray[index]));
-            if (list.size()) = (0) then begin
-                usedList.removeAt(index);
-                Self.add(list);
-            end;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscArryLstPl-rlsUsdBckTPl1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-list BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-usedList BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-usedList RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp3 = J-index
+        COMPUTE J-index = FUNCTION BasicArrayList-size0(J-usedList)
+        MOVE 1 TO JFIRST2
+        PERFORM FOREVER
+            MOVE 0 TO JFIRST2
+            IF NOT (jtemp3 >= 0) EXIT PERFORM END-IF
+            COMPUTE J-list = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-usedList, "f_objectArray"), J-index)
+            IF (FUNCTION BasicArrayList-size0(J-list) = 0)
+                COMPUTE JDISCARD = FUNCTION BasicArrayList-removeAt1(J-usedList, J-index)
+                COMPUTE JDISCARD = FUNCTION AbstractArrayListPool-add1(J-THIS, J-list)
+            END-IF
+        END-PERFORM
+    GOBACK.
+END FUNCTION BscArryLstPl-rlsUsdBckTPl1.
 

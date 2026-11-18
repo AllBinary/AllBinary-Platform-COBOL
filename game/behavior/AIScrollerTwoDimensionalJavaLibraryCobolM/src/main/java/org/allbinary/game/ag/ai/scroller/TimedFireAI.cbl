@@ -1,80 +1,137 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.ai.scroller
+*> Java class TimedFireAI
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.ai.scroller
-unit TimedFireAI;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TimedFireAI-static-TIME.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 TimedFireAI-jcell-TIME BINARY-DOUBLE EXTERNAL.
+01 TimedFireAI-jset-TIME BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF TimedFireAI-jset-TIME = 0
+        MOVE 1 TO TimedFireAI-jset-TIME
+        COMPUTE jtemp2 = 1
+    COMPUTE jtemp1 = FUNCTION SmllIntgrSngltnFctry-gtInstnc0
+    COMPUTE TimedFireAI-jcell-TIME = FUNCTION SmllIntgrSngltnFctry-getAt1(jtemp1, jtemp2)
+    END-IF
+    MOVE TimedFireAI-jcell-TIME TO J-RESULT
+    GOBACK.
+END FUNCTION TimedFireAI-static-TIME.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TimedFireAIstaticTIMS55055.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 TimedFireAI-jcell-TIME BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION TimedFireAI-static-TIME TO J-RESULT
+    MOVE J-VALUE TO TimedFireAI-jcell-TIME
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION TimedFireAIstaticTIMS55055.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, BasicAI, GameInput, AllBinaryLayer, AllBinaryLayerManager, TimeDelayHelper;
-
-type
-  {AB:TYPES}
-  TTimedFireAI = class(TBasicAI)
-  public
-    maxFireDelayTimeHelper: TTimeDelayHelper;
-    delay: Integer;
-    class var TIME: Integer;
-    procedure InitFields;
-        constructor Create(delay: Integer; ownerLayerInterface: TAllBinaryLayer; gameInput_: TGameInput);
-        procedure processAI(allBinaryLayerManager_: TAllBinaryLayerManager); override;
-  end;
-
-implementation
-uses
-  TimeFiredInterface, Canvas, SmallIntegerSingletonFactory, GameTickTimeDelayHelperFactory;
-
-
-{AB:CODE}
-
-procedure TTimedFireAI.InitFields;
-begin
-  Self.maxFireDelayTimeHelper := TTimeDelayHelper.Create(0);
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TimedFireAI-new3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-delay BINARY-DOUBLE.
+01 J-ownerLayerInterface BINARY-DOUBLE.
+01 J-gameInput BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-delay J-ownerLayerInterface J-gameInput RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("TimedFireAI")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_maxFireDelayTimeHelper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_delay")
+    COMPUTE jtemp3 = 0
+    COMPUTE JVALUE = FUNCTION TimeDelayHelper-new1(jtemp3)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_maxFireDelayTimeHelper", JVALUE)
     
+        CONTINUE
+        COMPUTE JVALUE = J-delay
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_delay", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION TimedFireAI-new3.
 
-constructor TTimedFireAI.Create(delay: Integer; ownerLayerInterface: TAllBinaryLayer; gameInput_: TGameInput);
-begin
-        inherited Create(ownerLayerInterface, gameInput_);
-        InitFields;
-        Self.delay := delay;
-end;
-    
-
-// throws Exception
-procedure TTimedFireAI.processAI(allBinaryLayerManager_: TAllBinaryLayerManager);
-var
-  timeFiredInterface_: ITimeFiredInterface;
-begin
-        timeFiredInterface_ := (TJava.ToObject(Self.getOwnerLayerInterface()) as ITimeFiredInterface);
-        if (Self.maxFireDelayTimeHelper.isTime(TGameTickTimeDelayHelperFactory.getInstance().startTime)) and (((timeFiredInterface_.getLastFireTime()) + (Self.maxFireDelayTimeHelper.delay)) < (Self.maxFireDelayTimeHelper.getStartTime())) then begin
-            inherited processKeyAI(TCanvas.KEY_NUM1);
-            Self.maxFireDelayTimeHelper.delay := Self.delay;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TTimedFireAI.TIME := TSmallIntegerSingletonFactory.getInstance().getAt(1);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TimedFireAI-processAI1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-timeFiredInterface BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryLayerManager BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-timeFiredInterface = FUNCTION BscAI-getOwnerLayerInterface0(J-THIS)
+        COMPUTE jtemp4 = FUNCTION GmTckTmDlyHlprFctry-gtInstnc0
+        IF ((FUNCTION TimeDelayHelper-isTime1(FUNCTION JR-GET(J-THIS, "f_maxFireDelayTimeHelper"), FUNCTION JR-GET(jtemp4, "f_startTime")) = 1) AND ((FUNCTION TmFrdIntrfc-getLastFireTime0(J-timeFiredInterface) + FUNCTION JR-GET(FUNCTION
+        JR-GET(J-THIS, "f_maxFireDelayTimeHelper"), "f_delay")) < FUNCTION TimeDelayHelper-getStartTime0(FUNCTION JR-GET(J-THIS, "f_maxFireDelayTimeHelper"))))
+            COMPUTE JDISCARD = FUNCTION BasicAI-processKeyAI1(J-THIS, FUNCTION Canvas-static-KEY-NUM1)
+            COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_delay")
+            COMPUTE JDISCARD = FUNCTION JR-SET(FUNCTION JR-GET(J-THIS, "f_maxFireDelayTimeHelper"), "f_delay", JVALUE)
+        END-IF
+    GOBACK.
+END FUNCTION TimedFireAI-processAI1.
 

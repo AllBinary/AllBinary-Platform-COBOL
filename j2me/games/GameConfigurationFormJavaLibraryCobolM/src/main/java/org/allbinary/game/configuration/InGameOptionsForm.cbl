@@ -1,76 +1,245 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.configuration
+*> Java class InGameOptionsForm
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.configuration
-unit InGameOptionsForm;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InGmOptnsFrm-static-DISPLAY.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 InGameOptionsForm-jcell-DISPLAY BINARY-DOUBLE EXTERNAL.
+01 InGameOptionsForm-jset-DISPLAY BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF InGameOptionsForm-jset-DISPLAY = 0
+        MOVE 1 TO InGameOptionsForm-jset-DISPLAY
+        COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp2 = 1
+    COMPUTE InGameOptionsForm-jcell-DISPLAY = FUNCTION Command-new4(FUNCTION JR-STR("Options In Game"), FUNCTION JR-GET(jtemp1, "f_EMPTY_STRING"), FUNCTION Command-static-SCREEN, jtemp2)
+    END-IF
+    MOVE InGameOptionsForm-jcell-DISPLAY TO J-RESULT
+    GOBACK.
+END FUNCTION InGmOptnsFrm-static-DISPLAY.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InGmOptnsFrmstaticDIS33385.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 InGameOptionsForm-jcell-DISPLAY BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION InGmOptnsFrm-static-DISPLAY TO J-RESULT
+    MOVE J-VALUE TO InGameOptionsForm-jcell-DISPLAY
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION InGmOptnsFrmstaticDIS33385.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InGameOptionsForm-static-SAVE.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 InGameOptionsForm-jcell-SAVE BINARY-DOUBLE EXTERNAL.
+01 InGameOptionsForm-jset-SAVE BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF InGameOptionsForm-jset-SAVE = 0
+        MOVE 1 TO InGameOptionsForm-jset-SAVE
+        COMPUTE jtemp3 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp4 = 1
+    COMPUTE InGameOptionsForm-jcell-SAVE = FUNCTION Command-new4(FUNCTION JR-STR("Save"), FUNCTION JR-GET(jtemp3, "f_EMPTY_STRING"), FUNCTION Command-static-SCREEN, jtemp4)
+    END-IF
+    MOVE InGameOptionsForm-jcell-SAVE TO J-RESULT
+    GOBACK.
+END FUNCTION InGameOptionsForm-static-SAVE.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Command, CommandListener, BasicColor, CommandForm;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InGameOptionsFormstaS89383.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 InGameOptionsForm-jcell-SAVE BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION InGameOptionsForm-static-SAVE TO J-RESULT
+    MOVE J-VALUE TO InGameOptionsForm-jcell-SAVE
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION InGameOptionsFormstaS89383.
 
-type
-  {AB:TYPES}
-  TInGameOptionsForm = class(TCommandForm)
-  public
-    class var DISPLAY: TCommand;
-    class var SAVE: TCommand;
-    class var DEFAULT: TCommand;
-        constructor Create(commandListener_: ICommandListener; title: string; backgrounBasicColor: TBasicColor; foregroundBasicColor: TBasicColor);
-        procedure initCommands(cmdListener: ICommandListener); override;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InGmOptnsFrm-static-DEFAULT.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 InGameOptionsForm-jcell-DEFAULT BINARY-DOUBLE EXTERNAL.
+01 InGameOptionsForm-jset-DEFAULT BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF InGameOptionsForm-jset-DEFAULT = 0
+        MOVE 1 TO InGameOptionsForm-jset-DEFAULT
+        COMPUTE jtemp5 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp6 = 1
+    COMPUTE InGameOptionsForm-jcell-DEFAULT = FUNCTION Command-new4(FUNCTION JR-STR("Default"), FUNCTION JR-GET(jtemp5, "f_EMPTY_STRING"), FUNCTION Command-static-SCREEN, jtemp6)
+    END-IF
+    MOVE InGameOptionsForm-jcell-DEFAULT TO J-RESULT
+    GOBACK.
+END FUNCTION InGmOptnsFrm-static-DEFAULT.
 
-implementation
-uses
-  Choice, GameCommandsFactory, GameFeatureFormUtil, InGameFeatureChoiceGroups, StringUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InGmOptnsFrmstaticDES25084.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 InGameOptionsForm-jcell-DEFAULT BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION InGmOptnsFrm-static-DEFAULT TO J-RESULT
+    MOVE J-VALUE TO InGameOptionsForm-jcell-DEFAULT
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION InGmOptnsFrmstaticDES25084.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InGameOptionsForm-new4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameFeatureFormUtil BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-commandListener BINARY-DOUBLE.
+01 J-title BINARY-DOUBLE.
+01 J-backgrounBasicColor BINARY-DOUBLE.
+01 J-foregroundBasicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-commandListener J-title J-backgrounBasicColor J-foregroundBasicColor RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("InGameOptionsForm")
+        CONTINUE
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        COMPUTE J-gameFeatureFormUtil = FUNCTION GmFtrFrmUtl-getInstance0
+        COMPUTE jtemp7 = FUNCTION InGmFtrChcGrps-gtExclsvInstnc0
+        COMPUTE JDISCARD = FUNCTION GmFtrFrmUtl-addChoiceGroup3(J-gameFeatureFormUtil, J-THIS, FUNCTION JR-CLASS-NAME(jtemp7), FUNCTION Choice-static-EXCLUSIVE)
+        COMPUTE jtemp8 = FUNCTION InGmFtrChcGrps-gtMltplInstnc0
+        COMPUTE JDISCARD = FUNCTION GmFtrFrmUtl-addChoiceGroup3(J-gameFeatureFormUtil, J-THIS, FUNCTION JR-CLASS-NAME(jtemp8), FUNCTION Choice-static-MULTIPLE)
+        COMPUTE JDISCARD = FUNCTION InGmOptnsFrm-initCommands1(J-THIS, J-commandListener)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION InGameOptionsForm-new4.
 
-{AB:CODE}
-    
-
-constructor TInGameOptionsForm.Create(commandListener_: ICommandListener; title: string; backgrounBasicColor: TBasicColor; foregroundBasicColor: TBasicColor);
-var
-  gameFeatureFormUtil_: TGameFeatureFormUtil;
-begin
-        inherited Create(commandListener_, title, backgrounBasicColor, foregroundBasicColor);
-        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_);
-        gameFeatureFormUtil_ := TGameFeatureFormUtil.getInstance();
-        gameFeatureFormUtil_.addChoiceGroup(Self, TInGameFeatureChoiceGroups.getExclusiveInstance().get(), IChoice.EXCLUSIVE);
-        gameFeatureFormUtil_.addChoiceGroup(Self, TInGameFeatureChoiceGroups.getMultipleInstance().get(), IChoice.MULTIPLE);
-        Self.initCommands(commandListener_);
-end;
-    
-
-procedure TInGameOptionsForm.initCommands(cmdListener: ICommandListener);
-begin
-        Self.removeAllCommands();
-        Self.addCommand(TGameCommandsFactory.getInstance().CLOSE_AND_SHOW_GAME_CANVAS);
-        Self.addCommand(TInGameOptionsForm.DEFAULT);
-        Self.setCommandListener(cmdListener);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TInGameOptionsForm.DISPLAY := TCommand.Create('Options In Game', TStringUtil.getInstance().EMPTY_STRING, TCommand.SCREEN, 1);
-  TInGameOptionsForm.SAVE := TCommand.Create('Save', TStringUtil.getInstance().EMPTY_STRING, TCommand.SCREEN, 1);
-  TInGameOptionsForm.DEFAULT := TCommand.Create('Default', TStringUtil.getInstance().EMPTY_STRING, TCommand.SCREEN, 1);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InGmOptnsFrm-initCommands1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp9 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-cmdListener BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-cmdListener RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION CommandForm-removeAllCommands0(J-THIS)
+        COMPUTE jtemp9 = FUNCTION GmCmmndsFctry-getInstance0
+        COMPUTE JDISCARD = FUNCTION CommandForm-addCommand1(J-THIS, FUNCTION JR-GET(jtemp9, "f_CLOSE_AND_SHOW_GAME_CANVAS"))
+        COMPUTE JDISCARD = FUNCTION CommandForm-addCommand1(J-THIS, FUNCTION InGmOptnsFrm-static-DEFAULT)
+        COMPUTE JDISCARD = FUNCTION Form-setCommandListener1(J-THIS, J-cmdListener)
+    GOBACK.
+END FUNCTION InGmOptnsFrm-initCommands1.
 

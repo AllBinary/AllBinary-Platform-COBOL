@@ -1,126 +1,242 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.ai
+*> Java class ReverseVelocityBoundsVisitor
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.ai
-unit ReverseVelocityBoundsVisitor;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, BoundsVisitorInterface, VelocityInterface, LayerInterface, LogUtil;
-
-type
-  {AB:TYPES}
-  TReverseVelocityBoundsVisitor = class(TInterfacedObject, IBoundsVisitorInterface)
-  public
-    logUtil: TLogUtil;
-    velocityInterface: IVelocityInterface;
-    layerInterface: ILayerInterface;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(layerInterface_: ILayerInterface);
-        function getX: Integer; virtual;
-        function getY: Integer; virtual;
-        procedure minX; virtual;
-        procedure maxX; virtual;
-        procedure minY; virtual;
-        procedure maxY; virtual;
-  end;
-
-implementation
-uses
-  VelocityInterfaceCompositeInterface;
-
-
-{AB:CODE}
-
-procedure TReverseVelocityBoundsVisitor.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  
-  
-end;
-
-function TReverseVelocityBoundsVisitor.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RvrsVlctyBndsVstr-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-velocityInterfaceCompositeInterface BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-layerInterface RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ReverseVelocityBoundsVisitor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_velocityInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_layerInterface")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
     
-
-constructor TReverseVelocityBoundsVisitor.Create(layerInterface_: ILayerInterface);
-var
-  velocityInterfaceCompositeInterface_: IVelocityInterfaceCompositeInterface;
-begin
-    inherited Create;
-    InitFields;
-        Self.layerInterface := layerInterface_;
-        velocityInterfaceCompositeInterface_ := (TJava.ToObject(layerInterface_) as IVelocityInterfaceCompositeInterface);
-        Self.velocityInterface := (TJava.ToObject(velocityInterfaceCompositeInterface_.getVelocityProperties()) as IVelocityInterface);
-end;
     
+        COMPUTE JVALUE = J-layerInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_layerInterface", JVALUE)
+        COMPUTE J-velocityInterfaceCompositeInterface = J-layerInterface
+        COMPUTE JVALUE = FUNCTION VlctyIntrfcCmpstIntrfc-gt15512(J-velocityInterfaceCompositeInterface)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_velocityInterface", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION RvrsVlctyBndsVstr-new1.
 
-function TReverseVelocityBoundsVisitor.getX: Integer;
-begin
-        Exit(Self.layerInterface.getXP());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RvrsVlctyBndsVstr-getX0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION LayerInterface-getXP0(FUNCTION JR-GET(J-THIS, "f_layerInterface"))
+        GOBACK
+    GOBACK.
+END FUNCTION RvrsVlctyBndsVstr-getX0.
 
-function TReverseVelocityBoundsVisitor.getY: Integer;
-begin
-        Exit(Self.layerInterface.getYP());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RvrsVlctyBndsVstr-getY0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION LayerInterface-getYP0(FUNCTION JR-GET(J-THIS, "f_layerInterface"))
+        GOBACK
+    GOBACK.
+END FUNCTION RvrsVlctyBndsVstr-getY0.
 
-procedure TReverseVelocityBoundsVisitor.minX;
-begin
-        if (Self.velocityInterface.getVelocityXBasicDecimalP().getUnscaled()) < (0) then begin
-            Self.velocityInterface.getVelocityXBasicDecimalP().multiplyint(-1);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RvrsVlctyBndsVstr-minX0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = FUNCTION VlctyIntrfc-gtVlctyXBscDcmlP0(FUNCTION JR-GET(J-THIS, "f_velocityInterface"))
+        IF (FUNCTION JR-CLASS-NAME(jtemp1) < 0)
+            COMPUTE jtemp3 = (0 - 1)
+        COMPUTE jtemp2 = FUNCTION VlctyIntrfc-gtVlctyXBscDcmlP0(FUNCTION JR-GET(J-THIS, "f_velocityInterface"))
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp2)
+        END-IF
+    GOBACK.
+END FUNCTION RvrsVlctyBndsVstr-minX0.
 
-procedure TReverseVelocityBoundsVisitor.maxX;
-begin
-        if (Self.velocityInterface.getVelocityXBasicDecimalP().getUnscaled()) > (0) then begin
-            Self.velocityInterface.getVelocityXBasicDecimalP().multiplyint(-1);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RvrsVlctyBndsVstr-maxX0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp4 = FUNCTION VlctyIntrfc-gtVlctyXBscDcmlP0(FUNCTION JR-GET(J-THIS, "f_velocityInterface"))
+        IF (FUNCTION JR-CLASS-NAME(jtemp4) > 0)
+            COMPUTE jtemp6 = (0 - 1)
+        COMPUTE jtemp5 = FUNCTION VlctyIntrfc-gtVlctyXBscDcmlP0(FUNCTION JR-GET(J-THIS, "f_velocityInterface"))
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp5)
+        END-IF
+    GOBACK.
+END FUNCTION RvrsVlctyBndsVstr-maxX0.
 
-procedure TReverseVelocityBoundsVisitor.minY;
-begin
-        if (Self.velocityInterface.getVelocityYBasicDecimalP().getUnscaled()) < (0) then begin
-            Self.velocityInterface.getVelocityYBasicDecimalP().multiplyint(-1);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RvrsVlctyBndsVstr-minY0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp7 = FUNCTION VlctyIntrfc-gtVlctyYBscDcmlP0(FUNCTION JR-GET(J-THIS, "f_velocityInterface"))
+        IF (FUNCTION JR-CLASS-NAME(jtemp7) < 0)
+            COMPUTE jtemp9 = (0 - 1)
+        COMPUTE jtemp8 = FUNCTION VlctyIntrfc-gtVlctyYBscDcmlP0(FUNCTION JR-GET(J-THIS, "f_velocityInterface"))
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp8)
+        END-IF
+    GOBACK.
+END FUNCTION RvrsVlctyBndsVstr-minY0.
 
-procedure TReverseVelocityBoundsVisitor.maxY;
-begin
-        if (Self.velocityInterface.getVelocityYBasicDecimalP().getUnscaled()) > (0) then begin
-            Self.velocityInterface.getVelocityYBasicDecimalP().multiplyint(-1);
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RvrsVlctyBndsVstr-maxY0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp10 = FUNCTION VlctyIntrfc-gtVlctyYBscDcmlP0(FUNCTION JR-GET(J-THIS, "f_velocityInterface"))
+        IF (FUNCTION JR-CLASS-NAME(jtemp10) > 0)
+            COMPUTE jtemp12 = (0 - 1)
+        COMPUTE jtemp11 = FUNCTION VlctyIntrfc-gtVlctyYBscDcmlP0(FUNCTION JR-GET(J-THIS, "f_velocityInterface"))
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp11)
+        END-IF
+    GOBACK.
+END FUNCTION RvrsVlctyBndsVstr-maxY0.
 

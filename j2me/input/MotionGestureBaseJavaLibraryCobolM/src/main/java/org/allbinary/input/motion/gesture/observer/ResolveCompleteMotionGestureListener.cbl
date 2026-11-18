@@ -1,97 +1,95 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion.gesture.observer
+*> Java class ResolveCompleteMotionGestureListener
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion.gesture.observer
-unit ResolveCompleteMotionGestureListener;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RslvCmpltMtnGstrLstnr-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-commonStrings BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ResolveCompleteMotionGestureListener")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+        COMPUTE J-commonStrings = FUNCTION CommonStrings-getInstance0
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-STR("MotionGesture to CompleteMotionGesture Reciever"), J-THIS, FUNCTION JR-GET(J-commonStrings, "f_CONSTRUCTOR"))
+        COMPUTE jtemp1 = FUNCTION CmpltMtnGstrInptEvntHnd-61739
+        COMPUTE JDISCARD = FUNCTION CmpltMtnGstrInptEvntHnd-71797(jtemp1, FUNCTION GmKyFrmMtnGstrEvntLstnr-new0)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION RslvCmpltMtnGstrLstnr-new0.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LogUtil, BasicArrayList, CompleteMotionGestureListenerInterface;
-
-type
-  {AB:TYPES}
-  TResolveCompleteMotionGestureListener = class(TInterfacedObject, ICompleteMotionGestureListenerInterface)
-  public
-    logUtil: TLogUtil;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create;
-        procedure onMotionGestureCompleted(list: TBasicArrayList); virtual;
-  end;
-
-implementation
-uses
-  CompleteMotionGestureInputEventHandler, GameKeyCompleteMotionGestureInputEvent, GameKeyFromMotionGestureEventListener, MotionGestureToMotionGestureActionAssociation, MotionGestureConfiguration, MotionGestureConfigurationFactory, CommonStrings;
-
-
-{AB:CODE}
-
-procedure TResolveCompleteMotionGestureListener.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-end;
-
-function TResolveCompleteMotionGestureListener.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-    
-
-constructor TResolveCompleteMotionGestureListener.Create;
-var
-  commonStrings_: TCommonStrings;
-begin
-    inherited Create;
-    InitFields;
-        commonStrings_ := TCommonStrings.getInstance();
-        Self.logUtil.putF('MotionGesture to CompleteMotionGesture Reciever', TJava.Box(Self), commonStrings_.CONSTRUCTOR_);
-        TCompleteMotionGestureInputEventHandler.getInstance().addListener(TGameKeyFromMotionGestureEventListener.Create());
-end;
-    
-
-// throws Exception
-procedure TResolveCompleteMotionGestureListener.onMotionGestureCompleted(list: TBasicArrayList);
-var
-  configuration: TMotionGestureConfiguration;
-  commandActionsList: TBasicArrayList;
-  size: Integer;
-  association: TMotionGestureToMotionGestureActionAssociation;
-  completeMotionGestureInputEvent: TGameKeyCompleteMotionGestureInputEvent;
-  index: Integer;
-begin
-        configuration := TMotionGestureConfigurationFactory.getInstance();
-        commandActionsList := configuration.getAssociateCommandActionsList();
-        size := commandActionsList.size();
-        for index := (size) - (1) downto 0 do begin
-            association := TMotionGestureToMotionGestureActionAssociation(TJava.ToObject(commandActionsList.objectArray[index]));
-            if (association.isMotionGestureArrayEquals(list)) = (True) then begin
-                completeMotionGestureInputEvent := TGameKeyCompleteMotionGestureInputEvent(TJava.ToObject(association.getCommandAction()));
-                TCompleteMotionGestureInputEventHandler.getInstance().fireEvent(completeMotionGestureInputEvent);
-                Break;
-            end;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RslvCmpltMtnGstrLstnr-onM35334.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-configuration BINARY-DOUBLE.
+01 J-commandActionsList BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-association BINARY-DOUBLE.
+01 J-completeMotionGestureInputEvent BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-list RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-configuration = FUNCTION MtnGstrCnfgrtnFctry-gtInstnc0
+        COMPUTE J-commandActionsList = FUNCTION MtnGstrCnfgrtn-gtAssctCmm41503(J-configuration)
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(J-commandActionsList)
+        COMPUTE J-index = (FUNCTION MOD((J-size - 1) + 2147483648, 4294967296) - 2147483648)
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index >= 0) EXIT PERFORM END-IF
+            COMPUTE J-association = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-commandActionsList, "f_objectArray"), J-index)
+            IF (FUNCTION MtnGstrTMtnGstrActnAssc-13418(J-association, J-list) = 1)
+                COMPUTE J-completeMotionGestureInputEvent = FUNCTION MtnGstrTMtnGstrActnAssc-36476(J-association)
+                COMPUTE jtemp2 = FUNCTION CmpltMtnGstrInptEvntHnd-61739
+                COMPUTE JDISCARD = FUNCTION CmpltMtnGstrInptEvntHnd-13746(jtemp2, J-completeMotionGestureInputEvent)
+                EXIT PERFORM
+            END-IF
+        END-PERFORM
+    GOBACK.
+END FUNCTION RslvCmpltMtnGstrLstnr-onM35334.
 

@@ -1,136 +1,177 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.image.sprite
+*> Java class ImageCaptionIndexedAnimationFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgCptnIndxdAnmtnFctry-new11.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-captionImage BINARY-DOUBLE.
+01 J-spriteMovieImage BINARY-DOUBLE.
+01 J-soundInterface BINARY-DOUBLE.
+01 J-frameWidth BINARY-DOUBLE.
+01 J-frameHeight BINARY-DOUBLE.
+01 J-captionDx BINARY-DOUBLE.
+01 J-captionDy BINARY-DOUBLE.
+01 J-dx BINARY-DOUBLE.
+01 J-dy BINARY-DOUBLE.
+01 J-time BINARY-DOUBLE.
+01 J-animationBehaviorFactory BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-captionImage J-spriteMovieImage J-soundInterface J-frameWidth J-frameHeight J-captionDx J-captionDy J-dx J-dy J-time J-animationBehaviorFactory RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ImageCaptionIndexedAnimationFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_animationFactoryImageScaleUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_animationFactorySpriteScaleUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_captionImage")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_spriteMovieImage")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_frameWidth")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_frameHeight")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_captionDx")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_captionDy")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_dx")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_dy")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_time")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_soundInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_scaleProperties")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_animationBehaviorFactory")
+    COMPUTE JVALUE = FUNCTION AnmtnFctryImgSclUtl-gtInstnc0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animationFactoryImageScaleUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION AnmtnFctrySprtSclUtl-gtInstnc0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animationFactorySpriteScaleUtil", JVALUE)
     
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.image.sprite
-unit ImageCaptionIndexedAnimationFactory;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Image, Animation, AnimationBehaviorFactory, AnimationInterfaceFactoryInterface, AnimationFactoryImageScaleUtil, AnimationFactorySpriteScaleUtil, ScaleProperties, Sound, BasicAnimationInterfaceFactoryInterface;
-
-type
-  {AB:TYPES}
-  TImageCaptionIndexedAnimationFactory = class(TInterfacedObject, IAnimationInterfaceFactoryInterface, IBasicAnimationInterfaceFactoryInterface)
-  public
-    animationFactoryImageScaleUtil: TAnimationFactoryImageScaleUtil;
-    animationFactorySpriteScaleUtil: TAnimationFactorySpriteScaleUtil;
-    captionImage: TImage;
-    spriteMovieImage: TImage;
-    frameWidth: Integer;
-    frameHeight: Integer;
-    captionDx: Integer;
-    captionDy: Integer;
-    dx: Integer;
-    dy: Integer;
-    time: Integer;
-    soundInterface: TSound;
-    scaleProperties: TScaleProperties;
-    animationBehaviorFactory: TAnimationBehaviorFactory;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(captionImage: TImage; spriteMovieImage: TImage; soundInterface: TSound; frameWidth: Integer; frameHeight: Integer; captionDx: Integer; captionDy: Integer; dx: Integer; dy: Integer; time: Integer; animationBehaviorFactory_: TAnimationBehaviorFactory);
-        function getInstance(instanceId: Integer): TAnimation; virtual;
-        procedure setInitialScale(scaleProperties_: TScaleProperties); virtual;
-  end;
-
-implementation
-uses
-  SpriteIndexedAnimation, Sprite, Player, IndexedAnimation, CaptionIndexedAnimation, ImageAnimation, BasicColorUtil, ForcedLogUtil;
-
-
-{AB:CODE}
-
-procedure TImageCaptionIndexedAnimationFactory.InitFields;
-begin
-  Self.animationFactoryImageScaleUtil := TAnimationFactoryImageScaleUtil.getInstance();
-  Self.animationFactorySpriteScaleUtil := TAnimationFactorySpriteScaleUtil.getInstance();
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  Self.scaleProperties := TScaleProperties.instance;
-  
-end;
-
-function TImageCaptionIndexedAnimationFactory.JavaObject: TObject;
-begin
-  Result := Self;
-end;
     
-
-constructor TImageCaptionIndexedAnimationFactory.Create(captionImage: TImage; spriteMovieImage: TImage; soundInterface: TSound; frameWidth: Integer; frameHeight: Integer; captionDx: Integer; captionDy: Integer; dx: Integer; dy: Integer; time: Integer; animationBehaviorFactory_: TAnimationBehaviorFactory);
-begin
-    inherited Create;
-    InitFields;
-        if (animationBehaviorFactory_) = (TAnimationBehaviorFactory.getInstance()) then begin
-            TForcedLogUtil.log('Using default AnimationBehaviorFactory with IndexedAnimationFactory', TJava.Box(Self));
-        end;
-        Self.captionImage := captionImage;
-        Self.spriteMovieImage := spriteMovieImage;
-        Self.frameWidth := frameWidth;
-        Self.frameHeight := frameHeight;
-        Self.captionDx := captionDx;
-        Self.captionDy := captionDy;
-        Self.dx := dx;
-        Self.dy := dy;
-        Self.time := time;
-        Self.soundInterface := soundInterface;
-        Self.animationBehaviorFactory := animationBehaviorFactory_;
-end;
     
-
-// throws Exception
-function TImageCaptionIndexedAnimationFactory.getInstance(instanceId: Integer): TAnimation;
-var
-  scaledImage: TImage;
-  animationInterface: TAnimation;
-  sprite_: TSprite;
-  movieIndexedAnimationInterface: TIndexedAnimation;
-  player_: IPlayer;
-begin
-        scaledImage := Self.animationFactoryImageScaleUtil.createImage(Self.captionImage, Self.captionImage.getWidth(), Self.captionImage.getHeight(), Self.scaleProperties.scaleWidth, Self.scaleProperties.scaleHeight);
-        animationInterface := TImageAnimation.Create(scaledImage, Self.animationBehaviorFactory.getOrCreateInstance());
-        sprite_ := Self.animationFactorySpriteScaleUtil.createImage(Self.spriteMovieImage, Self.frameWidth, Self.frameHeight, Self.scaleProperties.scaleWidth, Self.scaleProperties.scaleHeight);
-        movieIndexedAnimationInterface := TSpriteIndexedAnimation.Create(sprite_, Self.spriteMovieImage, TBasicColorUtil.getInstance().ZERO_ARRAY, Self.animationBehaviorFactory.getOrCreateInstance());
-        player_ := Self.soundInterface.getPlayerP();
-        if (player_) = (nil) then begin
-            raise SysUtils.Exception.Create('Sound Was not Initialized');
-        end;
-        Exit(TCaptionIndexedAnimation.Create(animationInterface, movieIndexedAnimationInterface, player_, Self.captionDx, Self.captionDy, Self.dx, Self.dy, Self.time, Self.animationBehaviorFactory.getOrCreateInstance()));
-end;
     
+    
+    
+    
+    
+    
+    
+    COMPUTE JVALUE = FUNCTION SclPrprts-static-instance
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_scaleProperties", JVALUE)
+    
+        IF (J-animationBehaviorFactory = FUNCTION AnmtnBhvrFctry-getInstance0)
+            COMPUTE JDISCARD = FUNCTION ForcedLogUtil-log2(FUNCTION JR-STR("Using default AnimationBehaviorFactory with IndexedAnimationFactory"), J-THIS)
+        END-IF
+        COMPUTE JVALUE = J-captionImage
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_captionImage", JVALUE)
+        COMPUTE JVALUE = J-spriteMovieImage
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_spriteMovieImage", JVALUE)
+        COMPUTE JVALUE = J-frameWidth
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_frameWidth", JVALUE)
+        COMPUTE JVALUE = J-frameHeight
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_frameHeight", JVALUE)
+        COMPUTE JVALUE = J-captionDx
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_captionDx", JVALUE)
+        COMPUTE JVALUE = J-captionDy
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_captionDy", JVALUE)
+        COMPUTE JVALUE = J-dx
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_dx", JVALUE)
+        COMPUTE JVALUE = J-dy
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_dy", JVALUE)
+        COMPUTE JVALUE = J-time
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_time", JVALUE)
+        COMPUTE JVALUE = J-soundInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_soundInterface", JVALUE)
+        COMPUTE JVALUE = J-animationBehaviorFactory
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animationBehaviorFactory", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ImgCptnIndxdAnmtnFctry-new11.
 
-procedure TImageCaptionIndexedAnimationFactory.setInitialScale(scaleProperties_: TScaleProperties);
-begin
-        Self.scaleProperties := scaleProperties_;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgCptnIndxdAnmtnFctry-gt62909.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-scaledImage BINARY-DOUBLE.
+01 J-animationInterface BINARY-DOUBLE.
+01 J-sprite BINARY-DOUBLE.
+01 J-movieIndexedAnimationInterface BINARY-DOUBLE.
+01 J-player BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-instanceId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-instanceId RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-scaledImage = FUNCTION AnmtnFctryImgSclUtl-crtImg5(FUNCTION JR-GET(J-THIS, "f_animationFactoryImageScaleUtil"), FUNCTION JR-GET(J-THIS, "f_captionImage"), FUNCTION Image-getWidth0(FUNCTION JR-GET(J-THIS,
+        "f_captionImage")), FUNCTION Image-getHeight0(FUNCTION JR-GET(J-THIS, "f_captionImage")), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_scaleProperties"), "f_scaleWidth"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_scaleProperties"),
+        "f_scaleHeight"))
+        COMPUTE J-animationInterface = FUNCTION ImageAnimation-new2(J-scaledImage, FUNCTION AnmtnBhvrFctry-gtOrCrtInstnc0(FUNCTION JR-GET(J-THIS, "f_animationBehaviorFactory")))
+        COMPUTE J-sprite = FUNCTION AnmtnFctrySprtSclUtl-crtImg5(FUNCTION JR-GET(J-THIS, "f_animationFactorySpriteScaleUtil"), FUNCTION JR-GET(J-THIS, "f_spriteMovieImage"), FUNCTION JR-GET(J-THIS, "f_frameWidth"), FUNCTION JR-GET(J-THIS,
+        "f_frameHeight"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_scaleProperties"), "f_scaleWidth"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_scaleProperties"), "f_scaleHeight"))
+        COMPUTE jtemp1 = FUNCTION BasicColorUtil-getInstance0
+        COMPUTE J-movieIndexedAnimationInterface = FUNCTION SpriteIndexedAnimation-new4(J-sprite, FUNCTION JR-GET(J-THIS, "f_spriteMovieImage"), FUNCTION JR-GET(jtemp1, "f_ZERO_ARRAY"), FUNCTION AnmtnBhvrFctry-gtOrCrtInstnc0(FUNCTION
+        JR-GET(J-THIS, "f_animationBehaviorFactory")))
+        COMPUTE J-player = FUNCTION Sound-getPlayerP0(FUNCTION JR-GET(J-THIS, "f_soundInterface"))
+        IF (J-player = 0)
+            COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+        END-IF
+        COMPUTE J-RESULT = FUNCTION CaptionIndexedAnimation-new9(J-animationInterface, J-movieIndexedAnimationInterface, J-player, FUNCTION JR-GET(J-THIS, "f_captionDx"), FUNCTION JR-GET(J-THIS, "f_captionDy"), FUNCTION JR-GET(J-THIS,
+        "f_dx"), FUNCTION JR-GET(J-THIS, "f_dy"), FUNCTION JR-GET(J-THIS, "f_time"), FUNCTION AnmtnBhvrFctry-gtOrCrtInstnc0(FUNCTION JR-GET(J-THIS, "f_animationBehaviorFactory")))
+        GOBACK
+    GOBACK.
+END FUNCTION ImgCptnIndxdAnmtnFctry-gt62909.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgCptnIndxdAnmtnFctry-st81437.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-scaleProperties BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-scaleProperties RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-scaleProperties
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_scaleProperties", JVALUE)
+    GOBACK.
+END FUNCTION ImgCptnIndxdAnmtnFctry-st81437.
 

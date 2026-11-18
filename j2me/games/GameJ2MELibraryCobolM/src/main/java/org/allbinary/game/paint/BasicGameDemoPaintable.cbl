@@ -1,119 +1,230 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.paint
+*> Java class BasicGameDemoPaintable
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.paint
-unit BasicGameDemoPaintable;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, Paintable, StatePaintable;
-
-type
-  {AB:TYPES}
-  TBasicGameDemoPaintable = class(TStatePaintable)
-  public
-    mainDemoStatePaintable: TPaintable;
-    ownershipPaintable: TPaintable;
-    helpPaintableInterface: TPaintable;
-    currentStatePaintable: TPaintable;
-    procedure InitFields;
-        constructor Create(mainDemoStatePaintable: TPaintable; ownershipPaintable: TPaintable; helpPaintableInterface: TPaintable);
-        procedure setState(state: Integer); override;
-        procedure paint(graphics_: TGraphics); override;
-        function getHelpPaintableInterface: TPaintable; virtual;
-        procedure setCurrentStatePaintable(currentStatePaintable: TPaintable); virtual;
-        function getCurrentStatePaintable: TPaintable; virtual;
-        function getMainDemoStatePaintable: TPaintable; virtual;
-  end;
-
-implementation
-uses
-  NullPaintable;
-
-
-{AB:CODE}
-
-procedure TBasicGameDemoPaintable.InitFields;
-begin
-  
-  
-  
-  Self.currentStatePaintable := TNullPaintable.getInstance();
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicGameDemoPaintable-new3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-mainDemoStatePaintable BINARY-DOUBLE.
+01 J-ownershipPaintable BINARY-DOUBLE.
+01 J-helpPaintableInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-mainDemoStatePaintable J-ownershipPaintable J-helpPaintableInterface RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("BasicGameDemoPaintable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_mainDemoStatePaintable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ownershipPaintable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_helpPaintableInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_currentStatePaintable")
     
-
-constructor TBasicGameDemoPaintable.Create(mainDemoStatePaintable: TPaintable; ownershipPaintable: TPaintable; helpPaintableInterface: TPaintable);
-begin
-    inherited Create;
-    InitFields;
-        Self.mainDemoStatePaintable := mainDemoStatePaintable;
-        Self.setCurrentStatePaintable(TNullPaintable.getInstance());
-        Self.ownershipPaintable := ownershipPaintable;
-        Self.helpPaintableInterface := helpPaintableInterface;
-end;
     
-
-procedure TBasicGameDemoPaintable.setState(state: Integer);
-begin
-        if (state) = (0) then begin
-            Self.setCurrentStatePaintable(Self.getMainDemoStatePaintable());
-        end else if (state) = (1) then begin
-            Self.setCurrentStatePaintable(Self.helpPaintableInterface);
-        end else begin
-            Self.setCurrentStatePaintable(Self.ownershipPaintable);
-        end;
-end;
     
+    COMPUTE JVALUE = FUNCTION NullPaintable-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_currentStatePaintable", JVALUE)
+        COMPUTE JVALUE = J-mainDemoStatePaintable
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_mainDemoStatePaintable", JVALUE)
+        COMPUTE JDISCARD = FUNCTION BscGmDmPntbl-stCrrntSttPntbl1(J-THIS, FUNCTION NullPaintable-getInstance0)
+        COMPUTE JVALUE = J-ownershipPaintable
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ownershipPaintable", JVALUE)
+        COMPUTE JVALUE = J-helpPaintableInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_helpPaintableInterface", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION BasicGameDemoPaintable-new3.
 
-procedure TBasicGameDemoPaintable.paint(graphics_: TGraphics);
-begin
-        Self.getCurrentStatePaintable().paint(graphics_);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscGmDmPntbl-setState1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-state BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-state RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (J-state = 0)
+            COMPUTE JDISCARD = FUNCTION BscGmDmPntbl-stCrrntSttPntbl1(J-THIS, FUNCTION BscGmDmPntbl-gtMnDmSttPntbl0(J-THIS))
+        ELSE
+            IF (J-state = 1)
+            COMPUTE JDISCARD = FUNCTION BscGmDmPntbl-stCrrntSttPntbl1(J-THIS, FUNCTION JR-GET(J-THIS, "f_helpPaintableInterface"))
+        ELSE
+            COMPUTE JDISCARD = FUNCTION BscGmDmPntbl-stCrrntSttPntbl1(J-THIS, FUNCTION JR-GET(J-THIS, "f_ownershipPaintable"))
+        END-IF
+        END-IF
+    GOBACK.
+END FUNCTION BscGmDmPntbl-setState1.
 
-function TBasicGameDemoPaintable.getHelpPaintableInterface: TPaintable;
-begin
-        Exit(Self.helpPaintableInterface);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicGameDemoPaintable-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = FUNCTION BscGmDmPntbl-gtCrrntSttPntbl0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION Paintable-paint1(jtemp1, J-graphics)
+    GOBACK.
+END FUNCTION BasicGameDemoPaintable-paint1.
 
-procedure TBasicGameDemoPaintable.setCurrentStatePaintable(currentStatePaintable: TPaintable);
-begin
-        Self.currentStatePaintable := currentStatePaintable;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscGmDmPntbl-gtHlpPntblIntrfc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_helpPaintableInterface")
+        GOBACK
+    GOBACK.
+END FUNCTION BscGmDmPntbl-gtHlpPntblIntrfc0.
 
-function TBasicGameDemoPaintable.getCurrentStatePaintable: TPaintable;
-begin
-        Exit(Self.currentStatePaintable);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscGmDmPntbl-stCrrntSttPntbl1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-currentStatePaintable BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-currentStatePaintable RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-currentStatePaintable
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_currentStatePaintable", JVALUE)
+    GOBACK.
+END FUNCTION BscGmDmPntbl-stCrrntSttPntbl1.
 
-function TBasicGameDemoPaintable.getMainDemoStatePaintable: TPaintable;
-begin
-        Exit(Self.mainDemoStatePaintable);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscGmDmPntbl-gtCrrntSttPntbl0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_currentStatePaintable")
+        GOBACK
+    GOBACK.
+END FUNCTION BscGmDmPntbl-gtCrrntSttPntbl0.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscGmDmPntbl-gtMnDmSttPntbl0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_mainDemoStatePaintable")
+        GOBACK
+    GOBACK.
+END FUNCTION BscGmDmPntbl-gtMnDmSttPntbl0.
 

@@ -1,145 +1,284 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.layer.hud.basic.time
+*> Java class HudTimer
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.layer.hud.basic.time
-unit HudTimer;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, PrimitiveLongUtil, GameTickTimeDelayHelper;
-
-type
-  {AB:TYPES}
-  THudTimer = class(TObject)
-  public
-    startTime: Int64;
-    hundredthTime: Int64;
-    maxTime: Int64;
-    modifier: Int64;
-    hundrethsString: TArray<WideChar>;
-    totalDigits: Integer;
-    primitiveLongUtil: TPrimitiveLongUtil;
-    MAX: TArray<WideChar>;
-    gameTickTimeDelayHelper: TGameTickTimeDelayHelper;
-    procedure InitFields;
-        constructor Create(maxTime: Integer);
-        procedure start; virtual;
-        function get: Int64; virtual;
-        procedure update; virtual;
-        procedure reduce(value: Integer); virtual;
-        procedure add(value: Integer); virtual;
-        function getTimeChars: TArray<WideChar>; virtual;
-        function getCurrentTotalDigits: Integer; virtual;
-  end;
-
-implementation
-uses
-  PrimitiveLongSingleton, GameTickTimeDelayHelperFactory;
-
-
-{AB:CODE}
-
-procedure THudTimer.InitFields;
-begin
-  Self.startTime := Int64(-1);
-  
-  
-  
-  Self.hundrethsString := TPrimitiveLongSingleton.getInstance().ZERO;
-  Self.totalDigits := 1;
-  
-  Self.MAX := TArray<WideChar>.Create('L', 'O', 'L');
-  Self.gameTickTimeDelayHelper := TGameTickTimeDelayHelperFactory.getInstance();
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HudTimer-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-maxTime BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-maxTime RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("HudTimer")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_startTime")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_hundredthTime")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_maxTime")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_modifier")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_hundrethsString")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_totalDigits")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_primitiveLongUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_MAX")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameTickTimeDelayHelper")
+    COMPUTE JVALUE = (0 - 1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_startTime", JVALUE)
     
-
-constructor THudTimer.Create(maxTime: Integer);
-begin
-    inherited Create;
-    InitFields;
-        Self.primitiveLongUtil := TPrimitiveLongUtil.createPowerOfTen(maxTime);
-        Self.maxTime := Int64(maxTime);
-end;
     
-
-procedure THudTimer.start;
-begin
-        Self.hundredthTime := 0;
-        Self.startTime := Self.gameTickTimeDelayHelper.startTime;
-end;
     
-
-function THudTimer.get: Int64;
-begin
-        Exit(Self.hundredthTime);
-end;
+    COMPUTE jtemp1 = FUNCTION PrmtvLngSngltn-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_ZERO")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hundrethsString", JVALUE)
+    COMPUTE JVALUE = 1
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_totalDigits", JVALUE)
     
+    COMPUTE JVALUE = FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-NEW-ARRAY(JZERO), 76), 79), 76)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_MAX", JVALUE)
+    COMPUTE JVALUE = FUNCTION GmTckTmDlyHlprFctry-gtInstnc0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameTickTimeDelayHelper", JVALUE)
+        COMPUTE JVALUE = FUNCTION PrmtvLngUtl-createPowerOfTen1(J-maxTime)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_primitiveLongUtil", JVALUE)
+        COMPUTE JVALUE = J-maxTime
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_maxTime", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION HudTimer-new1.
 
-procedure THudTimer.update;
-var
-  lastLowerTime: Int64;
-  currentTime: Int64;
-begin
-        lastLowerTime := Self.hundredthTime;
-        currentTime := ((((Self.modifier) + (Self.gameTickTimeDelayHelper.startTime))) - (Self.startTime));
-        if (currentTime) < (0) then begin
-            currentTime := 0;
-        end;
-        Self.hundredthTime := (currentTime) div (100);
-        if (Self.hundredthTime) >= (Self.maxTime) then begin
-            if (Self.startTime) > (0) then begin
-                Self.hundrethsString := Self.MAX;
-            end;
-        end else if (lastLowerTime) <> (Self.hundredthTime) then begin
-            Self.hundrethsString := Self.primitiveLongUtil.getCharArray(Integer(Self.hundredthTime));
-            Self.totalDigits := Self.primitiveLongUtil.getCurrentTotalDigits();
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HudTimer-start0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = 0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hundredthTime", JVALUE)
+        COMPUTE JVALUE = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameTickTimeDelayHelper"), "f_startTime")
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_startTime", JVALUE)
+    GOBACK.
+END FUNCTION HudTimer-start0.
 
-procedure THudTimer.reduce(value: Integer);
-begin
-        Self.modifier := (Self.modifier) - (Int64(value));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HudTimer-get0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_hundredthTime")
+        GOBACK
+    GOBACK.
+END FUNCTION HudTimer-get0.
 
-procedure THudTimer.add(value: Integer);
-begin
-        Self.modifier := (Self.modifier) + (Int64(value));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HudTimer-update0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-lastLowerTime BINARY-DOUBLE.
+01 J-currentTime BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-lastLowerTime = FUNCTION JR-GET(J-THIS, "f_hundredthTime")
+        COMPUTE J-currentTime = ((((FUNCTION JR-GET(J-THIS, "f_modifier") + FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameTickTimeDelayHelper"), "f_startTime"))) - FUNCTION JR-GET(J-THIS, "f_startTime")))
+        IF (J-currentTime < 0)
+            COMPUTE J-currentTime = 0
+        END-IF
+        COMPUTE JVALUE = FUNCTION INTEGER-PART(J-currentTime / 100)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hundredthTime", JVALUE)
+        IF (FUNCTION JR-GET(J-THIS, "f_hundredthTime") >= FUNCTION JR-GET(J-THIS, "f_maxTime"))
+            IF (FUNCTION JR-GET(J-THIS, "f_startTime") > 0)
+                COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_MAX")
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hundrethsString", JVALUE)
+            END-IF
+        ELSE
+            IF (J-lastLowerTime NOT = FUNCTION JR-GET(J-THIS, "f_hundredthTime"))
+            COMPUTE jtemp2 = (FUNCTION MOD(FUNCTION JR-GET(J-THIS, "f_hundredthTime") + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JVALUE = FUNCTION PrmtvLngUtl-getCharArray1(FUNCTION JR-GET(J-THIS, "f_primitiveLongUtil"), jtemp2)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hundrethsString", JVALUE)
+            COMPUTE JVALUE = FUNCTION PrmtvLngUtl-gtCrrntTtlDgts0(FUNCTION JR-GET(J-THIS, "f_primitiveLongUtil"))
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_totalDigits", JVALUE)
+        END-IF
+        END-IF
+    GOBACK.
+END FUNCTION HudTimer-update0.
 
-function THudTimer.getTimeChars: TArray<WideChar>;
-begin
-        Exit(Self.hundrethsString);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HudTimer-reduce1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-value BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-value RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = (FUNCTION JR-GET(J-THIS, "f_modifier") - J-value)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_modifier", JVALUE)
+    GOBACK.
+END FUNCTION HudTimer-reduce1.
 
-function THudTimer.getCurrentTotalDigits: Integer;
-begin
-        Exit(Self.totalDigits);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HudTimer-add1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-value BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-value RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = (FUNCTION JR-GET(J-THIS, "f_modifier") + J-value)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_modifier", JVALUE)
+    GOBACK.
+END FUNCTION HudTimer-add1.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HudTimer-getTimeChars0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_hundrethsString")
+        GOBACK
+    GOBACK.
+END FUNCTION HudTimer-getTimeChars0.
 
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HdTmr-getCurrentTotalDigits0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_totalDigits")
+        GOBACK
+    GOBACK.
+END FUNCTION HdTmr-getCurrentTotalDigits0.
 

@@ -1,73 +1,123 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.configuration.feature
+*> Java class TouchFeatureFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.configuration.feature
-unit TouchFeatureFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchFtrFctry-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 TouchFeatureFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 TouchFeatureFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF TouchFeatureFactory-jset-instance = 0
+        MOVE 1 TO TouchFeatureFactory-jset-instance
+        COMPUTE TouchFeatureFactory-jcell-instance = FUNCTION TouchFeatureFactory-new0
+    END-IF
+    MOVE TouchFeatureFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION TchFtrFctry-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchFtrFctrystaticinsS14053.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 TouchFeatureFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION TchFtrFctry-static-instance TO J-RESULT
+    MOVE J-VALUE TO TouchFeatureFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION TchFtrFctrystaticinsS14053.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TouchFeatureFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("TouchFeatureFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_TOUCH_ENABLED")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SHOW_SCREEN_BUTTONS")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_AUTO_HIDE_SHOW_SCREEN_BUTTONS")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_HIDE_SCREEN_BUTTONS")
+    COMPUTE JVALUE = FUNCTION TouchFeature-new1(FUNCTION JR-STR("Touch Enabled"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_TOUCH_ENABLED", JVALUE)
+    COMPUTE JVALUE = FUNCTION TouchFeature-new1(FUNCTION JR-STR("Show"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SHOW_SCREEN_BUTTONS", JVALUE)
+    COMPUTE JVALUE = FUNCTION TouchFeature-new1(FUNCTION JR-STR("Auto Hide (One Level)"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_AUTO_HIDE_SHOW_SCREEN_BUTTONS", JVALUE)
+    COMPUTE JVALUE = FUNCTION TouchFeature-new1(FUNCTION JR-STR("Hide"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_HIDE_SCREEN_BUTTONS", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION TouchFeatureFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, TouchFeature;
-
-type
-  {AB:TYPES}
-  TTouchFeatureFactory = class(TObject)
-  public
-    TOUCH_ENABLED: TTouchFeature;
-    SHOW_SCREEN_BUTTONS: TTouchFeature;
-    AUTO_HIDE_SHOW_SCREEN_BUTTONS: TTouchFeature;
-    HIDE_SCREEN_BUTTONS: TTouchFeature;
-    class var instance: TTouchFeatureFactory;
-    procedure InitFields;
-        class function getInstance: TTouchFeatureFactory; static;
-        constructor Create;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TTouchFeatureFactory.InitFields;
-begin
-  Self.TOUCH_ENABLED := TTouchFeature.Create('Touch Enabled');
-  Self.SHOW_SCREEN_BUTTONS := TTouchFeature.Create('Show');
-  Self.AUTO_HIDE_SHOW_SCREEN_BUTTONS := TTouchFeature.Create('Auto Hide (One Level)');
-  Self.HIDE_SCREEN_BUTTONS := TTouchFeature.Create('Hide');
-end;
-    
-
-class function TTouchFeatureFactory.getInstance: TTouchFeatureFactory;
-begin
-        Exit(TTouchFeatureFactory.instance);
-end;
-    
-
-constructor TTouchFeatureFactory.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TTouchFeatureFactory.instance := TTouchFeatureFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchFtrFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION TchFtrFctry-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION TchFtrFctry-getInstance0.
 

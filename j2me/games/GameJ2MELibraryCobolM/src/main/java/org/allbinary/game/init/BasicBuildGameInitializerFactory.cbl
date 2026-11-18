@@ -1,67 +1,111 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.init
+*> Java class BasicBuildGameInitializerFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.init
-unit BasicBuildGameInitializerFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscBldGmIntlzrFctry-55515.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BasicBuildGameInitializerFactory-jcell-NULL_BASE_BUILD_GMAE_INITIALIZER_FACTORY BINARY-DOUBLE EXTERNAL.
+01 BasicBuildGameInitializerFactory-jset-NULL_BASE_BUILD_GMAE_INITIALIZER_FACTORY BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF BasicBuildGameInitializerFactory-jset-NULL_BASE_BUILD_GMAE_INITIALIZER_FACTORY = 0
+        MOVE 1 TO BasicBuildGameInitializerFactory-jset-NULL_BASE_BUILD_GMAE_INITIALIZER_FACTORY
+        COMPUTE BasicBuildGameInitializerFactory-jcell-NULL_BASE_BUILD_GMAE_INITIALIZER_FACTORY = FUNCTION BscBldGmIntlzrFctry-new0
+    END-IF
+    MOVE BasicBuildGameInitializerFactory-jcell-NULL_BASE_BUILD_GMAE_INITIALIZER_FACTORY TO J-RESULT
+    GOBACK.
+END FUNCTION BscBldGmIntlzrFctry-55515.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscBldGmIntlzrFctry5S65662.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BasicBuildGameInitializerFactory-jcell-NULL_BASE_BUILD_GMAE_INITIALIZER_FACTORY BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION BscBldGmIntlzrFctry-55515 TO J-RESULT
+    MOVE J-VALUE TO BasicBuildGameInitializerFactory-jcell-NULL_BASE_BUILD_GMAE_INITIALIZER_FACTORY
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION BscBldGmIntlzrFctry5S65662.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscBldGmIntlzrFctry-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("BasicBuildGameInitializerFactory")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION BscBldGmIntlzrFctry-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameInitializationInterface, GameInitializationInterfaceFactoryInterface;
-
-type
-  {AB:TYPES}
-  TBasicBuildGameInitializerFactory = class(TInterfacedObject, IGameInitializationInterfaceFactoryInterface)
-  public
-    class var NULL_BASE_BUILD_GMAE_INITIALIZER_FACTORY: TBasicBuildGameInitializerFactory;
-    function JavaObject: TObject;
-    constructor Create;
-        function getInstance: IGameInitializationInterface; virtual;
-  end;
-
-implementation
-uses
-  BaseGameInitialization;
-
-
-{AB:CODE}
-
-function TBasicBuildGameInitializerFactory.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-
-constructor TBasicBuildGameInitializerFactory.Create;
-begin
-  inherited Create;
-end;
-    
-
-function TBasicBuildGameInitializerFactory.getInstance: IGameInitializationInterface;
-begin
-        Exit(TBaseGameInitialization.NULL_BASE_GAME_INITIALIZATION);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TBasicBuildGameInitializerFactory.NULL_BASE_BUILD_GMAE_INITIALIZER_FACTORY := TBasicBuildGameInitializerFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscBldGmIntlzrFctry-gtInstnc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION BsGmIntlztn-sttc-NULL29988
+        GOBACK
+    GOBACK.
+END FUNCTION BscBldGmIntlzrFctry-gtInstnc0.
 

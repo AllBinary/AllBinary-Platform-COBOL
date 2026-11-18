@@ -1,109 +1,205 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion.gesture
+*> Java class MirrorMotionGestureEventUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion.gesture
-unit MirrorMotionGestureEventUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MrrrMtnGstrEvntUtl-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 MirrorMotionGestureEventUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 MirrorMotionGestureEventUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF MirrorMotionGestureEventUtil-jset-instance = 0
+        MOVE 1 TO MirrorMotionGestureEventUtil-jset-instance
+        COMPUTE MirrorMotionGestureEventUtil-jcell-instance = FUNCTION MrrrMtnGstrEvntUtl-new0
+    END-IF
+    MOVE MirrorMotionGestureEventUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION MrrrMtnGstrEvntUtl-sttc-nstnc.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MrrrMtnGstrEvntUtlstS77113.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 MirrorMotionGestureEventUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION MrrrMtnGstrEvntUtl-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO MirrorMotionGestureEventUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION MrrrMtnGstrEvntUtlstS77113.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, MotionEventCircularPool, MotionGestureEvent;
-
-type
-  {AB:TYPES}
-  TMirrorMotionGestureEventUtil = class(TObject)
-  public
-    motionEventCircularPool: TMotionEventCircularPool;
-    class var instance: TMirrorMotionGestureEventUtil;
-    procedure InitFields;
-        constructor Create;
-        function mirrorVerticle(motionGestureEvent_: TMotionGestureEvent; halfWidth: Integer): TMotionGestureEvent; virtual;
-        function getNewX(x: Integer; halfWidth: Integer): Integer; virtual;
-        class function getInstance: TMirrorMotionGestureEventUtil; static;
-  end;
-
-implementation
-uses
-  GPoint, PointFactory;
-
-
-{AB:CODE}
-
-procedure TMirrorMotionGestureEventUtil.InitFields;
-begin
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MrrrMtnGstrEvntUtl-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("MirrorMotionGestureEventUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_motionEventCircularPool")
     
+        COMPUTE JVALUE = FUNCTION MtnEvntCrclrPl-createPool1(FUNCTION Integer-static-MAX-VALUE)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_motionEventCircularPool", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION MrrrMtnGstrEvntUtl-new0.
 
-constructor TMirrorMotionGestureEventUtil.Create;
-begin
-    inherited Create;
-    InitFields;
-        Self.motionEventCircularPool := TMotionEventCircularPool.createPool(High(Integer));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MrrrMtnGstrEvntUtl-mrrrVrtcl2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-event BINARY-DOUBLE.
+01 J-previousNewX BINARY-DOUBLE.
+01 J-currentNewX BINARY-DOUBLE.
+01 J-pointFactory BINARY-DOUBLE.
+01 J-mirroredPreviousPoint BINARY-DOUBLE.
+01 J-mirroredCurrentPoint BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-motionGestureEvent BINARY-DOUBLE.
+01 J-halfWidth BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-motionGestureEvent J-halfWidth RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-event = FUNCTION MtnEvntCrclrPl-getInstance1(FUNCTION JR-GET(J-THIS, "f_motionEventCircularPool"), FUNCTION MtnGstrEvnt-getMotionGesture0(J-motionGestureEvent))
+        COMPUTE jtemp1 = FUNCTION MtnGstrEvnt-getPreviousPoint0(J-motionGestureEvent)
+        COMPUTE J-previousNewX = FUNCTION MrrrMtnGstrEvntUtl-getNewX2(J-THIS, FUNCTION JR-CLASS-NAME(jtemp1), J-halfWidth)
+        COMPUTE jtemp2 = FUNCTION MtnGstrEvnt-getCurrentPoint0(J-motionGestureEvent)
+        COMPUTE J-currentNewX = FUNCTION MrrrMtnGstrEvntUtl-getNewX2(J-THIS, FUNCTION JR-CLASS-NAME(jtemp2), J-halfWidth)
+        COMPUTE J-pointFactory = FUNCTION PointFactory-getInstance0
+        COMPUTE jtemp3 = FUNCTION MtnGstrEvnt-getPreviousPoint0(J-motionGestureEvent)
+        COMPUTE J-mirroredPreviousPoint = FUNCTION PointFactory-createXY2(J-pointFactory, J-previousNewX, FUNCTION JR-CLASS-NAME(jtemp3))
+        COMPUTE jtemp4 = FUNCTION MtnGstrEvnt-getCurrentPoint0(J-motionGestureEvent)
+        COMPUTE J-mirroredCurrentPoint = FUNCTION PointFactory-createXY2(J-pointFactory, J-currentNewX, FUNCTION JR-CLASS-NAME(jtemp4))
+        COMPUTE JDISCARD = FUNCTION MtnGstrEvnt-setPreviousPoint1(J-event, J-mirroredPreviousPoint)
+        COMPUTE JDISCARD = FUNCTION MtnGstrEvnt-setCurrentPoint1(J-event, J-mirroredCurrentPoint)
+        COMPUTE J-RESULT = J-event
+        GOBACK
+    GOBACK.
+END FUNCTION MrrrMtnGstrEvntUtl-mrrrVrtcl2.
 
-// throws Exception
-function TMirrorMotionGestureEventUtil.mirrorVerticle(motionGestureEvent_: TMotionGestureEvent; halfWidth: Integer): TMotionGestureEvent;
-var
-  event: TMotionGestureEvent;
-  previousNewX: Integer;
-  currentNewX: Integer;
-  pointFactory_: TPointFactory;
-  mirroredPreviousPoint: TGPoint;
-  mirroredCurrentPoint: TGPoint;
-begin
-        event := Self.motionEventCircularPool.getInstance(motionGestureEvent_.getMotionGesture());
-        previousNewX := Self.getNewX(motionGestureEvent_.getPreviousPoint().getX(), halfWidth);
-        currentNewX := Self.getNewX(motionGestureEvent_.getCurrentPoint().getX(), halfWidth);
-        pointFactory_ := TPointFactory.getInstance();
-        mirroredPreviousPoint := pointFactory_.createXY(previousNewX, motionGestureEvent_.getPreviousPoint().getY());
-        mirroredCurrentPoint := pointFactory_.createXY(currentNewX, motionGestureEvent_.getCurrentPoint().getY());
-        event.setPreviousPoint(mirroredPreviousPoint);
-        event.setCurrentPoint(mirroredCurrentPoint);
-        Exit(event);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MrrrMtnGstrEvntUtl-getNewX2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-newX BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-halfWidth BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-x J-halfWidth RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+        IF (J-x > J-halfWidth)
+            COMPUTE J-newX = (FUNCTION MOD((J-halfWidth - ((FUNCTION MOD((J-x - J-halfWidth) + 2147483648, 4294967296) - 2147483648))) + 2147483648, 4294967296) - 2147483648)
+        ELSE
+            COMPUTE jtemp5 = ((FUNCTION MOD((J-halfWidth - J-x) + 2147483648, 4294967296) - 2147483648))
+            COMPUTE J-newX = (FUNCTION MOD((J-halfWidth + jtemp5) + 2147483648, 4294967296) - 2147483648)
+        END-IF
+        COMPUTE J-RESULT = J-newX
+        GOBACK
+    GOBACK.
+END FUNCTION MrrrMtnGstrEvntUtl-getNewX2.
 
-function TMirrorMotionGestureEventUtil.getNewX(x: Integer; halfWidth: Integer): Integer;
-var
-  newX: Integer;
-begin
-        
-        if (x) > (halfWidth) then begin
-            newX := (halfWidth) - (((x) - (halfWidth)));
-        end else begin
-            newX := (halfWidth) + (((halfWidth) - (x)));
-        end;
-        Exit(newX);
-end;
-    
-
-class function TMirrorMotionGestureEventUtil.getInstance: TMirrorMotionGestureEventUtil;
-begin
-        Exit(TMirrorMotionGestureEventUtil.instance);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TMirrorMotionGestureEventUtil.instance := TMirrorMotionGestureEventUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MrrrMtnGstrEvntUtl-gtInstnc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION MrrrMtnGstrEvntUtl-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION MrrrMtnGstrEvntUtl-gtInstnc0.
 

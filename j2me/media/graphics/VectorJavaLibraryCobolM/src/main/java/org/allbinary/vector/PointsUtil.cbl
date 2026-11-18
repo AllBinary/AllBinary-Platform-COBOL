@@ -1,113 +1,303 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.vector
+*> Java class PointsUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.vector
-unit PointsUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PointsUtil-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PointsUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 PointsUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF PointsUtil-jset-instance = 0
+        MOVE 1 TO PointsUtil-jset-instance
+        COMPUTE PointsUtil-jcell-instance = FUNCTION PointsUtil-new0
+    END-IF
+    MOVE PointsUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION PointsUtil-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PointsUtilstaticinstS59002.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PointsUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION PointsUtil-static-instance TO J-RESULT
+    MOVE J-VALUE TO PointsUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION PointsUtilstaticinstS59002.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PointsUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("PointsUtil")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION PointsUtil-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PointsUtil-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION PointsUtil-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION PointsUtil-getInstance0.
 
-type
-  {AB:TYPES}
-  TPointsUtil = class(TObject)
-  public
-    class var instance: TPointsUtil;
-    constructor Create;
-        class function getInstance: TPointsUtil; static;
-        function adjustXY(points: TArray<TArray<TArray<Integer>>>; x: Integer; y: Integer): TArray<TArray<TArray<Integer>>>; virtual;
-        function adjust(points: TArray<TArray<Integer>>; both: Integer): TArray<TArray<Integer>>; overload; virtual;
-        function adjust(points: TArray<TArray<Integer>>; x: Integer; y: Integer): TArray<TArray<Integer>>; overload; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PointsUtil-adjustXY3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-size BINARY-DOUBLE.
+01 J-newPoints BINARY-DOUBLE.
+01 J-size2 BINARY-DOUBLE.
+01 J-index2 BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-points BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-points J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(J-points)
+        COMPUTE jtemp1 = 0
+        COMPUTE jtemp2 = 0
+        COMPUTE J-newPoints = FUNCTION JR-NEW-ARRAY3(J-size, jtemp1, jtemp2)
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-size2 = FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-ARRAY-GET(J-points, J-index))
+            COMPUTE jtemp3 = 2
+            COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY2(J-size2, jtemp3)
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-newPoints, J-index, JVALUE)
+            COMPUTE J-index2 = 0
+            MOVE 1 TO JFIRST2
+            PERFORM FOREVER
+                IF JFIRST2 = 0
+                    COMPUTE J-index2 = (FUNCTION MOD(J-index2 + 1 + 2147483648, 4294967296) - 2147483648)
+                END-IF
+                MOVE 0 TO JFIRST2
+                IF NOT (J-index2 < J-size2) EXIT PERFORM END-IF
+                COMPUTE jtemp4 = 0
+                IF (FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(J-points, J-index), J-index2), jtemp4) NOT = 1000)
+                    COMPUTE jtemp8 = 0
+                    COMPUTE jtemp7 = 0
+                    COMPUTE JVALUE = (FUNCTION MOD((FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(J-points, J-index), J-index2), jtemp8) + J-x) + 2147483648, 4294967296) - 2147483648)
+                    COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(J-newPoints, J-index), J-index2), jtemp7, JVALUE)
+                    COMPUTE jtemp10 = 1
+                    COMPUTE jtemp9 = 1
+                    COMPUTE JVALUE = (FUNCTION MOD((FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(J-points, J-index), J-index2), jtemp10) + J-y) + 2147483648, 4294967296) - 2147483648)
+                    COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(J-newPoints, J-index), J-index2), jtemp9, JVALUE)
+                ELSE
+                    COMPUTE jtemp5 = 0
+                    COMPUTE JVALUE = 1000
+                    COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(J-newPoints, J-index), J-index2), jtemp5, JVALUE)
+                    COMPUTE jtemp6 = 1
+                    COMPUTE JVALUE = 1000
+                    COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(J-newPoints, J-index), J-index2), jtemp6, JVALUE)
+                END-IF
+            END-PERFORM
+        END-PERFORM
+        COMPUTE J-RESULT = J-newPoints
+        GOBACK
+    GOBACK.
+END FUNCTION PointsUtil-adjustXY3.
 
-implementation
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PointsUtil-adjust2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-points BINARY-DOUBLE.
+01 J-both BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-points J-both RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION PointsUtil-adjust3(J-THIS, J-points, J-both, J-both)
+        GOBACK
+    GOBACK.
+END FUNCTION PointsUtil-adjust2.
 
-{AB:CODE}
-
-constructor TPointsUtil.Create;
-begin
-  inherited Create;
-end;
-    
-
-class function TPointsUtil.getInstance: TPointsUtil;
-begin
-        Exit(TPointsUtil.instance);
-end;
-    
-
-function TPointsUtil.adjustXY(points: TArray<TArray<TArray<Integer>>>; x: Integer; y: Integer): TArray<TArray<TArray<Integer>>>;
-var
-  size: Integer;
-  newPoints: TArray<TArray<TArray<Integer>>>;
-  size2: Integer;
-  index2: Integer;
-  index: Integer;
-begin
-        size := System.Length(points);
-        newPoints := TJava.NewArray3<Integer>(size, 0, 0);
-        for index := 0 to size - 1 do begin
-            size2 := System.Length(points[index]);
-            newPoints[index] := TJava.NewArray2<Integer>(size2, 2);
-            for index2 := 0 to size2 - 1 do begin
-                if (points[index][index2][0]) <> (1000) then begin
-                    newPoints[index][index2][0] := (points[index][index2][0]) + (x);
-                    newPoints[index][index2][1] := (points[index][index2][1]) + (y);
-                end else begin
-                    newPoints[index][index2][0] := 1000;
-                    newPoints[index][index2][1] := 1000;
-                end;
-            end;
-        end;
-        Exit(newPoints);
-end;
-    
-
-function TPointsUtil.adjust(points: TArray<TArray<Integer>>; both: Integer): TArray<TArray<Integer>>;
-begin
-        Exit(Self.adjust(points, both, both));
-end;
-    
-
-function TPointsUtil.adjust(points: TArray<TArray<Integer>>; x: Integer; y: Integer): TArray<TArray<Integer>>;
-var
-  newPoints: TArray<TArray<Integer>>;
-  index2: Integer;
-begin
-        newPoints := TJava.NewArray2<Integer>(System.Length(points), 2);
-        for index2 := 0 to System.Length(points) - 1 do begin
-            if (points[index2][0]) <> (1000) then begin
-                newPoints[index2][0] := (points[index2][0]) + (x);
-                newPoints[index2][1] := (points[index2][1]) + (y);
-            end else begin
-                newPoints[index2][0] := 1000;
-                newPoints[index2][1] := 1000;
-            end;
-        end;
-        Exit(newPoints);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TPointsUtil.instance := TPointsUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PointsUtil-adjust3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-newPoints BINARY-DOUBLE.
+01 J-index2 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+01 jtemp18 BINARY-DOUBLE.
+01 JFIRST3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-points BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-points J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp11 = 2
+        COMPUTE J-newPoints = FUNCTION JR-NEW-ARRAY2(FUNCTION JR-ARRAY-LENGTH(J-points), jtemp11)
+        COMPUTE J-index2 = 0
+        MOVE 1 TO JFIRST3
+        PERFORM FOREVER
+            IF JFIRST3 = 0
+                COMPUTE J-index2 = (FUNCTION MOD(J-index2 + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST3
+            IF NOT (J-index2 < FUNCTION JR-ARRAY-LENGTH(J-points)) EXIT PERFORM END-IF
+            COMPUTE jtemp12 = 0
+            IF (FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(J-points, J-index2), jtemp12) NOT = 1000)
+                COMPUTE jtemp16 = 0
+                COMPUTE jtemp15 = 0
+                COMPUTE JVALUE = (FUNCTION MOD((FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(J-points, J-index2), jtemp16) + J-x) + 2147483648, 4294967296) - 2147483648)
+                COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-ARRAY-GET(J-newPoints, J-index2), jtemp15, JVALUE)
+                COMPUTE jtemp18 = 1
+                COMPUTE jtemp17 = 1
+                COMPUTE JVALUE = (FUNCTION MOD((FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(J-points, J-index2), jtemp18) + J-y) + 2147483648, 4294967296) - 2147483648)
+                COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-ARRAY-GET(J-newPoints, J-index2), jtemp17, JVALUE)
+            ELSE
+                COMPUTE jtemp13 = 0
+                COMPUTE JVALUE = 1000
+                COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-ARRAY-GET(J-newPoints, J-index2), jtemp13, JVALUE)
+                COMPUTE jtemp14 = 1
+                COMPUTE JVALUE = 1000
+                COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-ARRAY-GET(J-newPoints, J-index2), jtemp14, JVALUE)
+            END-IF
+        END-PERFORM
+        COMPUTE J-RESULT = J-newPoints
+        GOBACK
+    GOBACK.
+END FUNCTION PointsUtil-adjust3.
 

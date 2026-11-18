@@ -1,73 +1,110 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.image
+*> Java class ImageArrayRotationAnimationCacheable
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.image
-unit ImageArrayRotationAnimationCacheable;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArryRttnAnmtnCchbl-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-anyType BINARY-DOUBLE.
+01 J-animationBehavior BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-anyType J-animationBehavior RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ImageArrayRotationAnimationCacheable")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ImgArryRttnAnmtnCchbl-new2.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArryRttnAnmtnCchbl-getKey0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+        COMPUTE J-RESULT = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+        GOBACK
+    GOBACK.
+END FUNCTION ImgArryRttnAnmtnCchbl-getKey0.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArryRttnAnmtnCchbl-tStrng0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION StringUtil-getInstance0
+        COMPUTE J-RESULT = FUNCTION JR-GET(jtemp2, "f_EMPTY_STRING")
+        GOBACK
+    GOBACK.
+END FUNCTION ImgArryRttnAnmtnCchbl-tStrng0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AnimationBehavior, CacheableInterface, AdjustedImageArrayRotationAnimation;
-
-type
-  {AB:TYPES}
-  TImageArrayRotationAnimationCacheable = class(TAdjustedImageArrayRotationAnimation, ICacheableInterface)
-  public
-    function JavaObject: TObject;
-        constructor Create(anyType: TObject; animationBehavior_: TAnimationBehavior);
-        function getKey: TObject; virtual;
-        function toString: string; override;
-  end;
-
-implementation
-uses
-  ImageArrayRotationAnimationInfo, NullUtil, StringUtil;
-
-
-{AB:CODE}
-
-function TImageArrayRotationAnimationCacheable.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-    
-
-constructor TImageArrayRotationAnimationCacheable.Create(anyType: TObject; animationBehavior_: TAnimationBehavior);
-begin
-        inherited Create((TImageArrayRotationAnimationInfo(TJava.ToObject(anyType))).getImageArray(), (TImageArrayRotationAnimationInfo(TJava.ToObject(anyType))).getAngleInfoP(), (TImageArrayRotationAnimationInfo(TJava.ToObject(anyType))).getTotalAngle(), (TImageArrayRotationAnimationInfo(TJava.ToObject(anyType))).getDx(), (TImageArrayRotationAnimationInfo(TJava.ToObject(anyType))).getDy(), animationBehavior_);
-end;
-    
-
-function TImageArrayRotationAnimationCacheable.getKey: TObject;
-begin
-        Exit(TJava.Box(TNullUtil.getInstance().NULL_OBJECT));
-end;
-    
-
-function TImageArrayRotationAnimationCacheable.toString: string;
-begin
-        Exit(TStringUtil.getInstance().EMPTY_STRING);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+PROGRAM-ID. ImageArrayRotationAni-toString.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ImgArryRttnAnmtnCchbl-tStrng0(J-THIS)
+    GOBACK.
+END PROGRAM ImageArrayRotationAni-toString.
 

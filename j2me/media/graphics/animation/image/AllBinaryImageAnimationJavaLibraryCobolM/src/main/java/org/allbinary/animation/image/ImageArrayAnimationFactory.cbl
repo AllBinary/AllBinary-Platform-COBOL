@@ -1,95 +1,117 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.image
+*> Java class ImageArrayAnimationFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.image
-unit ImageArrayAnimationFactory;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Image, Animation, AnimationBehaviorFactory, AnimationInterfaceFactoryInterface, ScaleProperties, BasicAnimationInterfaceFactoryInterface;
-
-type
-  {AB:TYPES}
-  TImageArrayAnimationFactory = class(TInterfacedObject, IAnimationInterfaceFactoryInterface, IBasicAnimationInterfaceFactoryInterface)
-  public
-    dx: Integer;
-    dy: Integer;
-    imageArray: TArray<TImage>;
-    animationBehaviorFactory: TAnimationBehaviorFactory;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(imageArray: TArray<TImage>; dx: Integer; dy: Integer; animationBehaviorFactory_: TAnimationBehaviorFactory);
-        function getInstance(instanceId: Integer): TAnimation; virtual;
-        procedure setInitialScale(scaleProperties_: TScaleProperties); virtual;
-  end;
-
-implementation
-uses
-  ImageArrayAnimation, AdjustedImageArrayAnimation, AnimationBehavior, ForcedLogUtil;
-
-
-{AB:CODE}
-
-procedure TImageArrayAnimationFactory.InitFields;
-begin
-  Self.dx := 0;
-  Self.dy := 0;
-  
-  
-end;
-
-function TImageArrayAnimationFactory.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArryAnmtnFctry-new4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-imageArray BINARY-DOUBLE.
+01 J-dx BINARY-DOUBLE.
+01 J-dy BINARY-DOUBLE.
+01 J-animationBehaviorFactory BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-imageArray J-dx J-dy J-animationBehaviorFactory RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ImageArrayAnimationFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_dx")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_dy")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_imageArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_animationBehaviorFactory")
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_dx", JVALUE)
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_dy", JVALUE)
     
-
-constructor TImageArrayAnimationFactory.Create(imageArray: TArray<TImage>; dx: Integer; dy: Integer; animationBehaviorFactory_: TAnimationBehaviorFactory);
-begin
-    inherited Create;
-    InitFields;
-        Self.imageArray := imageArray;
-        Self.animationBehaviorFactory := animationBehaviorFactory_;
-        Self.dx := dx;
-        Self.dy := dy;
-end;
     
+        COMPUTE JVALUE = J-imageArray
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_imageArray", JVALUE)
+        COMPUTE JVALUE = J-animationBehaviorFactory
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animationBehaviorFactory", JVALUE)
+        COMPUTE JVALUE = J-dx
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_dx", JVALUE)
+        COMPUTE JVALUE = J-dy
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_dy", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ImgArryAnmtnFctry-new4.
 
-// throws Exception
-function TImageArrayAnimationFactory.getInstance(instanceId: Integer): TAnimation;
-begin
-        if ((Self.dx) <> (0)) or ((Self.dy) <> (0)) then begin
-            Exit(TAdjustedImageArrayAnimation.Create(Self.imageArray, Self.dx, Self.dy, Self.animationBehaviorFactory.getOrCreateInstance()));
-        end else begin
-            Exit(TImageArrayAnimation.Create(Self.imageArray, TAnimationBehavior.getInstance()));
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArryAnmtnFctry-getInstance1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-instanceId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-instanceId RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF ((FUNCTION JR-GET(J-THIS, "f_dx") NOT = 0) OR (FUNCTION JR-GET(J-THIS, "f_dy") NOT = 0))
+            COMPUTE J-RESULT = FUNCTION AdjstdImgArryAnmtn-new4(FUNCTION JR-GET(J-THIS, "f_imageArray"), FUNCTION JR-GET(J-THIS, "f_dx"), FUNCTION JR-GET(J-THIS, "f_dy"), FUNCTION AnmtnBhvrFctry-gtOrCrtInstnc0(FUNCTION JR-GET(J-THIS,
+        "f_animationBehaviorFactory")))
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = FUNCTION ImageArrayAnimation-new2(FUNCTION JR-GET(J-THIS, "f_imageArray"), FUNCTION AnimationBehavior-getInstance0)
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION ImgArryAnmtnFctry-getInstance1.
 
-procedure TImageArrayAnimationFactory.setInitialScale(scaleProperties_: TScaleProperties);
-begin
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArryAnmtnFctry-stIntlScl1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-scaleProperties BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-scaleProperties RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION ImgArryAnmtnFctry-stIntlScl1.
 

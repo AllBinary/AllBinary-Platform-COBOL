@@ -1,77 +1,81 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.ai
+*> Java class DiveAndDirectionalTrackingAIFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.ai
-unit DiveAndDirectionalTrackingAIFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DvAndDrctnlTrckngAIFctry-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("DiveAndDirectionalTrackingAIFactory")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION DvAndDrctnlTrckngAIFctry-new0.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, ArtificialIntelligenceInterface, ArtificialIntelligenceInterfaceFactoryInterface, GameInput, AllBinaryLayer, ABHashtable;
-
-type
-  {AB:TYPES}
-  TDiveAndDirectionalTrackingAIFactory = class(TInterfacedObject, IArtificialIntelligenceInterfaceFactoryInterface)
-  public
-    function JavaObject: TObject;
-    constructor Create;
-        function getInstance(hashtable: TABHashtable<TObject, TObject>; ownerLayerInterface: TAllBinaryLayer; gameInput_: TGameInput): IArtificialIntelligenceInterface; virtual;
-  end;
-
-implementation
-uses
-  ThrustAIVisitorFactory, BasicProbabilityAIDataFactory, LastKeyAIVisitorFactory, DiveAndDirectionalTrackingAI, BasicRandomAIFactory, BasicAI, Visitor;
-
-
-{AB:CODE}
-
-function TDiveAndDirectionalTrackingAIFactory.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-
-constructor TDiveAndDirectionalTrackingAIFactory.Create;
-begin
-  inherited Create;
-end;
-    
-
-// throws Exception
-function TDiveAndDirectionalTrackingAIFactory.getInstance(hashtable: TABHashtable<TObject, TObject>; ownerLayerInterface: TAllBinaryLayer; gameInput_: TGameInput): IArtificialIntelligenceInterface;
-var
-  visitorCanBeNull: TObject;
-  hashtable2: TABHashtable<TObject, TObject>;
-  artificialIntelligenceInterface_: IArtificialIntelligenceInterface;
-begin
-        visitorCanBeNull := TJava.Box(hashtable.get(TJava.Box(TJava.Box(TBasicAI.AI_VISITOR))));
-        if (visitorCanBeNull) = (nil) then begin
-            visitorCanBeNull := TJava.Box(TThrustAIVisitorFactory.getInstance());
-        end;
-        hashtable2 := TBasicProbabilityAIDataFactory.Create().getInstance();
-        hashtable2.put(TJava.Box(TBasicAI.AI_VISITOR), TJava.Box(TLastKeyAIVisitorFactory.getInstance()));
-        artificialIntelligenceInterface_ := TBasicRandomAIFactory.Create().getInstance(hashtable2, ownerLayerInterface, gameInput_);
-        Exit(TDiveAndDirectionalTrackingAI.Create(ownerLayerInterface, artificialIntelligenceInterface_, gameInput_, TVisitor(TJava.ToObject(visitorCanBeNull))));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DvAndDrctnlTrckngAIFctr-51650.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-visitorCanBeNull BINARY-DOUBLE.
+01 J-hashtable2 BINARY-DOUBLE.
+01 J-artificialIntelligenceInterface BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-hashtable BINARY-DOUBLE.
+01 J-ownerLayerInterface BINARY-DOUBLE.
+01 J-gameInput BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-hashtable J-ownerLayerInterface J-gameInput RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = FUNCTION BasicAI-static-AI-VISITOR
+        COMPUTE J-visitorCanBeNull = FUNCTION Hashtable-get1(J-hashtable, jtemp1)
+        IF (J-visitorCanBeNull = 0)
+            COMPUTE J-visitorCanBeNull = FUNCTION ThrstAIVstrFctry-getInstance0
+        END-IF
+        COMPUTE jtemp2 = FUNCTION BscPrbbltyAIDtFctry-new0
+        COMPUTE J-hashtable2 = FUNCTION BscPrbbltyAIDtFctry-gtInstnc0(jtemp2)
+        COMPUTE JDISCARD = FUNCTION Hashtable-put2(J-hashtable2, FUNCTION BasicAI-static-AI-VISITOR, FUNCTION LstKyAIVstrFctry-getInstance0)
+        COMPUTE jtemp3 = FUNCTION BasicRandomAIFactory-new0
+        COMPUTE J-artificialIntelligenceInterface = FUNCTION BscRndmAIFctry-getInstance3(jtemp3, J-hashtable2, J-ownerLayerInterface, J-gameInput)
+        COMPUTE jtemp4 = J-visitorCanBeNull
+        COMPUTE J-RESULT = FUNCTION DvAndDrctnlTrckngAI-new4(J-ownerLayerInterface, J-artificialIntelligenceInterface, J-gameInput, jtemp4)
+        GOBACK
+    GOBACK.
+END FUNCTION DvAndDrctnlTrckngAIFctr-51650.
 

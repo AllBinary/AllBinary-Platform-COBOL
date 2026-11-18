@@ -1,134 +1,324 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation
+*> Java class VectorAnimationUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation
-unit VectorAnimationUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrAnmtnUtl-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 VectorAnimationUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 VectorAnimationUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF VectorAnimationUtil-jset-instance = 0
+        MOVE 1 TO VectorAnimationUtil-jset-instance
+        COMPUTE VectorAnimationUtil-jcell-instance = FUNCTION VectorAnimationUtil-new0
+    END-IF
+    MOVE VectorAnimationUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION VctrAnmtnUtl-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrAnmtnUtlstaticinS15822.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 VectorAnimationUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION VctrAnmtnUtl-static-instance TO J-RESULT
+    MOVE J-VALUE TO VectorAnimationUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION VctrAnmtnUtlstaticinS15822.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VectorAnimationUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("VectorAnimationUtil")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION VectorAnimationUtil-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, BasicArrayList;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrAnmtnUtl-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION VctrAnmtnUtl-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION VctrAnmtnUtl-getInstance0.
 
-type
-  {AB:TYPES}
-  TVectorAnimationUtil = class(TObject)
-  public
-    class var instance: TVectorAnimationUtil;
-        class function getInstance: TVectorAnimationUtil; static;
-        constructor Create;
-        function toAnimationArrayFromListOfPointListWithPointsPerFrame(vector: TBasicArrayList; pointsPerFrame: Integer): TArray<TArray<TArray<Integer>>>; virtual;
-        function toAnimationArrayFromListOfPointList(vector: TBasicArrayList): TArray<TArray<TArray<Integer>>>; virtual;
-        function toFrameArrayFromPointBasicArrayList(list: TBasicArrayList): TArray<TArray<Integer>>; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrAnmtnUtl-tAnmtnArryFr44994.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-size BINARY-DOUBLE.
+01 J-points BINARY-DOUBLE.
+01 J-nextBasicArrayList BINARY-DOUBLE.
+01 J-framePoints BINARY-DOUBLE.
+01 J-pointIndex BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-vector BINARY-DOUBLE.
+01 J-pointsPerFrame BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-vector J-pointsPerFrame RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(J-vector)
+        COMPUTE jtemp1 = 2
+        COMPUTE J-points = FUNCTION JR-NEW-ARRAY3(J-size, J-pointsPerFrame, jtemp1)
+        CONTINUE
+        CONTINUE
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-nextBasicArrayList = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-vector, "f_objectArray"), J-index)
+            COMPUTE J-framePoints = FUNCTION VctrAnmtnUtl-tFrmArryFrmP11358(J-THIS, J-nextBasicArrayList)
+            COMPUTE J-pointIndex = 0
+            MOVE 1 TO JFIRST2
+            PERFORM FOREVER
+                IF JFIRST2 = 0
+                    COMPUTE J-pointIndex = (FUNCTION MOD(J-pointIndex + 1 + 2147483648, 4294967296) - 2147483648)
+                END-IF
+                MOVE 0 TO JFIRST2
+                IF NOT (J-pointIndex < FUNCTION JR-ARRAY-LENGTH(J-framePoints)) EXIT PERFORM END-IF
+                COMPUTE jtemp2 = 0
+                COMPUTE jtemp3 = 0
+                COMPUTE JVALUE = FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(J-framePoints, J-pointIndex), jtemp3)
+                COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(J-points, J-index), J-pointIndex), jtemp2, JVALUE)
+                COMPUTE jtemp4 = 1
+                COMPUTE jtemp5 = 1
+                COMPUTE JVALUE = FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(J-framePoints, J-pointIndex), jtemp5)
+                COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(J-points, J-index), J-pointIndex), jtemp4, JVALUE)
+            END-PERFORM
+        END-PERFORM
+        COMPUTE J-RESULT = J-points
+        GOBACK
+    GOBACK.
+END FUNCTION VctrAnmtnUtl-tAnmtnArryFr44994.
 
-implementation
-uses
-  GPoint;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrAnmtnUtl-tAnmtnArryFr56840.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-size BINARY-DOUBLE.
+01 J-points BINARY-DOUBLE.
+01 J-nextBasicArrayList BINARY-DOUBLE.
+01 J-framePoints BINARY-DOUBLE.
+01 J-pointIndex BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 JFIRST3 BINARY-DOUBLE.
+01 JFIRST4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-vector BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-vector RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(J-vector)
+        COMPUTE jtemp6 = 0
+        COMPUTE jtemp7 = 0
+        COMPUTE J-points = FUNCTION JR-NEW-ARRAY3(J-size, jtemp6, jtemp7)
+        CONTINUE
+        CONTINUE
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST3
+        PERFORM FOREVER
+            IF JFIRST3 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST3
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-nextBasicArrayList = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-vector, "f_objectArray"), J-index)
+            COMPUTE J-framePoints = FUNCTION VctrAnmtnUtl-tFrmArryFrmP11358(J-THIS, J-nextBasicArrayList)
+            COMPUTE jtemp8 = 2
+            COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY2(FUNCTION JR-ARRAY-LENGTH(J-framePoints), jtemp8)
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-points, J-index, JVALUE)
+            COMPUTE J-pointIndex = 0
+            MOVE 1 TO JFIRST4
+            PERFORM FOREVER
+                IF JFIRST4 = 0
+                    COMPUTE J-pointIndex = (FUNCTION MOD(J-pointIndex + 1 + 2147483648, 4294967296) - 2147483648)
+                END-IF
+                MOVE 0 TO JFIRST4
+                IF NOT (J-pointIndex < FUNCTION JR-ARRAY-LENGTH(J-framePoints)) EXIT PERFORM END-IF
+                COMPUTE jtemp9 = 0
+                COMPUTE jtemp10 = 0
+                COMPUTE JVALUE = FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(J-framePoints, J-pointIndex), jtemp10)
+                COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(J-points, J-index), J-pointIndex), jtemp9, JVALUE)
+                COMPUTE jtemp11 = 1
+                COMPUTE jtemp12 = 1
+                COMPUTE JVALUE = FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(J-framePoints, J-pointIndex), jtemp12)
+                COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(J-points, J-index), J-pointIndex), jtemp11, JVALUE)
+            END-PERFORM
+        END-PERFORM
+        COMPUTE J-RESULT = J-points
+        GOBACK
+    GOBACK.
+END FUNCTION VctrAnmtnUtl-tAnmtnArryFr56840.
 
-
-{AB:CODE}
-    
-
-class function TVectorAnimationUtil.getInstance: TVectorAnimationUtil;
-begin
-        Exit(TVectorAnimationUtil.instance);
-end;
-    
-
-constructor TVectorAnimationUtil.Create;
-begin
-    inherited Create;
-end;
-    
-
-function TVectorAnimationUtil.toAnimationArrayFromListOfPointListWithPointsPerFrame(vector: TBasicArrayList; pointsPerFrame: Integer): TArray<TArray<TArray<Integer>>>;
-var
-  size: Integer;
-  points: TArray<TArray<TArray<Integer>>>;
-  nextBasicArrayList: TBasicArrayList;
-  framePoints: TArray<TArray<Integer>>;
-  pointIndex: Integer;
-  index: Integer;
-begin
-        size := vector.size();
-        points := TJava.NewArray3<Integer>(size, pointsPerFrame, 2);
-        
-        
-        for index := 0 to size - 1 do begin
-            nextBasicArrayList := TBasicArrayList(TJava.ToObject(vector.objectArray[index]));
-            framePoints := Self.toFrameArrayFromPointBasicArrayList(nextBasicArrayList);
-            for pointIndex := 0 to System.Length(framePoints) - 1 do begin
-                points[index][pointIndex][0] := framePoints[pointIndex][0];
-                points[index][pointIndex][1] := framePoints[pointIndex][1];
-            end;
-        end;
-        Exit(points);
-end;
-    
-
-function TVectorAnimationUtil.toAnimationArrayFromListOfPointList(vector: TBasicArrayList): TArray<TArray<TArray<Integer>>>;
-var
-  size: Integer;
-  points: TArray<TArray<TArray<Integer>>>;
-  nextBasicArrayList: TBasicArrayList;
-  framePoints: TArray<TArray<Integer>>;
-  pointIndex: Integer;
-  index: Integer;
-begin
-        size := vector.size();
-        points := TJava.NewArray3<Integer>(size, 0, 0);
-        
-        
-        for index := 0 to size - 1 do begin
-            nextBasicArrayList := TBasicArrayList(TJava.ToObject(vector.objectArray[index]));
-            framePoints := Self.toFrameArrayFromPointBasicArrayList(nextBasicArrayList);
-            points[index] := TJava.NewArray2<Integer>(System.Length(framePoints), 2);
-            for pointIndex := 0 to System.Length(framePoints) - 1 do begin
-                points[index][pointIndex][0] := framePoints[pointIndex][0];
-                points[index][pointIndex][1] := framePoints[pointIndex][1];
-            end;
-        end;
-        Exit(points);
-end;
-    
-
-function TVectorAnimationUtil.toFrameArrayFromPointBasicArrayList(list: TBasicArrayList): TArray<TArray<Integer>>;
-var
-  points: TArray<TArray<Integer>>;
-  size: Integer;
-  nextPoint: TGPoint;
-  index: Integer;
-begin
-        points := TJava.NewArray2<Integer>(list.size(), 2);
-        size := list.size();
-        for index := 0 to size - 1 do begin
-            nextPoint := TGPoint(TJava.ToObject(list.objectArray[index]));
-            points[index][0] := nextPoint.getX();
-            points[index][1] := nextPoint.getY();
-        end;
-        Exit(points);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TVectorAnimationUtil.instance := TVectorAnimationUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrAnmtnUtl-tFrmArryFrmP11358.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-points BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-nextPoint BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 JFIRST5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-list RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp13 = 2
+        COMPUTE J-points = FUNCTION JR-NEW-ARRAY2(FUNCTION BasicArrayList-size0(J-list), jtemp13)
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(J-list)
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST5
+        PERFORM FOREVER
+            IF JFIRST5 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST5
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-nextPoint = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
+            COMPUTE jtemp14 = 0
+            COMPUTE JVALUE = FUNCTION GPoint-getX0(J-nextPoint)
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-ARRAY-GET(J-points, J-index), jtemp14, JVALUE)
+            COMPUTE jtemp15 = 1
+            COMPUTE JVALUE = FUNCTION GPoint-getY0(J-nextPoint)
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-ARRAY-GET(J-points, J-index), jtemp15, JVALUE)
+        END-PERFORM
+        COMPUTE J-RESULT = J-points
+        GOBACK
+    GOBACK.
+END FUNCTION VctrAnmtnUtl-tFrmArryFrmP11358.
 

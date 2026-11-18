@@ -1,119 +1,374 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.configuration
+*> Java class GameConfigurationTextInput
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.configuration
-unit GameConfigurationTextInput;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtnTxtInpt-sttc-hshtbl.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameConfigurationTextInput-jcell-hashtable BINARY-DOUBLE EXTERNAL.
+01 GameConfigurationTextInput-jset-hashtable BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GameConfigurationTextInput-jset-hashtable = 0
+        MOVE 1 TO GameConfigurationTextInput-jset-hashtable
+        COMPUTE jtemp1 = FUNCTION StdUtil-getInstance0
+    COMPUTE GameConfigurationTextInput-jcell-hashtable = FUNCTION StdUtil-createHashtable0(jtemp1)
+    END-IF
+    MOVE GameConfigurationTextInput-jcell-hashtable TO J-RESULT
+    GOBACK.
+END FUNCTION GmCnfgrtnTxtInpt-sttc-hshtbl.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtnTxtInptsttcS16049.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameConfigurationTextInput-jcell-hashtable BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GmCnfgrtnTxtInpt-sttc-hshtbl TO J-RESULT
+    MOVE J-VALUE TO GameConfigurationTextInput-jcell-hashtable
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GmCnfgrtnTxtInptsttcS16049.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtnTxtInpt-sttc-S89633.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameConfigurationTextInput-jcell-SIMULATOR_IP BINARY-DOUBLE EXTERNAL.
+01 GameConfigurationTextInput-jset-SIMULATOR_IP BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GameConfigurationTextInput-jset-SIMULATOR_IP = 0
+        MOVE 1 TO GameConfigurationTextInput-jset-SIMULATOR_IP
+        COMPUTE GameConfigurationTextInput-jcell-SIMULATOR_IP = FUNCTION GmCnfgrtnTxtInpt-new2(FUNCTION JR-STR("IP: "), FUNCTION JR-STR("192.168.1.3"))
+    END-IF
+    MOVE GameConfigurationTextInput-jcell-SIMULATOR_IP TO J-RESULT
+    GOBACK.
+END FUNCTION GmCnfgrtnTxtInpt-sttc-S89633.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, TextField, ABHashtable;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtnTxtInptsttcS98758.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameConfigurationTextInput-jcell-SIMULATOR_IP BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GmCnfgrtnTxtInpt-sttc-S89633 TO J-RESULT
+    MOVE J-VALUE TO GameConfigurationTextInput-jcell-SIMULATOR_IP
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GmCnfgrtnTxtInptsttcS98758.
 
-type
-  {AB:TYPES}
-  TGameConfigurationTextInput = class(TObject)
-  public
-    label_: string;
-    text: string;
-    class var hashtable: TABHashtable<TObject, TObject>;
-    class var SIMULATOR_IP: TGameConfigurationTextInput;
-    class var SIMULATOR_PORT: TGameConfigurationTextInput;
-    procedure InitFields;
-        constructor Create(label_: string; text: string);
-        class procedure update(textField_: TTextField); static;
-        procedure setText(text: string); virtual;
-        function getText: string; virtual;
-        procedure setLabel(label_: string); virtual;
-        function getLabel: string; virtual;
-        class function getHashtable: TABHashtable<TObject, TObject>; static;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtnTxtInpt-sttc-S78832.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameConfigurationTextInput-jcell-SIMULATOR_PORT BINARY-DOUBLE EXTERNAL.
+01 GameConfigurationTextInput-jset-SIMULATOR_PORT BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GameConfigurationTextInput-jset-SIMULATOR_PORT = 0
+        MOVE 1 TO GameConfigurationTextInput-jset-SIMULATOR_PORT
+        COMPUTE GameConfigurationTextInput-jcell-SIMULATOR_PORT = FUNCTION GmCnfgrtnTxtInpt-new2(FUNCTION JR-STR("Port: "), FUNCTION JR-STR("8010"))
+    END-IF
+    MOVE GameConfigurationTextInput-jcell-SIMULATOR_PORT TO J-RESULT
+    GOBACK.
+END FUNCTION GmCnfgrtnTxtInpt-sttc-S78832.
 
-implementation
-uses
-  StdUtil, StringUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtnTxtInptsttcS15867.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameConfigurationTextInput-jcell-SIMULATOR_PORT BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GmCnfgrtnTxtInpt-sttc-S78832 TO J-RESULT
+    MOVE J-VALUE TO GameConfigurationTextInput-jcell-SIMULATOR_PORT
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GmCnfgrtnTxtInptsttcS15867.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtnTxtInpt-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-label BINARY-DOUBLE.
+01 J-text BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-label J-text RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameConfigurationTextInput")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_label")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_text")
+    COMPUTE jtemp2 = FUNCTION StringUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp2, "f_EMPTY_STRING")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_label", JVALUE)
+    COMPUTE jtemp3 = FUNCTION StringUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp3, "f_EMPTY_STRING")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_text", JVALUE)
+        COMPUTE JDISCARD = FUNCTION GmCnfgrtnTxtInpt-setText1(J-THIS, J-text)
+        COMPUTE JDISCARD = FUNCTION GmCnfgrtnTxtInpt-setLabel1(J-THIS, J-label)
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION GmCnfgrtnTxtInpt-sttc-hshtbl)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GmCnfgrtnTxtInpt-new2.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtnTxtInpt-update1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-anyType BINARY-DOUBLE.
+01 J-gameConfigurationTextInput BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-textField BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-textField RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-anyType = FUNCTION TextField-getLabel0(J-textField)
+        COMPUTE J-gameConfigurationTextInput = FUNCTION JR-CLASS-NAME(FUNCTION GmCnfgrtnTxtInpt-sttc-hshtbl)
+        COMPUTE JDISCARD = FUNCTION GmCnfgrtnTxtInpt-setText1(J-gameConfigurationTextInput, FUNCTION TextField-getString0(J-textField))
+    GOBACK.
+END FUNCTION GmCnfgrtnTxtInpt-update1.
 
-procedure TGameConfigurationTextInput.InitFields;
-begin
-  Self.label_ := TStringUtil.getInstance().EMPTY_STRING;
-  Self.text := TStringUtil.getInstance().EMPTY_STRING;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtnTxtInpt-setText1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-text BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-text RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-text
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_text", JVALUE)
+    GOBACK.
+END FUNCTION GmCnfgrtnTxtInpt-setText1.
 
-constructor TGameConfigurationTextInput.Create(label_: string; text: string);
-begin
-    inherited Create;
-    InitFields;
-        Self.setText(text);
-        Self.setLabel(label_);
-        TGameConfigurationTextInput.hashtable.put(TJava.Box(Self.getLabel()), TJava.Box(Self));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtnTxtInpt-getText0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_text")
+        GOBACK
+    GOBACK.
+END FUNCTION GmCnfgrtnTxtInpt-getText0.
 
-class procedure TGameConfigurationTextInput.update(textField_: TTextField);
-var
-  anyType: TObject;
-  gameConfigurationTextInput_: TGameConfigurationTextInput;
-begin
-        anyType := TJava.Box(TJava.Box(textField_.getLabel()));
-        gameConfigurationTextInput_ := TGameConfigurationTextInput(TJava.ToObject(TGameConfigurationTextInput.hashtable.get(TJava.Box(anyType))));
-        gameConfigurationTextInput_.setText(textField_.getString());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtnTxtInpt-setLabel1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-label BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-label RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-label
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_label", JVALUE)
+    GOBACK.
+END FUNCTION GmCnfgrtnTxtInpt-setLabel1.
 
-procedure TGameConfigurationTextInput.setText(text: string);
-begin
-        Self.text := text;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtnTxtInpt-getLabel0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_label")
+        GOBACK
+    GOBACK.
+END FUNCTION GmCnfgrtnTxtInpt-getLabel0.
 
-function TGameConfigurationTextInput.getText: string;
-begin
-        Exit(Self.text);
-end;
-    
-
-procedure TGameConfigurationTextInput.setLabel(label_: string);
-begin
-        Self.label_ := label_;
-end;
-    
-
-function TGameConfigurationTextInput.getLabel: string;
-begin
-        Exit(Self.label_);
-end;
-    
-
-class function TGameConfigurationTextInput.getHashtable: TABHashtable<TObject, TObject>;
-begin
-        Exit(TGameConfigurationTextInput.hashtable);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TGameConfigurationTextInput.hashtable := TStdUtil.getInstance().createHashtable();
-  TGameConfigurationTextInput.SIMULATOR_IP := TGameConfigurationTextInput.Create('IP: ', '192.168.1.3');
-  TGameConfigurationTextInput.SIMULATOR_PORT := TGameConfigurationTextInput.Create('Port: ', '8010');
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtnTxtInpt-getHashtable0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION GmCnfgrtnTxtInpt-sttc-hshtbl
+        GOBACK
+    GOBACK.
+END FUNCTION GmCnfgrtnTxtInpt-getHashtable0.
 

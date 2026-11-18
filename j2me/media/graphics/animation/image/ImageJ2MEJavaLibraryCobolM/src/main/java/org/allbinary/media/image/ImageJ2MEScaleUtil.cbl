@@ -1,116 +1,254 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.media.image
+*> Java class ImageJ2MEScaleUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2023 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.media.image
-unit ImageJ2MEScaleUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgJ2MESclUtl-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ImageJ2MEScaleUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 ImageJ2MEScaleUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF ImageJ2MEScaleUtil-jset-instance = 0
+        MOVE 1 TO ImageJ2MEScaleUtil-jset-instance
+        COMPUTE ImageJ2MEScaleUtil-jcell-instance = FUNCTION ImageJ2MEScaleUtil-new0
+    END-IF
+    MOVE ImageJ2MEScaleUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION ImgJ2MESclUtl-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgJ2MESclUtlstaticiS80686.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ImageJ2MEScaleUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION ImgJ2MESclUtl-static-instance TO J-RESULT
+    MOVE J-VALUE TO ImageJ2MEScaleUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION ImgJ2MESclUtlstaticiS80686.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImageJ2MEScaleUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ImageJ2MEScaleUtil")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ImageJ2MEScaleUtil-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Image;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgJ2MESclUtl-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION ImgJ2MESclUtl-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION ImgJ2MESclUtl-getInstance0.
 
-type
-  {AB:TYPES}
-  TImageJ2MEScaleUtil = class(TObject)
-  public
-    class var instance: TImageJ2MEScaleUtil;
-        class function getInstance: TImageJ2MEScaleUtil; static;
-        constructor Create;
-        function scaleArray(images: TArray<TImage>; width: Integer; height: Integer): TArray<TImage>; virtual;
-        function scale(image_: TImage; width: Integer; height: Integer): TImage; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImageJ2MEScaleUtil-scaleArray3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-scaledImages BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-images BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-images J-width J-height RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-scaledImages = FUNCTION JR-NEW-ARRAY(FUNCTION JR-ARRAY-LENGTH(J-images))
+        COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp1 = J-index
+        COMPUTE J-index = FUNCTION JR-ARRAY-LENGTH(J-images)
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            MOVE 0 TO JFIRST1
+            IF NOT (jtemp1 >= 0) EXIT PERFORM END-IF
+            COMPUTE JVALUE = FUNCTION ImageJ2MEScaleUtil-scale3(J-THIS, FUNCTION JR-ARRAY-GET(J-images, J-index), J-width, J-height)
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-scaledImages, J-index, JVALUE)
+        END-PERFORM
+        COMPUTE J-RESULT = J-scaledImages
+        GOBACK
+    GOBACK.
+END FUNCTION ImageJ2MEScaleUtil-scaleArray3.
 
-implementation
-
-{AB:CODE}
-    
-
-class function TImageJ2MEScaleUtil.getInstance: TImageJ2MEScaleUtil;
-begin
-        Exit(TImageJ2MEScaleUtil.instance);
-end;
-    
-
-constructor TImageJ2MEScaleUtil.Create;
-begin
-    inherited Create;
-end;
-    
-
-// throws Exception
-function TImageJ2MEScaleUtil.scaleArray(images: TArray<TImage>; width: Integer; height: Integer): TArray<TImage>;
-var
-  scaledImages: TArray<TImage>;
-  index: Integer;
-begin
-        scaledImages := TJava.NewArray<TImage>(System.Length(images));
-        index := System.Length(images);
-        while (TJava.PreDec(index)) >= (0) do begin
-            scaledImages[index] := Self.scale(images[index], width, height);
-        end;
-        Exit(scaledImages);
-end;
-    
-
-// throws Exception
-function TImageJ2MEScaleUtil.scale(image_: TImage; width: Integer; height: Integer): TImage;
-var
-  sourceWidth: Integer;
-  sourceHeight: Integer;
-  originalData: TArray<Integer>;
-  scaledData: TArray<Integer>;
-  heightRatioFactor: Integer;
-  widthRatioFactor: Integer;
-  scaledIndex: Integer;
-  dx: Integer;
-  dy: Integer;
-  index2: Integer;
-  index: Integer;
-  scaledImage: TImage;
-begin
-        sourceWidth := image_.getWidth();
-        sourceHeight := image_.getHeight();
-        originalData := TJava.NewArray<Integer>((image_.getWidth()) * (image_.getHeight()));
-        image_.getRGB(originalData, 0, image_.getWidth(), 0, 0, image_.getWidth(), image_.getHeight());
-        scaledData := TJava.NewArray<Integer>((width) * (height));
-        heightRatioFactor := (((8) * (sourceHeight))) div (height);
-        widthRatioFactor := (((8) * (sourceWidth))) div (width);
-        scaledIndex := (System.Length(scaledData)) - (1);
-        
-        
-        index := height;
-        while (TJava.PreDec(index)) >= (0) do begin
-            dy := TJava.SignedRightShift(((index) * (heightRatioFactor)), 3);
-            index2 := width;
-            while (TJava.PreDec(index2)) >= (0) do begin
-                dx := TJava.SignedRightShift(((index2) * (widthRatioFactor)), 3);
-                scaledData[TJava.PostDec(scaledIndex)] := originalData[(((sourceWidth) * (dy))) + (dx)];
-            end;
-        end;
-        scaledImage := TImage.createRGBImage(scaledData, width, height, True);
-        Exit(scaledImage);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TImageJ2MEScaleUtil.instance := TImageJ2MEScaleUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImageJ2MEScaleUtil-scale3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-sourceWidth BINARY-DOUBLE.
+01 J-sourceHeight BINARY-DOUBLE.
+01 J-originalData BINARY-DOUBLE.
+01 J-scaledData BINARY-DOUBLE.
+01 J-heightRatioFactor BINARY-DOUBLE.
+01 J-widthRatioFactor BINARY-DOUBLE.
+01 J-scaledIndex BINARY-DOUBLE.
+01 J-dx BINARY-DOUBLE.
+01 J-dy BINARY-DOUBLE.
+01 J-index2 BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-scaledImage BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+01 JFIRST3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-image BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-image J-width J-height RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-sourceWidth = FUNCTION Image-getWidth0(J-image)
+        COMPUTE J-sourceHeight = FUNCTION Image-getHeight0(J-image)
+        COMPUTE jtemp2 = (FUNCTION MOD((FUNCTION Image-getWidth0(J-image) * FUNCTION Image-getHeight0(J-image)) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE J-originalData = FUNCTION JR-NEW-ARRAY(jtemp2)
+        COMPUTE jtemp3 = 0
+        COMPUTE jtemp4 = 0
+        COMPUTE jtemp5 = 0
+        COMPUTE JDISCARD = FUNCTION Image-getRGB7(J-image, J-originalData, jtemp3, FUNCTION Image-getWidth0(J-image), jtemp4, jtemp5, FUNCTION Image-getWidth0(J-image), FUNCTION Image-getHeight0(J-image))
+        COMPUTE jtemp6 = (FUNCTION MOD((J-width * J-height) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE J-scaledData = FUNCTION JR-NEW-ARRAY(jtemp6)
+        COMPUTE J-heightRatioFactor = (FUNCTION MOD(FUNCTION INTEGER-PART(((FUNCTION MOD((8 * J-sourceHeight) + 2147483648, 4294967296) - 2147483648)) / J-height) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE J-widthRatioFactor = (FUNCTION MOD(FUNCTION INTEGER-PART(((FUNCTION MOD((8 * J-sourceWidth) + 2147483648, 4294967296) - 2147483648)) / J-width) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE J-scaledIndex = (FUNCTION MOD((FUNCTION JR-ARRAY-LENGTH(J-scaledData) - 1) + 2147483648, 4294967296) - 2147483648)
+        CONTINUE
+        CONTINUE
+        COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp11 = J-index
+        COMPUTE J-index = J-height
+        MOVE 1 TO JFIRST2
+        PERFORM FOREVER
+            MOVE 0 TO JFIRST2
+            IF NOT (jtemp11 >= 0) EXIT PERFORM END-IF
+            COMPUTE J-dy = FUNCTION JR-SHIFT(JFIVE, ((FUNCTION MOD((J-index * J-heightRatioFactor) + 2147483648, 4294967296) - 2147483648)), 3)
+            COMPUTE J-index2 = (FUNCTION MOD(J-index2 - 1 + 2147483648, 4294967296) - 2147483648)
+            COMPUTE jtemp10 = J-index2
+            COMPUTE J-index2 = J-width
+            MOVE 1 TO JFIRST3
+            PERFORM FOREVER
+                MOVE 0 TO JFIRST3
+                IF NOT (jtemp10 >= 0) EXIT PERFORM END-IF
+                COMPUTE J-dx = FUNCTION JR-SHIFT(JFIVE, ((FUNCTION MOD((J-index2 * J-widthRatioFactor) + 2147483648, 4294967296) - 2147483648)), 3)
+                COMPUTE jtemp9 = ((FUNCTION MOD((J-sourceWidth * J-dy) + 2147483648, 4294967296) - 2147483648))
+                COMPUTE jtemp7 = J-scaledIndex
+                COMPUTE J-scaledIndex = (FUNCTION MOD(J-scaledIndex - 1 + 2147483648, 4294967296) - 2147483648)
+                COMPUTE jtemp8 = (FUNCTION MOD((jtemp9 + J-dx) + 2147483648, 4294967296) - 2147483648)
+                COMPUTE JVALUE = FUNCTION JR-ARRAY-GET(J-originalData, jtemp8)
+                COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-scaledData, jtemp7, JVALUE)
+            END-PERFORM
+        END-PERFORM
+        COMPUTE jtemp12 = 1
+        COMPUTE J-scaledImage = FUNCTION Image-createRGBImage4(J-scaledData, J-width, J-height, jtemp12)
+        COMPUTE J-RESULT = J-scaledImage
+        GOBACK
+    GOBACK.
+END FUNCTION ImageJ2MEScaleUtil-scale3.
 

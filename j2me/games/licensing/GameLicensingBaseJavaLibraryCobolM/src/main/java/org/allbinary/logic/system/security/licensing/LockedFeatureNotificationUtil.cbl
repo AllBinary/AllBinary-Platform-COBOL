@@ -1,88 +1,189 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.system.security.licensing
+*> Java class LockedFeatureNotificationUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.logic.system.security.licensing
-unit LockedFeatureNotificationUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LckdFtrNtfctnUtl-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 LockedFeatureNotificationUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 LockedFeatureNotificationUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF LockedFeatureNotificationUtil-jset-instance = 0
+        MOVE 1 TO LockedFeatureNotificationUtil-jset-instance
+        COMPUTE LockedFeatureNotificationUtil-jcell-instance = FUNCTION LckdFtrNtfctnUtl-new0
+    END-IF
+    MOVE LockedFeatureNotificationUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION LckdFtrNtfctnUtl-sttc-nstnc.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LckdFtrNtfctnUtlsttcS77330.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 LockedFeatureNotificationUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION LckdFtrNtfctnUtl-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO LockedFeatureNotificationUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION LckdFtrNtfctnUtlsttcS77330.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LckdFtrNtfctnUtl-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("LockedFeatureNotificationUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameNotificationEvent")
+    COMPUTE jtemp3 = 3
+    COMPUTE jtemp1 = FUNCTION LicenseStrings-getInstance0
+    COMPUTE jtemp2 = FUNCTION SmllIntgrSngltnFctry-gtInstnc0
+    COMPUTE jtemp4 = FUNCTION BasicColorFactory-getInstance0
+    COMPUTE jtemp5 = FUNCTION BooleanFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION GameNotificationEvent-new5(J-THIS, FUNCTION JR-GET(jtemp1, "f_LOCKED"), FUNCTION SmllIntgrSngltnFctry-getAt1(jtemp2, jtemp3), FUNCTION JR-GET(jtemp4, "f_RED"), FUNCTION JR-GET(jtemp5, "f_FALSE"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameNotificationEvent", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION LckdFtrNtfctnUtl-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameNotificationEvent, BasicColor;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LckdFtrNtfctnUtl-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION LckdFtrNtfctnUtl-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION LckdFtrNtfctnUtl-getInstance0.
 
-type
-  {AB:TYPES}
-  TLockedFeatureNotificationUtil = class(TObject)
-  public
-    gameNotificationEvent: TGameNotificationEvent;
-    class var instance: TLockedFeatureNotificationUtil;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TLockedFeatureNotificationUtil; static;
-        procedure fire; virtual;
-        procedure fireWithColor(basicColor_: TBasicColor); virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LckdFtrNtfctnUtl-fire0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp6 = FUNCTION PrmryPlyrQFctry-getInstance0
+        COMPUTE JDISCARD = FUNCTION PrimaryPlayerQueueFactory-add1(jtemp6, FUNCTION ErrorSound-getInstance0)
+        COMPUTE jtemp7 = FUNCTION GmNtfctnEvntHndlr-getInstance0
+        COMPUTE JDISCARD = FUNCTION BasicEventHandler-fireEvent1(jtemp7, FUNCTION JR-GET(J-THIS, "f_gameNotificationEvent"))
+    GOBACK.
+END FUNCTION LckdFtrNtfctnUtl-fire0.
 
-implementation
-uses
-  LicenseStrings, GameNotificationEventHandler, BasicColorFactory, BooleanFactory, SmallIntegerSingletonFactory, ErrorSound, PrimaryPlayerQueueFactory;
-
-
-{AB:CODE}
-
-procedure TLockedFeatureNotificationUtil.InitFields;
-begin
-  Self.gameNotificationEvent := TGameNotificationEvent.Create(TJava.Box(Self), TLicenseStrings.getInstance().LOCKED, TSmallIntegerSingletonFactory.getInstance().getAt(3), TBasicColorFactory.getInstance().RED, TBooleanFactory.getInstance().FALSE_);
-end;
-
-constructor TLockedFeatureNotificationUtil.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TLockedFeatureNotificationUtil.getInstance: TLockedFeatureNotificationUtil;
-begin
-        Exit(TLockedFeatureNotificationUtil.instance);
-end;
-    
-
-// throws Exception
-procedure TLockedFeatureNotificationUtil.fire;
-begin
-        TPrimaryPlayerQueueFactory.getInstance().add(TErrorSound.getInstance());
-        TGameNotificationEventHandler.getInstance().fireEvent(Self.gameNotificationEvent);
-end;
-    
-
-// throws Exception
-procedure TLockedFeatureNotificationUtil.fireWithColor(basicColor_: TBasicColor);
-begin
-        TPrimaryPlayerQueueFactory.getInstance().add(TErrorSound.getInstance());
-        Self.gameNotificationEvent.setBasicColorP(basicColor_);
-        TGameNotificationEventHandler.getInstance().fireEvent(Self.gameNotificationEvent);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TLockedFeatureNotificationUtil.instance := TLockedFeatureNotificationUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LckdFtrNtfctnUtl-frWthClr1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-basicColor RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp8 = FUNCTION PrmryPlyrQFctry-getInstance0
+        COMPUTE JDISCARD = FUNCTION PrimaryPlayerQueueFactory-add1(jtemp8, FUNCTION ErrorSound-getInstance0)
+        COMPUTE JDISCARD = FUNCTION GmNtfctnEvnt-setBasicColorP1(FUNCTION JR-GET(J-THIS, "f_gameNotificationEvent"), J-basicColor)
+        COMPUTE jtemp9 = FUNCTION GmNtfctnEvntHndlr-getInstance0
+        COMPUTE JDISCARD = FUNCTION BasicEventHandler-fireEvent1(jtemp9, FUNCTION JR-GET(J-THIS, "f_gameNotificationEvent"))
+    GOBACK.
+END FUNCTION LckdFtrNtfctnUtl-frWthClr1.
 

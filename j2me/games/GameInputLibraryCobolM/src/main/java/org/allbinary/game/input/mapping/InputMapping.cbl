@@ -1,182 +1,378 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.input.mapping
+*> Java class InputMapping
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.input.mapping
-unit InputMapping;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InputMapping-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("InputMapping")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_hashtable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_mappedList")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
+    COMPUTE jtemp1 = FUNCTION StdUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION StdUtil-createHashtable0(jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hashtable", JVALUE)
+    COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_mappedList", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION InputMapping-new0.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InputMapping-getTotalMapped0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION Hashtable-size0(FUNCTION JR-GET(J-THIS, "f_hashtable"))
+        GOBACK
+    GOBACK.
+END FUNCTION InputMapping-getTotalMapped0.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InputMapping-isDefaultNew0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION InputMapping-isDefaultNew0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Input, LogUtil, CommonStrings, BasicArrayList, ABHashtable, InputToGameKeyMapping;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InputMapping-getDefault0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION InptTGmKyMppng-gtNllInstnc0
+        GOBACK
+    GOBACK.
+END FUNCTION InputMapping-getDefault0.
 
-type
-  {AB:TYPES}
-  TInputMapping = class(TObject)
-  public
-    logUtil: TLogUtil;
-    commonStrings: TCommonStrings;
-    hashtable: TABHashtable<TObject, TObject>;
-    mappedList: TBasicArrayList;
-    procedure InitFields;
-        constructor Create;
-        function getTotalMapped: Integer; virtual;
-        function isDefaultNew: Boolean; virtual;
-        function getDefault: TInputToGameKeyMapping; virtual;
-        procedure removeAll; virtual;
-        procedure remove(input_: TInput; mappedToInput: TInput); virtual;
-        procedure addMapping(inputToGameKeyMapping_: TInputToGameKeyMapping); virtual;
-        procedure add(input_: TInput; mappedToInput: TInput); virtual;
-        function isMapped(input_: TInput): Boolean; virtual;
-        function getMappedInput(id: TInput): TBasicArrayList; virtual;
-        function getHashtable: TABHashtable<TObject, TObject>; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InputMapping-removeAll0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Hashtable-clear0(FUNCTION JR-GET(J-THIS, "f_hashtable"))
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-clear0(FUNCTION JR-GET(J-THIS, "f_mappedList"))
+    GOBACK.
+END FUNCTION InputMapping-removeAll0.
 
-implementation
-uses
-  StringMaker, StringUtil, CommonLabels, BasicArrayListD, StdUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InputMapping-remove2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringBuffer BINARY-DOUBLE.
+01 J-stringUtil BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-input BINARY-DOUBLE.
+01 J-mappedToInput BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-input J-mappedToInput RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE J-stringUtil = FUNCTION StringUtil-getInstance0
+        COMPUTE jtemp2 = FUNCTION CommonLabels-getInstance0
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(jtemp2, "f_START_LABEL"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION StringUtil-toString1(J-stringUtil, J-input))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR(" == "))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION StringUtil-toString1(J-stringUtil, J-mappedToInput))
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-stringBuffer), J-THIS, FUNCTION JR-STR("InputMapping::remove"))
+        COMPUTE J-list = FUNCTION InputMapping-getMappedInput1(J-THIS, J-input)
+        IF (FUNCTION BasicArrayList-contains1(J-list, J-mappedToInput) = 1)
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-remove1(J-list, J-mappedToInput)
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-remove1(FUNCTION JR-GET(J-THIS, "f_mappedList"), J-mappedToInput)
+            COMPUTE jtemp4 = 0
+            COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringBuffer, jtemp4, FUNCTION StringMaker-length0(J-stringBuffer))
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR("Removed: "))
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION StringUtil-toString1(J-stringUtil, J-input))
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR(" == "))
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION StringUtil-toString1(J-stringUtil, J-mappedToInput))
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-stringBuffer), J-THIS, FUNCTION JR-STR("InputMapping::remove"))
+        ELSE
+            COMPUTE jtemp3 = 0
+            COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringBuffer, jtemp3, FUNCTION StringMaker-length0(J-stringBuffer))
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR("Not Deleted: "))
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION StringUtil-toString1(J-stringUtil, J-input))
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR(" == "))
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION StringUtil-toString1(J-stringUtil, J-mappedToInput))
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-stringBuffer), J-THIS, FUNCTION JR-STR("InputMapping::remove"))
+        END-IF
+    GOBACK.
+END FUNCTION InputMapping-remove2.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InputMapping-addMapping1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-inputToGameKeyMapping BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-inputToGameKeyMapping RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+    GOBACK.
+END FUNCTION InputMapping-addMapping1.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InputMapping-add2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-list BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-input BINARY-DOUBLE.
+01 J-mappedToInput BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-input J-mappedToInput RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-list = FUNCTION InputMapping-getMappedInput1(J-THIS, J-input)
+        IF (NOT (FUNCTION BasicArrayList-contains1(J-list, J-mappedToInput) = 1))
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-list, J-mappedToInput)
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_mappedList"), J-mappedToInput)
+        END-IF
+    GOBACK.
+END FUNCTION InputMapping-add2.
 
-procedure TInputMapping.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.commonStrings := TCommonStrings.getInstance();
-  Self.hashtable := TStdUtil.getInstance().createHashtable();
-  Self.mappedList := TBasicArrayListD.Create();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InputMapping-isMapped1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-input BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-input RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION BasicArrayList-contains1(FUNCTION JR-GET(J-THIS, "f_mappedList"), J-input)
+        GOBACK
+    GOBACK.
+END FUNCTION InputMapping-isMapped1.
 
-constructor TInputMapping.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InputMapping-getMappedInput1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-mappingInputCanBeNullList BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-id BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-id RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-mappingInputCanBeNullList = FUNCTION Hashtable-get1(FUNCTION JR-GET(J-THIS, "f_hashtable"), J-id)
+        IF (J-mappingInputCanBeNullList = 0)
+            COMPUTE J-list = FUNCTION BasicArrayListD-new0
+            COMPUTE JDISCARD = FUNCTION Hashtable-put2(FUNCTION JR-GET(J-THIS, "f_hashtable"), J-id, J-list)
+            COMPUTE J-RESULT = J-list
+            GOBACK
+        END-IF
+        COMPUTE J-RESULT = J-mappingInputCanBeNullList
+        GOBACK
+    GOBACK.
+END FUNCTION InputMapping-getMappedInput1.
 
-function TInputMapping.getTotalMapped: Integer;
-begin
-        Exit(Self.hashtable.size());
-end;
-    
-
-function TInputMapping.isDefaultNew: Boolean;
-begin
-        Exit(False);
-end;
-    
-
-function TInputMapping.getDefault: TInputToGameKeyMapping;
-begin
-        Exit(TInputToGameKeyMapping.getNullInstance());
-end;
-    
-
-procedure TInputMapping.removeAll;
-begin
-        Self.hashtable.clear();
-        Self.mappedList.clear();
-end;
-    
-
-procedure TInputMapping.remove(input_: TInput; mappedToInput: TInput);
-var
-  stringBuffer: TStringMaker;
-  stringUtil_: TStringUtil;
-  list: TBasicArrayList;
-begin
-        stringBuffer := TStringMaker.Create();
-        stringUtil_ := TStringUtil.getInstance();
-        stringBuffer.append(TCommonLabels.getInstance().START_LABEL);
-        stringBuffer.append(stringUtil_.toString(input_));
-        stringBuffer.append(' == ');
-        stringBuffer.append(stringUtil_.toString(mappedToInput));
-        Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), 'InputMapping::remove');
-        list := Self.getMappedInput(input_);
-        if list.contains(TJava.Box(mappedToInput)) then begin
-            list.remove(mappedToInput);
-            Self.mappedList.remove(mappedToInput);
-            stringBuffer.delete_(0, stringBuffer.length());
-            stringBuffer.append('Removed: ');
-            stringBuffer.append(stringUtil_.toString(input_));
-            stringBuffer.append(' == ');
-            stringBuffer.append(stringUtil_.toString(mappedToInput));
-            Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), 'InputMapping::remove');
-        end else begin
-            stringBuffer.delete_(0, stringBuffer.length());
-            stringBuffer.append('Not Deleted: ');
-            stringBuffer.append(stringUtil_.toString(input_));
-            stringBuffer.append(' == ');
-            stringBuffer.append(stringUtil_.toString(mappedToInput));
-            Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), 'InputMapping::remove');
-        end;
-end;
-    
-
-// throws Exception
-procedure TInputMapping.addMapping(inputToGameKeyMapping_: TInputToGameKeyMapping);
-begin
-        raise SysUtils.Exception.Create(Self.commonStrings.NOT_IMPLEMENTED);
-end;
-    
-
-procedure TInputMapping.add(input_: TInput; mappedToInput: TInput);
-var
-  list: TBasicArrayList;
-begin
-        list := Self.getMappedInput(input_);
-        if not (list.contains(TJava.Box(mappedToInput))) then begin
-            list.add(TJava.Box(mappedToInput));
-            Self.mappedList.add(TJava.Box(mappedToInput));
-        end;
-end;
-    
-
-function TInputMapping.isMapped(input_: TInput): Boolean;
-begin
-        Exit(Self.mappedList.contains(TJava.Box(input_)));
-end;
-    
-
-function TInputMapping.getMappedInput(id: TInput): TBasicArrayList;
-var
-  mappingInputCanBeNullList: TObject;
-  list: TBasicArrayList;
-begin
-        mappingInputCanBeNullList := TJava.Box(Self.hashtable.get(TJava.Box(id)));
-        if (mappingInputCanBeNullList) = (nil) then begin
-            list := TBasicArrayListD.Create();
-            Self.hashtable.put(TJava.Box(id), TJava.Box(list));
-            Exit(list);
-        end;
-        Exit(TBasicArrayList(TJava.ToObject(mappingInputCanBeNullList)));
-end;
-    
-
-function TInputMapping.getHashtable: TABHashtable<TObject, TObject>;
-begin
-        Exit(Self.hashtable);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InputMapping-getHashtable0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_hashtable")
+        GOBACK
+    GOBACK.
+END FUNCTION InputMapping-getHashtable0.
 

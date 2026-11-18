@@ -1,159 +1,282 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.part
+*> Java class CountedLayersHudPaintable
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CntdLyrsHdPntbl-sttc-XXS68231.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CountedLayersHudPaintable-jcell-XXStringWidth BINARY-DOUBLE EXTERNAL.
+01 CountedLayersHudPaintable-jset-XXStringWidth BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF CountedLayersHudPaintable-jset-XXStringWidth = 0
+        MOVE 1 TO CountedLayersHudPaintable-jset-XXStringWidth
+        COMPUTE CountedLayersHudPaintable-jcell-XXStringWidth = 0
+    END-IF
+    MOVE CountedLayersHudPaintable-jcell-XXStringWidth TO J-RESULT
+    GOBACK.
+END FUNCTION CntdLyrsHdPntbl-sttc-XXS68231.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CntdLyrsHdPntblsttcXS46239.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CountedLayersHudPaintable-jcell-XXStringWidth BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION CntdLyrsHdPntbl-sttc-XXS68231 TO J-RESULT
+    MOVE J-VALUE TO CountedLayersHudPaintable-jcell-XXStringWidth
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION CntdLyrsHdPntblsttcXS46239.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CountedLayersHudPaintable-new5.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-partInterfaceArray BINARY-DOUBLE.
+01 J-dropSize BINARY-DOUBLE.
+01 J-startIndex BINARY-DOUBLE.
+01 J-countedTotalStringColor BINARY-DOUBLE.
+01 J-countedPartsBorder BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-partInterfaceArray J-dropSize J-startIndex J-countedTotalStringColor J-countedPartsBorder RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CountedLayersHudPaintable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_displayInfoSingleton")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_partInterfaceArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_countedTotalStringColor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_countedPartsBorder")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_startIndex")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_dropSize")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_myFontProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_height")
+    COMPUTE JVALUE = FUNCTION DsplyInfSngltn-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_displayInfoSingleton", JVALUE)
     
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.part
-unit CountedLayersHudPaintable;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, DisplayInfoSingleton, MyFontProcessor, UpdateMyFontInterface, PaintableInterface, PartInterface;
-
-type
-  {AB:TYPES}
-  TCountedLayersHudPaintable = class(TInterfacedObject, IPaintableInterface, IUpdateMyFontInterface)
-  public
-    displayInfoSingleton: TDisplayInfoSingleton;
-    partInterfaceArray: TArray<IPartInterface>;
-    countedTotalStringColor: Integer;
-    countedPartsBorder: Integer;
-    startIndex: Integer;
-    dropSize: Integer;
-    myFontProcessor: TMyFontProcessor;
-    height: Integer;
-    class var XXStringWidth: Integer;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(partInterfaceArray: TArray<IPartInterface>; dropSize: Integer; startIndex: Integer; countedTotalStringColor: Integer; countedPartsBorder: Integer);
-        procedure updateMeasurement(graphics_: TGraphics); virtual;
-        procedure paint(graphics_: TGraphics); virtual;
-        procedure paintThreed(graphics_: TGraphics); virtual;
-  end;
-
-implementation
-uses
-  CountedLayerInterfaceFactoryPart, Font, PickedUpLayerInterfaceFactoryInterface, UpdateMyFontProcessor, AllBinaryLayer;
-
-
-{AB:CODE}
-
-procedure TCountedLayersHudPaintable.InitFields;
-begin
-  Self.displayInfoSingleton := TDisplayInfoSingleton.getInstance();
-  
-  
-  
-  
-  
-  Self.myFontProcessor := TUpdateMyFontProcessor.Create(Self);
-  
-end;
-
-function TCountedLayersHudPaintable.JavaObject: TObject;
-begin
-  Result := Self;
-end;
     
-
-constructor TCountedLayersHudPaintable.Create(partInterfaceArray: TArray<IPartInterface>; dropSize: Integer; startIndex: Integer; countedTotalStringColor: Integer; countedPartsBorder: Integer);
-begin
-    inherited Create;
-    InitFields;
-        Self.partInterfaceArray := partInterfaceArray;
-        Self.startIndex := startIndex;
-        Self.countedTotalStringColor := countedTotalStringColor;
-        Self.countedPartsBorder := countedPartsBorder;
-        Self.dropSize := dropSize;
-end;
     
-
-procedure TCountedLayersHudPaintable.updateMeasurement(graphics_: TGraphics);
-var
-  font_: TFont;
-  XXString: string;
-begin
-        font_ := graphics_.getFont();
-        Self.height := font_.getHeight();
-        if (Self.dropSize) > (font_.getHeight()) then begin
-            Self.height := Self.dropSize;
-        end;
-        if (TCountedLayersHudPaintable.XXStringWidth) = (0) then begin
-            XXString := 'XX';
-            TCountedLayersHudPaintable.XXStringWidth := font_.stringWidth(XXString);
-        end;
-        Self.myFontProcessor := TMyFontProcessor.getInstance();
-end;
     
-
-procedure TCountedLayersHudPaintable.paint(graphics_: TGraphics);
-var
-  lastWidth: Integer;
-  widthEdge: Integer;
-  size: Integer;
-  count: Integer;
-  y: Integer;
-  countedLayerInterfaceFactory: TCountedLayerInterfaceFactoryPart;
-  pickedUpLayerInterfaceFactoryInterface_: IPickedUpLayerInterfaceFactoryInterface;
-  layerInterface: TAllBinaryLayer;
-  charArray: TArray<WideChar>;
-  index: Integer;
-begin
-        Self.myFontProcessor.process(graphics_);
-        lastWidth := Self.displayInfoSingleton.getLastWidth();
-        widthEdge := (lastWidth) - (Self.dropSize);
-        size := System.Length(Self.partInterfaceArray);
-        count := 0;
-        
-        
-        
-        
-        
-        for index := Self.startIndex to size - 1 do begin
-            countedLayerInterfaceFactory := TCountedLayerInterfaceFactoryPart(TJava.ToObject(Self.partInterfaceArray[index]));
-            if (countedLayerInterfaceFactory.getTotal()) > (0) then begin
-                pickedUpLayerInterfaceFactoryInterface_ := countedLayerInterfaceFactory.getCountedPickedUpLayerInterfaceFactory();
-                layerInterface := pickedUpLayerInterfaceFactoryInterface_.getIconLayer();
-                y := (40) + (((count) * (Self.height)));
-                layerInterface.setPosition(widthEdge, y, layerInterface.getZP());
-                layerInterface.paint(graphics_);
-                graphics_.setColor(Self.countedTotalStringColor);
-                countedLayerInterfaceFactory.paint(graphics_);
-                charArray := countedLayerInterfaceFactory.getTotalString();
-                graphics_.drawChars(charArray, 0, System.Length(charArray), (widthEdge) - (countedLayerInterfaceFactory.getXOffset()), y, 0);
-                Inc(count);
-            end;
-        end;
-        if (count) > (0) then begin
-            graphics_.setColor(Self.countedPartsBorder);
-            graphics_.drawRect((lastWidth) - (((TCountedLayersHudPaintable.XXStringWidth) + (Self.dropSize))), 40, (TCountedLayersHudPaintable.XXStringWidth) + (Self.dropSize), (((count) * (Self.height))) + (3));
-        end;
-end;
     
+    COMPUTE JVALUE = FUNCTION UpdateMyFontProcessor-new1(J-THIS)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
+    
+        COMPUTE JVALUE = J-partInterfaceArray
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_partInterfaceArray", JVALUE)
+        COMPUTE JVALUE = J-startIndex
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_startIndex", JVALUE)
+        COMPUTE JVALUE = J-countedTotalStringColor
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_countedTotalStringColor", JVALUE)
+        COMPUTE JVALUE = J-countedPartsBorder
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_countedPartsBorder", JVALUE)
+        COMPUTE JVALUE = J-dropSize
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_dropSize", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CountedLayersHudPaintable-new5.
 
-procedure TCountedLayersHudPaintable.paintThreed(graphics_: TGraphics);
-begin
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CntdLyrsHdPntbl-updtMsrmnt1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-font BINARY-DOUBLE.
+01 J-XXString BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-font = FUNCTION Graphics-getFont0(J-graphics)
+        COMPUTE JVALUE = FUNCTION Font-getHeight0(J-font)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_height", JVALUE)
+        IF (FUNCTION JR-GET(J-THIS, "f_dropSize") > FUNCTION Font-getHeight0(J-font))
+            COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_dropSize")
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_height", JVALUE)
+        END-IF
+        IF (FUNCTION CntdLyrsHdPntbl-sttc-XXS68231 = 0)
+            COMPUTE J-XXString = FUNCTION JR-STR("XX")
+            COMPUTE JDISCARD = FUNCTION CntdLyrsHdPntblsttcXS46239(FUNCTION Font-stringWidth1(J-font, J-XXString))
+        END-IF
+        COMPUTE JVALUE = FUNCTION MyFontProcessor-getInstance0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
+    GOBACK.
+END FUNCTION CntdLyrsHdPntbl-updtMsrmnt1.
 
-initialization
-  {AB:INITIALIZATION}
-  TCountedLayersHudPaintable.XXStringWidth := 0;
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CntdLyrsHdPntbl-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-lastWidth BINARY-DOUBLE.
+01 J-widthEdge BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-count BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-countedLayerInterfaceFactory BINARY-DOUBLE.
+01 J-pickedUpLayerInterfaceFactoryInterface BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-charArray BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION MyFontProcessor-process1(FUNCTION JR-GET(J-THIS, "f_myFontProcessor"), J-graphics)
+        COMPUTE J-lastWidth = FUNCTION DsplyInfSngltn-getLastWidth0(FUNCTION JR-GET(J-THIS, "f_displayInfoSingleton"))
+        COMPUTE J-widthEdge = (FUNCTION MOD((J-lastWidth - FUNCTION JR-GET(J-THIS, "f_dropSize")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_partInterfaceArray"))
+        COMPUTE J-count = 0
+        CONTINUE
+        CONTINUE
+        CONTINUE
+        CONTINUE
+        CONTINUE
+        COMPUTE J-index = FUNCTION JR-GET(J-THIS, "f_startIndex")
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-countedLayerInterfaceFactory = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_partInterfaceArray"), J-index)
+            IF (FUNCTION CntdLyrIntrfcFctryPrt-gtTtl0(J-countedLayerInterfaceFactory) > 0)
+                COMPUTE J-pickedUpLayerInterfaceFactoryInterface = FUNCTION CntdLyrIntrfcFctryPrt-gtC10786(J-countedLayerInterfaceFactory)
+                COMPUTE J-layerInterface = FUNCTION PckdUpLyrIntrfcFctryInt-47503(J-pickedUpLayerInterfaceFactoryInterface)
+                COMPUTE jtemp1 = 40
+                COMPUTE jtemp2 = ((FUNCTION MOD((J-count * FUNCTION JR-GET(J-THIS, "f_height")) + 2147483648, 4294967296) - 2147483648))
+                COMPUTE J-y = (FUNCTION MOD((jtemp1 + jtemp2) + 2147483648, 4294967296) - 2147483648)
+                COMPUTE JDISCARD = FUNCTION AllBinaryLayer-setPosition3(J-layerInterface, J-widthEdge, J-y, FUNCTION AllBinaryLayer-getZP0(J-layerInterface))
+                COMPUTE JDISCARD = FUNCTION AllBinaryLayer-paint1(J-layerInterface, J-graphics)
+                COMPUTE JDISCARD = FUNCTION Graphics-setColor1(J-graphics, FUNCTION JR-GET(J-THIS, "f_countedTotalStringColor"))
+                COMPUTE JDISCARD = FUNCTION CntdLyrIntrfcFctryPrt-paint1(J-countedLayerInterfaceFactory, J-graphics)
+                COMPUTE J-charArray = FUNCTION CntdLyrIntrfcFctryPrt-gtT30088(J-countedLayerInterfaceFactory)
+                COMPUTE jtemp3 = 0
+                COMPUTE jtemp4 = (FUNCTION MOD((J-widthEdge - FUNCTION CntdLyrIntrfcFctryPrt-gtX90955(J-countedLayerInterfaceFactory)) + 2147483648, 4294967296) - 2147483648)
+                COMPUTE jtemp5 = 0
+                COMPUTE JDISCARD = FUNCTION Graphics-drawChars6(J-graphics, J-charArray, jtemp3, FUNCTION JR-ARRAY-LENGTH(J-charArray), jtemp4, J-y, jtemp5)
+                COMPUTE J-count = (FUNCTION MOD(J-count + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+        END-PERFORM
+        IF (J-count > 0)
+            COMPUTE JDISCARD = FUNCTION Graphics-setColor1(J-graphics, FUNCTION JR-GET(J-THIS, "f_countedPartsBorder"))
+            COMPUTE jtemp10 = ((FUNCTION MOD((J-count * FUNCTION JR-GET(J-THIS, "f_height")) + 2147483648, 4294967296) - 2147483648))
+            COMPUTE jtemp11 = 3
+            COMPUTE jtemp6 = (FUNCTION MOD((J-lastWidth - ((FUNCTION MOD((FUNCTION CntdLyrsHdPntbl-sttc-XXS68231 + FUNCTION JR-GET(J-THIS, "f_dropSize")) + 2147483648, 4294967296) - 2147483648))) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE jtemp7 = 40
+            COMPUTE jtemp8 = (FUNCTION MOD((FUNCTION CntdLyrsHdPntbl-sttc-XXS68231 + FUNCTION JR-GET(J-THIS, "f_dropSize")) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE jtemp9 = (FUNCTION MOD((jtemp10 + jtemp11) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JDISCARD = FUNCTION Graphics-drawRect4(J-graphics, jtemp6, jtemp7, jtemp8, jtemp9)
+        END-IF
+    GOBACK.
+END FUNCTION CntdLyrsHdPntbl-paint1.
 
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CntdLyrsHdPntbl-paintThreed1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION CntdLyrsHdPntbl-paintThreed1.
 

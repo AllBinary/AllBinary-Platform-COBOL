@@ -1,72 +1,64 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.paint.help
+*> Java class UpdateMyFontProperties
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.paint.help
-unit UpdateMyFontProperties;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
-
-type
-  {AB:TYPES}
-  TUpdateMyFontProperties = class(TObject)
-  public
-    actionStringArray: TArray<string>;
-    keymappingBeginWidthArray: TArray<Integer>;
-    actionStringDeltaXArray: TArray<Integer>;
-    inputDeltaXArray: TArray<TArray<Integer>>;
-    sepArray: TArray<TArray<string>>;
-    sepWidthArray: TArray<TArray<Integer>>;
-    charHeight: Integer;
-    procedure InitFields;
-    constructor Create;
-  end;
-
-implementation
-uses
-  NullUtil, StringUtil;
-
-
-{AB:CODE}
-
-procedure TUpdateMyFontProperties.InitFields;
-begin
-  Self.actionStringArray := TStringUtil.getInstance().getArrayInstance();
-  Self.keymappingBeginWidthArray := TNullUtil.getInstance().NULL_INT_ARRAY;
-  Self.actionStringDeltaXArray := TNullUtil.getInstance().NULL_INT_ARRAY;
-  Self.inputDeltaXArray := TNullUtil.getInstance().NULL_INT_ARRAY_ARRAY;
-  Self.sepArray := TStringUtil.getInstance().ONE_EMPTY_STRING_ARRAY_OF_ARRAYS;
-  Self.sepWidthArray := TNullUtil.getInstance().NULL_INT_ARRAY_ARRAY;
-  
-end;
-
-constructor TUpdateMyFontProperties.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. UpdateMyFontProperties-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("UpdateMyFontProperties")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_actionStringArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_keymappingBeginWidthArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_actionStringDeltaXArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_inputDeltaXArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_sepArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_sepWidthArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_charHeight")
+    COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION StringUtil-getArrayInstance0(jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_actionStringArray", JVALUE)
+    COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp2, "f_NULL_INT_ARRAY")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_keymappingBeginWidthArray", JVALUE)
+    COMPUTE jtemp3 = FUNCTION NullUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp3, "f_NULL_INT_ARRAY")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_actionStringDeltaXArray", JVALUE)
+    COMPUTE jtemp4 = FUNCTION NullUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp4, "f_NULL_INT_ARRAY_ARRAY")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_inputDeltaXArray", JVALUE)
+    COMPUTE jtemp5 = FUNCTION StringUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp5, "f_ONE_EMPTY_STRING_ARRAY_OF_ARRAYS")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_sepArray", JVALUE)
+    COMPUTE jtemp6 = FUNCTION NullUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp6, "f_NULL_INT_ARRAY_ARRAY")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_sepWidthArray", JVALUE)
+    
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION UpdateMyFontProperties-new0.
 

@@ -1,91 +1,150 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.layer.hud.basic.notification
+*> Java class NoGameNotificationHudSingleton
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.layer.hud.basic.notification
-unit NoGameNotificationHudSingleton;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NGmNtfctnHdSngltn-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 NoGameNotificationHudSingleton-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 NoGameNotificationHudSingleton-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF NoGameNotificationHudSingleton-jset-instance = 0
+        MOVE 1 TO NoGameNotificationHudSingleton-jset-instance
+        COMPUTE NoGameNotificationHudSingleton-jcell-instance = FUNCTION NGmNtfctnHdSngltn-new0
+    END-IF
+    MOVE NoGameNotificationHudSingleton-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION NGmNtfctnHdSngltn-sttc-nstnc.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NGmNtfctnHdSngltnsttS14204.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 NoGameNotificationHudSingleton-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION NGmNtfctnHdSngltn-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO NoGameNotificationHudSingleton-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION NGmNtfctnHdSngltnsttS14204.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NGmNtfctnHdSngltn-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-basicHudFactory BINARY-DOUBLE.
+01 J-commonStrings BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("NoGameNotificationHudSingleton")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameNotificationHud")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION GmNtfctnHd-sttc-NULL-G28590
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameNotificationHud", JVALUE)
+        CONTINUE
+            COMPUTE J-basicHudFactory = FUNCTION BasicHudFactory-getInstance0
+            COMPUTE JVALUE = FUNCTION NoGameGameNotificationHud-new0
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameNotificationHud", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION NGmNtfctnHdSngltn-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LogUtil, GameNotificationHud;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NGmNtfctnHdSngltn-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION NGmNtfctnHdSngltn-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION NGmNtfctnHdSngltn-getInstance0.
 
-type
-  {AB:TYPES}
-  TNoGameNotificationHudSingleton = class(TObject)
-  public
-    logUtil: TLogUtil;
-    gameNotificationHud: TGameNotificationHud;
-    class var instance: TNoGameNotificationHudSingleton;
-    procedure InitFields;
-        class function getInstance: TNoGameNotificationHudSingleton; static;
-        constructor Create;
-        function getGameNotificationHud: TGameNotificationHud; virtual;
-  end;
-
-implementation
-uses
-  NoGameGameNotificationHud, BasicHudFactory, BasicColorFactory, CommonStrings;
-
-
-{AB:CODE}
-
-procedure TNoGameNotificationHudSingleton.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.gameNotificationHud := TGameNotificationHud.NULL_GAME_NOTIFICATION;
-end;
-    
-
-class function TNoGameNotificationHudSingleton.getInstance: TNoGameNotificationHudSingleton;
-begin
-        Exit(TNoGameNotificationHudSingleton.instance);
-end;
-    
-
-constructor TNoGameNotificationHudSingleton.Create;
-var
-  basicHudFactory_: TBasicHudFactory;
-  commonStrings_: TCommonStrings;
-begin
-    inherited Create;
-    InitFields;
-        try
-            basicHudFactory_ := TBasicHudFactory.getInstance();
-            Self.gameNotificationHud := TNoGameGameNotificationHud.Create();
-        except
-            on e: SysUtils.Exception do begin
-            commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.CONSTRUCTOR_, TJava.Box(e));
-            end;
-        end;
-end;
-    
-
-function TNoGameNotificationHudSingleton.getGameNotificationHud: TGameNotificationHud;
-begin
-        Exit(Self.gameNotificationHud);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TNoGameNotificationHudSingleton.instance := TNoGameNotificationHudSingleton.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NGmNtfctnHdSngltn-gtGmNtf86249.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_gameNotificationHud")
+        GOBACK
+    GOBACK.
+END FUNCTION NGmNtfctnHdSngltn-gtGmNtf86249.
 

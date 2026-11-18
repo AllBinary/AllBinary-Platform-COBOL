@@ -1,68 +1,122 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.image
+*> Java class PaintableToImageUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.image
-unit PaintableToImageUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PntblTImgUtl-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PaintableToImageUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 PaintableToImageUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF PaintableToImageUtil-jset-instance = 0
+        MOVE 1 TO PaintableToImageUtil-jset-instance
+        COMPUTE PaintableToImageUtil-jcell-instance = FUNCTION PaintableToImageUtil-new0
+    END-IF
+    MOVE PaintableToImageUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION PntblTImgUtl-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PntblTImgUtlstaticinS95358.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PaintableToImageUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION PntblTImgUtl-static-instance TO J-RESULT
+    MOVE J-VALUE TO PaintableToImageUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION PntblTImgUtlstaticinS95358.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PaintableToImageUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("PaintableToImageUtil")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION PaintableToImageUtil-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Image, PaintableInterface;
-
-type
-  {AB:TYPES}
-  TPaintableToImageUtil = class(TObject)
-  public
-    class var instance: TPaintableToImageUtil;
-    constructor Create;
-        class function getImage(paintableInterface_: IPaintableInterface; width: Integer; height: Integer): TImage; static;
-  end;
-
-implementation
-uses
-  GameFeatureImageCacheFactory, Graphics;
-
-
-{AB:CODE}
-
-constructor TPaintableToImageUtil.Create;
-begin
-  inherited Create;
-end;
-    
-
-// throws Exception
-class function TPaintableToImageUtil.getImage(paintableInterface_: IPaintableInterface; width: Integer; height: Integer): TImage;
-var
-  image_: TImage;
-  graphics_: TGraphics;
-begin
-        image_ := TGameFeatureImageCacheFactory.getInstance().get(TJava.ToObject(TPaintableToImageUtil.instance).ClassType.ClassName, width, height);
-        graphics_ := image_.getGraphics();
-        paintableInterface_.paint(graphics_);
-        Exit(image_);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TPaintableToImageUtil.instance := TPaintableToImageUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PaintableToImageUtil-getImage3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-image BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-paintableInterface BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-paintableInterface J-width J-height RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION JR-CLASS-NAME(FUNCTION PntblTImgUtl-static-instance)
+        COMPUTE jtemp1 = FUNCTION GmFtrImgCchFctry-getInstance0
+        COMPUTE J-image = FUNCTION GmFtrImgCchFctry-get3(jtemp1, jtemp2, J-width, J-height)
+        COMPUTE J-graphics = FUNCTION Image-getGraphics0(J-image)
+        COMPUTE JDISCARD = FUNCTION PaintableInterface-paint1(J-paintableInterface, J-graphics)
+        COMPUTE J-RESULT = J-image
+        GOBACK
+    GOBACK.
+END FUNCTION PaintableToImageUtil-getImage3.
 

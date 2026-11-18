@@ -1,163 +1,415 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion.button
+*> Java class TouchScreenFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion.button
-unit TouchScreenFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchScrnFctry-static-SINGLETON.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 TouchScreenFactory-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+01 TouchScreenFactory-jset-SINGLETON BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF TouchScreenFactory-jset-SINGLETON = 0
+        MOVE 1 TO TouchScreenFactory-jset-SINGLETON
+        COMPUTE TouchScreenFactory-jcell-SINGLETON = FUNCTION TouchScreenFactory-new0
+    END-IF
+    MOVE TouchScreenFactory-jcell-SINGLETON TO J-RESULT
+    GOBACK.
+END FUNCTION TchScrnFctry-static-SINGLETON.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchScrnFctrystaticSIS79245.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 TouchScreenFactory-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION TchScrnFctry-static-SINGLETON TO J-RESULT
+    MOVE J-VALUE TO TouchScreenFactory-jcell-SINGLETON
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION TchScrnFctrystaticSIS79245.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LogUtil, TouchScreenType;
-
-type
-  {AB:TYPES}
-  TTouchScreenFactory = class(TObject)
-  public
-    logUtil: TLogUtil;
-    touch: Boolean;
-    multiTouch: Boolean;
-    multiTouchDistinct: Boolean;
-    touchScreenType: TTouchScreenType;
-    class var SINGLETON: TTouchScreenFactory;
-    procedure InitFields;
-        constructor Create;
-        class function getInstance: TTouchScreenFactory; static;
-        procedure setMultiTouch(multiTouch: Boolean); virtual;
-        function isMultiTouch: Boolean; virtual;
-        procedure setTouch(touch: Boolean); virtual;
-        function isTouch: Boolean; virtual;
-        procedure setMultiTouchDistinct(multiTouchDistinct: Boolean); virtual;
-        function isMultiTouchDistinct: Boolean; virtual;
-        procedure setTouchScreenType(touchScreenType_: TTouchScreenType); virtual;
-        function getTouchScreenType: TTouchScreenType; virtual;
-        function toString: string; virtual;
-  end;
-
-implementation
-uses
-  TouchScreenTypesFactory, StringMaker, StringUtil, CommonStrings;
-
-
-{AB:CODE}
-
-procedure TTouchScreenFactory.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  
-  
-  
-  Self.touchScreenType := TTouchScreenTypesFactory.getInstance().NOTOUCH;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TouchScreenFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-commonStrings BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("TouchScreenFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_touch")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_multiTouch")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_multiTouchDistinct")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_touchScreenType")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
     
-
-constructor TTouchScreenFactory.Create;
-var
-  commonStrings_: TCommonStrings;
-begin
-    inherited Create;
-    InitFields;
-        try
-            Self.setTouch(True);
-            Self.setMultiTouch(False);
-        except
-            on e: SysUtils.Exception do begin
-            commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(TTouchScreenFactory.SINGLETON), commonStrings_.GET_INSTANCE, TJava.Box(e));
-            end;
-        end;
-end;
     
-
-class function TTouchScreenFactory.getInstance: TTouchScreenFactory;
-begin
-        Exit(TTouchScreenFactory.SINGLETON);
-end;
     
+    COMPUTE jtemp1 = FUNCTION TchScrnTypsFctry-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_NOTOUCH")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_touchScreenType", JVALUE)
+        CONTINUE
+            COMPUTE jtemp2 = 1
+            COMPUTE JDISCARD = FUNCTION TouchScreenFactory-setTouch1(J-THIS, jtemp2)
+            COMPUTE jtemp3 = 0
+            COMPUTE JDISCARD = FUNCTION TchScrnFctry-setMultiTouch1(J-THIS, jtemp3)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION TouchScreenFactory-new0.
 
-procedure TTouchScreenFactory.setMultiTouch(multiTouch: Boolean);
-begin
-        Self.multiTouch := multiTouch;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchScrnFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION TchScrnFctry-static-SINGLETON
+        GOBACK
+    GOBACK.
+END FUNCTION TchScrnFctry-getInstance0.
 
-function TTouchScreenFactory.isMultiTouch: Boolean;
-begin
-        Exit(Self.multiTouch);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchScrnFctry-setMultiTouch1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-multiTouch BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-multiTouch RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-multiTouch
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_multiTouch", JVALUE)
+    GOBACK.
+END FUNCTION TchScrnFctry-setMultiTouch1.
 
-procedure TTouchScreenFactory.setTouch(touch: Boolean);
-begin
-        Self.touch := touch;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchScrnFctry-isMultiTouch0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_multiTouch")
+        GOBACK
+    GOBACK.
+END FUNCTION TchScrnFctry-isMultiTouch0.
 
-function TTouchScreenFactory.isTouch: Boolean;
-begin
-        Exit(Self.touch);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TouchScreenFactory-setTouch1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-touch BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-touch RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-touch
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_touch", JVALUE)
+    GOBACK.
+END FUNCTION TouchScreenFactory-setTouch1.
 
-procedure TTouchScreenFactory.setMultiTouchDistinct(multiTouchDistinct: Boolean);
-begin
-        Self.multiTouchDistinct := multiTouchDistinct;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TouchScreenFactory-isTouch0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_touch")
+        GOBACK
+    GOBACK.
+END FUNCTION TouchScreenFactory-isTouch0.
 
-function TTouchScreenFactory.isMultiTouchDistinct: Boolean;
-begin
-        Exit(Self.multiTouchDistinct);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchScrnFctry-stMltTchDstnct1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-multiTouchDistinct BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-multiTouchDistinct RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-multiTouchDistinct
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_multiTouchDistinct", JVALUE)
+    GOBACK.
+END FUNCTION TchScrnFctry-stMltTchDstnct1.
 
-procedure TTouchScreenFactory.setTouchScreenType(touchScreenType_: TTouchScreenType);
-begin
-        Self.touchScreenType := touchScreenType_;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchScrnFctry-isMltTchDstnct0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_multiTouchDistinct")
+        GOBACK
+    GOBACK.
+END FUNCTION TchScrnFctry-isMltTchDstnct0.
 
-function TTouchScreenFactory.getTouchScreenType: TTouchScreenType;
-begin
-        Exit(Self.touchScreenType);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchScrnFctry-stTchScrnTyp1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-touchScreenType BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-touchScreenType RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-touchScreenType
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_touchScreenType", JVALUE)
+    GOBACK.
+END FUNCTION TchScrnFctry-stTchScrnTyp1.
 
-function TTouchScreenFactory.toString: string;
-var
-  stringBuffer: TStringMaker;
-begin
-        stringBuffer := TStringMaker.Create();
-        stringBuffer.append('TouchScreen: ');
-        stringBuffer.appendboolean(Self.isTouch());
-        stringBuffer.append(' MultiTouch: ');
-        stringBuffer.appendboolean(Self.isMultiTouch());
-        stringBuffer.append(' Distinct MultiTouch: ');
-        stringBuffer.appendboolean(Self.isMultiTouchDistinct());
-        stringBuffer.append(' TouchScreenType: ');
-        stringBuffer.append(TStringUtil.getInstance().toString(Self.getTouchScreenType()));
-        Exit(stringBuffer.toString());
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchScrnFctry-gtTchScrnTyp0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_touchScreenType")
+        GOBACK
+    GOBACK.
+END FUNCTION TchScrnFctry-gtTchScrnTyp0.
 
-initialization
-  {AB:INITIALIZATION}
-  TTouchScreenFactory.SINGLETON := TTouchScreenFactory.Create();
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TouchScreenFactory-toString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringBuffer BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR("TouchScreen: "))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendboolean1(J-stringBuffer, FUNCTION TouchScreenFactory-isTouch0(J-THIS))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR(" MultiTouch: "))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendboolean1(J-stringBuffer, FUNCTION TchScrnFctry-isMultiTouch0(J-THIS))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR(" Distinct MultiTouch: "))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendboolean1(J-stringBuffer, FUNCTION TchScrnFctry-isMltTchDstnct0(J-THIS))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR(" TouchScreenType: "))
+        COMPUTE jtemp4 = FUNCTION StringUtil-getInstance0
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION StringUtil-toString1(jtemp4, FUNCTION TchScrnFctry-gtTchScrnTyp0(J-THIS)))
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(J-stringBuffer)
+        GOBACK
+    GOBACK.
+END FUNCTION TouchScreenFactory-toString0.
 
-end.
+IDENTIFICATION DIVISION.
+PROGRAM-ID. TouchScreenFactory-toString.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION TouchScreenFactory-toString0(J-THIS)
+    GOBACK.
+END PROGRAM TouchScreenFactory-toString.
 

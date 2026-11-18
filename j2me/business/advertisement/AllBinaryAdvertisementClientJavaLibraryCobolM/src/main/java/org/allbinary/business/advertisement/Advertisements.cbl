@@ -1,176 +1,354 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.business.advertisement
+*> Java class Advertisements
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.business.advertisement
-unit Advertisements;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Advertisements-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("Advertisements")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_bannerList")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_pageList")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_myRandomFactory")
+    COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_bannerList", JVALUE)
+    COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_pageList", JVALUE)
+    COMPUTE JVALUE = FUNCTION MyRandomFactory-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myRandomFactory", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION Advertisements-new0.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Advertisements-addPage1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-advertisementProcessorInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-advertisementProcessorInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (NOT (FUNCTION BasicArrayList-contains1(FUNCTION JR-GET(J-THIS, "f_pageList"), J-advertisementProcessorInterface) = 1))
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_pageList"), J-advertisementProcessorInterface)
+        END-IF
+    GOBACK.
+END FUNCTION Advertisements-addPage1.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Advrtsmnts-startRandomPage0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-size BINARY-DOUBLE.
+01 J-random BINARY-DOUBLE.
+01 J-advertisementProcessorInterface BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_pageList"))
+        IF (J-size > 0)
+            COMPUTE J-random = FUNCTION MyRndmFctry-gtAbsltNxtInt1(FUNCTION JR-GET(J-THIS, "f_myRandomFactory"), J-size)
+            COMPUTE J-advertisementProcessorInterface = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_pageList"), "f_objectArray"), J-random)
+            COMPUTE JDISCARD = FUNCTION AdvrtsmntPrcssrIntrfc-start0(J-advertisementProcessorInterface)
+        END-IF
+    GOBACK.
+END FUNCTION Advrtsmnts-startRandomPage0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, MyRandomFactory, BasicArrayList, AdvertisementProcessorInterface;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Advrtsmnts-processRandomPage0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-size BINARY-DOUBLE.
+01 J-random BINARY-DOUBLE.
+01 J-advertisementProcessorInterface BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = FUNCTION LockedUtil-getInstance0
+        IF (FUNCTION LockedUtil-isLocked0(jtemp1) = 1)
+            COMPUTE J-size = FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_pageList"))
+            IF (J-size > 0)
+                COMPUTE J-random = FUNCTION MyRndmFctry-gtAbsltNxtInt1(FUNCTION JR-GET(J-THIS, "f_myRandomFactory"), J-size)
+                COMPUTE J-advertisementProcessorInterface = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_pageList"), "f_objectArray"), J-random)
+                COMPUTE JDISCARD = FUNCTION AdvrtsmntPrcssrIntrfc-process0(J-advertisementProcessorInterface)
+            END-IF
+        END-IF
+    GOBACK.
+END FUNCTION Advrtsmnts-processRandomPage0.
 
-type
-  {AB:TYPES}
-  TAdvertisements = class(TObject)
-  public
-    bannerList: TBasicArrayList;
-    pageList: TBasicArrayList;
-    myRandomFactory: TMyRandomFactory;
-    procedure InitFields;
-    constructor Create;
-        procedure addPage(advertisementProcessorInterface_: IAdvertisementProcessorInterface); virtual;
-        procedure startRandomPage; virtual;
-        procedure processRandomPage; virtual;
-        procedure stopAllPage; virtual;
-        procedure addBanner(advertisementProcessorInterface_: IAdvertisementProcessorInterface); virtual;
-        procedure startAll; virtual;
-        procedure stopAllBanner; virtual;
-        function getBanner(index: Integer): IAdvertisementProcessorInterface; virtual;
-        procedure stopAll; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Advertisements-stopAllPage0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-advertisementProcessorInterface BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp2 = J-index
+        COMPUTE J-index = FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_pageList"))
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            MOVE 0 TO JFIRST1
+            IF NOT (jtemp2 >= 0) EXIT PERFORM END-IF
+            COMPUTE J-advertisementProcessorInterface = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_pageList"), "f_objectArray"), J-index)
+            COMPUTE JDISCARD = FUNCTION AdvrtsmntPrcssrIntrfc-stop0(J-advertisementProcessorInterface)
+        END-PERFORM
+    GOBACK.
+END FUNCTION Advertisements-stopAllPage0.
 
-implementation
-uses
-  LockedUtil, BasicArrayListD;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Advertisements-addBanner1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-advertisementProcessorInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-advertisementProcessorInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (NOT (FUNCTION BasicArrayList-contains1(FUNCTION JR-GET(J-THIS, "f_bannerList"), J-advertisementProcessorInterface) = 1))
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_bannerList"), J-advertisementProcessorInterface)
+        END-IF
+    GOBACK.
+END FUNCTION Advertisements-addBanner1.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Advertisements-startAll0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-advertisementProcessorInterface BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp3 = J-index
+        COMPUTE J-index = FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_bannerList"))
+        MOVE 1 TO JFIRST2
+        PERFORM FOREVER
+            MOVE 0 TO JFIRST2
+            IF NOT (jtemp3 >= 0) EXIT PERFORM END-IF
+            COMPUTE J-advertisementProcessorInterface = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_bannerList"), "f_objectArray"), J-index)
+            COMPUTE JDISCARD = FUNCTION AdvrtsmntPrcssrIntrfc-start0(J-advertisementProcessorInterface)
+        END-PERFORM
+    GOBACK.
+END FUNCTION Advertisements-startAll0.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Advertisements-stopAllBanner0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-advertisementProcessorInterface BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 JFIRST3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp4 = J-index
+        COMPUTE J-index = FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_bannerList"))
+        MOVE 1 TO JFIRST3
+        PERFORM FOREVER
+            MOVE 0 TO JFIRST3
+            IF NOT (jtemp4 >= 0) EXIT PERFORM END-IF
+            COMPUTE J-advertisementProcessorInterface = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_bannerList"), "f_objectArray"), J-index)
+            COMPUTE JDISCARD = FUNCTION AdvrtsmntPrcssrIntrfc-stop0(J-advertisementProcessorInterface)
+        END-PERFORM
+    GOBACK.
+END FUNCTION Advertisements-stopAllBanner0.
 
-procedure TAdvertisements.InitFields;
-begin
-  Self.bannerList := TBasicArrayListD.Create();
-  Self.pageList := TBasicArrayListD.Create();
-  Self.myRandomFactory := TMyRandomFactory.getInstance();
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Advertisements-getBanner1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-advertisementProcessorInterface BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-index RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-advertisementProcessorInterface = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_bannerList"), "f_objectArray"), J-index)
+        COMPUTE J-RESULT = J-advertisementProcessorInterface
+        GOBACK
+    GOBACK.
+END FUNCTION Advertisements-getBanner1.
 
-constructor TAdvertisements.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-procedure TAdvertisements.addPage(advertisementProcessorInterface_: IAdvertisementProcessorInterface);
-begin
-        if not (Self.pageList.contains(TJava.Box(advertisementProcessorInterface_))) then begin
-            Self.pageList.add(TJava.Box(advertisementProcessorInterface_));
-        end;
-end;
-    
-
-procedure TAdvertisements.startRandomPage;
-var
-  size: Integer;
-  random: Integer;
-  advertisementProcessorInterface_: IAdvertisementProcessorInterface;
-begin
-        size := Self.pageList.size();
-        if (size) > (0) then begin
-            random := Self.myRandomFactory.getAbsoluteNextInt(size);
-            advertisementProcessorInterface_ := (TJava.ToObject(Self.pageList.objectArray[random]) as IAdvertisementProcessorInterface);
-            advertisementProcessorInterface_.start();
-        end;
-end;
-    
-
-procedure TAdvertisements.processRandomPage;
-var
-  size: Integer;
-  random: Integer;
-  advertisementProcessorInterface_: IAdvertisementProcessorInterface;
-begin
-        if TLockedUtil.getInstance().isLocked() then begin
-            size := Self.pageList.size();
-            if (size) > (0) then begin
-                random := Self.myRandomFactory.getAbsoluteNextInt(size);
-                advertisementProcessorInterface_ := (TJava.ToObject(Self.pageList.objectArray[random]) as IAdvertisementProcessorInterface);
-                advertisementProcessorInterface_.process();
-            end;
-        end;
-end;
-    
-
-procedure TAdvertisements.stopAllPage;
-var
-  advertisementProcessorInterface_: IAdvertisementProcessorInterface;
-  index: Integer;
-begin
-        index := Self.pageList.size();
-        while (TJava.PreDec(index)) >= (0) do begin
-            advertisementProcessorInterface_ := (TJava.ToObject(Self.pageList.objectArray[index]) as IAdvertisementProcessorInterface);
-            advertisementProcessorInterface_.stop();
-        end;
-end;
-    
-
-procedure TAdvertisements.addBanner(advertisementProcessorInterface_: IAdvertisementProcessorInterface);
-begin
-        if not (Self.bannerList.contains(TJava.Box(advertisementProcessorInterface_))) then begin
-            Self.bannerList.add(TJava.Box(advertisementProcessorInterface_));
-        end;
-end;
-    
-
-procedure TAdvertisements.startAll;
-var
-  advertisementProcessorInterface_: IAdvertisementProcessorInterface;
-  index: Integer;
-begin
-        index := Self.bannerList.size();
-        while (TJava.PreDec(index)) >= (0) do begin
-            advertisementProcessorInterface_ := (TJava.ToObject(Self.bannerList.objectArray[index]) as IAdvertisementProcessorInterface);
-            advertisementProcessorInterface_.start();
-        end;
-end;
-    
-
-procedure TAdvertisements.stopAllBanner;
-var
-  advertisementProcessorInterface_: IAdvertisementProcessorInterface;
-  index: Integer;
-begin
-        index := Self.bannerList.size();
-        while (TJava.PreDec(index)) >= (0) do begin
-            advertisementProcessorInterface_ := (TJava.ToObject(Self.bannerList.objectArray[index]) as IAdvertisementProcessorInterface);
-            advertisementProcessorInterface_.stop();
-        end;
-end;
-    
-
-function TAdvertisements.getBanner(index: Integer): IAdvertisementProcessorInterface;
-var
-  advertisementProcessorInterface_: IAdvertisementProcessorInterface;
-begin
-        advertisementProcessorInterface_ := (TJava.ToObject(Self.bannerList.objectArray[index]) as IAdvertisementProcessorInterface);
-        Exit(advertisementProcessorInterface_);
-end;
-    
-
-procedure TAdvertisements.stopAll;
-begin
-        Self.stopAllBanner();
-        Self.stopAllPage();
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Advertisements-stopAll0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Advertisements-stopAllBanner0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION Advertisements-stopAllPage0(J-THIS)
+    GOBACK.
+END FUNCTION Advertisements-stopAll0.
 

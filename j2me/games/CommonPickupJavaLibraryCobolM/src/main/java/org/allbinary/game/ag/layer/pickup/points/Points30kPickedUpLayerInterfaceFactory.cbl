@@ -1,99 +1,224 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.layer.pickup.points
+*> Java class Points30kPickedUpLayerInterfaceFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.layer.pickup.points
-unit Points30kPickedUpLayerInterfaceFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Pnts30kPckdUpLyrIntrfcF-37569.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 Points30kPickedUpLayerInterfaceFactory-jcell-pickedUpLayerInterfaceFactoryInterface BINARY-DOUBLE EXTERNAL.
+01 Points30kPickedUpLayerInterfaceFactory-jset-pickedUpLayerInterfaceFactoryInterface BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF Points30kPickedUpLayerInterfaceFactory-jset-pickedUpLayerInterfaceFactoryInterface = 0
+        MOVE 1 TO Points30kPickedUpLayerInterfaceFactory-jset-pickedUpLayerInterfaceFactoryInterface
+        COMPUTE Points30kPickedUpLayerInterfaceFactory-jcell-pickedUpLayerInterfaceFactoryInterface = FUNCTION CntdPckdUpLyrIntrfcFctr-47319
+    END-IF
+    MOVE Points30kPickedUpLayerInterfaceFactory-jcell-pickedUpLayerInterfaceFactoryInterface TO J-RESULT
+    GOBACK.
+END FUNCTION Pnts30kPckdUpLyrIntrfcF-37569.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Pnts30kPckdUpLyrIntrS18893.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 Points30kPickedUpLayerInterfaceFactory-jcell-pickedUpLayerInterfaceFactoryInterface BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION Pnts30kPckdUpLyrIntrfcF-37569 TO J-RESULT
+    MOVE J-VALUE TO Points30kPickedUpLayerInterfaceFactory-jcell-pickedUpLayerInterfaceFactoryInterface
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION Pnts30kPckdUpLyrIntrS18893.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Pnts30kPckdUpLyrIntrfcF-80441.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("Points30kPickedUpLayerInterfaceFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_pool")
+    COMPUTE jtemp2 = FUNCTION GmCnfgrtnUtl-getInstance0
+    COMPUTE jtemp1 = (FUNCTION MOD((FUNCTION GmCnfgrtnUtl-gtCmpttnVl0(jtemp2) * 30000) + 2147483648, 4294967296) - 2147483648)
+    COMPUTE jtemp3 = 1
+    COMPUTE JVALUE = FUNCTION PntsLyrCrclrSttcPl-new2(FUNCTION PointsLayerFactory-new1(jtemp1), jtemp3)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_pool", JVALUE)
+        COMPUTE jtemp7 = FUNCTION PointsResources-getInstance0
+        COMPUTE jtemp6 = FUNCTION FtrdAnmtnIntrfcFctryInt-53898
+        COMPUTE jtemp8 = 0
+        COMPUTE jtemp13 = FUNCTION PointsResources-getInstance0
+        COMPUTE jtemp5 = FUNCTION FtrdAnmtnIntrfcFctryInt-13097(jtemp6, FUNCTION JR-GET(jtemp7, "f_RESOURCE_3"))
+        COMPUTE jtemp9 = 10
+        COMPUTE jtemp10 = 10
+        COMPUTE jtemp12 = FUNCTION FtrdAnmtnIntrfcFctryInt-53898
+        COMPUTE jtemp14 = 0
+        COMPUTE jtemp4 = FUNCTION PckdUpLyrTypFctry-getInstance0
+        COMPUTE jtemp11 = FUNCTION FtrdAnmtnIntrfcFctryInt-13097(jtemp12, FUNCTION JR-GET(jtemp13, "f_RESOURCE_3"))
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION Pnts30kPckdUpLyrIntrfcF-80441.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, PickedUpLayerInterfaceFactory, PickedUpLayerInterfaceFactoryInterface, PickupProcessorInterface, AllBinaryLayer, PointsLayerCircularStaticPool;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Pnts30kPckdUpLyrIntrfcF-77895.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Pnts30kPckdUpLyrIntrS18893(FUNCTION Pnts30kPckdUpLyrIntrfcF-80441)
+    GOBACK.
+END FUNCTION Pnts30kPckdUpLyrIntrfcF-77895.
 
-type
-  {AB:TYPES}
-  TPoints30kPickedUpLayerInterfaceFactory = class(TPickedUpLayerInterfaceFactory, IPickupProcessorInterface)
-  public
-    pool: TPointsLayerCircularStaticPool;
-    class var pickedUpLayerInterfaceFactoryInterface: IPickedUpLayerInterfaceFactoryInterface;
-    procedure InitFields;
-    function JavaObject: TObject;
-        class procedure init; static;
-        constructor Create;
-        function getTotal: Integer; virtual;
-        class function getInstance: IPickedUpLayerInterfaceFactoryInterface; static;
-        procedure process(sourceLayerInterface: TAllBinaryLayer); virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Pnts30kPckdUpLyrIntrfcF-54881.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = 1
+        GOBACK
+    GOBACK.
+END FUNCTION Pnts30kPckdUpLyrIntrfcF-54881.
 
-implementation
-uses
-  PointsLayerFactory, PointsResources, FeaturedAnimationInterfaceFactoryInterfaceFactory, GameConfigurationUtil, CountedPickedUpLayerInterfaceFactory, IconLayerFactory, PickedUpLayerTypeFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Pnts30kPckdUpLyrIntrfcF-63571.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION Pnts30kPckdUpLyrIntrfcF-37569
+        GOBACK
+    GOBACK.
+END FUNCTION Pnts30kPckdUpLyrIntrfcF-63571.
 
-
-{AB:CODE}
-
-procedure TPoints30kPickedUpLayerInterfaceFactory.InitFields;
-begin
-  Self.pool := TPointsLayerCircularStaticPool.Create(TPointsLayerFactory.Create((TGameConfigurationUtil.getInstance().getCompetitionValue()) * (30000)), 1);
-end;
-
-function TPoints30kPickedUpLayerInterfaceFactory.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-    
-
-// throws Exception
-class procedure TPoints30kPickedUpLayerInterfaceFactory.init;
-begin
-        TPoints30kPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface := TPoints30kPickedUpLayerInterfaceFactory.Create();
-end;
-    
-
-constructor TPoints30kPickedUpLayerInterfaceFactory.Create;
-begin
-        inherited Create(TPickedUpLayerTypeFactory.getInstance().POINTS, TIconLayerFactory.getInstance(TFeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(TPointsResources.getInstance().RESOURCE_3).getInstance(0), 10, 10), TFeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(TPointsResources.getInstance().RESOURCE_3).getInstance(0));
-        InitFields;
-end;
-    
-
-function TPoints30kPickedUpLayerInterfaceFactory.getTotal: Integer;
-begin
-        Exit(1);
-end;
-    
-
-class function TPoints30kPickedUpLayerInterfaceFactory.getInstance: IPickedUpLayerInterfaceFactoryInterface;
-begin
-        Exit(TPoints30kPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface);
-end;
-    
-
-// throws Exception
-procedure TPoints30kPickedUpLayerInterfaceFactory.process(sourceLayerInterface: TAllBinaryLayer);
-begin
-        Self.pool.visit(sourceLayerInterface);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TPoints30kPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface := TCountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY;
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Pnts30kPckdUpLyrIntrfcF-87587.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-sourceLayerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-sourceLayerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION PntsLyrCrclrSttcPl-visit1(FUNCTION JR-GET(J-THIS, "f_pool"), J-sourceLayerInterface)
+    GOBACK.
+END FUNCTION Pnts30kPckdUpLyrIntrfcF-87587.
 

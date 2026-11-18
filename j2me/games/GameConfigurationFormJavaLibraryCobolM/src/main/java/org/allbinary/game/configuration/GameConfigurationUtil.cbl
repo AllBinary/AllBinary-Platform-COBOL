@@ -1,202 +1,435 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.configuration
+*> Java class GameConfigurationUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.configuration
-unit GameConfigurationUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtnUtl-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameConfigurationUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 GameConfigurationUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GameConfigurationUtil-jset-instance = 0
+        MOVE 1 TO GameConfigurationUtil-jset-instance
+        COMPUTE GameConfigurationUtil-jcell-instance = FUNCTION GameConfigurationUtil-new0
+    END-IF
+    MOVE GameConfigurationUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION GmCnfgrtnUtl-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtnUtlstaticinS13077.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameConfigurationUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GmCnfgrtnUtl-static-instance TO J-RESULT
+    MOVE J-VALUE TO GameConfigurationUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GmCnfgrtnUtlstaticinS13077.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameConfigurationUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameConfigurationUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_GAUGE_UPDATE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_FROM")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_TO")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_COMPETITION_VALUE")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Gauge Update: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_GAUGE_UPDATE", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR(" from: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_FROM", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR(" to: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_TO", JVALUE)
+    COMPUTE JVALUE = 1
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_COMPETITION_VALUE", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GameConfigurationUtil-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LogUtil, CommonStrings, GameOptionsForm, GameConfigurationGauge, GameConfiguration;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtnUtl-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION GmCnfgrtnUtl-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION GmCnfgrtnUtl-getInstance0.
 
-type
-  {AB:TYPES}
-  TGameConfigurationUtil = class(TObject)
-  public
-    logUtil: TLogUtil;
-    commonStrings: TCommonStrings;
-    GAUGE_UPDATE: string;
-    FROM: string;
-    TO_: string;
-    COMPETITION_VALUE: Integer;
-    class var instance: TGameConfigurationUtil;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TGameConfigurationUtil; static;
-        procedure change(gameOptionsForm_: TGameOptionsForm; gauge: TGameConfigurationGauge); virtual;
-        procedure update(gauge: TGameConfigurationGauge); virtual;
-        procedure setDefault(gauge: TGameConfigurationGauge); virtual;
-        procedure updateChallange(gameOptionsForm_: TGameOptionsForm; gameConfiguration_: TGameConfiguration); virtual;
-        procedure updateCompetitionValue; virtual;
-        function getCompetitionValue: Integer; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameConfigurationUtil-change2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameConfigurationSingleton BINARY-DOUBLE.
+01 J-gameConfiguration BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameOptionsForm BINARY-DOUBLE.
+01 J-gauge BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gameOptionsForm J-gauge RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION GameConfigurationUtil-update1(J-THIS, J-gauge)
+        COMPUTE J-gameConfigurationSingleton = FUNCTION GmCnfgrtnSngltn-getInstance0
+        COMPUTE J-gameConfiguration = FUNCTION GmCnfgrtnSngltn-gtInstncByNm1(J-gameConfigurationSingleton, FUNCTION Gauge-getLabel0(J-gauge))
+        COMPUTE JDISCARD = FUNCTION GmCnfgrtnUtl-updateChallange2(J-THIS, J-gameOptionsForm, J-gameConfiguration)
+    GOBACK.
+END FUNCTION GameConfigurationUtil-change2.
 
-implementation
-uses
-  GameConfigurationSingleton, GameConfigurationCentral, Item, SmallIntegerSingletonFactory, StringMaker;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameConfigurationUtil-update1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameConfigurationSingleton BINARY-DOUBLE.
+01 J-gameConfiguration BINARY-DOUBLE.
+01 J-smallIntegerSingletonFactory BINARY-DOUBLE.
+01 J-value BINARY-DOUBLE.
+01 J-stringBuffer BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gauge BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gauge RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-gameConfigurationSingleton = FUNCTION GmCnfgrtnSngltn-getInstance0
+        COMPUTE J-gameConfiguration = FUNCTION GmCnfgrtnSngltn-gtInstncByNm1(J-gameConfigurationSingleton, FUNCTION Gauge-getLabel0(J-gauge))
+        COMPUTE J-smallIntegerSingletonFactory = FUNCTION SmllIntgrSngltnFctry-gtInstnc0
+        COMPUTE jtemp2 = FUNCTION GameConfiguration-getMinValue0(J-gameConfiguration)
+        COMPUTE jtemp1 = (FUNCTION MOD((FUNCTION Gauge-getValue0(J-gauge) + FUNCTION JR-CLASS-NAME(jtemp2)) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE J-value = FUNCTION SmllIntgrSngltnFctry-getAt1(J-smallIntegerSingletonFactory, jtemp1)
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_GAUGE_UPDATE"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION GameConfiguration-getName0(J-gameConfiguration))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_FROM"))
+        COMPUTE jtemp3 = FUNCTION GameConfiguration-getValue0(J-gameConfiguration)
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, FUNCTION JR-CLASS-NAME(jtemp3))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_TO"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, J-value)
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-stringBuffer), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_UPDATE"))
+        COMPUTE JDISCARD = FUNCTION GameConfiguration-setValue1(J-gameConfiguration, J-value)
+    GOBACK.
+END FUNCTION GameConfigurationUtil-update1.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtnUtl-setDefault1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameConfigurationSingleton BINARY-DOUBLE.
+01 J-gameConfiguration BINARY-DOUBLE.
+01 J-stringBuffer BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gauge BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gauge RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-gameConfigurationSingleton = FUNCTION GmCnfgrtnSngltn-getInstance0
+        COMPUTE J-gameConfiguration = FUNCTION GmCnfgrtnSngltn-gtInstncByNm1(J-gameConfigurationSingleton, FUNCTION Gauge-getLabel0(J-gauge))
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR("Gauge Default: "))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION GameConfiguration-getName0(J-gameConfiguration))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_TO"))
+        COMPUTE jtemp4 = FUNCTION GmCnfgrtn-getDefaultValue0(J-gameConfiguration)
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, FUNCTION JR-CLASS-NAME(jtemp4))
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-stringBuffer), J-THIS, FUNCTION JR-STR("setDefault"))
+        COMPUTE jtemp6 = FUNCTION GmCnfgrtn-getDefaultValue0(J-gameConfiguration)
+        COMPUTE jtemp7 = FUNCTION GameConfiguration-getMinValue0(J-gameConfiguration)
+        COMPUTE jtemp5 = (FUNCTION MOD((FUNCTION JR-CLASS-NAME(jtemp6) - FUNCTION JR-CLASS-NAME(jtemp7)) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION Gauge-setValue1(J-gauge, jtemp5)
+        COMPUTE JDISCARD = FUNCTION GameConfiguration-setValue1(J-gameConfiguration, FUNCTION GmCnfgrtn-getDefaultValue0(J-gameConfiguration))
+    GOBACK.
+END FUNCTION GmCnfgrtnUtl-setDefault1.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtnUtl-updateChallange2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameConfigurationSingleton BINARY-DOUBLE.
+01 J-gameConfigurationCentral BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-item BINARY-DOUBLE.
+01 J-gauge BINARY-DOUBLE.
+01 J-name BINARY-DOUBLE.
+01 J-nextGameConfiguration BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+01 jtemp18 BINARY-DOUBLE.
+01 jtemp19 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameOptionsForm BINARY-DOUBLE.
+01 J-gameConfiguration BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gameOptionsForm J-gameConfiguration RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-gameConfigurationSingleton = FUNCTION GmCnfgrtnSngltn-getInstance0
+        COMPUTE J-gameConfigurationCentral = FUNCTION GmCnfgrtnCntrl-getInstance0
+        IF (J-gameConfiguration = FUNCTION JR-GET(J-gameConfigurationCentral, "f_CHALLENGE_LEVEL"))
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_START"), J-THIS, FUNCTION JR-STR("updateChallange"))
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-gameConfigurationCentral, "f_COLLIDE_DAMAGE"))
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-gameConfigurationCentral, "f_ATTACK_CHALLENGE_LEVEL"))
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-gameConfigurationCentral, "f_DURABILITY_CHALLENGE_LEVEL"))
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-gameConfigurationCentral, "f_SPEED_CHALLENGE_LEVEL"))
+            COMPUTE J-size = FUNCTION Form-size0(J-gameOptionsForm)
+            COMPUTE J-index = 0
+            MOVE 1 TO JFIRST1
+            PERFORM FOREVER
+                IF JFIRST1 = 0
+                    COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+                END-IF
+                MOVE 0 TO JFIRST1
+                IF NOT (J-index < J-size) EXIT PERFORM END-IF
+                COMPUTE J-item = FUNCTION Form-get1(J-gameOptionsForm, J-index)
+                IF (FUNCTION JR-STR-EQUALS(FUNCTION JR-CLASS-NAME(J-item), FUNCTION JR-STR("GameConfigurationGauge")) = 1)
+                    COMPUTE J-gauge = J-item
+                    COMPUTE J-name = FUNCTION Item-getLabel0(J-item)
+                    COMPUTE J-nextGameConfiguration = FUNCTION GmCnfgrtnSngltn-gtInstncByNm1(J-gameConfigurationSingleton, J-name)
+                    IF (J-nextGameConfiguration = FUNCTION JR-GET(J-gameConfigurationCentral, "f_COLLIDE_DAMAGE"))
+                        COMPUTE jtemp18 = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-gameConfigurationCentral, "f_COLLIDE_DAMAGE"))
+                        COMPUTE jtemp19 = FUNCTION GameConfiguration-getMinValue0(J-gameConfiguration)
+                        COMPUTE jtemp17 = (FUNCTION MOD((FUNCTION JR-CLASS-NAME(jtemp18) - FUNCTION JR-CLASS-NAME(jtemp19)) + 2147483648, 4294967296) - 2147483648)
+                        COMPUTE JDISCARD = FUNCTION Gauge-setValue1(J-gauge, jtemp17)
+                    ELSE
+                        IF (J-nextGameConfiguration = FUNCTION JR-GET(J-gameConfigurationCentral, "f_DURABILITY_CHALLENGE_LEVEL"))
+                        COMPUTE jtemp15 = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-gameConfigurationCentral, "f_DURABILITY_CHALLENGE_LEVEL"))
+                        COMPUTE jtemp16 = FUNCTION GameConfiguration-getMinValue0(J-gameConfiguration)
+                        COMPUTE jtemp14 = (FUNCTION MOD((FUNCTION JR-CLASS-NAME(jtemp15) - FUNCTION JR-CLASS-NAME(jtemp16)) + 2147483648, 4294967296) - 2147483648)
+                        COMPUTE JDISCARD = FUNCTION Gauge-setValue1(J-gauge, jtemp14)
+                    ELSE
+                        IF (J-nextGameConfiguration = FUNCTION JR-GET(J-gameConfigurationCentral, "f_ATTACK_CHALLENGE_LEVEL"))
+                        COMPUTE jtemp12 = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-gameConfigurationCentral, "f_ATTACK_CHALLENGE_LEVEL"))
+                        COMPUTE jtemp13 = FUNCTION GameConfiguration-getMinValue0(J-gameConfiguration)
+                        COMPUTE jtemp11 = (FUNCTION MOD((FUNCTION JR-CLASS-NAME(jtemp12) - FUNCTION JR-CLASS-NAME(jtemp13)) + 2147483648, 4294967296) - 2147483648)
+                        COMPUTE JDISCARD = FUNCTION Gauge-setValue1(J-gauge, jtemp11)
+                    ELSE
+                        IF (J-nextGameConfiguration = FUNCTION JR-GET(J-gameConfigurationCentral, "f_SPEED_CHALLENGE_LEVEL"))
+                        COMPUTE jtemp9 = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-gameConfigurationCentral, "f_SPEED_CHALLENGE_LEVEL"))
+                        COMPUTE jtemp10 = FUNCTION GameConfiguration-getMinValue0(J-gameConfiguration)
+                        COMPUTE jtemp8 = (FUNCTION MOD((FUNCTION JR-CLASS-NAME(jtemp9) - FUNCTION JR-CLASS-NAME(jtemp10)) + 2147483648, 4294967296) - 2147483648)
+                        COMPUTE JDISCARD = FUNCTION Gauge-setValue1(J-gauge, jtemp8)
+                    END-IF
+                    END-IF
+                    END-IF
+                    END-IF
+                END-IF
+            END-PERFORM
+        END-IF
+    GOBACK.
+END FUNCTION GmCnfgrtnUtl-updateChallange2.
 
-procedure TGameConfigurationUtil.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.commonStrings := TCommonStrings.getInstance();
-  Self.GAUGE_UPDATE := 'Gauge Update: ';
-  Self.FROM := ' from: ';
-  Self.TO_ := ' to: ';
-  Self.COMPETITION_VALUE := 1;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtnUtl-updtCmpttnVl0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameConfigurationCentral BINARY-DOUBLE.
+01 jtemp20 BINARY-DOUBLE.
+01 jtemp21 BINARY-DOUBLE.
+01 jtemp22 BINARY-DOUBLE.
+01 jtemp23 BINARY-DOUBLE.
+01 jtemp24 BINARY-DOUBLE.
+01 jtemp25 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_START"), J-THIS, FUNCTION JR-STR("updateCompetitionValue"))
+        COMPUTE J-gameConfigurationCentral = FUNCTION GmCnfgrtnCntrl-getInstance0
+        COMPUTE jtemp22 = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-gameConfigurationCentral, "f_COLLIDE_DAMAGE"))
+        COMPUTE jtemp23 = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-gameConfigurationCentral, "f_ATTACK_CHALLENGE_LEVEL"))
+        COMPUTE jtemp24 = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-gameConfigurationCentral, "f_DURABILITY_CHALLENGE_LEVEL"))
+        COMPUTE jtemp21 = (FUNCTION MOD((FUNCTION JR-CLASS-NAME(jtemp22) + FUNCTION JR-CLASS-NAME(jtemp23)) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp25 = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-gameConfigurationCentral, "f_SPEED_CHALLENGE_LEVEL"))
+        COMPUTE jtemp20 = (FUNCTION MOD((jtemp21 + FUNCTION JR-CLASS-NAME(jtemp24)) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = (FUNCTION MOD((jtemp20 + FUNCTION JR-CLASS-NAME(jtemp25)) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_COMPETITION_VALUE", JVALUE)
+        COMPUTE JVALUE = (FUNCTION JR-SHIFT(JFIVE, FUNCTION JR-GET(J-THIS, "f_COMPETITION_VALUE"), 2))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_COMPETITION_VALUE", JVALUE)
+    GOBACK.
+END FUNCTION GmCnfgrtnUtl-updtCmpttnVl0.
 
-constructor TGameConfigurationUtil.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TGameConfigurationUtil.getInstance: TGameConfigurationUtil;
-begin
-        Exit(TGameConfigurationUtil.instance);
-end;
-    
-
-// throws Exception
-procedure TGameConfigurationUtil.change(gameOptionsForm_: TGameOptionsForm; gauge: TGameConfigurationGauge);
-var
-  gameConfigurationSingleton_: TGameConfigurationSingleton;
-  gameConfiguration_: TGameConfiguration;
-begin
-        Self.update(gauge);
-        gameConfigurationSingleton_ := TGameConfigurationSingleton.getInstance();
-        gameConfiguration_ := gameConfigurationSingleton_.getInstanceByName(gauge.getLabel());
-        Self.updateChallange(gameOptionsForm_, gameConfiguration_);
-end;
-    
-
-// throws Exception
-procedure TGameConfigurationUtil.update(gauge: TGameConfigurationGauge);
-var
-  gameConfigurationSingleton_: TGameConfigurationSingleton;
-  gameConfiguration_: TGameConfiguration;
-  smallIntegerSingletonFactory_: TSmallIntegerSingletonFactory;
-  value: Integer;
-  stringBuffer: TStringMaker;
-begin
-        gameConfigurationSingleton_ := TGameConfigurationSingleton.getInstance();
-        gameConfiguration_ := gameConfigurationSingleton_.getInstanceByName(gauge.getLabel());
-        smallIntegerSingletonFactory_ := TSmallIntegerSingletonFactory.getInstance();
-        value := smallIntegerSingletonFactory_.getAt(Integer(Trunc((gauge.getValue()) + ((gameConfiguration_.getMinValue())))));
-        stringBuffer := TStringMaker.Create();
-        stringBuffer.append(Self.GAUGE_UPDATE);
-        stringBuffer.append(gameConfiguration_.getName());
-        stringBuffer.append(Self.FROM);
-        stringBuffer.appendint((gameConfiguration_.getValue()));
-        stringBuffer.append(Self.TO_);
-        stringBuffer.appendint((value));
-        Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), Self.commonStrings.UPDATE);
-        gameConfiguration_.setValue(value);
-end;
-    
-
-// throws Exception
-procedure TGameConfigurationUtil.setDefault(gauge: TGameConfigurationGauge);
-var
-  gameConfigurationSingleton_: TGameConfigurationSingleton;
-  gameConfiguration_: TGameConfiguration;
-  stringBuffer: TStringMaker;
-begin
-        gameConfigurationSingleton_ := TGameConfigurationSingleton.getInstance();
-        gameConfiguration_ := gameConfigurationSingleton_.getInstanceByName(gauge.getLabel());
-        stringBuffer := TStringMaker.Create();
-        stringBuffer.append('Gauge Default: ');
-        stringBuffer.append(gameConfiguration_.getName());
-        stringBuffer.append(Self.TO_);
-        stringBuffer.appendint((gameConfiguration_.getDefaultValue()));
-        Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), 'setDefault');
-        gauge.setValue(((gameConfiguration_.getDefaultValue())) - ((gameConfiguration_.getMinValue())));
-        gameConfiguration_.setValue(gameConfiguration_.getDefaultValue());
-end;
-    
-
-// throws Exception
-procedure TGameConfigurationUtil.updateChallange(gameOptionsForm_: TGameOptionsForm; gameConfiguration_: TGameConfiguration);
-var
-  gameConfigurationSingleton_: TGameConfigurationSingleton;
-  gameConfigurationCentral_: TGameConfigurationCentral;
-  size: Integer;
-  item_: TItem;
-  gauge: TGameConfigurationGauge;
-  name: string;
-  nextGameConfiguration: TGameConfiguration;
-  index: Integer;
-begin
-        gameConfigurationSingleton_ := TGameConfigurationSingleton.getInstance();
-        gameConfigurationCentral_ := TGameConfigurationCentral.getInstance();
-        if (gameConfiguration_) = (gameConfigurationCentral_.CHALLENGE_LEVEL) then begin
-            Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), 'updateChallange');
-            gameConfigurationCentral_.COLLIDE_DAMAGE.setValue(gameConfiguration_.getValue());
-            gameConfigurationCentral_.ATTACK_CHALLENGE_LEVEL.setValue(gameConfiguration_.getValue());
-            gameConfigurationCentral_.DURABILITY_CHALLENGE_LEVEL.setValue(gameConfiguration_.getValue());
-            gameConfigurationCentral_.SPEED_CHALLENGE_LEVEL.setValue(gameConfiguration_.getValue());
-            size := gameOptionsForm_.size();
-            for index := 0 to size - 1 do begin
-                item_ := gameOptionsForm_.get(index);
-                if (TJava.ToObject(item_) is TGameConfigurationGauge) then begin
-                    gauge := TGameConfigurationGauge(TJava.ToObject(item_));
-                    name := item_.getLabel();
-                    nextGameConfiguration := gameConfigurationSingleton_.getInstanceByName(name);
-                    if (nextGameConfiguration) = (gameConfigurationCentral_.COLLIDE_DAMAGE) then begin
-                        gauge.setValue((gameConfigurationCentral_.COLLIDE_DAMAGE.getValue().intValue()) - ((gameConfiguration_.getMinValue())));
-                    end else if (nextGameConfiguration) = (gameConfigurationCentral_.DURABILITY_CHALLENGE_LEVEL) then begin
-                        gauge.setValue((gameConfigurationCentral_.DURABILITY_CHALLENGE_LEVEL.getValue().intValue()) - ((gameConfiguration_.getMinValue())));
-                    end else if (nextGameConfiguration) = (gameConfigurationCentral_.ATTACK_CHALLENGE_LEVEL) then begin
-                        gauge.setValue((gameConfigurationCentral_.ATTACK_CHALLENGE_LEVEL.getValue().intValue()) - ((gameConfiguration_.getMinValue())));
-                    end else if (nextGameConfiguration) = (gameConfigurationCentral_.SPEED_CHALLENGE_LEVEL) then begin
-                        gauge.setValue((gameConfigurationCentral_.SPEED_CHALLENGE_LEVEL.getValue().intValue()) - ((gameConfiguration_.getMinValue())));
-                    end;
-                end;
-            end;
-        end;
-end;
-    
-
-procedure TGameConfigurationUtil.updateCompetitionValue;
-var
-  gameConfigurationCentral_: TGameConfigurationCentral;
-begin
-        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), 'updateCompetitionValue');
-        gameConfigurationCentral_ := TGameConfigurationCentral.getInstance();
-        Self.COMPETITION_VALUE := (((gameConfigurationCentral_.COLLIDE_DAMAGE.getValue().intValue()) + (gameConfigurationCentral_.ATTACK_CHALLENGE_LEVEL.getValue().intValue())) + (gameConfigurationCentral_.DURABILITY_CHALLENGE_LEVEL.getValue().intValue())) + (gameConfigurationCentral_.SPEED_CHALLENGE_LEVEL.getValue().intValue());
-        Self.COMPETITION_VALUE := (TJava.SignedRightShift(Self.COMPETITION_VALUE, 2));
-end;
-    
-
-function TGameConfigurationUtil.getCompetitionValue: Integer;
-begin
-        Exit(Self.COMPETITION_VALUE);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TGameConfigurationUtil.instance := TGameConfigurationUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtnUtl-gtCmpttnVl0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_COMPETITION_VALUE")
+        GOBACK
+    GOBACK.
+END FUNCTION GmCnfgrtnUtl-gtCmpttnVl0.
 

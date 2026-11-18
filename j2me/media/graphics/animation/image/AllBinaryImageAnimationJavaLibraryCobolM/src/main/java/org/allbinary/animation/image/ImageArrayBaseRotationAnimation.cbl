@@ -1,205 +1,454 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.image
+*> Java class ImageArrayBaseRotationAnimation
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.image
-unit ImageArrayBaseRotationAnimation;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, Image, AnimationBehavior, RotationAnimation, AngleInfo, ImageModifierUtil;
-
-type
-  {AB:TYPES}
-  TImageArrayBaseRotationAnimation = class(TRotationAnimation)
-  public
-    imageModifierUtil: TImageModifierUtil;
-    originalImageArray: TArray<TImage>;
-    imageArray: TArray<TImage>;
-    currentImage: TImage;
-    totalFrames: Integer;
-    anchor: Integer;
-    procedure InitFields;
-        constructor Create(originalImageArray: TArray<TImage>; angleInfo_: TAngleInfo; animationBehavior_: TAnimationBehavior);
-        function getAnimationSize: Integer; override;
-        procedure setAlpha(alpha: Integer); override;
-        procedure nextRotation; override;
-        procedure previousRotation; override;
-        procedure setFrame(index2: Integer); override;
-        procedure setSequence(sequence: TArray<Integer>); override;
-        function getSequence: TArray<Integer>; override;
-        procedure setImageArray(imageArray: TArray<TImage>); virtual;
-        procedure paintXY(graphics_: TGraphics; x: Integer; y: Integer); override;
-        procedure close; virtual;
-        procedure finalize; virtual;
-  end;
-
-implementation
-uses
-  NullImage, DisposalUtil, Anchor, PrimitiveIntUtil, CircularIndexUtil;
-
-
-{AB:CODE}
-
-procedure TImageArrayBaseRotationAnimation.InitFields;
-begin
-  Self.imageModifierUtil := TImageModifierUtil.getInstanceOrCreate();
-  
-  Self.imageArray := TNullImage.NULL_IMAGE_ARRAY;
-  
-  
-  Self.anchor := TAnchor.TOP_LEFT;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArryBsRttnAnmtn-new3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-originalImageArray BINARY-DOUBLE.
+01 J-angleInfo BINARY-DOUBLE.
+01 J-animationBehavior BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-originalImageArray J-angleInfo J-animationBehavior RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ImageArrayBaseRotationAnimation")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_imageModifierUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_originalImageArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_imageArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_currentImage")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_totalFrames")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_anchor")
+    COMPUTE JVALUE = FUNCTION ImgMdfrUtl-gtInstncOrCrt0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_imageModifierUtil", JVALUE)
     
-
-constructor TImageArrayBaseRotationAnimation.Create(originalImageArray: TArray<TImage>; angleInfo_: TAngleInfo; animationBehavior_: TAnimationBehavior);
-begin
-        inherited Create(angleInfo_, TCircularIndexUtil.createInstance(TJava.Divide(360, angleInfo_.getAngleIncrementInfo().getAngleIncrement())), animationBehavior_);
-        InitFields;
-        Self.originalImageArray := originalImageArray;
-        Self.setImageArray(Self.imageModifierUtil.getImageArray(originalImageArray));
-        Self.currentImage := Self.imageArray[Self.circularIndexUtil.getIndex()];
-end;
+    COMPUTE JVALUE = FUNCTION NllImg-sttc-NULL-IMAGE88814
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_imageArray", JVALUE)
     
-
-// throws Exception
-function TImageArrayBaseRotationAnimation.getAnimationSize: Integer;
-begin
-        Exit(Self.getSize());
-end;
     
+    COMPUTE JVALUE = FUNCTION Anchor-static-TOP-LEFT
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_anchor", JVALUE)
+        COMPUTE jtemp2 = FUNCTION AnglInf-getAngleIncrementInfo0(J-angleInfo)
+        COMPUTE jtemp1 = (FUNCTION MOD(FUNCTION INTEGER-PART(360 / FUNCTION JR-CLASS-NAME(jtemp2)) + 2147483648, 4294967296) - 2147483648)
+        CONTINUE
+        COMPUTE JVALUE = J-originalImageArray
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_originalImageArray", JVALUE)
+        COMPUTE JDISCARD = FUNCTION ImgArryBsRttnAnmtn-stImgArry1(J-THIS, FUNCTION ImgMdfrUtl-getImageArray1(FUNCTION JR-GET(J-THIS, "f_imageModifierUtil"), J-originalImageArray))
+        COMPUTE JVALUE = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_imageArray"), FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil")))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_currentImage", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ImgArryBsRttnAnmtn-new3.
 
-procedure TImageArrayBaseRotationAnimation.setAlpha(alpha: Integer);
-var
-  index: Integer;
-begin
-        if (Self.alphaP) <> (alpha) then begin
-            inherited setAlpha(alpha);
-            Self.imageModifierUtil.reset();
-            index := Self.circularIndexUtil.getIndex();
-            Self.imageModifierUtil.setAlpha(Self.originalImageArray[index], Self.imageArray[index], index, Self.alphaP);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArryBsRttnAnmtn-gtAnmtnSz0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION RotationAnimation-getSize0(J-THIS)
+        GOBACK
+    GOBACK.
+END FUNCTION ImgArryBsRttnAnmtn-gtAnmtnSz0.
 
-procedure TImageArrayBaseRotationAnimation.nextRotation;
-var
-  index: Integer;
-begin
-        inherited nextRotation();
-        index := Self.circularIndexUtil.getIndex();
-        Self.imageModifierUtil.setAlpha(Self.originalImageArray[index], Self.imageArray[index], index, Self.alphaP);
-        Self.currentImage := Self.imageArray[index];
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArryBsRttnAnmtn-setAlpha1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-index BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-alpha BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-alpha RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION JR-GET(J-THIS, "f_alphaP") NOT = J-alpha)
+            COMPUTE JDISCARD = FUNCTION Animation-setAlpha1(J-THIS, J-alpha)
+            COMPUTE JDISCARD = FUNCTION ImageModifierUtil-reset0(FUNCTION JR-GET(J-THIS, "f_imageModifierUtil"))
+            COMPUTE J-index = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil"))
+            COMPUTE JDISCARD = FUNCTION ImageModifierUtil-setAlpha4(FUNCTION JR-GET(J-THIS, "f_imageModifierUtil"), FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_originalImageArray"), J-index), FUNCTION JR-ARRAY-GET(FUNCTION
+        JR-GET(J-THIS, "f_imageArray"), J-index), J-index, FUNCTION JR-GET(J-THIS, "f_alphaP"))
+        END-IF
+    GOBACK.
+END FUNCTION ImgArryBsRttnAnmtn-setAlpha1.
 
-procedure TImageArrayBaseRotationAnimation.previousRotation;
-var
-  index: Integer;
-begin
-        inherited previousRotation();
-        index := Self.circularIndexUtil.getIndex();
-        Self.imageModifierUtil.setAlpha(Self.originalImageArray[index], Self.imageArray[index], index, Self.alphaP);
-        Self.currentImage := Self.imageArray[index];
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArryBsRttnAnmtn-nxtRttn0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-index BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION RttnAnmtn-nextRotation0(J-THIS)
+        COMPUTE J-index = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil"))
+        COMPUTE JDISCARD = FUNCTION ImageModifierUtil-setAlpha4(FUNCTION JR-GET(J-THIS, "f_imageModifierUtil"), FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_originalImageArray"), J-index), FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS,
+        "f_imageArray"), J-index), J-index, FUNCTION JR-GET(J-THIS, "f_alphaP"))
+        COMPUTE JVALUE = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_imageArray"), J-index)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_currentImage", JVALUE)
+    GOBACK.
+END FUNCTION ImgArryBsRttnAnmtn-nxtRttn0.
 
-procedure TImageArrayBaseRotationAnimation.setFrame(index2: Integer);
-var
-  index: Integer;
-begin
-        inherited setFrame(index2);
-        index := Self.circularIndexUtil.getIndex();
-        Self.imageModifierUtil.setAlpha(Self.originalImageArray[index], Self.imageArray[index], index, Self.alphaP);
-        Self.currentImage := Self.imageArray[index];
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArryBsRttnAnmtn-prvsRttn0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-index BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION RttnAnmtn-previousRotation0(J-THIS)
+        COMPUTE J-index = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil"))
+        COMPUTE JDISCARD = FUNCTION ImageModifierUtil-setAlpha4(FUNCTION JR-GET(J-THIS, "f_imageModifierUtil"), FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_originalImageArray"), J-index), FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS,
+        "f_imageArray"), J-index), J-index, FUNCTION JR-GET(J-THIS, "f_alphaP"))
+        COMPUTE JVALUE = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_imageArray"), J-index)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_currentImage", JVALUE)
+    GOBACK.
+END FUNCTION ImgArryBsRttnAnmtn-prvsRttn0.
 
-procedure TImageArrayBaseRotationAnimation.setSequence(sequence: TArray<Integer>);
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArryBsRttnAnmtn-setFrame1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-index BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-index2 BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-index2 RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION RotationAnimation-setFrame1(J-THIS, J-index2)
+        COMPUTE J-index = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil"))
+        COMPUTE JDISCARD = FUNCTION ImageModifierUtil-setAlpha4(FUNCTION JR-GET(J-THIS, "f_imageModifierUtil"), FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_originalImageArray"), J-index), FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS,
+        "f_imageArray"), J-index), J-index, FUNCTION JR-GET(J-THIS, "f_alphaP"))
+        COMPUTE JVALUE = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_imageArray"), J-index)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_currentImage", JVALUE)
+    GOBACK.
+END FUNCTION ImgArryBsRttnAnmtn-setFrame1.
 
-function TImageArrayBaseRotationAnimation.getSequence: TArray<Integer>;
-begin
-        Exit(TPrimitiveIntUtil.getArrayInstance());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArryBsRttnAnmtn-stSqnc1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-sequence BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-sequence RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION ImgArryBsRttnAnmtn-stSqnc1.
 
-procedure TImageArrayBaseRotationAnimation.setImageArray(imageArray: TArray<TImage>);
-begin
-        Self.imageArray := imageArray;
-        Self.totalFrames := System.Length(imageArray);
-        Self.circularIndexUtil := TCircularIndexUtil.createInstance(Self.totalFrames);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArryBsRttnAnmtn-gtSqnc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION PrmtvIntUtl-getArrayInstance0
+        GOBACK
+    GOBACK.
+END FUNCTION ImgArryBsRttnAnmtn-gtSqnc0.
 
-procedure TImageArrayBaseRotationAnimation.paintXY(graphics_: TGraphics; x: Integer; y: Integer);
-begin
-        graphics_.drawImage(Self.currentImage, x, y, Self.anchor);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArryBsRttnAnmtn-stImgArry1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-imageArray BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-imageArray RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-imageArray
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_imageArray", JVALUE)
+        COMPUTE JVALUE = FUNCTION JR-ARRAY-LENGTH(J-imageArray)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_totalFrames", JVALUE)
+        COMPUTE JVALUE = FUNCTION CrclrIndxUtl-createInstance1(FUNCTION JR-GET(J-THIS, "f_totalFrames"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_circularIndexUtil", JVALUE)
+    GOBACK.
+END FUNCTION ImgArryBsRttnAnmtn-stImgArry1.
 
-// throws Exception
-procedure TImageArrayBaseRotationAnimation.close;
-var
-  disposalUtil_: TDisposalUtil;
-  size2: Integer;
-  index: Integer;
-  size: Integer;
-begin
-        disposalUtil_ := TDisposalUtil.getInstance();
-        size2 := System.Length(Self.imageArray);
-        for index := 0 to size2 - 1 do begin
-            disposalUtil_.disposeImage(Self.imageArray[index]);
-        end;
-        size := System.Length(Self.originalImageArray);
-        for index := 0 to size - 1 do begin
-            disposalUtil_.disposeImage(Self.originalImageArray[index]);
-        end;
-        disposalUtil_.disposeImage(Self.currentImage);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArryBsRttnAnmtn-paintXY3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Graphics-drawImage4(J-graphics, FUNCTION JR-GET(J-THIS, "f_currentImage"), J-x, J-y, FUNCTION JR-GET(J-THIS, "f_anchor"))
+    GOBACK.
+END FUNCTION ImgArryBsRttnAnmtn-paintXY3.
 
-// throws Throwable
-procedure TImageArrayBaseRotationAnimation.finalize;
-var
-  disposalUtil_: TDisposalUtil;
-  size2: Integer;
-  index: Integer;
-  size: Integer;
-begin
-        disposalUtil_ := TDisposalUtil.getInstance();
-        size2 := System.Length(Self.imageArray);
-        for index := 0 to size2 - 1 do begin
-            disposalUtil_.disposeImage(Self.imageArray[index]);
-        end;
-        size := System.Length(Self.originalImageArray);
-        for index := 0 to size - 1 do begin
-            disposalUtil_.disposeImage(Self.originalImageArray[index]);
-        end;
-        disposalUtil_.disposeImage(Self.currentImage);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArryBsRttnAnmtn-close0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-disposalUtil BINARY-DOUBLE.
+01 J-size2 BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-disposalUtil = FUNCTION DisposalUtil-getInstance0
+        COMPUTE J-size2 = FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_imageArray"))
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size2) EXIT PERFORM END-IF
+            COMPUTE JDISCARD = FUNCTION DisposalUtil-disposeImage1(J-disposalUtil, FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_imageArray"), J-index))
+        END-PERFORM
+        COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_originalImageArray"))
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST2
+        PERFORM FOREVER
+            IF JFIRST2 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST2
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE JDISCARD = FUNCTION DisposalUtil-disposeImage1(J-disposalUtil, FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_originalImageArray"), J-index))
+        END-PERFORM
+        COMPUTE JDISCARD = FUNCTION DisposalUtil-disposeImage1(J-disposalUtil, FUNCTION JR-GET(J-THIS, "f_currentImage"))
+    GOBACK.
+END FUNCTION ImgArryBsRttnAnmtn-close0.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArryBsRttnAnmtn-finalize0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-disposalUtil BINARY-DOUBLE.
+01 J-size2 BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 JFIRST3 BINARY-DOUBLE.
+01 JFIRST4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-disposalUtil = FUNCTION DisposalUtil-getInstance0
+        COMPUTE J-size2 = FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_imageArray"))
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST3
+        PERFORM FOREVER
+            IF JFIRST3 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST3
+            IF NOT (J-index < J-size2) EXIT PERFORM END-IF
+            COMPUTE JDISCARD = FUNCTION DisposalUtil-disposeImage1(J-disposalUtil, FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_imageArray"), J-index))
+        END-PERFORM
+        COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_originalImageArray"))
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST4
+        PERFORM FOREVER
+            IF JFIRST4 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST4
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE JDISCARD = FUNCTION DisposalUtil-disposeImage1(J-disposalUtil, FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_originalImageArray"), J-index))
+        END-PERFORM
+        COMPUTE JDISCARD = FUNCTION DisposalUtil-disposeImage1(J-disposalUtil, FUNCTION JR-GET(J-THIS, "f_currentImage"))
+    GOBACK.
+END FUNCTION ImgArryBsRttnAnmtn-finalize0.
 

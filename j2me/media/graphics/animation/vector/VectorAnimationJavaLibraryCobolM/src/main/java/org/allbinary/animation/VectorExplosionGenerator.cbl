@@ -1,206 +1,410 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation
+*> Java class VectorExplosionGenerator
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation
-unit VectorExplosionGenerator;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrExplsnGnrtr-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 VectorExplosionGenerator-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 VectorExplosionGenerator-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF VectorExplosionGenerator-jset-instance = 0
+        MOVE 1 TO VectorExplosionGenerator-jset-instance
+        COMPUTE VectorExplosionGenerator-jcell-instance = FUNCTION VectorExplosionGenerator-new0
+    END-IF
+    MOVE VectorExplosionGenerator-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION VctrExplsnGnrtr-sttc-nstnc.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrExplsnGnrtrsttcnS16564.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 VectorExplosionGenerator-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION VctrExplsnGnrtr-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO VectorExplosionGenerator-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION VctrExplsnGnrtrsttcnS16564.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VectorExplosionGenerator-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("VectorExplosionGenerator")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_RANDOM")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ROTATION")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_vectorAnimationUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_randomRotationFactory")
+    COMPUTE JVALUE = FUNCTION VectorExplosionType-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_RANDOM", JVALUE)
+    COMPUTE JVALUE = FUNCTION VectorExplosionType-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ROTATION", JVALUE)
+    COMPUTE JVALUE = FUNCTION VctrAnmtnUtl-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_vectorAnimationUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION RndmRttnFctry-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_randomRotationFactory", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION VectorExplosionGenerator-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, RandomRotationFactory, BasicArrayList, VectorExplosionType, VectorAnimationUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrExplsnGnrtr-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION VctrExplsnGnrtr-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION VctrExplsnGnrtr-getInstance0.
 
-type
-  {AB:TYPES}
-  TVectorExplosionGenerator = class(TObject)
-  public
-    RANDOM: TVectorExplosionType;
-    ROTATION: TVectorExplosionType;
-    vectorAnimationUtil: TVectorAnimationUtil;
-    randomRotationFactory: TRandomRotationFactory;
-    class var instance: TVectorExplosionGenerator;
-    procedure InitFields;
-        class function getInstance: TVectorExplosionGenerator; overload; static;
-        constructor Create;
-        function createList(list: TBasicArrayList; howMuch: Integer; type_: TVectorExplosionType): TBasicArrayList; virtual;
-        function getInstance(points: TArray<TArray<Integer>>; howMuch: Integer; type_: TVectorExplosionType): TArray<TArray<TArray<Integer>>>; overload; virtual;
-        function getInstanceStartFrame(points: TArray<TArray<Integer>>; howMuch: Integer; type_: TVectorExplosionType; startFrame: Boolean): TBasicArrayList; virtual;
-        function createListFromPoints(tempBasicArrayList: TBasicArrayList; points: TArray<TArray<Integer>>; howMuch: Integer; type_: TVectorExplosionType): TBasicArrayList;
-        function createPointsBasicArrayList(points: TArray<TArray<Integer>>): TBasicArrayList;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrExplsnGnrtr-createList3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-point BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-points BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-howMuch BINARY-DOUBLE.
+01 J-type BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-list J-howMuch J-type RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(J-list)
+        COMPUTE jtemp1 = 2
+        COMPUTE J-points = FUNCTION JR-NEW-ARRAY2(J-size, jtemp1)
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-point = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
+            COMPUTE jtemp2 = 0
+            COMPUTE JVALUE = FUNCTION GPoint-getX0(J-point)
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-ARRAY-GET(J-points, J-index), jtemp2, JVALUE)
+            COMPUTE jtemp3 = 1
+            COMPUTE JVALUE = FUNCTION GPoint-getY0(J-point)
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-ARRAY-GET(J-points, J-index), jtemp3, JVALUE)
+        END-PERFORM
+        COMPUTE J-RESULT = FUNCTION VctrExplsnGnrtr-crtLstFrmPnts4(J-THIS, J-list, J-points, J-howMuch, J-type)
+        GOBACK
+    GOBACK.
+END FUNCTION VctrExplsnGnrtr-createList3.
 
-implementation
-uses
-  GPoint, PointFactory, RandomTranslation, BasicArrayListD, BasicArrayListS;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrExplsnGnrtr-getInstance3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-pointsBasicArrayList BINARY-DOUBLE.
+01 J-tempBasicArrayList BINARY-DOUBLE.
+01 J-newPoints BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-points BINARY-DOUBLE.
+01 J-howMuch BINARY-DOUBLE.
+01 J-type BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-points J-howMuch J-type RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp4 = 1
+        COMPUTE J-pointsBasicArrayList = FUNCTION VctrExplsnGnrtr-gtInstncS11604(J-THIS, J-points, J-howMuch, J-type, jtemp4)
+        COMPUTE jtemp5 = 0
+        COMPUTE J-tempBasicArrayList = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-pointsBasicArrayList, "f_objectArray"), jtemp5)
+        COMPUTE J-newPoints = FUNCTION VctrAnmtnUtl-tAnmtnArryFr44994(FUNCTION JR-GET(J-THIS, "f_vectorAnimationUtil"), J-pointsBasicArrayList, FUNCTION BasicArrayList-size0(J-tempBasicArrayList))
+        COMPUTE J-RESULT = J-newPoints
+        GOBACK
+    GOBACK.
+END FUNCTION VctrExplsnGnrtr-getInstance3.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrExplsnGnrtr-gtInstncS11604.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-pointsBasicArrayList BINARY-DOUBLE.
+01 J-frameIndex BINARY-DOUBLE.
+01 J-tempBasicArrayList BINARY-DOUBLE.
+01 J-pointBasicArrayList BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-points BINARY-DOUBLE.
+01 J-howMuch BINARY-DOUBLE.
+01 J-type BINARY-DOUBLE.
+01 J-startFrame BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-points J-howMuch J-type J-startFrame RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE J-pointsBasicArrayList = FUNCTION BasicArrayListS-new1(J-howMuch)
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-pointsBasicArrayList, FUNCTION VctrExplsnGnrtr-crtPntsBs48126(J-THIS, J-points))
+            COMPUTE J-frameIndex = 0
+            CONTINUE
+            CONTINUE
+            PERFORM FOREVER
+                IF NOT (J-frameIndex < J-howMuch) EXIT PERFORM END-IF
+                COMPUTE J-tempBasicArrayList = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-pointsBasicArrayList, "f_objectArray"), J-frameIndex)
+                COMPUTE J-pointBasicArrayList = FUNCTION VctrExplsnGnrtr-crtLstFrmPnts4(J-THIS, J-tempBasicArrayList, J-points, J-howMuch, J-type)
+                COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-pointsBasicArrayList, J-pointBasicArrayList)
+                COMPUTE J-frameIndex = (FUNCTION MOD(J-frameIndex + 1 + 2147483648, 4294967296) - 2147483648)
+            END-PERFORM
+            IF (NOT (J-startFrame = 1))
+                COMPUTE jtemp6 = 0
+                COMPUTE JDISCARD = FUNCTION BasicArrayList-removeAt1(J-pointsBasicArrayList, jtemp6)
+            END-IF
+            COMPUTE J-RESULT = J-pointsBasicArrayList
+            GOBACK
+    GOBACK.
+END FUNCTION VctrExplsnGnrtr-gtInstncS11604.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrExplsnGnrtr-crtLstFrmPnts4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-index BINARY-DOUBLE.
+01 J-pointBasicArrayList BINARY-DOUBLE.
+01 J-sectionBasicArrayList BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-index2 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-tempBasicArrayList BINARY-DOUBLE.
+01 J-points BINARY-DOUBLE.
+01 J-howMuch BINARY-DOUBLE.
+01 J-type BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-tempBasicArrayList J-points J-howMuch J-type RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-index = 0
+        COMPUTE J-pointBasicArrayList = FUNCTION BasicArrayListD-new0
+        CONTINUE
+        PERFORM FOREVER
+            IF NOT (J-index < FUNCTION JR-ARRAY-LENGTH(J-points)) EXIT PERFORM END-IF
+            COMPUTE J-sectionBasicArrayList = FUNCTION BasicArrayListD-new0
+            COMPUTE jtemp7 = 0
+            PERFORM FOREVER
+                IF NOT (FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(J-points, J-index), jtemp7) NOT = 1000) EXIT PERFORM END-IF
+                COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-sectionBasicArrayList, FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-tempBasicArrayList, "f_objectArray"), J-index))
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+                IF (J-index >= FUNCTION JR-ARRAY-LENGTH(J-points))
+                    EXIT PERFORM
+                END-IF
+            END-PERFORM
+            COMPUTE J-sectionBasicArrayList = FUNCTION RandomTranslation-getInstance2(J-sectionBasicArrayList, J-howMuch)
+            IF (J-type = FUNCTION JR-GET(J-THIS, "f_ROTATION"))
+                COMPUTE J-sectionBasicArrayList = FUNCTION RndmRttnFctry-getInstanceList2(FUNCTION JR-GET(J-THIS, "f_randomRotationFactory"), J-sectionBasicArrayList, J-howMuch)
+            END-IF
+            COMPUTE J-size = FUNCTION BasicArrayList-size0(J-sectionBasicArrayList)
+            COMPUTE J-index2 = 0
+            MOVE 1 TO JFIRST2
+            PERFORM FOREVER
+                IF JFIRST2 = 0
+                    COMPUTE J-index2 = (FUNCTION MOD(J-index2 + 1 + 2147483648, 4294967296) - 2147483648)
+                END-IF
+                MOVE 0 TO JFIRST2
+                IF NOT (J-index2 < J-size) EXIT PERFORM END-IF
+                COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-pointBasicArrayList, FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-sectionBasicArrayList, "f_objectArray"), J-index2))
+            END-PERFORM
+            IF (J-index >= FUNCTION JR-ARRAY-LENGTH(J-points))
+                EXIT PERFORM
+            ELSE
+                COMPUTE jtemp8 = 0
+            IF (FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(J-points, J-index), jtemp8) = 1000)
+                COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-pointBasicArrayList, FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-tempBasicArrayList, "f_objectArray"), J-index))
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            END-IF
+        END-PERFORM
+        COMPUTE J-RESULT = J-pointBasicArrayList
+        GOBACK
+    GOBACK.
+END FUNCTION VctrExplsnGnrtr-crtLstFrmPnts4.
 
-procedure TVectorExplosionGenerator.InitFields;
-begin
-  Self.RANDOM := TVectorExplosionType.Create();
-  Self.ROTATION := TVectorExplosionType.Create();
-  Self.vectorAnimationUtil := TVectorAnimationUtil.getInstance();
-  Self.randomRotationFactory := TRandomRotationFactory.getInstance();
-end;
-    
-
-class function TVectorExplosionGenerator.getInstance: TVectorExplosionGenerator;
-begin
-        Exit(TVectorExplosionGenerator.instance);
-end;
-    
-
-constructor TVectorExplosionGenerator.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
-
-// throws Exception
-function TVectorExplosionGenerator.createList(list: TBasicArrayList; howMuch: Integer; type_: TVectorExplosionType): TBasicArrayList;
-var
-  point: TGPoint;
-  size: Integer;
-  points: TArray<TArray<Integer>>;
-  index: Integer;
-begin
-        
-        size := list.size();
-        points := TJava.NewArray2<Integer>(size, 2);
-        for index := 0 to size - 1 do begin
-            point := TGPoint(TJava.ToObject(list.objectArray[index]));
-            points[index][0] := point.getX();
-            points[index][1] := point.getY();
-        end;
-        Exit(Self.createListFromPoints(list, points, howMuch, type_));
-end;
-    
-
-// throws Exception
-function TVectorExplosionGenerator.getInstance(points: TArray<TArray<Integer>>; howMuch: Integer; type_: TVectorExplosionType): TArray<TArray<TArray<Integer>>>;
-var
-  pointsBasicArrayList: TBasicArrayList;
-  tempBasicArrayList: TBasicArrayList;
-  newPoints: TArray<TArray<TArray<Integer>>>;
-begin
-        pointsBasicArrayList := Self.getInstanceStartFrame(points, howMuch, type_, True);
-        tempBasicArrayList := TBasicArrayList(TJava.ToObject(pointsBasicArrayList.objectArray[0]));
-        newPoints := Self.vectorAnimationUtil.toAnimationArrayFromListOfPointListWithPointsPerFrame(pointsBasicArrayList, tempBasicArrayList.size());
-        Exit(newPoints);
-end;
-    
-
-// throws Exception
-function TVectorExplosionGenerator.getInstanceStartFrame(points: TArray<TArray<Integer>>; howMuch: Integer; type_: TVectorExplosionType; startFrame: Boolean): TBasicArrayList;
-var
-  pointsBasicArrayList: TBasicArrayList;
-  frameIndex: Integer;
-  tempBasicArrayList: TBasicArrayList;
-  pointBasicArrayList: TBasicArrayList;
-begin
-        try
-            pointsBasicArrayList := TBasicArrayListS.Create(howMuch);
-            pointsBasicArrayList.add(TJava.Box(Self.createPointsBasicArrayList(points)));
-            frameIndex := 0;
-            
-            
-            while (frameIndex) < (howMuch) do begin
-                tempBasicArrayList := TBasicArrayList(TJava.ToObject(pointsBasicArrayList.objectArray[frameIndex]));
-                pointBasicArrayList := Self.createListFromPoints(tempBasicArrayList, points, howMuch, type_);
-                pointsBasicArrayList.add(TJava.Box(pointBasicArrayList));
-                Inc(frameIndex);
-            end;
-            if not (startFrame) then begin
-                pointsBasicArrayList.removeAt(0);
-            end;
-            Exit(pointsBasicArrayList);
-        except
-            on e: SysUtils.Exception do begin
-            raise e;
-            end;
-        end;
-end;
-    
-
-// throws Exception
-function TVectorExplosionGenerator.createListFromPoints(tempBasicArrayList: TBasicArrayList; points: TArray<TArray<Integer>>; howMuch: Integer; type_: TVectorExplosionType): TBasicArrayList;
-var
-  index: Integer;
-  pointBasicArrayList: TBasicArrayList;
-  sectionBasicArrayList: TBasicArrayList;
-  size: Integer;
-  index2: Integer;
-begin
-        index := 0;
-        pointBasicArrayList := TBasicArrayListD.Create();
-        
-        while (index) < (System.Length(points)) do begin
-            sectionBasicArrayList := TBasicArrayListD.Create();
-            while (points[index][0]) <> (1000) do begin
-                sectionBasicArrayList.add(TJava.Box(tempBasicArrayList.objectArray[index]));
-                Inc(index);
-                if (index) >= (System.Length(points)) then begin
-                    Break;
-                end;
-            end;
-            sectionBasicArrayList := TRandomTranslation.getInstance(sectionBasicArrayList, howMuch);
-            if (type_) = (Self.ROTATION) then begin
-                sectionBasicArrayList := Self.randomRotationFactory.getInstanceList(sectionBasicArrayList, howMuch);
-            end;
-            size := sectionBasicArrayList.size();
-            for index2 := 0 to size - 1 do begin
-                pointBasicArrayList.add(TJava.Box(sectionBasicArrayList.objectArray[index2]));
-            end;
-            if (index) >= (System.Length(points)) then begin
-                Break;
-            end else if (points[index][0]) = (1000) then begin
-                pointBasicArrayList.add(TJava.Box(tempBasicArrayList.objectArray[index]));
-                Inc(index);
-            end;
-        end;
-        Exit(pointBasicArrayList);
-end;
-    
-
-// throws Exception
-function TVectorExplosionGenerator.createPointsBasicArrayList(points: TArray<TArray<Integer>>): TBasicArrayList;
-var
-  firstPointBasicArrayList: TBasicArrayList;
-  pointFactory_: TPointFactory;
-  index: Integer;
-begin
-        if (System.Length(points)) = (0) then begin
-            raise SysUtils.Exception.Create('Not Points Provided');
-        end;
-        firstPointBasicArrayList := TBasicArrayListS.Create(System.Length(points));
-        pointFactory_ := TPointFactory.getInstance();
-        for index := 0 to System.Length(points) - 1 do begin
-            firstPointBasicArrayList.add(TJava.Box(pointFactory_.createXY(points[index][0], points[index][1])));
-        end;
-        Exit(firstPointBasicArrayList);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TVectorExplosionGenerator.instance := TVectorExplosionGenerator.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrExplsnGnrtr-crtPntsBs48126.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-firstPointBasicArrayList BINARY-DOUBLE.
+01 J-pointFactory BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 JFIRST3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-points BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-points RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION JR-ARRAY-LENGTH(J-points) = 0)
+            COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+        END-IF
+        COMPUTE J-firstPointBasicArrayList = FUNCTION BasicArrayListS-new1(FUNCTION JR-ARRAY-LENGTH(J-points))
+        COMPUTE J-pointFactory = FUNCTION PointFactory-getInstance0
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST3
+        PERFORM FOREVER
+            IF JFIRST3 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST3
+            IF NOT (J-index < FUNCTION JR-ARRAY-LENGTH(J-points)) EXIT PERFORM END-IF
+            COMPUTE jtemp9 = 0
+            COMPUTE jtemp10 = 1
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-firstPointBasicArrayList, FUNCTION PointFactory-createXY2(J-pointFactory, FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(J-points, J-index), jtemp9), FUNCTION JR-ARRAY-GET(FUNCTION
+        JR-ARRAY-GET(J-points, J-index), jtemp10)))
+        END-PERFORM
+        COMPUTE J-RESULT = J-firstPointBasicArrayList
+        GOBACK
+    GOBACK.
+END FUNCTION VctrExplsnGnrtr-crtPntsBs48126.
 

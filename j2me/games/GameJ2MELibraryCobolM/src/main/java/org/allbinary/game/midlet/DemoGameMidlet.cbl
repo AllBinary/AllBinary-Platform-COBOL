@@ -1,161 +1,338 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.midlet
+*> Java class DemoGameMidlet
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.midlet
-unit DemoGameMidlet;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DemoGameMidlet-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-clientInformationFactory BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-clientInformationFactory RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("DemoGameMidlet")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION DemoGameMidlet-new1.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DemoGameMidlet-isContinue0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-hashtable BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-hashtable = FUNCTION AllBnryMdlt-gtStrtSttHshtbl0(J-THIS)
+        IF ((J-hashtable NOT = 0) AND (FUNCTION Hashtable-size0(J-hashtable) > 0))
+            COMPUTE J-RESULT = 1
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = 0
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION DemoGameMidlet-isContinue0.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DmGmMdlt-getHighestLevel0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = 1
+        GOBACK
+    GOBACK.
+END FUNCTION DmGmMdlt-getHighestLevel0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameCanvasRunnableInterface, AllBinaryGameLayerManager, ClientInformationFactory, GameMidlet;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DmGmMdlt-crtDmGmCnvsRnnbl54653.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        COMPUTE J-RESULT = FUNCTION NllGmCnvsRnnbl-sttc-N20955
+        GOBACK
+    GOBACK.
+END FUNCTION DmGmMdlt-crtDmGmCnvsRnnbl54653.
 
-type
-  {AB:TYPES}
-  TDemoGameMidlet = class(TGameMidlet)
-  public
-        constructor Create(clientInformationFactory_: TClientInformationFactory);
-        function isContinue: Boolean; virtual;
-        function getHighestLevel: Integer; virtual;
-        function createDemoGameCanvasRunnableInterface: IGameCanvasRunnableInterface; virtual;
-        function createGameCanvasRunnable(allBinaryGameLayerManager_: TAllBinaryGameLayerManager): IGameCanvasRunnableInterface; virtual;
-        function createGameCanvasRunnableInterface: IGameCanvasRunnableInterface; virtual;
-        procedure demoSetup; virtual;
-        procedure postDemoSetup; virtual;
-        procedure setDemo; override;
-        procedure createGame; override;
-        function isReady: Boolean; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DmGmMdlt-crtGmCnvsRnnbl1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryGameLayerManager BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryGameLayerManager RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+    GOBACK.
+END FUNCTION DmGmMdlt-crtGmCnvsRnnbl1.
 
-implementation
-uses
-  DemoRunnable, CreateGameRunnable, ProgressCanvas, ProgressCanvasFactory, StdUtil, PrimaryThreadPool, NullGameCanvasRunnable, ABHashtable;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DmGmMdlt-crtGmCnvsRnnblIntrfc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION DmGmMdlt-crtGmCnvsRnnbl1(J-THIS, FUNCTION GmMdlt-createGameLayerManager0(J-THIS))
+        GOBACK
+    GOBACK.
+END FUNCTION DmGmMdlt-crtGmCnvsRnnblIntrfc0.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DemoGameMidlet-demoSetup0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION DemoGameMidlet-demoSetup0.
 
-{AB:CODE}
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DemoGameMidlet-postDemoSetup0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION DemoGameMidlet-postDemoSetup0.
 
-constructor TDemoGameMidlet.Create(clientInformationFactory_: TClientInformationFactory);
-begin
-        inherited Create(clientInformationFactory_);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DemoGameMidlet-setDemo0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-progressCanvas BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        COMPUTE J-progressCanvas = FUNCTION PrgrssCnvsFctry-getInstance0
+        COMPUTE JDISCARD = FUNCTION ProgressCanvas-start0(J-progressCanvas)
+        COMPUTE jtemp1 = FUNCTION PrimaryThreadPool-getInstance0
+        COMPUTE JDISCARD = FUNCTION PrimaryThreadPool-runTask1(jtemp1, FUNCTION DemoRunnable-new1(J-THIS))
+    GOBACK.
+END FUNCTION DemoGameMidlet-setDemo0.
 
-// throws Exception
-function TDemoGameMidlet.isContinue: Boolean;
-var
-  hashtable: TABHashtable<TObject, TObject>;
-begin
-        hashtable := Self.getStartStateHashtable();
-        if ((hashtable) <> (nil)) and ((hashtable.size()) > (0)) then begin
-            Exit(True);
-        end else begin
-            Exit(False);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DemoGameMidlet-createGame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-CREATE_GAME BINARY-DOUBLE.
+01 J-progressCanvas BINARY-DOUBLE.
+01 J-hashtable BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-CREATE_GAME = FUNCTION JR-STR("createGame")
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        COMPUTE J-progressCanvas = FUNCTION PrgrssCnvsFctry-getInstance0
+        COMPUTE JDISCARD = FUNCTION ProgressCanvas-start0(J-progressCanvas)
+        COMPUTE J-hashtable = FUNCTION AllBnryMdlt-gtStrtSttHshtbl0(J-THIS)
+        COMPUTE jtemp2 = FUNCTION StdUtil-getInstance0
+        COMPUTE JDISCARD = FUNCTION AllBnryMdlt-stStrtSttHshtbl1(J-THIS, FUNCTION JR-GET(jtemp2, "f_NULL_TABLE"))
+        COMPUTE jtemp3 = FUNCTION PrimaryThreadPool-getInstance0
+        COMPUTE JDISCARD = FUNCTION PrimaryThreadPool-runTask1(jtemp3, FUNCTION CreateGameRunnable-new2(J-THIS, J-hashtable))
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+    GOBACK.
+END FUNCTION DemoGameMidlet-createGame0.
 
-function TDemoGameMidlet.getHighestLevel: Integer;
-begin
-        Exit(1);
-end;
-    
-
-// throws Exception
-function TDemoGameMidlet.createDemoGameCanvasRunnableInterface: IGameCanvasRunnableInterface;
-begin
-        Self.logUtil.putF(Self.commonStrings.NOT_IMPLEMENTED, TJava.Box(Self), Self.commonStrings.CREATE_);
-        Exit(TNullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE);
-end;
-    
-
-// throws Exception
-function TDemoGameMidlet.createGameCanvasRunnable(allBinaryGameLayerManager_: TAllBinaryGameLayerManager): IGameCanvasRunnableInterface;
-begin
-        raise SysUtils.Exception.Create(Self.commonStrings.NOT_IMPLEMENTED);
-end;
-    
-
-// throws Exception
-function TDemoGameMidlet.createGameCanvasRunnableInterface: IGameCanvasRunnableInterface;
-begin
-        Exit(Self.createGameCanvasRunnable(Self.createGameLayerManager()));
-end;
-    
-
-procedure TDemoGameMidlet.demoSetup;
-begin
-end;
-    
-
-procedure TDemoGameMidlet.postDemoSetup;
-begin
-end;
-    
-
-// throws Exception
-procedure TDemoGameMidlet.setDemo;
-var
-  progressCanvas_: TProgressCanvas;
-begin
-    TJava.MonitorEnter(Self);
-    try
-        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), 'setDemo');
-        progressCanvas_ := TProgressCanvasFactory.getInstance();
-        progressCanvas_.start();
-        TPrimaryThreadPool.getInstance().runTask(TDemoRunnable.Create(Self));
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
-
-// throws Exception
-procedure TDemoGameMidlet.createGame;
-var
-  CREATE_GAME: string;
-  progressCanvas_: TProgressCanvas;
-  hashtable: TABHashtable<TObject, TObject>;
-begin
-    TJava.MonitorEnter(Self);
-    try
-        CREATE_GAME := 'createGame';
-        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), CREATE_GAME);
-        progressCanvas_ := TProgressCanvasFactory.getInstance();
-        progressCanvas_.start();
-        hashtable := Self.getStartStateHashtable();
-        Self.setStartStateHashtable(TStdUtil.getInstance().NULL_TABLE);
-        TPrimaryThreadPool.getInstance().runTask(TCreateGameRunnable.Create(Self, hashtable));
-        Self.logUtil.putF(Self.commonStrings.END_, TJava.Box(Self), CREATE_GAME);
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
-
-function TDemoGameMidlet.isReady: Boolean;
-begin
-        Exit(True);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DemoGameMidlet-isReady0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = 1
+        GOBACK
+    GOBACK.
+END FUNCTION DemoGameMidlet-isReady0.
 

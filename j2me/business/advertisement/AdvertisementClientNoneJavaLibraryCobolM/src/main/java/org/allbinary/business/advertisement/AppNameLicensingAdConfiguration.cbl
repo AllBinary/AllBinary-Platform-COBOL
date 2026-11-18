@@ -1,39 +1,42 @@
-// Generated Code Do Not Modify
-// package org.allbinary.business.advertisement
-unit AppNameLicensingAdConfiguration;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.business.advertisement
+*> Java class AppNameLicensingAdConfiguration
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AdConfiguration;
-
-type
-  {AB:TYPES}
-  TAppNameLicensingAdConfiguration = class(TAdConfiguration)
-  public
-        constructor Create;
-  end;
-
-implementation
-uses
-  StringUtil;
-
-
-{AB:CODE}
-    
-
-constructor TAppNameLicensingAdConfiguration.Create;
-begin
-        inherited Create(TArray<TObject>.Create(TJava.Box(TStringUtil.getInstance().EMPTY_STRING), TJava.Box(TStringUtil.getInstance().EMPTY_STRING), TJava.Box(TStringUtil.getInstance().EMPTY_STRING)));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AppNmLcnsngAdCnfgrtn-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("AppNameLicensingAdConfiguration")
+        COMPUTE jtemp2 = FUNCTION StringUtil-getInstance0
+        COMPUTE jtemp3 = FUNCTION StringUtil-getInstance0
+        COMPUTE jtemp4 = FUNCTION StringUtil-getInstance0
+        COMPUTE jtemp1 = FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-NEW-ARRAY(JZERO), FUNCTION JR-GET(jtemp2, "f_EMPTY_STRING")), FUNCTION JR-GET(jtemp3, "f_EMPTY_STRING")), FUNCTION JR-GET(jtemp4,
+        "f_EMPTY_STRING"))
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION AppNmLcnsngAdCnfgrtn-new0.
 

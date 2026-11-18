@@ -1,86 +1,140 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.configuration.feature
+*> Java class GraphicsFeatureFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.configuration.feature
-unit GraphicsFeatureFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GrphcsFtrFctry-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GraphicsFeatureFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 GraphicsFeatureFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GraphicsFeatureFactory-jset-instance = 0
+        MOVE 1 TO GraphicsFeatureFactory-jset-instance
+        COMPUTE GraphicsFeatureFactory-jcell-instance = FUNCTION GraphicsFeatureFactory-new0
+    END-IF
+    MOVE GraphicsFeatureFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION GrphcsFtrFctry-sttc-nstnc.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GrphcsFtrFctrysttcnsS22223.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GraphicsFeatureFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GrphcsFtrFctry-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO GraphicsFeatureFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GrphcsFtrFctrysttcnsS22223.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GraphicsFeatureFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GraphicsFeatureFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NONE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_TRANSPARENT_IMAGE_CREATION")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_IMAGE_GRAPHICS")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_IMAGE_ROTATION_ON_THE_FLY")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_IMAGE_TO_ARRAY_GRAPHICS")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SPRITE_QUARTER_ROTATION_GRAPHICS")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SPRITE_FULL_GRAPHICS")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_VECTOR_GRAPHICS")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_VECTOR_TO_IMAGE_GRAPHICS")
+    COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION GraphicsFeature-new1(FUNCTION JR-GET(jtemp1, "f_NULL_STRING"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NONE", JVALUE)
+    COMPUTE JVALUE = FUNCTION GraphicsFeature-new1(FUNCTION JR-STR("Transparent Image Creation"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_TRANSPARENT_IMAGE_CREATION", JVALUE)
+    COMPUTE JVALUE = FUNCTION GraphicsFeature-new1(FUNCTION JR-STR("Image Graphics"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_IMAGE_GRAPHICS", JVALUE)
+    COMPUTE JVALUE = FUNCTION GraphicsFeature-new1(FUNCTION JR-STR("Image Rotated On The Fly"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_IMAGE_ROTATION_ON_THE_FLY", JVALUE)
+    COMPUTE JVALUE = FUNCTION GraphicsFeature-new1(FUNCTION JR-STR("Image To Array Graphics"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_IMAGE_TO_ARRAY_GRAPHICS", JVALUE)
+    COMPUTE JVALUE = FUNCTION GraphicsFeature-new1(FUNCTION JR-STR("Sprite Quarter Rotation Graphics"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SPRITE_QUARTER_ROTATION_GRAPHICS", JVALUE)
+    COMPUTE JVALUE = FUNCTION GraphicsFeature-new1(FUNCTION JR-STR("Sprite Full Rotation Graphics"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SPRITE_FULL_GRAPHICS", JVALUE)
+    COMPUTE JVALUE = FUNCTION GraphicsFeature-new1(FUNCTION JR-STR("BasicArrayList Graphics"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_VECTOR_GRAPHICS", JVALUE)
+    COMPUTE JVALUE = FUNCTION GraphicsFeature-new1(FUNCTION JR-STR("BasicArrayList To Image Graphics"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_VECTOR_TO_IMAGE_GRAPHICS", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GraphicsFeatureFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GraphicsFeature;
-
-type
-  {AB:TYPES}
-  TGraphicsFeatureFactory = class(TObject)
-  public
-    NONE: TGraphicsFeature;
-    TRANSPARENT_IMAGE_CREATION: TGraphicsFeature;
-    IMAGE_GRAPHICS: TGraphicsFeature;
-    IMAGE_ROTATION_ON_THE_FLY: TGraphicsFeature;
-    IMAGE_TO_ARRAY_GRAPHICS: TGraphicsFeature;
-    SPRITE_QUARTER_ROTATION_GRAPHICS: TGraphicsFeature;
-    SPRITE_FULL_GRAPHICS: TGraphicsFeature;
-    VECTOR_GRAPHICS: TGraphicsFeature;
-    VECTOR_TO_IMAGE_GRAPHICS: TGraphicsFeature;
-    class var instance: TGraphicsFeatureFactory;
-    procedure InitFields;
-        class function getInstance: TGraphicsFeatureFactory; static;
-        constructor Create;
-  end;
-
-implementation
-uses
-  StringUtil;
-
-
-{AB:CODE}
-
-procedure TGraphicsFeatureFactory.InitFields;
-begin
-  Self.NONE := TGraphicsFeature.Create(TStringUtil.getInstance().NULL_STRING);
-  Self.TRANSPARENT_IMAGE_CREATION := TGraphicsFeature.Create('Transparent Image Creation');
-  Self.IMAGE_GRAPHICS := TGraphicsFeature.Create('Image Graphics');
-  Self.IMAGE_ROTATION_ON_THE_FLY := TGraphicsFeature.Create('Image Rotated On The Fly');
-  Self.IMAGE_TO_ARRAY_GRAPHICS := TGraphicsFeature.Create('Image To Array Graphics');
-  Self.SPRITE_QUARTER_ROTATION_GRAPHICS := TGraphicsFeature.Create('Sprite Quarter Rotation Graphics');
-  Self.SPRITE_FULL_GRAPHICS := TGraphicsFeature.Create('Sprite Full Rotation Graphics');
-  Self.VECTOR_GRAPHICS := TGraphicsFeature.Create('BasicArrayList Graphics');
-  Self.VECTOR_TO_IMAGE_GRAPHICS := TGraphicsFeature.Create('BasicArrayList To Image Graphics');
-end;
-    
-
-class function TGraphicsFeatureFactory.getInstance: TGraphicsFeatureFactory;
-begin
-        Exit(TGraphicsFeatureFactory.instance);
-end;
-    
-
-constructor TGraphicsFeatureFactory.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TGraphicsFeatureFactory.instance := TGraphicsFeatureFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GrphcsFtrFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION GrphcsFtrFctry-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION GrphcsFtrFctry-getInstance0.
 

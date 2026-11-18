@@ -1,79 +1,140 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.system.loader
+*> Java class WebappClassLoaderInfo
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.logic.system.loader
-unit WebappClassLoaderInfo;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WbppClssLdrInf-sttc-clssLdr.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 WebappClassLoaderInfo-jcell-classLoader BINARY-DOUBLE EXTERNAL.
+01 WebappClassLoaderInfo-jset-classLoader BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF WebappClassLoaderInfo-jset-classLoader = 0
+        MOVE 1 TO WebappClassLoaderInfo-jset-classLoader
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE WebappClassLoaderInfo-jcell-classLoader = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+    END-IF
+    MOVE WebappClassLoaderInfo-jcell-classLoader TO J-RESULT
+    GOBACK.
+END FUNCTION WbppClssLdrInf-sttc-clssLdr.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WbppClssLdrInfsttcclS13850.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 WebappClassLoaderInfo-jcell-classLoader BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION WbppClssLdrInf-sttc-clssLdr TO J-RESULT
+    MOVE J-VALUE TO WebappClassLoaderInfo-jcell-classLoader
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION WbppClssLdrInfsttcclS13850.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WebappClassLoaderInfo-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("WebappClassLoaderInfo")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION WebappClassLoaderInfo-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WbppClssLdrInf-setLoader1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-classLoader BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-classLoader RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION WbppClssLdrInfsttcclS13850(J-classLoader)
+    GOBACK.
+END FUNCTION WbppClssLdrInf-setLoader1.
 
-type
-  {AB:TYPES}
-  TWebappClassLoaderInfo = class(TObject)
-  public
-    class var classLoader: TObject;
-        constructor Create;
-        class procedure setLoader(classLoader: TClassLoader); static;
-        class function getLoader: TClassLoader; static;
-  end;
-
-implementation
-uses
-  NullUtil;
-
-
-{AB:CODE}
-    
-
-constructor TWebappClassLoaderInfo.Create;
-begin
-    inherited Create;
-end;
-    
-
-class procedure TWebappClassLoaderInfo.setLoader(classLoader: TClassLoader);
-begin
-    TJava.MonitorEnter(nil);
-    try
-        TWebappClassLoaderInfo.classLoader := classLoader;
-    finally
-    TJava.MonitorExit(nil);
-    end;
-end;
-    
-
-class function TWebappClassLoaderInfo.getLoader: TClassLoader;
-begin
-    TJava.MonitorEnter(nil);
-    try
-        Exit(TClassLoader(TJava.ToObject(TWebappClassLoaderInfo.classLoader)));
-    finally
-    TJava.MonitorExit(nil);
-    end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TWebappClassLoaderInfo.classLoader := TJava.Box(TNullUtil.getInstance().NULL_OBJECT);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WbppClssLdrInf-getLoader0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION WbppClssLdrInf-sttc-clssLdr
+        GOBACK
+    GOBACK.
+END FUNCTION WbppClssLdrInf-getLoader0.
 

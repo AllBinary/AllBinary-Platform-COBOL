@@ -1,93 +1,161 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.configuration.event
+*> Java class GameInitializedEvent
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.configuration.event
-unit GameInitializedEvent;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, ResourceLoadingLevel, AllBinaryEventObject;
-
-type
-  {AB:TYPES}
-  TGameInitializedEvent = class(TAllBinaryEventObject)
-  public
-    resourceLoadingLevel: TResourceLoadingLevel;
-    level: Integer;
-    procedure InitFields;
-        constructor Create(anyType: TObject);
-        procedure setLevel(level: Integer); virtual;
-        function getLevel: Integer; virtual;
-        procedure setResourceLoadingLevel(resourceLoadingLevel_: TResourceLoadingLevel); virtual;
-        function getResourceLoadingLevel: TResourceLoadingLevel; virtual;
-  end;
-
-implementation
-uses
-  ResourceLoadingLevelFactory;
-
-
-{AB:CODE}
-
-procedure TGameInitializedEvent.InitFields;
-begin
-  Self.resourceLoadingLevel := TResourceLoadingLevelFactory.getInstance().LEVEL;
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameInitializedEvent-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-anyType BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-anyType RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameInitializedEvent")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_resourceLoadingLevel")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_level")
+    COMPUTE jtemp1 = FUNCTION RsrcLdngLvlFctry-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_LEVEL")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_resourceLoadingLevel", JVALUE)
     
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GameInitializedEvent-new1.
 
-constructor TGameInitializedEvent.Create(anyType: TObject);
-begin
-        inherited Create(anyType);
-        InitFields;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameInitializedEvent-setLevel1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-level BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-level RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-level
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_level", JVALUE)
+        COMPUTE jtemp2 = FUNCTION RsrcLdngLvlFctry-getInstance0
+        COMPUTE JVALUE = FUNCTION JR-GET(jtemp2, "f_LEVEL")
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_resourceLoadingLevel", JVALUE)
+    GOBACK.
+END FUNCTION GameInitializedEvent-setLevel1.
 
-procedure TGameInitializedEvent.setLevel(level: Integer);
-begin
-        Self.level := level;
-        Self.resourceLoadingLevel := TResourceLoadingLevelFactory.getInstance().LEVEL;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameInitializedEvent-getLevel0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_level")
+        GOBACK
+    GOBACK.
+END FUNCTION GameInitializedEvent-getLevel0.
 
-function TGameInitializedEvent.getLevel: Integer;
-begin
-        Exit(Self.level);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmIntlzdEvnt-stRsrcLdngLvl1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-resourceLoadingLevel BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-resourceLoadingLevel RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-resourceLoadingLevel
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_resourceLoadingLevel", JVALUE)
+        COMPUTE JVALUE = FUNCTION ResourceLoadingLevel-getLevel0(FUNCTION JR-GET(J-THIS, "f_resourceLoadingLevel"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_level", JVALUE)
+    GOBACK.
+END FUNCTION GmIntlzdEvnt-stRsrcLdngLvl1.
 
-procedure TGameInitializedEvent.setResourceLoadingLevel(resourceLoadingLevel_: TResourceLoadingLevel);
-begin
-        Self.resourceLoadingLevel := resourceLoadingLevel_;
-        Self.level := Self.resourceLoadingLevel.getLevel();
-end;
-    
-
-function TGameInitializedEvent.getResourceLoadingLevel: TResourceLoadingLevel;
-begin
-        Exit(Self.resourceLoadingLevel);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmIntlzdEvnt-gtRsrcLdngLvl0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_resourceLoadingLevel")
+        GOBACK
+    GOBACK.
+END FUNCTION GmIntlzdEvnt-gtRsrcLdngLvl0.
 

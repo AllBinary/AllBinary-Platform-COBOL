@@ -1,69 +1,117 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.layer.hud.basic
+*> Java class HudResources
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.layer.hud.basic
-unit HudResources;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HudResources-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 HudResources-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 HudResources-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF HudResources-jset-instance = 0
+        MOVE 1 TO HudResources-jset-instance
+        COMPUTE HudResources-jcell-instance = FUNCTION HudResources-new0
+    END-IF
+    MOVE HudResources-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION HudResources-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HudResourcesstaticinS82120.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 HudResources-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION HudResources-static-instance TO J-RESULT
+    MOVE J-VALUE TO HudResources-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION HudResourcesstaticinS82120.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HudResources-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("HudResources")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_RESOURCE_LIFE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_RESOURCE_HEALTH")
+    COMPUTE JVALUE = FUNCTION JR-STR("/hud_life_10_by_10.png")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_RESOURCE_LIFE", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("/hud_health_10_by_10.png")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_RESOURCE_HEALTH", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION HudResources-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
-
-type
-  {AB:TYPES}
-  THudResources = class(TObject)
-  public
-    RESOURCE_LIFE: string;
-    RESOURCE_HEALTH: string;
-    class var instance: THudResources;
-    procedure InitFields;
-        class function getInstance: THudResources; static;
-        constructor Create;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure THudResources.InitFields;
-begin
-  Self.RESOURCE_LIFE := '/hud_life_10_by_10.png';
-  Self.RESOURCE_HEALTH := '/hud_health_10_by_10.png';
-end;
-    
-
-class function THudResources.getInstance: THudResources;
-begin
-        Exit(THudResources.instance);
-end;
-    
-
-constructor THudResources.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  THudResources.instance := THudResources.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HudResources-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION HudResources-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION HudResources-getInstance0.
 

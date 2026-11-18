@@ -1,124 +1,249 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2022 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.score
-unit HighScoresHelperBase;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.score
+*> Java class HighScoresHelperBase
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HighScoresHelperBase-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("HighScoresHelperBase")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_highScoresArrayP")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE jtemp1 = FUNCTION LstFtchHghScrsFctry-gtInstnc0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_highScoresArray")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_highScoresArrayP", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION HighScoresHelperBase-new0.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrsHlprBs-stHghScrsArry1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-commonStrings BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-highScoresArrayP BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-highScoresArrayP RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (J-highScoresArrayP NOT = 0)
+            COMPUTE J-commonStrings = FUNCTION CommonStrings-getInstance0
+            COMPUTE jtemp4 = FUNCTION StringMaker-new0
+            COMPUTE jtemp3 = FUNCTION StringMaker-append1(jtemp4, FUNCTION JR-GET(J-commonStrings, "f_START"))
+            COMPUTE jtemp2 = FUNCTION StringMaker-appendint1(jtemp3, FUNCTION JR-ARRAY-LENGTH(J-highScoresArrayP))
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp2), J-THIS, FUNCTION JR-STR("setHighScoresArray"))
+        ELSE
+            COMPUTE J-commonStrings = FUNCTION CommonStrings-getInstance0
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-GET(J-commonStrings, "f_START"), J-THIS, FUNCTION JR-STR("setHighScoresArray"))
+        END-IF
+        COMPUTE JVALUE = J-highScoresArrayP
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_highScoresArrayP", JVALUE)
+    GOBACK.
+END FUNCTION HghScrsHlprBs-stHghScrsArry1.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LogUtil, HighScores, HighScoresHelperBaseInterface, HighScoresResultsListener;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrsHlprBs-gtNxtHghScrs0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION NllHghScrsSngltnFctry-gtI23303
+        GOBACK
+    GOBACK.
+END FUNCTION HghScrsHlprBs-gtNxtHghScrs0.
 
-type
-  {AB:TYPES}
-  THighScoresHelperBase = class(TInterfacedObject, IHighScoresHelperBaseInterface, IHighScoresResultsListener)
-  public
-    logUtil: TLogUtil;
-    highScoresArrayP: TArray<THighScores>;
-    procedure InitFields;
-    function JavaObject: TObject;
-    constructor Create;
-        procedure setHighScoresArray(highScoresArrayP: TArray<THighScores>); virtual;
-        function getNextHighScores: THighScores; virtual;
-        function isAnyHighScores: Boolean; virtual;
-        procedure setSelectedHighScores(selectedHighScores: THighScores); virtual;
-        function getSelectedHighScores: THighScores; virtual;
-        function getHighScoresArray: TArray<THighScores>; virtual;
-        procedure selectHighScores; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrsHlprBs-isAnyHighScores0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+    GOBACK.
+END FUNCTION HghScrsHlprBs-isAnyHighScores0.
 
-implementation
-uses
-  LastFetchHighScoresFactory, NullHighScoresSingletonFactory, StringMaker, CommonStrings;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrsHlprBs-stSlctdHghScrs1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-selectedHighScores BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-selectedHighScores RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION HghScrsHlprBs-stSlctdHghScrs1.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrsHlprBs-gtSlctdHghScrs0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION NllHghScrsSngltnFctry-gtI23303
+        GOBACK
+    GOBACK.
+END FUNCTION HghScrsHlprBs-gtSlctdHghScrs0.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrsHlprBs-gtHghScrsArry0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_highScoresArrayP")
+        GOBACK
+    GOBACK.
+END FUNCTION HghScrsHlprBs-gtHghScrsArry0.
 
-procedure THighScoresHelperBase.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.highScoresArrayP := TLastFetchHighScoresFactory.getInstance().highScoresArray;
-end;
-
-function THighScoresHelperBase.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-
-constructor THighScoresHelperBase.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-procedure THighScoresHelperBase.setHighScoresArray(highScoresArrayP: TArray<THighScores>);
-var
-  commonStrings_: TCommonStrings;
-begin
-        if (highScoresArrayP) <> (nil) then begin
-            commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.putF(TStringMaker.Create().append(commonStrings_.START).appendint(System.Length(highScoresArrayP)).toString(), TJava.Box(Self), 'setHighScoresArray');
-        end else begin
-            commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.putF(commonStrings_.START, TJava.Box(Self), 'setHighScoresArray');
-        end;
-        Self.highScoresArrayP := highScoresArrayP;
-end;
-    
-
-function THighScoresHelperBase.getNextHighScores: THighScores;
-begin
-        Exit(TNullHighScoresSingletonFactory.getInstance());
-end;
-    
-
-function THighScoresHelperBase.isAnyHighScores: Boolean;
-begin
-        raise SysUtils.Exception.Create('');
-end;
-    
-
-procedure THighScoresHelperBase.setSelectedHighScores(selectedHighScores: THighScores);
-begin
-end;
-    
-
-function THighScoresHelperBase.getSelectedHighScores: THighScores;
-begin
-        Exit(TNullHighScoresSingletonFactory.getInstance());
-end;
-    
-
-function THighScoresHelperBase.getHighScoresArray: TArray<THighScores>;
-begin
-        Exit(Self.highScoresArrayP);
-end;
-    
-
-procedure THighScoresHelperBase.selectHighScores;
-begin
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrsHlprBs-slctHghScrs0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION HghScrsHlprBs-slctHghScrs0.
 

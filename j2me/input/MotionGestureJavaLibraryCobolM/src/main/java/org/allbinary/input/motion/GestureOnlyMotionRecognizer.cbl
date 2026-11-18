@@ -1,108 +1,252 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion
+*> Java class GestureOnlyMotionRecognizer
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion
-unit GestureOnlyMotionRecognizer;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GstrOnlyMtnRcgnzr-sttc-ndx.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GestureOnlyMotionRecognizer-jcell-index BINARY-DOUBLE EXTERNAL.
+01 GestureOnlyMotionRecognizer-jset-index BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GestureOnlyMotionRecognizer-jset-index = 0
+        MOVE 1 TO GestureOnlyMotionRecognizer-jset-index
+        COMPUTE GestureOnlyMotionRecognizer-jcell-index = 0
+    END-IF
+    MOVE GestureOnlyMotionRecognizer-jcell-index TO J-RESULT
+    GOBACK.
+END FUNCTION GstrOnlyMtnRcgnzr-sttc-ndx.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GstrOnlyMtnRcgnzrsttS29465.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GestureOnlyMotionRecognizer-jcell-index BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GstrOnlyMtnRcgnzr-sttc-ndx TO J-RESULT
+    MOVE J-VALUE TO GestureOnlyMotionRecognizer-jcell-index
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GstrOnlyMtnRcgnzrsttS29465.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GstrOnlyMtnRcgnzr-sttc-p47076.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GestureOnlyMotionRecognizer-jcell-pointCircularPool BINARY-DOUBLE EXTERNAL.
+01 GestureOnlyMotionRecognizer-jset-pointCircularPool BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GestureOnlyMotionRecognizer-jset-pointCircularPool = 0
+        MOVE 1 TO GestureOnlyMotionRecognizer-jset-pointCircularPool
+        COMPUTE jtemp1 = 40
+    COMPUTE GestureOnlyMotionRecognizer-jcell-pointCircularPool = FUNCTION GPointCircularPool-new1(jtemp1)
+    END-IF
+    MOVE GestureOnlyMotionRecognizer-jcell-pointCircularPool TO J-RESULT
+    GOBACK.
+END FUNCTION GstrOnlyMtnRcgnzr-sttc-p47076.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GPointCircularPool, MotionGestureRecognizer, MotionRecognizer;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GstrOnlyMtnRcgnzrsttS25475.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GestureOnlyMotionRecognizer-jcell-pointCircularPool BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GstrOnlyMtnRcgnzr-sttc-p47076 TO J-RESULT
+    MOVE J-VALUE TO GestureOnlyMotionRecognizer-jcell-pointCircularPool
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GstrOnlyMtnRcgnzrsttS25475.
 
-type
-  {AB:TYPES}
-  TGestureOnlyMotionRecognizer = class(TMotionRecognizer)
-  public
-    motionGestureRecognizer: TMotionGestureRecognizer;
-    id: Integer;
-    class var index: Integer;
-    class var pointCircularPool: TGPointCircularPool;
-    procedure InitFields;
-        constructor Create;
-        procedure processStartMotionEvent(x: Integer; y: Integer; deviceId: Integer; modifiers: Integer); override;
-        procedure processEndMotionEvent(x: Integer; y: Integer; deviceId: Integer; modifiers: Integer); override;
-        procedure processDraggedMotionEvent(x: Integer; y: Integer; deviceId: Integer; modifiers: Integer); override;
-  end;
-
-implementation
-uses
-  CustomGPoint;
-
-
-{AB:CODE}
-
-procedure TGestureOnlyMotionRecognizer.InitFields;
-begin
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GstrOnlyMtnRcgnzr-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GestureOnlyMotionRecognizer")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_motionGestureRecognizer")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_id")
     
-
-constructor TGestureOnlyMotionRecognizer.Create;
-begin
-    inherited Create;
-    InitFields;
-        Self.id := TJava.PostInc(TGestureOnlyMotionRecognizer.index);
-        Self.motionGestureRecognizer := TMotionGestureRecognizer.Create(Self.id);
-end;
     
+        COMPUTE jtemp2 = FUNCTION GstrOnlyMtnRcgnzr-sttc-ndx
+        COMPUTE JDISCARD = FUNCTION GstrOnlyMtnRcgnzrsttS29465((FUNCTION MOD(FUNCTION GstrOnlyMtnRcgnzr-sttc-ndx + 1 + 2147483648, 4294967296) - 2147483648))
+        COMPUTE JVALUE = jtemp2
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_id", JVALUE)
+        COMPUTE JVALUE = FUNCTION MotionGestureRecognizer-new1(FUNCTION JR-GET(J-THIS, "f_id"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_motionGestureRecognizer", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GstrOnlyMtnRcgnzr-new0.
 
-// throws Exception
-procedure TGestureOnlyMotionRecognizer.processStartMotionEvent(x: Integer; y: Integer; deviceId: Integer; modifiers: Integer);
-var
-  point: TCustomGPoint;
-begin
-        point := TCustomGPoint(TJava.ToObject(TGestureOnlyMotionRecognizer.pointCircularPool.getNextInstance()));
-        point.setX(x);
-        point.setY(y);
-        Self.motionGestureRecognizer.processPressedMotionEvent(point, deviceId, modifiers);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GstrOnlyMtnRcgnzr-prcssSt85348.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-point BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-deviceId BINARY-DOUBLE.
+01 J-modifiers BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-x J-y J-deviceId J-modifiers RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-point = FUNCTION JR-CLASS-NAME(FUNCTION GstrOnlyMtnRcgnzr-sttc-p47076)
+        COMPUTE JDISCARD = FUNCTION CustomGPoint-setX1(J-point, J-x)
+        COMPUTE JDISCARD = FUNCTION CustomGPoint-setY1(J-point, J-y)
+        COMPUTE JDISCARD = FUNCTION MtnGstrRcgnzr-prcssPrssdM62945(FUNCTION JR-GET(J-THIS, "f_motionGestureRecognizer"), J-point, J-deviceId, J-modifiers)
+    GOBACK.
+END FUNCTION GstrOnlyMtnRcgnzr-prcssSt85348.
 
-// throws Exception
-procedure TGestureOnlyMotionRecognizer.processEndMotionEvent(x: Integer; y: Integer; deviceId: Integer; modifiers: Integer);
-var
-  point: TCustomGPoint;
-begin
-        point := TCustomGPoint(TJava.ToObject(TGestureOnlyMotionRecognizer.pointCircularPool.getNextInstance()));
-        point.setX(x);
-        point.setY(y);
-        Self.motionGestureRecognizer.processReleasedMotionEvent(point, deviceId, modifiers);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GstrOnlyMtnRcgnzr-prcssEn82241.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-point BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-deviceId BINARY-DOUBLE.
+01 J-modifiers BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-x J-y J-deviceId J-modifiers RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-point = FUNCTION JR-CLASS-NAME(FUNCTION GstrOnlyMtnRcgnzr-sttc-p47076)
+        COMPUTE JDISCARD = FUNCTION CustomGPoint-setX1(J-point, J-x)
+        COMPUTE JDISCARD = FUNCTION CustomGPoint-setY1(J-point, J-y)
+        COMPUTE JDISCARD = FUNCTION MtnGstrRcgnzr-prcssRlsdMt56528(FUNCTION JR-GET(J-THIS, "f_motionGestureRecognizer"), J-point, J-deviceId, J-modifiers)
+    GOBACK.
+END FUNCTION GstrOnlyMtnRcgnzr-prcssEn82241.
 
-// throws Exception
-procedure TGestureOnlyMotionRecognizer.processDraggedMotionEvent(x: Integer; y: Integer; deviceId: Integer; modifiers: Integer);
-var
-  point: TCustomGPoint;
-begin
-        point := TCustomGPoint(TJava.ToObject(TGestureOnlyMotionRecognizer.pointCircularPool.getNextInstance()));
-        point.setX(x);
-        point.setY(y);
-        Self.motionGestureRecognizer.processDraggedMotionEvent(point, deviceId, modifiers);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TGestureOnlyMotionRecognizer.index := 0;
-  TGestureOnlyMotionRecognizer.pointCircularPool := TGPointCircularPool.Create(40);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GstrOnlyMtnRcgnzr-prcssDr41283.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-point BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-deviceId BINARY-DOUBLE.
+01 J-modifiers BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-x J-y J-deviceId J-modifiers RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-point = FUNCTION JR-CLASS-NAME(FUNCTION GstrOnlyMtnRcgnzr-sttc-p47076)
+        COMPUTE JDISCARD = FUNCTION CustomGPoint-setX1(J-point, J-x)
+        COMPUTE JDISCARD = FUNCTION CustomGPoint-setY1(J-point, J-y)
+        COMPUTE JDISCARD = FUNCTION MtnGstrRcgnzr-prcssDrggdM55938(FUNCTION JR-GET(J-THIS, "f_motionGestureRecognizer"), J-point, J-deviceId, J-modifiers)
+    GOBACK.
+END FUNCTION GstrOnlyMtnRcgnzr-prcssDr41283.
 

@@ -1,109 +1,206 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion.gesture
+*> Java class MotionGestureToMotionGestureActionAssociation
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion.gesture
-unit MotionGestureToMotionGestureActionAssociation;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, CompleteMotionGestureInputEvent, BasicArrayList;
-
-type
-  {AB:TYPES}
-  TMotionGestureToMotionGestureActionAssociation = class(TObject)
-  public
-    list: TBasicArrayList;
-    motionGestureAction: TCompleteMotionGestureInputEvent;
-    procedure InitFields;
-        constructor Create(list: TBasicArrayList; commandAction: TCompleteMotionGestureInputEvent);
-        function getMotionGesture: TBasicArrayList; virtual;
-        procedure setMotionGestures(list: TBasicArrayList); virtual;
-        function getCommandAction: TCompleteMotionGestureInputEvent; virtual;
-        procedure setMotionGestureAction(commandAction: TCompleteMotionGestureInputEvent); virtual;
-        function isMotionGestureArrayEquals(aList: TBasicArrayList): Boolean; virtual;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TMotionGestureToMotionGestureActionAssociation.InitFields;
-begin
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrTMtnGstrActnAssctn-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-list BINARY-DOUBLE.
+01 J-commandAction BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-list J-commandAction RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("MotionGestureToMotionGestureActionAssociation")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_list")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_motionGestureAction")
     
-
-constructor TMotionGestureToMotionGestureActionAssociation.Create(list: TBasicArrayList; commandAction: TCompleteMotionGestureInputEvent);
-begin
-    inherited Create;
-    InitFields;
-        Self.list := list;
-        Self.motionGestureAction := commandAction;
-end;
     
+        COMPUTE JVALUE = J-list
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
+        COMPUTE JVALUE = J-commandAction
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_motionGestureAction", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION MtnGstrTMtnGstrActnAssctn-new2.
 
-function TMotionGestureToMotionGestureActionAssociation.getMotionGesture: TBasicArrayList;
-begin
-        Exit(Self.list);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrTMtnGstrActnAssc-87718.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_list")
+        GOBACK
+    GOBACK.
+END FUNCTION MtnGstrTMtnGstrActnAssc-87718.
 
-procedure TMotionGestureToMotionGestureActionAssociation.setMotionGestures(list: TBasicArrayList);
-begin
-        Self.list := list;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrTMtnGstrActnAssc-17813.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-list RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-list
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
+    GOBACK.
+END FUNCTION MtnGstrTMtnGstrActnAssc-17813.
 
-function TMotionGestureToMotionGestureActionAssociation.getCommandAction: TCompleteMotionGestureInputEvent;
-begin
-        Exit(Self.motionGestureAction);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrTMtnGstrActnAssc-36476.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_motionGestureAction")
+        GOBACK
+    GOBACK.
+END FUNCTION MtnGstrTMtnGstrActnAssc-36476.
 
-procedure TMotionGestureToMotionGestureActionAssociation.setMotionGestureAction(commandAction: TCompleteMotionGestureInputEvent);
-begin
-        Self.motionGestureAction := commandAction;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrTMtnGstrActnAssc-54867.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-commandAction BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-commandAction RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-commandAction
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_motionGestureAction", JVALUE)
+    GOBACK.
+END FUNCTION MtnGstrTMtnGstrActnAssc-54867.
 
-function TMotionGestureToMotionGestureActionAssociation.isMotionGestureArrayEquals(aList: TBasicArrayList): Boolean;
-var
-  size: Integer;
-  i: Integer;
-begin
-        size := aList.size();
-        if (Self.list.size()) <> (size) then begin
-            Exit(False);
-        end;
-        for i := (size) - (1) downto 0 do begin
-            if (aList.objectArray[i]) <> (Self.list.objectArray[i]) then begin
-                Exit(False);
-            end;
-        end;
-        Exit(True);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. MtnGstrTMtnGstrActnAssc-13418.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-size BINARY-DOUBLE.
+01 J-i BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-aList BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-aList RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(J-aList)
+        IF (FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_list")) NOT = J-size)
+            COMPUTE J-RESULT = 0
+            GOBACK
+        END-IF
+        COMPUTE J-i = (FUNCTION MOD((J-size - 1) + 2147483648, 4294967296) - 2147483648)
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-i = (FUNCTION MOD(J-i - 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-i >= 0) EXIT PERFORM END-IF
+            IF (FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-aList, "f_objectArray"), J-i) NOT = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_list"), "f_objectArray"), J-i))
+                COMPUTE J-RESULT = 0
+                GOBACK
+            END-IF
+        END-PERFORM
+        COMPUTE J-RESULT = 1
+        GOBACK
+    GOBACK.
+END FUNCTION MtnGstrTMtnGstrActnAssc-13418.
 

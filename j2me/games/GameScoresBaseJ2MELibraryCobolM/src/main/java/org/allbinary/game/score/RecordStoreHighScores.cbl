@@ -1,386 +1,604 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.score
+*> Java class RecordStoreHighScores
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.score
-unit RecordStoreHighScores;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RcrdStrHghScrs-sttc-hshTbl.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 RecordStoreHighScores-jcell-hashTable BINARY-DOUBLE EXTERNAL.
+01 RecordStoreHighScores-jset-hashTable BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF RecordStoreHighScores-jset-hashTable = 0
+        MOVE 1 TO RecordStoreHighScores-jset-hashTable
+        COMPUTE jtemp1 = FUNCTION StdUtil-getInstance0
+    COMPUTE RecordStoreHighScores-jcell-hashTable = FUNCTION StdUtil-createHashtable0(jtemp1)
+    END-IF
+    MOVE RecordStoreHighScores-jcell-hashTable TO J-RESULT
+    GOBACK.
+END FUNCTION RcrdStrHghScrs-sttc-hshTbl.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RcrdStrHghScrssttchsS27893.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 RecordStoreHighScores-jcell-hashTable BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION RcrdStrHghScrs-sttc-hshTbl TO J-RESULT
+    MOVE J-VALUE TO RecordStoreHighScores-jcell-hashTable
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION RcrdStrHghScrssttchsS27893.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, RecordComparator, TsUtil, GameInfo, LogUtil, AbeClientInformationInterface, PlatformRecordIdUtil, CommonStrings, ABHashtable, HighScores, HighScore;
-
-type
-  {AB:TYPES}
-  TRecordStoreHighScores = class(THighScores)
-  public
-    logUtil: TLogUtil;
-    commonStrings: TCommonStrings;
-    platformRecordIdUtil: TPlatformRecordIdUtil;
-    tsUtil: TTsUtil;
-    RECORD_ID: string;
-    MAXHIGHSCORES: Integer;
-    gameInfo: TGameInfo;
-    abeClientInformation: IAbeClientInformationInterface;
-    recordComparatorInterface: IRecordComparator;
-    class var hashTable: TABHashtable<TObject, TObject>;
-    procedure InitFields;
-        constructor Create(abeClientInformation: IAbeClientInformationInterface; gameInfo_: TGameInfo; name: string; heading: string; columnTwoHeading: string; recordComparatorInterface: IRecordComparator);
-        class function getInstance(abeClientInformation: IAbeClientInformationInterface; gameInfo_: TGameInfo; highScoreName: string; heading: string; columnTwoHeading: string; recordComparatorInterface: IRecordComparator): THighScores; static;
-        function getRecordId(abeClientInformation: IAbeClientInformationInterface): string;
-        procedure addHighScore(newHighScore: THighScore); override;
-        procedure removeLowestHighScore;
-        procedure load;
-        function isTooManyHighScores: Boolean;
-        function isBestScore(newHighScore: THighScore): Boolean; override;
-        function toString: string; override;
-  end;
-
-implementation
-uses
-  ScoreComparator, RecordEnumeration, RecordStore, RecordStoreException, RecordStoreNotFoundException, NullRecordComparator, NullRecordFilter, NullRecordStore, StdUtil, PreLogUtil, StringMaker, CommonSeps, BasicArrayList, BasicArrayListD;
-
-
-{AB:CODE}
-
-procedure TRecordStoreHighScores.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.commonStrings := TCommonStrings.getInstance();
-  Self.platformRecordIdUtil := TPlatformRecordIdUtil.getInstance();
-  Self.tsUtil := TTsUtil.getInstance();
-  Self.RECORD_ID := '_HS';
-  Self.MAXHIGHSCORES := 100;
-  
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RecordStoreHighScores-new6.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-abeClientInformation BINARY-DOUBLE.
+01 J-gameInfo BINARY-DOUBLE.
+01 J-name BINARY-DOUBLE.
+01 J-heading BINARY-DOUBLE.
+01 J-columnTwoHeading BINARY-DOUBLE.
+01 J-recordComparatorInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-abeClientInformation J-gameInfo J-name J-heading J-columnTwoHeading J-recordComparatorInterface RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("RecordStoreHighScores")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_platformRecordIdUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_tsUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_RECORD_ID")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_MAXHIGHSCORES")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameInfo")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_abeClientInformation")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_recordComparatorInterface")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
+    COMPUTE JVALUE = FUNCTION PltfrmRcrdIdUtl-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_platformRecordIdUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION TsUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_tsUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("_HS")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_RECORD_ID", JVALUE)
+    COMPUTE JVALUE = 100
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_MAXHIGHSCORES", JVALUE)
     
-
-constructor TRecordStoreHighScores.Create(abeClientInformation: IAbeClientInformationInterface; gameInfo_: TGameInfo; name: string; heading: string; columnTwoHeading: string; recordComparatorInterface: IRecordComparator);
-begin
-        inherited Create(name, heading, columnTwoHeading);
-        InitFields;
-        Self.abeClientInformation := abeClientInformation;
-        Self.gameInfo := gameInfo_;
-        Self.recordComparatorInterface := recordComparatorInterface;
-        Self.load();
-end;
     
-
-class function TRecordStoreHighScores.getInstance(abeClientInformation: IAbeClientInformationInterface; gameInfo_: TGameInfo; highScoreName: string; heading: string; columnTwoHeading: string; recordComparatorInterface: IRecordComparator): THighScores;
-var
-  highScoresCanBeNull: TObject;
-  highScores_: THighScores;
-begin
-    TJava.MonitorEnter(nil);
-    try
-        highScoresCanBeNull := TJava.Box(TRecordStoreHighScores.hashTable.get(TJava.Box(TJava.Box(highScoreName))));
-        if (highScoresCanBeNull) = (nil) then begin
-            highScores_ := TRecordStoreHighScores.Create(abeClientInformation, gameInfo_, highScoreName, heading, columnTwoHeading, recordComparatorInterface);
-            TRecordStoreHighScores.hashTable.put(TJava.Box(highScores_.getName()), TJava.Box(highScores_));
-            Exit(highScores_);
-        end;
-        Exit(THighScores(TJava.ToObject(highScoresCanBeNull)));
-    finally
-    TJava.MonitorExit(nil);
-    end;
-end;
     
+        CONTINUE
+        COMPUTE JVALUE = J-abeClientInformation
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_abeClientInformation", JVALUE)
+        COMPUTE JVALUE = J-gameInfo
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameInfo", JVALUE)
+        COMPUTE JVALUE = J-recordComparatorInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_recordComparatorInterface", JVALUE)
+        COMPUTE JDISCARD = FUNCTION RecordStoreHighScores-load0(J-THIS)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION RecordStoreHighScores-new6.
 
-function TRecordStoreHighScores.getRecordId(abeClientInformation: IAbeClientInformationInterface): string;
-begin
-        Exit(Self.platformRecordIdUtil.getRecordId(abeClientInformation, TStringMaker.Create().append(TCommonSeps.getInstance().UNDERSCORE).append(Self.getName()).append(Self.RECORD_ID).toString()));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RcrdStrHghScrs-getInstance6.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-highScoresCanBeNull BINARY-DOUBLE.
+01 J-highScores BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-abeClientInformation BINARY-DOUBLE.
+01 J-gameInfo BINARY-DOUBLE.
+01 J-highScoreName BINARY-DOUBLE.
+01 J-heading BINARY-DOUBLE.
+01 J-columnTwoHeading BINARY-DOUBLE.
+01 J-recordComparatorInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-abeClientInformation J-gameInfo J-highScoreName J-heading J-columnTwoHeading J-recordComparatorInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = J-highScoreName
+        COMPUTE J-highScoresCanBeNull = FUNCTION JR-CLASS-NAME(FUNCTION RcrdStrHghScrs-sttc-hshTbl)
+        IF (J-highScoresCanBeNull = 0)
+            COMPUTE J-highScores = FUNCTION RecordStoreHighScores-new6(J-abeClientInformation, J-gameInfo, J-highScoreName, J-heading, J-columnTwoHeading, J-recordComparatorInterface)
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION RcrdStrHghScrs-sttc-hshTbl)
+            COMPUTE J-RESULT = J-highScores
+            GOBACK
+        END-IF
+        COMPUTE J-RESULT = J-highScoresCanBeNull
+        GOBACK
+    GOBACK.
+END FUNCTION RcrdStrHghScrs-getInstance6.
 
-procedure TRecordStoreHighScores.addHighScore(newHighScore: THighScore);
-var
-  recordStore_: TRecordStore;
-  highScoreBytes: TArray<ShortInt>;
-  recordId: Integer;
-begin
-    TJava.MonitorEnter(Self);
-    try
-        recordStore_ := TNullRecordStore.NULL_RECORD_STORE;
-        try
-        try
-            Self.logUtil.putF(TStringMaker.Create().append('Adding HighScore: ').appendlong(Int64(Trunc(newHighScore.getScore()))).toString(), TJava.Box(Self), Self.commonStrings.ADD);
-            if Self.isTooManyHighScores() then begin
-                Self.logUtil.putF('Removing Lowest Score', TJava.Box(Self), Self.commonStrings.ADD);
-                Self.removeLowestHighScore();
-            end;
-            recordStore_ := TRecordStore.openRecordStore(Self.getRecordId(Self.abeClientInformation), True);
-            highScoreBytes := newHighScore.getAsBytes();
-            recordId := recordStore_.addRecord(highScoreBytes, 0, System.Length(highScoreBytes));
-            Self.load();
-        except
-            on e: TRecordStoreException do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.ADD, TJava.Box(e));
-            end;
-            on e: TIOException do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.ADD, TJava.Box(e));
-            end;
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.ADD, TJava.Box(e));
-            end;
-        end;
-        finally
-            try
-                if (recordStore_) <> (nil) then begin
-                    TPreLogUtil.put('Closing RecordStore', TJava.Box(Self), Self.commonStrings.ADD);
-                    recordStore_.closeRecordStore();
-                end;
-            except
-                on e: TRecordStoreException do begin
-                Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.ADD, TJava.Box(e));
-                end;
-            end;
-        end;
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RcrdStrHghScrs-getRecordId1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-abeClientInformation BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-abeClientInformation RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp7 = FUNCTION CommonSeps-getInstance0
+        COMPUTE jtemp6 = FUNCTION StringMaker-new0
+        COMPUTE jtemp5 = FUNCTION StringMaker-append1(jtemp6, FUNCTION JR-GET(jtemp7, "f_UNDERSCORE"))
+        COMPUTE jtemp4 = FUNCTION StringMaker-append1(jtemp5, FUNCTION HighScores-getName0(J-THIS))
+        COMPUTE jtemp3 = FUNCTION StringMaker-append1(jtemp4, FUNCTION JR-GET(J-THIS, "f_RECORD_ID"))
+        COMPUTE J-RESULT = FUNCTION PltfrmRcrdIdUtl-getRecordId2(FUNCTION JR-GET(J-THIS, "f_platformRecordIdUtil"), J-abeClientInformation, FUNCTION JR-TO-STRING(jtemp3))
+        GOBACK
+    GOBACK.
+END FUNCTION RcrdStrHghScrs-getRecordId1.
 
-procedure TRecordStoreHighScores.removeLowestHighScore;
-var
-  recordStore_: TRecordStore;
-  recordEnum: IRecordEnumeration;
-  scoreComparator_: TScoreComparator;
-  bestHighScore: THighScore;
-  recordAsBytes: TArray<ShortInt>;
-  byteArrayInputStream_: TByteArrayInputStream;
-  inputStream: TDataInputStream;
-  id: Integer;
-  name: string;
-  nextScore: Int64;
-  nextCurrentHighScore: THighScore;
-begin
-        recordStore_ := TNullRecordStore.NULL_RECORD_STORE;
-        try
-        try
-            recordStore_ := TRecordStore.openRecordStore(Self.getRecordId(Self.abeClientInformation), True);
-            recordEnum := recordStore_.enumerateRecords(TNullRecordFilter.NULL_RECORD_FILTER, TNullRecordComparator.NULL_RECORD_COMPARATOR, True);
-            scoreComparator_ := (TScoreComparator(TJava.ToObject(Self.recordComparatorInterface)));
-            bestHighScore := THighScore.Create(-1, 'none', TGameInfo.NONE, scoreComparator_.getBestScore());
-            
-            
-            
-            while recordEnum.hasNextElement() do begin
-                id := recordEnum.nextRecordId();
-                recordAsBytes := Self.tsUtil.getRecord(TJava.Box(recordStore_), id);
-                if (recordAsBytes) <> (nil) then begin
-                    byteArrayInputStream_ := TByteArrayInputStream.Create(recordAsBytes);
-                    inputStream := TDataInputStream.Create(byteArrayInputStream_);
-                    name := inputStream.readUTF();
-                    nextScore := inputStream.readLong();
-                    nextCurrentHighScore := THighScore.Create(id, name, TGameInfo.NONE, nextScore);
-                    if (Self.recordComparatorInterface.compare(nextCurrentHighScore.getAsBytes(), bestHighScore.getAsBytes())) = (IRecordComparator.FOLLOWS) then begin
-                        bestHighScore := nextCurrentHighScore;
-                    end;
-                end;
-            end;
-            if (bestHighScore.getId()) <> (-1) then begin
-                Self.logUtil.putF(TStringMaker.Create().append('Removing Lowest HighScore: ').appendlong(Int64(Trunc(bestHighScore.getScore()))).toString(), TJava.Box(Self), Self.commonStrings.LOAD);
-                recordStore_.deleteRecord(bestHighScore.getId());
-            end;
-        except
-            on e: TRecordStoreException do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), 'removeLowestHighScore', TJava.Box(e));
-            end;
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), 'removeLowestHighScore', TJava.Box(e));
-            end;
-        end;
-        finally
-            try
-                if (recordStore_) <> (nil) then begin
-                    TPreLogUtil.put('Closing RecordStore', TJava.Box(Self), 'removeLowestHighScore');
-                    recordStore_.closeRecordStore();
-                end;
-            except
-                on e: TRecordStoreException do begin
-                Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), 'removeLowestHighScore', TJava.Box(e));
-                end;
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RcrdStrHghScrs-addHighScore1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-recordStore BINARY-DOUBLE.
+01 J-highScoreBytes BINARY-DOUBLE.
+01 J-recordId BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-newHighScore BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-newHighScore RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-recordStore = FUNCTION NllRcrdStr-sttc-NULL-R57789
+        CONTINUE
+            COMPUTE jtemp10 = FUNCTION StringMaker-new0
+            COMPUTE jtemp9 = FUNCTION StringMaker-append1(jtemp10, FUNCTION JR-STR("Adding HighScore: "))
+            COMPUTE jtemp8 = FUNCTION StringMaker-appendlong1(jtemp9, FUNCTION HighScore-getScore0(J-newHighScore))
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp8), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_ADD"))
+            IF (FUNCTION RcrdStrHghScrs-isTMnyHghScrs0(J-THIS) = 1)
+                COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-STR("Removing Lowest Score"), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_ADD"))
+                COMPUTE JDISCARD = FUNCTION RcrdStrHghScrs-rmvLwstHghScr0(J-THIS)
+            END-IF
+            COMPUTE jtemp11 = 1
+            COMPUTE J-recordStore = FUNCTION RecordStore-openRecordStore2(FUNCTION RcrdStrHghScrs-getRecordId1(J-THIS, FUNCTION JR-GET(J-THIS, "f_abeClientInformation")), jtemp11)
+            COMPUTE J-highScoreBytes = FUNCTION HighScore-getAsBytes0(J-newHighScore)
+            COMPUTE jtemp12 = 0
+            COMPUTE J-recordId = FUNCTION RecordStore-addRecord3(J-recordStore, J-highScoreBytes, jtemp12, FUNCTION JR-ARRAY-LENGTH(J-highScoreBytes))
+            COMPUTE JDISCARD = FUNCTION RecordStoreHighScores-load0(J-THIS)
+            CONTINUE
+                IF (J-recordStore NOT = 0)
+                    COMPUTE JDISCARD = FUNCTION PreLogUtil-put3(FUNCTION JR-STR("Closing RecordStore"), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_ADD"))
+                    COMPUTE JDISCARD = FUNCTION RecordStore-closeRecordStore0(J-recordStore)
+                END-IF
+    GOBACK.
+END FUNCTION RcrdStrHghScrs-addHighScore1.
 
-procedure TRecordStoreHighScores.load;
-var
-  recordStore_: TRecordStore;
-  recordEnum: IRecordEnumeration;
-  recordAsBytes: TArray<ShortInt>;
-  byteArrayInputStream_: TByteArrayInputStream;
-  inputStream: TDataInputStream;
-  id: Integer;
-  name: string;
-  score: Int64;
-  newHighScore: THighScore;
-  list: TBasicArrayList;
-  size: Integer;
-  lastIndex: Integer;
-  highScore_: THighScore;
-  index: Integer;
-begin
-        recordStore_ := TNullRecordStore.NULL_RECORD_STORE;
-        try
-        try
-            recordStore_ := TRecordStore.openRecordStore(Self.getRecordId(Self.abeClientInformation), True);
-            Self.setList(TBasicArrayListD.Create());
-            recordEnum := recordStore_.enumerateRecords(TNullRecordFilter.NULL_RECORD_FILTER, TNullRecordComparator.NULL_RECORD_COMPARATOR, True);
-            
-            
-            
-            while recordEnum.hasNextElement() do begin
-                id := recordEnum.nextRecordId();
-                recordAsBytes := Self.tsUtil.getRecord(TJava.Box(recordStore_), id);
-                if (recordAsBytes) <> (nil) then begin
-                    byteArrayInputStream_ := TByteArrayInputStream.Create(recordAsBytes);
-                    inputStream := TDataInputStream.Create(byteArrayInputStream_);
-                    try
-                        name := inputStream.readUTF();
-                        score := inputStream.readLong();
-                        newHighScore := THighScore.Create(id, name, TGameInfo.NONE, score);
-                        list := Self.getList();
-                        size := list.size();
-                        lastIndex := size;
-                        for index := 0 to size - 1 do begin
-                            highScore_ := THighScore(TJava.ToObject(list.objectArray[index]));
-                            if (Self.recordComparatorInterface.compare(newHighScore.getAsBytes(), highScore_.getAsBytes())) = (IRecordComparator.PRECEDES) then begin
-                                lastIndex := index;
-                                Break;
-                            end;
-                        end;
-                        list.addAt(lastIndex, TJava.Box(newHighScore));
-                    except
-                        on e: TEOFException do begin
-                        Self.logUtil.put('EOF', TJava.Box(Self), Self.commonStrings.LOAD, TJava.Box(e));
-                        raise e;
-                        end;
-                    end;
-                end;
-            end;
-        except
-            on e: TRecordStoreNotFoundException do begin
-            Self.logUtil.put('No High Scores', TJava.Box(Self), Self.commonStrings.LOAD, TJava.Box(e));
-            end;
-            on e: TRecordStoreException do begin
-            Self.logUtil.put(Self.commonStrings.UNKNOWN, TJava.Box(Self), Self.commonStrings.LOAD, TJava.Box(e));
-            end;
-            on e: TIOException do begin
-            Self.logUtil.put(Self.commonStrings.UNKNOWN, TJava.Box(Self), Self.commonStrings.LOAD, TJava.Box(e));
-            end;
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.UNKNOWN, TJava.Box(Self), Self.commonStrings.LOAD, TJava.Box(e));
-            end;
-        end;
-        finally
-            try
-                if (recordStore_) <> (nil) then begin
-                    TPreLogUtil.put('Closing RecordStore', TJava.Box(Self), Self.commonStrings.LOAD);
-                    recordStore_.closeRecordStore();
-                end;
-            except
-                on e: TRecordStoreException do begin
-                Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.LOAD, TJava.Box(e));
-                end;
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RcrdStrHghScrs-rmvLwstHghScr0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-recordStore BINARY-DOUBLE.
+01 J-recordEnum BINARY-DOUBLE.
+01 J-scoreComparator BINARY-DOUBLE.
+01 J-bestHighScore BINARY-DOUBLE.
+01 J-recordAsBytes BINARY-DOUBLE.
+01 J-byteArrayInputStream BINARY-DOUBLE.
+01 J-inputStream BINARY-DOUBLE.
+01 J-id BINARY-DOUBLE.
+01 J-name BINARY-DOUBLE.
+01 J-nextScore BINARY-DOUBLE.
+01 J-nextCurrentHighScore BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+01 jtemp18 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-recordStore = FUNCTION NllRcrdStr-sttc-NULL-R57789
+        CONTINUE
+            COMPUTE jtemp13 = 1
+            COMPUTE J-recordStore = FUNCTION RecordStore-openRecordStore2(FUNCTION RcrdStrHghScrs-getRecordId1(J-THIS, FUNCTION JR-GET(J-THIS, "f_abeClientInformation")), jtemp13)
+            COMPUTE jtemp14 = 1
+            COMPUTE J-recordEnum = FUNCTION RecordStore-enumerateRecords3(J-recordStore, FUNCTION NllRcrdFltr-sttc-NULL-79613, FUNCTION NllRcrdCmprtr-sttc-NUL41497, jtemp14)
+            COMPUTE J-scoreComparator = (FUNCTION JR-GET(J-THIS, "f_recordComparatorInterface"))
+            COMPUTE jtemp15 = (0 - 1)
+            COMPUTE J-bestHighScore = FUNCTION HighScore-new4(jtemp15, FUNCTION JR-STR("none"), FUNCTION GameInfo-static-NONE, FUNCTION ScoreComparator-getBestScore0(J-scoreComparator))
+            CONTINUE
+            CONTINUE
+            CONTINUE
+            PERFORM FOREVER
+                IF NOT (FUNCTION RcrdEnmrtn-hasNextElement0(J-recordEnum) = 1) EXIT PERFORM END-IF
+                COMPUTE J-id = FUNCTION RcrdEnmrtn-nextRecordId0(J-recordEnum)
+                COMPUTE J-recordAsBytes = FUNCTION TsUtil-getRecord2(FUNCTION JR-GET(J-THIS, "f_tsUtil"), J-recordStore, J-id)
+                IF (J-recordAsBytes NOT = 0)
+                    COMPUTE J-byteArrayInputStream = FUNCTION ByteArrayInputStream-new1(J-recordAsBytes)
+                    COMPUTE J-inputStream = FUNCTION DataInputStream-new1(J-byteArrayInputStream)
+                    COMPUTE J-name = FUNCTION DataInputStream-readUTF0(J-inputStream)
+                    COMPUTE J-nextScore = FUNCTION DataInputStream-readLong0(J-inputStream)
+                    COMPUTE J-nextCurrentHighScore = FUNCTION HighScore-new4(J-id, J-name, FUNCTION GameInfo-static-NONE, J-nextScore)
+                    IF (FUNCTION RecordComparator-compare2(FUNCTION JR-GET(J-THIS, "f_recordComparatorInterface"), FUNCTION HighScore-getAsBytes0(J-nextCurrentHighScore), FUNCTION HighScore-getAsBytes0(J-bestHighScore)) = FUNCTION
+        RcrdCmprtr-static-FOLLOWS)
+                        COMPUTE J-bestHighScore = J-nextCurrentHighScore
+                    END-IF
+                END-IF
+            END-PERFORM
+            IF (FUNCTION HighScore-getId0(J-bestHighScore) NOT = (0 - 1))
+                COMPUTE jtemp18 = FUNCTION StringMaker-new0
+                COMPUTE jtemp17 = FUNCTION StringMaker-append1(jtemp18, FUNCTION JR-STR("Removing Lowest HighScore: "))
+                COMPUTE jtemp16 = FUNCTION StringMaker-appendlong1(jtemp17, FUNCTION HighScore-getScore0(J-bestHighScore))
+                COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp16), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_LOAD"))
+                COMPUTE JDISCARD = FUNCTION RecordStore-deleteRecord1(J-recordStore, FUNCTION HighScore-getId0(J-bestHighScore))
+            END-IF
+            CONTINUE
+                IF (J-recordStore NOT = 0)
+                    COMPUTE JDISCARD = FUNCTION PreLogUtil-put3(FUNCTION JR-STR("Closing RecordStore"), J-THIS, FUNCTION JR-STR("removeLowestHighScore"))
+                    COMPUTE JDISCARD = FUNCTION RecordStore-closeRecordStore0(J-recordStore)
+                END-IF
+    GOBACK.
+END FUNCTION RcrdStrHghScrs-rmvLwstHghScr0.
 
-function TRecordStoreHighScores.isTooManyHighScores: Boolean;
-begin
-        if (not TJava.IsNull(Self.getList())) and ((Self.getList().size()) < (Self.MAXHIGHSCORES)) then begin
-            Exit(False);
-        end else begin
-            Self.logUtil.putF(TStringMaker.Create().append('HighScores RecordStore Max Reached: ').appendint(Self.MAXHIGHSCORES).toString(), TJava.Box(Self), 'isTooManyHighScores');
-            Exit(True);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RecordStoreHighScores-load0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-recordStore BINARY-DOUBLE.
+01 J-recordEnum BINARY-DOUBLE.
+01 J-recordAsBytes BINARY-DOUBLE.
+01 J-byteArrayInputStream BINARY-DOUBLE.
+01 J-inputStream BINARY-DOUBLE.
+01 J-id BINARY-DOUBLE.
+01 J-name BINARY-DOUBLE.
+01 J-score BINARY-DOUBLE.
+01 J-newHighScore BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-lastIndex BINARY-DOUBLE.
+01 J-highScore BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp19 BINARY-DOUBLE.
+01 jtemp20 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-recordStore = FUNCTION NllRcrdStr-sttc-NULL-R57789
+        CONTINUE
+            COMPUTE jtemp19 = 1
+            COMPUTE J-recordStore = FUNCTION RecordStore-openRecordStore2(FUNCTION RcrdStrHghScrs-getRecordId1(J-THIS, FUNCTION JR-GET(J-THIS, "f_abeClientInformation")), jtemp19)
+            COMPUTE JDISCARD = FUNCTION HighScores-setList1(J-THIS, FUNCTION BasicArrayListD-new0)
+            COMPUTE jtemp20 = 1
+            COMPUTE J-recordEnum = FUNCTION RecordStore-enumerateRecords3(J-recordStore, FUNCTION NllRcrdFltr-sttc-NULL-79613, FUNCTION NllRcrdCmprtr-sttc-NUL41497, jtemp20)
+            CONTINUE
+            CONTINUE
+            CONTINUE
+            PERFORM FOREVER
+                IF NOT (FUNCTION RcrdEnmrtn-hasNextElement0(J-recordEnum) = 1) EXIT PERFORM END-IF
+                COMPUTE J-id = FUNCTION RcrdEnmrtn-nextRecordId0(J-recordEnum)
+                COMPUTE J-recordAsBytes = FUNCTION TsUtil-getRecord2(FUNCTION JR-GET(J-THIS, "f_tsUtil"), J-recordStore, J-id)
+                IF (J-recordAsBytes NOT = 0)
+                    COMPUTE J-byteArrayInputStream = FUNCTION ByteArrayInputStream-new1(J-recordAsBytes)
+                    COMPUTE J-inputStream = FUNCTION DataInputStream-new1(J-byteArrayInputStream)
+                    CONTINUE
+                        COMPUTE J-name = FUNCTION DataInputStream-readUTF0(J-inputStream)
+                        COMPUTE J-score = FUNCTION DataInputStream-readLong0(J-inputStream)
+                        COMPUTE J-newHighScore = FUNCTION HighScore-new4(J-id, J-name, FUNCTION GameInfo-static-NONE, J-score)
+                        COMPUTE J-list = FUNCTION HighScores-getList0(J-THIS)
+                        COMPUTE J-size = FUNCTION BasicArrayList-size0(J-list)
+                        COMPUTE J-lastIndex = J-size
+                        COMPUTE J-index = 0
+                        MOVE 1 TO JFIRST1
+                        PERFORM FOREVER
+                            IF JFIRST1 = 0
+                                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+                            END-IF
+                            MOVE 0 TO JFIRST1
+                            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+                            COMPUTE J-highScore = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
+                            IF (FUNCTION RecordComparator-compare2(FUNCTION JR-GET(J-THIS, "f_recordComparatorInterface"), FUNCTION HighScore-getAsBytes0(J-newHighScore), FUNCTION HighScore-getAsBytes0(J-highScore)) = FUNCTION
+        RcrdCmprtr-static-PRECEDES)
+                                COMPUTE J-lastIndex = J-index
+                                EXIT PERFORM
+                            END-IF
+                        END-PERFORM
+                        COMPUTE JDISCARD = FUNCTION BasicArrayList-addAt2(J-list, J-lastIndex, J-newHighScore)
+                END-IF
+            END-PERFORM
+            CONTINUE
+                IF (J-recordStore NOT = 0)
+                    COMPUTE JDISCARD = FUNCTION PreLogUtil-put3(FUNCTION JR-STR("Closing RecordStore"), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_LOAD"))
+                    COMPUTE JDISCARD = FUNCTION RecordStore-closeRecordStore0(J-recordStore)
+                END-IF
+    GOBACK.
+END FUNCTION RecordStoreHighScores-load0.
 
-// throws Exception
-function TRecordStoreHighScores.isBestScore(newHighScore: THighScore): Boolean;
-var
-  list: TBasicArrayList;
-  size: Integer;
-  highScore_: THighScore;
-  index: Integer;
-begin
-    TJava.MonitorEnter(Self);
-    try
-        try
-            if not (Self.isTooManyHighScores()) then begin
-                Self.logUtil.putF('Slot Available for a High Score', TJava.Box(Self), 'isBestScore');
-                Exit(True);
-            end else begin
-                list := Self.getList();
-                size := list.size();
-                for index := 0 to size - 1 do begin
-                    highScore_ := THighScore(TJava.ToObject(list.objectArray[index]));
-                    if (Self.recordComparatorInterface.compare(newHighScore.getAsBytes(), highScore_.getAsBytes())) = (IRecordComparator.FOLLOWS) then begin
-                        Self.logUtil.putF('Obtained a High Score', TJava.Box(Self), 'isBestScore');
-                        Exit(True);
-                    end;
-                end;
-            end;
-            Self.logUtil.putF('Not a High Score', TJava.Box(Self), 'isBestScore');
-            Exit(False);
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.ADD, TJava.Box(e));
-            raise e;
-            end;
-        end;
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RcrdStrHghScrs-isTMnyHghScrs0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp21 BINARY-DOUBLE.
+01 jtemp22 BINARY-DOUBLE.
+01 jtemp23 BINARY-DOUBLE.
+01 jtemp24 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp21 = FUNCTION HighScores-getList0(J-THIS)
+        IF ((FUNCTION HighScores-getList0(J-THIS) NOT = 0) AND (FUNCTION JR-CLASS-NAME(jtemp21) < FUNCTION JR-GET(J-THIS, "f_MAXHIGHSCORES")))
+            COMPUTE J-RESULT = 0
+            GOBACK
+        ELSE
+            COMPUTE jtemp24 = FUNCTION StringMaker-new0
+            COMPUTE jtemp23 = FUNCTION StringMaker-append1(jtemp24, FUNCTION JR-STR("HighScores RecordStore Max Reached: "))
+            COMPUTE jtemp22 = FUNCTION StringMaker-appendint1(jtemp23, FUNCTION JR-GET(J-THIS, "f_MAXHIGHSCORES"))
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp22), J-THIS, FUNCTION JR-STR("isTooManyHighScores"))
+            COMPUTE J-RESULT = 1
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION RcrdStrHghScrs-isTMnyHghScrs0.
 
-function TRecordStoreHighScores.toString: string;
-var
-  stringBuffer: TStringMaker;
-  list: TBasicArrayList;
-  size: Integer;
-  highScore_: THighScore;
-  index: Integer;
-begin
-        stringBuffer := TStringMaker.Create();
-        stringBuffer.append(inherited toString());
-        list := Self.getList();
-        size := list.size();
-        for index := 0 to size - 1 do begin
-            highScore_ := THighScore(TJava.ToObject(list.objectArray[index]));
-            stringBuffer.append(highScore_.getScoreString());
-            stringBuffer.append(TCommonSeps.getInstance().COMMA_SEP);
-        end;
-        Exit(stringBuffer.toString());
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RcrdStrHghScrs-isBestScore1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-list BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-highScore BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-newHighScore BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-newHighScore RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            IF (NOT (FUNCTION RcrdStrHghScrs-isTMnyHghScrs0(J-THIS) = 1))
+                COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-STR("Slot Available for a High Score"), J-THIS, FUNCTION JR-STR("isBestScore"))
+                COMPUTE J-RESULT = 1
+                GOBACK
+            ELSE
+                COMPUTE J-list = FUNCTION HighScores-getList0(J-THIS)
+                COMPUTE J-size = FUNCTION BasicArrayList-size0(J-list)
+                COMPUTE J-index = 0
+                MOVE 1 TO JFIRST2
+                PERFORM FOREVER
+                    IF JFIRST2 = 0
+                        COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+                    END-IF
+                    MOVE 0 TO JFIRST2
+                    IF NOT (J-index < J-size) EXIT PERFORM END-IF
+                    COMPUTE J-highScore = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
+                    IF (FUNCTION RecordComparator-compare2(FUNCTION JR-GET(J-THIS, "f_recordComparatorInterface"), FUNCTION HighScore-getAsBytes0(J-newHighScore), FUNCTION HighScore-getAsBytes0(J-highScore)) = FUNCTION
+        RcrdCmprtr-static-FOLLOWS)
+                        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-STR("Obtained a High Score"), J-THIS, FUNCTION JR-STR("isBestScore"))
+                        COMPUTE J-RESULT = 1
+                        GOBACK
+                    END-IF
+                END-PERFORM
+            END-IF
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-STR("Not a High Score"), J-THIS, FUNCTION JR-STR("isBestScore"))
+            COMPUTE J-RESULT = 0
+            GOBACK
+    GOBACK.
+END FUNCTION RcrdStrHghScrs-isBestScore1.
 
-initialization
-  {AB:INITIALIZATION}
-  TRecordStoreHighScores.hashTable := TStdUtil.getInstance().createHashtable();
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RcrdStrHghScrs-toString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringBuffer BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-highScore BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp25 BINARY-DOUBLE.
+01 JFIRST3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION HighScores-toString0(J-THIS))
+        COMPUTE J-list = FUNCTION HighScores-getList0(J-THIS)
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(J-list)
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST3
+        PERFORM FOREVER
+            IF JFIRST3 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST3
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-highScore = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION HighScore-getScoreString0(J-highScore))
+            COMPUTE jtemp25 = FUNCTION CommonSeps-getInstance0
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(jtemp25, "f_COMMA_SEP"))
+        END-PERFORM
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(J-stringBuffer)
+        GOBACK
+    GOBACK.
+END FUNCTION RcrdStrHghScrs-toString0.
 
-end.
+IDENTIFICATION DIVISION.
+PROGRAM-ID. RecordStoreHighScores-toString.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION RcrdStrHghScrs-toString0(J-THIS)
+    GOBACK.
+END PROGRAM RecordStoreHighScores-toString.
 

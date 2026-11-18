@@ -1,134 +1,327 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.layer
+*> Java class CollidableCompositeLayer
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.layer
-unit CollidableCompositeLayer;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblCmpstLyr-sttc-N15032.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CollidableCompositeLayer-jcell-NULL_COLLIDABLE_COMPOSITE_LAYER BINARY-DOUBLE EXTERNAL.
+01 CollidableCompositeLayer-jset-NULL_COLLIDABLE_COMPOSITE_LAYER BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF CollidableCompositeLayer-jset-NULL_COLLIDABLE_COMPOSITE_LAYER = 0
+        MOVE 1 TO CollidableCompositeLayer-jset-NULL_COLLIDABLE_COMPOSITE_LAYER
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE CollidableCompositeLayer-jcell-NULL_COLLIDABLE_COMPOSITE_LAYER = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+    END-IF
+    MOVE CollidableCompositeLayer-jcell-NULL_COLLIDABLE_COMPOSITE_LAYER TO J-RESULT
+    GOBACK.
+END FUNCTION ClldblCmpstLyr-sttc-N15032.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblCmpstLyrsttcN1S13826.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CollidableCompositeLayer-jcell-NULL_COLLIDABLE_COMPOSITE_LAYER BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION ClldblCmpstLyr-sttc-N15032 TO J-RESULT
+    MOVE J-VALUE TO CollidableCompositeLayer-jcell-NULL_COLLIDABLE_COMPOSITE_LAYER
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION ClldblCmpstLyrsttcN1S13826.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CollidableCompositeLayer-new4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-name BINARY-DOUBLE.
+01 J-layerInfo BINARY-DOUBLE.
+01 J-viewPosition BINARY-DOUBLE.
+01 J-collidableBaseBehaviorFactory BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-name J-layerInfo J-viewPosition J-collidableBaseBehaviorFactory RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CollidableCompositeLayer")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_collidableInferface")
+    COMPUTE jtemp4 = FUNCTION ClldblNvrClldBhvrFctry-gt88989
+    COMPUTE JVALUE = FUNCTION ClldblNvrClldBhvrFctry-cr19134(jtemp4)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_collidableInferface", JVALUE)
+        CONTINUE
+        IF (J-collidableBaseBehaviorFactory NOT = FUNCTION ClldblNvrClldBhvrFctry-gt88989)
+            COMPUTE JDISCARD = FUNCTION ClldblCmpstLyr-stClldblInfrfc1(J-THIS, FUNCTION ClldblBsBhvrFctry-crtBhvr0(J-collidableBaseBehaviorFactory))
+        END-IF
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CollidableCompositeLayer-new4.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, ArtificialIntelligenceInterface, CollidableBaseBehavior, CollidableBaseBehaviorFactory, CollidableInterfaceCompositeInterface, Rectangle, StringMaker, ViewPositionBase, AllBinaryGameLayer;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblCmpstLyr-gtNllInstnc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+        IF (FUNCTION ClldblCmpstLyr-sttc-N15032 = FUNCTION JR-GET(jtemp2, "f_NULL_OBJECT"))
+            COMPUTE jtemp3 = FUNCTION StringUtil-getInstance0
+            COMPUTE JDISCARD = FUNCTION ClldblCmpstLyrsttcN1S13826(FUNCTION CollidableCompositeLayer-new4(FUNCTION JR-GET(jtemp3, "f_EMPTY_STRING"), FUNCTION RctnglFctry-static-SINGLETON, FUNCTION VwPstnBs-sttc-NULL-VIE72744, FUNCTION
+        ClldblNvrClldBhvrFctry-gt88989))
+        END-IF
+        COMPUTE J-RESULT = FUNCTION ClldblCmpstLyr-sttc-N15032
+        GOBACK
+    GOBACK.
+END FUNCTION ClldblCmpstLyr-gtNllInstnc0.
 
-type
-  {AB:TYPES}
-  TCollidableCompositeLayer = class(TAllBinaryGameLayer, ICollidableInterfaceCompositeInterface)
-  public
-    collidableInferface: TCollidableBaseBehavior;
-    class var NULL_COLLIDABLE_COMPOSITE_LAYER: TObject;
-    procedure InitFields;
-    function JavaObject: TObject;
-        class function getNullInstance: TCollidableCompositeLayer; static;
-        constructor Create(name: string; layerInfo: TRectangle; viewPosition: TViewPositionBase; collidableBaseBehaviorFactory_: TCollidableBaseBehaviorFactory);
-        function getArtificialIntelligenceInterface: IArtificialIntelligenceInterface; virtual;
-        function getCollidableInferface: TCollidableBaseBehavior; virtual;
-        procedure setCollidableInferface(collidableInferface: TCollidableBaseBehavior); virtual;
-        function implmentsCollidableInterface: Boolean; virtual;
-        procedure toStringAppend(stringBuffer: TStringMaker); virtual;
-        function toString: string; override;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblCmpstLyr-gtArtfclIn26783.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION ForcedLogUtil-log2(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_NOT_IMPLEMENTED"), J-THIS)
+        COMPUTE J-RESULT = FUNCTION ArtfclIntllgnc-getInstance0
+        GOBACK
+    GOBACK.
+END FUNCTION ClldblCmpstLyr-gtArtfclIn26783.
 
-implementation
-uses
-  ArtificialIntelligence, CollidableNeverCollideBehaviorFactory, RectangleFactory, ForcedLogUtil, StringUtil, CommonSeps, NullUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblCmpstLyr-gtClldblInfrfc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_collidableInferface")
+        GOBACK
+    GOBACK.
+END FUNCTION ClldblCmpstLyr-gtClldblInfrfc0.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblCmpstLyr-stClldblInfrfc1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-collidableInferface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-collidableInferface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-collidableInferface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_collidableInferface", JVALUE)
+    GOBACK.
+END FUNCTION ClldblCmpstLyr-stClldblInfrfc1.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblCmpstLyr-implmntsCl96963.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = 1
+        GOBACK
+    GOBACK.
+END FUNCTION ClldblCmpstLyr-implmntsCl96963.
 
-procedure TCollidableCompositeLayer.InitFields;
-begin
-  Self.collidableInferface := TCollidableNeverCollideBehaviorFactory.getInstance().createBehavior();
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblCmpstLyr-toStringAppend1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-commonSeps BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-stringBuffer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-stringBuffer RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-commonSeps = FUNCTION CommonSeps-getInstance0
+        COMPUTE JDISCARD = FUNCTION AllBinaryLayer-toStringAppend1(J-THIS, J-stringBuffer)
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-commonSeps, "f_NEW_LINE"))
+        COMPUTE jtemp5 = FUNCTION ClldblCmpstLyr-gtClldblInfrfc0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-TO-STRING(jtemp5))
+    GOBACK.
+END FUNCTION ClldblCmpstLyr-toStringAppend1.
 
-function TCollidableCompositeLayer.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblCmpstLyr-toString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringBuffer BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE JDISCARD = FUNCTION ClldblCmpstLyr-toStringAppend1(J-THIS, J-stringBuffer)
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(J-stringBuffer)
+        GOBACK
+    GOBACK.
+END FUNCTION ClldblCmpstLyr-toString0.
 
-class function TCollidableCompositeLayer.getNullInstance: TCollidableCompositeLayer;
-begin
-        if (TCollidableCompositeLayer.NULL_COLLIDABLE_COMPOSITE_LAYER) = (TNullUtil.getInstance().NULL_OBJECT) then begin
-            TCollidableCompositeLayer.NULL_COLLIDABLE_COMPOSITE_LAYER := TCollidableCompositeLayer.Create(TStringUtil.getInstance().EMPTY_STRING, TRectangleFactory.SINGLETON, TViewPositionBase.NULL_VIEW_POSITION, TCollidableNeverCollideBehaviorFactory.getInstance());
-        end;
-        Exit(TCollidableCompositeLayer(TJava.ToObject(TCollidableCompositeLayer.NULL_COLLIDABLE_COMPOSITE_LAYER)));
-end;
-    
-
-constructor TCollidableCompositeLayer.Create(name: string; layerInfo: TRectangle; viewPosition: TViewPositionBase; collidableBaseBehaviorFactory_: TCollidableBaseBehaviorFactory);
-begin
-        inherited Create(name, layerInfo, viewPosition);
-        InitFields;
-        if (collidableBaseBehaviorFactory_) <> (TCollidableNeverCollideBehaviorFactory.getInstance()) then begin
-            Self.setCollidableInferface(collidableBaseBehaviorFactory_.createBehavior());
-        end;
-end;
-    
-
-function TCollidableCompositeLayer.getArtificialIntelligenceInterface: IArtificialIntelligenceInterface;
-begin
-        TForcedLogUtil.log(Self.commonStrings.NOT_IMPLEMENTED, TJava.Box(Self));
-        Exit(TArtificialIntelligence.getInstance());
-end;
-    
-
-function TCollidableCompositeLayer.getCollidableInferface: TCollidableBaseBehavior;
-begin
-        Exit(Self.collidableInferface);
-end;
-    
-
-procedure TCollidableCompositeLayer.setCollidableInferface(collidableInferface: TCollidableBaseBehavior);
-begin
-        Self.collidableInferface := collidableInferface;
-end;
-    
-
-function TCollidableCompositeLayer.implmentsCollidableInterface: Boolean;
-begin
-        Exit(True);
-end;
-    
-
-procedure TCollidableCompositeLayer.toStringAppend(stringBuffer: TStringMaker);
-var
-  commonSeps_: TCommonSeps;
-begin
-        commonSeps_ := TCommonSeps.getInstance();
-        inherited toStringAppend(stringBuffer);
-        stringBuffer.append(commonSeps_.NEW_LINE);
-        stringBuffer.append(Self.getCollidableInferface().toString());
-end;
-    
-
-function TCollidableCompositeLayer.toString: string;
-var
-  stringBuffer: TStringMaker;
-begin
-        stringBuffer := TStringMaker.Create();
-        Self.toStringAppend(stringBuffer);
-        Exit(stringBuffer.toString());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TCollidableCompositeLayer.NULL_COLLIDABLE_COMPOSITE_LAYER := TJava.Box(TNullUtil.getInstance().NULL_OBJECT);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+PROGRAM-ID. CollidableCompositeLa-toString.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ClldblCmpstLyr-toString0(J-THIS)
+    GOBACK.
+END PROGRAM CollidableCompositeLa-toString.
 

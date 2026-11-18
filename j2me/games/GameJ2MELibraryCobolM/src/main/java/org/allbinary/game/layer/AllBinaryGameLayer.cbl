@@ -1,187 +1,441 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.layer
+*> Java class AllBinaryGameLayer
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.layer
-unit AllBinaryGameLayer;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBinaryGameLayer-new3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-name BINARY-DOUBLE.
+01 J-layerInfo BINARY-DOUBLE.
+01 J-viewPosition BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-name J-layerInfo J-viewPosition RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("AllBinaryGameLayer")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_basicSetColorUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_RED")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_paintable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameKeyEventList")
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
+    COMPUTE JVALUE = FUNCTION BasicColorSetUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicSetColorUtil", JVALUE)
+    COMPUTE jtemp1 = FUNCTION BasicColorFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_RED")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_RED", JVALUE)
+    COMPUTE JVALUE = FUNCTION AllBnryGmLyr-createPaintable0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_paintable", JVALUE)
+    COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameKeyEventList", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION AllBinaryGameLayer-new3.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryGmLyr-createPaintable0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION SWTUtil-static-isSWT = 1)
+            COMPUTE J-RESULT = FUNCTION SWTBlackPaintable-new0
+            GOBACK
+        END-IF
+        COMPUTE J-RESULT = FUNCTION NullPaintable-getInstance0
+        GOBACK
+    GOBACK.
+END FUNCTION AllBnryGmLyr-createPaintable0.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBinaryGameLayer-set1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gl BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gl RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+    GOBACK.
+END FUNCTION AllBinaryGameLayer-set1.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GL, Graphics, Rectangle, BasicColor, BasicColorSetUtil, Paintable, OpenGLSurfaceChangedInterface, AllBinaryLayer, AllBinaryLayerManager, AllBinaryEventObject, CommonStrings, BasicArrayList, ViewPositionBase, ViewPositionEvent, ViewPositionEventListenerInterface, EventListenerInterface;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBinaryGameLayer-move0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION AllBinaryGameLayer-move0.
 
-type
-  {AB:TYPES}
-  TAllBinaryGameLayer = class(TAllBinaryLayer, IViewPositionEventListenerInterface, IOpenGLSurfaceChangedInterface, IEventListenerInterface)
-  public
-    commonStrings: TCommonStrings;
-    basicSetColorUtil: TBasicColorSetUtil;
-    RED: TBasicColor;
-    paintable: TPaintable;
-    gameKeyEventList: TBasicArrayList;
-    procedure InitFields;
-    function JavaObject: TObject;
-        class function createPaintable: TPaintable; static;
-        constructor Create(name: string; layerInfo: TRectangle; viewPosition: TViewPositionBase);
-        procedure set_(gl_: IGL); virtual;
-        procedure move; virtual;
-        function getGameKeyEventList: TBasicArrayList; virtual;
-        procedure processInput(allBinaryLayerManager_: TAllBinaryLayerManager); virtual;
-        procedure processTick(allBinaryLayerManager_: TAllBinaryLayerManager); virtual;
-        procedure onEvent(eventObject: TAllBinaryEventObject); virtual;
-        procedure onViewPositionChangeEvent; virtual;
-        procedure onChangeEvent(layerManagerEvent: TViewPositionEvent); virtual;
-        procedure paintFirst(graphics_: TGraphics); virtual;
-        procedure paintDebug(graphics_: TGraphics); virtual;
-        procedure setWidth(width: Integer); virtual;
-        procedure setHeight(height: Integer); virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryGmLyr-gtGmKyEvntLst0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_gameKeyEventList")
+        GOBACK
+    GOBACK.
+END FUNCTION AllBnryGmLyr-gtGmKyEvntLst0.
 
-implementation
-uses
-  SWTUtil, SWTBlackPaintable, GameLayerUtil, BasicColorFactory, NullPaintable, ForcedLogUtil, EventStrings, BasicArrayListD;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryGmLyr-processInput1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryLayerManager BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+    GOBACK.
+END FUNCTION AllBnryGmLyr-processInput1.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryGmLyr-processTick1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryLayerManager BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+    GOBACK.
+END FUNCTION AllBnryGmLyr-processTick1.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBinaryGameLayer-onEvent1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION EventStrings-getInstance0
+        COMPUTE JDISCARD = FUNCTION ForcedLogUtil-log2(FUNCTION JR-GET(jtemp2, "f_PERFORMANCE_MESSAGE"), J-THIS)
+    GOBACK.
+END FUNCTION AllBinaryGameLayer-onEvent1.
 
-procedure TAllBinaryGameLayer.InitFields;
-begin
-  Self.commonStrings := TCommonStrings.getInstance();
-  Self.basicSetColorUtil := TBasicColorSetUtil.getInstance();
-  Self.RED := TBasicColorFactory.getInstance().RED;
-  Self.paintable := TAllBinaryGameLayer.createPaintable();
-  Self.gameKeyEventList := TBasicArrayListD.Create();
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryGmLyr-onVwPstnChngEvnt0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION AllBnryGmLyr-onChangeEvent1(J-THIS, FUNCTION JR-GET(J-THIS, "f_viewPositionEvent"))
+    GOBACK.
+END FUNCTION AllBnryGmLyr-onVwPstnChngEvnt0.
 
-function TAllBinaryGameLayer.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryGmLyr-onChangeEvent1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerManagerEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerManagerEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION GameLayerUtil-isOnScreen1(J-THIS) = 1)
+            COMPUTE jtemp4 = 1
+            COMPUTE JDISCARD = FUNCTION AllBinaryLayer-setVisible1(J-THIS, jtemp4)
+        ELSE
+            COMPUTE jtemp3 = 0
+            COMPUTE JDISCARD = FUNCTION AllBinaryLayer-setVisible1(J-THIS, jtemp3)
+        END-IF
+    GOBACK.
+END FUNCTION AllBnryGmLyr-onChangeEvent1.
 
-class function TAllBinaryGameLayer.createPaintable: TPaintable;
-begin
-        if TSWTUtil.isSWT then begin
-            Exit(TSWTBlackPaintable.Create());
-        end;
-        Exit(TNullPaintable.getInstance());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBinaryGameLayer-paintFirst1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Paintable-paint1(FUNCTION JR-GET(J-THIS, "f_paintable"), J-graphics)
+    GOBACK.
+END FUNCTION AllBinaryGameLayer-paintFirst1.
 
-constructor TAllBinaryGameLayer.Create(name: string; layerInfo: TRectangle; viewPosition: TViewPositionBase);
-begin
-        inherited Create(name, layerInfo, viewPosition);
-        InitFields;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBinaryGameLayer-paintDebug1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-viewPosition BINARY-DOUBLE.
+01 J-viewX BINARY-DOUBLE.
+01 J-viewY BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-viewPosition = FUNCTION AllBnryLyr-getViewPosition0(J-THIS)
+        COMPUTE J-viewX = FUNCTION GPoint-getX0(J-viewPosition)
+        COMPUTE J-viewY = FUNCTION GPoint-getY0(J-viewPosition)
+        COMPUTE JDISCARD = FUNCTION BscClrStUtl-setBasicColorP2(FUNCTION JR-GET(J-THIS, "f_basicSetColorUtil"), J-graphics, FUNCTION JR-GET(J-THIS, "f_RED"))
+        COMPUTE JDISCARD = FUNCTION Graphics-drawRect4(J-graphics, J-viewX, J-viewY, FUNCTION AllBinaryLayer-getWidth0(J-THIS), FUNCTION AllBinaryLayer-getHeight0(J-THIS))
+    GOBACK.
+END FUNCTION AllBinaryGameLayer-paintDebug1.
 
-// throws Exception
-procedure TAllBinaryGameLayer.set_(gl_: IGL);
-begin
-        raise SysUtils.Exception.Create(Self.commonStrings.NOT_IMPLEMENTED);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBinaryGameLayer-setWidth1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-width RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Layer-setLayerWidth1(J-THIS, J-width)
+        COMPUTE jtemp5 = FUNCTION JR-SHIFT(JFIVE, J-width, 1)
+        COMPUTE JDISCARD = FUNCTION AllBinaryLayer-setHalfWidth1(J-THIS, jtemp5)
+    GOBACK.
+END FUNCTION AllBinaryGameLayer-setWidth1.
 
-procedure TAllBinaryGameLayer.move;
-begin
-end;
-    
-
-function TAllBinaryGameLayer.getGameKeyEventList: TBasicArrayList;
-begin
-        Exit(Self.gameKeyEventList);
-end;
-    
-
-// throws Exception
-procedure TAllBinaryGameLayer.processInput(allBinaryLayerManager_: TAllBinaryLayerManager);
-begin
-        raise SysUtils.Exception.Create(Self.commonStrings.NOT_IMPLEMENTED);
-end;
-    
-
-// throws Exception
-procedure TAllBinaryGameLayer.processTick(allBinaryLayerManager_: TAllBinaryLayerManager);
-begin
-        raise SysUtils.Exception.Create(Self.commonStrings.NOT_IMPLEMENTED);
-end;
-    
-
-procedure TAllBinaryGameLayer.onEvent(eventObject: TAllBinaryEventObject);
-begin
-        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, TJava.Box(Self));
-end;
-    
-
-// throws Exception
-procedure TAllBinaryGameLayer.onViewPositionChangeEvent;
-begin
-        Self.onChangeEvent(Self.viewPositionEvent);
-end;
-    
-
-// throws Exception
-procedure TAllBinaryGameLayer.onChangeEvent(layerManagerEvent: TViewPositionEvent);
-begin
-        if TGameLayerUtil.isOnScreen(Self) then begin
-            Self.setVisible(True);
-        end else begin
-            Self.setVisible(False);
-        end;
-end;
-    
-
-procedure TAllBinaryGameLayer.paintFirst(graphics_: TGraphics);
-begin
-        Self.paintable.paint(graphics_);
-end;
-    
-
-procedure TAllBinaryGameLayer.paintDebug(graphics_: TGraphics);
-var
-  viewPosition: TViewPositionBase;
-  viewX: Integer;
-  viewY: Integer;
-begin
-        viewPosition := Self.getViewPosition();
-        viewX := viewPosition.getX();
-        viewY := viewPosition.getY();
-        Self.basicSetColorUtil.setBasicColorP(graphics_, Self.RED);
-        graphics_.drawRect(viewX, viewY, Self.getWidth(), Self.getHeight());
-end;
-    
-
-procedure TAllBinaryGameLayer.setWidth(width: Integer);
-begin
-        inherited setLayerWidth(width);
-        Self.setHalfWidth(TJava.SignedRightShift(width, 1));
-end;
-    
-
-procedure TAllBinaryGameLayer.setHeight(height: Integer);
-begin
-        inherited setLayerHeight(height);
-        Self.setHalfHeight(TJava.SignedRightShift(height, 1));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBinaryGameLayer-setHeight1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-height RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Layer-setLayerHeight1(J-THIS, J-height)
+        COMPUTE jtemp6 = FUNCTION JR-SHIFT(JFIVE, J-height, 1)
+        COMPUTE JDISCARD = FUNCTION AllBinaryLayer-setHalfHeight1(J-THIS, jtemp6)
+    GOBACK.
+END FUNCTION AllBinaryGameLayer-setHeight1.
 

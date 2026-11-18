@@ -1,73 +1,123 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.combat.damage
+*> Java class ExplosionResources
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.combat.damage
-unit ExplosionResources;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ExplsnRsrcs-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ExplosionResources-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 ExplosionResources-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF ExplosionResources-jset-instance = 0
+        MOVE 1 TO ExplosionResources-jset-instance
+        COMPUTE ExplosionResources-jcell-instance = FUNCTION ExplosionResources-new0
+    END-IF
+    MOVE ExplosionResources-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION ExplsnRsrcs-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ExplsnRsrcsstaticinsS33765.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ExplosionResources-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION ExplsnRsrcs-static-instance TO J-RESULT
+    MOVE J-VALUE TO ExplosionResources-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION ExplsnRsrcsstaticinsS33765.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ExplosionResources-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ExplosionResources")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_EXPLOSION_90_RESOURCE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_EXPLOSION_60_RESOURCE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_HALF_EXPLOSION_RESOURCE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_THIRD_EXPLOSION_RESOURCE")
+    COMPUTE JVALUE = FUNCTION JR-STR("/explosion_sprite_90_by_90.png")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_EXPLOSION_90_RESOURCE", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("/explosion_sprite_60_by_60.png")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_EXPLOSION_60_RESOURCE", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("/explosion_sprite_30_by_30.png")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_HALF_EXPLOSION_RESOURCE", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("/explosion_sprite_15_by_15.png")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_THIRD_EXPLOSION_RESOURCE", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ExplosionResources-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
-
-type
-  {AB:TYPES}
-  TExplosionResources = class(TObject)
-  public
-    EXPLOSION_90_RESOURCE: string;
-    EXPLOSION_60_RESOURCE: string;
-    HALF_EXPLOSION_RESOURCE: string;
-    THIRD_EXPLOSION_RESOURCE: string;
-    class var instance: TExplosionResources;
-    procedure InitFields;
-        class function getInstance: TExplosionResources; static;
-        constructor Create;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TExplosionResources.InitFields;
-begin
-  Self.EXPLOSION_90_RESOURCE := '/explosion_sprite_90_by_90.png';
-  Self.EXPLOSION_60_RESOURCE := '/explosion_sprite_60_by_60.png';
-  Self.HALF_EXPLOSION_RESOURCE := '/explosion_sprite_30_by_30.png';
-  Self.THIRD_EXPLOSION_RESOURCE := '/explosion_sprite_15_by_15.png';
-end;
-    
-
-class function TExplosionResources.getInstance: TExplosionResources;
-begin
-        Exit(TExplosionResources.instance);
-end;
-    
-
-constructor TExplosionResources.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TExplosionResources.instance := TExplosionResources.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ExplsnRsrcs-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION ExplsnRsrcs-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION ExplsnRsrcs-getInstance0.
 

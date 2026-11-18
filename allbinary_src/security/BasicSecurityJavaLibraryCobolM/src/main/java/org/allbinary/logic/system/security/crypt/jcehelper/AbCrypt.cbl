@@ -1,133 +1,151 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.system.security.crypt.jcehelper
+*> Java class AbCrypt
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.logic.system.security.crypt.jcehelper
-unit AbCrypt;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, TsUtil, CryptInterface, BaseSecretComposite;
-
-type
-  {AB:TYPES}
-  TAbCrypt = class(TInterfacedObject, ICryptInterface)
-  public
-    tsUtil: TTsUtil;
-    secretComposite: TBaseSecretComposite;
-    algorithm: string;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(algorithm: string);
-        procedure init(keyAsString: string); virtual;
-        function encrypt(array_: TArray<ShortInt>): TArray<ShortInt>; virtual;
-        function decrypt(array_: TArray<ShortInt>): TArray<ShortInt>; virtual;
-  end;
-
-implementation
-uses
-  KeySpecFactory, SecretComposite, NullUtil, PreLogUtil, CommonStrings, BouncyCastleProvider;
-
-
-{AB:CODE}
-
-procedure TAbCrypt.InitFields;
-begin
-  Self.tsUtil := TTsUtil.getInstance();
-  Self.secretComposite := TBaseSecretComposite.NULL_SECRET_COMPOSITE;
-  
-end;
-
-function TAbCrypt.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbCrypt-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-algorithm BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-algorithm RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("AbCrypt")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_tsUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_secretComposite")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_algorithm")
+    COMPUTE JVALUE = FUNCTION TsUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_tsUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION BsScrtCmpst-sttc-NULL-55615
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_secretComposite", JVALUE)
     
+        COMPUTE JVALUE = J-algorithm
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_algorithm", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION AbCrypt-new1.
 
-constructor TAbCrypt.Create(algorithm: string);
-begin
-    inherited Create;
-    InitFields;
-        Self.algorithm := algorithm;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbCrypt-init1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-commonStrings BINARY-DOUBLE.
+01 J-key BINARY-DOUBLE.
+01 J-keySpec BINARY-DOUBLE.
+01 J-keyFactory BINARY-DOUBLE.
+01 J-secretKey BINARY-DOUBLE.
+01 J-cipher BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-keyAsString BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-keyAsString RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-commonStrings = FUNCTION CommonStrings-getInstance0
+        CONTINUE
+            CONTINUE
+                COMPUTE JDISCARD = FUNCTION Security-addProvider1(FUNCTION BouncyCastleProvider-new0)
+            COMPUTE J-key = FUNCTION TsUtil-getByteArray1(FUNCTION JR-GET(J-THIS, "f_tsUtil"), J-keyAsString)
+            COMPUTE jtemp1 = FUNCTION KeySpecFactory-getInstance0
+            COMPUTE J-keySpec = FUNCTION KeySpecFactory-getInstance2(jtemp1, FUNCTION JR-GET(J-THIS, "f_algorithm"), J-key)
+            COMPUTE J-keyFactory = FUNCTION SecretKeyFactory-getInstance1(FUNCTION JR-GET(J-THIS, "f_algorithm"))
+            COMPUTE J-secretKey = FUNCTION ScrtKyFctry-generateSecret1(J-keyFactory, J-keySpec)
+            COMPUTE J-cipher = FUNCTION Cipher-getInstance1(FUNCTION JR-GET(J-THIS, "f_algorithm"))
+            COMPUTE JVALUE = FUNCTION SecretComposite-new3(J-secretKey, J-cipher, J-key)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_secretComposite", JVALUE)
+    GOBACK.
+END FUNCTION AbCrypt-init1.
 
-procedure TAbCrypt.init(keyAsString: string);
-var
-  commonStrings_: TCommonStrings;
-  key: TArray<ShortInt>;
-  keySpec_: TKeySpec;
-  keyFactory: TSecretKeyFactory;
-  secretKey_: TSecretKey;
-  cipher_: TCipher;
-begin
-        commonStrings_ := TCommonStrings.getInstance();
-        try
-            try
-                TSecurity.addProvider(TBouncyCastleProvider.Create());
-            except
-                on e: SysUtils.Exception do begin
-                TPreLogUtil.putOE(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.INIT, TJava.Box(e));
-                end;
-            end;
-            key := Self.tsUtil.getByteArray(keyAsString);
-            keySpec_ := TKeySpecFactory.getInstance().getInstance(Self.algorithm, key);
-            keyFactory := TSecretKeyFactory.getInstance(Self.algorithm);
-            secretKey_ := keyFactory.generateSecret(keySpec_);
-            cipher_ := TCipher.getInstance(Self.algorithm);
-            Self.secretComposite := TSecretComposite.Create(secretKey_, cipher_, key);
-        except
-            on e: SysUtils.Exception do begin
-            TPreLogUtil.putOE('init Failed', TJava.Box(Self), commonStrings_.INIT, TJava.Box(e));
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbCrypt-encrypt1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-array BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-array RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE J-RESULT = FUNCTION BaseSecretComposite-encrypt1(FUNCTION JR-GET(J-THIS, "f_secretComposite"), J-array)
+            GOBACK
+    GOBACK.
+END FUNCTION AbCrypt-encrypt1.
 
-function TAbCrypt.encrypt(array_: TArray<ShortInt>): TArray<ShortInt>;
-begin
-        try
-            Exit(Self.secretComposite.encrypt(array_));
-        except
-            on e: SysUtils.Exception do begin
-            TPreLogUtil.putOE('Encrypt Failed', TJava.Box(Self), 'encrypt', TJava.Box(e));
-            Exit(TNullUtil.getInstance().NULL_BYTE_ARRAY);
-            end;
-        end;
-end;
-    
-
-function TAbCrypt.decrypt(array_: TArray<ShortInt>): TArray<ShortInt>;
-begin
-        try
-            Exit(Self.secretComposite.decrypt(array_));
-        except
-            on e: SysUtils.Exception do begin
-            TPreLogUtil.putOE('decrypt Failed', TJava.Box(Self), 'decrypt', TJava.Box(e));
-            Exit(TNullUtil.getInstance().NULL_BYTE_ARRAY);
-            end;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbCrypt-decrypt1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-array BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-array RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE J-RESULT = FUNCTION BaseSecretComposite-decrypt1(FUNCTION JR-GET(J-THIS, "f_secretComposite"), J-array)
+            GOBACK
+    GOBACK.
+END FUNCTION AbCrypt-decrypt1.
 

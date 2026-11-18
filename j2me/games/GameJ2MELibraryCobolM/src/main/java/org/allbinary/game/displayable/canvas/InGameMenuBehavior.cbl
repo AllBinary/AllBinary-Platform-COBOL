@@ -1,107 +1,279 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2022 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.displayable.canvas
-unit InGameMenuBehavior;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.displayable.canvas
+*> Java class InGameMenuBehavior
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InGmMnBhvr-static-instanceC.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 InGameMenuBehavior-jcell-instanceC BINARY-DOUBLE EXTERNAL.
+01 InGameMenuBehavior-jset-instanceC BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF InGameMenuBehavior-jset-instanceC = 0
+        MOVE 1 TO InGameMenuBehavior-jset-instanceC
+        COMPUTE InGameMenuBehavior-jcell-instanceC = FUNCTION InGameMenuBehavior-new0
+    END-IF
+    MOVE InGameMenuBehavior-jcell-instanceC TO J-RESULT
+    GOBACK.
+END FUNCTION InGmMnBhvr-static-instanceC.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InGmMnBhvrstaticinstS68870.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 InGameMenuBehavior-jcell-instanceC BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION InGmMnBhvr-static-instanceC TO J-RESULT
+    MOVE J-VALUE TO InGameMenuBehavior-jcell-instanceC
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION InGmMnBhvrstaticinstS68870.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, DisplayChangeEvent, AllBinaryGameCanvas, BaseMenuBehavior;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InGameMenuBehavior-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("InGameMenuBehavior")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION InGameMenuBehavior-new0.
 
-type
-  {AB:TYPES}
-  TInGameMenuBehavior = class(TBaseMenuBehavior)
-  public
-    class var instanceC: TInGameMenuBehavior;
-    constructor Create;
-        class function getInstance: TInGameMenuBehavior; static;
-        procedure onDisplayChangeEvent(allBinaryGameCanvas_: TAllBinaryGameCanvas; displayChangeEvent_: TDisplayChangeEvent); override;
-        procedure initSpecialPaint(allBinaryGameCanvas_: TAllBinaryGameCanvas); override;
-        procedure initMenu(allBinaryGameCanvas_: TAllBinaryGameCanvas); override;
-        procedure updateMenu(allBinaryGameCanvas_: TAllBinaryGameCanvas); override;
-        procedure popupMenu(allBinaryGameCanvas_: TAllBinaryGameCanvas); override;
-        procedure closeMenu(allBinaryGameCanvas_: TAllBinaryGameCanvas); override;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InGmMnBhvr-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION InGmMnBhvr-static-instanceC
+        GOBACK
+    GOBACK.
+END FUNCTION InGmMnBhvr-getInstance0.
 
-implementation
-uses
-  GameCanvasNonBotPaintable;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InGmMnBhvr-onDsplyChngEvnt2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryGameCanvas BINARY-DOUBLE.
+01 J-displayChangeEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryGameCanvas J-displayChangeEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION AllBnryGmCnvs-updtMnFrmEvnt1(J-allBinaryGameCanvas, J-displayChangeEvent)
+    GOBACK.
+END FUNCTION InGmMnBhvr-onDsplyChngEvnt2.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InGmMnBhvr-initSpecialPaint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryGameCanvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryGameCanvas RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION AllBnryGmCnvs-stNnBtPntblP1(J-allBinaryGameCanvas, FUNCTION GameCanvasNonBotPaintable-new1(J-allBinaryGameCanvas))
+    GOBACK.
+END FUNCTION InGmMnBhvr-initSpecialPaint1.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InGameMenuBehavior-initMenu1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryGameCanvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryGameCanvas RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION AllBinaryGameCanvas-initMenu20(J-allBinaryGameCanvas)
+    GOBACK.
+END FUNCTION InGameMenuBehavior-initMenu1.
 
-constructor TInGameMenuBehavior.Create;
-begin
-  inherited Create;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InGameMenuBehavior-updateMenu1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryGameCanvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryGameCanvas RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION AllBinaryGameCanvas-initMenu20(J-allBinaryGameCanvas)
+    GOBACK.
+END FUNCTION InGameMenuBehavior-updateMenu1.
 
-class function TInGameMenuBehavior.getInstance: TInGameMenuBehavior;
-begin
-        Exit(TInGameMenuBehavior.instanceC);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InGameMenuBehavior-popupMenu1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryGameCanvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryGameCanvas RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION AllBnryGmCnvs-popupMenu20(J-allBinaryGameCanvas)
+    GOBACK.
+END FUNCTION InGameMenuBehavior-popupMenu1.
 
-// throws Exception
-procedure TInGameMenuBehavior.onDisplayChangeEvent(allBinaryGameCanvas_: TAllBinaryGameCanvas; displayChangeEvent_: TDisplayChangeEvent);
-begin
-        allBinaryGameCanvas_.updateMenuFromEvent(displayChangeEvent_);
-end;
-    
-
-procedure TInGameMenuBehavior.initSpecialPaint(allBinaryGameCanvas_: TAllBinaryGameCanvas);
-begin
-        allBinaryGameCanvas_.setNonBotPaintableP(TGameCanvasNonBotPaintable.Create(allBinaryGameCanvas_));
-end;
-    
-
-// throws Exception
-procedure TInGameMenuBehavior.initMenu(allBinaryGameCanvas_: TAllBinaryGameCanvas);
-begin
-        allBinaryGameCanvas_.initMenu2();
-end;
-    
-
-// throws Exception
-procedure TInGameMenuBehavior.updateMenu(allBinaryGameCanvas_: TAllBinaryGameCanvas);
-begin
-        allBinaryGameCanvas_.initMenu2();
-end;
-    
-
-// throws Exception
-procedure TInGameMenuBehavior.popupMenu(allBinaryGameCanvas_: TAllBinaryGameCanvas);
-begin
-        allBinaryGameCanvas_.popupMenu2();
-end;
-    
-
-procedure TInGameMenuBehavior.closeMenu(allBinaryGameCanvas_: TAllBinaryGameCanvas);
-begin
-        allBinaryGameCanvas_.closeMenu2();
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TInGameMenuBehavior.instanceC := TInGameMenuBehavior.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. InGameMenuBehavior-closeMenu1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryGameCanvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryGameCanvas RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION AllBnryGmCnvs-closeMenu20(J-allBinaryGameCanvas)
+    GOBACK.
+END FUNCTION InGameMenuBehavior-closeMenu1.
 

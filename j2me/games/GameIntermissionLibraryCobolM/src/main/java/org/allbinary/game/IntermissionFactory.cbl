@@ -1,75 +1,130 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game
+*> Java class IntermissionFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game
-unit IntermissionFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. IntrmssnFctry-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 IntermissionFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 IntermissionFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF IntermissionFactory-jset-instance = 0
+        MOVE 1 TO IntermissionFactory-jset-instance
+        COMPUTE IntermissionFactory-jcell-instance = FUNCTION IntermissionFactory-new0
+    END-IF
+    MOVE IntermissionFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION IntrmssnFctry-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. IntrmssnFctrystaticiS46999.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 IntermissionFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION IntrmssnFctry-static-instance TO J-RESULT
+    MOVE J-VALUE TO IntermissionFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION IntrmssnFctrystaticiS46999.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. IntermissionFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("IntermissionFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_START_LEVEL_INTERMISSION_GAME_STATE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_WAIT_LEVEL_INTERMISSION_GAME_STATE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SHOW_RESULTS_LEVEL_INTERMISSION_GAME_STATE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SHOW_HIGH_SCORE_LEVEL_INTERMISSION_GAME_STATE")
+    COMPUTE jtemp1 = FUNCTION GameStateFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION GmSttFctry-createGameState1(jtemp1, FUNCTION JR-STR("START_LEVEL_INTERMISSION_GAME_STATE"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_START_LEVEL_INTERMISSION_GAME_STATE", JVALUE)
+    COMPUTE jtemp2 = FUNCTION GameStateFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION GmSttFctry-createGameState1(jtemp2, FUNCTION JR-STR("WAIT_LEVEL_INTERMISSION_GAME_STATE"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_WAIT_LEVEL_INTERMISSION_GAME_STATE", JVALUE)
+    COMPUTE jtemp3 = FUNCTION GameStateFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION GmSttFctry-createGameState1(jtemp3, FUNCTION JR-STR("SHOW_RESULTS_LEVEL_INTERMISSION_GAME_STATE"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SHOW_RESULTS_LEVEL_INTERMISSION_GAME_STATE", JVALUE)
+    COMPUTE jtemp4 = FUNCTION GameStateFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION GmSttFctry-createGameState1(jtemp4, FUNCTION JR-STR("SHOW_HIGH_SCORE_LEVEL_INTERMISSION_GAME_STATE"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SHOW_HIGH_SCORE_LEVEL_INTERMISSION_GAME_STATE", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION IntermissionFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameState;
-
-type
-  {AB:TYPES}
-  TIntermissionFactory = class(TObject)
-  public
-    START_LEVEL_INTERMISSION_GAME_STATE: TGameState;
-    WAIT_LEVEL_INTERMISSION_GAME_STATE: TGameState;
-    SHOW_RESULTS_LEVEL_INTERMISSION_GAME_STATE: TGameState;
-    SHOW_HIGH_SCORE_LEVEL_INTERMISSION_GAME_STATE: TGameState;
-    class var instance: TIntermissionFactory;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TIntermissionFactory; static;
-  end;
-
-implementation
-uses
-  GameStateFactory;
-
-
-{AB:CODE}
-
-procedure TIntermissionFactory.InitFields;
-begin
-  Self.START_LEVEL_INTERMISSION_GAME_STATE := TGameStateFactory.getInstance().createGameState('START_LEVEL_INTERMISSION_GAME_STATE');
-  Self.WAIT_LEVEL_INTERMISSION_GAME_STATE := TGameStateFactory.getInstance().createGameState('WAIT_LEVEL_INTERMISSION_GAME_STATE');
-  Self.SHOW_RESULTS_LEVEL_INTERMISSION_GAME_STATE := TGameStateFactory.getInstance().createGameState('SHOW_RESULTS_LEVEL_INTERMISSION_GAME_STATE');
-  Self.SHOW_HIGH_SCORE_LEVEL_INTERMISSION_GAME_STATE := TGameStateFactory.getInstance().createGameState('SHOW_HIGH_SCORE_LEVEL_INTERMISSION_GAME_STATE');
-end;
-
-constructor TIntermissionFactory.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TIntermissionFactory.getInstance: TIntermissionFactory;
-begin
-        Exit(TIntermissionFactory.instance);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TIntermissionFactory.instance := TIntermissionFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. IntrmssnFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION IntrmssnFctry-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION IntrmssnFctry-getInstance0.
 

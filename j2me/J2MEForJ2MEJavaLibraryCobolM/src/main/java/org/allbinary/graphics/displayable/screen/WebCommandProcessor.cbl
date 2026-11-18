@@ -1,89 +1,153 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.displayable.screen
+*> Java class WebCommandProcessor
 
-  AllBinary Open License Version 1
-  Copyright (c) 2022 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-  
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.displayable.screen
-unit WebCommandProcessor;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WbCmmndPrcssr-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 WebCommandProcessor-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 WebCommandProcessor-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF WebCommandProcessor-jset-instance = 0
+        MOVE 1 TO WebCommandProcessor-jset-instance
+        COMPUTE WebCommandProcessor-jcell-instance = FUNCTION WebCommandProcessor-new0
+    END-IF
+    MOVE WebCommandProcessor-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION WbCmmndPrcssr-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WbCmmndPrcssrstaticiS28863.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 WebCommandProcessor-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION WbCmmndPrcssr-static-instance TO J-RESULT
+    MOVE J-VALUE TO WebCommandProcessor-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION WbCmmndPrcssrstaticiS28863.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WebCommandProcessor-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("WebCommandProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_aboutCommandProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_list")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION AbtCmmndPrcssr-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_aboutCommandProcessor", JVALUE)
+    COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION WebCommandProcessor-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Canvas, Command, CommandListener, LogUtil, BasicArrayList, AboutCommandProcessor;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WbCmmndPrcssr-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION WbCmmndPrcssr-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION WbCmmndPrcssr-getInstance0.
 
-type
-  {AB:TYPES}
-  TWebCommandProcessor = class(TObject)
-  public
-    logUtil: TLogUtil;
-    aboutCommandProcessor: TAboutCommandProcessor;
-    list: TBasicArrayList;
-    class var instance: TWebCommandProcessor;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TWebCommandProcessor; static;
-        procedure process(midletCommandListener: ICommandListener; command_: TCommand; canvas_: TCanvas); virtual;
-  end;
-
-implementation
-uses
-  CommonStrings, BasicArrayListD;
-
-
-{AB:CODE}
-
-procedure TWebCommandProcessor.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.aboutCommandProcessor := TAboutCommandProcessor.getInstance();
-  Self.list := TBasicArrayListD.Create();
-end;
-
-constructor TWebCommandProcessor.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TWebCommandProcessor.getInstance: TWebCommandProcessor;
-begin
-        Exit(TWebCommandProcessor.instance);
-end;
-    
-
-procedure TWebCommandProcessor.process(midletCommandListener: ICommandListener; command_: TCommand; canvas_: TCanvas);
-var
-  commonStrings_: TCommonStrings;
-begin
-        try
-            Self.list.removeAt(0);
-        except
-            on e: SysUtils.Exception do begin
-            commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.PROCESS, TJava.Box(e));
-            end;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TWebCommandProcessor.instance := TWebCommandProcessor.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WebCommandProcessor-process3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-commonStrings BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-midletCommandListener BINARY-DOUBLE.
+01 J-command BINARY-DOUBLE.
+01 J-canvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-midletCommandListener J-command J-canvas RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE jtemp1 = 0
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-removeAt1(FUNCTION JR-GET(J-THIS, "f_list"), jtemp1)
+    GOBACK.
+END FUNCTION WebCommandProcessor-process3.
 

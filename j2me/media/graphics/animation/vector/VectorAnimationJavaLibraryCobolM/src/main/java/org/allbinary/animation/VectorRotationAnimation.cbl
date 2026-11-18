@@ -1,93 +1,189 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation
+*> Java class VectorRotationAnimation
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation
-unit VectorRotationAnimation;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VectorRotationAnimation-new3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-currentPoints BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-animationBehavior BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-currentPoints J-basicColor J-animationBehavior RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("VectorRotationAnimation")
+        COMPUTE jtemp2 = FUNCTION AngleFactory-getInstance0
+        COMPUTE jtemp1 = (FUNCTION MOD(FUNCTION INTEGER-PART(((FUNCTION MOD(FUNCTION INTEGER-PART(FUNCTION JR-GET(jtemp2, "f_TOTAL_ANGLE") / FUNCTION JR-ARRAY-LENGTH(J-currentPoints)) + 2147483648, 4294967296) - 2147483648))) + 32768,
+        65536) - 32768)
+        CONTINUE
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_angleInfo"))
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION VectorRotationAnimation-new3.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrRttnAnmtn-stFrmByDrctn1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-angle BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-direction BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-direction RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-angle = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_directionUtil"))
+        COMPUTE JDISCARD = FUNCTION VctrRttnAnmtn-adjstFrmTAngl1(J-THIS, J-angle)
+    GOBACK.
+END FUNCTION VctrRttnAnmtn-stFrmByDrctn1.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrRttnAnmtn-setFrameToAngle1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-angle RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION VctrRttnAnmtn-adjstFrmTAngl1(J-THIS, J-angle)
+    GOBACK.
+END FUNCTION VctrRttnAnmtn-setFrameToAngle1.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Direction, BasicColor, Angle, AnimationBehavior, VectorBaseRotationAnimation;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrRttnAnmtn-setFrame1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-index RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION VctrBsRttnAnmtn-setFrame1(J-THIS, J-index)
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_angleInfo"))
+    GOBACK.
+END FUNCTION VctrRttnAnmtn-setFrame1.
 
-type
-  {AB:TYPES}
-  TVectorRotationAnimation = class(TVectorBaseRotationAnimation)
-  public
-        constructor Create(currentPoints: TArray<TArray<TArray<Integer>>>; basicColor_: TBasicColor; animationBehavior_: TAnimationBehavior);
-        procedure setFrameByDirection(direction_: TDirection); override;
-        procedure setFrameToAngle(angle_: TAngle); override;
-        procedure setFrame(index: Integer); override;
-        procedure adjustFrame(newAngle: SmallInt); override;
-        procedure adjustFrameToAngle(newAngle: TAngle); override;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrRttnAnmtn-adjustFrame1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-newAngle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-newAngle RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp4 = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_angleInfo"))
+        COMPUTE jtemp3 = FUNCTION JR-CLASS-NAME(jtemp4)
+        COMPUTE JDISCARD = FUNCTION VctrRttnAnmtn-setFrame1(J-THIS, FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_frameUtil")))
+    GOBACK.
+END FUNCTION VctrRttnAnmtn-adjustFrame1.
 
-implementation
-uses
-  AngleFactory, AngleInfo;
-
-
-{AB:CODE}
-    
-
-constructor TVectorRotationAnimation.Create(currentPoints: TArray<TArray<TArray<Integer>>>; basicColor_: TBasicColor; animationBehavior_: TAnimationBehavior);
-begin
-        inherited Create(TAngleInfo.getInstance(SmallInt(Trunc((TJava.Divide(TAngleFactory.getInstance().TOTAL_ANGLE, System.Length(currentPoints)))))), currentPoints, basicColor_, animationBehavior_);
-        Self.angleInfo.adjustAngle(Self.getFrame());
-end;
-    
-
-procedure TVectorRotationAnimation.setFrameByDirection(direction_: TDirection);
-var
-  angle_: TAngle;
-begin
-        angle_ := Self.directionUtil.getFrameAngle(direction_);
-        Self.adjustFrameToAngle(angle_);
-end;
-    
-
-procedure TVectorRotationAnimation.setFrameToAngle(angle_: TAngle);
-begin
-        Self.adjustFrameToAngle(angle_);
-end;
-    
-
-procedure TVectorRotationAnimation.setFrame(index: Integer);
-begin
-        inherited setFrame(index);
-        Self.angleInfo.adjustAngle(Self.getFrame());
-end;
-    
-
-procedure TVectorRotationAnimation.adjustFrame(newAngle: SmallInt);
-begin
-        Self.setFrame(Self.frameUtil.getFrameForAngle(newAngle, Integer(Trunc(Self.angleInfo.getAngleIncrementInfo().getAngleIncrement()))));
-end;
-    
-
-procedure TVectorRotationAnimation.adjustFrameToAngle(newAngle: TAngle);
-begin
-        Self.adjustFrame(newAngle.getValue());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrRttnAnmtn-adjstFrmTAngl1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-newAngle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-newAngle RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION VctrRttnAnmtn-adjustFrame1(J-THIS, FUNCTION Angle-getValue0(J-newAngle))
+    GOBACK.
+END FUNCTION VctrRttnAnmtn-adjstFrmTAngl1.
 

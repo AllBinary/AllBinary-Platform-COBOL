@@ -1,109 +1,139 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion.button
+*> Java class TouchButtonInput
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion.button
-unit TouchButtonInput;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TouchButtonInput-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-inputFactory BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-id BINARY-DOUBLE.
+01 J-name BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-id J-name RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("TouchButtonInput")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameKeyEventFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_TOUCH_BUTTON_SOURCE_ID")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameKeyEvent")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION GmKyEvntFctry-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameKeyEventFactory", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameKeyEventFactory"), "f_TOUCH_BUTTON_SOURCE_ID")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_TOUCH_BUTTON_SOURCE_ID", JVALUE)
+    COMPUTE JVALUE = FUNCTION GameKeyEvent-static-NONE
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameKeyEvent", JVALUE)
+        CONTINUE
+        COMPUTE J-inputFactory = FUNCTION InputFactory-getInstance0
+        COMPUTE JDISCARD = FUNCTION InputFactory-add2(J-inputFactory, FUNCTION Input-getId0(J-THIS), J-THIS)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION TouchButtonInput-new2.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TouchButtonInput-update1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameKey BINARY-DOUBLE.
+01 J-commonStrings BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-inputToGameKeyMapping BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-inputToGameKeyMapping RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE J-gameKey = FUNCTION InptTGmKyMppng-getInstance1(J-inputToGameKeyMapping, FUNCTION Input-getId0(J-THIS))
+            COMPUTE JVALUE = FUNCTION GmKyEvntFctry-gtInstncFrInpt2(FUNCTION JR-GET(J-THIS, "f_gameKeyEventFactory"), J-THIS, J-gameKey)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameKeyEvent", JVALUE)
+    GOBACK.
+END FUNCTION TouchButtonInput-update1.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TouchButtonInput-getSourceId0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_TOUCH_BUTTON_SOURCE_ID")
+        GOBACK
+    GOBACK.
+END FUNCTION TouchButtonInput-getSourceId0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameKeyEventSourceInterface, Input, GameKeyEvent, GameKeyEventFactory, InputToGameKeyMapping, LogUtil;
-
-type
-  {AB:TYPES}
-  TTouchButtonInput = class(TInput, IGameKeyEventSourceInterface)
-  public
-    logUtil: TLogUtil;
-    gameKeyEventFactory: TGameKeyEventFactory;
-    TOUCH_BUTTON_SOURCE_ID: Integer;
-    gameKeyEvent: TGameKeyEvent;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(id: Integer; name: string);
-        procedure update(inputToGameKeyMapping_: TInputToGameKeyMapping); virtual;
-        function getSourceId: Integer; virtual;
-        function getGameKeyEvent: TGameKeyEvent; virtual;
-  end;
-
-implementation
-uses
-  GameKey, InputFactory, CommonStrings;
-
-
-{AB:CODE}
-
-procedure TTouchButtonInput.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.gameKeyEventFactory := TGameKeyEventFactory.getInstance();
-  Self.TOUCH_BUTTON_SOURCE_ID := Self.gameKeyEventFactory.TOUCH_BUTTON_SOURCE_ID;
-  Self.gameKeyEvent := TGameKeyEvent.NONE;
-end;
-
-function TTouchButtonInput.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-    
-
-constructor TTouchButtonInput.Create(id: Integer; name: string);
-var
-  inputFactory_: TInputFactory;
-begin
-        inherited Create(id, name);
-        InitFields;
-        inputFactory_ := TInputFactory.getInstance();
-        inputFactory_.add(Self.getId(), Self);
-end;
-    
-
-procedure TTouchButtonInput.update(inputToGameKeyMapping_: TInputToGameKeyMapping);
-var
-  gameKey_: TGameKey;
-  commonStrings_: TCommonStrings;
-begin
-        try
-            gameKey_ := inputToGameKeyMapping_.getInstance(Self.getId());
-            Self.gameKeyEvent := Self.gameKeyEventFactory.getInstanceForInput(Self, gameKey_);
-        except
-            on e: SysUtils.Exception do begin
-            commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.UPDATE, TJava.Box(e));
-            end;
-        end;
-end;
-    
-
-function TTouchButtonInput.getSourceId: Integer;
-begin
-        Exit(Self.TOUCH_BUTTON_SOURCE_ID);
-end;
-    
-
-function TTouchButtonInput.getGameKeyEvent: TGameKeyEvent;
-begin
-        Exit(Self.gameKeyEvent);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchBttnInpt-getGameKeyEvent0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_gameKeyEvent")
+        GOBACK
+    GOBACK.
+END FUNCTION TchBttnInpt-getGameKeyEvent0.
 

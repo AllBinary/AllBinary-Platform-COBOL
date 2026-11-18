@@ -1,278 +1,730 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation
+*> Java class VectorAnimation
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation
-unit VectorAnimation;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VectorAnimation-new3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-currentPoints BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-animationBehavior BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-currentPoints J-basicColor J-animationBehavior RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("VectorAnimation")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_currentPoints")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_circularIndexUtil")
+    COMPUTE jtemp9 = FUNCTION NullUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp9, "f_NULL_INT_ARRAY_ARRAY_ARRAY")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_currentPoints", JVALUE)
+    COMPUTE jtemp10 = 0
+    COMPUTE JVALUE = FUNCTION CrclrIndxUtl-createInstance1(jtemp10)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_circularIndexUtil", JVALUE)
+        CONTINUE
+        COMPUTE JDISCARD = FUNCTION VectorAnimation-setPoints1(J-THIS, J-currentPoints)
+        COMPUTE JDISCARD = FUNCTION VctrAnmtn-setBasicColorP1(J-THIS, J-basicColor)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION VectorAnimation-new3.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrAnmtn-crtVctrAnmtn3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-currentPoints BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-currentPoints2 BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-animationBehavior BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-currentPoints2 J-basicColor J-animationBehavior RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = 1
+        COMPUTE jtemp2 = 2
+        COMPUTE J-currentPoints = FUNCTION JR-NEW-ARRAY3(jtemp1, FUNCTION JR-ARRAY-LENGTH(J-currentPoints2), jtemp2)
+        COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(J-currentPoints2)
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE jtemp4 = 0
+            COMPUTE jtemp3 = 0
+            COMPUTE jtemp5 = 0
+            COMPUTE JVALUE = FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(J-currentPoints2, J-index), jtemp5)
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(J-currentPoints, jtemp4), J-index), jtemp3, JVALUE)
+            COMPUTE jtemp7 = 0
+            COMPUTE jtemp6 = 1
+            COMPUTE jtemp8 = 1
+            COMPUTE JVALUE = FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(J-currentPoints2, J-index), jtemp8)
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(J-currentPoints, jtemp7), J-index), jtemp6, JVALUE)
+        END-PERFORM
+        COMPUTE J-RESULT = FUNCTION VectorAnimation-new3(J-currentPoints, J-basicColor, J-animationBehavior)
+        GOBACK
+    GOBACK.
+END FUNCTION VctrAnmtn-crtVctrAnmtn3.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrAnmtn-setBasicColorP1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-changed BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-basicColor RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-changed = 0
+        COMPUTE jtemp11 = FUNCTION VctrAnmtn-getBasicColorP0(J-THIS)
+        IF ((FUNCTION VctrAnmtn-getBasicColorP0(J-THIS) = 0) OR (FUNCTION BasicColor-intValue0(jtemp11) NOT = FUNCTION BasicColor-intValue0(J-basicColor)))
+            COMPUTE J-changed = 1
+        END-IF
+        COMPUTE JDISCARD = FUNCTION Animation-setBasicColorP1(J-THIS, J-basicColor)
+        IF (J-changed = 1)
+            COMPUTE JDISCARD = FUNCTION VctrAnmtn-updateModifiers0(J-THIS)
+        END-IF
+    GOBACK.
+END FUNCTION VctrAnmtn-setBasicColorP1.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, BasicColor, CircularIndexUtil, AnimationBehavior, IndexedAnimation, VectorAnimationInterface, AnimationInterface, BasicColorCompositeSetterInterface, ColorCompositeInterface, IndexedAnimationInterface, LocationPaintableInterface, SequenceInterface, SequentialAnimationInterface;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrAnmtn-changeBasicColor1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-changed BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-basicColor RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-changed = 0
+        COMPUTE jtemp12 = FUNCTION Animation-getChangeBasicColor0(J-THIS)
+        IF ((FUNCTION Animation-getChangeBasicColor0(J-THIS) = 0) OR (FUNCTION JR-CLASS-NAME(jtemp12) NOT = FUNCTION BasicColor-intValue0(J-basicColor)))
+            COMPUTE J-changed = 1
+        END-IF
+        COMPUTE JDISCARD = FUNCTION Animation-changeBasicColor1(J-THIS, J-basicColor)
+        IF (J-changed = 1)
+            COMPUTE JDISCARD = FUNCTION VctrAnmtn-updateModifiers0(J-THIS)
+        END-IF
+    GOBACK.
+END FUNCTION VctrAnmtn-changeBasicColor1.
 
-type
-  {AB:TYPES}
-  TVectorAnimation = class(TIndexedAnimation, IVectorAnimationInterface, IAnimationInterface, IBasicColorCompositeSetterInterface, IColorCompositeInterface, IIndexedAnimationInterface, ILocationPaintableInterface, ISequenceInterface, ISequentialAnimationInterface)
-  public
-    currentPoints: TArray<TArray<TArray<Integer>>>;
-    circularIndexUtil: TCircularIndexUtil;
-    procedure InitFields;
-    function JavaObject: TObject;
-        class function createVectorAnimation(currentPoints2: TArray<TArray<Integer>>; basicColor_: TBasicColor; animationBehavior_: TAnimationBehavior): TVectorAnimation; static;
-        constructor Create(currentPoints: TArray<TArray<TArray<Integer>>>; basicColor_: TBasicColor; animationBehavior_: TAnimationBehavior);
-        procedure setBasicColorP(basicColor_: TBasicColor); virtual;
-        procedure changeBasicColor(basicColor_: TBasicColor); virtual;
-        procedure setAlpha(alpha: Integer); virtual;
-        procedure setScale(scaleX: Single; scaleY: Single); virtual;
-        procedure setMaxScale(maxScaleX: Single; maxScaleY: Single); virtual;
-        procedure updateModifiers;
-        function getAnimationSize: Integer; virtual;
-        function getSize: Integer; virtual;
-        procedure setSequence(sequence: TArray<Integer>); virtual;
-        function getSequence: TArray<Integer>; virtual;
-        procedure nextFrame; virtual;
-        procedure previousFrame; virtual;
-        procedure paintVectors(graphics_: TGraphics; x: Integer; y: Integer); virtual;
-        procedure paintXY(graphics_: TGraphics; x: Integer; y: Integer); virtual;
-        function getFrame: Integer; virtual;
-        procedure setFrame(index: Integer); virtual;
-        function getPoints(frame: Integer): TArray<TArray<Integer>>; virtual;
-        procedure setPoints(currentPoints: TArray<TArray<TArray<Integer>>>); virtual;
-        function getBasicColorP: TBasicColor; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VectorAnimation-setAlpha1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-changed BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-alpha BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-alpha RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-changed = 0
+        IF (FUNCTION JR-GET(J-THIS, "f_alphaP") NOT = J-alpha)
+            COMPUTE J-changed = 1
+        END-IF
+        COMPUTE JDISCARD = FUNCTION Animation-setAlpha1(J-THIS, J-alpha)
+        IF (J-changed = 1)
+            COMPUTE JDISCARD = FUNCTION VctrAnmtn-updateModifiers0(J-THIS)
+        END-IF
+    GOBACK.
+END FUNCTION VectorAnimation-setAlpha1.
 
-implementation
-uses
-  NullImage, NullUtil, PrimitiveIntUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VectorAnimation-setScale2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-scaleX COMP-2.
+01 J-scaleY COMP-2.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-scaleX J-scaleY RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION VectorAnimation-setScale2.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VectorAnimation-setMaxScale2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-maxScaleX COMP-2.
+01 J-maxScaleY COMP-2.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-maxScaleX J-maxScaleY RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION VectorAnimation-setMaxScale2.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrAnmtn-updateModifiers0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION VctrAnmtn-updateModifiers0.
 
-procedure TVectorAnimation.InitFields;
-begin
-  Self.currentPoints := TNullUtil.getInstance().NULL_INT_ARRAY_ARRAY_ARRAY;
-  Self.circularIndexUtil := TCircularIndexUtil.createInstance(0);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrAnmtn-getAnimationSize0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION VectorAnimation-getSize0(J-THIS)
+        GOBACK
+    GOBACK.
+END FUNCTION VctrAnmtn-getAnimationSize0.
 
-function TVectorAnimation.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VectorAnimation-getSize0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_currentPoints"))
+        GOBACK
+    GOBACK.
+END FUNCTION VectorAnimation-getSize0.
 
-class function TVectorAnimation.createVectorAnimation(currentPoints2: TArray<TArray<Integer>>; basicColor_: TBasicColor; animationBehavior_: TAnimationBehavior): TVectorAnimation;
-var
-  currentPoints: TArray<TArray<TArray<Integer>>>;
-  size: Integer;
-  index: Integer;
-begin
-        currentPoints := TJava.NewArray3<Integer>(1, System.Length(currentPoints2), 2);
-        size := System.Length(currentPoints2);
-        for index := 0 to size - 1 do begin
-            currentPoints[0][index][0] := currentPoints2[index][0];
-            currentPoints[0][index][1] := currentPoints2[index][1];
-        end;
-        Exit(TVectorAnimation.Create(currentPoints, basicColor_, animationBehavior_));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VectorAnimation-setSequence1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-sequence BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-sequence RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION VectorAnimation-setSequence1.
 
-constructor TVectorAnimation.Create(currentPoints: TArray<TArray<TArray<Integer>>>; basicColor_: TBasicColor; animationBehavior_: TAnimationBehavior);
-begin
-        inherited Create(animationBehavior_);
-        InitFields;
-        Self.setPoints(currentPoints);
-        Self.setBasicColorP(basicColor_);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VectorAnimation-getSequence0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION PrmtvIntUtl-getArrayInstance0
+        GOBACK
+    GOBACK.
+END FUNCTION VectorAnimation-getSequence0.
 
-procedure TVectorAnimation.setBasicColorP(basicColor_: TBasicColor);
-var
-  changed: Boolean;
-begin
-        changed := False;
-        if ((Self.getBasicColorP()) = (nil)) or ((Self.getBasicColorP().intValue()) <> (basicColor_.intValue())) then begin
-            changed := True;
-        end;
-        inherited setBasicColorP(basicColor_);
-        if changed then begin
-            Self.updateModifiers();
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VectorAnimation-nextFrame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION CircularIndexUtil-next0(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil"))
+    GOBACK.
+END FUNCTION VectorAnimation-nextFrame0.
 
-procedure TVectorAnimation.changeBasicColor(basicColor_: TBasicColor);
-var
-  changed: Boolean;
-begin
-        changed := False;
-        if (TJava.IsNull(Self.getChangeBasicColor())) or ((Self.getChangeBasicColor().intValue()) <> (basicColor_.intValue())) then begin
-            changed := True;
-        end;
-        inherited changeBasicColor(basicColor_);
-        if changed then begin
-            Self.updateModifiers();
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VectorAnimation-previousFrame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION CircularIndexUtil-previous0(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil"))
+    GOBACK.
+END FUNCTION VectorAnimation-previousFrame0.
 
-procedure TVectorAnimation.setAlpha(alpha: Integer);
-var
-  changed: Boolean;
-begin
-        changed := False;
-        if (Self.alphaP) <> (alpha) then begin
-            changed := True;
-        end;
-        inherited setAlpha(alpha);
-        if changed then begin
-            Self.updateModifiers();
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VectorAnimation-paintVectors3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-nextPointX BINARY-DOUBLE.
+01 J-nextPointY BINARY-DOUBLE.
+01 J-nextPoint BINARY-DOUBLE.
+01 J-point BINARY-DOUBLE.
+01 J-currentPointsFrame BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+01 jtemp18 BINARY-DOUBLE.
+01 jtemp19 BINARY-DOUBLE.
+01 jtemp20 BINARY-DOUBLE.
+01 jtemp21 BINARY-DOUBLE.
+01 jtemp22 BINARY-DOUBLE.
+01 jtemp23 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE J-nextPointX = 0
+            COMPUTE J-nextPointY = 0
+            CONTINUE
+            CONTINUE
+            COMPUTE J-currentPointsFrame = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_currentPoints"), FUNCTION CircularIndexUtil-getIndex0(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil")))
+            COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(J-currentPointsFrame)
+            COMPUTE J-index = (FUNCTION MOD((J-size - 2) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+            COMPUTE jtemp23 = J-index
+            PERFORM FOREVER
+                IF NOT (jtemp23 >= 0) EXIT PERFORM END-IF
+                COMPUTE J-nextPoint = FUNCTION JR-ARRAY-GET(J-currentPointsFrame, J-index)
+                COMPUTE jtemp14 = 1
+                COMPUTE jtemp13 = (FUNCTION MOD((J-index + jtemp14) + 2147483648, 4294967296) - 2147483648)
+                COMPUTE J-point = FUNCTION JR-ARRAY-GET(J-currentPointsFrame, jtemp13)
+                COMPUTE jtemp15 = 0
+                COMPUTE J-nextPointX = FUNCTION JR-ARRAY-GET(J-nextPoint, jtemp15)
+                COMPUTE jtemp16 = 1
+                COMPUTE J-nextPointY = FUNCTION JR-ARRAY-GET(J-nextPoint, jtemp16)
+                IF (J-nextPointX NOT = 1000)
+                    COMPUTE jtemp18 = 0
+                    COMPUTE jtemp20 = 1
+                    COMPUTE jtemp17 = (FUNCTION MOD((FUNCTION JR-ARRAY-GET(J-point, jtemp18) + J-x) + 2147483648, 4294967296) - 2147483648)
+                    COMPUTE jtemp19 = (FUNCTION MOD((FUNCTION JR-ARRAY-GET(J-point, jtemp20) + J-y) + 2147483648, 4294967296) - 2147483648)
+                    COMPUTE jtemp21 = (FUNCTION MOD((J-nextPointX + J-x) + 2147483648, 4294967296) - 2147483648)
+                    COMPUTE jtemp22 = (FUNCTION MOD((J-nextPointY + J-y) + 2147483648, 4294967296) - 2147483648)
+                    COMPUTE JDISCARD = FUNCTION Graphics-drawLine4(J-graphics, jtemp17, jtemp19, jtemp21, jtemp22)
+                ELSE
+                    COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+                END-IF
+            END-PERFORM
+    GOBACK.
+END FUNCTION VectorAnimation-paintVectors3.
 
-procedure TVectorAnimation.setScale(scaleX: Single; scaleY: Single);
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VectorAnimation-paintXY3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_basicSetColorUtil"))
+        COMPUTE JDISCARD = FUNCTION VectorAnimation-paintVectors3(J-THIS, J-graphics, J-x, J-y)
+    GOBACK.
+END FUNCTION VectorAnimation-paintXY3.
 
-procedure TVectorAnimation.setMaxScale(maxScaleX: Single; maxScaleY: Single);
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VectorAnimation-getFrame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION CircularIndexUtil-getIndex0(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil"))
+        GOBACK
+    GOBACK.
+END FUNCTION VectorAnimation-getFrame0.
 
-procedure TVectorAnimation.updateModifiers;
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VectorAnimation-setFrame1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-index RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION CircularIndexUtil-setIndex1(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil"), J-index)
+    GOBACK.
+END FUNCTION VectorAnimation-setFrame1.
 
-// throws Exception
-function TVectorAnimation.getAnimationSize: Integer;
-begin
-        Exit(Self.getSize());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VectorAnimation-getPoints1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-frame BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-frame RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_currentPoints"), J-frame)
+        GOBACK
+    GOBACK.
+END FUNCTION VectorAnimation-getPoints1.
 
-function TVectorAnimation.getSize: Integer;
-begin
-        Exit(System.Length(Self.currentPoints));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VectorAnimation-setPoints1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-currentPoints BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-currentPoints RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-currentPoints
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_currentPoints", JVALUE)
+        COMPUTE JVALUE = FUNCTION CrclrIndxUtl-createInstance1(FUNCTION JR-ARRAY-LENGTH(J-currentPoints))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_circularIndexUtil", JVALUE)
+    GOBACK.
+END FUNCTION VectorAnimation-setPoints1.
 
-procedure TVectorAnimation.setSequence(sequence: TArray<Integer>);
-begin
-end;
-    
-
-function TVectorAnimation.getSequence: TArray<Integer>;
-begin
-        Exit(TPrimitiveIntUtil.getArrayInstance());
-end;
-    
-
-procedure TVectorAnimation.nextFrame;
-begin
-        Self.circularIndexUtil.next();
-end;
-    
-
-procedure TVectorAnimation.previousFrame;
-begin
-        Self.circularIndexUtil.previous();
-end;
-    
-
-procedure TVectorAnimation.paintVectors(graphics_: TGraphics; x: Integer; y: Integer);
-var
-  nextPointX: Integer;
-  nextPointY: Integer;
-  nextPoint: TArray<Integer>;
-  point: TArray<Integer>;
-  currentPointsFrame: TArray<TArray<Integer>>;
-  size: Integer;
-  index: Integer;
-begin
-        try
-            nextPointX := 0;
-            nextPointY := 0;
-            
-            
-            currentPointsFrame := Self.currentPoints[Self.circularIndexUtil.getIndex()];
-            size := System.Length(currentPointsFrame);
-            index := (size) - (2);
-            while (TJava.PreDec(index)) >= (0) do begin
-                nextPoint := currentPointsFrame[index];
-                point := currentPointsFrame[(index) + (1)];
-                nextPointX := nextPoint[0];
-                nextPointY := nextPoint[1];
-                if (nextPointX) <> (1000) then begin
-                    graphics_.drawLine((point[0]) + (x), (point[1]) + (y), (nextPointX) + (x), (nextPointY) + (y));
-                end else begin
-                    Dec(index);
-                end;
-            end;
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), 'paintVectors', TJava.Box(e));
-            end;
-        end;
-end;
-    
-
-procedure TVectorAnimation.paintXY(graphics_: TGraphics; x: Integer; y: Integer);
-begin
-        Self.basicSetColorUtil.setBasicColorP(graphics_, Self.basicColor);
-        Self.paintVectors(graphics_, x, y);
-end;
-    
-
-function TVectorAnimation.getFrame: Integer;
-begin
-        Exit(Self.circularIndexUtil.getIndex());
-end;
-    
-
-procedure TVectorAnimation.setFrame(index: Integer);
-begin
-        Self.circularIndexUtil.setIndex(index);
-end;
-    
-
-function TVectorAnimation.getPoints(frame: Integer): TArray<TArray<Integer>>;
-begin
-        Exit(Self.currentPoints[frame]);
-end;
-    
-
-procedure TVectorAnimation.setPoints(currentPoints: TArray<TArray<TArray<Integer>>>);
-begin
-        Self.currentPoints := currentPoints;
-        Self.circularIndexUtil := TCircularIndexUtil.createInstance(System.Length(currentPoints));
-end;
-    
-
-function TVectorAnimation.getBasicColorP: TBasicColor;
-begin
-        Exit(inherited getBasicColorP());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrAnmtn-getBasicColorP0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION Animation-getBasicColorP0(J-THIS)
+        GOBACK
+    GOBACK.
+END FUNCTION VctrAnmtn-getBasicColorP0.
 

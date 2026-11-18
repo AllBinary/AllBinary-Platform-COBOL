@@ -1,117 +1,266 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.thread
+*> Java class ThreadFactoryUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.thread
-unit ThreadFactoryUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ThrdFctryUtl-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ThreadFactoryUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 ThreadFactoryUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF ThreadFactoryUtil-jset-instance = 0
+        MOVE 1 TO ThreadFactoryUtil-jset-instance
+        COMPUTE ThreadFactoryUtil-jcell-instance = FUNCTION ThreadFactoryUtil-new0
+    END-IF
+    MOVE ThreadFactoryUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION ThrdFctryUtl-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ThrdFctryUtlstaticinS79668.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ThreadFactoryUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION ThrdFctryUtl-static-instance TO J-RESULT
+    MOVE J-VALUE TO ThreadFactoryUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION ThrdFctryUtlstaticinS79668.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ThreadFactoryUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ThreadFactoryUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ThreadFactoryUtil-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameCanvasRunnableInterface, LogUtil, ABRunnable;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ThreadFactoryUtil-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION ThrdFctryUtl-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION ThreadFactoryUtil-getInstance0.
 
-type
-  {AB:TYPES}
-  TThreadFactoryUtil = class(TObject)
-  public
-    logUtil: TLogUtil;
-    class var instance: TThreadFactoryUtil;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TThreadFactoryUtil; static;
-        function getInstanceGameCanvasRunnable(runnable: IGameCanvasRunnableInterface): TThread; virtual;
-        function getInstanceForRunnable(runnable: TABRunnable): TThread; virtual;
-        function getInstanceType(runnable: IRunnable; type_: Integer): TThread;
-        procedure start(thread: TThread); virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ThrdFctryUtl-gtInstncGmCn83703.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-runnable BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-runnable RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION ThrdFctryUtl-getInstanceType2(J-THIS, J-runnable, FUNCTION GmCnvsRnnblIntrfc-getType0(J-runnable))
+        GOBACK
+    GOBACK.
+END FUNCTION ThrdFctryUtl-gtInstncGmCn83703.
 
-implementation
-uses
-  PrimaryThreadPool, ThreadPool, J2MEUtil, RunnableCanvas, AllBinaryGameCanvas, DemoCanvas, RunnableCanvasSingleThreadStartRunnable, PreLogUtil, StringMaker, StringUtil, CommonStrings;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ThrdFctryUtl-gtInstncFrRnnbl1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-runnable BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-runnable RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION ThrdFctryUtl-getInstanceType2(J-THIS, J-runnable, FUNCTION ABRunnable-getType0(J-runnable))
+        GOBACK
+    GOBACK.
+END FUNCTION ThrdFctryUtl-gtInstncFrRnnbl1.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ThrdFctryUtl-getInstanceType2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-commonStrings BINARY-DOUBLE.
+01 J-primaryThreadPool BINARY-DOUBLE.
+01 J-demoGameSingleThreadStartRunnable BINARY-DOUBLE.
+01 J-thread BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-runnable BINARY-DOUBLE.
+01 J-type BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-runnable J-type RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-commonStrings = FUNCTION CommonStrings-getInstance0
+        IF (FUNCTION J2MEUtil-isHTML0 = 1)
+            IF ((J-type = FUNCTION DemoCanvas-static-TYPE) OR (J-type = FUNCTION AllBnryGmCnvs-static-TYPE))
+                COMPUTE jtemp5 = J-runnable
+                COMPUTE J-demoGameSingleThreadStartRunnable = FUNCTION RnnblCnvsSnglThrdStrtRnnbl-nw1(jtemp5)
+                COMPUTE jtemp9 = FUNCTION StringUtil-getInstance0
+                COMPUTE jtemp8 = FUNCTION StringMaker-new0
+                COMPUTE jtemp7 = FUNCTION StringMaker-append1(jtemp8, FUNCTION JR-STR("Using Pseudo Thread for DemoCanvas/AllBinaryGameCanvas under PlayN/HTML5: "))
+                COMPUTE jtemp6 = FUNCTION StringMaker-append1(jtemp7, FUNCTION StringUtil-toString1(jtemp9, J-runnable))
+                COMPUTE JDISCARD = FUNCTION PreLogUtil-put3(FUNCTION JR-TO-STRING(jtemp6), J-THIS, FUNCTION JR-GET(J-commonStrings, "f_CONSTRUCTOR"))
+                COMPUTE J-primaryThreadPool = FUNCTION PrimaryThreadPool-getInstance0
+                COMPUTE JDISCARD = FUNCTION ThreadPool-runTask1(J-primaryThreadPool, J-demoGameSingleThreadStartRunnable)
+            ELSE
+                COMPUTE jtemp4 = FUNCTION StringUtil-getInstance0
+                COMPUTE jtemp3 = FUNCTION StringMaker-new0
+                COMPUTE jtemp2 = FUNCTION StringMaker-append1(jtemp3, FUNCTION JR-STR("Using Pseudo Thread for Runnable under PlayN/HTML5: "))
+                COMPUTE jtemp1 = FUNCTION StringMaker-append1(jtemp2, FUNCTION StringUtil-toString1(jtemp4, J-runnable))
+                COMPUTE JDISCARD = FUNCTION PreLogUtil-put3(FUNCTION JR-TO-STRING(jtemp1), J-THIS, FUNCTION JR-GET(J-commonStrings, "f_CONSTRUCTOR"))
+                COMPUTE J-primaryThreadPool = FUNCTION PrimaryThreadPool-getInstance0
+                COMPUTE JDISCARD = FUNCTION ThreadPool-runTask1(J-primaryThreadPool, J-runnable)
+            END-IF
+        END-IF
+        COMPUTE J-thread = FUNCTION Thread-new2(J-runnable, FUNCTION JR-TO-STRING(J-runnable))
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-thread), J-THIS, FUNCTION JR-GET(J-commonStrings, "f_CONSTRUCTOR"))
+        COMPUTE J-RESULT = J-thread
+        GOBACK
+    GOBACK.
+END FUNCTION ThrdFctryUtl-getInstanceType2.
 
-{AB:CODE}
-
-procedure TThreadFactoryUtil.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-end;
-
-constructor TThreadFactoryUtil.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TThreadFactoryUtil.getInstance: TThreadFactoryUtil;
-begin
-        Exit(TThreadFactoryUtil.instance);
-end;
-    
-
-function TThreadFactoryUtil.getInstanceGameCanvasRunnable(runnable: IGameCanvasRunnableInterface): TThread;
-begin
-        Exit(Self.getInstanceType(runnable, runnable.getType()));
-end;
-    
-
-function TThreadFactoryUtil.getInstanceForRunnable(runnable: TABRunnable): TThread;
-begin
-        Exit(Self.getInstanceType(runnable, runnable.getType()));
-end;
-    
-
-function TThreadFactoryUtil.getInstanceType(runnable: IRunnable; type_: Integer): TThread;
-var
-  commonStrings_: TCommonStrings;
-  primaryThreadPool_: TThreadPool;
-  demoGameSingleThreadStartRunnable: TRunnableCanvasSingleThreadStartRunnable;
-  thread: TThread;
-begin
-        commonStrings_ := TCommonStrings.getInstance();
-        if TJ2MEUtil.isHTML() then begin
-            if ((type_) = (TDemoCanvas.TYPE_)) or ((type_) = (TAllBinaryGameCanvas.TYPE_)) then begin
-                demoGameSingleThreadStartRunnable := TRunnableCanvasSingleThreadStartRunnable.Create(TRunnableCanvas(TJava.ToObject(runnable)));
-                TPreLogUtil.put(TStringMaker.Create().append('Using Pseudo Thread for DemoCanvas/AllBinaryGameCanvas under PlayN/HTML5: ').append(TStringUtil.getInstance().toString(TJava.ToObject(runnable))).toString(), TJava.Box(Self), commonStrings_.CONSTRUCTOR_);
-                primaryThreadPool_ := TPrimaryThreadPool.getInstance();
-                primaryThreadPool_.runTask(demoGameSingleThreadStartRunnable);
-            end else begin
-                TPreLogUtil.put(TStringMaker.Create().append('Using Pseudo Thread for Runnable under PlayN/HTML5: ').append(TStringUtil.getInstance().toString(TJava.ToObject(runnable))).toString(), TJava.Box(Self), commonStrings_.CONSTRUCTOR_);
-                primaryThreadPool_ := TPrimaryThreadPool.getInstance();
-                primaryThreadPool_.runTask(runnable);
-            end;
-        end;
-        thread := TThread.Create(True);
-        Self.logUtil.putF(thread.toString(), TJava.Box(Self), commonStrings_.CONSTRUCTOR_);
-        Exit(thread);
-end;
-    
-
-procedure TThreadFactoryUtil.start(thread: TThread);
-begin
-        thread.start();
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TThreadFactoryUtil.instance := TThreadFactoryUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ThreadFactoryUtil-start1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-thread BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-thread RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Thread-start0(J-thread)
+    GOBACK.
+END FUNCTION ThreadFactoryUtil-start1.
 

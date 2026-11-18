@@ -1,121 +1,168 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.displayable.canvas
+*> Java class FormInputProcessor
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.displayable.canvas
-unit FormInputProcessor;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Canvas, InputFactory, InputProcessor, PlatformKeyFactory, DownKeyEventHandler, GameKeyEventFactory, UpGameKeyEventHandler, LogUtil, CommonStrings, AllBinaryGameCanvas;
-
-type
-  {AB:TYPES}
-  TFormInputProcessor = class(TInputProcessor)
-  public
-    logUtil: TLogUtil;
-    commonStrings: TCommonStrings;
-    gameKeyEventFactory: TGameKeyEventFactory;
-    downKeyEventHandler: TDownKeyEventHandler;
-    upGameKeyEventHandler: TUpGameKeyEventHandler;
-    inputFactory: TInputFactory;
-    platformKeyFactory: TPlatformKeyFactory;
-    allBinaryGameCanvas: TAllBinaryGameCanvas;
-    procedure InitFields;
-        constructor Create(allBinaryGameCanvas_: TAllBinaryGameCanvas);
-        procedure keyPressedByDevice(keyCode: Integer; deviceId: Integer); override;
-        procedure keyReleasedByDevice(canvas_: TCanvas; keyCode: Integer; deviceId: Integer); override;
-  end;
-
-implementation
-uses
-  GameKey, GameKeyEventSourceInterface, GameKeyFactory, Input, GameKeyEvent, PreLogUtil, StringMaker, CommonSeps;
-
-
-{AB:CODE}
-
-procedure TFormInputProcessor.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.commonStrings := TCommonStrings.getInstance();
-  Self.gameKeyEventFactory := TGameKeyEventFactory.getInstance();
-  Self.downKeyEventHandler := TDownKeyEventHandler.getInstance();
-  Self.upGameKeyEventHandler := TUpGameKeyEventHandler.getInstance();
-  Self.inputFactory := TInputFactory.getInstance();
-  Self.platformKeyFactory := TPlatformKeyFactory.getInstance();
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FormInputProcessor-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-allBinaryGameCanvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-allBinaryGameCanvas RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("FormInputProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameKeyEventFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_downKeyEventHandler")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_upGameKeyEventHandler")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_inputFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_platformKeyFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_allBinaryGameCanvas")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
+    COMPUTE JVALUE = FUNCTION GmKyEvntFctry-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameKeyEventFactory", JVALUE)
+    COMPUTE JVALUE = FUNCTION DwnKyEvntHndlr-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_downKeyEventHandler", JVALUE)
+    COMPUTE JVALUE = FUNCTION UpGmKyEvntHndlr-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_upGameKeyEventHandler", JVALUE)
+    COMPUTE JVALUE = FUNCTION InputFactory-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_inputFactory", JVALUE)
+    COMPUTE JVALUE = FUNCTION PltfrmKyFctry-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_platformKeyFactory", JVALUE)
     
+        COMPUTE JVALUE = J-allBinaryGameCanvas
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_allBinaryGameCanvas", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION FormInputProcessor-new1.
 
-constructor TFormInputProcessor.Create(allBinaryGameCanvas_: TAllBinaryGameCanvas);
-begin
-    inherited Create;
-    InitFields;
-        Self.allBinaryGameCanvas := allBinaryGameCanvas_;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FrmInptPrcssr-kyPrssdByDvc2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-input BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-keyCode BINARY-DOUBLE.
+01 J-deviceId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-keyCode J-deviceId RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE jtemp6 = FUNCTION StringMaker-new0
+            COMPUTE jtemp7 = FUNCTION CommonSeps-getInstance0
+            COMPUTE jtemp5 = FUNCTION StringMaker-append1(jtemp6, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_inputFactory"), "f_KEY_CODE_LABEL"))
+            COMPUTE jtemp4 = FUNCTION StringMaker-appendint1(jtemp5, J-keyCode)
+            COMPUTE jtemp3 = FUNCTION StringMaker-append1(jtemp4, FUNCTION JR-GET(jtemp7, "f_SPACE"))
+            COMPUTE jtemp2 = FUNCTION StringMaker-append1(jtemp3, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_inputFactory"), "f_DEVICE_ID_LABEL"))
+            COMPUTE jtemp1 = FUNCTION StringMaker-appendint1(jtemp2, J-deviceId)
+            COMPUTE JDISCARD = FUNCTION PreLogUtil-put3(FUNCTION JR-TO-STRING(jtemp1), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameInputStrings"), "f_KEY_PRESSED"))
+            COMPUTE J-input = FUNCTION InputFactory-getInstanceById1(FUNCTION JR-GET(J-THIS, "f_inputFactory"), J-keyCode)
+            COMPUTE J-gameKeyEvent = FUNCTION GmKyEvntFctry-gtInstncFrInpt2(FUNCTION JR-GET(J-THIS, "f_gameKeyEventFactory"), FUNCTION JR-GET(J-THIS, "f_allBinaryGameCanvas"), J-input)
+            COMPUTE JDISCARD = FUNCTION DwnKyEvntHndlrBs-frEvntFr10370(FUNCTION JR-GET(J-THIS, "f_downKeyEventHandler"), J-gameKeyEvent)
+    GOBACK.
+END FUNCTION FrmInptPrcssr-kyPrssdByDvc2.
 
-procedure TFormInputProcessor.keyPressedByDevice(keyCode: Integer; deviceId: Integer);
-var
-  input_: TInput;
-  gameKeyEvent_: TGameKeyEvent;
-begin
-        try
-            TPreLogUtil.put(TStringMaker.Create().append(Self.inputFactory.KEY_CODE_LABEL).appendint(keyCode).append(TCommonSeps.getInstance().SPACE).append(Self.inputFactory.DEVICE_ID_LABEL).appendint(deviceId).toString(), TJava.Box(Self), Self.gameInputStrings.KEY_PRESSED);
-            input_ := Self.inputFactory.getInstanceById(keyCode);
-            gameKeyEvent_ := Self.gameKeyEventFactory.getInstanceForInput(Self.allBinaryGameCanvas, input_);
-            Self.downKeyEventHandler.fireEventForGameKeyEvent(gameKeyEvent_);
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.gameInputStrings.ADD_KEY_EVENT, TJava.Box(e));
-            end;
-        end;
-end;
-    
-
-procedure TFormInputProcessor.keyReleasedByDevice(canvas_: TCanvas; keyCode: Integer; deviceId: Integer);
-var
-  input_: TInput;
-  gameKey_: TGameKey;
-  gameKeyEventSourceInterface_: IGameKeyEventSourceInterface;
-  gameKeyEvent_: TGameKeyEvent;
-begin
-        try
-            input_ := Self.inputFactory.getInstanceById(keyCode);
-            if Self.platformKeyFactory.isEnter(input_) then begin
-                TPreLogUtil.put(TStringMaker.Create().append(Self.inputFactory.KEY_CODE_LABEL).appendint(keyCode).append(TCommonSeps.getInstance().SPACE).append(Self.inputFactory.DEVICE_ID_LABEL).appendint(deviceId).toString(), TJava.Box(Self), Self.gameInputStrings.KEY_RELEASED);
-                gameKey_ := TGameKeyFactory.getInstance().KEY_NUM0;
-                gameKeyEventSourceInterface_ := (TJava.ToObject(canvas_) as IGameKeyEventSourceInterface);
-                gameKeyEvent_ := Self.gameKeyEventFactory.getInstanceForInput(gameKeyEventSourceInterface_, gameKey_);
-                Self.upGameKeyEventHandler.fireEvent(gameKeyEvent_);
-                Self.upGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent_);
-            end;
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.gameInputStrings.ADD_KEY_EVENT, TJava.Box(e));
-            end;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FrmInptPrcssr-kyRlsdByDvc3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-input BINARY-DOUBLE.
+01 J-gameKey BINARY-DOUBLE.
+01 J-gameKeyEventSourceInterface BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-canvas BINARY-DOUBLE.
+01 J-keyCode BINARY-DOUBLE.
+01 J-deviceId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-canvas J-keyCode J-deviceId RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE J-input = FUNCTION InputFactory-getInstanceById1(FUNCTION JR-GET(J-THIS, "f_inputFactory"), J-keyCode)
+            IF (FUNCTION PlatformKeyFactory-isEnter1(FUNCTION JR-GET(J-THIS, "f_platformKeyFactory"), J-input) = 1)
+                COMPUTE jtemp13 = FUNCTION StringMaker-new0
+                COMPUTE jtemp14 = FUNCTION CommonSeps-getInstance0
+                COMPUTE jtemp12 = FUNCTION StringMaker-append1(jtemp13, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_inputFactory"), "f_KEY_CODE_LABEL"))
+                COMPUTE jtemp11 = FUNCTION StringMaker-appendint1(jtemp12, J-keyCode)
+                COMPUTE jtemp10 = FUNCTION StringMaker-append1(jtemp11, FUNCTION JR-GET(jtemp14, "f_SPACE"))
+                COMPUTE jtemp9 = FUNCTION StringMaker-append1(jtemp10, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_inputFactory"), "f_DEVICE_ID_LABEL"))
+                COMPUTE jtemp8 = FUNCTION StringMaker-appendint1(jtemp9, J-deviceId)
+                COMPUTE JDISCARD = FUNCTION PreLogUtil-put3(FUNCTION JR-TO-STRING(jtemp8), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_gameInputStrings"), "f_KEY_RELEASED"))
+                COMPUTE jtemp15 = FUNCTION GameKeyFactory-getInstance0
+                COMPUTE J-gameKey = FUNCTION JR-GET(jtemp15, "f_KEY_NUM0")
+                COMPUTE J-gameKeyEventSourceInterface = J-canvas
+                COMPUTE J-gameKeyEvent = FUNCTION GmKyEvntFctry-gtInstncFrInpt2(FUNCTION JR-GET(J-THIS, "f_gameKeyEventFactory"), J-gameKeyEventSourceInterface, J-gameKey)
+                COMPUTE JDISCARD = FUNCTION UpGmKyEvntHndlrBs-fireEvent1(FUNCTION JR-GET(J-THIS, "f_upGameKeyEventHandler"), J-gameKeyEvent)
+                COMPUTE jtemp16 = FUNCTION UpGmKyEvntHndlr-gtInstncFrDvc1(FUNCTION JR-GET(J-THIS, "f_upGameKeyEventHandler"), J-deviceId)
+                COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp16)
+            END-IF
+    GOBACK.
+END FUNCTION FrmInptPrcssr-kyRlsdByDvc3.
 

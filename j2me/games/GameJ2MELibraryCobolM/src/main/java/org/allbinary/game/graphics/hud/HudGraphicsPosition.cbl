@@ -1,95 +1,212 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.graphics.hud
+*> Java class HudGraphicsPosition
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.graphics.hud
-unit HudGraphicsPosition;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HdGrphcsPstn-sttc-NUL95659.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 HudGraphicsPosition-jcell-NULL_HUD_GRAPHICS_POSITION BINARY-DOUBLE EXTERNAL.
+01 HudGraphicsPosition-jset-NULL_HUD_GRAPHICS_POSITION BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF HudGraphicsPosition-jset-NULL_HUD_GRAPHICS_POSITION = 0
+        MOVE 1 TO HudGraphicsPosition-jset-NULL_HUD_GRAPHICS_POSITION
+        COMPUTE jtemp1 = FUNCTION PointFactory-getInstance0
+    COMPUTE jtemp2 = 9
+    COMPUTE HudGraphicsPosition-jcell-NULL_HUD_GRAPHICS_POSITION = FUNCTION HudGraphicsPosition-new2(FUNCTION JR-GET(jtemp1, "f_ZERO_ZERO"), jtemp2)
+    END-IF
+    MOVE HudGraphicsPosition-jcell-NULL_HUD_GRAPHICS_POSITION TO J-RESULT
+    GOBACK.
+END FUNCTION HdGrphcsPstn-sttc-NUL95659.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HdGrphcsPstnsttcNUL9S93597.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 HudGraphicsPosition-jcell-NULL_HUD_GRAPHICS_POSITION BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION HdGrphcsPstn-sttc-NUL95659 TO J-RESULT
+    MOVE J-VALUE TO HudGraphicsPosition-jcell-NULL_HUD_GRAPHICS_POSITION
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION HdGrphcsPstnsttcNUL9S93597.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GPoint;
-
-type
-  {AB:TYPES}
-  THudGraphicsPosition = class(TObject)
-  public
-    anchor: Integer;
-    point: TGPoint;
-    class var NULL_HUD_GRAPHICS_POSITION: THudGraphicsPosition;
-    procedure InitFields;
-        constructor Create(point: TGPoint; anchor: Integer);
-        function getAnchor: Integer; virtual;
-        procedure setAnchor(anchor: Integer);
-        function getPoint: TGPoint; virtual;
-        procedure setPoint(point: TGPoint); virtual;
-  end;
-
-implementation
-uses
-  PointFactory;
-
-
-{AB:CODE}
-
-procedure THudGraphicsPosition.InitFields;
-begin
-  
-  Self.point := TPointFactory.getInstance().ZERO_ZERO;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HudGraphicsPosition-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-point BINARY-DOUBLE.
+01 J-anchor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-point J-anchor RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("HudGraphicsPosition")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_anchor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_point")
     
+    COMPUTE jtemp3 = FUNCTION PointFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp3, "f_ZERO_ZERO")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_point", JVALUE)
+        COMPUTE JDISCARD = FUNCTION HudGraphicsPosition-setAnchor1(J-THIS, J-anchor)
+        COMPUTE JDISCARD = FUNCTION HudGraphicsPosition-setPoint1(J-THIS, J-point)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION HudGraphicsPosition-new2.
 
-constructor THudGraphicsPosition.Create(point: TGPoint; anchor: Integer);
-begin
-    inherited Create;
-    InitFields;
-        Self.setAnchor(anchor);
-        Self.setPoint(point);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HudGraphicsPosition-getAnchor0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_anchor")
+        GOBACK
+    GOBACK.
+END FUNCTION HudGraphicsPosition-getAnchor0.
 
-function THudGraphicsPosition.getAnchor: Integer;
-begin
-        Exit(Self.anchor);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HudGraphicsPosition-setAnchor1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-anchor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-anchor RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-anchor
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_anchor", JVALUE)
+    GOBACK.
+END FUNCTION HudGraphicsPosition-setAnchor1.
 
-procedure THudGraphicsPosition.setAnchor(anchor: Integer);
-begin
-        Self.anchor := anchor;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HudGraphicsPosition-getPoint0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_point")
+        GOBACK
+    GOBACK.
+END FUNCTION HudGraphicsPosition-getPoint0.
 
-function THudGraphicsPosition.getPoint: TGPoint;
-begin
-        Exit(Self.point);
-end;
-    
-
-procedure THudGraphicsPosition.setPoint(point: TGPoint);
-begin
-        Self.point := point;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  THudGraphicsPosition.NULL_HUD_GRAPHICS_POSITION := THudGraphicsPosition.Create(TPointFactory.getInstance().ZERO_ZERO, 9);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HudGraphicsPosition-setPoint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-point BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-point RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-point
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_point", JVALUE)
+    GOBACK.
+END FUNCTION HudGraphicsPosition-setPoint1.
 

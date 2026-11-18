@@ -1,59 +1,37 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2026 AllBinary 
-  
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-  
-  Created By: Travis Berthelot 
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics
-unit OpenGLBitmapConfig;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics
+*> Java class OpenGLBitmapConfig
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
-
-type
-  {AB:TYPES}
-  TOpenGLBitmapConfig = class(TObject)
-  public
-    bitmapConfig: TObject;
-    procedure InitFields;
-        constructor Create(bitmapConfig: TObject);
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TOpenGLBitmapConfig.InitFields;
-begin
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OpenGLBitmapConfig-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-bitmapConfig BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-bitmapConfig RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("OpenGLBitmapConfig")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_bitmapConfig")
     
-
-constructor TOpenGLBitmapConfig.Create(bitmapConfig: TObject);
-begin
-    inherited Create;
-    InitFields;
-        Self.bitmapConfig := TJava.Box(bitmapConfig);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+        COMPUTE JVALUE = J-bitmapConfig
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_bitmapConfig", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION OpenGLBitmapConfig-new1.
 

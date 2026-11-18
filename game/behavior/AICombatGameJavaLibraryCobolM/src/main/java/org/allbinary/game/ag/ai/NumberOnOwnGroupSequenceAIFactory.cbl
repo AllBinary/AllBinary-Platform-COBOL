@@ -1,103 +1,122 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.ai
+*> Java class NumberOnOwnGroupSequenceAIFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.ai
-unit NumberOnOwnGroupSequenceAIFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NmbrOnOwnGrpSqncAIFctry-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("NumberOnOwnGroupSequenceAIFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION NmbrOnOwnGrpSqncAIFctry-new0.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, ArtificialIntelligenceInterface, GameInput, AllBinaryLayer, LogUtil, ABHashtable;
-
-type
-  {AB:TYPES}
-  TNumberOnOwnGroupSequenceAIFactory = class(TObject)
-  public
-    logUtil: TLogUtil;
-    procedure InitFields;
-    constructor Create;
-        function getInstance(hashtable: TABHashtable<TObject, TObject>; artificialIntelligenceInterface_: TArray<IArtificialIntelligenceInterface>; ownerLayerInterface: TAllBinaryLayer; gameInput_: TGameInput): IArtificialIntelligenceInterface; virtual;
-  end;
-
-implementation
-uses
-  NumberInSameGroupSequence, NumberOnOwnGroupSequenceAI, StringMaker, CommonStrings, BasicArrayList, BasicArrayListD;
-
-
-{AB:CODE}
-
-procedure TNumberOnOwnGroupSequenceAIFactory.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-end;
-
-constructor TNumberOnOwnGroupSequenceAIFactory.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-// throws Exception
-function TNumberOnOwnGroupSequenceAIFactory.getInstance(hashtable: TABHashtable<TObject, TObject>; artificialIntelligenceInterface_: TArray<IArtificialIntelligenceInterface>; ownerLayerInterface: TAllBinaryLayer; gameInput_: TGameInput): IArtificialIntelligenceInterface;
-var
-  integerArray: TArray<Integer>;
-  list: TBasicArrayList;
-  integerCanBeNull: TObject;
-  index: Integer;
-  stringBuffer: TStringMaker;
-  commonStrings_: TCommonStrings;
-  numberOnSameTeam: TArray<Integer>;
-begin
-        integerArray := TNumberInSameGroupSequence.getInstance().NUMBER_ON_SAME_TEAM_SEQUENCE;
-        list := TBasicArrayListD.Create();
-        for index := 0 to System.Length(integerArray) - 1 do begin
-            integerCanBeNull := TJava.Box(hashtable.get(TJava.Box(TJava.Box(integerArray[index]))));
-            if (integerCanBeNull) = (nil) then begin
-                Break;
-            end;
-            list.add(TJava.Box(integerCanBeNull));
-        end;
-        stringBuffer := TStringMaker.Create();
-        stringBuffer.append('Total AI Properties: ');
-        stringBuffer.appendint(list.size());
-        stringBuffer.append(' == Total AI: ');
-        stringBuffer.appendint(System.Length(artificialIntelligenceInterface_));
-        stringBuffer.append(' + 1');
-        commonStrings_ := TCommonStrings.getInstance();
-        Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), commonStrings_.GET_INSTANCE);
-        if ((System.Length(artificialIntelligenceInterface_)) - (1)) > (list.size()) then begin
-            raise SysUtils.Exception.Create('Not enough AI properties.');
-        end;
-        if ((System.Length(artificialIntelligenceInterface_)) - (1)) < (list.size()) then begin
-            raise SysUtils.Exception.Create('Too Many AI properties.');
-        end;
-        numberOnSameTeam := TJava.NewArray<Integer>(list.size());
-        for index := 0 to System.Length(numberOnSameTeam) - 1 do begin
-            numberOnSameTeam[index] := Integer(list.objectArray[index]);
-        end;
-        Exit(TNumberOnOwnGroupSequenceAI.Create(numberOnSameTeam, artificialIntelligenceInterface_, ownerLayerInterface, gameInput_));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NmbrOnOwnGrpSqncAIFctry-g20269.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-integerArray BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-integerCanBeNull BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-stringBuffer BINARY-DOUBLE.
+01 J-commonStrings BINARY-DOUBLE.
+01 J-numberOnSameTeam BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-hashtable BINARY-DOUBLE.
+01 J-artificialIntelligenceInterface BINARY-DOUBLE.
+01 J-ownerLayerInterface BINARY-DOUBLE.
+01 J-gameInput BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-hashtable J-artificialIntelligenceInterface J-ownerLayerInterface J-gameInput RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = FUNCTION NmbrInSmGrpSqnc-getInstance0
+        COMPUTE J-integerArray = FUNCTION JR-GET(jtemp1, "f_NUMBER_ON_SAME_TEAM_SEQUENCE")
+        COMPUTE J-list = FUNCTION BasicArrayListD-new0
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < FUNCTION JR-ARRAY-LENGTH(J-integerArray)) EXIT PERFORM END-IF
+            COMPUTE jtemp2 = FUNCTION JR-ARRAY-GET(J-integerArray, J-index)
+            COMPUTE J-integerCanBeNull = FUNCTION Hashtable-get1(J-hashtable, jtemp2)
+            IF (J-integerCanBeNull = 0)
+                EXIT PERFORM
+            END-IF
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-list, J-integerCanBeNull)
+        END-PERFORM
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR("Total AI Properties: "))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, FUNCTION BasicArrayList-size0(J-list))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR(" == Total AI: "))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, FUNCTION JR-ARRAY-LENGTH(J-artificialIntelligenceInterface))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR(" + 1"))
+        COMPUTE J-commonStrings = FUNCTION CommonStrings-getInstance0
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-stringBuffer), J-THIS, FUNCTION JR-GET(J-commonStrings, "f_GET_INSTANCE"))
+        IF ((FUNCTION MOD((FUNCTION JR-ARRAY-LENGTH(J-artificialIntelligenceInterface) - 1) + 2147483648, 4294967296) - 2147483648) > FUNCTION BasicArrayList-size0(J-list))
+            COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+        END-IF
+        IF ((FUNCTION MOD((FUNCTION JR-ARRAY-LENGTH(J-artificialIntelligenceInterface) - 1) + 2147483648, 4294967296) - 2147483648) < FUNCTION BasicArrayList-size0(J-list))
+            COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+        END-IF
+        COMPUTE J-numberOnSameTeam = FUNCTION JR-NEW-ARRAY(FUNCTION BasicArrayList-size0(J-list))
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST2
+        PERFORM FOREVER
+            IF JFIRST2 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST2
+            IF NOT (J-index < FUNCTION JR-ARRAY-LENGTH(J-numberOnSameTeam)) EXIT PERFORM END-IF
+            COMPUTE JVALUE = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-numberOnSameTeam, J-index, JVALUE)
+        END-PERFORM
+        COMPUTE J-RESULT = FUNCTION NmbrOnOwnGrpSqncAI-new4(J-numberOnSameTeam, J-artificialIntelligenceInterface, J-ownerLayerInterface, J-gameInput)
+        GOBACK
+    GOBACK.
+END FUNCTION NmbrOnOwnGrpSqncAIFctry-g20269.
 

@@ -1,130 +1,243 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation
+*> Java class VectorMirrorGenerator
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation
-unit VectorMirrorGenerator;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrMrrrGnrtr-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 VectorMirrorGenerator-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 VectorMirrorGenerator-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF VectorMirrorGenerator-jset-instance = 0
+        MOVE 1 TO VectorMirrorGenerator-jset-instance
+        COMPUTE VectorMirrorGenerator-jcell-instance = FUNCTION VectorMirrorGenerator-new0
+    END-IF
+    MOVE VectorMirrorGenerator-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION VctrMrrrGnrtr-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrMrrrGnrtrstaticiS36408.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 VectorMirrorGenerator-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION VctrMrrrGnrtr-static-instance TO J-RESULT
+    MOVE J-VALUE TO VectorMirrorGenerator-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION VctrMrrrGnrtrstaticiS36408.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VectorMirrorGenerator-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("VectorMirrorGenerator")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_vectorAnimationUtil")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION VctrAnmtnUtl-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_vectorAnimationUtil", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION VectorMirrorGenerator-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LogUtil, BasicArrayList, VectorAnimationUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrMrrrGnrtr-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION VctrMrrrGnrtr-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION VctrMrrrGnrtr-getInstance0.
 
-type
-  {AB:TYPES}
-  TVectorMirrorGenerator = class(TObject)
-  public
-    logUtil: TLogUtil;
-    vectorAnimationUtil: TVectorAnimationUtil;
-    class var instance: TVectorMirrorGenerator;
-    procedure InitFields;
-        class function getInstance: TVectorMirrorGenerator; overload; static;
-        constructor Create;
-        function getInstance(points: TArray<TArray<TArray<Integer>>>; width: Integer): TArray<TArray<TArray<Integer>>>; overload; virtual;
-        function getInstance(pointBasicArrayList: TBasicArrayList; width: Integer): TBasicArrayList; overload; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrMrrrGnrtr-getInstance2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-pointFactory BINARY-DOUBLE.
+01 J-pointBasicArrayList BINARY-DOUBLE.
+01 J-nextPoints BINARY-DOUBLE.
+01 J-size2 BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-pointsBasicArrayList BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-frame BINARY-DOUBLE.
+01 J-newPoints BINARY-DOUBLE.
+01 J-commonStrings BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+01 JFIRST3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-points BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-points J-width RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE J-pointFactory = FUNCTION PointFactory-getInstance0
+            CONTINUE
+            CONTINUE
+            CONTINUE
+            COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(J-points)
+            COMPUTE J-pointsBasicArrayList = FUNCTION BasicArrayListS-new1(J-size)
+            COMPUTE J-frame = 0
+            MOVE 1 TO JFIRST1
+            PERFORM FOREVER
+                IF JFIRST1 = 0
+                    COMPUTE J-frame = (FUNCTION MOD(J-frame + 1 + 2147483648, 4294967296) - 2147483648)
+                END-IF
+                MOVE 0 TO JFIRST1
+                IF NOT (J-frame < J-size) EXIT PERFORM END-IF
+                COMPUTE J-nextPoints = FUNCTION JR-ARRAY-GET(J-points, J-frame)
+                COMPUTE J-size2 = FUNCTION JR-ARRAY-LENGTH(J-nextPoints)
+                COMPUTE J-pointBasicArrayList = FUNCTION BasicArrayListS-new1(J-size2)
+                COMPUTE J-index = 0
+                MOVE 1 TO JFIRST2
+                PERFORM FOREVER
+                    IF JFIRST2 = 0
+                        COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+                    END-IF
+                    MOVE 0 TO JFIRST2
+                    IF NOT (J-index < J-size2) EXIT PERFORM END-IF
+                    COMPUTE jtemp1 = 0
+                    COMPUTE jtemp2 = 1
+                    COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-pointBasicArrayList, FUNCTION PointFactory-createXY2(J-pointFactory, FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(J-nextPoints, J-index), jtemp1), FUNCTION
+        JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(J-nextPoints, J-index), jtemp2)))
+                END-PERFORM
+                COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-pointsBasicArrayList, J-pointBasicArrayList)
+            END-PERFORM
+            COMPUTE J-index = 0
+            MOVE 1 TO JFIRST3
+            PERFORM FOREVER
+                IF JFIRST3 = 0
+                    COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+                END-IF
+                MOVE 0 TO JFIRST3
+                IF NOT (J-index < FUNCTION JR-ARRAY-LENGTH(J-points)) EXIT PERFORM END-IF
+                COMPUTE jtemp3 = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-pointsBasicArrayList, "f_objectArray"), J-index)
+                COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-pointsBasicArrayList, FUNCTION VctrMrrrGnrtr-getInstance2b(J-THIS, jtemp3, J-width))
+            END-PERFORM
+            COMPUTE J-newPoints = FUNCTION VctrAnmtnUtl-tAnmtnArryFr56840(FUNCTION JR-GET(J-THIS, "f_vectorAnimationUtil"), J-pointsBasicArrayList)
+            COMPUTE J-RESULT = J-newPoints
+            GOBACK
+    GOBACK.
+END FUNCTION VctrMrrrGnrtr-getInstance2.
 
-implementation
-uses
-  PointFactory, BasicGraphicsPipeline, NullUtil, CommonStrings, BasicArrayListS;
-
-
-{AB:CODE}
-
-procedure TVectorMirrorGenerator.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.vectorAnimationUtil := TVectorAnimationUtil.getInstance();
-end;
-    
-
-class function TVectorMirrorGenerator.getInstance: TVectorMirrorGenerator;
-begin
-        Exit(TVectorMirrorGenerator.instance);
-end;
-    
-
-constructor TVectorMirrorGenerator.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
-
-function TVectorMirrorGenerator.getInstance(points: TArray<TArray<TArray<Integer>>>; width: Integer): TArray<TArray<TArray<Integer>>>;
-var
-  pointFactory_: TPointFactory;
-  pointBasicArrayList: TBasicArrayList;
-  nextPoints: TArray<TArray<Integer>>;
-  size2: Integer;
-  size: Integer;
-  pointsBasicArrayList: TBasicArrayList;
-  index: Integer;
-  frame: Integer;
-  newPoints: TArray<TArray<TArray<Integer>>>;
-  commonStrings_: TCommonStrings;
-begin
-        try
-            pointFactory_ := TPointFactory.getInstance();
-            
-            
-            
-            size := System.Length(points);
-            pointsBasicArrayList := TBasicArrayListS.Create(size);
-            for frame := 0 to size - 1 do begin
-                nextPoints := points[frame];
-                size2 := System.Length(nextPoints);
-                pointBasicArrayList := TBasicArrayListS.Create(size2);
-                for index := 0 to size2 - 1 do begin
-                    pointBasicArrayList.add(TJava.Box(pointFactory_.createXY(nextPoints[index][0], nextPoints[index][1])));
-                end;
-                pointsBasicArrayList.add(TJava.Box(pointBasicArrayList));
-            end;
-            for index := 0 to System.Length(points) - 1 do begin
-                pointsBasicArrayList.add(TJava.Box(Self.getInstance(TBasicArrayList(TJava.ToObject(pointsBasicArrayList.objectArray[index])), width)));
-            end;
-            newPoints := Self.vectorAnimationUtil.toAnimationArrayFromListOfPointList(pointsBasicArrayList);
-            Exit(newPoints);
-        except
-            on e: SysUtils.Exception do begin
-            commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.GET_INSTANCE, TJava.Box(e));
-            Exit(TNullUtil.getInstance().NULL_INT_ARRAY_ARRAY_ARRAY);
-            end;
-        end;
-end;
-    
-
-// throws Exception
-function TVectorMirrorGenerator.getInstance(pointBasicArrayList: TBasicArrayList; width: Integer): TBasicArrayList;
-var
-  graphicsPipe: TBasicGraphicsPipeline;
-begin
-        graphicsPipe := TBasicGraphicsPipeline.Create(pointBasicArrayList);
-        graphicsPipe.createMatrix();
-        graphicsPipe.mirror(width);
-        Exit(graphicsPipe.getMatrix());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TVectorMirrorGenerator.instance := TVectorMirrorGenerator.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VctrMrrrGnrtr-getInstance2b.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-graphicsPipe BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-pointBasicArrayList BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-pointBasicArrayList J-width RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-graphicsPipe = FUNCTION BasicGraphicsPipeline-new1(J-pointBasicArrayList)
+        COMPUTE JDISCARD = FUNCTION BscGrphcsPpln-createMatrix0(J-graphicsPipe)
+        COMPUTE JDISCARD = FUNCTION BasicGraphicsPipeline-mirror1(J-graphicsPipe, J-width)
+        COMPUTE J-RESULT = FUNCTION BscGrphcsPpln-getMatrix0(J-graphicsPipe)
+        GOBACK
+    GOBACK.
+END FUNCTION VctrMrrrGnrtr-getInstance2b.
 

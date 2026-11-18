@@ -1,162 +1,262 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.form.item.validation
+*> Java class NumberTextFieldItemValidator
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.form.item.validation
-unit NumberTextFieldItemValidator;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, ABTextFieldItem, ValidatorBase, BasicArrayList;
-
-type
-  {AB:TYPES}
-  TNumberTextFieldItemValidator = class(TValidatorBase)
-  public
-    textFieldItem: TABTextFieldItem;
-    min: Integer;
-    max: Integer;
-    maxChars: Integer;
-    procedure InitFields;
-        constructor Create(textFieldItem: TABTextFieldItem; maxChars: Integer; min: Integer; max: Integer);
-        function isNumberValid(value: Integer): Boolean; virtual;
-        function toNumberVector(value: Integer): TBasicArrayList; virtual;
-        function isValid: Boolean; override;
-        function toList: TBasicArrayList; override;
-  end;
-
-implementation
-uses
-  BooleanFactory, SmallIntegerSingletonFactory, StringMaker, BasicArrayListD;
-
-
-{AB:CODE}
-
-procedure TNumberTextFieldItemValidator.InitFields;
-begin
-  
-  
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NmbrTxtFldItmVldtr-new4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-textFieldItem BINARY-DOUBLE.
+01 J-maxChars BINARY-DOUBLE.
+01 J-min BINARY-DOUBLE.
+01 J-max BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-textFieldItem J-maxChars J-min J-max RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("NumberTextFieldItemValidator")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_textFieldItem")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_min")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_max")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_maxChars")
     
-
-constructor TNumberTextFieldItemValidator.Create(textFieldItem: TABTextFieldItem; maxChars: Integer; min: Integer; max: Integer);
-begin
-    inherited Create;
-    InitFields;
-        Self.textFieldItem := textFieldItem;
-        Self.min := min;
-        Self.max := max;
-        Self.maxChars := maxChars;
-end;
     
-
-function TNumberTextFieldItemValidator.isNumberValid(value: Integer): Boolean;
-begin
-        Exit(TBooleanFactory.getInstance().TRUE_);
-end;
     
-
-function TNumberTextFieldItemValidator.toNumberVector(value: Integer): TBasicArrayList;
-begin
-        Exit(TBasicArrayListD.Create());
-end;
     
+        COMPUTE JVALUE = J-textFieldItem
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_textFieldItem", JVALUE)
+        COMPUTE JVALUE = J-min
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_min", JVALUE)
+        COMPUTE JVALUE = J-max
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_max", JVALUE)
+        COMPUTE JVALUE = J-maxChars
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_maxChars", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION NmbrTxtFldItmVldtr-new4.
 
-function TNumberTextFieldItemValidator.isValid: Boolean;
-var
-  result_: Boolean;
-  string_: string;
-  textLength: Integer;
-begin
-        result_ := TBooleanFactory.getInstance().TRUE_;
-        string_ := Self.textFieldItem.getString();
-        textLength := System.Length(string_);
-        if ((textLength) > (0)) and ((textLength) < (Self.maxChars)) then begin
-            try
-                StrToInt(Self.textFieldItem.getString());
-            except
-                on e: SysUtils.Exception do begin
-                result_ := TBooleanFactory.getInstance().FALSE_;
-                end;
-            end;
-        end else begin
-            if (textLength) < (1) then begin
-                result_ := TBooleanFactory.getInstance().FALSE_;
-            end else if (textLength) > (Self.maxChars) then begin
-                result_ := TBooleanFactory.getInstance().FALSE_;
-            end;
-        end;
-        Exit(result_);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NmbrTxtFldItmVldtr-isNmbrVld1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-value BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-value RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = FUNCTION BooleanFactory-getInstance0
+        COMPUTE J-RESULT = FUNCTION JR-GET(jtemp1, "f_TRUE")
+        GOBACK
+    GOBACK.
+END FUNCTION NmbrTxtFldItmVldtr-isNmbrVld1.
 
-function TNumberTextFieldItemValidator.toList: TBasicArrayList;
-var
-  list: TBasicArrayList;
-  string_: string;
-  textLength: Integer;
-  label_: string;
-  name: string;
-  smallIntegerSingletonFactory_: TSmallIntegerSingletonFactory;
-  stringMaker_: TStringMaker;
-  number: Integer;
-begin
-        list := TBasicArrayListD.Create();
-        string_ := Self.textFieldItem.getString();
-        textLength := System.Length(string_);
-        label_ := Self.textFieldItem.getLabel();
-        name := Copy(label_, (0) + 1, ((System.Length(label_)) - (2)) - (0));
-        smallIntegerSingletonFactory_ := TSmallIntegerSingletonFactory.getInstance();
-        stringMaker_ := TStringMaker.Create();
-        if ((textLength) > (0)) and ((textLength) < (Self.maxChars)) then begin
-            try
-                number := smallIntegerSingletonFactory_.createInstance(StrToInt(Self.textFieldItem.getString()));
-                if ((number)) > (Self.min) then begin
-                    stringMaker_.delete_(0, stringMaker_.length());
-                    list.add(TJava.Box(stringMaker_.append(name).append(' is to small').toString()));
-                end else if ((number)) > (Self.max) then begin
-                    stringMaker_.delete_(0, stringMaker_.length());
-                    list.add(TJava.Box(stringMaker_.append(name).append(' is to large').toString()));
-                end;
-            except
-                on e: SysUtils.Exception do begin
-                stringMaker_.delete_(0, stringMaker_.length());
-                list.add(TJava.Box(stringMaker_.append(name).append(' is not a number').toString()));
-                end;
-            end;
-        end else begin
-            if (textLength) < (1) then begin
-                stringMaker_.delete_(0, stringMaker_.length());
-                list.add(TJava.Box(stringMaker_.append(name).append(' is to short').toString()));
-            end else if (textLength) > (Self.maxChars) then begin
-                stringMaker_.delete_(0, stringMaker_.length());
-                list.add(TJava.Box(stringMaker_.append(name).append(' is to long').toString()));
-            end;
-        end;
-        Exit(list);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NmbrTxtFldItmVldtr-tNmbrVctr1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-value BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-value RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION BasicArrayListD-new0
+        GOBACK
+    GOBACK.
+END FUNCTION NmbrTxtFldItmVldtr-tNmbrVctr1.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NmbrTxtFldItmVldtr-isValid0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-result-L BINARY-DOUBLE.
+01 J-string BINARY-DOUBLE.
+01 J-textLength BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION BooleanFactory-getInstance0
+        COMPUTE J-result-L = FUNCTION JR-GET(jtemp2, "f_TRUE")
+        COMPUTE J-string = FUNCTION ABTextFieldItem-getString0(FUNCTION JR-GET(J-THIS, "f_textFieldItem"))
+        COMPUTE J-textLength = FUNCTION JR-STR-LENGTH(J-string)
+        IF ((J-textLength > 0) AND (J-textLength < FUNCTION JR-GET(J-THIS, "f_maxChars")))
+            CONTINUE
+                COMPUTE JDISCARD = FUNCTION Integer-parseInt1(FUNCTION ABTextFieldItem-getString0(FUNCTION JR-GET(J-THIS, "f_textFieldItem")))
+        ELSE
+            IF (J-textLength < 1)
+                COMPUTE jtemp4 = FUNCTION BooleanFactory-getInstance0
+                COMPUTE J-result-L = FUNCTION JR-GET(jtemp4, "f_FALSE")
+            ELSE
+                IF (J-textLength > FUNCTION JR-GET(J-THIS, "f_maxChars"))
+                COMPUTE jtemp3 = FUNCTION BooleanFactory-getInstance0
+                COMPUTE J-result-L = FUNCTION JR-GET(jtemp3, "f_FALSE")
+            END-IF
+            END-IF
+        END-IF
+        COMPUTE J-RESULT = J-result-L
+        GOBACK
+    GOBACK.
+END FUNCTION NmbrTxtFldItmVldtr-isValid0.
 
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NmbrTxtFldItmVldtr-toList0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-list BINARY-DOUBLE.
+01 J-string BINARY-DOUBLE.
+01 J-textLength BINARY-DOUBLE.
+01 J-label BINARY-DOUBLE.
+01 J-name BINARY-DOUBLE.
+01 J-smallIntegerSingletonFactory BINARY-DOUBLE.
+01 J-stringMaker BINARY-DOUBLE.
+01 J-number BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+01 jtemp18 BINARY-DOUBLE.
+01 jtemp19 BINARY-DOUBLE.
+01 jtemp20 BINARY-DOUBLE.
+01 jtemp21 BINARY-DOUBLE.
+01 jtemp22 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-list = FUNCTION BasicArrayListD-new0
+        COMPUTE J-string = FUNCTION ABTextFieldItem-getString0(FUNCTION JR-GET(J-THIS, "f_textFieldItem"))
+        COMPUTE J-textLength = FUNCTION JR-STR-LENGTH(J-string)
+        COMPUTE J-label = FUNCTION ABTextFieldItem-getLabel0(FUNCTION JR-GET(J-THIS, "f_textFieldItem"))
+        COMPUTE jtemp6 = 0
+        COMPUTE jtemp7 = (FUNCTION MOD((FUNCTION JR-STR-LENGTH(J-label) - 2) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE J-name = FUNCTION JR-SUBSTRING(J-label, jtemp6, jtemp7)
+        COMPUTE J-smallIntegerSingletonFactory = FUNCTION SmllIntgrSngltnFctry-gtInstnc0
+        COMPUTE J-stringMaker = FUNCTION StringMaker-new0
+        IF ((J-textLength > 0) AND (J-textLength < FUNCTION JR-GET(J-THIS, "f_maxChars")))
+            CONTINUE
+                COMPUTE J-number = FUNCTION SmllIntgrSngltnFctry-crtI66862(J-smallIntegerSingletonFactory, FUNCTION Integer-parseInt1(FUNCTION ABTextFieldItem-getString0(FUNCTION JR-GET(J-THIS, "f_textFieldItem"))))
+                IF (J-number > FUNCTION JR-GET(J-THIS, "f_min"))
+                    COMPUTE jtemp17 = 0
+                    COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringMaker, jtemp17, FUNCTION StringMaker-length0(J-stringMaker))
+                    COMPUTE jtemp19 = FUNCTION StringMaker-append1(J-stringMaker, J-name)
+                    COMPUTE jtemp18 = FUNCTION StringMaker-append1(jtemp19, FUNCTION JR-STR(" is to small"))
+                    COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-list, FUNCTION JR-TO-STRING(jtemp18))
+                ELSE
+                    IF (J-number > FUNCTION JR-GET(J-THIS, "f_max"))
+                    COMPUTE jtemp14 = 0
+                    COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringMaker, jtemp14, FUNCTION StringMaker-length0(J-stringMaker))
+                    COMPUTE jtemp16 = FUNCTION StringMaker-append1(J-stringMaker, J-name)
+                    COMPUTE jtemp15 = FUNCTION StringMaker-append1(jtemp16, FUNCTION JR-STR(" is to large"))
+                    COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-list, FUNCTION JR-TO-STRING(jtemp15))
+                END-IF
+                END-IF
+        ELSE
+            IF (J-textLength < 1)
+                COMPUTE jtemp11 = 0
+                COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringMaker, jtemp11, FUNCTION StringMaker-length0(J-stringMaker))
+                COMPUTE jtemp13 = FUNCTION StringMaker-append1(J-stringMaker, J-name)
+                COMPUTE jtemp12 = FUNCTION StringMaker-append1(jtemp13, FUNCTION JR-STR(" is to short"))
+                COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-list, FUNCTION JR-TO-STRING(jtemp12))
+            ELSE
+                IF (J-textLength > FUNCTION JR-GET(J-THIS, "f_maxChars"))
+                COMPUTE jtemp8 = 0
+                COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringMaker, jtemp8, FUNCTION StringMaker-length0(J-stringMaker))
+                COMPUTE jtemp10 = FUNCTION StringMaker-append1(J-stringMaker, J-name)
+                COMPUTE jtemp9 = FUNCTION StringMaker-append1(jtemp10, FUNCTION JR-STR(" is to long"))
+                COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-list, FUNCTION JR-TO-STRING(jtemp9))
+            END-IF
+            END-IF
+        END-IF
+        COMPUTE J-RESULT = J-list
+        GOBACK
+    GOBACK.
+END FUNCTION NmbrTxtFldItmVldtr-toList0.
 

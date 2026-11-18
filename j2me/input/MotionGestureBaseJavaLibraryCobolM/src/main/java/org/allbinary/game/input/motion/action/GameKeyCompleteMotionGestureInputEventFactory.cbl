@@ -1,92 +1,193 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.input.motion.action
+*> Java class GameKeyCompleteMotionGestureInputEventFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.input.motion.action
-unit GameKeyCompleteMotionGestureInputEventFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmKyCmpltMtnGstrInptEvn-32956.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameKeyCompleteMotionGestureInputEventFactory-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+01 GameKeyCompleteMotionGestureInputEventFactory-jset-SINGLETON BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GameKeyCompleteMotionGestureInputEventFactory-jset-SINGLETON = 0
+        MOVE 1 TO GameKeyCompleteMotionGestureInputEventFactory-jset-SINGLETON
+        COMPUTE GameKeyCompleteMotionGestureInputEventFactory-jcell-SINGLETON = FUNCTION GmKyCmpltMtnGstrInptEvn-32785
+    END-IF
+    MOVE GameKeyCompleteMotionGestureInputEventFactory-jcell-SINGLETON TO J-RESULT
+    GOBACK.
+END FUNCTION GmKyCmpltMtnGstrInptEvn-32956.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmKyCmpltMtnGstrInptS99826.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameKeyCompleteMotionGestureInputEventFactory-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GmKyCmpltMtnGstrInptEvn-32956 TO J-RESULT
+    MOVE J-VALUE TO GameKeyCompleteMotionGestureInputEventFactory-jcell-SINGLETON
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GmKyCmpltMtnGstrInptS99826.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmKyCmpltMtnGstrInptEvn-32785.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameKeyCompleteMotionGestureInputEventFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_eventList")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_eventList", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GmKyCmpltMtnGstrInptEvn-32785.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LogUtil, BasicArrayList, GameKeyCompleteMotionGestureInputEvent;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmKyCmpltMtnGstrInptEvn-61374.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION GmKyCmpltMtnGstrInptEvn-32956
+        GOBACK
+    GOBACK.
+END FUNCTION GmKyCmpltMtnGstrInptEvn-61374.
 
-type
-  {AB:TYPES}
-  TGameKeyCompleteMotionGestureInputEventFactory = class(TObject)
-  public
-    logUtil: TLogUtil;
-    eventList: TBasicArrayList;
-    class var SINGLETON: TGameKeyCompleteMotionGestureInputEventFactory;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TGameKeyCompleteMotionGestureInputEventFactory; static;
-        procedure add(gameKeyCompleteMotionGestureInputEvent_: TGameKeyCompleteMotionGestureInputEvent); virtual;
-        procedure updateAll; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmKyCmpltMtnGstrInptEvn-27128.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameKeyCompleteMotionGestureInputEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gameKeyCompleteMotionGestureInputEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_eventList"), J-gameKeyCompleteMotionGestureInputEvent)
+    GOBACK.
+END FUNCTION GmKyCmpltMtnGstrInptEvn-27128.
 
-implementation
-uses
-  StringMaker, CommonLabels, BasicArrayListD;
-
-
-{AB:CODE}
-
-procedure TGameKeyCompleteMotionGestureInputEventFactory.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.eventList := TBasicArrayListD.Create();
-end;
-
-constructor TGameKeyCompleteMotionGestureInputEventFactory.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TGameKeyCompleteMotionGestureInputEventFactory.getInstance: TGameKeyCompleteMotionGestureInputEventFactory;
-begin
-        Exit(TGameKeyCompleteMotionGestureInputEventFactory.SINGLETON);
-end;
-    
-
-procedure TGameKeyCompleteMotionGestureInputEventFactory.add(gameKeyCompleteMotionGestureInputEvent_: TGameKeyCompleteMotionGestureInputEvent);
-begin
-        Self.eventList.add(TJava.Box(gameKeyCompleteMotionGestureInputEvent_));
-end;
-    
-
-procedure TGameKeyCompleteMotionGestureInputEventFactory.updateAll;
-var
-  gameKeyCompleteMotionGestureInputEvent_: TGameKeyCompleteMotionGestureInputEvent;
-  index: Integer;
-begin
-        Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().START_LABEL).appendint(Self.eventList.size()).toString(), TJava.Box(Self), 'updateAll');
-        for index := (Self.eventList.size()) - (1) downto 0 do begin
-            gameKeyCompleteMotionGestureInputEvent_ := TGameKeyCompleteMotionGestureInputEvent(TJava.ToObject(Self.eventList.objectArray[index]));
-            gameKeyCompleteMotionGestureInputEvent_.update();
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TGameKeyCompleteMotionGestureInputEventFactory.SINGLETON := TGameKeyCompleteMotionGestureInputEventFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmKyCmpltMtnGstrInptEvn-35949.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameKeyCompleteMotionGestureInputEvent BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp4 = FUNCTION CommonLabels-getInstance0
+        COMPUTE jtemp3 = FUNCTION StringMaker-new0
+        COMPUTE jtemp2 = FUNCTION StringMaker-append1(jtemp3, FUNCTION JR-GET(jtemp4, "f_START_LABEL"))
+        COMPUTE jtemp1 = FUNCTION StringMaker-appendint1(jtemp2, FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_eventList")))
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp1), J-THIS, FUNCTION JR-STR("updateAll"))
+        COMPUTE J-index = (FUNCTION MOD((FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_eventList")) - 1) + 2147483648, 4294967296) - 2147483648)
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index >= 0) EXIT PERFORM END-IF
+            COMPUTE J-gameKeyCompleteMotionGestureInputEvent = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_eventList"), "f_objectArray"), J-index)
+            COMPUTE JDISCARD = FUNCTION GmKyCmpltMtnGstrInptEvnt-updt0(J-gameKeyCompleteMotionGestureInputEvent)
+        END-PERFORM
+    GOBACK.
+END FUNCTION GmKyCmpltMtnGstrInptEvn-35949.
 

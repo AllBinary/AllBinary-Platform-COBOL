@@ -1,112 +1,239 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.combat.weapon
+*> Java class SimpleWeaponProperties
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.combat.weapon
-unit SimpleWeaponProperties;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
-
-type
-  {AB:TYPES}
-  TSimpleWeaponProperties = class(TObject)
-  public
-    damage: Integer;
-    dissipation: SmallInt;
-    range: Integer;
-    procedure InitFields;
-    constructor Create;
-        procedure set_(simpleWeaponProperties_: TSimpleWeaponProperties); virtual;
-        procedure setDamage(damage: Integer); virtual;
-        function getDamage: Integer; virtual;
-        procedure setDissipation(dissipation: SmallInt); virtual;
-        function getDissipation: SmallInt; virtual;
-        function getRange: Integer; virtual;
-        procedure setRange(range: Integer); virtual;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TSimpleWeaponProperties.InitFields;
-begin
-  
-  
-  
-end;
-
-constructor TSimpleWeaponProperties.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SimpleWeaponProperties-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("SimpleWeaponProperties")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_damage")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_dissipation")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_range")
     
-
-procedure TSimpleWeaponProperties.set_(simpleWeaponProperties_: TSimpleWeaponProperties);
-begin
-        Self.setDamage(simpleWeaponProperties_.getDamage());
-        Self.setDissipation(simpleWeaponProperties_.getDissipation());
-        Self.setRange(simpleWeaponProperties_.getRange());
-end;
     
-
-procedure TSimpleWeaponProperties.setDamage(damage: Integer);
-begin
-        Self.damage := damage;
-end;
     
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION SimpleWeaponProperties-new0.
 
-function TSimpleWeaponProperties.getDamage: Integer;
-begin
-        Exit(Self.damage);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SimpleWeaponProperties-set1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-simpleWeaponProperties BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-simpleWeaponProperties RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION SmplWpnPrprts-setDamage1(J-THIS, FUNCTION SmplWpnPrprts-getDamage0(J-simpleWeaponProperties))
+        COMPUTE JDISCARD = FUNCTION SmplWpnPrprts-setDissipation1(J-THIS, FUNCTION SmplWpnPrprts-getDissipation0(J-simpleWeaponProperties))
+        COMPUTE JDISCARD = FUNCTION SmplWpnPrprts-setRange1(J-THIS, FUNCTION SmplWpnPrprts-getRange0(J-simpleWeaponProperties))
+    GOBACK.
+END FUNCTION SimpleWeaponProperties-set1.
 
-procedure TSimpleWeaponProperties.setDissipation(dissipation: SmallInt);
-begin
-        Self.dissipation := dissipation;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SmplWpnPrprts-setDamage1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-damage BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-damage RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-damage
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_damage", JVALUE)
+    GOBACK.
+END FUNCTION SmplWpnPrprts-setDamage1.
 
-function TSimpleWeaponProperties.getDissipation: SmallInt;
-begin
-        Exit(Self.dissipation);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SmplWpnPrprts-getDamage0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_damage")
+        GOBACK
+    GOBACK.
+END FUNCTION SmplWpnPrprts-getDamage0.
 
-function TSimpleWeaponProperties.getRange: Integer;
-begin
-        Exit(Self.range);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SmplWpnPrprts-setDissipation1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-dissipation BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-dissipation RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-dissipation
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_dissipation", JVALUE)
+    GOBACK.
+END FUNCTION SmplWpnPrprts-setDissipation1.
 
-procedure TSimpleWeaponProperties.setRange(range: Integer);
-begin
-        Self.range := range;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SmplWpnPrprts-getDissipation0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_dissipation")
+        GOBACK
+    GOBACK.
+END FUNCTION SmplWpnPrprts-getDissipation0.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SmplWpnPrprts-getRange0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_range")
+        GOBACK
+    GOBACK.
+END FUNCTION SmplWpnPrprts-getRange0.
 
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. SmplWpnPrprts-setRange1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-range BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-range RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-range
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_range", JVALUE)
+    GOBACK.
+END FUNCTION SmplWpnPrprts-setRange1.
 

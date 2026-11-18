@@ -1,90 +1,154 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.physics.acceleration
+*> Java class BasicAccelerationProperties
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.physics.acceleration
-unit BasicAccelerationProperties;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
-
-type
-  {AB:TYPES}
-  TBasicAccelerationProperties = class(TObject)
-  public
-    forward: Integer;
-    reverse: Integer;
-    procedure InitFields;
-        constructor Create(forward: Integer; reverse: Integer);
-        procedure setReverse(reverse: Integer); virtual;
-        function getReverse: Integer; virtual;
-        procedure setForward(forward: Integer); virtual;
-        function getForward: Integer; virtual;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TBasicAccelerationProperties.InitFields;
-begin
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscAcclrtnPrprts-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-forward BINARY-DOUBLE.
+01 J-reverse BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-forward J-reverse RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("BasicAccelerationProperties")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_forward")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_reverse")
     
-
-constructor TBasicAccelerationProperties.Create(forward: Integer; reverse: Integer);
-begin
-    inherited Create;
-    InitFields;
-        Self.setForward(forward);
-        Self.setReverse(reverse);
-end;
     
+        COMPUTE JDISCARD = FUNCTION BscAcclrtnPrprts-setForward1(J-THIS, J-forward)
+        COMPUTE JDISCARD = FUNCTION BscAcclrtnPrprts-setReverse1(J-THIS, J-reverse)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION BscAcclrtnPrprts-new2.
 
-procedure TBasicAccelerationProperties.setReverse(reverse: Integer);
-begin
-        Self.reverse := reverse;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscAcclrtnPrprts-setReverse1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-reverse BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-reverse RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-reverse
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_reverse", JVALUE)
+    GOBACK.
+END FUNCTION BscAcclrtnPrprts-setReverse1.
 
-function TBasicAccelerationProperties.getReverse: Integer;
-begin
-        Exit(Self.reverse);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscAcclrtnPrprts-getReverse0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_reverse")
+        GOBACK
+    GOBACK.
+END FUNCTION BscAcclrtnPrprts-getReverse0.
 
-procedure TBasicAccelerationProperties.setForward(forward: Integer);
-begin
-        Self.forward := forward;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscAcclrtnPrprts-setForward1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-forward BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-forward RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-forward
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_forward", JVALUE)
+    GOBACK.
+END FUNCTION BscAcclrtnPrprts-setForward1.
 
-function TBasicAccelerationProperties.getForward: Integer;
-begin
-        Exit(Self.forward);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscAcclrtnPrprts-getForward0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_forward")
+        GOBACK
+    GOBACK.
+END FUNCTION BscAcclrtnPrprts-getForward0.
 

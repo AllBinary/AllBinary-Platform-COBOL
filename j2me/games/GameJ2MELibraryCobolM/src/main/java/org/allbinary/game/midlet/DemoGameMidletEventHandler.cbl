@@ -1,73 +1,144 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.midlet
+*> Java class DemoGameMidletEventHandler
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.midlet
-unit DemoGameMidletEventHandler;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DmGmMdltEvntHndlr-sttc-g36470.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 DemoGameMidletEventHandler-jcell-gameKeyEventHandler BINARY-DOUBLE EXTERNAL.
+01 DemoGameMidletEventHandler-jset-gameKeyEventHandler BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF DemoGameMidletEventHandler-jset-gameKeyEventHandler = 0
+        MOVE 1 TO DemoGameMidletEventHandler-jset-gameKeyEventHandler
+        COMPUTE DemoGameMidletEventHandler-jcell-gameKeyEventHandler = FUNCTION DmGmMdltEvntHndlr-new0
+    END-IF
+    MOVE DemoGameMidletEventHandler-jcell-gameKeyEventHandler TO J-RESULT
+    GOBACK.
+END FUNCTION DmGmMdltEvntHndlr-sttc-g36470.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DmGmMdltEvntHndlrsttS24645.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 DemoGameMidletEventHandler-jcell-gameKeyEventHandler BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION DmGmMdltEvntHndlr-sttc-g36470 TO J-RESULT
+    MOVE J-VALUE TO DemoGameMidletEventHandler-jcell-gameKeyEventHandler
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION DmGmMdltEvntHndlrsttS24645.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DmGmMdltEvntHndlr-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("DemoGameMidletEventHandler")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION DmGmMdltEvntHndlr-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AllBinaryEventObject, EventListenerInterface, BasicEventHandler;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DmGmMdltEvntHndlr-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION DmGmMdltEvntHndlr-sttc-g36470
+        GOBACK
+    GOBACK.
+END FUNCTION DmGmMdltEvntHndlr-getInstance0.
 
-type
-  {AB:TYPES}
-  TDemoGameMidletEventHandler = class(TBasicEventHandler)
-  public
-    class var gameKeyEventHandler: TDemoGameMidletEventHandler;
-        constructor Create;
-        class function getInstance: TDemoGameMidletEventHandler; static;
-        procedure process(eventObject: TAllBinaryEventObject; eventListenerInterface_: IEventListenerInterface); override;
-  end;
-
-implementation
-uses
-  DemoGameMidletEventListener, DemoGameMidletEvent;
-
-
-{AB:CODE}
-    
-
-constructor TDemoGameMidletEventHandler.Create;
-begin
-    inherited Create;
-end;
-    
-
-class function TDemoGameMidletEventHandler.getInstance: TDemoGameMidletEventHandler;
-begin
-        Exit(TDemoGameMidletEventHandler.gameKeyEventHandler);
-end;
-    
-
-// throws Exception
-procedure TDemoGameMidletEventHandler.process(eventObject: TAllBinaryEventObject; eventListenerInterface_: IEventListenerInterface);
-var
-  demoGameMidletEventListener_: IDemoGameMidletEventListener;
-begin
-        demoGameMidletEventListener_ := (TJava.ToObject(eventListenerInterface_) as IDemoGameMidletEventListener);
-        demoGameMidletEventListener_.onDemoGameMidletEvent(TDemoGameMidletEvent(TJava.ToObject(eventObject)));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TDemoGameMidletEventHandler.gameKeyEventHandler := TDemoGameMidletEventHandler.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DmGmMdltEvntHndlr-process2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-demoGameMidletEventListener BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-eventListenerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject J-eventListenerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-demoGameMidletEventListener = J-eventListenerInterface
+        COMPUTE jtemp1 = J-eventObject
+        COMPUTE JDISCARD = FUNCTION DmGmMdltEvntLstnr-onDmGmM67923(J-demoGameMidletEventListener, jtemp1)
+    GOBACK.
+END FUNCTION DmGmMdltEvntHndlr-process2.
 

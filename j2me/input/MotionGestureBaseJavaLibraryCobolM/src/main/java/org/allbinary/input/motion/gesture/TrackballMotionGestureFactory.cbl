@@ -1,86 +1,145 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion.gesture
+*> Java class TrackballMotionGestureFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion.gesture
-unit TrackballMotionGestureFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TrckbllMtnGstrFctry-sttc13308.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 TrackballMotionGestureFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 TrackballMotionGestureFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF TrackballMotionGestureFactory-jset-instance = 0
+        MOVE 1 TO TrackballMotionGestureFactory-jset-instance
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE TrackballMotionGestureFactory-jcell-instance = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+    END-IF
+    MOVE TrackballMotionGestureFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION TrckbllMtnGstrFctry-sttc13308.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TrckbllMtnGstrFctrysS27053.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 TrackballMotionGestureFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION TrckbllMtnGstrFctry-sttc13308 TO J-RESULT
+    MOVE J-VALUE TO TrackballMotionGestureFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION TrckbllMtnGstrFctrysS27053.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, MotionGestureInput;
-
-type
-  {AB:TYPES}
-  TTrackballMotionGestureFactory = class(TObject)
-  public
-    LEFT: TMotionGestureInput;
-    RIGHT: TMotionGestureInput;
-    UP: TMotionGestureInput;
-    DOWN: TMotionGestureInput;
-    class var instance: TObject;
-    procedure InitFields;
-        class function getInstance: TTrackballMotionGestureFactory; static;
-        constructor Create;
-  end;
-
-implementation
-uses
-  InputFactory, NullUtil;
-
-
-{AB:CODE}
-
-procedure TTrackballMotionGestureFactory.InitFields;
-begin
-  
-  
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TrckbllMtnGstrFctry-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-MAX BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("TrackballMotionGestureFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_LEFT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_RIGHT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_UP")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DOWN")
     
-
-class function TTrackballMotionGestureFactory.getInstance: TTrackballMotionGestureFactory;
-begin
-        if (TTrackballMotionGestureFactory.instance) = (TNullUtil.getInstance().NULL_OBJECT) then begin
-            TTrackballMotionGestureFactory.instance := TTrackballMotionGestureFactory.Create();
-        end;
-        Exit(TTrackballMotionGestureFactory(TJava.ToObject(TTrackballMotionGestureFactory.instance)));
-end;
     
+    
+    
+        COMPUTE jtemp3 = FUNCTION InputFactory-getInstance0
+        COMPUTE J-MAX = FUNCTION JR-GET(jtemp3, "f_MAX")
+        COMPUTE jtemp4 = (FUNCTION MOD((J-MAX - 26) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION MotionGestureInput-new2(jtemp4, FUNCTION JR-STR("L Trackball"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_LEFT", JVALUE)
+        COMPUTE jtemp5 = (FUNCTION MOD((J-MAX - 27) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION MotionGestureInput-new2(jtemp5, FUNCTION JR-STR("R Trackball"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_RIGHT", JVALUE)
+        COMPUTE jtemp6 = (FUNCTION MOD((J-MAX - 28) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION MotionGestureInput-new2(jtemp6, FUNCTION JR-STR("Up Trackball"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_UP", JVALUE)
+        COMPUTE jtemp7 = (FUNCTION MOD((J-MAX - 29) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION MotionGestureInput-new2(jtemp7, FUNCTION JR-STR("D Trackball"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DOWN", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION TrckbllMtnGstrFctry-new0.
 
-constructor TTrackballMotionGestureFactory.Create;
-var
-  MAX: Integer;
-begin
-    inherited Create;
-    InitFields;
-        MAX := TInputFactory.getInstance().MAX;
-        Self.LEFT := TMotionGestureInput.Create((MAX) - (26), 'L Trackball');
-        Self.RIGHT := TMotionGestureInput.Create((MAX) - (27), 'R Trackball');
-        Self.UP := TMotionGestureInput.Create((MAX) - (28), 'Up Trackball');
-        Self.DOWN := TMotionGestureInput.Create((MAX) - (29), 'D Trackball');
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TTrackballMotionGestureFactory.instance := TJava.Box(TNullUtil.getInstance().NULL_OBJECT);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TrckbllMtnGstrFctry-gtInstnc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+        IF (FUNCTION TrckbllMtnGstrFctry-sttc13308 = FUNCTION JR-GET(jtemp2, "f_NULL_OBJECT"))
+            COMPUTE JDISCARD = FUNCTION TrckbllMtnGstrFctrysS27053(FUNCTION TrckbllMtnGstrFctry-new0)
+        END-IF
+        COMPUTE J-RESULT = FUNCTION TrckbllMtnGstrFctry-sttc13308
+        GOBACK
+    GOBACK.
+END FUNCTION TrckbllMtnGstrFctry-gtInstnc0.
 

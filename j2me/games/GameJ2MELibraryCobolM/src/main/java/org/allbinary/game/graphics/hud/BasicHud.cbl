@@ -1,368 +1,948 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.graphics.hud
+*> Java class BasicHud
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicHud-new4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-location BINARY-DOUBLE.
+01 J-direction BINARY-DOUBLE.
+01 J-bufferZone BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-location J-direction J-bufferZone J-basicColor RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("BasicHud")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_canvasStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_basicSetColorUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_displayInfo")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_updateMyFontProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_myFontProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_location")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_direction")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_bufferZone")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_bufferZoneY")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_hudGraphicsPosition")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_x")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_y")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_basicColor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_color")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_updateMaxWidth")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_updateMaxHeight")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_offsetY")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
+    COMPUTE JVALUE = FUNCTION CanvasStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_canvasStrings", JVALUE)
+    COMPUTE JVALUE = FUNCTION BasicColorSetUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicSetColorUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION DsplyInfSngltn-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_displayInfo", JVALUE)
+    COMPUTE JVALUE = FUNCTION UpdateMyFontProcessor-new1(J-THIS)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_updateMyFontProcessor", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_updateMyFontProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
     
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.graphics.hud
-unit BasicHud;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, GPoint, BasicColor, BasicColorSetUtil, CanvasStrings, DisplayInfoSingleton, DisplayChangeEvent, MyFontProcessor, UpdateMyFontInterface, LogUtil, AllBinaryEventObject, CommonStrings, HudGraphicsPosition;
-
-type
-  {AB:TYPES}
-  TBasicHud = class(TInterfacedObject, IUpdateMyFontInterface)
-  public
-    logUtil: TLogUtil;
-    commonStrings: TCommonStrings;
-    canvasStrings: TCanvasStrings;
-    basicSetColorUtil: TBasicColorSetUtil;
-    displayInfo: TDisplayInfoSingleton;
-    updateMyFontProcessor: TMyFontProcessor;
-    myFontProcessor: TMyFontProcessor;
-    location: Integer;
-    direction: Integer;
-    bufferZone: Integer;
-    bufferZoneY: Integer;
-    hudGraphicsPosition: THudGraphicsPosition;
-    x: Integer;
-    y: Integer;
-    basicColor: TBasicColor;
-    color: Integer;
-    updateMaxWidth: Integer;
-    updateMaxHeight: Integer;
-    offsetY: Integer;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(location: Integer; direction: Integer; bufferZone: Integer; basicColor_: TBasicColor);
-        procedure updateMeasurement(graphics_: TGraphics); virtual;
-        function getLocation: Integer; virtual;
-        function getDirection: Integer; virtual;
-        function getHudGraphicsPositionWH(width: Integer; height: Integer; maxWidth: Integer; maxHeight: Integer): THudGraphicsPosition; virtual;
-        procedure onEvent(eventObject: TAllBinaryEventObject); virtual;
-        procedure onDisplayChangeEvent(displayChangeEvent_: TDisplayChangeEvent); virtual;
-        function getPoint(x: Integer; y: Integer): TGPoint; virtual;
-        function getBufferZone: Integer; virtual;
-        procedure setBufferZone(bufferZone: Integer); virtual;
-        procedure setLocation(location: Integer); virtual;
-        procedure setDirection(direction: Integer); virtual;
-        function getHudGraphicsPosition: THudGraphicsPosition; virtual;
-        function getColor: Integer; virtual;
-        function getX: Integer; virtual;
-        procedure setX(x: Integer); virtual;
-        procedure setBasicColorP(basicColor_: TBasicColor); virtual;
-        function getBasicColorP: TBasicColor; virtual;
-        procedure setY(y: Integer); virtual;
-        function getY: Integer; virtual;
-        procedure paintSSO(graphics_: TGraphics; string_: string; string2: string; offset: Integer); virtual;
-        procedure paintSSOO(graphics_: TGraphics; string_: string; string2: string; offset: Integer; offset2: Integer); virtual;
-        procedure paintDXY(graphics_: TGraphics; charArray: TArray<WideChar>; offset: Integer; len: Integer; charArray2: TArray<WideChar>; offset2: Integer; len2: Integer; xOffset: Integer; xOffset2: Integer); virtual;
-        procedure paintDX(graphics_: TGraphics; charArray: TArray<WideChar>; offset: Integer; len: Integer; charArray2: TArray<WideChar>; offset2: Integer; len2: Integer; xOffset: Integer); virtual;
-        procedure paintOffsetAndLength(graphics_: TGraphics; charArray: TArray<WideChar>; offset: Integer; len: Integer); virtual;
-        procedure paintString(graphics_: TGraphics; string_: string); virtual;
-  end;
-
-implementation
-uses
-  BasicHudFactory, J2MEUtil, Anchor, PointFactory, BasicColorFactory, UpdateMyFontProcessor, ForcedLogUtil, EventStrings;
-
-
-{AB:CODE}
-
-procedure TBasicHud.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.commonStrings := TCommonStrings.getInstance();
-  Self.canvasStrings := TCanvasStrings.getInstance();
-  Self.basicSetColorUtil := TBasicColorSetUtil.getInstance();
-  Self.displayInfo := TDisplayInfoSingleton.getInstance();
-  Self.updateMyFontProcessor := TUpdateMyFontProcessor.Create(Self);
-  Self.myFontProcessor := Self.updateMyFontProcessor;
-  
-  
-  
-  
-  Self.hudGraphicsPosition := THudGraphicsPosition.NULL_HUD_GRAPHICS_POSITION;
-  
-  
-  Self.basicColor := TBasicColorFactory.getInstance().BLACK;
-  
-  
-  
-  
-end;
-
-function TBasicHud.JavaObject: TObject;
-begin
-  Result := Self;
-end;
     
-
-constructor TBasicHud.Create(location: Integer; direction: Integer; bufferZone: Integer; basicColor_: TBasicColor);
-begin
-    inherited Create;
-    InitFields;
-        Self.setLocation(location);
-        Self.setDirection(direction);
-        Self.setBufferZone(bufferZone);
-        Self.onDisplayChangeEvent(TDisplayInfoSingleton.getInstance().displayChangeEvent);
-        Self.setBasicColorP(basicColor_);
-        Self.color := basicColor_.intValue();
-end;
     
-
-procedure TBasicHud.updateMeasurement(graphics_: TGraphics);
-var
-  commonStrings_: TCommonStrings;
-begin
-        try
-            Self.hudGraphicsPosition := Self.getHudGraphicsPositionWH(Self.displayInfo.getLastWidth(), Self.displayInfo.getLastHeight(), Self.updateMaxWidth, Self.updateMaxHeight);
-            Self.x := Self.hudGraphicsPosition.getPoint().getX();
-            Self.setY(Self.hudGraphicsPosition.getPoint().getY());
-        except
-            on e: SysUtils.Exception do begin
-            commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), Self.canvasStrings.ON_DISPLAY_CHANGE_EVENT, TJava.Box(e));
-            end;
-        end;
-        Self.myFontProcessor := TMyFontProcessor.getInstance();
-end;
     
-
-function TBasicHud.getLocation: Integer;
-begin
-        Exit(Self.location);
-end;
+    COMPUTE JVALUE = FUNCTION HdGrphcsPstn-sttc-NUL95659
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hudGraphicsPosition", JVALUE)
     
-
-function TBasicHud.getDirection: Integer;
-begin
-        Exit(Self.direction);
-end;
     
-
-// throws Exception
-function TBasicHud.getHudGraphicsPositionWH(width: Integer; height: Integer; maxWidth: Integer; maxHeight: Integer): THudGraphicsPosition;
-var
-  x: Integer;
-  y: Integer;
-  anchor_: Integer;
-  basicHudFactory_: TBasicHudFactory;
-begin
-        x := 0;
-        y := 0;
-        anchor_ := 0;
-        basicHudFactory_ := TBasicHudFactory.getInstance();
-        if (basicHudFactory_.BOTTOMLEFT) = (Self.getLocation()) then begin
-            x := (Self.bufferZone) + (2);
-            y := ((height) - (maxHeight)) - (Self.bufferZone);
-            anchor_ := (TGraphics.BOTTOM) and (TGraphics.LEFT);
-        end else if (basicHudFactory_.BOTTOMRIGHT) = (Self.getLocation()) then begin
-            x := (width) - (maxWidth);
-            y := ((height) - (maxHeight)) - (Self.bufferZone);
-            anchor_ := (TGraphics.BOTTOM) and (TGraphics.RIGHT);
-        end else if (basicHudFactory_.TOPLEFT) = (Self.getLocation()) then begin
-            x := (Self.bufferZone) + (2);
-            y := Self.bufferZoneY;
-            anchor_ := TAnchor.TOP_LEFT;
-        end else if (basicHudFactory_.TOPRIGHT) = (Self.getLocation()) then begin
-            x := (width) - (maxWidth);
-            y := Self.bufferZoneY;
-            anchor_ := (TGraphics.TOP) and (TGraphics.RIGHT);
-        end else if (basicHudFactory_.TOPCENTER) = (Self.getLocation()) then begin
-            x := ((((width) - (maxWidth))) div (2));
-            y := Self.bufferZoneY;
-            anchor_ := (TGraphics.TOP) and (TGraphics.HCENTER);
-        end else if (basicHudFactory_.BOTTOMCENTER) = (Self.getLocation()) then begin
-            x := ((((width) - (maxWidth))) div (2));
-            y := ((height) - (maxHeight)) - (Self.bufferZone);
-            anchor_ := (TGraphics.BOTTOM) and (TGraphics.HCENTER);
-        end else if (basicHudFactory_.ABSOLUTE_) = (Self.getLocation()) then begin
-            x := maxHeight;
-            y := maxWidth;
-            anchor_ := 0;
-        end;
-        Exit(THudGraphicsPosition.Create(Self.getPoint(x, y), anchor_));
-end;
+    COMPUTE jtemp1 = FUNCTION BasicColorFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_BLACK")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicColor", JVALUE)
     
-
-procedure TBasicHud.onEvent(eventObject: TAllBinaryEventObject);
-begin
-        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, TJava.Box(Self));
-end;
     
-
-procedure TBasicHud.onDisplayChangeEvent(displayChangeEvent_: TDisplayChangeEvent);
-begin
-        Self.myFontProcessor := Self.updateMyFontProcessor;
-end;
     
-
-function TBasicHud.getPoint(x: Integer; y: Integer): TGPoint;
-begin
-        Exit(TPointFactory.getInstance().createXY(x, y));
-end;
     
+        COMPUTE JDISCARD = FUNCTION BasicHud-setLocation1(J-THIS, J-location)
+        COMPUTE JDISCARD = FUNCTION BasicHud-setDirection1(J-THIS, J-direction)
+        COMPUTE JDISCARD = FUNCTION BasicHud-setBufferZone1(J-THIS, J-bufferZone)
+        COMPUTE jtemp2 = FUNCTION DsplyInfSngltn-getInstance0
+        COMPUTE JDISCARD = FUNCTION BasicHud-onDisplayChangeEvent1(J-THIS, FUNCTION JR-GET(jtemp2, "f_displayChangeEvent"))
+        COMPUTE JDISCARD = FUNCTION BasicHud-setBasicColorP1(J-THIS, J-basicColor)
+        COMPUTE JVALUE = FUNCTION BasicColor-intValue0(J-basicColor)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_color", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION BasicHud-new4.
 
-function TBasicHud.getBufferZone: Integer;
-begin
-        Exit(Self.bufferZone);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicHud-updateMeasurement1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-commonStrings BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE JVALUE = FUNCTION BscHd-gtHdGrphcsPstnWH4(J-THIS, FUNCTION DsplyInfSngltn-getLastWidth0(FUNCTION JR-GET(J-THIS, "f_displayInfo")), FUNCTION DsplyInfSngltn-getLastHeight0(FUNCTION JR-GET(J-THIS, "f_displayInfo")),
+        FUNCTION JR-GET(J-THIS, "f_updateMaxWidth"), FUNCTION JR-GET(J-THIS, "f_updateMaxHeight"))
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hudGraphicsPosition", JVALUE)
+            COMPUTE jtemp3 = FUNCTION HudGraphicsPosition-getPoint0(FUNCTION JR-GET(J-THIS, "f_hudGraphicsPosition"))
+            COMPUTE JVALUE = FUNCTION JR-CLASS-NAME(jtemp3)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_x", JVALUE)
+            COMPUTE jtemp4 = FUNCTION HudGraphicsPosition-getPoint0(FUNCTION JR-GET(J-THIS, "f_hudGraphicsPosition"))
+            COMPUTE JDISCARD = FUNCTION BasicHud-setY1(J-THIS, FUNCTION JR-CLASS-NAME(jtemp4))
+        COMPUTE JVALUE = FUNCTION MyFontProcessor-getInstance0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
+    GOBACK.
+END FUNCTION BasicHud-updateMeasurement1.
 
-procedure TBasicHud.setBufferZone(bufferZone: Integer);
-begin
-        Self.bufferZone := bufferZone;
-        if TJ2MEUtil.isHTML() then begin
-            Self.bufferZoneY := Self.bufferZone;
-        end else begin
-            Self.bufferZoneY := (Self.bufferZone) + (5);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicHud-getLocation0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_location")
+        GOBACK
+    GOBACK.
+END FUNCTION BasicHud-getLocation0.
 
-procedure TBasicHud.setLocation(location: Integer);
-begin
-        Self.location := location;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicHud-getDirection0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_direction")
+        GOBACK
+    GOBACK.
+END FUNCTION BasicHud-getDirection0.
 
-procedure TBasicHud.setDirection(direction: Integer);
-begin
-        Self.direction := direction;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscHd-gtHdGrphcsPstnWH4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-anchor BINARY-DOUBLE.
+01 J-basicHudFactory BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-maxWidth BINARY-DOUBLE.
+01 J-maxHeight BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-width J-height J-maxWidth J-maxHeight RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-x = 0
+        COMPUTE J-y = 0
+        COMPUTE J-anchor = 0
+        COMPUTE J-basicHudFactory = FUNCTION BasicHudFactory-getInstance0
+        IF (FUNCTION JR-GET(J-basicHudFactory, "f_BOTTOMLEFT") = FUNCTION BasicHud-getLocation0(J-THIS))
+            COMPUTE jtemp6 = 2
+            COMPUTE J-x = (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_bufferZone") + jtemp6) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE J-y = (FUNCTION MOD(((FUNCTION MOD((J-height - J-maxHeight) + 2147483648, 4294967296) - 2147483648) - FUNCTION JR-GET(J-THIS, "f_bufferZone")) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE J-anchor = FUNCTION JR-BITS(JONE, FUNCTION Graphics-static-BOTTOM, FUNCTION Graphics-static-LEFT)
+        ELSE
+            IF (FUNCTION JR-GET(J-basicHudFactory, "f_BOTTOMRIGHT") = FUNCTION BasicHud-getLocation0(J-THIS))
+            COMPUTE J-x = (FUNCTION MOD((J-width - J-maxWidth) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE J-y = (FUNCTION MOD(((FUNCTION MOD((J-height - J-maxHeight) + 2147483648, 4294967296) - 2147483648) - FUNCTION JR-GET(J-THIS, "f_bufferZone")) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE J-anchor = FUNCTION JR-BITS(JONE, FUNCTION Graphics-static-BOTTOM, FUNCTION Graphics-static-RIGHT)
+        ELSE
+            IF (FUNCTION JR-GET(J-basicHudFactory, "f_TOPLEFT") = FUNCTION BasicHud-getLocation0(J-THIS))
+            COMPUTE jtemp5 = 2
+            COMPUTE J-x = (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_bufferZone") + jtemp5) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE J-y = FUNCTION JR-GET(J-THIS, "f_bufferZoneY")
+            COMPUTE J-anchor = FUNCTION Anchor-static-TOP-LEFT
+        ELSE
+            IF (FUNCTION JR-GET(J-basicHudFactory, "f_TOPRIGHT") = FUNCTION BasicHud-getLocation0(J-THIS))
+            COMPUTE J-x = (FUNCTION MOD((J-width - J-maxWidth) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE J-y = FUNCTION JR-GET(J-THIS, "f_bufferZoneY")
+            COMPUTE J-anchor = FUNCTION JR-BITS(JONE, FUNCTION Graphics-static-TOP, FUNCTION Graphics-static-RIGHT)
+        ELSE
+            IF (FUNCTION JR-GET(J-basicHudFactory, "f_TOPCENTER") = FUNCTION BasicHud-getLocation0(J-THIS))
+            COMPUTE J-x = ((FUNCTION MOD(FUNCTION INTEGER-PART(((FUNCTION MOD((J-width - J-maxWidth) + 2147483648, 4294967296) - 2147483648)) / 2) + 2147483648, 4294967296) - 2147483648))
+            COMPUTE J-y = FUNCTION JR-GET(J-THIS, "f_bufferZoneY")
+            COMPUTE J-anchor = FUNCTION JR-BITS(JONE, FUNCTION Graphics-static-TOP, FUNCTION Graphics-static-HCENTER)
+        ELSE
+            IF (FUNCTION JR-GET(J-basicHudFactory, "f_BOTTOMCENTER") = FUNCTION BasicHud-getLocation0(J-THIS))
+            COMPUTE J-x = ((FUNCTION MOD(FUNCTION INTEGER-PART(((FUNCTION MOD((J-width - J-maxWidth) + 2147483648, 4294967296) - 2147483648)) / 2) + 2147483648, 4294967296) - 2147483648))
+            COMPUTE J-y = (FUNCTION MOD(((FUNCTION MOD((J-height - J-maxHeight) + 2147483648, 4294967296) - 2147483648) - FUNCTION JR-GET(J-THIS, "f_bufferZone")) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE J-anchor = FUNCTION JR-BITS(JONE, FUNCTION Graphics-static-BOTTOM, FUNCTION Graphics-static-HCENTER)
+        ELSE
+            IF (FUNCTION JR-GET(J-basicHudFactory, "f_ABSOLUTE") = FUNCTION BasicHud-getLocation0(J-THIS))
+            COMPUTE J-x = J-maxHeight
+            COMPUTE J-y = J-maxWidth
+            COMPUTE J-anchor = 0
+        END-IF
+        END-IF
+        END-IF
+        END-IF
+        END-IF
+        END-IF
+        END-IF
+        COMPUTE J-RESULT = FUNCTION HudGraphicsPosition-new2(FUNCTION BasicHud-getPoint2(J-THIS, J-x, J-y), J-anchor)
+        GOBACK
+    GOBACK.
+END FUNCTION BscHd-gtHdGrphcsPstnWH4.
 
-function TBasicHud.getHudGraphicsPosition: THudGraphicsPosition;
-begin
-        Exit(Self.hudGraphicsPosition);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicHud-onEvent1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp7 = FUNCTION EventStrings-getInstance0
+        COMPUTE JDISCARD = FUNCTION ForcedLogUtil-log2(FUNCTION JR-GET(jtemp7, "f_PERFORMANCE_MESSAGE"), J-THIS)
+    GOBACK.
+END FUNCTION BasicHud-onEvent1.
 
-function TBasicHud.getColor: Integer;
-begin
-        Exit(Self.color);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicHud-onDisplayChangeEvent1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-displayChangeEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-displayChangeEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_updateMyFontProcessor")
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_myFontProcessor", JVALUE)
+    GOBACK.
+END FUNCTION BasicHud-onDisplayChangeEvent1.
 
-function TBasicHud.getX: Integer;
-begin
-        Exit(Self.x);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicHud-getPoint2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp8 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp8 = FUNCTION PointFactory-getInstance0
+        COMPUTE J-RESULT = FUNCTION PointFactory-createXY2(jtemp8, J-x, J-y)
+        GOBACK
+    GOBACK.
+END FUNCTION BasicHud-getPoint2.
 
-procedure TBasicHud.setX(x: Integer);
-begin
-        Self.x := x;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicHud-getBufferZone0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_bufferZone")
+        GOBACK
+    GOBACK.
+END FUNCTION BasicHud-getBufferZone0.
 
-procedure TBasicHud.setBasicColorP(basicColor_: TBasicColor);
-begin
-        Self.basicColor := basicColor_;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicHud-setBufferZone1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp9 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-bufferZone BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-bufferZone RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-bufferZone
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_bufferZone", JVALUE)
+        IF (FUNCTION J2MEUtil-isHTML0 = 1)
+            COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_bufferZone")
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_bufferZoneY", JVALUE)
+        ELSE
+            COMPUTE jtemp9 = 5
+            COMPUTE JVALUE = (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_bufferZone") + jtemp9) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_bufferZoneY", JVALUE)
+        END-IF
+    GOBACK.
+END FUNCTION BasicHud-setBufferZone1.
 
-function TBasicHud.getBasicColorP: TBasicColor;
-begin
-        Exit(Self.basicColor);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicHud-setLocation1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-location BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-location RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-location
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_location", JVALUE)
+    GOBACK.
+END FUNCTION BasicHud-setLocation1.
 
-procedure TBasicHud.setY(y: Integer);
-begin
-        Self.y := y;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicHud-setDirection1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-direction BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-direction RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-direction
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_direction", JVALUE)
+    GOBACK.
+END FUNCTION BasicHud-setDirection1.
 
-function TBasicHud.getY: Integer;
-begin
-        Exit(Self.y);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscHd-getHudGraphicsPosition0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_hudGraphicsPosition")
+        GOBACK
+    GOBACK.
+END FUNCTION BscHd-getHudGraphicsPosition0.
 
-procedure TBasicHud.paintSSO(graphics_: TGraphics; string_: string; string2: string; offset: Integer);
-begin
-        Self.myFontProcessor.process(graphics_);
-        Self.basicSetColorUtil.setBasicColorP(graphics_, Self.getBasicColorP());
-        graphics_.drawString(string_, Self.x, Self.getY(), Self.hudGraphicsPosition.getAnchor());
-        graphics_.drawString(string2, (Self.x) + (offset), Self.getY(), Self.hudGraphicsPosition.getAnchor());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicHud-getColor0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_color")
+        GOBACK
+    GOBACK.
+END FUNCTION BasicHud-getColor0.
 
-procedure TBasicHud.paintSSOO(graphics_: TGraphics; string_: string; string2: string; offset: Integer; offset2: Integer);
-begin
-        Self.myFontProcessor.process(graphics_);
-        graphics_.setColor(Self.getColor());
-        graphics_.drawString(string_, (Self.x) + (offset), Self.getY(), Self.hudGraphicsPosition.getAnchor());
-        graphics_.drawString(string2, (Self.x) + (offset2), Self.getY(), Self.hudGraphicsPosition.getAnchor());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicHud-getX0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_x")
+        GOBACK
+    GOBACK.
+END FUNCTION BasicHud-getX0.
 
-procedure TBasicHud.paintDXY(graphics_: TGraphics; charArray: TArray<WideChar>; offset: Integer; len: Integer; charArray2: TArray<WideChar>; offset2: Integer; len2: Integer; xOffset: Integer; xOffset2: Integer);
-var
-  y: Integer;
-begin
-        Self.myFontProcessor.process(graphics_);
-        Self.basicSetColorUtil.setBasicColorP(graphics_, Self.getBasicColorP());
-        y := Self.getY();
-        graphics_.drawChars(charArray, offset, len, (Self.x) + (xOffset), y, Self.hudGraphicsPosition.getAnchor());
-        graphics_.drawChars(charArray2, offset2, len2, (Self.x) + (xOffset2), y, Self.hudGraphicsPosition.getAnchor());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicHud-setX1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-x RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-x
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_x", JVALUE)
+    GOBACK.
+END FUNCTION BasicHud-setX1.
 
-procedure TBasicHud.paintDX(graphics_: TGraphics; charArray: TArray<WideChar>; offset: Integer; len: Integer; charArray2: TArray<WideChar>; offset2: Integer; len2: Integer; xOffset: Integer);
-var
-  y: Integer;
-begin
-        Self.myFontProcessor.process(graphics_);
-        Self.basicSetColorUtil.setBasicColorP(graphics_, Self.getBasicColorP());
-        y := Self.getY();
-        graphics_.drawChars(charArray, offset, len, Self.x, y, Self.hudGraphicsPosition.getAnchor());
-        graphics_.drawChars(charArray2, offset2, len2, (Self.x) + (xOffset), y, Self.hudGraphicsPosition.getAnchor());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicHud-setBasicColorP1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-basicColor RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-basicColor
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicColor", JVALUE)
+    GOBACK.
+END FUNCTION BasicHud-setBasicColorP1.
 
-procedure TBasicHud.paintOffsetAndLength(graphics_: TGraphics; charArray: TArray<WideChar>; offset: Integer; len: Integer);
-var
-  y: Integer;
-begin
-        Self.myFontProcessor.process(graphics_);
-        Self.basicSetColorUtil.setBasicColorP(graphics_, Self.getBasicColorP());
-        y := Self.getY();
-        graphics_.drawChars(charArray, offset, len, Self.x, y, Self.hudGraphicsPosition.getAnchor());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicHud-getBasicColorP0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_basicColor")
+        GOBACK
+    GOBACK.
+END FUNCTION BasicHud-getBasicColorP0.
 
-procedure TBasicHud.paintString(graphics_: TGraphics; string_: string);
-var
-  y: Integer;
-begin
-        Self.myFontProcessor.process(graphics_);
-        Self.basicSetColorUtil.setBasicColorP(graphics_, Self.getBasicColorP());
-        y := (Self.getY()) + (Self.offsetY);
-        graphics_.drawString(string_, Self.x, y, Self.hudGraphicsPosition.getAnchor());
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicHud-setY1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-y
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_y", JVALUE)
+    GOBACK.
+END FUNCTION BasicHud-setY1.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicHud-getY0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_y")
+        GOBACK
+    GOBACK.
+END FUNCTION BasicHud-getY0.
 
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicHud-paintSSO4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp10 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-string BINARY-DOUBLE.
+01 J-string2 BINARY-DOUBLE.
+01 J-offset BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-string J-string2 J-offset RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION MyFontProcessor-process1(FUNCTION JR-GET(J-THIS, "f_myFontProcessor"), J-graphics)
+        COMPUTE JDISCARD = FUNCTION BscClrStUtl-setBasicColorP2(FUNCTION JR-GET(J-THIS, "f_basicSetColorUtil"), J-graphics, FUNCTION BasicHud-getBasicColorP0(J-THIS))
+        COMPUTE JDISCARD = FUNCTION Graphics-drawString4(J-graphics, J-string, FUNCTION JR-GET(J-THIS, "f_x"), FUNCTION BasicHud-getY0(J-THIS), FUNCTION HudGraphicsPosition-getAnchor0(FUNCTION JR-GET(J-THIS, "f_hudGraphicsPosition")))
+        COMPUTE jtemp10 = (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_x") + J-offset) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION Graphics-drawString4(J-graphics, J-string2, jtemp10, FUNCTION BasicHud-getY0(J-THIS), FUNCTION HudGraphicsPosition-getAnchor0(FUNCTION JR-GET(J-THIS, "f_hudGraphicsPosition")))
+    GOBACK.
+END FUNCTION BasicHud-paintSSO4.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicHud-paintSSOO5.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-string BINARY-DOUBLE.
+01 J-string2 BINARY-DOUBLE.
+01 J-offset BINARY-DOUBLE.
+01 J-offset2 BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-string J-string2 J-offset J-offset2 RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION MyFontProcessor-process1(FUNCTION JR-GET(J-THIS, "f_myFontProcessor"), J-graphics)
+        COMPUTE JDISCARD = FUNCTION Graphics-setColor1(J-graphics, FUNCTION BasicHud-getColor0(J-THIS))
+        COMPUTE jtemp11 = (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_x") + J-offset) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION Graphics-drawString4(J-graphics, J-string, jtemp11, FUNCTION BasicHud-getY0(J-THIS), FUNCTION HudGraphicsPosition-getAnchor0(FUNCTION JR-GET(J-THIS, "f_hudGraphicsPosition")))
+        COMPUTE jtemp12 = (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_x") + J-offset2) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION Graphics-drawString4(J-graphics, J-string2, jtemp12, FUNCTION BasicHud-getY0(J-THIS), FUNCTION HudGraphicsPosition-getAnchor0(FUNCTION JR-GET(J-THIS, "f_hudGraphicsPosition")))
+    GOBACK.
+END FUNCTION BasicHud-paintSSOO5.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicHud-paintDXY9.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-y BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-charArray BINARY-DOUBLE.
+01 J-offset BINARY-DOUBLE.
+01 J-len BINARY-DOUBLE.
+01 J-charArray2 BINARY-DOUBLE.
+01 J-offset2 BINARY-DOUBLE.
+01 J-len2 BINARY-DOUBLE.
+01 J-xOffset BINARY-DOUBLE.
+01 J-xOffset2 BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-charArray J-offset J-len J-charArray2 J-offset2 J-len2 J-xOffset J-xOffset2 RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION MyFontProcessor-process1(FUNCTION JR-GET(J-THIS, "f_myFontProcessor"), J-graphics)
+        COMPUTE JDISCARD = FUNCTION BscClrStUtl-setBasicColorP2(FUNCTION JR-GET(J-THIS, "f_basicSetColorUtil"), J-graphics, FUNCTION BasicHud-getBasicColorP0(J-THIS))
+        COMPUTE J-y = FUNCTION BasicHud-getY0(J-THIS)
+        COMPUTE jtemp13 = (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_x") + J-xOffset) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION Graphics-drawChars6(J-graphics, J-charArray, J-offset, J-len, jtemp13, J-y, FUNCTION HudGraphicsPosition-getAnchor0(FUNCTION JR-GET(J-THIS, "f_hudGraphicsPosition")))
+        COMPUTE jtemp14 = (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_x") + J-xOffset2) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION Graphics-drawChars6(J-graphics, J-charArray2, J-offset2, J-len2, jtemp14, J-y, FUNCTION HudGraphicsPosition-getAnchor0(FUNCTION JR-GET(J-THIS, "f_hudGraphicsPosition")))
+    GOBACK.
+END FUNCTION BasicHud-paintDXY9.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicHud-paintDX8.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-y BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-charArray BINARY-DOUBLE.
+01 J-offset BINARY-DOUBLE.
+01 J-len BINARY-DOUBLE.
+01 J-charArray2 BINARY-DOUBLE.
+01 J-offset2 BINARY-DOUBLE.
+01 J-len2 BINARY-DOUBLE.
+01 J-xOffset BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-charArray J-offset J-len J-charArray2 J-offset2 J-len2 J-xOffset RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION MyFontProcessor-process1(FUNCTION JR-GET(J-THIS, "f_myFontProcessor"), J-graphics)
+        COMPUTE JDISCARD = FUNCTION BscClrStUtl-setBasicColorP2(FUNCTION JR-GET(J-THIS, "f_basicSetColorUtil"), J-graphics, FUNCTION BasicHud-getBasicColorP0(J-THIS))
+        COMPUTE J-y = FUNCTION BasicHud-getY0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION Graphics-drawChars6(J-graphics, J-charArray, J-offset, J-len, FUNCTION JR-GET(J-THIS, "f_x"), J-y, FUNCTION HudGraphicsPosition-getAnchor0(FUNCTION JR-GET(J-THIS, "f_hudGraphicsPosition")))
+        COMPUTE jtemp15 = (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_x") + J-xOffset) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION Graphics-drawChars6(J-graphics, J-charArray2, J-offset2, J-len2, jtemp15, J-y, FUNCTION HudGraphicsPosition-getAnchor0(FUNCTION JR-GET(J-THIS, "f_hudGraphicsPosition")))
+    GOBACK.
+END FUNCTION BasicHud-paintDX8.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicHud-paintOffsetAndLength4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-y BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-charArray BINARY-DOUBLE.
+01 J-offset BINARY-DOUBLE.
+01 J-len BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-charArray J-offset J-len RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION MyFontProcessor-process1(FUNCTION JR-GET(J-THIS, "f_myFontProcessor"), J-graphics)
+        COMPUTE JDISCARD = FUNCTION BscClrStUtl-setBasicColorP2(FUNCTION JR-GET(J-THIS, "f_basicSetColorUtil"), J-graphics, FUNCTION BasicHud-getBasicColorP0(J-THIS))
+        COMPUTE J-y = FUNCTION BasicHud-getY0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION Graphics-drawChars6(J-graphics, J-charArray, J-offset, J-len, FUNCTION JR-GET(J-THIS, "f_x"), J-y, FUNCTION HudGraphicsPosition-getAnchor0(FUNCTION JR-GET(J-THIS, "f_hudGraphicsPosition")))
+    GOBACK.
+END FUNCTION BasicHud-paintOffsetAndLength4.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicHud-paintString2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-y BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-string BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-string RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION MyFontProcessor-process1(FUNCTION JR-GET(J-THIS, "f_myFontProcessor"), J-graphics)
+        COMPUTE JDISCARD = FUNCTION BscClrStUtl-setBasicColorP2(FUNCTION JR-GET(J-THIS, "f_basicSetColorUtil"), J-graphics, FUNCTION BasicHud-getBasicColorP0(J-THIS))
+        COMPUTE J-y = (FUNCTION MOD((FUNCTION BasicHud-getY0(J-THIS) + FUNCTION JR-GET(J-THIS, "f_offsetY")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION Graphics-drawString4(J-graphics, J-string, FUNCTION JR-GET(J-THIS, "f_x"), J-y, FUNCTION HudGraphicsPosition-getAnchor0(FUNCTION JR-GET(J-THIS, "f_hudGraphicsPosition")))
+    GOBACK.
+END FUNCTION BasicHud-paintString2.
 

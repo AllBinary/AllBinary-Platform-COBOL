@@ -1,113 +1,144 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.system.security.crypt
+*> Java class DatabaseEncoder
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.logic.system.security.crypt
-unit DatabaseEncoder;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DatabaseEncoder-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("DatabaseEncoder")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION DatabaseEncoder-new0.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DatabaseEncoder-encode1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-array BINARY-DOUBLE.
+01 J-stringBuffer BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-commonStrings BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-value BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-value RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE J-array = J-value
+            COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+            COMPUTE J-index = 0
+            MOVE 1 TO JFIRST1
+            PERFORM FOREVER
+                IF JFIRST1 = 0
+                    COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+                END-IF
+                MOVE 0 TO JFIRST1
+                IF NOT (J-index < FUNCTION JR-ARRAY-LENGTH(J-array)) EXIT PERFORM END-IF
+                COMPUTE jtemp1 = FUNCTION JR-ARRAY-GET(J-array, J-index)
+                COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-TO-STRING(jtemp1))
+                IF (J-index < (FUNCTION MOD((FUNCTION JR-ARRAY-LENGTH(J-array) - 1) + 2147483648, 4294967296) - 2147483648))
+                    COMPUTE jtemp2 = FUNCTION CommonSeps-getInstance0
+                    COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(jtemp2, "f_SPACE"))
+                END-IF
+            END-PERFORM
+            COMPUTE J-RESULT = FUNCTION JR-TO-STRING(J-stringBuffer)
+            GOBACK
+    GOBACK.
+END FUNCTION DatabaseEncoder-encode1.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
-
-type
-  {AB:TYPES}
-  TDatabaseEncoder = class(TObject)
-  public
-        constructor Create;
-        class function encode(value: TArray<ShortInt>): string; static;
-        class function decode(value: string): TArray<ShortInt>; static;
-  end;
-
-implementation
-uses
-  NullUtil, PreLogUtil, StringMaker, StringUtil, Tokenizer, CommonSeps, CommonStrings, BasicArrayList, BasicArrayListD;
-
-
-{AB:CODE}
-    
-
-constructor TDatabaseEncoder.Create;
-begin
-    inherited Create;
-end;
-    
-
-class function TDatabaseEncoder.encode(value: TArray<ShortInt>): string;
-var
-  array_: TArray<ShortInt>;
-  stringBuffer: TStringMaker;
-  index: Integer;
-  commonStrings_: TCommonStrings;
-begin
-        try
-            array_ := value;
-            stringBuffer := TStringMaker.Create();
-            for index := 0 to System.Length(array_) - 1 do begin
-                stringBuffer.append(array_[index].toString());
-                if (index) < ((System.Length(array_)) - (1)) then begin
-                    stringBuffer.append(TCommonSeps.getInstance().SPACE);
-                end;
-            end;
-            Exit(stringBuffer.toString());
-        except
-            on e: SysUtils.Exception do begin
-            commonStrings_ := TCommonStrings.getInstance();
-            TPreLogUtil.putOE(commonStrings_.EXCEPTION, TJava.Box('DatabaseEncoder'), 'decode', TJava.Box(e));
-            Exit(TStringUtil.getInstance().EMPTY_STRING);
-            end;
-        end;
-end;
-    
-
-class function TDatabaseEncoder.decode(value: string): TArray<ShortInt>;
-var
-  tokenizer_: TTokenizer;
-  vector: TBasicArrayList;
-  size: Integer;
-  decode: TArray<ShortInt>;
-  byteOfData: string;
-  index: Integer;
-  commonStrings_: TCommonStrings;
-begin
-        try
-            tokenizer_ := TTokenizer.Create(TCommonSeps.getInstance().SPACE);
-            vector := tokenizer_.getTokensFromString(value, TBasicArrayListD.Create());
-            size := vector.size();
-            decode := TJava.NewArray<ShortInt>(size);
-            
-            for index := 0 to size - 1 do begin
-                byteOfData := TJava.UnboxString(TJava.ToObject(vector.objectArray[index]));
-                decode[index] := ShortInt(StrToInt(byteOfData));
-            end;
-            Exit(decode);
-        except
-            on e: SysUtils.Exception do begin
-            commonStrings_ := TCommonStrings.getInstance();
-            TPreLogUtil.putSE(commonStrings_.EXCEPTION, 'DatabaseEncoder', 'decode', TJava.Box(e));
-            Exit(TNullUtil.getInstance().NULL_BYTE_ARRAY);
-            end;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DatabaseEncoder-decode1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-tokenizer BINARY-DOUBLE.
+01 J-vector BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-decode BINARY-DOUBLE.
+01 J-byteOfData BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-commonStrings BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-value BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-value RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE jtemp4 = FUNCTION CommonSeps-getInstance0
+            COMPUTE J-tokenizer = FUNCTION Tokenizer-new1(FUNCTION JR-GET(jtemp4, "f_SPACE"))
+            COMPUTE J-vector = FUNCTION Tokenizer-getTokensFromString2(J-tokenizer, J-value, FUNCTION BasicArrayListD-new0)
+            COMPUTE J-size = FUNCTION BasicArrayList-size0(J-vector)
+            COMPUTE J-decode = FUNCTION JR-NEW-ARRAY(J-size)
+            CONTINUE
+            COMPUTE J-index = 0
+            MOVE 1 TO JFIRST2
+            PERFORM FOREVER
+                IF JFIRST2 = 0
+                    COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+                END-IF
+                MOVE 0 TO JFIRST2
+                IF NOT (J-index < J-size) EXIT PERFORM END-IF
+                COMPUTE J-byteOfData = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-vector, "f_objectArray"), J-index)
+                COMPUTE JVALUE = FUNCTION Byte-parseByte1(J-byteOfData)
+                COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-decode, J-index, JVALUE)
+            END-PERFORM
+            COMPUTE J-RESULT = J-decode
+            GOBACK
+    GOBACK.
+END FUNCTION DatabaseEncoder-decode1.
 

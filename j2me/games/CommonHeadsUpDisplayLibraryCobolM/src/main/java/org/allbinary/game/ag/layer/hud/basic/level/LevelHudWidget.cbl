@@ -1,167 +1,355 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.layer.hud.basic.level
+*> Java class LevelHudWidget
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.layer.hud.basic.level
-unit LevelHudWidget;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, BasicHud, PaintableInterface, PrimitiveLongUtil;
-
-type
-  {AB:TYPES}
-  TLevelHudWidget = class(TBasicHud, IPaintableInterface)
-  public
-    level: Integer;
-    maxlevel: Integer;
-    levelString: TArray<WideChar>;
-    levelNumberCharArray: TArray<WideChar>;
-    levelNumberTotalDigits: Integer;
-    offset: Integer;
-    primitiveLongUtil: TPrimitiveLongUtil;
-    procedure InitFields;
-    function JavaObject: TObject;
-        class function createHud(maxlevel: Integer; location: Integer; direction: Integer): TLevelHudWidget; static;
-        constructor Create(maxlevel: Integer; location: Integer; direction: Integer);
-        procedure updateMeasurement(graphics_: TGraphics); virtual;
-        procedure update;
-        procedure setLevel(level_: Integer); virtual;
-        procedure nextLevel; virtual;
-        procedure previousLevel; virtual;
-        function isComplete: Boolean; virtual;
-        procedure paint(graphics_: TGraphics); virtual;
-        procedure paintThreed(graphics_: TGraphics); virtual;
-  end;
-
-implementation
-uses
-  Font, BasicColorFactory, NullUtil;
-
-
-{AB:CODE}
-
-procedure TLevelHudWidget.InitFields;
-begin
-  
-  
-  
-  Self.levelNumberCharArray := TNullUtil.getInstance().NULL_CHAR_ARRAY;
-  
-  
-  
-end;
-
-function TLevelHudWidget.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LevelHudWidget-new3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-LEVEL BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-maxlevel BINARY-DOUBLE.
+01 J-location BINARY-DOUBLE.
+01 J-direction BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-maxlevel J-location J-direction RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("LevelHudWidget")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_level")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_maxlevel")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_levelString")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_levelNumberCharArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_levelNumberTotalDigits")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_offset")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_primitiveLongUtil")
     
-
-// throws Exception
-class function TLevelHudWidget.createHud(maxlevel: Integer; location: Integer; direction: Integer): TLevelHudWidget;
-begin
-        Exit(TLevelHudWidget.Create(maxlevel, location, direction));
-end;
     
-
-constructor TLevelHudWidget.Create(maxlevel: Integer; location: Integer; direction: Integer);
-var
-  LEVEL: string;
-begin
-        inherited Create(location, direction, 2, TBasicColorFactory.getInstance().GREY);
-        InitFields;
-        Self.primitiveLongUtil := TPrimitiveLongUtil.createPowerOfTen(1000);
-        LEVEL := 'Lv ';
-        Self.levelString := TJava.ToCharArray(LEVEL);
-        Self.maxlevel := maxlevel;
-        Self.level := maxlevel;
-        Self.update();
-        Self.updateMaxHeight := 14;
-end;
     
-
-procedure TLevelHudWidget.updateMeasurement(graphics_: TGraphics);
-var
-  font_: TFont;
-begin
-        font_ := graphics_.getFont();
-        Self.updateMaxWidth := (font_.getSize()) * (4);
-        Self.offset := (font_.charsWidth(Self.levelString, 0, System.Length(Self.levelString))) + (font_.getSize());
-        inherited updateMeasurement(graphics_);
-end;
+    COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_NULL_CHAR_ARRAY")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_levelNumberCharArray", JVALUE)
     
-
-procedure TLevelHudWidget.update;
-begin
-        Self.levelNumberCharArray := Self.primitiveLongUtil.getCharArray(Self.level);
-        Self.levelNumberTotalDigits := Self.primitiveLongUtil.getCurrentTotalDigits();
-end;
     
-
-procedure TLevelHudWidget.setLevel(level_: Integer);
-begin
-        Self.level := level_;
-        Self.update();
-end;
     
+        COMPUTE jtemp3 = FUNCTION BasicColorFactory-getInstance0
+        COMPUTE jtemp2 = 2
+        CONTINUE
+        COMPUTE jtemp4 = 1000
+        COMPUTE JVALUE = FUNCTION PrmtvLngUtl-createPowerOfTen1(jtemp4)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_primitiveLongUtil", JVALUE)
+        COMPUTE J-LEVEL = FUNCTION JR-STR("Lv ")
+        COMPUTE JVALUE = FUNCTION JR-TOCHARARRAY(J-LEVEL)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_levelString", JVALUE)
+        COMPUTE JVALUE = J-maxlevel
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_maxlevel", JVALUE)
+        COMPUTE JVALUE = J-maxlevel
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_level", JVALUE)
+        COMPUTE JDISCARD = FUNCTION LevelHudWidget-update0(J-THIS)
+        COMPUTE JVALUE = 14
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_updateMaxHeight", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION LevelHudWidget-new3.
 
-procedure TLevelHudWidget.nextLevel;
-begin
-        Inc(Self.level);
-        Self.update();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LevelHudWidget-createHud3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-maxlevel BINARY-DOUBLE.
+01 J-location BINARY-DOUBLE.
+01 J-direction BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-maxlevel J-location J-direction RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION LevelHudWidget-new3(J-maxlevel, J-location, J-direction)
+        GOBACK
+    GOBACK.
+END FUNCTION LevelHudWidget-createHud3.
 
-procedure TLevelHudWidget.previousLevel;
-begin
-        Dec(Self.level);
-        if (Self.level) < (0) then begin
-            Self.level := 0;
-        end;
-        Self.update();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LvlHdWdgt-updateMeasurement1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-font BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-font = FUNCTION Graphics-getFont0(J-graphics)
+        COMPUTE JVALUE = (FUNCTION MOD((FUNCTION Font-getSize0(J-font) * 4) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_updateMaxWidth", JVALUE)
+        COMPUTE jtemp5 = 0
+        COMPUTE JVALUE = (FUNCTION MOD((FUNCTION Font-charsWidth3(J-font, FUNCTION JR-GET(J-THIS, "f_levelString"), jtemp5, FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_levelString"))) + FUNCTION Font-getSize0(J-font)) + 2147483648,
+        4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_offset", JVALUE)
+        COMPUTE JDISCARD = FUNCTION BasicHud-updateMeasurement1(J-THIS, J-graphics)
+    GOBACK.
+END FUNCTION LvlHdWdgt-updateMeasurement1.
 
-function TLevelHudWidget.isComplete: Boolean;
-begin
-        if (Self.level) <= (Self.maxlevel) then begin
-            Exit(False);
-        end else begin
-            Exit(True);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LevelHudWidget-update0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = FUNCTION PrmtvLngUtl-getCharArray1(FUNCTION JR-GET(J-THIS, "f_primitiveLongUtil"), FUNCTION JR-GET(J-THIS, "f_level"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_levelNumberCharArray", JVALUE)
+        COMPUTE JVALUE = FUNCTION PrmtvLngUtl-gtCrrntTtlDgts0(FUNCTION JR-GET(J-THIS, "f_primitiveLongUtil"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_levelNumberTotalDigits", JVALUE)
+    GOBACK.
+END FUNCTION LevelHudWidget-update0.
 
-procedure TLevelHudWidget.paint(graphics_: TGraphics);
-begin
-        inherited paintDX(graphics_, Self.levelString, 0, System.Length(Self.levelString), Self.levelNumberCharArray, 0, Self.levelNumberTotalDigits, Self.offset);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LevelHudWidget-setLevel1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-level BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-level RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-level
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_level", JVALUE)
+        COMPUTE JDISCARD = FUNCTION LevelHudWidget-update0(J-THIS)
+    GOBACK.
+END FUNCTION LevelHudWidget-setLevel1.
 
-procedure TLevelHudWidget.paintThreed(graphics_: TGraphics);
-begin
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LevelHudWidget-nextLevel0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = (FUNCTION MOD(FUNCTION JR-GET(J-THIS, "f_level") + 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_level", JVALUE)
+        COMPUTE JDISCARD = FUNCTION LevelHudWidget-update0(J-THIS)
+    GOBACK.
+END FUNCTION LevelHudWidget-nextLevel0.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LevelHudWidget-previousLevel0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = (FUNCTION MOD(FUNCTION JR-GET(J-THIS, "f_level") - 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_level", JVALUE)
+        IF (FUNCTION JR-GET(J-THIS, "f_level") < 0)
+            COMPUTE JVALUE = 0
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_level", JVALUE)
+        END-IF
+        COMPUTE JDISCARD = FUNCTION LevelHudWidget-update0(J-THIS)
+    GOBACK.
+END FUNCTION LevelHudWidget-previousLevel0.
 
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LevelHudWidget-isComplete0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION JR-GET(J-THIS, "f_level") <= FUNCTION JR-GET(J-THIS, "f_maxlevel"))
+            COMPUTE J-RESULT = 0
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = 1
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION LevelHudWidget-isComplete0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LevelHudWidget-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp6 = 0
+        COMPUTE jtemp7 = 0
+        COMPUTE JDISCARD = FUNCTION BasicHud-paintDX8(J-THIS, J-graphics, FUNCTION JR-GET(J-THIS, "f_levelString"), jtemp6, FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_levelString")), FUNCTION JR-GET(J-THIS,
+        "f_levelNumberCharArray"), jtemp7, FUNCTION JR-GET(J-THIS, "f_levelNumberTotalDigits"), FUNCTION JR-GET(J-THIS, "f_offset"))
+    GOBACK.
+END FUNCTION LevelHudWidget-paint1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LevelHudWidget-paintThreed1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION LevelHudWidget-paintThreed1.
 

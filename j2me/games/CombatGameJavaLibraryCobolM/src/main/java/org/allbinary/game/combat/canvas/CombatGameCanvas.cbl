@@ -1,133 +1,327 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.combat.canvas
+*> Java class CombatGameCanvas
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.combat.canvas
-unit CombatGameCanvas;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmbtGmCnvs-sttc-bscLyrPrcssr.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CombatGameCanvas-jcell-basicLayerProcessor BINARY-DOUBLE EXTERNAL.
+01 CombatGameCanvas-jset-basicLayerProcessor BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF CombatGameCanvas-jset-basicLayerProcessor = 0
+        MOVE 1 TO CombatGameCanvas-jset-basicLayerProcessor
+        COMPUTE jtemp1 = 0
+    COMPUTE CombatGameCanvas-jcell-basicLayerProcessor = FUNCTION JR-NEW-ARRAY(jtemp1)
+    END-IF
+    MOVE CombatGameCanvas-jcell-basicLayerProcessor TO J-RESULT
+    GOBACK.
+END FUNCTION CmbtGmCnvs-sttc-bscLyrPrcssr.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmbtGmCnvssttcbscLyrS86502.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CombatGameCanvas-jcell-basicLayerProcessor BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION CmbtGmCnvs-sttc-bscLyrPrcssr TO J-RESULT
+    MOVE J-VALUE TO CombatGameCanvas-jcell-basicLayerProcessor
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION CmbtGmCnvssttcbscLyrS86502.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CombatGameCanvas-new5.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-cmdListener BINARY-DOUBLE.
+01 J-gameLayerManager BINARY-DOUBLE.
+01 J-highScoresFactoryInterface BINARY-DOUBLE.
+01 J-gameInitializationInterfaceFactoryInterface BINARY-DOUBLE.
+01 J-buffered BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-cmdListener J-gameLayerManager J-highScoresFactoryInterface J-gameInitializationInterfaceFactoryInterface J-buffered RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CombatGameCanvas")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CombatGameCanvas-new5.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, CommandListener, AllBinaryGameCanvas, BasicBuildGameInitializerFactory, AllBinaryGameLayerManager, HighScoresFactoryInterface, BasicLayerProcessor, AbeClientInformationInterface;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmbtGmCnvs-CmbtGmCnvs-nt0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION DstryEvntCrclrSttcPl-gtInstnc0
+        COMPUTE JDISCARD = FUNCTION DstryEvntCrclrSttcPl-init1(jtemp2, J-THIS)
+        COMPUTE jtemp4 = 50
+        COMPUTE jtemp3 = FUNCTION PrgrssCnvsFctry-getInstance0
+        COMPUTE JDISCARD = FUNCTION PrgrssCnvsFctry-addNrmlPrtn2(jtemp3, jtemp4, FUNCTION JR-STR("Destroy Events"))
+    GOBACK.
+END FUNCTION CmbtGmCnvs-CmbtGmCnvs-nt0.
 
-type
-  {AB:TYPES}
-  TCombatGameCanvas = class(TAllBinaryGameCanvas)
-  public
-    class var basicLayerProcessor: TArray<TBasicLayerProcessor>;
-        constructor Create(cmdListener: ICommandListener; gameLayerManager: TAllBinaryGameLayerManager; highScoresFactoryInterface_: IHighScoresFactoryInterface; gameInitializationInterfaceFactoryInterface: TBasicBuildGameInitializerFactory; buffered: Boolean);
-        procedure CombatGameCanvas_init;
-        procedure initApp(abeClientInformation: IAbeClientInformationInterface); override;
-        procedure initConfigurablePortion(portion: Integer); virtual;
-        procedure processPlayingGame; override;
-        procedure cleanupGame; override;
-        procedure cleanupManager; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CombatGameCanvas-initApp1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-abeClientInformation BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-abeClientInformation RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION CmbtGmCnvs-CmbtGmCnvs-nt0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION AllBinaryGameCanvas-initApp1(J-THIS, J-abeClientInformation)
+    GOBACK.
+END FUNCTION CombatGameCanvas-initApp1.
 
-implementation
-uses
-  DestroyedLayerProcessor, DestroyEventCircularStaticPool, DestroyedEventHandler, Features, GameFeatureFactory, DropLayerProcessor, GroupLayerManagerListener, ProgressCanvasFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmbtGmCnvs-intCnfgrblPrtn1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-features BINARY-DOUBLE.
+01 J-gameFeatureFactory BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-portion BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-portion RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION DestroyedLayerProcessor-init0
+        COMPUTE jtemp5 = FUNCTION PrgrssCnvsFctry-getInstance0
+        COMPUTE JDISCARD = FUNCTION PrgrssCnvsFctry-addNrmlPrtn2(jtemp5, J-portion, FUNCTION JR-STR("Basic Processors"))
+        COMPUTE J-features = FUNCTION Features-getInstance0
+        COMPUTE J-gameFeatureFactory = FUNCTION GmFtrFctry-getInstance0
+        IF ((FUNCTION Features-isFeature1(J-features, FUNCTION JR-GET(J-gameFeatureFactory, "f_DROPPED_ITEMS")) = 1) AND (FUNCTION Features-isFeature1(J-features, FUNCTION JR-GET(J-gameFeatureFactory, "f_DROPPED_ITEMS_FROM_DEATH")) = 1))
+            COMPUTE jtemp8 = 2
+            COMPUTE JDISCARD = FUNCTION CmbtGmCnvssttcbscLyrS86502(FUNCTION JR-NEW-ARRAY(jtemp8))
+            COMPUTE jtemp9 = 0
+            COMPUTE JVALUE = FUNCTION DstrydLyrPrcssr-getInstance0
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION CmbtGmCnvs-sttc-bscLyrPrcssr, jtemp9, JVALUE)
+            COMPUTE jtemp10 = 1
+            COMPUTE JVALUE = FUNCTION DrpLyrPrcssr-getInstance0
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION CmbtGmCnvs-sttc-bscLyrPrcssr, jtemp10, JVALUE)
+        ELSE
+            COMPUTE jtemp6 = 1
+            COMPUTE JDISCARD = FUNCTION CmbtGmCnvssttcbscLyrS86502(FUNCTION JR-NEW-ARRAY(jtemp6))
+            COMPUTE jtemp7 = 0
+            COMPUTE JVALUE = FUNCTION DstrydLyrPrcssr-getInstance0
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION CmbtGmCnvs-sttc-bscLyrPrcssr, jtemp7, JVALUE)
+        END-IF
+    GOBACK.
+END FUNCTION CmbtGmCnvs-intCnfgrblPrtn1.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmbtGmCnvs-processPlayingGame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-index BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION AllBnryGmCnvs-prcssPlyngGm0(J-THIS)
+        COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp11 = J-index
+        COMPUTE J-index = FUNCTION JR-ARRAY-LENGTH(FUNCTION CmbtGmCnvs-sttc-bscLyrPrcssr)
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            MOVE 0 TO JFIRST1
+            IF NOT (jtemp11 >= 0) EXIT PERFORM END-IF
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION CmbtGmCnvs-sttc-bscLyrPrcssr, J-index))
+        END-PERFORM
+    GOBACK.
+END FUNCTION CmbtGmCnvs-processPlayingGame0.
 
-{AB:CODE}
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CombatGameCanvas-cleanupGame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-index BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION AllBnryGmCnvs-cleanupGame0(J-THIS)
+        COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp13 = J-index
+        COMPUTE J-index = FUNCTION JR-ARRAY-LENGTH(FUNCTION CmbtGmCnvs-sttc-bscLyrPrcssr)
+        MOVE 1 TO JFIRST2
+        PERFORM FOREVER
+            MOVE 0 TO JFIRST2
+            IF NOT (jtemp13 >= 0) EXIT PERFORM END-IF
+            COMPUTE jtemp12 = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION CmbtGmCnvs-sttc-bscLyrPrcssr, J-index))
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp12)
+        END-PERFORM
+        COMPUTE jtemp14 = FUNCTION GrpLyrMngrLstnr-getInstance0
+        COMPUTE JDISCARD = FUNCTION GrpLyrMngrLstnr-clear0(jtemp14)
+        COMPUTE jtemp15 = FUNCTION GrpLyrMngrLstnr-getInstance0
+        COMPUTE JDISCARD = FUNCTION GroupLayerManagerListener-log0(jtemp15)
+        COMPUTE jtemp16 = FUNCTION DstrydEvntHndlr-getInstance0
+        COMPUTE JDISCARD = FUNCTION DstrydEvntHndlr-rmvAllLstnrs0(jtemp16)
+        COMPUTE JDISCARD = FUNCTION CmbtGmCnvs-cleanupManager0(J-THIS)
+    GOBACK.
+END FUNCTION CombatGameCanvas-cleanupGame0.
 
-constructor TCombatGameCanvas.Create(cmdListener: ICommandListener; gameLayerManager: TAllBinaryGameLayerManager; highScoresFactoryInterface_: IHighScoresFactoryInterface; gameInitializationInterfaceFactoryInterface: TBasicBuildGameInitializerFactory; buffered: Boolean);
-begin
-        inherited Create(cmdListener, gameLayerManager, highScoresFactoryInterface_, gameInitializationInterfaceFactoryInterface, buffered);
-end;
-    
-
-procedure TCombatGameCanvas.CombatGameCanvas_init;
-begin
-        TDestroyEventCircularStaticPool.getInstance().init(Self);
-        TProgressCanvasFactory.getInstance().addNormalPortion(50, 'Destroy Events');
-end;
-    
-
-// throws Exception
-procedure TCombatGameCanvas.initApp(abeClientInformation: IAbeClientInformationInterface);
-begin
-        Self.CombatGameCanvas_init();
-        inherited initApp(abeClientInformation);
-end;
-    
-
-procedure TCombatGameCanvas.initConfigurablePortion(portion: Integer);
-var
-  features_: TFeatures;
-  gameFeatureFactory_: TGameFeatureFactory;
-begin
-        TDestroyedLayerProcessor.init();
-        TProgressCanvasFactory.getInstance().addNormalPortion(portion, 'Basic Processors');
-        features_ := TFeatures.getInstance();
-        gameFeatureFactory_ := TGameFeatureFactory.getInstance();
-        if (features_.isFeature(gameFeatureFactory_.DROPPED_ITEMS)) and (features_.isFeature(gameFeatureFactory_.DROPPED_ITEMS_FROM_DEATH)) then begin
-            TCombatGameCanvas.basicLayerProcessor := TJava.NewArray<TBasicLayerProcessor>(2);
-            TCombatGameCanvas.basicLayerProcessor[0] := TDestroyedLayerProcessor.getInstance();
-            TCombatGameCanvas.basicLayerProcessor[1] := TDropLayerProcessor.getInstance();
-        end else begin
-            TCombatGameCanvas.basicLayerProcessor := TJava.NewArray<TBasicLayerProcessor>(1);
-            TCombatGameCanvas.basicLayerProcessor[0] := TDestroyedLayerProcessor.getInstance();
-        end;
-end;
-    
-
-// throws Exception
-procedure TCombatGameCanvas.processPlayingGame;
-var
-  index: Integer;
-begin
-        inherited processPlayingGame();
-        index := System.Length(TCombatGameCanvas.basicLayerProcessor);
-        while (TJava.PreDec(index)) >= (0) do begin
-            TCombatGameCanvas.basicLayerProcessor[index].process(Self.gameLayerManager);
-        end;
-end;
-    
-
-// throws Exception
-procedure TCombatGameCanvas.cleanupGame;
-var
-  index: Integer;
-begin
-        inherited cleanupGame();
-        index := System.Length(TCombatGameCanvas.basicLayerProcessor);
-        while (TJava.PreDec(index)) >= (0) do begin
-            TCombatGameCanvas.basicLayerProcessor[index].getList().clear();
-        end;
-        TGroupLayerManagerListener.getInstance().clear();
-        TGroupLayerManagerListener.getInstance().log();
-        TDestroyedEventHandler.getInstance().removeAllListeners();
-        Self.cleanupManager();
-end;
-    
-
-// throws Exception
-procedure TCombatGameCanvas.cleanupManager;
-begin
-        Self.gameLayerManager.cleanup();
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TCombatGameCanvas.basicLayerProcessor := nil;
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmbtGmCnvs-cleanupManager0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION AllBinaryLayerManager-cleanup0(FUNCTION JR-GET(J-THIS, "f_gameLayerManager"))
+    GOBACK.
+END FUNCTION CmbtGmCnvs-cleanupManager0.
 

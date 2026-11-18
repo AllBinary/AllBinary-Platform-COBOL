@@ -1,93 +1,142 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.image
+*> Java class ImageArrayRotationAnimation
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.image
-unit ImageArrayRotationAnimation;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Image, AnimationBehavior, AngleInfo, ImageArrayBaseRotationAnimation;
-
-type
-  {AB:TYPES}
-  TImageArrayRotationAnimation = class(TImageArrayBaseRotationAnimation)
-  public
-    expectedTotalFrames: Integer;
-    procedure InitFields;
-        class function createAnimation(anyType: TObject; animationBehavior_: TAnimationBehavior): TImageArrayRotationAnimation; static;
-        constructor Create(imageArray: TArray<TImage>; angleInfo_: TAngleInfo; totalAngle: Integer; animationBehavior_: TAnimationBehavior);
-        procedure initImageArray(imageArray: TArray<TImage>; angleInfo_: TAngleInfo; totalAngle: Integer);
-        procedure setImageArray(imageArray: TArray<TImage>); override;
-  end;
-
-implementation
-uses
-  ImageArrayRotationAnimationInfo;
-
-
-{AB:CODE}
-
-procedure TImageArrayRotationAnimation.InitFields;
-begin
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArryRttnAnmtn-new4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-imageArray BINARY-DOUBLE.
+01 J-angleInfo BINARY-DOUBLE.
+01 J-totalAngle BINARY-DOUBLE.
+01 J-animationBehavior BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-imageArray J-angleInfo J-totalAngle J-animationBehavior RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ImageArrayRotationAnimation")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_expectedTotalFrames")
     
+        CONTINUE
+        COMPUTE JDISCARD = FUNCTION ImgArryRttnAnmtn-intImgArry3(J-THIS, J-imageArray, J-angleInfo, J-totalAngle)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ImgArryRttnAnmtn-new4.
 
-// throws Exception
-class function TImageArrayRotationAnimation.createAnimation(anyType: TObject; animationBehavior_: TAnimationBehavior): TImageArrayRotationAnimation;
-var
-  imageRotationAnimationInfo: TImageArrayRotationAnimationInfo;
-begin
-        imageRotationAnimationInfo := TImageArrayRotationAnimationInfo(TJava.ToObject(anyType));
-        Exit(TImageArrayRotationAnimation.Create(imageRotationAnimationInfo.getImageArray(), imageRotationAnimationInfo.getAngleInfoP(), imageRotationAnimationInfo.getTotalAngle(), animationBehavior_));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArryRttnAnmtn-crtAnmtn2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-imageRotationAnimationInfo BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-anyType BINARY-DOUBLE.
+01 J-animationBehavior BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-anyType J-animationBehavior RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-imageRotationAnimationInfo = J-anyType
+        COMPUTE J-RESULT = FUNCTION ImgArryRttnAnmtn-new4(FUNCTION ImgArryRttnAnmtnInf-gtImgArry0(J-imageRotationAnimationInfo), FUNCTION ImgArryRttnAnmtnInf-gtAng79855(J-imageRotationAnimationInfo), FUNCTION
+        ImgArryRttnAnmtnInf-gtTtlAngl0(J-imageRotationAnimationInfo), J-animationBehavior)
+        GOBACK
+    GOBACK.
+END FUNCTION ImgArryRttnAnmtn-crtAnmtn2.
 
-constructor TImageArrayRotationAnimation.Create(imageArray: TArray<TImage>; angleInfo_: TAngleInfo; totalAngle: Integer; animationBehavior_: TAnimationBehavior);
-begin
-        inherited Create(imageArray, angleInfo_, animationBehavior_);
-        InitFields;
-        Self.initImageArray(imageArray, angleInfo_, totalAngle);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArryRttnAnmtn-intImgArry3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-imageArray BINARY-DOUBLE.
+01 J-angleInfo BINARY-DOUBLE.
+01 J-totalAngle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-imageArray J-angleInfo J-totalAngle RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = FUNCTION AnglInf-getAngleIncrementInfo0(FUNCTION JR-GET(J-THIS, "f_angleInfo"))
+        COMPUTE JVALUE = (FUNCTION MOD(FUNCTION INTEGER-PART(J-totalAngle / FUNCTION JR-CLASS-NAME(jtemp1)) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_expectedTotalFrames", JVALUE)
+        COMPUTE jtemp2 = 0
+        COMPUTE JDISCARD = FUNCTION AngleInfo-adjustAngle1(FUNCTION JR-GET(J-THIS, "f_angleInfo"), jtemp2)
+        IF (FUNCTION JR-GET(J-THIS, "f_expectedTotalFrames") NOT = FUNCTION RotationAnimation-getSize0(J-THIS))
+            COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+        END-IF
+    GOBACK.
+END FUNCTION ImgArryRttnAnmtn-intImgArry3.
 
-// throws Exception
-procedure TImageArrayRotationAnimation.initImageArray(imageArray: TArray<TImage>; angleInfo_: TAngleInfo; totalAngle: Integer);
-begin
-        Self.expectedTotalFrames := TJava.Divide(totalAngle, Self.angleInfo.getAngleIncrementInfo().getAngleIncrement());
-        Self.angleInfo.adjustAngle(0);
-        if (Self.expectedTotalFrames) <> (Self.getSize()) then begin
-            raise SysUtils.Exception.Create('Wrong Number of Frames');
-        end;
-end;
-    
-
-procedure TImageArrayRotationAnimation.setImageArray(imageArray: TArray<TImage>);
-begin
-        inherited setImageArray(imageArray);
-        Self.angleInfo.adjustAngle(0);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArryRttnAnmtn-stImgArry1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-imageArray BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-imageArray RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION ImgArryBsRttnAnmtn-stImgArry1(J-THIS, J-imageArray)
+        COMPUTE jtemp3 = 0
+        COMPUTE JDISCARD = FUNCTION AngleInfo-adjustAngle1(FUNCTION JR-GET(J-THIS, "f_angleInfo"), jtemp3)
+    GOBACK.
+END FUNCTION ImgArryRttnAnmtn-stImgArry1.
 

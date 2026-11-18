@@ -1,135 +1,256 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.resource
+*> Java class ResourceRelativeRelationshipFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.resource
-unit ResourceRelativeRelationshipFactory;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, RelativeRelationship, ABHashtable, BasicArrayList, BasicArrayListUtil, ResourceRelativeRelationshipFactoryInterface, GameFeatureControlledInterface;
-
-type
-  {AB:TYPES}
-  TResourceRelativeRelationshipFactory = class(TInterfacedObject, IResourceRelativeRelationshipFactoryInterface, IGameFeatureControlledInterface)
-  public
-    basicArrayListUtil: TBasicArrayListUtil;
-    hashtable: TABHashtable<TObject, TObject>;
-    initialized: Boolean;
-    procedure InitFields;
-    function JavaObject: TObject;
-    constructor Create;
-        procedure init(level: Integer); virtual;
-        function getResourceRelativeRelationshipList(resource: string): TBasicArrayList; virtual;
-        procedure addResourceRelativeRelationship(resource: string; hardPoint: TRelativeRelationship); virtual;
-        function isLoadingLevel(level: Integer): Boolean; virtual;
-        function isFeature: Boolean; virtual;
-        procedure setInitialized(initialized: Boolean); virtual;
-        function isInitialized: Boolean; virtual;
-  end;
-
-implementation
-uses
-  StdUtil, BasicArrayListD;
-
-
-{AB:CODE}
-
-procedure TResourceRelativeRelationshipFactory.InitFields;
-begin
-  Self.basicArrayListUtil := TBasicArrayListUtil.getInstance();
-  Self.hashtable := TStdUtil.getInstance().createHashtable();
-  
-end;
-
-function TResourceRelativeRelationshipFactory.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-
-constructor TResourceRelativeRelationshipFactory.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RsrcRltvRltnshpFctry-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ResourceRelativeRelationshipFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_basicArrayListUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_hashtable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_initialized")
+    COMPUTE JVALUE = FUNCTION BscArryLstUtl-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicArrayListUtil", JVALUE)
+    COMPUTE jtemp1 = FUNCTION StdUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION StdUtil-createHashtable0(jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hashtable", JVALUE)
     
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION RsrcRltvRltnshpFctry-new0.
 
-// throws Exception
-procedure TResourceRelativeRelationshipFactory.init(level: Integer);
-begin
-        Self.setInitialized(True);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RsrcRltvRltnshpFctry-init1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-level BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-level RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = 1
+        COMPUTE JDISCARD = FUNCTION RsrcRltvRltnshpFctry-stIntlzd1(J-THIS, jtemp2)
+    GOBACK.
+END FUNCTION RsrcRltvRltnshpFctry-init1.
 
-// throws Exception
-function TResourceRelativeRelationshipFactory.getResourceRelativeRelationshipList(resource: string): TBasicArrayList;
-var
-  listCanBeNull: TObject;
-begin
-        listCanBeNull := TJava.Box(Self.hashtable.get(TJava.Box(resource)));
-        if (listCanBeNull) = (nil) then begin
-            Exit(Self.basicArrayListUtil.getImmutableInstance());
-        end;
-        Exit(TBasicArrayList(TJava.ToObject(listCanBeNull)));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RsrcRltvRltnshpFctry-gtRs75384.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-listCanBeNull BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-resource BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-resource RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-listCanBeNull = FUNCTION Hashtable-get1(FUNCTION JR-GET(J-THIS, "f_hashtable"), J-resource)
+        IF (J-listCanBeNull = 0)
+            COMPUTE J-RESULT = FUNCTION BscArryLstUtl-gtImmtblInstnc0(FUNCTION JR-GET(J-THIS, "f_basicArrayListUtil"))
+            GOBACK
+        END-IF
+        COMPUTE J-RESULT = J-listCanBeNull
+        GOBACK
+    GOBACK.
+END FUNCTION RsrcRltvRltnshpFctry-gtRs75384.
 
-// throws Exception
-procedure TResourceRelativeRelationshipFactory.addResourceRelativeRelationship(resource: string; hardPoint: TRelativeRelationship);
-var
-  list: TBasicArrayList;
-begin
-        list := Self.getResourceRelativeRelationshipList(resource);
-        if (list) = (Self.basicArrayListUtil.getImmutableInstance()) then begin
-            list := TBasicArrayListD.Create();
-        end;
-        list.add(TJava.Box(hardPoint));
-        Self.hashtable.put(TJava.Box(resource), TJava.Box(list));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RsrcRltvRltnshpFctry-addR12886.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-list BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-resource BINARY-DOUBLE.
+01 J-hardPoint BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-resource J-hardPoint RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-list = FUNCTION RsrcRltvRltnshpFctry-gtRs75384(J-THIS, J-resource)
+        IF (J-list = FUNCTION BscArryLstUtl-gtImmtblInstnc0(FUNCTION JR-GET(J-THIS, "f_basicArrayListUtil")))
+            COMPUTE J-list = FUNCTION BasicArrayListD-new0
+        END-IF
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-list, J-hardPoint)
+        COMPUTE JDISCARD = FUNCTION Hashtable-put2(FUNCTION JR-GET(J-THIS, "f_hashtable"), J-resource, J-list)
+    GOBACK.
+END FUNCTION RsrcRltvRltnshpFctry-addR12886.
 
-function TResourceRelativeRelationshipFactory.isLoadingLevel(level: Integer): Boolean;
-begin
-        Exit(False);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RsrcRltvRltnshpFctry-isLd64230.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-level BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-level RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION RsrcRltvRltnshpFctry-isLd64230.
 
-function TResourceRelativeRelationshipFactory.isFeature: Boolean;
-begin
-        Exit(False);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RsrcRltvRltnshpFctry-isFtr0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION RsrcRltvRltnshpFctry-isFtr0.
 
-procedure TResourceRelativeRelationshipFactory.setInitialized(initialized: Boolean);
-begin
-        Self.initialized := initialized;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RsrcRltvRltnshpFctry-stIntlzd1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-initialized BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-initialized RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-initialized
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_initialized", JVALUE)
+    GOBACK.
+END FUNCTION RsrcRltvRltnshpFctry-stIntlzd1.
 
-function TResourceRelativeRelationshipFactory.isInitialized: Boolean;
-begin
-        Exit(Self.initialized);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RsrcRltvRltnshpFctry-isIntlzd0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_initialized")
+        GOBACK
+    GOBACK.
+END FUNCTION RsrcRltvRltnshpFctry-isIntlzd0.
 

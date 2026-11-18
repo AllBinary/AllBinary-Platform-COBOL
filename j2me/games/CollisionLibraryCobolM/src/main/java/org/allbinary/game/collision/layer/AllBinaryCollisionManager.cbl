@@ -1,96 +1,205 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.collision.layer
+*> Java class AllBinaryCollisionManager
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.collision.layer
-unit AllBinaryCollisionManager;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryCllsnMngr-sttc-ll35551.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AllBinaryCollisionManager-jcell-allBinaryCollisionManager BINARY-DOUBLE EXTERNAL.
+01 AllBinaryCollisionManager-jset-allBinaryCollisionManager BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF AllBinaryCollisionManager-jset-allBinaryCollisionManager = 0
+        MOVE 1 TO AllBinaryCollisionManager-jset-allBinaryCollisionManager
+        COMPUTE AllBinaryCollisionManager-jcell-allBinaryCollisionManager = FUNCTION AllBinaryCollisionManager-new0
+    END-IF
+    MOVE AllBinaryCollisionManager-jcell-allBinaryCollisionManager TO J-RESULT
+    GOBACK.
+END FUNCTION AllBnryCllsnMngr-sttc-ll35551.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryCllsnMngrsttcS18761.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AllBinaryCollisionManager-jcell-allBinaryCollisionManager BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION AllBnryCllsnMngr-sttc-ll35551 TO J-RESULT
+    MOVE J-VALUE TO AllBinaryCollisionManager-jcell-allBinaryCollisionManager
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION AllBnryCllsnMngrsttcS18761.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBinaryCollisionManager-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("AllBinaryCollisionManager")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION AllBinaryCollisionManager-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, CollidableInterfaceCompositeInterface, ABLayerManager;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryCllsnMngr-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION AllBnryCllsnMngr-sttc-ll35551
+        GOBACK
+    GOBACK.
+END FUNCTION AllBnryCllsnMngr-getInstance0.
 
-type
-  {AB:TYPES}
-  TAllBinaryCollisionManager = class(TObject)
-  public
-    class var allBinaryCollisionManager: TAllBinaryCollisionManager;
-        constructor Create;
-        class function getInstance: TAllBinaryCollisionManager; static;
-        procedure process(layerManager: TABLayerManager; collidableInterfaceCompositeInterface_: ICollidableInterfaceCompositeInterface; startIndex: Integer); virtual;
-        procedure collide(layerManager: TABLayerManager; collidableInterfaceCompositeInterface_: ICollidableInterfaceCompositeInterface; collidableInterfaceCompositeInterface2: ICollidableInterfaceCompositeInterface);
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryCllsnMngr-process3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-size BINARY-DOUBLE.
+01 J-collidableInterfaceCompositeInterface2 BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerManager BINARY-DOUBLE.
+01 J-collidableInterfaceCompositeInterface BINARY-DOUBLE.
+01 J-startIndex BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerManager J-collidableInterfaceCompositeInterface J-startIndex RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-size = FUNCTION ABLayerManager-getSize0(J-layerManager)
+        COMPUTE jtemp1 = 1
+        COMPUTE J-index = (FUNCTION MOD((J-startIndex + jtemp1) + 2147483648, 4294967296) - 2147483648)
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-collidableInterfaceCompositeInterface2 = FUNCTION ABLayerManager-getLayerAt1(J-layerManager, J-index)
+            COMPUTE JDISCARD = FUNCTION AllBnryCllsnMngr-collide3(J-THIS, J-layerManager, J-collidableInterfaceCompositeInterface, J-collidableInterfaceCompositeInterface2)
+        END-PERFORM
+    GOBACK.
+END FUNCTION AllBnryCllsnMngr-process3.
 
-implementation
-uses
-  CollidableBaseBehavior, CollidableCompositeLayer;
-
-
-{AB:CODE}
-    
-
-constructor TAllBinaryCollisionManager.Create;
-begin
-    inherited Create;
-end;
-    
-
-class function TAllBinaryCollisionManager.getInstance: TAllBinaryCollisionManager;
-begin
-        Exit(TAllBinaryCollisionManager.allBinaryCollisionManager);
-end;
-    
-
-// throws Exception
-procedure TAllBinaryCollisionManager.process(layerManager: TABLayerManager; collidableInterfaceCompositeInterface_: ICollidableInterfaceCompositeInterface; startIndex: Integer);
-var
-  size: Integer;
-  collidableInterfaceCompositeInterface2: ICollidableInterfaceCompositeInterface;
-  index: Integer;
-begin
-        size := layerManager.getSize();
-        for index := (startIndex) + (1) to size - 1 do begin
-            collidableInterfaceCompositeInterface2 := (TJava.ToObject(layerManager.getLayerAt(index)) as ICollidableInterfaceCompositeInterface);
-            Self.collide(layerManager, collidableInterfaceCompositeInterface_, collidableInterfaceCompositeInterface2);
-        end;
-end;
-    
-
-// throws Exception
-procedure TAllBinaryCollisionManager.collide(layerManager: TABLayerManager; collidableInterfaceCompositeInterface_: ICollidableInterfaceCompositeInterface; collidableInterfaceCompositeInterface2: ICollidableInterfaceCompositeInterface);
-var
-  collidableBase2: TCollidableBaseBehavior;
-  collidableBase: TCollidableBaseBehavior;
-begin
-        collidableBase2 := collidableInterfaceCompositeInterface2.getCollidableInferface();
-        collidableBase := collidableInterfaceCompositeInterface_.getCollidableInferface();
-        if collidableBase2.isCollidable(TCollidableCompositeLayer(TJava.ToObject(collidableInterfaceCompositeInterface_))) then begin
-            if collidableBase.isCollisionInterface(TCollidableCompositeLayer(TJava.ToObject(collidableInterfaceCompositeInterface_)), collidableInterfaceCompositeInterface2) then begin
-                collidableBase.collideInterface(TCollidableCompositeLayer(TJava.ToObject(collidableInterfaceCompositeInterface_)), collidableInterfaceCompositeInterface2);
-                collidableBase2.collideInterface(TCollidableCompositeLayer(TJava.ToObject(collidableInterfaceCompositeInterface_)), collidableInterfaceCompositeInterface_);
-            end;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TAllBinaryCollisionManager.allBinaryCollisionManager := TAllBinaryCollisionManager.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryCllsnMngr-collide3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-collidableBase2 BINARY-DOUBLE.
+01 J-collidableBase BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerManager BINARY-DOUBLE.
+01 J-collidableInterfaceCompositeInterface BINARY-DOUBLE.
+01 J-collidableInterfaceCompositeInterface2 BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerManager J-collidableInterfaceCompositeInterface J-collidableInterfaceCompositeInterface2 RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-collidableBase2 = FUNCTION ClldblIntrfcCmpstIntrfc-g91034(J-collidableInterfaceCompositeInterface2)
+        COMPUTE J-collidableBase = FUNCTION ClldblIntrfcCmpstIntrfc-g91034(J-collidableInterfaceCompositeInterface)
+        COMPUTE jtemp2 = J-collidableInterfaceCompositeInterface
+        IF (FUNCTION ClldblBsBhvr-isCollidable1(J-collidableBase2, jtemp2) = 1)
+            COMPUTE jtemp3 = J-collidableInterfaceCompositeInterface
+            IF (FUNCTION ClldblBsBhvr-isCllsnIntrfc2(J-collidableBase, jtemp3, J-collidableInterfaceCompositeInterface2) = 1)
+                COMPUTE jtemp4 = J-collidableInterfaceCompositeInterface
+                COMPUTE JDISCARD = FUNCTION ClldblBsBhvr-collideInterface2(J-collidableBase, jtemp4, J-collidableInterfaceCompositeInterface2)
+                COMPUTE jtemp5 = J-collidableInterfaceCompositeInterface
+                COMPUTE JDISCARD = FUNCTION ClldblBsBhvr-collideInterface2(J-collidableBase2, jtemp5, J-collidableInterfaceCompositeInterface)
+            END-IF
+        END-IF
+    GOBACK.
+END FUNCTION AllBnryCllsnMngr-collide3.
 

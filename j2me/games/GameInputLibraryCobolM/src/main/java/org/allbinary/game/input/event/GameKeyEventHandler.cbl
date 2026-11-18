@@ -1,118 +1,252 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.input.event
+*> Java class GameKeyEventHandler
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.input.event
-unit GameKeyEventHandler;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmKyEvntHndlr-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameKeyEventHandler-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 GameKeyEventHandler-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GameKeyEventHandler-jset-instance = 0
+        MOVE 1 TO GameKeyEventHandler-jset-instance
+        COMPUTE GameKeyEventHandler-jcell-instance = FUNCTION GameKeyEventHandler-new0
+    END-IF
+    MOVE GameKeyEventHandler-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION GmKyEvntHndlr-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmKyEvntHndlrstaticiS45904.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameKeyEventHandler-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GmKyEvntHndlr-static-instance TO J-RESULT
+    MOVE J-VALUE TO GameKeyEventHandler-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GmKyEvntHndlrstaticiS45904.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameKeyEventHandler-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameKeyEventHandler")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_pressGameKeyEventHandler")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_upGameKeyEventHandler")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_downGameKeyEventHandler")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
+    COMPUTE JVALUE = FUNCTION PrssGmKyEvntHndlr-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_pressGameKeyEventHandler", JVALUE)
+    COMPUTE JVALUE = FUNCTION UpGmKyEvntHndlr-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_upGameKeyEventHandler", JVALUE)
+    COMPUTE JVALUE = FUNCTION DwnGmKyEvntHndlr-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_downGameKeyEventHandler", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GameKeyEventHandler-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LogUtil, EventListenerInterface, CommonStrings, PressGameKeyEventHandler, UpGameKeyEventHandler, DownGameKeyEventHandler;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmKyEvntHndlr-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION GmKyEvntHndlr-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION GmKyEvntHndlr-getInstance0.
 
-type
-  {AB:TYPES}
-  TGameKeyEventHandler = class(TObject)
-  public
-    logUtil: TLogUtil;
-    commonStrings: TCommonStrings;
-    pressGameKeyEventHandler: TPressGameKeyEventHandler;
-    upGameKeyEventHandler: TUpGameKeyEventHandler;
-    downGameKeyEventHandler: TDownGameKeyEventHandler;
-    class var instance: TGameKeyEventHandler;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TGameKeyEventHandler; static;
-        procedure removeAllListeners; virtual;
-        procedure addListenerForPlayer(eventListenerInterface_: IEventListenerInterface; playerInputId: Integer); virtual;
-        procedure addListener(eventListenerInterface_: IEventListenerInterface); virtual;
-        procedure removeListener(eventListenerInterface_: IEventListenerInterface); virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmKyEvntHndlr-rmvAllLstnrs0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION PrssGmKyEvntHndlr-rmvAllL46314(FUNCTION JR-GET(J-THIS, "f_pressGameKeyEventHandler"))
+        COMPUTE JDISCARD = FUNCTION UpGmKyEvntHndlr-rmvAllLstnrs0(FUNCTION JR-GET(J-THIS, "f_upGameKeyEventHandler"))
+        COMPUTE JDISCARD = FUNCTION DwnGmKyEvntHndlr-rmvAllLstnrs0(FUNCTION JR-GET(J-THIS, "f_downGameKeyEventHandler"))
+    GOBACK.
+END FUNCTION GmKyEvntHndlr-rmvAllLstnrs0.
 
-implementation
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmKyEvntHndlr-addLstnrFrPlyr2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventListenerInterface BINARY-DOUBLE.
+01 J-playerInputId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventListenerInterface J-playerInputId RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-eventListenerInterface), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_ADD_LISTENER"))
+        COMPUTE JDISCARD = FUNCTION BscEvntHndlr-addLstnrSngl59525(FUNCTION JR-GET(J-THIS, "f_pressGameKeyEventHandler"), J-eventListenerInterface)
+        COMPUTE jtemp1 = FUNCTION UpGmKyEvntHndlr-gtInstncF48444(FUNCTION JR-GET(J-THIS, "f_upGameKeyEventHandler"), J-playerInputId)
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp1)
+        COMPUTE jtemp2 = FUNCTION DwnGmKyEvntHndlr-gtInstnc28670(FUNCTION JR-GET(J-THIS, "f_downGameKeyEventHandler"), J-playerInputId)
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp2)
+    GOBACK.
+END FUNCTION GmKyEvntHndlr-addLstnrFrPlyr2.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmKyEvntHndlr-addListener1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventListenerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventListenerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-eventListenerInterface), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_ADD_LISTENER"))
+        COMPUTE JDISCARD = FUNCTION BscEvntHndlr-addLstnrSngl59525(FUNCTION JR-GET(J-THIS, "f_pressGameKeyEventHandler"), J-eventListenerInterface)
+        COMPUTE JDISCARD = FUNCTION BscEvntHndlr-addLstnrSngl59525(FUNCTION JR-GET(J-THIS, "f_upGameKeyEventHandler"), J-eventListenerInterface)
+        COMPUTE JDISCARD = FUNCTION BscEvntHndlr-addLstnrSngl59525(FUNCTION JR-GET(J-THIS, "f_downGameKeyEventHandler"), J-eventListenerInterface)
+    GOBACK.
+END FUNCTION GmKyEvntHndlr-addListener1.
 
-procedure TGameKeyEventHandler.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.commonStrings := TCommonStrings.getInstance();
-  Self.pressGameKeyEventHandler := TPressGameKeyEventHandler.getInstance();
-  Self.upGameKeyEventHandler := TUpGameKeyEventHandler.getInstance();
-  Self.downGameKeyEventHandler := TDownGameKeyEventHandler.getInstance();
-end;
-
-constructor TGameKeyEventHandler.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TGameKeyEventHandler.getInstance: TGameKeyEventHandler;
-begin
-        Exit(TGameKeyEventHandler.instance);
-end;
-    
-
-procedure TGameKeyEventHandler.removeAllListeners;
-begin
-    TJava.MonitorEnter(Self);
-    try
-        Self.pressGameKeyEventHandler.removeAllListeners();
-        Self.upGameKeyEventHandler.removeAllListeners();
-        Self.downGameKeyEventHandler.removeAllListeners();
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
-
-procedure TGameKeyEventHandler.addListenerForPlayer(eventListenerInterface_: IEventListenerInterface; playerInputId: Integer);
-begin
-        Self.logUtil.putF(TJava.ToString(TJava.ToObject(eventListenerInterface_)), TJava.Box(Self), Self.commonStrings.ADD_LISTENER);
-        Self.pressGameKeyEventHandler.addListenerSingleThreaded(eventListenerInterface_);
-        Self.upGameKeyEventHandler.getInstanceForPlayer(playerInputId).addListenerSingleThreaded(eventListenerInterface_);
-        Self.downGameKeyEventHandler.getInstanceForPlayer(playerInputId).addListenerSingleThreaded(eventListenerInterface_);
-end;
-    
-
-procedure TGameKeyEventHandler.addListener(eventListenerInterface_: IEventListenerInterface);
-begin
-        Self.logUtil.putF(TJava.ToString(TJava.ToObject(eventListenerInterface_)), TJava.Box(Self), Self.commonStrings.ADD_LISTENER);
-        Self.pressGameKeyEventHandler.addListenerSingleThreaded(eventListenerInterface_);
-        Self.upGameKeyEventHandler.addListenerSingleThreaded(eventListenerInterface_);
-        Self.downGameKeyEventHandler.addListenerSingleThreaded(eventListenerInterface_);
-end;
-    
-
-procedure TGameKeyEventHandler.removeListener(eventListenerInterface_: IEventListenerInterface);
-begin
-        Self.logUtil.putF(TJava.ToString(TJava.ToObject(eventListenerInterface_)), TJava.Box(Self), Self.commonStrings.REMOVE_LISTENER);
-        Self.pressGameKeyEventHandler.removeListenerSingleThreaded(eventListenerInterface_);
-        Self.upGameKeyEventHandler.removeListenerSingleThreaded(eventListenerInterface_);
-        Self.downGameKeyEventHandler.removeListenerSingleThreaded(eventListenerInterface_);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TGameKeyEventHandler.instance := TGameKeyEventHandler.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmKyEvntHndlr-removeListener1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventListenerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventListenerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-eventListenerInterface), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_REMOVE_LISTENER"))
+        COMPUTE JDISCARD = FUNCTION BscEvntHndlr-rmvLstnrSngl78564(FUNCTION JR-GET(J-THIS, "f_pressGameKeyEventHandler"), J-eventListenerInterface)
+        COMPUTE JDISCARD = FUNCTION UpGmKyEvntHndlr-rmvLstnrS82560(FUNCTION JR-GET(J-THIS, "f_upGameKeyEventHandler"), J-eventListenerInterface)
+        COMPUTE JDISCARD = FUNCTION DwnGmKyEvntHndlr-rmvLstnr53674(FUNCTION JR-GET(J-THIS, "f_downGameKeyEventHandler"), J-eventListenerInterface)
+    GOBACK.
+END FUNCTION GmKyEvntHndlr-removeListener1.
 

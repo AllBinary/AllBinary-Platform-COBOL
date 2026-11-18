@@ -1,188 +1,407 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.image
+*> Java class ImageCache
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.image
-unit ImageCache;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgCch-sttc-NULL-IMAGE56989.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ImageCache-jcell-NULL_IMAGE_CACHE BINARY-DOUBLE EXTERNAL.
+01 ImageCache-jset-NULL_IMAGE_CACHE BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF ImageCache-jset-NULL_IMAGE_CACHE = 0
+        MOVE 1 TO ImageCache-jset-NULL_IMAGE_CACHE
+        COMPUTE ImageCache-jcell-NULL_IMAGE_CACHE = FUNCTION ImageCache-new0
+    END-IF
+    MOVE ImageCache-jcell-NULL_IMAGE_CACHE TO J-RESULT
+    GOBACK.
+END FUNCTION ImgCch-sttc-NULL-IMAGE56989.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgCchsttcNULLIMAGE5S38720.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ImageCache-jcell-NULL_IMAGE_CACHE BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION ImgCch-sttc-NULL-IMAGE56989 TO J-RESULT
+    MOVE J-VALUE TO ImageCache-jcell-NULL_IMAGE_CACHE
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION ImgCchsttcNULLIMAGE5S38720.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImageCache-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ImageCache")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_tsUtil")
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
+    COMPUTE JVALUE = FUNCTION TsUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_tsUtil", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ImageCache-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Image, TsUtil, CommonStrings, ImageCacheBase;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImageCache-addListener1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-renderer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-renderer RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION ImageCache-addListener1.
 
-type
-  {AB:TYPES}
-  TImageCache = class(TImageCacheBase)
-  public
-    commonStrings: TCommonStrings;
-    tsUtil: TTsUtil;
-    class var NULL_IMAGE_CACHE: TImageCache;
-    procedure InitFields;
-        constructor Create;
-        procedure addListener(renderer: TObject); virtual;
-        function getIndex(key: TObject): Integer; virtual;
-        function get(caller: string; width: Integer; height: Integer): TImage; override;
-        function getWithKey(key: TObject): TImage; override;
-        procedure loadImageForAnimation; virtual;
-        procedure progressEnded; virtual;
-        procedure runTask; virtual;
-        function isLazy: Boolean; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImageCache-getIndex1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gdResources BINARY-DOUBLE.
+01 J-resourceStringArray BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-key BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-key RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-gdResources = FUNCTION GDResources-getInstance0
+        COMPUTE J-resourceStringArray = FUNCTION JR-GET(J-gdResources, "f_resourceStringArray")
+        COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(J-resourceStringArray)
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            IF (FUNCTION JR-ARRAY-GET(J-resourceStringArray, J-index) = J-key)
+                COMPUTE J-RESULT = J-index
+                GOBACK
+            END-IF
+        END-PERFORM
+        COMPUTE jtemp4 = FUNCTION StringUtil-getInstance0
+        COMPUTE jtemp3 = FUNCTION StringMaker-new0
+        COMPUTE jtemp2 = FUNCTION StringMaker-append1(jtemp3, FUNCTION JR-STR("unable to find key: "))
+        COMPUTE jtemp1 = FUNCTION StringMaker-append1(jtemp2, FUNCTION StringUtil-toString1(jtemp4, J-key))
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+    GOBACK.
+END FUNCTION ImageCache-getIndex1.
 
-implementation
-uses
-  NullImage, J2MEUtil, ResourceUtil, GDResources, ABSystemWrapper, StringMaker, StringUtil, Memory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImageCache-get3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-foundIndex BINARY-DOUBLE.
+01 J-image BINARY-DOUBLE.
+01 J-widths BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-caller BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-caller J-width J-height RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-foundIndex = FUNCTION ImageCacheBase-getIndexWH2(J-THIS, J-width, J-height)
+        COMPUTE J-image = FUNCTION ImgCchBs-getFromAvailable3(J-THIS, J-foundIndex, J-width, J-height)
+        IF (J-image = FUNCTION NullImage-static-NULL-IMAGE)
+            COMPUTE JVALUE = (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_volume") + (FUNCTION MOD((J-width * J-height) + 2147483648, 4294967296) - 2147483648)) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_volume", JVALUE)
+            IF (FUNCTION JR-GET(J-THIS, "f_volume") > 32000)
+                COMPUTE JDISCARD = FUNCTION TsUtil-gc0(FUNCTION JR-GET(J-THIS, "f_tsUtil"))
+                COMPUTE JVALUE = 0
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_volume", JVALUE)
+            END-IF
+            COMPUTE J-image = FUNCTION ImageCacheBase-createImage3(J-THIS, J-caller, J-width, J-height)
+            COMPUTE J-widths = FUNCTION JR-GET(J-THIS, "f_widths")
+            IF (FUNCTION JR-GET(J-THIS, "f_nextIndex") > (FUNCTION MOD((FUNCTION JR-ARRAY-LENGTH(J-widths) - 1) + 2147483648, 4294967296) - 2147483648))
+                IF (J-foundIndex = (0 - 1))
+                    COMPUTE J-foundIndex = FUNCTION JR-GET(J-THIS, "f_nextIndex")
+                    COMPUTE JVALUE = J-width
+                    COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-widths, FUNCTION JR-GET(J-THIS, "f_nextIndex"), JVALUE)
+                    COMPUTE JVALUE = J-height
+                    COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_heights"), FUNCTION JR-GET(J-THIS, "f_nextIndex"), JVALUE)
+                    COMPUTE JVALUE = (FUNCTION MOD(FUNCTION JR-GET(J-THIS, "f_nextIndex") + 1 + 2147483648, 4294967296) - 2147483648)
+                    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_nextIndex", JVALUE)
+                END-IF
+                COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_listOfList"), J-foundIndex))
+            END-IF
+        END-IF
+        COMPUTE J-RESULT = J-image
+        GOBACK
+    GOBACK.
+END FUNCTION ImageCache-get3.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImageCache-getWithKey1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-image BINARY-DOUBLE.
+01 J-resourceUtil BINARY-DOUBLE.
+01 J-resourceInputStream BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-key BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-key RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-image = FUNCTION ImageCacheBase-getImage1(J-THIS, J-key)
+        IF (J-image = FUNCTION NullImage-static-NULL-IMAGE)
+            COMPUTE J-resourceUtil = FUNCTION ResourceUtil-getInstance0
+            COMPUTE jtemp5 = J-key
+            COMPUTE J-resourceInputStream = FUNCTION RsrcUtl-getResourceAsStream1(J-resourceUtil, jtemp5)
+            IF (J-resourceInputStream = 0)
+                COMPUTE jtemp9 = FUNCTION StringUtil-getInstance0
+                COMPUTE jtemp8 = FUNCTION StringMaker-new0
+                COMPUTE jtemp7 = FUNCTION StringMaker-append1(jtemp8, FUNCTION JR-STR("Image resource is not available for key: "))
+                COMPUTE jtemp6 = FUNCTION StringMaker-append1(jtemp7, FUNCTION StringUtil-toString1(jtemp9, J-key))
+                COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+            END-IF
+            CONTINUE
+                COMPUTE J-image = FUNCTION ImgCchBs-crtImgFrmInptStrm2(J-THIS, J-key, J-resourceInputStream)
+            IF (FUNCTION J2MEUtil-isHTML0 = 1)
+                CONTINUE
+            ELSE
+                COMPUTE JDISCARD = FUNCTION InputStream-close0(J-resourceInputStream)
+            END-IF
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_hashtable"))
+        END-IF
+        COMPUTE J-RESULT = J-image
+        GOBACK
+    GOBACK.
+END FUNCTION ImageCache-getWithKey1.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgCch-loadImageForAnimation0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION ImgCch-loadImageForAnimation0.
 
-procedure TImageCache.InitFields;
-begin
-  Self.commonStrings := TCommonStrings.getInstance();
-  Self.tsUtil := TTsUtil.getInstance();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImageCache-progressEnded0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION ImageCache-progressEnded0.
 
-constructor TImageCache.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImageCache-runTask0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION ImageCache-runTask0.
 
-procedure TImageCache.addListener(renderer: TObject);
-begin
-end;
-    
-
-function TImageCache.getIndex(key: TObject): Integer;
-var
-  gdResources_: TGDResources;
-  resourceStringArray: TArray<string>;
-  size: Integer;
-  index: Integer;
-begin
-        gdResources_ := TGDResources.getInstance();
-        resourceStringArray := gdResources_.resourceStringArray;
-        size := System.Length(resourceStringArray);
-        for index := 0 to size - 1 do begin
-            if TJava.Equals(resourceStringArray[index], key) then begin
-                Exit(index);
-            end;
-        end;
-        Self.logUtil.putF(TStringMaker.Create().append('unable to find key: ').append(TStringUtil.getInstance().toString(key)).toString(), TJava.Box(Self), Self.commonStrings.RUN);
-        raise SysUtils.Exception.Create('');
-end;
-    
-
-// throws Exception
-function TImageCache.get(caller: string; width: Integer; height: Integer): TImage;
-var
-  foundIndex: Integer;
-  image_: TImage;
-  widths: TArray<Integer>;
-begin
-        foundIndex := Self.getIndexWH(width, height);
-        image_ := Self.getFromAvailable(foundIndex, width, height);
-        if (image_) = (TNullImage.NULL_IMAGE) then begin
-            Self.volume := (Self.volume) + ((width) * (height));
-            if (Self.volume) > (32000) then begin
-                Self.tsUtil.gc();
-                Self.volume := 0;
-            end;
-            image_ := Self.createImage(caller, width, height);
-            widths := Self.widths;
-            if (Self.nextIndex) > ((System.Length(widths)) - (1)) then begin
-                if (foundIndex) = (-1) then begin
-                    foundIndex := Self.nextIndex;
-                    widths[Self.nextIndex] := width;
-                    Self.heights[Self.nextIndex] := height;
-                    Inc(Self.nextIndex);
-                end;
-                Self.listOfList[foundIndex].add(image_);
-            end;
-        end;
-        Exit(image_);
-end;
-    
-
-// throws Exception
-function TImageCache.getWithKey(key: TObject): TImage;
-var
-  image_: TImage;
-  resourceUtil_: TResourceUtil;
-  resourceInputStream: TInputStream;
-begin
-        image_ := Self.getImage(key);
-        if (image_) = (TNullImage.NULL_IMAGE) then begin
-            resourceUtil_ := TResourceUtil.getInstance();
-            resourceInputStream := resourceUtil_.getResourceAsStream(TJava.UnboxString(TJava.ToObject(key)));
-            if (resourceInputStream) = (nil) then begin
-                raise SysUtils.Exception.Create(TStringMaker.Create().append('Image resource is not available for key: ').append(TStringUtil.getInstance().toString(key)).toString());
-            end;
-            try
-                image_ := Self.createImageFromInputStream(TJava.Box(key), resourceInputStream);
-            except
-                on e: SysUtils.Exception do begin
-                Self.logUtil.put('Exception: Trying Again After GC', TJava.Box(Self), Self.commonStrings.GET, TJava.Box(e));
-                Self.logUtil.putF(TStringMaker.Create().append('InputStream: ').append(TStringUtil.getInstance().toString(resourceInputStream)).toString(), TJava.Box(Self), Self.commonStrings.GET);
-                Self.tsUtil.gc();
-                Self.tsUtil.gc();
-                Self.logUtil.putF(TMemory.getInfo(), TJava.Box(Self), Self.commonStrings.GET);
-                SysUtils.Sleep(100);
-                image_ := Self.createImageFromInputStream(TJava.Box(key), resourceInputStream);
-                end;
-            end;
-            if TJ2MEUtil.isHTML() then begin
-            end else begin
-                resourceInputStream.close();
-            end;
-            Self.hashtable.put(TJava.Box(key), TJava.Box(image_));
-        end;
-        Exit(image_);
-end;
-    
-
-// throws Exception
-procedure TImageCache.loadImageForAnimation;
-begin
-end;
-    
-
-procedure TImageCache.progressEnded;
-begin
-end;
-    
-
-procedure TImageCache.runTask;
-begin
-end;
-    
-
-function TImageCache.isLazy: Boolean;
-begin
-        Exit(False);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TImageCache.NULL_IMAGE_CACHE := TImageCache.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImageCache-isLazy0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION ImageCache-isLazy0.
 

@@ -1,105 +1,127 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation
+*> Java class IndependentVectorExplosionRotationAnimationFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation
-unit IndependentVectorExplosionRotationAnimationFactory;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, BasicColor, VectorInfo, VectorAnimationFactoryInterface, VectorExplosionGenerator, Animation, ProceduralAnimationInterfaceFactoryInterface, BasicAnimationInterfaceFactoryInterface;
-
-type
-  {AB:TYPES}
-  TIndependentVectorExplosionRotationAnimationFactory = class(TInterfacedObject, IProceduralAnimationInterfaceFactoryInterface, IBasicAnimationInterfaceFactoryInterface)
-  public
-    framePoints: TArray<TArray<TArray<Integer>>>;
-    vectorInfo: TVectorInfo;
-    basicColor: TBasicColor;
-    vectorAnimationFactoryInterface: IVectorAnimationFactoryInterface;
-    vectorExplosionGenerator: TVectorExplosionGenerator;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(vectorInfo_: TVectorInfo; basicColor_: TBasicColor; vectorAnimationFactoryInterface_: IVectorAnimationFactoryInterface);
-        procedure init; virtual;
-        function getInstanceAnimation(animationInterface: TAnimation): TAnimation; virtual;
-  end;
-
-implementation
-uses
-  VectorRotationGenerator, IndexedAnimation, NullUtil;
-
-
-{AB:CODE}
-
-procedure TIndependentVectorExplosionRotationAnimationFactory.InitFields;
-begin
-  Self.framePoints := TNullUtil.getInstance().NULL_INT_ARRAY_ARRAY_ARRAY;
-  
-  
-  
-  Self.vectorExplosionGenerator := TVectorExplosionGenerator.getInstance();
-end;
-
-function TIndependentVectorExplosionRotationAnimationFactory.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. IndpndntVctrExplsnRttnA-62693.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-vectorInfo BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-vectorAnimationFactoryInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-vectorInfo J-basicColor J-vectorAnimationFactoryInterface RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("IndependentVectorExplosionRotationAnimationFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_framePoints")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_vectorInfo")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_basicColor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_vectorAnimationFactoryInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_vectorExplosionGenerator")
+    COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_NULL_INT_ARRAY_ARRAY_ARRAY")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_framePoints", JVALUE)
     
-
-constructor TIndependentVectorExplosionRotationAnimationFactory.Create(vectorInfo_: TVectorInfo; basicColor_: TBasicColor; vectorAnimationFactoryInterface_: IVectorAnimationFactoryInterface);
-begin
-    inherited Create;
-    InitFields;
-        Self.vectorInfo := vectorInfo_;
-        Self.basicColor := basicColor_;
-        Self.vectorAnimationFactoryInterface := vectorAnimationFactoryInterface_;
-        Self.init();
-end;
     
-
-// throws Exception
-procedure TIndependentVectorExplosionRotationAnimationFactory.init;
-begin
-        Self.framePoints := TVectorRotationGenerator.getInstance().getInstance(Self.vectorInfo);
-end;
     
+    COMPUTE JVALUE = FUNCTION VctrExplsnGnrtr-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_vectorExplosionGenerator", JVALUE)
+        COMPUTE JVALUE = J-vectorInfo
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_vectorInfo", JVALUE)
+        COMPUTE JVALUE = J-basicColor
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicColor", JVALUE)
+        COMPUTE JVALUE = J-vectorAnimationFactoryInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_vectorAnimationFactoryInterface", JVALUE)
+        COMPUTE JDISCARD = FUNCTION IndpndntVctrExplsnRttnA-68559(J-THIS)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION IndpndntVctrExplsnRttnA-62693.
 
-// throws Exception
-function TIndependentVectorExplosionRotationAnimationFactory.getInstanceAnimation(animationInterface: TAnimation): TAnimation;
-var
-  frame: Integer;
-  rotationAnimationInterface: TIndexedAnimation;
-  points: TArray<TArray<TArray<Integer>>>;
-begin
-        frame := 0;
-        if (animationInterface) <> (nil) then begin
-            rotationAnimationInterface := TIndexedAnimation(TJava.ToObject(animationInterface));
-            frame := rotationAnimationInterface.getFrame();
-        end;
-        points := Self.vectorExplosionGenerator.getInstance(Self.framePoints[frame], 6, Self.vectorExplosionGenerator.ROTATION);
-        Exit(Self.vectorAnimationFactoryInterface.getInstance(points, Self.basicColor));
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. IndpndntVctrExplsnRttnA-68559.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION VctrRttnGnrtr-getInstance0
+        COMPUTE JVALUE = FUNCTION VctrRttnGnrtr-getInstance1(jtemp2, FUNCTION JR-GET(J-THIS, "f_vectorInfo"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_framePoints", JVALUE)
+    GOBACK.
+END FUNCTION IndpndntVctrExplsnRttnA-68559.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. IndpndntVctrExplsnRttnA-51098.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-frame BINARY-DOUBLE.
+01 J-rotationAnimationInterface BINARY-DOUBLE.
+01 J-points BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-animationInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-animationInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-frame = 0
+        IF (J-animationInterface NOT = 0)
+            COMPUTE J-rotationAnimationInterface = J-animationInterface
+            COMPUTE J-frame = FUNCTION IndexedAnimation-getFrame0(J-rotationAnimationInterface)
+        END-IF
+        COMPUTE jtemp3 = 6
+        COMPUTE J-points = FUNCTION VctrExplsnGnrtr-getInstance3(FUNCTION JR-GET(J-THIS, "f_vectorExplosionGenerator"), FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_framePoints"), J-frame), jtemp3, FUNCTION JR-GET(FUNCTION
+        JR-GET(J-THIS, "f_vectorExplosionGenerator"), "f_ROTATION"))
+        COMPUTE J-RESULT = FUNCTION VctrAnmtnFctryIntrfc-gtInstnc2(FUNCTION JR-GET(J-THIS, "f_vectorAnimationFactoryInterface"), J-points, FUNCTION JR-GET(J-THIS, "f_basicColor"))
+        GOBACK
+    GOBACK.
+END FUNCTION IndpndntVctrExplsnRttnA-51098.
 

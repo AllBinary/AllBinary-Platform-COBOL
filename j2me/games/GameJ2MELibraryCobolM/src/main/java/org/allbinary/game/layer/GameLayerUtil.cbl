@@ -1,76 +1,110 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.layer
+*> Java class GameLayerUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.layer
-unit GameLayerUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameLayerUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameLayerUtil")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GameLayerUtil-new0.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameLayerUtil-isOnScreen1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-displayInfo BINARY-DOUBLE.
+01 J-viewPosition BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-layer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-layer RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-displayInfo = FUNCTION DsplyInfSngltn-getInstance0
+        COMPUTE J-viewPosition = FUNCTION AllBnryLyr-getViewPosition0(J-layer)
+        COMPUTE jtemp1 = 0
+        COMPUTE jtemp2 = 0
+        COMPUTE J-RESULT = FUNCTION GameLayerUtil-isInside8(FUNCTION GPoint-getX0(J-viewPosition), FUNCTION GPoint-getY0(J-viewPosition), FUNCTION ViewPositionBase-getX20(J-viewPosition), FUNCTION ViewPositionBase-getY20(J-viewPosition),
+        jtemp1, jtemp2, FUNCTION DsplyInfSngltn-getLastWidth0(J-displayInfo), FUNCTION DsplyInfSngltn-getLastHeight0(J-displayInfo))
+        GOBACK
+    GOBACK.
+END FUNCTION GameLayerUtil-isOnScreen1.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AllBinaryLayer;
-
-type
-  {AB:TYPES}
-  TGameLayerUtil = class(TObject)
-  public
-        constructor Create;
-        class function isOnScreen(layer: TAllBinaryLayer): Boolean; static;
-        class function isInside(rectX1: Integer; rectY1: Integer; rectX2: Integer; rectY2: Integer; rect2X1: Integer; rect2Y1: Integer; rect2X2: Integer; rect2Y2: Integer): Boolean; static;
-  end;
-
-implementation
-uses
-  DisplayInfoSingleton, ViewPositionBase;
-
-
-{AB:CODE}
-    
-
-constructor TGameLayerUtil.Create;
-begin
-    inherited Create;
-end;
-    
-
-class function TGameLayerUtil.isOnScreen(layer: TAllBinaryLayer): Boolean;
-var
-  displayInfo: TDisplayInfoSingleton;
-  viewPosition: TViewPositionBase;
-begin
-        displayInfo := TDisplayInfoSingleton.getInstance();
-        viewPosition := layer.getViewPosition();
-        Exit(TGameLayerUtil.isInside(viewPosition.getX(), viewPosition.getY(), viewPosition.getX2(), viewPosition.getY2(), 0, 0, displayInfo.getLastWidth(), displayInfo.getLastHeight()));
-end;
-    
-
-class function TGameLayerUtil.isInside(rectX1: Integer; rectY1: Integer; rectX2: Integer; rectY2: Integer; rect2X1: Integer; rect2Y1: Integer; rect2X2: Integer; rect2Y2: Integer): Boolean;
-begin
-        if ((((rectX1) > (rect2X1)) and ((rectX2) < (rect2X2))) and ((rectY1) > (rect2Y1))) and ((rectY2) < (rect2Y2)) then begin
-            Exit(True);
-        end else begin
-            Exit(False);
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameLayerUtil-isInside8.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-rectX1 BINARY-DOUBLE.
+01 J-rectY1 BINARY-DOUBLE.
+01 J-rectX2 BINARY-DOUBLE.
+01 J-rectY2 BINARY-DOUBLE.
+01 J-rect2X1 BINARY-DOUBLE.
+01 J-rect2Y1 BINARY-DOUBLE.
+01 J-rect2X2 BINARY-DOUBLE.
+01 J-rect2Y2 BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-rectX1 J-rectY1 J-rectX2 J-rectY2 J-rect2X1 J-rect2Y1 J-rect2X2 J-rect2Y2 RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF ((((J-rectX1 > J-rect2X1) AND (J-rectX2 < J-rect2X2)) AND (J-rectY1 > J-rect2Y1)) AND (J-rectY2 < J-rect2Y2))
+            COMPUTE J-RESULT = 1
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = 0
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION GameLayerUtil-isInside8.
 

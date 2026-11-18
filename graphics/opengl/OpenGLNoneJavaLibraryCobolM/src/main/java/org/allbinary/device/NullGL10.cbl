@@ -1,718 +1,2881 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2025 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.device
-unit NullGL10;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GL10, GL;
-
-type
-  {AB:TYPES}
-  TNullGL10 = class(TInterfacedObject, IGL10, IGL)
-  public
-    class var NULL_GL10: TNullGL10;
-    function JavaObject: TObject;
-    constructor Create;
-        procedure glActiveTexture(texture: Integer); virtual;
-        procedure glAlphaFunc(func: Integer; ref: Single); virtual;
-        procedure glBindTexture(target: Integer; texture: Integer); virtual;
-        procedure glBlendFunc(sfactor: Integer; dfactor: Integer); virtual;
-        procedure glClear(mask: Integer); virtual;
-        procedure glClearColor(red: Single; green: Single; blue: Single; alpha: Single); virtual;
-        procedure glClearDepthf(depth: Single); virtual;
-        procedure glClearStencil(s: Integer); virtual;
-        procedure glClientActiveTexture(texture: Integer); virtual;
-        procedure glColor4f(red: Single; green: Single; blue: Single; alpha: Single); virtual;
-        procedure glColorMask(red: Boolean; green: Boolean; blue: Boolean; alpha: Boolean); virtual;
-        procedure glColorPointer(size: Integer; type_: Integer; stride: Integer; pointer_: TBuffer); virtual;
-        procedure glCompressedTexImage2D(target: Integer; level: Integer; internalformat: Integer; width: Integer; height: Integer; border: Integer; imageSize: Integer; data: TBuffer); virtual;
-        procedure glCompressedTexSubImage2D(target: Integer; level: Integer; xoffset: Integer; yoffset: Integer; width: Integer; height: Integer; format: Integer; imageSize: Integer; data: TBuffer); virtual;
-        procedure glCopyTexImage2D(target: Integer; level: Integer; internalformat: Integer; x: Integer; y: Integer; width: Integer; height: Integer; border: Integer); virtual;
-        procedure glCopyTexSubImage2D(target: Integer; level: Integer; xoffset: Integer; yoffset: Integer; x: Integer; y: Integer; width: Integer; height: Integer); virtual;
-        procedure glCullFace(mode: Integer); virtual;
-        procedure glDeleteTextures(n: Integer; textures: TArray<Integer>; offset: Integer); overload; virtual;
-        procedure glDeleteTextures(n: Integer; textures: TIntBuffer); overload; virtual;
-        procedure glDepthFunc(func: Integer); virtual;
-        procedure glDepthMask(flag: Boolean); virtual;
-        procedure glDepthRangef(zNear: Single; zFar: Single); virtual;
-        procedure glDisable(cap: Integer); virtual;
-        procedure glDisableClientState(array_: Integer); virtual;
-        procedure glDrawArrays(mode: Integer; first: Integer; count: Integer); virtual;
-        procedure glDrawElements(mode: Integer; count: Integer; type_: Integer; indices: TBuffer); virtual;
-        procedure glEnable(cap: Integer); virtual;
-        procedure glEnableClientState(array_: Integer); virtual;
-        procedure glFinish; virtual;
-        procedure glFlush; virtual;
-        procedure glFogf(pname: Integer; param: Single); virtual;
-        procedure glFogfv(pname: Integer; params: TArray<Single>; offset: Integer); overload; virtual;
-        procedure glFogfv(pname: Integer; params: TFloatBuffer); overload; virtual;
-        procedure glFrontFace(mode: Integer); virtual;
-        procedure glFrustumf(left: Single; right: Single; bottom: Single; top: Single; zNear: Single; zFar: Single); virtual;
-        procedure glGenTextures(n: Integer; textures: TArray<Integer>; offset: Integer); overload; virtual;
-        procedure glGenTextures(n: Integer; textures: TIntBuffer); overload; virtual;
-        function glGetError: Integer; virtual;
-        procedure glGetIntegerv(pname: Integer; params: TArray<Integer>; offset: Integer); overload; virtual;
-        procedure glGetIntegerv(pname: Integer; params: TIntBuffer); overload; virtual;
-        function glGetString(name: Integer): string; virtual;
-        procedure glHint(target: Integer; mode: Integer); virtual;
-        procedure glLightModelf(pname: Integer; param: Single); virtual;
-        procedure glLightModelfv(pname: Integer; params: TArray<Single>; offset: Integer); overload; virtual;
-        procedure glLightModelfv(pname: Integer; params: TFloatBuffer); overload; virtual;
-        procedure glLightf(light: Integer; pname: Integer; param: Single); virtual;
-        procedure glLightfv(light: Integer; pname: Integer; params: TArray<Single>; offset: Integer); overload; virtual;
-        procedure glLightfv(light: Integer; pname: Integer; params: TFloatBuffer); overload; virtual;
-        procedure glLineWidth(width: Single); virtual;
-        procedure glLoadIdentity; virtual;
-        procedure glLoadMatrixf(m: TArray<Single>; offset: Integer); overload; virtual;
-        procedure glLoadMatrixf(m: TFloatBuffer); overload; virtual;
-        procedure glLogicOp(opcode: Integer); virtual;
-        procedure glMaterialf(face: Integer; pname: Integer; param: Single); virtual;
-        procedure glMaterialfv(face: Integer; pname: Integer; params: TArray<Single>; offset: Integer); overload; virtual;
-        procedure glMaterialfv(face: Integer; pname: Integer; params: TFloatBuffer); overload; virtual;
-        procedure glMatrixMode(mode: Integer); virtual;
-        procedure glMultMatrixf(m: TArray<Single>; offset: Integer); overload; virtual;
-        procedure glMultMatrixf(m: TFloatBuffer); overload; virtual;
-        procedure glMultiTexCoord4f(target: Integer; s: Single; t: Single; r: Single; q: Single); virtual;
-        procedure glNormal3f(nx: Single; ny: Single; nz: Single); virtual;
-        procedure glNormalPointer(type_: Integer; stride: Integer; pointer_: TBuffer); virtual;
-        procedure glOrthof(left: Single; right: Single; bottom: Single; top: Single; zNear: Single; zFar: Single); virtual;
-        procedure glPixelStorei(pname: Integer; param: Integer); virtual;
-        procedure glPointSize(size: Single); virtual;
-        procedure glPolygonOffset(factor: Single; units: Single); virtual;
-        procedure glPopMatrix; virtual;
-        procedure glPushMatrix; virtual;
-        procedure glReadPixels(x: Integer; y: Integer; width: Integer; height: Integer; format: Integer; type_: Integer; pixels: TBuffer); virtual;
-        procedure glRotatef(angle: Single; x: Single; y: Single; z: Single); virtual;
-        procedure glRotatex(angle: Integer; x: Integer; y: Integer; z: Integer); virtual;
-        procedure glSampleCoverage(value: Single; invert: Boolean); virtual;
-        procedure glScalef(x: Single; y: Single; z: Single); virtual;
-        procedure glScalex(x: Integer; y: Integer; z: Integer); virtual;
-        procedure glScissor(x: Integer; y: Integer; width: Integer; height: Integer); virtual;
-        procedure glShadeModel(mode: Integer); virtual;
-        procedure glStencilFunc(func: Integer; ref: Integer; mask: Integer); virtual;
-        procedure glStencilMask(mask: Integer); virtual;
-        procedure glStencilOp(fail: Integer; zfail: Integer; zpass: Integer); virtual;
-        procedure glTexCoordPointer(size: Integer; type_: Integer; stride: Integer; pointer_: TBuffer); virtual;
-        procedure glTexEnvf(target: Integer; pname: Integer; param: Single); virtual;
-        procedure glTexEnvfv(target: Integer; pname: Integer; params: TArray<Single>; offset: Integer); overload; virtual;
-        procedure glTexEnvfv(target: Integer; pname: Integer; params: TFloatBuffer); overload; virtual;
-        procedure glTexImage2D(target: Integer; level: Integer; internalformat: Integer; width: Integer; height: Integer; border: Integer; format: Integer; type_: Integer; pixels: TBuffer); virtual;
-        procedure glTexParameterf(target: Integer; pname: Integer; param: Single); virtual;
-        procedure glTexParameteri(target: Integer; pname: Integer; param: Integer); virtual;
-        procedure glTexSubImage2D(target: Integer; level: Integer; xoffset: Integer; yoffset: Integer; width: Integer; height: Integer; format: Integer; type_: Integer; pixels: TBuffer); virtual;
-        procedure glTranslatef(x: Single; y: Single; z: Single); virtual;
-        procedure glVertexPointer(size: Integer; type_: Integer; stride: Integer; pointer_: TBuffer); virtual;
-        procedure glViewport(x: Integer; y: Integer; width: Integer; height: Integer); virtual;
-        procedure glBegin(i: Integer); virtual;
-        procedure glEnd; virtual;
-        procedure glVertex3f(f: Single; f2: Single; f3: Single); virtual;
-        procedure glPolygonMode(i: Integer; i1: Integer); virtual;
-  end;
-
-implementation
-uses
-  StringUtil;
-
-
-{AB:CODE}
-
-function TNullGL10.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-
-constructor TNullGL10.Create;
-begin
-  inherited Create;
-end;
-    
-
-procedure TNullGL10.glActiveTexture(texture: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glAlphaFunc(func: Integer; ref: Single);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glBindTexture(target: Integer; texture: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glBlendFunc(sfactor: Integer; dfactor: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glClear(mask: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glClearColor(red: Single; green: Single; blue: Single; alpha: Single);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glClearDepthf(depth: Single);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glClearStencil(s: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glClientActiveTexture(texture: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glColor4f(red: Single; green: Single; blue: Single; alpha: Single);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glColorMask(red: Boolean; green: Boolean; blue: Boolean; alpha: Boolean);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glColorPointer(size: Integer; type_: Integer; stride: Integer; pointer_: TBuffer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glCompressedTexImage2D(target: Integer; level: Integer; internalformat: Integer; width: Integer; height: Integer; border: Integer; imageSize: Integer; data: TBuffer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glCompressedTexSubImage2D(target: Integer; level: Integer; xoffset: Integer; yoffset: Integer; width: Integer; height: Integer; format: Integer; imageSize: Integer; data: TBuffer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glCopyTexImage2D(target: Integer; level: Integer; internalformat: Integer; x: Integer; y: Integer; width: Integer; height: Integer; border: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glCopyTexSubImage2D(target: Integer; level: Integer; xoffset: Integer; yoffset: Integer; x: Integer; y: Integer; width: Integer; height: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glCullFace(mode: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glDeleteTextures(n: Integer; textures: TArray<Integer>; offset: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glDeleteTextures(n: Integer; textures: TIntBuffer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glDepthFunc(func: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glDepthMask(flag: Boolean);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glDepthRangef(zNear: Single; zFar: Single);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glDisable(cap: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glDisableClientState(array_: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glDrawArrays(mode: Integer; first: Integer; count: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glDrawElements(mode: Integer; count: Integer; type_: Integer; indices: TBuffer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glEnable(cap: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glEnableClientState(array_: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glFinish;
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glFlush;
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glFogf(pname: Integer; param: Single);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glFogfv(pname: Integer; params: TArray<Single>; offset: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glFogfv(pname: Integer; params: TFloatBuffer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glFrontFace(mode: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glFrustumf(left: Single; right: Single; bottom: Single; top: Single; zNear: Single; zFar: Single);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glGenTextures(n: Integer; textures: TArray<Integer>; offset: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glGenTextures(n: Integer; textures: TIntBuffer);
-begin
-        Exit;
-end;
-    
-
-function TNullGL10.glGetError: Integer;
-begin
-        Exit(0);
-end;
-    
-
-procedure TNullGL10.glGetIntegerv(pname: Integer; params: TArray<Integer>; offset: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glGetIntegerv(pname: Integer; params: TIntBuffer);
-begin
-        Exit;
-end;
-    
-
-function TNullGL10.glGetString(name: Integer): string;
-begin
-        Exit(TStringUtil.getInstance().EMPTY_STRING);
-end;
-    
-
-procedure TNullGL10.glHint(target: Integer; mode: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glLightModelf(pname: Integer; param: Single);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glLightModelfv(pname: Integer; params: TArray<Single>; offset: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glLightModelfv(pname: Integer; params: TFloatBuffer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glLightf(light: Integer; pname: Integer; param: Single);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glLightfv(light: Integer; pname: Integer; params: TArray<Single>; offset: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glLightfv(light: Integer; pname: Integer; params: TFloatBuffer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glLineWidth(width: Single);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glLoadIdentity;
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glLoadMatrixf(m: TArray<Single>; offset: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glLoadMatrixf(m: TFloatBuffer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glLogicOp(opcode: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glMaterialf(face: Integer; pname: Integer; param: Single);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glMaterialfv(face: Integer; pname: Integer; params: TArray<Single>; offset: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glMaterialfv(face: Integer; pname: Integer; params: TFloatBuffer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glMatrixMode(mode: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glMultMatrixf(m: TArray<Single>; offset: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glMultMatrixf(m: TFloatBuffer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glMultiTexCoord4f(target: Integer; s: Single; t: Single; r: Single; q: Single);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glNormal3f(nx: Single; ny: Single; nz: Single);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glNormalPointer(type_: Integer; stride: Integer; pointer_: TBuffer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glOrthof(left: Single; right: Single; bottom: Single; top: Single; zNear: Single; zFar: Single);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glPixelStorei(pname: Integer; param: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glPointSize(size: Single);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glPolygonOffset(factor: Single; units: Single);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glPopMatrix;
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glPushMatrix;
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glReadPixels(x: Integer; y: Integer; width: Integer; height: Integer; format: Integer; type_: Integer; pixels: TBuffer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glRotatef(angle: Single; x: Single; y: Single; z: Single);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glRotatex(angle: Integer; x: Integer; y: Integer; z: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glSampleCoverage(value: Single; invert: Boolean);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glScalef(x: Single; y: Single; z: Single);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glScalex(x: Integer; y: Integer; z: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glScissor(x: Integer; y: Integer; width: Integer; height: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glShadeModel(mode: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glStencilFunc(func: Integer; ref: Integer; mask: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glStencilMask(mask: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glStencilOp(fail: Integer; zfail: Integer; zpass: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glTexCoordPointer(size: Integer; type_: Integer; stride: Integer; pointer_: TBuffer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glTexEnvf(target: Integer; pname: Integer; param: Single);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glTexEnvfv(target: Integer; pname: Integer; params: TArray<Single>; offset: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glTexEnvfv(target: Integer; pname: Integer; params: TFloatBuffer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glTexImage2D(target: Integer; level: Integer; internalformat: Integer; width: Integer; height: Integer; border: Integer; format: Integer; type_: Integer; pixels: TBuffer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glTexParameterf(target: Integer; pname: Integer; param: Single);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glTexParameteri(target: Integer; pname: Integer; param: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glTexSubImage2D(target: Integer; level: Integer; xoffset: Integer; yoffset: Integer; width: Integer; height: Integer; format: Integer; type_: Integer; pixels: TBuffer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glTranslatef(x: Single; y: Single; z: Single);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glVertexPointer(size: Integer; type_: Integer; stride: Integer; pointer_: TBuffer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glViewport(x: Integer; y: Integer; width: Integer; height: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glBegin(i: Integer);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glEnd;
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glVertex3f(f: Single; f2: Single; f3: Single);
-begin
-        Exit;
-end;
-    
-
-procedure TNullGL10.glPolygonMode(i: Integer; i1: Integer);
-begin
-        Exit;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TNullGL10.NULL_GL10 := TNullGL10.Create();
-  {AB:END}
-
-end.
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.device
+*> Java class NullGL10
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-static-NULL-GL10.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 NullGL10-jcell-NULL_GL10 BINARY-DOUBLE EXTERNAL.
+01 NullGL10-jset-NULL_GL10 BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF NullGL10-jset-NULL_GL10 = 0
+        MOVE 1 TO NullGL10-jset-NULL_GL10
+        COMPUTE NullGL10-jcell-NULL_GL10 = FUNCTION NullGL10-new0
+    END-IF
+    MOVE NullGL10-jcell-NULL_GL10 TO J-RESULT
+    GOBACK.
+END FUNCTION NullGL10-static-NULL-GL10.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10staticNULLGLS46883.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 NullGL10-jcell-NULL_GL10 BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION NullGL10-static-NULL-GL10 TO J-RESULT
+    MOVE J-VALUE TO NullGL10-jcell-NULL_GL10
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION NullGL10staticNULLGLS46883.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("NullGL10")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION NullGL10-new0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glActiveTexture1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-texture BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-texture RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glActiveTexture1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glAlphaFunc2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-func BINARY-DOUBLE.
+01 J-ref COMP-2.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-func J-ref RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glAlphaFunc2.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glBindTexture2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-target BINARY-DOUBLE.
+01 J-texture BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-target J-texture RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glBindTexture2.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glBlendFunc2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-sfactor BINARY-DOUBLE.
+01 J-dfactor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-sfactor J-dfactor RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glBlendFunc2.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glClear1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-mask BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-mask RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glClear1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glClearColor4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-red COMP-2.
+01 J-green COMP-2.
+01 J-blue COMP-2.
+01 J-alpha COMP-2.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-red J-green J-blue J-alpha RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glClearColor4.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glClearDepthf1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-depth COMP-2.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-depth RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glClearDepthf1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glClearStencil1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-s BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-s RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glClearStencil1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NllGL10-glClientActiveTexture1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-texture BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-texture RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NllGL10-glClientActiveTexture1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glColor4f4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-red COMP-2.
+01 J-green COMP-2.
+01 J-blue COMP-2.
+01 J-alpha COMP-2.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-red J-green J-blue J-alpha RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glColor4f4.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glColorMask4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-red BINARY-DOUBLE.
+01 J-green BINARY-DOUBLE.
+01 J-blue BINARY-DOUBLE.
+01 J-alpha BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-red J-green J-blue J-alpha RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glColorMask4.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glColorPointer4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-type BINARY-DOUBLE.
+01 J-stride BINARY-DOUBLE.
+01 J-pointer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-size J-type J-stride J-pointer RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glColorPointer4.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NllGL10-glCmprssdTxImg2D8.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-target BINARY-DOUBLE.
+01 J-level BINARY-DOUBLE.
+01 J-internalformat BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-border BINARY-DOUBLE.
+01 J-imageSize BINARY-DOUBLE.
+01 J-data BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-target J-level J-internalformat J-width J-height J-border J-imageSize J-data RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NllGL10-glCmprssdTxImg2D8.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NllGL10-glCmprssdTxSbImg2D9.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-target BINARY-DOUBLE.
+01 J-level BINARY-DOUBLE.
+01 J-xoffset BINARY-DOUBLE.
+01 J-yoffset BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-format BINARY-DOUBLE.
+01 J-imageSize BINARY-DOUBLE.
+01 J-data BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-target J-level J-xoffset J-yoffset J-width J-height J-format J-imageSize J-data RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NllGL10-glCmprssdTxSbImg2D9.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glCopyTexImage2D8.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-target BINARY-DOUBLE.
+01 J-level BINARY-DOUBLE.
+01 J-internalformat BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-border BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-target J-level J-internalformat J-x J-y J-width J-height J-border RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glCopyTexImage2D8.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glCopyTexSubImage2D8.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-target BINARY-DOUBLE.
+01 J-level BINARY-DOUBLE.
+01 J-xoffset BINARY-DOUBLE.
+01 J-yoffset BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-target J-level J-xoffset J-yoffset J-x J-y J-width J-height RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glCopyTexSubImage2D8.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glCullFace1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-mode BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-mode RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glCullFace1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glDeleteTextures3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-n BINARY-DOUBLE.
+01 J-textures BINARY-DOUBLE.
+01 J-offset BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-n J-textures J-offset RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glDeleteTextures3.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glDeleteTextures2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-n BINARY-DOUBLE.
+01 J-textures BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-n J-textures RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glDeleteTextures2.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glDepthFunc1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-func BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-func RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glDepthFunc1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glDepthMask1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-flag BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-flag RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glDepthMask1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glDepthRangef2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-zNear COMP-2.
+01 J-zFar COMP-2.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-zNear J-zFar RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glDepthRangef2.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glDisable1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-cap BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-cap RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glDisable1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glDisableClientState1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-array BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-array RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glDisableClientState1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glDrawArrays3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-mode BINARY-DOUBLE.
+01 J-first BINARY-DOUBLE.
+01 J-count BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-mode J-first J-count RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glDrawArrays3.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glDrawElements4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-mode BINARY-DOUBLE.
+01 J-count BINARY-DOUBLE.
+01 J-type BINARY-DOUBLE.
+01 J-indices BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-mode J-count J-type J-indices RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glDrawElements4.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glEnable1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-cap BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-cap RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glEnable1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glEnableClientState1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-array BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-array RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glEnableClientState1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glFinish0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glFinish0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glFlush0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glFlush0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glFogf2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-pname BINARY-DOUBLE.
+01 J-param COMP-2.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-pname J-param RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glFogf2.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glFogfv3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-pname BINARY-DOUBLE.
+01 J-params BINARY-DOUBLE.
+01 J-offset BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-pname J-params J-offset RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glFogfv3.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glFogfv2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-pname BINARY-DOUBLE.
+01 J-params BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-pname J-params RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glFogfv2.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glFrontFace1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-mode BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-mode RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glFrontFace1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glFrustumf6.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-left COMP-2.
+01 J-right COMP-2.
+01 J-bottom COMP-2.
+01 J-top COMP-2.
+01 J-zNear COMP-2.
+01 J-zFar COMP-2.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-left J-right J-bottom J-top J-zNear J-zFar RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glFrustumf6.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glGenTextures3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-n BINARY-DOUBLE.
+01 J-textures BINARY-DOUBLE.
+01 J-offset BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-n J-textures J-offset RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glGenTextures3.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glGenTextures2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-n BINARY-DOUBLE.
+01 J-textures BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-n J-textures RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glGenTextures2.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glGetError0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glGetError0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glGetIntegerv3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-pname BINARY-DOUBLE.
+01 J-params BINARY-DOUBLE.
+01 J-offset BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-pname J-params J-offset RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glGetIntegerv3.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glGetIntegerv2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-pname BINARY-DOUBLE.
+01 J-params BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-pname J-params RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glGetIntegerv2.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glGetString1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-name BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-name RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+        COMPUTE J-RESULT = FUNCTION JR-GET(jtemp1, "f_EMPTY_STRING")
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glGetString1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glHint2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-target BINARY-DOUBLE.
+01 J-mode BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-target J-mode RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glHint2.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glLightModelf2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-pname BINARY-DOUBLE.
+01 J-param COMP-2.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-pname J-param RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glLightModelf2.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glLightModelfv3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-pname BINARY-DOUBLE.
+01 J-params BINARY-DOUBLE.
+01 J-offset BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-pname J-params J-offset RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glLightModelfv3.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glLightModelfv2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-pname BINARY-DOUBLE.
+01 J-params BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-pname J-params RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glLightModelfv2.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glLightf3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-light BINARY-DOUBLE.
+01 J-pname BINARY-DOUBLE.
+01 J-param COMP-2.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-light J-pname J-param RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glLightf3.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glLightfv4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-light BINARY-DOUBLE.
+01 J-pname BINARY-DOUBLE.
+01 J-params BINARY-DOUBLE.
+01 J-offset BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-light J-pname J-params J-offset RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glLightfv4.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glLightfv3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-light BINARY-DOUBLE.
+01 J-pname BINARY-DOUBLE.
+01 J-params BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-light J-pname J-params RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glLightfv3.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glLineWidth1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-width COMP-2.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-width RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glLineWidth1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glLoadIdentity0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glLoadIdentity0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glLoadMatrixf2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-m BINARY-DOUBLE.
+01 J-offset BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-m J-offset RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glLoadMatrixf2.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glLoadMatrixf1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-m BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-m RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glLoadMatrixf1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glLogicOp1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-opcode BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-opcode RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glLogicOp1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glMaterialf3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-face BINARY-DOUBLE.
+01 J-pname BINARY-DOUBLE.
+01 J-param COMP-2.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-face J-pname J-param RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glMaterialf3.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glMaterialfv4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-face BINARY-DOUBLE.
+01 J-pname BINARY-DOUBLE.
+01 J-params BINARY-DOUBLE.
+01 J-offset BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-face J-pname J-params J-offset RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glMaterialfv4.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glMaterialfv3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-face BINARY-DOUBLE.
+01 J-pname BINARY-DOUBLE.
+01 J-params BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-face J-pname J-params RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glMaterialfv3.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glMatrixMode1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-mode BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-mode RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glMatrixMode1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glMultMatrixf2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-m BINARY-DOUBLE.
+01 J-offset BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-m J-offset RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glMultMatrixf2.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glMultMatrixf1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-m BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-m RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glMultMatrixf1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glMultiTexCoord4f5.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-target BINARY-DOUBLE.
+01 J-s COMP-2.
+01 J-t COMP-2.
+01 J-r COMP-2.
+01 J-q COMP-2.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-target J-s J-t J-r J-q RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glMultiTexCoord4f5.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glNormal3f3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-nx COMP-2.
+01 J-ny COMP-2.
+01 J-nz COMP-2.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-nx J-ny J-nz RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glNormal3f3.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glNormalPointer3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-type BINARY-DOUBLE.
+01 J-stride BINARY-DOUBLE.
+01 J-pointer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-type J-stride J-pointer RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glNormalPointer3.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glOrthof6.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-left COMP-2.
+01 J-right COMP-2.
+01 J-bottom COMP-2.
+01 J-top COMP-2.
+01 J-zNear COMP-2.
+01 J-zFar COMP-2.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-left J-right J-bottom J-top J-zNear J-zFar RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glOrthof6.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glPixelStorei2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-pname BINARY-DOUBLE.
+01 J-param BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-pname J-param RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glPixelStorei2.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glPointSize1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-size COMP-2.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-size RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glPointSize1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glPolygonOffset2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-factor COMP-2.
+01 J-units COMP-2.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-factor J-units RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glPolygonOffset2.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glPopMatrix0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glPopMatrix0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glPushMatrix0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glPushMatrix0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glReadPixels7.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-format BINARY-DOUBLE.
+01 J-type BINARY-DOUBLE.
+01 J-pixels BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-x J-y J-width J-height J-format J-type J-pixels RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glReadPixels7.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glRotatef4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-angle COMP-2.
+01 J-x COMP-2.
+01 J-y COMP-2.
+01 J-z COMP-2.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-angle J-x J-y J-z RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glRotatef4.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glRotatex4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-z BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-angle J-x J-y J-z RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glRotatex4.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glSampleCoverage2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-value COMP-2.
+01 J-invert BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-value J-invert RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glSampleCoverage2.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glScalef3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-x COMP-2.
+01 J-y COMP-2.
+01 J-z COMP-2.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-x J-y J-z RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glScalef3.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glScalex3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-z BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-x J-y J-z RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glScalex3.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glScissor4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-x J-y J-width J-height RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glScissor4.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glShadeModel1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-mode BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-mode RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glShadeModel1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glStencilFunc3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-func BINARY-DOUBLE.
+01 J-ref BINARY-DOUBLE.
+01 J-mask BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-func J-ref J-mask RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glStencilFunc3.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glStencilMask1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-mask BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-mask RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glStencilMask1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glStencilOp3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-fail BINARY-DOUBLE.
+01 J-zfail BINARY-DOUBLE.
+01 J-zpass BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-fail J-zfail J-zpass RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glStencilOp3.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glTexCoordPointer4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-type BINARY-DOUBLE.
+01 J-stride BINARY-DOUBLE.
+01 J-pointer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-size J-type J-stride J-pointer RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glTexCoordPointer4.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glTexEnvf3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-target BINARY-DOUBLE.
+01 J-pname BINARY-DOUBLE.
+01 J-param COMP-2.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-target J-pname J-param RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glTexEnvf3.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glTexEnvfv4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-target BINARY-DOUBLE.
+01 J-pname BINARY-DOUBLE.
+01 J-params BINARY-DOUBLE.
+01 J-offset BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-target J-pname J-params J-offset RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glTexEnvfv4.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glTexEnvfv3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-target BINARY-DOUBLE.
+01 J-pname BINARY-DOUBLE.
+01 J-params BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-target J-pname J-params RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glTexEnvfv3.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glTexImage2D9.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-target BINARY-DOUBLE.
+01 J-level BINARY-DOUBLE.
+01 J-internalformat BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-border BINARY-DOUBLE.
+01 J-format BINARY-DOUBLE.
+01 J-type BINARY-DOUBLE.
+01 J-pixels BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-target J-level J-internalformat J-width J-height J-border J-format J-type J-pixels RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glTexImage2D9.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glTexParameterf3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-target BINARY-DOUBLE.
+01 J-pname BINARY-DOUBLE.
+01 J-param COMP-2.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-target J-pname J-param RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glTexParameterf3.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glTexParameteri3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-target BINARY-DOUBLE.
+01 J-pname BINARY-DOUBLE.
+01 J-param BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-target J-pname J-param RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glTexParameteri3.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glTexSubImage2D9.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-target BINARY-DOUBLE.
+01 J-level BINARY-DOUBLE.
+01 J-xoffset BINARY-DOUBLE.
+01 J-yoffset BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-format BINARY-DOUBLE.
+01 J-type BINARY-DOUBLE.
+01 J-pixels BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-target J-level J-xoffset J-yoffset J-width J-height J-format J-type J-pixels RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glTexSubImage2D9.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glTranslatef3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-x COMP-2.
+01 J-y COMP-2.
+01 J-z COMP-2.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-x J-y J-z RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glTranslatef3.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glVertexPointer4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-type BINARY-DOUBLE.
+01 J-stride BINARY-DOUBLE.
+01 J-pointer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-size J-type J-stride J-pointer RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glVertexPointer4.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glViewport4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-x J-y J-width J-height RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glViewport4.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glBegin1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-i BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-i RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glBegin1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glEnd0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glEnd0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glVertex3f3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-f COMP-2.
+01 J-f2 COMP-2.
+01 J-f3 COMP-2.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-f J-f2 J-f3 RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glVertex3f3.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NullGL10-glPolygonMode2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-i BINARY-DOUBLE.
+01 J-i1 BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-i J-i1 RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        GOBACK
+    GOBACK.
+END FUNCTION NullGL10-glPolygonMode2.
 

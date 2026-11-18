@@ -1,70 +1,119 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.thirdparty.store
+*> Java class ThirdPartyMessageFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.thirdparty.store
-unit ThirdPartyMessageFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ThrdPrtyMssgFctry-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ThirdPartyMessageFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 ThirdPartyMessageFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF ThirdPartyMessageFactory-jset-instance = 0
+        MOVE 1 TO ThirdPartyMessageFactory-jset-instance
+        COMPUTE ThirdPartyMessageFactory-jcell-instance = FUNCTION ThirdPartyMessageFactory-new0
+    END-IF
+    MOVE ThirdPartyMessageFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION ThrdPrtyMssgFctry-sttc-nstnc.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ThrdPrtyMssgFctrysttS73469.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ThirdPartyMessageFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION ThrdPrtyMssgFctry-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO ThirdPartyMessageFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION ThrdPrtyMssgFctrysttS73469.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ThirdPartyMessageFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ThirdPartyMessageFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_AUTHORIZED")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NOT_AUTHORIZED")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_LINKAGE_ERROR")
+    COMPUTE JVALUE = FUNCTION JR-STR("Authorized")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_AUTHORIZED", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Not Authorized")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NOT_AUTHORIZED", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Linkage Error")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_LINKAGE_ERROR", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ThirdPartyMessageFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
-
-type
-  {AB:TYPES}
-  TThirdPartyMessageFactory = class(TObject)
-  public
-    AUTHORIZED: string;
-    NOT_AUTHORIZED: string;
-    LINKAGE_ERROR: string;
-    class var instance: TThirdPartyMessageFactory;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TThirdPartyMessageFactory; static;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TThirdPartyMessageFactory.InitFields;
-begin
-  Self.AUTHORIZED := 'Authorized';
-  Self.NOT_AUTHORIZED := 'Not Authorized';
-  Self.LINKAGE_ERROR := 'Linkage Error';
-end;
-
-constructor TThirdPartyMessageFactory.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TThirdPartyMessageFactory.getInstance: TThirdPartyMessageFactory;
-begin
-        Exit(TThirdPartyMessageFactory.instance);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TThirdPartyMessageFactory.instance := TThirdPartyMessageFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ThrdPrtyMssgFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION ThrdPrtyMssgFctry-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION ThrdPrtyMssgFctry-getInstance0.
 

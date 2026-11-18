@@ -1,196 +1,336 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.input
+*> Java class GameInput
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.input
-unit GameInput;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameKeyEvent, LogUtil, CommonStrings, BasicArrayList;
-
-type
-  {AB:TYPES}
-  TGameInput = class(TObject)
-  public
-    logUtil: TLogUtil;
-    commonStrings: TCommonStrings;
-    gameKeyEventList: TBasicArrayList;
-    removalGameKeyEventList: TBasicArrayList;
-    isRemoveDuplicateKeyPresses: Boolean;
-    procedure InitFields;
-        constructor Create(gameKeyEventList: TBasicArrayList; removalGameKeyEventList: TBasicArrayList);
-        procedure add(gameKeyEvent_: TGameKeyEvent); virtual;
-        procedure addForRemoval(gameKeyEvent_: TGameKeyEvent); virtual;
-        function isForRemoval(gameKeyEvent_: TGameKeyEvent): Boolean; virtual;
-        procedure clear; virtual;
-        procedure removeNonAIInputGameKeyEvents; virtual;
-        procedure update; virtual;
-        function getRemovalGameKeyEventList: TBasicArrayList; virtual;
-        function getGameKeyEventList: TBasicArrayList; virtual;
-  end;
-
-implementation
-uses
-  Features, InputFeatureFactory;
-
-
-{AB:CODE}
-
-procedure TGameInput.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.commonStrings := TCommonStrings.getInstance();
-  
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameInput-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-gameKeyEventList BINARY-DOUBLE.
+01 J-removalGameKeyEventList BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-gameKeyEventList J-removalGameKeyEventList RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameInput")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameKeyEventList")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_removalGameKeyEventList")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_isRemoveDuplicateKeyPresses")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
     
-
-constructor TGameInput.Create(gameKeyEventList: TBasicArrayList; removalGameKeyEventList: TBasicArrayList);
-begin
-    inherited Create;
-    InitFields;
-        Self.gameKeyEventList := gameKeyEventList;
-        Self.removalGameKeyEventList := removalGameKeyEventList;
-        Self.isRemoveDuplicateKeyPresses := TFeatures.getInstance().isFeature(TInputFeatureFactory.getInstance().REMOVE_DUPLICATE_KEY_PRESSES);
-end;
     
-
-procedure TGameInput.add(gameKeyEvent_: TGameKeyEvent);
-begin
-    TJava.MonitorEnter(Self);
-    try
-        if (Self.isRemoveDuplicateKeyPresses) and (Self.gameKeyEventList.contains(TJava.Box(gameKeyEvent_))) then begin
-            Exit;
-        end;
-        if (gameKeyEvent_) <> (nil) then begin
-            Self.gameKeyEventList.add(TJava.Box(gameKeyEvent_));
-        end else begin
-            Self.logUtil.putF('Danger Passed Null GameKeyEvent', TJava.Box(Self), Self.commonStrings.ADD);
-        end;
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
     
+        COMPUTE JVALUE = J-gameKeyEventList
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameKeyEventList", JVALUE)
+        COMPUTE JVALUE = J-removalGameKeyEventList
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_removalGameKeyEventList", JVALUE)
+        COMPUTE jtemp2 = FUNCTION InptFtrFctry-getInstance0
+        COMPUTE jtemp1 = FUNCTION Features-getInstance0
+        COMPUTE JVALUE = FUNCTION Features-isFeature1(jtemp1, FUNCTION JR-GET(jtemp2, "f_REMOVE_DUPLICATE_KEY_PRESSES"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_isRemoveDuplicateKeyPresses", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GameInput-new2.
 
-procedure TGameInput.addForRemoval(gameKeyEvent_: TGameKeyEvent);
-begin
-    TJava.MonitorEnter(Self);
-    try
-        Self.removalGameKeyEventList.add(TJava.Box(gameKeyEvent_));
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameInput-add1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gameKeyEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF ((FUNCTION JR-GET(J-THIS, "f_isRemoveDuplicateKeyPresses") = 1) AND (FUNCTION BasicArrayList-contains1(FUNCTION JR-GET(J-THIS, "f_gameKeyEventList"), J-gameKeyEvent) = 1))
+            GOBACK
+        END-IF
+        IF (J-gameKeyEvent NOT = 0)
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_gameKeyEventList"), J-gameKeyEvent)
+        ELSE
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-STR("Danger Passed Null GameKeyEvent"), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_ADD"))
+        END-IF
+    GOBACK.
+END FUNCTION GameInput-add1.
 
-function TGameInput.isForRemoval(gameKeyEvent_: TGameKeyEvent): Boolean;
-begin
-    TJava.MonitorEnter(Self);
-    try
-        Exit(Self.removalGameKeyEventList.contains(TJava.Box(gameKeyEvent_)));
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameInput-addForRemoval1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gameKeyEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_removalGameKeyEventList"), J-gameKeyEvent)
+    GOBACK.
+END FUNCTION GameInput-addForRemoval1.
 
-procedure TGameInput.clear;
-begin
-    TJava.MonitorEnter(Self);
-    try
-        Self.gameKeyEventList.clear();
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameInput-isForRemoval1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gameKeyEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION BasicArrayList-contains1(FUNCTION JR-GET(J-THIS, "f_removalGameKeyEventList"), J-gameKeyEvent)
+        GOBACK
+    GOBACK.
+END FUNCTION GameInput-isForRemoval1.
 
-procedure TGameInput.removeNonAIInputGameKeyEvents;
-var
-  list: TBasicArrayList;
-  gameKeyEvent_: TGameKeyEvent;
-  index: Integer;
-begin
-    TJava.MonitorEnter(Self);
-    try
-        list := Self.gameKeyEventList;
-        
-        index := list.size();
-        while (TJava.PreDec(index)) >= (0) do begin
-            gameKeyEvent_ := TGameKeyEvent(TJava.ToObject(list.objectArray[index]));
-            if (gameKeyEvent_.getSourceId()) <> (1) then begin
-                list.removeAt(index);
-            end;
-        end;
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameInput-clear0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-clear0(FUNCTION JR-GET(J-THIS, "f_gameKeyEventList"))
+    GOBACK.
+END FUNCTION GameInput-clear0.
 
-procedure TGameInput.update;
-var
-  removeList: TBasicArrayList;
-  list: TBasicArrayList;
-  size: Integer;
-  anyType: TObject;
-  index2: Integer;
-  index: Integer;
-begin
-    TJava.MonitorEnter(Self);
-    try
-        removeList := Self.removalGameKeyEventList;
-        list := Self.gameKeyEventList;
-        size := removeList.size();
-        for index := 0 to size - 1 do begin
-            anyType := TJava.Box(removeList.objectArray[index]);
-            index2 := list.size();
-            while (TJava.PreDec(index2)) >= (0) do begin
-                if (list.objectArray[index2]) = (anyType) then begin
-                    list.removeAt(index2);
-                end;
-            end;
-        end;
-        removeList.clear();
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmInpt-rmvNnAIInptGmKyEvnts0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-list BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-list = FUNCTION JR-GET(J-THIS, "f_gameKeyEventList")
+        CONTINUE
+        COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp3 = J-index
+        COMPUTE J-index = FUNCTION BasicArrayList-size0(J-list)
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            MOVE 0 TO JFIRST1
+            IF NOT (jtemp3 >= 0) EXIT PERFORM END-IF
+            COMPUTE J-gameKeyEvent = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
+            IF (FUNCTION GameKeyEvent-getSourceId0(J-gameKeyEvent) NOT = 1)
+                COMPUTE JDISCARD = FUNCTION BasicArrayList-removeAt1(J-list, J-index)
+            END-IF
+        END-PERFORM
+    GOBACK.
+END FUNCTION GmInpt-rmvNnAIInptGmKyEvnts0.
 
-function TGameInput.getRemovalGameKeyEventList: TBasicArrayList;
-begin
-        Exit(Self.removalGameKeyEventList);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameInput-update0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-removeList BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-anyType BINARY-DOUBLE.
+01 J-index2 BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+01 JFIRST3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-removeList = FUNCTION JR-GET(J-THIS, "f_removalGameKeyEventList")
+        COMPUTE J-list = FUNCTION JR-GET(J-THIS, "f_gameKeyEventList")
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(J-removeList)
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST2
+        PERFORM FOREVER
+            IF JFIRST2 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST2
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-anyType = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-removeList, "f_objectArray"), J-index)
+            COMPUTE J-index2 = (FUNCTION MOD(J-index2 - 1 + 2147483648, 4294967296) - 2147483648)
+            COMPUTE jtemp4 = J-index2
+            COMPUTE J-index2 = FUNCTION BasicArrayList-size0(J-list)
+            MOVE 1 TO JFIRST3
+            PERFORM FOREVER
+                MOVE 0 TO JFIRST3
+                IF NOT (jtemp4 >= 0) EXIT PERFORM END-IF
+                IF (FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index2) = J-anyType)
+                    COMPUTE JDISCARD = FUNCTION BasicArrayList-removeAt1(J-list, J-index2)
+                END-IF
+            END-PERFORM
+        END-PERFORM
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-clear0(J-removeList)
+    GOBACK.
+END FUNCTION GameInput-update0.
 
-function TGameInput.getGameKeyEventList: TBasicArrayList;
-begin
-        Exit(Self.gameKeyEventList);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmInpt-gtRmvlGmKyEvntLst0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_removalGameKeyEventList")
+        GOBACK
+    GOBACK.
+END FUNCTION GmInpt-gtRmvlGmKyEvntLst0.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameInput-getGameKeyEventList0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_gameKeyEventList")
+        GOBACK
+    GOBACK.
+END FUNCTION GameInput-getGameKeyEventList0.
 

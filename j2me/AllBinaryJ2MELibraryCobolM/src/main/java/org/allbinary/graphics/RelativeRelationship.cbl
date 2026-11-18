@@ -1,108 +1,246 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics
+*> Java class RelativeRelationship
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics
-unit RelativeRelationship;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RltvRltnshp-sttc-NULL-65023.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 RelativeRelationship-jcell-NULL_RELATIVE_RELATIONSHIP BINARY-DOUBLE EXTERNAL.
+01 RelativeRelationship-jset-NULL_RELATIVE_RELATIONSHIP BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF RelativeRelationship-jset-NULL_RELATIVE_RELATIONSHIP = 0
+        MOVE 1 TO RelativeRelationship-jset-NULL_RELATIVE_RELATIONSHIP
+        COMPUTE jtemp1 = FUNCTION PointFactory-getInstance0
+    COMPUTE jtemp2 = FUNCTION BscArryLstUtl-getInstance0
+    COMPUTE RelativeRelationship-jcell-NULL_RELATIVE_RELATIONSHIP = FUNCTION RelativeRelationship-new2(FUNCTION JR-GET(jtemp1, "f_ZERO_ZERO"), FUNCTION BscArryLstUtl-gtImmtblInstnc0(jtemp2))
+    END-IF
+    MOVE RelativeRelationship-jcell-NULL_RELATIVE_RELATIONSHIP TO J-RESULT
+    GOBACK.
+END FUNCTION RltvRltnshp-sttc-NULL-65023.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RltvRltnshpsttcNULL6S89354.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 RelativeRelationship-jcell-NULL_RELATIVE_RELATIONSHIP BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION RltvRltnshp-sttc-NULL-65023 TO J-RESULT
+    MOVE J-VALUE TO RelativeRelationship-jcell-NULL_RELATIVE_RELATIONSHIP
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION RltvRltnshpsttcNULL6S89354.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, BasicArrayList, GPoint;
-
-type
-  {AB:TYPES}
-  TRelativeRelationship = class(TObject)
-  public
-    typesAllowedList: TBasicArrayList;
-    x: Integer;
-    y: Integer;
-    z: Integer;
-    class var NULL_RELATIVE_RELATIONSHIP: TRelativeRelationship;
-    procedure InitFields;
-        constructor Create(point: TGPoint; typesAllowedList: TBasicArrayList);
-        function getX: Integer; virtual;
-        function getY: Integer; virtual;
-        function getZ: Integer; virtual;
-        function getTypesAllowedList: TBasicArrayList; virtual;
-        procedure setTypesAllowedList(typesAllowedList: TBasicArrayList); virtual;
-  end;
-
-implementation
-uses
-  PointFactory, BasicArrayListUtil;
-
-
-{AB:CODE}
-
-procedure TRelativeRelationship.InitFields;
-begin
-  
-  
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RelativeRelationship-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-point BINARY-DOUBLE.
+01 J-typesAllowedList BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-point J-typesAllowedList RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("RelativeRelationship")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_typesAllowedList")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_x")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_y")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_z")
     
-
-constructor TRelativeRelationship.Create(point: TGPoint; typesAllowedList: TBasicArrayList);
-begin
-    inherited Create;
-    InitFields;
-        Self.x := point.getX();
-        Self.y := point.getY();
-        Self.z := point.getZ();
-        Self.typesAllowedList := typesAllowedList;
-end;
     
-
-function TRelativeRelationship.getX: Integer;
-begin
-        Exit(Self.x);
-end;
     
-
-function TRelativeRelationship.getY: Integer;
-begin
-        Exit(Self.y);
-end;
     
+        COMPUTE JVALUE = FUNCTION GPoint-getX0(J-point)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_x", JVALUE)
+        COMPUTE JVALUE = FUNCTION GPoint-getY0(J-point)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_y", JVALUE)
+        COMPUTE JVALUE = FUNCTION GPoint-getZ0(J-point)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_z", JVALUE)
+        COMPUTE JVALUE = J-typesAllowedList
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_typesAllowedList", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION RelativeRelationship-new2.
 
-function TRelativeRelationship.getZ: Integer;
-begin
-        Exit(Self.z);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RelativeRelationship-getX0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_x")
+        GOBACK
+    GOBACK.
+END FUNCTION RelativeRelationship-getX0.
 
-function TRelativeRelationship.getTypesAllowedList: TBasicArrayList;
-begin
-        Exit(Self.typesAllowedList);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RelativeRelationship-getY0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_y")
+        GOBACK
+    GOBACK.
+END FUNCTION RelativeRelationship-getY0.
 
-procedure TRelativeRelationship.setTypesAllowedList(typesAllowedList: TBasicArrayList);
-begin
-        Self.typesAllowedList := typesAllowedList;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RelativeRelationship-getZ0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_z")
+        GOBACK
+    GOBACK.
+END FUNCTION RelativeRelationship-getZ0.
 
-initialization
-  {AB:INITIALIZATION}
-  TRelativeRelationship.NULL_RELATIVE_RELATIONSHIP := TRelativeRelationship.Create(TPointFactory.getInstance().ZERO_ZERO, TBasicArrayListUtil.getInstance().getImmutableInstance());
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RltvRltnshp-gtTypsAllwdLst0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_typesAllowedList")
+        GOBACK
+    GOBACK.
+END FUNCTION RltvRltnshp-gtTypsAllwdLst0.
 
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RltvRltnshp-stTypsAllwdLst1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-typesAllowedList BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-typesAllowedList RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-typesAllowedList
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_typesAllowedList", JVALUE)
+    GOBACK.
+END FUNCTION RltvRltnshp-stTypsAllwdLst1.
 

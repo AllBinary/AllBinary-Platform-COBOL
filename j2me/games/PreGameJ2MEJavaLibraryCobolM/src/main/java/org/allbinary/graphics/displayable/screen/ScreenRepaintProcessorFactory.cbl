@@ -1,73 +1,145 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.displayable.screen
+*> Java class ScreenRepaintProcessorFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.displayable.screen
-unit ScreenRepaintProcessorFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScrnRpntPrcssrFctry-sttc66140.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ScreenRepaintProcessorFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 ScreenRepaintProcessorFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF ScreenRepaintProcessorFactory-jset-instance = 0
+        MOVE 1 TO ScreenRepaintProcessorFactory-jset-instance
+        COMPUTE ScreenRepaintProcessorFactory-jcell-instance = FUNCTION ScrnRpntPrcssrFctry-new0
+    END-IF
+    MOVE ScreenRepaintProcessorFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION ScrnRpntPrcssrFctry-sttc66140.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScrnRpntPrcssrFctrysS89899.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ScreenRepaintProcessorFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION ScrnRpntPrcssrFctry-sttc66140 TO J-RESULT
+    MOVE J-VALUE TO ScreenRepaintProcessorFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION ScrnRpntPrcssrFctrysS89899.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScrnRpntPrcssrFctry-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ScreenRepaintProcessorFactory")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ScrnRpntPrcssrFctry-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Displayable, Processor;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScrnRpntPrcssrFctry-gtInstnc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION ScrnRpntPrcssrFctry-sttc66140
+        GOBACK
+    GOBACK.
+END FUNCTION ScrnRpntPrcssrFctry-gtInstnc0.
 
-type
-  {AB:TYPES}
-  TScreenRepaintProcessorFactory = class(TObject)
-  public
-    class var instance: TScreenRepaintProcessorFactory;
-        class function getInstance: TScreenRepaintProcessorFactory; static;
-        constructor Create;
-        function create_(displayable_: TDisplayable): TProcessor; virtual;
-  end;
-
-implementation
-uses
-  ScreenRepaintProcessor, J2MEUtil;
-
-
-{AB:CODE}
-    
-
-class function TScreenRepaintProcessorFactory.getInstance: TScreenRepaintProcessorFactory;
-begin
-        Exit(TScreenRepaintProcessorFactory.instance);
-end;
-    
-
-constructor TScreenRepaintProcessorFactory.Create;
-begin
-    inherited Create;
-end;
-    
-
-function TScreenRepaintProcessorFactory.create_(displayable_: TDisplayable): TProcessor;
-begin
-        if not (TJ2MEUtil.isJ2ME()) then begin
-            Exit(TScreenRepaintProcessor.Create(displayable_));
-        end else begin
-            Exit(TProcessor.getInstance());
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TScreenRepaintProcessorFactory.instance := TScreenRepaintProcessorFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScrnRpntPrcssrFctry-create1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-displayable BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-displayable RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (NOT (FUNCTION J2MEUtil-isJ2ME0 = 1))
+            COMPUTE J-RESULT = FUNCTION ScreenRepaintProcessor-new1(J-displayable)
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = FUNCTION Processor-getInstance0
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION ScrnRpntPrcssrFctry-create1.
 

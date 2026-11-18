@@ -1,54 +1,47 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.layer.weapon
+*> Java class DamageWeaponLayer
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.layer.weapon
-unit DamageWeaponLayer;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Animation, RemoteInfo, Rectangle, Movement, ViewPositionBase, WeaponLayer;
-
-type
-  {AB:TYPES}
-  TDamageWeaponLayer = class(TWeaponLayer)
-  public
-        constructor Create(name: string; remoteInfo_: TRemoteInfo; movement_: TMovement; animationInterface: TAnimation; destroyedAnimationInterface: TAnimation; rectangle_: TRectangle; viewPosition: TViewPositionBase; username: string; actorSessionId: Integer; id: Integer; multiPlayerType: Integer);
-  end;
-
-implementation
-uses
-  CollidableDamageWeaponBehavior;
-
-
-{AB:CODE}
-    
-
-constructor TDamageWeaponLayer.Create(name: string; remoteInfo_: TRemoteInfo; movement_: TMovement; animationInterface: TAnimation; destroyedAnimationInterface: TAnimation; rectangle_: TRectangle; viewPosition: TViewPositionBase; username: string; actorSessionId: Integer; id: Integer; multiPlayerType: Integer);
-begin
-        inherited Create(name, remoteInfo_, multiPlayerType, movement_, animationInterface, destroyedAnimationInterface, rectangle_, viewPosition);
-        Self.setCollidableInferface(TCollidableDamageWeaponBehavior.Create(True));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DamageWeaponLayer-new11.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-name BINARY-DOUBLE.
+01 J-remoteInfo BINARY-DOUBLE.
+01 J-movement BINARY-DOUBLE.
+01 J-animationInterface BINARY-DOUBLE.
+01 J-destroyedAnimationInterface BINARY-DOUBLE.
+01 J-rectangle BINARY-DOUBLE.
+01 J-viewPosition BINARY-DOUBLE.
+01 J-username BINARY-DOUBLE.
+01 J-actorSessionId BINARY-DOUBLE.
+01 J-id BINARY-DOUBLE.
+01 J-multiPlayerType BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-name J-remoteInfo J-movement J-animationInterface J-destroyedAnimationInterface J-rectangle J-viewPosition J-username J-actorSessionId J-id J-multiPlayerType RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("DamageWeaponLayer")
+        CONTINUE
+        COMPUTE jtemp1 = 1
+        COMPUTE JDISCARD = FUNCTION WpnLyr-setCollidableInferface1(J-THIS, FUNCTION ClldblDmgWpnBhvr-new1(jtemp1))
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION DamageWeaponLayer-new11.
 

@@ -1,82 +1,167 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.media.image
+*> Java class ImageToRotationImageArrayUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.media.image
-unit ImageToRotationImageArrayUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgTRttnImgArryUtl-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ImageToRotationImageArrayUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 ImageToRotationImageArrayUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF ImageToRotationImageArrayUtil-jset-instance = 0
+        MOVE 1 TO ImageToRotationImageArrayUtil-jset-instance
+        COMPUTE ImageToRotationImageArrayUtil-jcell-instance = FUNCTION ImgTRttnImgArryUtl-new0
+    END-IF
+    MOVE ImageToRotationImageArrayUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION ImgTRttnImgArryUtl-sttc-nstnc.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgTRttnImgArryUtlstS76465.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ImageToRotationImageArrayUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION ImgTRttnImgArryUtl-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO ImageToRotationImageArrayUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION ImgTRttnImgArryUtlstS76465.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgTRttnImgArryUtl-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ImageToRotationImageArrayUtil")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ImgTRttnImgArryUtl-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Image;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgTRttnImgArryUtl-gtInstnc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION ImgTRttnImgArryUtl-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION ImgTRttnImgArryUtl-gtInstnc0.
 
-type
-  {AB:TYPES}
-  TImageToRotationImageArrayUtil = class(TObject)
-  public
-    class var instance: TImageToRotationImageArrayUtil;
-        class function getInstance: TImageToRotationImageArrayUtil; static;
-        constructor Create;
-        function generate(image_: TImage; angleIncrement: Integer; totalAngle: Integer): TArray<TImage>; virtual;
-  end;
-
-implementation
-uses
-  ImageRotationUtil;
-
-
-{AB:CODE}
-    
-
-class function TImageToRotationImageArrayUtil.getInstance: TImageToRotationImageArrayUtil;
-begin
-        Exit(TImageToRotationImageArrayUtil.instance);
-end;
-    
-
-constructor TImageToRotationImageArrayUtil.Create;
-begin
-    inherited Create;
-end;
-    
-
-// throws Exception
-function TImageToRotationImageArrayUtil.generate(image_: TImage; angleIncrement: Integer; totalAngle: Integer): TArray<TImage>;
-var
-  imageRotationUtil_: TImageRotationUtil;
-  totalFrames: Integer;
-  imageArray: TArray<TImage>;
-  index: Integer;
-begin
-        imageRotationUtil_ := TImageRotationUtil.getInstance();
-        totalFrames := (totalAngle) div (angleIncrement);
-        imageArray := TJava.NewArray<TImage>(totalFrames);
-        imageArray[0] := image_;
-        for index := 1 to totalFrames - 1 do begin
-            imageArray[index] := imageRotationUtil_.createRotatedImage(image_, (index) * (angleIncrement));
-        end;
-        Exit(imageArray);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TImageToRotationImageArrayUtil.instance := TImageToRotationImageArrayUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgTRttnImgArryUtl-generate3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-imageRotationUtil BINARY-DOUBLE.
+01 J-totalFrames BINARY-DOUBLE.
+01 J-imageArray BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-image BINARY-DOUBLE.
+01 J-angleIncrement BINARY-DOUBLE.
+01 J-totalAngle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-image J-angleIncrement J-totalAngle RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-imageRotationUtil = FUNCTION ImageRotationUtil-getInstance0
+        COMPUTE J-totalFrames = (FUNCTION MOD(FUNCTION INTEGER-PART(J-totalAngle / J-angleIncrement) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE J-imageArray = FUNCTION JR-NEW-ARRAY(J-totalFrames)
+        COMPUTE jtemp1 = 0
+        COMPUTE JVALUE = J-image
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-imageArray, jtemp1, JVALUE)
+        COMPUTE J-index = 1
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-totalFrames) EXIT PERFORM END-IF
+            COMPUTE jtemp2 = (FUNCTION MOD((J-index * J-angleIncrement) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JVALUE = FUNCTION ImgRttnUtl-createRotatedImage2(J-imageRotationUtil, J-image, jtemp2)
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-imageArray, J-index, JVALUE)
+        END-PERFORM
+        COMPUTE J-RESULT = J-imageArray
+        GOBACK
+    GOBACK.
+END FUNCTION ImgTRttnImgArryUtl-generate3.
 

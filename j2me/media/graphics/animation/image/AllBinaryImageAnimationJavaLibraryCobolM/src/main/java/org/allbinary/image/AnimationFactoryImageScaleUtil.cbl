@@ -1,121 +1,212 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2022 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.image
-unit AnimationFactoryImageScaleUtil;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.image
+*> Java class AnimationFactoryImageScaleUtil
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnmtnFctryImgSclUtl-sttc63345.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AnimationFactoryImageScaleUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 AnimationFactoryImageScaleUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF AnimationFactoryImageScaleUtil-jset-instance = 0
+        MOVE 1 TO AnimationFactoryImageScaleUtil-jset-instance
+        COMPUTE AnimationFactoryImageScaleUtil-jcell-instance = FUNCTION AnmtnFctryImgSclUtl-new0
+    END-IF
+    MOVE AnimationFactoryImageScaleUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION AnmtnFctryImgSclUtl-sttc63345.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnmtnFctryImgSclUtlsS89708.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AnimationFactoryImageScaleUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION AnmtnFctryImgSclUtl-sttc63345 TO J-RESULT
+    MOVE J-VALUE TO AnimationFactoryImageScaleUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION AnmtnFctryImgSclUtlsS89708.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Image, BaseImageAnimationFactory, ImageJ2MEScaleUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnmtnFctryImgSclUtl-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("AnimationFactoryImageScaleUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_imageScaleUtil")
+    COMPUTE JVALUE = FUNCTION ImgJ2MESclUtl-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_imageScaleUtil", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION AnmtnFctryImgSclUtl-new0.
 
-type
-  {AB:TYPES}
-  TAnimationFactoryImageScaleUtil = class(TObject)
-  public
-    imageScaleUtil: TImageJ2MEScaleUtil;
-    class var instance: TAnimationFactoryImageScaleUtil;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TAnimationFactoryImageScaleUtil; static;
-        function createImage(image_: TImage; width: Integer; height: Integer; scaleWidth: Integer; scaleHeight: Integer): TImage; virtual;
-        procedure processAdjust(baseImageAnimationFactory_: TBaseImageAnimationFactory); virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnmtnFctryImgSclUtl-gtInstnc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION AnmtnFctryImgSclUtl-sttc63345
+        GOBACK
+    GOBACK.
+END FUNCTION AnmtnFctryImgSclUtl-gtInstnc0.
 
-implementation
-uses
-  AnimationFactoryInitializationVisitor, LogUtil, StringMaker, ScaleProperties, CommonLabels, CommonStrings;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnmtnFctryImgSclUtl-crtImg5.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-scaledImage BINARY-DOUBLE.
+01 J-scaleX COMP-2.
+01 J-scaleY COMP-2.
+01 J-scaledWidth BINARY-DOUBLE.
+01 J-scaledHeight BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-image BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-scaleWidth BINARY-DOUBLE.
+01 J-scaleHeight BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-image J-width J-height J-scaleWidth J-scaleHeight RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+        IF ((J-scaleWidth NOT = 0) AND (J-scaleHeight NOT = 0))
+            COMPUTE J-scaleX = ((J-scaleWidth) / (J-width))
+            COMPUTE J-scaleY = ((J-scaleHeight) / (J-height))
+            IF ((((J-scaleX = 1.0) AND (J-scaleY = 1.0))) OR (((J-scaleX = 0.0) OR (J-scaleY = 0.0))))
+                COMPUTE J-scaledImage = J-image
+            ELSE
+                COMPUTE J-scaledWidth = FUNCTION JR-D2I(((J-scaleX * J-width)))
+                COMPUTE J-scaledHeight = FUNCTION JR-D2I(((J-scaleY * J-height)))
+                COMPUTE J-scaledImage = FUNCTION ImageJ2MEScaleUtil-scale3(FUNCTION JR-GET(J-THIS, "f_imageScaleUtil"), J-image, J-scaledWidth, J-scaledHeight)
+            END-IF
+        ELSE
+            COMPUTE J-scaledImage = J-image
+        END-IF
+        COMPUTE J-RESULT = J-scaledImage
+        GOBACK
+    GOBACK.
+END FUNCTION AnmtnFctryImgSclUtl-crtImg5.
 
-
-{AB:CODE}
-
-procedure TAnimationFactoryImageScaleUtil.InitFields;
-begin
-  Self.imageScaleUtil := TImageJ2MEScaleUtil.getInstance();
-end;
-
-constructor TAnimationFactoryImageScaleUtil.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TAnimationFactoryImageScaleUtil.getInstance: TAnimationFactoryImageScaleUtil;
-begin
-        Exit(TAnimationFactoryImageScaleUtil.instance);
-end;
-    
-
-// throws Exception
-function TAnimationFactoryImageScaleUtil.createImage(image_: TImage; width: Integer; height: Integer; scaleWidth: Integer; scaleHeight: Integer): TImage;
-var
-  scaledImage: TImage;
-  scaleX: Single;
-  scaleY: Single;
-  scaledWidth: Integer;
-  scaledHeight: Integer;
-begin
-        
-        if ((scaleWidth) <> (0)) and ((scaleHeight) <> (0)) then begin
-            scaleX := ((scaleWidth)) / ((width));
-            scaleY := ((scaleHeight)) / ((height));
-            if ((((scaleX) = (1.0)) and ((scaleY) = (1.0)))) or ((((scaleX) = (0.0)) or ((scaleY) = (0.0)))) then begin
-                scaledImage := image_;
-            end else begin
-                scaledWidth := Integer(Trunc(((scaleX) * (width))));
-                scaledHeight := Integer(Trunc(((scaleY) * (height))));
-                scaledImage := Self.imageScaleUtil.scale(image_, scaledWidth, scaledHeight);
-            end;
-        end else begin
-            scaledImage := image_;
-        end;
-        Exit(scaledImage);
-end;
-    
-
-// throws Exception
-procedure TAnimationFactoryImageScaleUtil.processAdjust(baseImageAnimationFactory_: TBaseImageAnimationFactory);
-var
-  scaleProperties_: TScaleProperties;
-  animationFactoryInitializationVisitor_: TAnimationFactoryInitializationVisitor;
-  scaleX: Single;
-  scaleY: Single;
-begin
-        scaleProperties_ := baseImageAnimationFactory_.getScalePropertiesP();
-        if ((scaleProperties_.scaleWidth) <> (0)) and ((scaleProperties_.scaleHeight) <> (0)) then begin
-            animationFactoryInitializationVisitor_ := baseImageAnimationFactory_.getAnimationFactoryInitializationVisitorP();
-            scaleX := (((1.0 * (scaleProperties_.scaleWidth)))) / (((1.0 * (animationFactoryInitializationVisitor_.width))));
-            scaleY := (((1.0 * (scaleProperties_.scaleHeight)))) / (((1.0 * (animationFactoryInitializationVisitor_.height))));
-            if ((((scaleX) = (1.0)) and ((scaleY) = (1.0)))) or ((((scaleX) = (0.0)) or ((scaleY) = (0.0)))) then begin
-            end else begin
-                animationFactoryInitializationVisitor_.dx := Integer(Trunc(((animationFactoryInitializationVisitor_.originalDx) * (scaleX))));
-                animationFactoryInitializationVisitor_.dy := Integer(Trunc(((animationFactoryInitializationVisitor_.originalDy) * (scaleY))));
-            end;
-        end else begin
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TAnimationFactoryImageScaleUtil.instance := TAnimationFactoryImageScaleUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnmtnFctryImgSclUtl-prcss21935.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-scaleProperties BINARY-DOUBLE.
+01 J-animationFactoryInitializationVisitor BINARY-DOUBLE.
+01 J-scaleX COMP-2.
+01 J-scaleY COMP-2.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-baseImageAnimationFactory BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-baseImageAnimationFactory RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-scaleProperties = FUNCTION BsImgAnmtnFctry-gtSclPrprtsP0(J-baseImageAnimationFactory)
+        IF ((FUNCTION JR-GET(J-scaleProperties, "f_scaleWidth") NOT = 0) AND (FUNCTION JR-GET(J-scaleProperties, "f_scaleHeight") NOT = 0))
+            COMPUTE J-animationFactoryInitializationVisitor = FUNCTION BsImgAnmtnFctry-gtAnmtnFc36193(J-baseImageAnimationFactory)
+            COMPUTE J-scaleX = ((FUNCTION JR-GET(J-scaleProperties, "f_scaleWidth")) / (FUNCTION JR-GET(J-animationFactoryInitializationVisitor, "f_width")))
+            COMPUTE J-scaleY = ((FUNCTION JR-GET(J-scaleProperties, "f_scaleHeight")) / (FUNCTION JR-GET(J-animationFactoryInitializationVisitor, "f_height")))
+            IF ((((J-scaleX = 1.0) AND (J-scaleY = 1.0))) OR (((J-scaleX = 0.0) OR (J-scaleY = 0.0))))
+                CONTINUE
+            ELSE
+                COMPUTE JVALUE = FUNCTION JR-D2I(((FUNCTION JR-GET(J-animationFactoryInitializationVisitor, "f_originalDx") * J-scaleX)))
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-animationFactoryInitializationVisitor, "f_dx", JVALUE)
+                COMPUTE JVALUE = FUNCTION JR-D2I(((FUNCTION JR-GET(J-animationFactoryInitializationVisitor, "f_originalDy") * J-scaleY)))
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-animationFactoryInitializationVisitor, "f_dy", JVALUE)
+            END-IF
+        ELSE
+            CONTINUE
+        END-IF
+    GOBACK.
+END FUNCTION AnmtnFctryImgSclUtl-prcss21935.
 

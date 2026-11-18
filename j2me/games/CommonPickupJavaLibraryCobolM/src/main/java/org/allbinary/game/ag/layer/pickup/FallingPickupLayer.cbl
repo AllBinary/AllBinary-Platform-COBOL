@@ -1,75 +1,157 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.layer.pickup
+*> Java class FallingPickupLayer
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.layer.pickup
-unit FallingPickupLayer;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FllngPckpLyr-static-NAME.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 FallingPickupLayer-jcell-NAME BINARY-DOUBLE EXTERNAL.
+01 FallingPickupLayer-jset-NAME BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF FallingPickupLayer-jset-NAME = 0
+        MOVE 1 TO FallingPickupLayer-jset-NAME
+        COMPUTE FallingPickupLayer-jcell-NAME = FUNCTION JR-STR("FallingPickupLayer")
+    END-IF
+    MOVE FallingPickupLayer-jcell-NAME TO J-RESULT
+    GOBACK.
+END FUNCTION FllngPckpLyr-static-NAME.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FllngPckpLyrstaticNAS70100.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 FallingPickupLayer-jcell-NAME BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION FllngPckpLyr-static-NAME TO J-RESULT
+    MOVE J-VALUE TO FallingPickupLayer-jcell-NAME
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION FllngPckpLyrstaticNAS70100.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FallingPickupLayer-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-remoteInfo BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-remoteInfo RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("FallingPickupLayer")
+        COMPUTE jtemp4 = FUNCTION PointFactory-getInstance0
+        COMPUTE jtemp3 = 0
+        COMPUTE jtemp5 = 0
+        COMPUTE jtemp6 = 0
+        COMPUTE jtemp2 = FUNCTION NllAnmtnFctry-gtFctryInstnc0
+        COMPUTE jtemp1 = 0
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION FallingPickupLayer-new1.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, PickupLayer, RemoteInfo, TickableInterface, AllBinaryLayerManager, NamedInterface;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FllngPckpLyr-processTick1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryLayerManager BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp8 = 1
+        COMPUTE jtemp7 = (FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_y") + jtemp8) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION AllBinaryLayer-setPosition3(J-THIS, FUNCTION JR-GET(J-THIS, "f_x"), jtemp7, FUNCTION JR-GET(J-THIS, "f_z"))
+    GOBACK.
+END FUNCTION FllngPckpLyr-processTick1.
 
-type
-  {AB:TYPES}
-  TFallingPickupLayer = class(TPickupLayer, ITickableInterface, INamedInterface)
-  public
-    class var NAME: string;
-    function JavaObject: TObject;
-        constructor Create(remoteInfo_: TRemoteInfo);
-        procedure processTick(allBinaryLayerManager_: TAllBinaryLayerManager); virtual;
-        function implmentsTickableInterface: Boolean; virtual;
-  end;
-
-implementation
-uses
-  NullAnimationFactory, CountedPickedUpLayerInterfaceFactory, PointFactory, Rectangle, ViewPosition;
-
-
-{AB:CODE}
-
-function TFallingPickupLayer.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-    
-
-constructor TFallingPickupLayer.Create(remoteInfo_: TRemoteInfo);
-begin
-        inherited Create(TFallingPickupLayer.NAME, remoteInfo_, 0, TCountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY, TNullAnimationFactory.getFactoryInstance().getInstance(0), TRectangle.Create(TPointFactory.getInstance().ZERO_ZERO, 0, 0), TViewPosition.getInstanceD());
-end;
-    
-
-procedure TFallingPickupLayer.processTick(allBinaryLayerManager_: TAllBinaryLayerManager);
-begin
-        Self.setPosition(Self.x, (Self.y) + (1), Self.z);
-end;
-    
-
-function TFallingPickupLayer.implmentsTickableInterface: Boolean;
-begin
-        Exit(True);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TFallingPickupLayer.NAME := 'FallingPickupLayer';
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FllngPckpLyr-implmntsTckb86762.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = 1
+        GOBACK
+    GOBACK.
+END FUNCTION FllngPckpLyr-implmntsTckb86762.
 

@@ -1,80 +1,125 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.layer.relationship
+*> Java class RelativeLayerRelationship
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.layer.relationship
-unit RelativeLayerRelationship;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RelativeLayerRelationship-new3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-layer BINARY-DOUBLE.
+01 J-point BINARY-DOUBLE.
+01 J-typesAllowedList BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-layer J-point J-typesAllowedList RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("RelativeLayerRelationship")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_layer")
+    COMPUTE JVALUE = FUNCTION AllBnryLyr-sttc-NULL-A70567
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_layer", JVALUE)
+        CONTINUE
+        COMPUTE JVALUE = J-layer
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_layer", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION RelativeLayerRelationship-new3.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RltvLyrRltnshp-getX0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = (FUNCTION MOD((FUNCTION AllBinaryLayer-getXP0(FUNCTION JR-GET(J-THIS, "f_layer")) + FUNCTION RelativeRelationship-getX0(J-THIS)) + 2147483648, 4294967296) - 2147483648)
+        GOBACK
+    GOBACK.
+END FUNCTION RltvLyrRltnshp-getX0.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RltvLyrRltnshp-getY0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = (FUNCTION MOD((FUNCTION AllBinaryLayer-getYP0(FUNCTION JR-GET(J-THIS, "f_layer")) + FUNCTION RelativeRelationship-getY0(J-THIS)) + 2147483648, 4294967296) - 2147483648)
+        GOBACK
+    GOBACK.
+END FUNCTION RltvLyrRltnshp-getY0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GPoint, RelativeRelationship, AllBinaryLayer, BasicArrayList;
-
-type
-  {AB:TYPES}
-  TRelativeLayerRelationship = class(TRelativeRelationship)
-  public
-    layer: TAllBinaryLayer;
-    procedure InitFields;
-        constructor Create(layer: TAllBinaryLayer; point: TGPoint; typesAllowedList: TBasicArrayList);
-        function getX: Integer; override;
-        function getY: Integer; override;
-        function getZ: Integer; override;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TRelativeLayerRelationship.InitFields;
-begin
-  Self.layer := TAllBinaryLayer.NULL_ALLBINARY_LAYER;
-end;
-    
-
-constructor TRelativeLayerRelationship.Create(layer: TAllBinaryLayer; point: TGPoint; typesAllowedList: TBasicArrayList);
-begin
-        inherited Create(point, typesAllowedList);
-        InitFields;
-        Self.layer := layer;
-end;
-    
-
-function TRelativeLayerRelationship.getX: Integer;
-begin
-        Exit((Self.layer.getXP()) + (inherited getX()));
-end;
-    
-
-function TRelativeLayerRelationship.getY: Integer;
-begin
-        Exit((Self.layer.getYP()) + (inherited getY()));
-end;
-    
-
-function TRelativeLayerRelationship.getZ: Integer;
-begin
-        Exit((Self.layer.getZP()) + (inherited getZ()));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RltvLyrRltnshp-getZ0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = (FUNCTION MOD((FUNCTION AllBinaryLayer-getZP0(FUNCTION JR-GET(J-THIS, "f_layer")) + FUNCTION RelativeRelationship-getZ0(J-THIS)) + 2147483648, 4294967296) - 2147483648)
+        GOBACK
+    GOBACK.
+END FUNCTION RltvLyrRltnshp-getZ0.
 

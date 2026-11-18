@@ -1,277 +1,516 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.configuration.feature
+*> Java class GameFeatureUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.configuration.feature
-unit GameFeatureUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmFtrUtl-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameFeatureUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 GameFeatureUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GameFeatureUtil-jset-instance = 0
+        MOVE 1 TO GameFeatureUtil-jset-instance
+        COMPUTE GameFeatureUtil-jcell-instance = FUNCTION GameFeatureUtil-new0
+    END-IF
+    MOVE GameFeatureUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION GmFtrUtl-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmFtrUtlstaticinstanS21206.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameFeatureUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GmFtrUtl-static-instance TO J-RESULT
+    MOVE J-VALUE TO GameFeatureUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GmFtrUtlstaticinstanS21206.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameFeatureUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameFeatureUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_tsUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_enumerationUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ON_GAME_FEATURE_CHANGE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_GAME_FEATURE_CHANGED")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION TsUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_tsUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION EnumerationUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_enumerationUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("onGameFeatureChange")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ON_GAME_FEATURE_CHANGE", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Game Feature Changed: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_GAME_FEATURE_CHANGED", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GameFeatureUtil-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, ChoiceGroup, TsUtil, LogUtil, BasicArrayList, EnumerationUtil, Feature;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameFeatureUtil-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION GmFtrUtl-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION GameFeatureUtil-getInstance0.
 
-type
-  {AB:TYPES}
-  TGameFeatureUtil = class(TObject)
-  public
-    logUtil: TLogUtil;
-    tsUtil: TTsUtil;
-    enumerationUtil: TEnumerationUtil;
-    ON_GAME_FEATURE_CHANGE: string;
-    GAME_FEATURE_CHANGED: string;
-    class var instance: TGameFeatureUtil;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TGameFeatureUtil; static;
-        procedure setDefault(choiceGroup_: TChoiceGroup); virtual;
-        procedure updateMultiple(choiceGroup_: TChoiceGroup); virtual;
-        procedure updateExclusiveForChoiceGroup(choiceGroup_: TChoiceGroup); virtual;
-        function isExclusive(itemLabel: string): Boolean; virtual;
-        procedure updateExclusive(selectedChoiceLabel: string);
-        procedure updateExclusiveList(gameFeature: TFeature; list: TBasicArrayList); virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameFeatureUtil-setDefault1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringBuffer BINARY-DOUBLE.
+01 J-METHOD_NAME BINARY-DOUBLE.
+01 J-SELECTED_ARRAY_RETURN BINARY-DOUBLE.
+01 J-SELECTED_SEP BINARY-DOUBLE.
+01 J-selectedArray_return BINARY-DOUBLE.
+01 J-total BINARY-DOUBLE.
+01 J-features BINARY-DOUBLE.
+01 J-isSelected BINARY-DOUBLE.
+01 J-selectedChoiceLabel BINARY-DOUBLE.
+01 J-gameFeature BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-choiceGroup BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-choiceGroup RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE J-METHOD_NAME = FUNCTION JR-STR("setDefault")
+        COMPUTE J-SELECTED_ARRAY_RETURN = FUNCTION JR-STR("selectedArray_return[")
+        COMPUTE J-SELECTED_SEP = FUNCTION JR-STR("] = ")
+        COMPUTE J-selectedArray_return = FUNCTION JR-NEW-ARRAY(FUNCTION ChoiceGroup-size0(J-choiceGroup))
+        COMPUTE J-total = FUNCTION ChoiceGroup-getSelectedFlags1(J-choiceGroup, J-selectedArray_return)
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR("Multiple Total Choices: "))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, J-total)
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-stringBuffer), J-THIS, J-METHOD_NAME)
+        COMPUTE J-features = FUNCTION Features-getInstance0
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < FUNCTION JR-ARRAY-LENGTH(J-selectedArray_return)) EXIT PERFORM END-IF
+            COMPUTE J-isSelected = FUNCTION JR-ARRAY-GET(J-selectedArray_return, J-index)
+            COMPUTE jtemp1 = 0
+            COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringBuffer, jtemp1, FUNCTION StringMaker-length0(J-stringBuffer))
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-SELECTED_ARRAY_RETURN)
+            COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, J-index)
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-SELECTED_SEP)
+            COMPUTE JDISCARD = FUNCTION StringMaker-appendboolean1(J-stringBuffer, J-isSelected)
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-stringBuffer), J-THIS, J-METHOD_NAME)
+            COMPUTE J-selectedChoiceLabel = FUNCTION ChoiceGroup-getString1(J-choiceGroup, J-index)
+            COMPUTE J-gameFeature = FUNCTION Feature-getInstance1(J-selectedChoiceLabel)
+            IF (FUNCTION Features-isDefault1(J-features, J-gameFeature) = 1)
+                COMPUTE JDISCARD = FUNCTION Features-add1(J-features, J-gameFeature)
+                COMPUTE jtemp3 = 1
+                COMPUTE JDISCARD = FUNCTION ChoiceGroup-setSelectedIndex2(J-choiceGroup, J-index, jtemp3)
+            ELSE
+                COMPUTE JDISCARD = FUNCTION Features-remove1(J-features, J-gameFeature)
+                COMPUTE jtemp2 = 0
+                COMPUTE JDISCARD = FUNCTION ChoiceGroup-setSelectedIndex2(J-choiceGroup, J-index, jtemp2)
+            END-IF
+        END-PERFORM
+    GOBACK.
+END FUNCTION GameFeatureUtil-setDefault1.
 
-implementation
-uses
-  Features, GameFeatureChoiceGroups, StringMaker, CommonLabels, ABHashtable, HashtableUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmFtrUtl-updateMultiple1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringBuffer BINARY-DOUBLE.
+01 J-METHOD_NAME BINARY-DOUBLE.
+01 J-SELECTED_ARRAY_RETURN BINARY-DOUBLE.
+01 J-SELECTED_SEP BINARY-DOUBLE.
+01 J-selectedArray_return BINARY-DOUBLE.
+01 J-total BINARY-DOUBLE.
+01 J-features BINARY-DOUBLE.
+01 J-isSelected BINARY-DOUBLE.
+01 J-selectedChoiceLabel BINARY-DOUBLE.
+01 J-gameFeature BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-choiceGroup BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-choiceGroup RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE J-METHOD_NAME = FUNCTION JR-STR("updateMultiple")
+        COMPUTE J-SELECTED_ARRAY_RETURN = FUNCTION JR-STR("selectedArray_return[")
+        COMPUTE J-SELECTED_SEP = FUNCTION JR-STR("] = ")
+        COMPUTE J-selectedArray_return = FUNCTION JR-NEW-ARRAY(FUNCTION ChoiceGroup-size0(J-choiceGroup))
+        COMPUTE J-total = FUNCTION ChoiceGroup-getSelectedFlags1(J-choiceGroup, J-selectedArray_return)
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR("Multiple Total Choices: "))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, J-total)
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-stringBuffer), J-THIS, J-METHOD_NAME)
+        COMPUTE J-features = FUNCTION Features-getInstance0
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST2
+        PERFORM FOREVER
+            IF JFIRST2 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST2
+            IF NOT (J-index < FUNCTION JR-ARRAY-LENGTH(J-selectedArray_return)) EXIT PERFORM END-IF
+            COMPUTE J-isSelected = FUNCTION JR-ARRAY-GET(J-selectedArray_return, J-index)
+            COMPUTE jtemp4 = 0
+            COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringBuffer, jtemp4, FUNCTION StringMaker-length0(J-stringBuffer))
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-SELECTED_ARRAY_RETURN)
+            COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, J-index)
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-SELECTED_SEP)
+            COMPUTE JDISCARD = FUNCTION StringMaker-appendboolean1(J-stringBuffer, J-isSelected)
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-stringBuffer), J-THIS, J-METHOD_NAME)
+            COMPUTE J-selectedChoiceLabel = FUNCTION ChoiceGroup-getString1(J-choiceGroup, J-index)
+            COMPUTE J-gameFeature = FUNCTION Feature-getInstance1(J-selectedChoiceLabel)
+            IF ((NOT (J-isSelected = 1)) AND (FUNCTION Features-isFeature1(J-features, J-gameFeature) = 1))
+                COMPUTE JDISCARD = FUNCTION Features-remove1(J-features, J-gameFeature)
+            ELSE
+                IF ((J-isSelected = 1) AND (NOT (FUNCTION Features-isFeature1(J-features, J-gameFeature) = 1)))
+                COMPUTE JDISCARD = FUNCTION Features-add1(J-features, J-gameFeature)
+            END-IF
+            END-IF
+        END-PERFORM
+    GOBACK.
+END FUNCTION GmFtrUtl-updateMultiple1.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmFtrUtl-updtExclsvFrChcGrp1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringBuffer BINARY-DOUBLE.
+01 J-METHOD_NAME BINARY-DOUBLE.
+01 J-SELECTED_ARRAY_RETURN BINARY-DOUBLE.
+01 J-SELECTED_SEP BINARY-DOUBLE.
+01 J-selectedArray_return BINARY-DOUBLE.
+01 J-total BINARY-DOUBLE.
+01 J-isSelected BINARY-DOUBLE.
+01 J-selectedChoiceLabel BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 JFIRST3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-choiceGroup BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-choiceGroup RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE J-METHOD_NAME = FUNCTION JR-STR("updateExclusive")
+        COMPUTE J-SELECTED_ARRAY_RETURN = FUNCTION JR-STR("selectedArray_return[")
+        COMPUTE J-SELECTED_SEP = FUNCTION JR-STR("] = ")
+        COMPUTE J-selectedArray_return = FUNCTION JR-NEW-ARRAY(FUNCTION ChoiceGroup-size0(J-choiceGroup))
+        COMPUTE J-total = FUNCTION ChoiceGroup-getSelectedFlags1(J-choiceGroup, J-selectedArray_return)
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR("Exclusive Total Choices: 1=="))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, J-total)
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-stringBuffer), J-THIS, J-METHOD_NAME)
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST3
+        PERFORM FOREVER
+            IF JFIRST3 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST3
+            IF NOT (J-index < FUNCTION JR-ARRAY-LENGTH(J-selectedArray_return)) EXIT PERFORM END-IF
+            COMPUTE J-isSelected = FUNCTION JR-ARRAY-GET(J-selectedArray_return, J-index)
+            COMPUTE jtemp5 = 0
+            COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringBuffer, jtemp5, FUNCTION StringMaker-length0(J-stringBuffer))
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-SELECTED_ARRAY_RETURN)
+            COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, J-index)
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-SELECTED_SEP)
+            COMPUTE JDISCARD = FUNCTION StringMaker-appendboolean1(J-stringBuffer, J-isSelected)
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-stringBuffer), J-THIS, J-METHOD_NAME)
+            IF (J-isSelected = 1)
+                COMPUTE J-selectedChoiceLabel = FUNCTION ChoiceGroup-getString1(J-choiceGroup, J-index)
+                COMPUTE JDISCARD = FUNCTION GmFtrUtl-updateExclusive1(J-THIS, J-selectedChoiceLabel)
+            END-IF
+        END-PERFORM
+    GOBACK.
+END FUNCTION GmFtrUtl-updtExclsvFrChcGrp1.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameFeatureUtil-isExclusive1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-enumeration BINARY-DOUBLE.
+01 J-name BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-itemLabel BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-itemLabel RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp7 = FUNCTION GmFtrChcGrps-gtExclsvInstnc0
+        COMPUTE jtemp6 = FUNCTION JR-CLASS-NAME(jtemp7)
+        COMPUTE J-enumeration = FUNCTION JR-CLASS-NAME(jtemp6)
+        CONTINUE
+        PERFORM FOREVER
+            IF NOT (FUNCTION EnmrtnUtl-hasMoreElements1(FUNCTION JR-GET(J-THIS, "f_enumerationUtil"), J-enumeration) = 1) EXIT PERFORM END-IF
+            COMPUTE J-name = FUNCTION EnumerationUtil-nextElement1(FUNCTION JR-GET(J-THIS, "f_enumerationUtil"), J-enumeration)
+            IF (FUNCTION TsUtil-compareTo2(FUNCTION JR-GET(J-THIS, "f_tsUtil"), J-itemLabel, J-name) = 0)
+                COMPUTE J-RESULT = 1
+                GOBACK
+            END-IF
+        END-PERFORM
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION GameFeatureUtil-isExclusive1.
 
-procedure TGameFeatureUtil.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.tsUtil := TTsUtil.getInstance();
-  Self.enumerationUtil := TEnumerationUtil.getInstance();
-  Self.ON_GAME_FEATURE_CHANGE := 'onGameFeatureChange';
-  Self.GAME_FEATURE_CHANGED := 'Game Feature Changed: ';
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmFtrUtl-updateExclusive1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameFeature BINARY-DOUBLE.
+01 J-hashtable BINARY-DOUBLE.
+01 J-objectArray BINARY-DOUBLE.
+01 J-basicArrayList BINARY-DOUBLE.
+01 J-anyType BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 JFIRST4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-selectedChoiceLabel BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-selectedChoiceLabel RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp11 = FUNCTION CommonLabels-getInstance0
+        COMPUTE jtemp10 = FUNCTION StringMaker-new0
+        COMPUTE jtemp9 = FUNCTION StringMaker-append1(jtemp10, FUNCTION JR-GET(jtemp11, "f_ITEM_LABEL"))
+        COMPUTE jtemp8 = FUNCTION StringMaker-append1(jtemp9, J-selectedChoiceLabel)
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp8), J-THIS, FUNCTION JR-STR("updateExclusive"))
+        COMPUTE J-gameFeature = FUNCTION Feature-getInstance1(J-selectedChoiceLabel)
+        COMPUTE jtemp12 = FUNCTION GmFtrChcGrps-gtExclsvInstnc0
+        COMPUTE J-hashtable = FUNCTION JR-CLASS-NAME(jtemp12)
+        COMPUTE jtemp13 = FUNCTION HashtableUtil-getInstance0
+        COMPUTE J-objectArray = FUNCTION HashtableUtil-getKeysAsArray1(jtemp13, J-hashtable)
+        CONTINUE
+        CONTINUE
+        COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(J-objectArray)
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST4
+        PERFORM FOREVER
+            IF JFIRST4 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST4
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-anyType = FUNCTION JR-ARRAY-GET(J-objectArray, J-index)
+            COMPUTE J-basicArrayList = FUNCTION Hashtable-get1(J-hashtable, J-anyType)
+            COMPUTE JDISCARD = FUNCTION GmFtrUtl-updateExclusiveList2(J-THIS, J-gameFeature, J-basicArrayList)
+        END-PERFORM
+    GOBACK.
+END FUNCTION GmFtrUtl-updateExclusive1.
 
-constructor TGameFeatureUtil.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TGameFeatureUtil.getInstance: TGameFeatureUtil;
-begin
-        Exit(TGameFeatureUtil.instance);
-end;
-    
-
-// throws Exception
-procedure TGameFeatureUtil.setDefault(choiceGroup_: TChoiceGroup);
-var
-  stringBuffer: TStringMaker;
-  METHOD_NAME: string;
-  SELECTED_ARRAY_RETURN: string;
-  SELECTED_SEP: string;
-  selectedArray_return: TArray<Boolean>;
-  total: Integer;
-  features_: TFeatures;
-  isSelected: Boolean;
-  selectedChoiceLabel: string;
-  gameFeature: TFeature;
-  index: Integer;
-begin
-        stringBuffer := TStringMaker.Create();
-        METHOD_NAME := 'setDefault';
-        SELECTED_ARRAY_RETURN := 'selectedArray_return[';
-        SELECTED_SEP := '] = ';
-        selectedArray_return := TJava.NewArray<Boolean>(choiceGroup_.size());
-        total := choiceGroup_.getSelectedFlags(selectedArray_return);
-        stringBuffer.append('Multiple Total Choices: ');
-        stringBuffer.appendint(total);
-        Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), METHOD_NAME);
-        features_ := TFeatures.getInstance();
-        for index := 0 to System.Length(selectedArray_return) - 1 do begin
-            isSelected := selectedArray_return[index];
-            stringBuffer.delete_(0, stringBuffer.length());
-            stringBuffer.append(SELECTED_ARRAY_RETURN);
-            stringBuffer.appendint(index);
-            stringBuffer.append(SELECTED_SEP);
-            stringBuffer.appendboolean(isSelected);
-            Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), METHOD_NAME);
-            selectedChoiceLabel := choiceGroup_.getString(index);
-            gameFeature := TFeature.getInstance(selectedChoiceLabel);
-            if features_.isDefault(gameFeature) then begin
-                features_.add(gameFeature);
-                choiceGroup_.setSelectedIndex(index, True);
-            end else begin
-                features_.remove(gameFeature);
-                choiceGroup_.setSelectedIndex(index, False);
-            end;
-        end;
-end;
-    
-
-// throws Exception
-procedure TGameFeatureUtil.updateMultiple(choiceGroup_: TChoiceGroup);
-var
-  stringBuffer: TStringMaker;
-  METHOD_NAME: string;
-  SELECTED_ARRAY_RETURN: string;
-  SELECTED_SEP: string;
-  selectedArray_return: TArray<Boolean>;
-  total: Integer;
-  features_: TFeatures;
-  isSelected: Boolean;
-  selectedChoiceLabel: string;
-  gameFeature: TFeature;
-  index: Integer;
-begin
-        stringBuffer := TStringMaker.Create();
-        METHOD_NAME := 'updateMultiple';
-        SELECTED_ARRAY_RETURN := 'selectedArray_return[';
-        SELECTED_SEP := '] = ';
-        selectedArray_return := TJava.NewArray<Boolean>(choiceGroup_.size());
-        total := choiceGroup_.getSelectedFlags(selectedArray_return);
-        stringBuffer.append('Multiple Total Choices: ');
-        stringBuffer.appendint(total);
-        Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), METHOD_NAME);
-        features_ := TFeatures.getInstance();
-        for index := 0 to System.Length(selectedArray_return) - 1 do begin
-            isSelected := selectedArray_return[index];
-            stringBuffer.delete_(0, stringBuffer.length());
-            stringBuffer.append(SELECTED_ARRAY_RETURN);
-            stringBuffer.appendint(index);
-            stringBuffer.append(SELECTED_SEP);
-            stringBuffer.appendboolean(isSelected);
-            Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), METHOD_NAME);
-            selectedChoiceLabel := choiceGroup_.getString(index);
-            gameFeature := TFeature.getInstance(selectedChoiceLabel);
-            if (not (isSelected)) and (features_.isFeature(gameFeature)) then begin
-                features_.remove(gameFeature);
-            end else if (isSelected) and (not (features_.isFeature(gameFeature))) then begin
-                features_.add(gameFeature);
-            end;
-        end;
-end;
-    
-
-// throws Exception
-procedure TGameFeatureUtil.updateExclusiveForChoiceGroup(choiceGroup_: TChoiceGroup);
-var
-  stringBuffer: TStringMaker;
-  METHOD_NAME: string;
-  SELECTED_ARRAY_RETURN: string;
-  SELECTED_SEP: string;
-  selectedArray_return: TArray<Boolean>;
-  total: Integer;
-  isSelected: Boolean;
-  selectedChoiceLabel: string;
-  index: Integer;
-begin
-        stringBuffer := TStringMaker.Create();
-        METHOD_NAME := 'updateExclusive';
-        SELECTED_ARRAY_RETURN := 'selectedArray_return[';
-        SELECTED_SEP := '] = ';
-        selectedArray_return := TJava.NewArray<Boolean>(choiceGroup_.size());
-        total := choiceGroup_.getSelectedFlags(selectedArray_return);
-        stringBuffer.append('Exclusive Total Choices: 1==');
-        stringBuffer.appendint(total);
-        Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), METHOD_NAME);
-        for index := 0 to System.Length(selectedArray_return) - 1 do begin
-            isSelected := selectedArray_return[index];
-            stringBuffer.delete_(0, stringBuffer.length());
-            stringBuffer.append(SELECTED_ARRAY_RETURN);
-            stringBuffer.appendint(index);
-            stringBuffer.append(SELECTED_SEP);
-            stringBuffer.appendboolean(isSelected);
-            Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), METHOD_NAME);
-            if isSelected then begin
-                selectedChoiceLabel := choiceGroup_.getString(index);
-                Self.updateExclusive(selectedChoiceLabel);
-            end;
-        end;
-end;
-    
-
-function TGameFeatureUtil.isExclusive(itemLabel: string): Boolean;
-var
-  enumeration: TObject;
-  name: string;
-begin
-        enumeration := TGameFeatureChoiceGroups.getExclusiveInstance().get().keys();
-        
-        while Self.enumerationUtil.hasMoreElements(enumeration) do begin
-            name := TJava.UnboxString(TJava.ToObject(Self.enumerationUtil.nextElement(enumeration)));
-            if (Self.tsUtil.compareTo(itemLabel, name)) = (0) then begin
-                Exit(True);
-            end;
-        end;
-        Exit(False);
-end;
-    
-
-// throws Exception
-procedure TGameFeatureUtil.updateExclusive(selectedChoiceLabel: string);
-var
-  gameFeature: TFeature;
-  hashtable: TABHashtable<TObject, TObject>;
-  objectArray: TArray<TObject>;
-  basicArrayList_: TBasicArrayList;
-  anyType: TObject;
-  size: Integer;
-  index: Integer;
-begin
-        Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().ITEM_LABEL).append(selectedChoiceLabel).toString(), TJava.Box(Self), 'updateExclusive');
-        gameFeature := TFeature.getInstance(selectedChoiceLabel);
-        hashtable := TGameFeatureChoiceGroups.getExclusiveInstance().get();
-        objectArray := THashtableUtil.getInstance().getKeysAsArray(hashtable);
-        
-        
-        size := System.Length(objectArray);
-        for index := 0 to size - 1 do begin
-            anyType := TJava.Box(TJava.Box(objectArray[index]));
-            basicArrayList_ := TBasicArrayList(TJava.ToObject(hashtable.get(TJava.Box(anyType))));
-            Self.updateExclusiveList(gameFeature, basicArrayList_);
-        end;
-end;
-    
-
-// throws Exception
-procedure TGameFeatureUtil.updateExclusiveList(gameFeature: TFeature; list: TBasicArrayList);
-var
-  features_: TFeatures;
-  addIndex: Integer;
-  size: Integer;
-  index: Integer;
-begin
-        if list.contains(TJava.Box(gameFeature)) then begin
-            features_ := TFeatures.getInstance();
-            addIndex := list.indexOf(TJava.Box(gameFeature));
-            size := list.size();
-            for index := 0 to size - 1 do begin
-                if (addIndex) <> (index) then begin
-                    features_.remove(TFeature(TJava.ToObject(list.objectArray[index])));
-                end else begin
-                    features_.add(TFeature(TJava.ToObject(list.objectArray[index])));
-                end;
-            end;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TGameFeatureUtil.instance := TGameFeatureUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmFtrUtl-updateExclusiveList2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-features BINARY-DOUBLE.
+01 J-addIndex BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 JFIRST5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameFeature BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gameFeature J-list RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION BasicArrayList-contains1(J-list, J-gameFeature) = 1)
+            COMPUTE J-features = FUNCTION Features-getInstance0
+            COMPUTE J-addIndex = FUNCTION BasicArrayList-indexOf1(J-list, J-gameFeature)
+            COMPUTE J-size = FUNCTION BasicArrayList-size0(J-list)
+            COMPUTE J-index = 0
+            MOVE 1 TO JFIRST5
+            PERFORM FOREVER
+                IF JFIRST5 = 0
+                    COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+                END-IF
+                MOVE 0 TO JFIRST5
+                IF NOT (J-index < J-size) EXIT PERFORM END-IF
+                IF (J-addIndex NOT = J-index)
+                    COMPUTE jtemp15 = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
+                    COMPUTE JDISCARD = FUNCTION Features-remove1(J-features, jtemp15)
+                ELSE
+                    COMPUTE jtemp14 = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
+                    COMPUTE JDISCARD = FUNCTION Features-add1(J-features, jtemp14)
+                END-IF
+            END-PERFORM
+        END-IF
+    GOBACK.
+END FUNCTION GmFtrUtl-updateExclusiveList2.
 

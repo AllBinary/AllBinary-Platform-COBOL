@@ -1,81 +1,132 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.layer.hud.basic.score
+*> Java class ScoreableAddOnlyForHud
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.layer.hud.basic.score
-unit ScoreableAddOnlyForHud;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Scoreable, ScoreHudWidget;
-
-type
-  {AB:TYPES}
-  TScoreableAddOnlyForHud = class(TScoreable)
-  public
-    scoreHudWidget: TScoreHudWidget;
-    procedure InitFields;
-        constructor Create(scoreVectorGraphic: TScoreHudWidget);
-        procedure removePoints(points: Integer); override;
-        procedure addPoints(points: Integer); override;
-        function getScoreHudWidget: TScoreHudWidget; virtual;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TScoreableAddOnlyForHud.InitFields;
-begin
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScoreableAddOnlyForHud-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-scoreVectorGraphic BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-scoreVectorGraphic RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ScoreableAddOnlyForHud")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_scoreHudWidget")
     
+        COMPUTE jtemp1 = 0
+        CONTINUE
+        COMPUTE JVALUE = J-scoreVectorGraphic
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_scoreHudWidget", JVALUE)
+        COMPUTE jtemp3 = 0
+        COMPUTE jtemp2 = FUNCTION ScrblAddOnlyFrHd-gtScrHdWdgt0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION NumberStringHud-set1(jtemp2, jtemp3)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ScoreableAddOnlyForHud-new1.
 
-constructor TScoreableAddOnlyForHud.Create(scoreVectorGraphic: TScoreHudWidget);
-begin
-        inherited Create(0);
-        InitFields;
-        Self.scoreHudWidget := scoreVectorGraphic;
-        Self.getScoreHudWidget().set_(0);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScrblAddOnlyFrHd-removePoints1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-points BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-points RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION ScrblAddOnlyFrHd-removePoints1.
 
-procedure TScoreableAddOnlyForHud.removePoints(points: Integer);
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScrblAddOnlyFrHd-addPoints1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-points BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-points RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Scoreable-addPoints1(J-THIS, J-points)
+        COMPUTE jtemp4 = FUNCTION ScrblAddOnlyFrHd-gtScrHdWdgt0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION NumberStringHud-add1(jtemp4, J-points)
+    GOBACK.
+END FUNCTION ScrblAddOnlyFrHd-addPoints1.
 
-procedure TScoreableAddOnlyForHud.addPoints(points: Integer);
-begin
-        inherited addPoints(points);
-        Self.getScoreHudWidget().add(points);
-end;
-    
-
-function TScoreableAddOnlyForHud.getScoreHudWidget: TScoreHudWidget;
-begin
-        Exit(Self.scoreHudWidget);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScrblAddOnlyFrHd-gtScrHdWdgt0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_scoreHudWidget")
+        GOBACK
+    GOBACK.
+END FUNCTION ScrblAddOnlyFrHd-gtScrHdWdgt0.
 

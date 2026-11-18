@@ -1,116 +1,170 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.part.weapon
+*> Java class StraightMultiProjectileWeaponPart
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.part.weapon
-unit StraightMultiProjectileWeaponPart;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Animation, WeaponProperties, WeaponLayerCircularPool, ScoreableInterface, RelativeRelationship, AllBinaryLayer, AllBinaryLayerManager, NoDecimalTrigTable, BasicWeaponPart;
-
-type
-  {AB:TYPES}
-  TStraightMultiProjectileWeaponPart = class(TBasicWeaponPart)
-  public
-    weaponLayerCircularStaticPool: TWeaponLayerCircularPool;
-    total: Integer;
-    noDecimalTrigTable: TNoDecimalTrigTable;
-    procedure InitFields;
-        class function createStraightMultiProjectileWeaponPart(animationInterface: TAnimation; weaponLayerCircularStaticPool: TWeaponLayerCircularPool): TStraightMultiProjectileWeaponPart; static;
-        constructor Create(animationInterface: TAnimation; sourceLayerInterface: TAllBinaryLayer; weaponLayerCircularStaticPool: TWeaponLayerCircularPool; total: Integer; weaponProperties_: TWeaponProperties; scoreableInterface_: IScoreableInterface; relativeRelationship_: TRelativeRelationship);
-        procedure processScore(allbinaryLayerManager_: TAllBinaryLayerManager; angle: SmallInt; otherAngle: SmallInt; weaponProperties_: TWeaponProperties; scoreableInterface_: IScoreableInterface); override;
-  end;
-
-implementation
-uses
-  WeaponLayer, NoScoreable;
-
-
-{AB:CODE}
-
-procedure TStraightMultiProjectileWeaponPart.InitFields;
-begin
-  
-  
-  Self.noDecimalTrigTable := TNoDecimalTrigTable.getInstance();
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrghtMltPrjctlWpnPrt-new7.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-animationInterface BINARY-DOUBLE.
+01 J-sourceLayerInterface BINARY-DOUBLE.
+01 J-weaponLayerCircularStaticPool BINARY-DOUBLE.
+01 J-total BINARY-DOUBLE.
+01 J-weaponProperties BINARY-DOUBLE.
+01 J-scoreableInterface BINARY-DOUBLE.
+01 J-relativeRelationship BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-animationInterface J-sourceLayerInterface J-weaponLayerCircularStaticPool J-total J-weaponProperties J-scoreableInterface J-relativeRelationship RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("StraightMultiProjectileWeaponPart")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_weaponLayerCircularStaticPool")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_total")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_noDecimalTrigTable")
     
-
-class function TStraightMultiProjectileWeaponPart.createStraightMultiProjectileWeaponPart(animationInterface: TAnimation; weaponLayerCircularStaticPool: TWeaponLayerCircularPool): TStraightMultiProjectileWeaponPart;
-begin
-        Exit(TStraightMultiProjectileWeaponPart.Create(animationInterface, TAllBinaryLayer.NULL_ALLBINARY_LAYER, weaponLayerCircularStaticPool, 2, TWeaponProperties.NULL_WEAPON_PROPERTIES, TNoScoreable.getInstance(), TRelativeRelationship.NULL_RELATIVE_RELATIONSHIP));
-end;
     
+    COMPUTE JVALUE = FUNCTION NDcmlTrgTbl-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_noDecimalTrigTable", JVALUE)
+        CONTINUE
+        COMPUTE JVALUE = J-total
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_total", JVALUE)
+        COMPUTE JVALUE = J-weaponLayerCircularStaticPool
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_weaponLayerCircularStaticPool", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION StrghtMltPrjctlWpnPrt-new7.
 
-constructor TStraightMultiProjectileWeaponPart.Create(animationInterface: TAnimation; sourceLayerInterface: TAllBinaryLayer; weaponLayerCircularStaticPool: TWeaponLayerCircularPool; total: Integer; weaponProperties_: TWeaponProperties; scoreableInterface_: IScoreableInterface; relativeRelationship_: TRelativeRelationship);
-begin
-        inherited Create(animationInterface, sourceLayerInterface, weaponProperties_, scoreableInterface_, relativeRelationship_);
-        InitFields;
-        Self.total := total;
-        Self.weaponLayerCircularStaticPool := weaponLayerCircularStaticPool;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrghtMltPrjctlWpnPrt-crt93518.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-animationInterface BINARY-DOUBLE.
+01 J-weaponLayerCircularStaticPool BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-animationInterface J-weaponLayerCircularStaticPool RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = 2
+        COMPUTE J-RESULT = FUNCTION StrghtMltPrjctlWpnPrt-new7(J-animationInterface, FUNCTION AllBnryLyr-sttc-NULL-A70567, J-weaponLayerCircularStaticPool, jtemp1, FUNCTION WpnPrprts-sttc-NULL-WE36388, FUNCTION NoScoreable-getInstance0,
+        FUNCTION RltvRltnshp-sttc-NULL-65023)
+        GOBACK
+    GOBACK.
+END FUNCTION StrghtMltPrjctlWpnPrt-crt93518.
 
-// throws Exception
-procedure TStraightMultiProjectileWeaponPart.processScore(allbinaryLayerManager_: TAllBinaryLayerManager; angle: SmallInt; otherAngle: SmallInt; weaponProperties_: TWeaponProperties; scoreableInterface_: IScoreableInterface);
-var
-  sourceLayerInterface: TAllBinaryLayer;
-  reducedWidth: Integer;
-  halfWidth: Integer;
-  x: Integer;
-  y: Integer;
-  sine: Int64;
-  beamX: Integer;
-  cosine: Int64;
-  beamY: Integer;
-  weaponLayer_: TWeaponLayer;
-  increment: Integer;
-  next: Integer;
-  index: Integer;
-begin
-        sourceLayerInterface := Self.getOwnerLayerInterface();
-        reducedWidth := (((sourceLayerInterface.getWidth()) * (8)) div (10));
-        halfWidth := (TJava.SignedRightShift(reducedWidth, 1));
-        x := Self.relativeRelationship.getX();
-        y := Self.relativeRelationship.getY();
-        
-        
-        
-        
-        
-        increment := (reducedWidth) div (((Self.total) - (1)));
-        next := -halfWidth;
-        for index := 0 to Self.total - 1 do begin
-            sine := Int64(Trunc(((next) * (Self.noDecimalTrigTable.sin(Integer(angle))))));
-            beamX := Integer(Trunc((TJava.Divide(sine, Self.noDecimalTrigTable.SCALE))));
-            cosine := Int64(Trunc(((next) * (Self.noDecimalTrigTable.cos(Integer(angle))))));
-            beamY := -Integer(Trunc((TJava.Divide(cosine, Self.noDecimalTrigTable.SCALE))));
-            weaponLayer_ := Self.weaponLayerCircularStaticPool.getInstanceWeaponLayer(sourceLayerInterface, (x) + (beamX), (y) + (beamY), 0, Integer(angle), Integer(otherAngle), weaponProperties_, scoreableInterface_);
-            allbinaryLayerManager_.append(weaponLayer_);
-            next := (next) + (increment);
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. StrghtMltPrjctlWpnPrt-prc75908.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-sourceLayerInterface BINARY-DOUBLE.
+01 J-reducedWidth BINARY-DOUBLE.
+01 J-halfWidth BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-sine BINARY-DOUBLE.
+01 J-beamX BINARY-DOUBLE.
+01 J-cosine BINARY-DOUBLE.
+01 J-beamY BINARY-DOUBLE.
+01 J-weaponLayer BINARY-DOUBLE.
+01 J-increment BINARY-DOUBLE.
+01 J-next BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allbinaryLayerManager BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-otherAngle BINARY-DOUBLE.
+01 J-weaponProperties BINARY-DOUBLE.
+01 J-scoreableInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allbinaryLayerManager J-angle J-otherAngle J-weaponProperties J-scoreableInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-sourceLayerInterface = FUNCTION BscWpnPrt-gtOwnrLyrIntrfc0(J-THIS)
+        COMPUTE J-reducedWidth = ((FUNCTION MOD(FUNCTION INTEGER-PART((FUNCTION MOD((FUNCTION AllBinaryLayer-getWidth0(J-sourceLayerInterface) * 8) + 2147483648, 4294967296) - 2147483648) / 10) + 2147483648, 4294967296) - 2147483648))
+        COMPUTE J-halfWidth = (FUNCTION JR-SHIFT(JFIVE, J-reducedWidth, 1))
+        COMPUTE J-x = FUNCTION RelativeRelationship-getX0(FUNCTION JR-GET(J-THIS, "f_relativeRelationship"))
+        COMPUTE J-y = FUNCTION RelativeRelationship-getY0(FUNCTION JR-GET(J-THIS, "f_relativeRelationship"))
+        CONTINUE
+        CONTINUE
+        CONTINUE
+        CONTINUE
+        CONTINUE
+        COMPUTE J-increment = (FUNCTION MOD(FUNCTION INTEGER-PART(J-reducedWidth / ((FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_total") - 1) + 2147483648, 4294967296) - 2147483648))) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE J-next = (0 - J-halfWidth)
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < FUNCTION JR-GET(J-THIS, "f_total")) EXIT PERFORM END-IF
+            COMPUTE jtemp2 = J-angle
+            COMPUTE J-sine = ((J-next * FUNCTION NoDecimalTrigTable-sin1(FUNCTION JR-GET(J-THIS, "f_noDecimalTrigTable"), jtemp2)))
+            COMPUTE J-beamX = (FUNCTION MOD((FUNCTION INTEGER-PART(J-sine / FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_noDecimalTrigTable"), "f_SCALE"))) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE jtemp3 = J-angle
+            COMPUTE J-cosine = ((J-next * FUNCTION NoDecimalTrigTable-cos1(FUNCTION JR-GET(J-THIS, "f_noDecimalTrigTable"), jtemp3)))
+            COMPUTE J-beamY = (0 - (FUNCTION MOD((FUNCTION INTEGER-PART(J-cosine / FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_noDecimalTrigTable"), "f_SCALE"))) + 2147483648, 4294967296) - 2147483648))
+            COMPUTE jtemp4 = (FUNCTION MOD((J-x + J-beamX) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE jtemp5 = (FUNCTION MOD((J-y + J-beamY) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE jtemp6 = 0
+            COMPUTE jtemp7 = J-angle
+            COMPUTE jtemp8 = J-otherAngle
+            COMPUTE J-weaponLayer = FUNCTION WpnLyrCrclrPl-gtInstncWpnLyr8(FUNCTION JR-GET(J-THIS, "f_weaponLayerCircularStaticPool"), J-sourceLayerInterface, jtemp4, jtemp5, jtemp6, jtemp7, jtemp8, J-weaponProperties, J-scoreableInterface)
+            COMPUTE JDISCARD = FUNCTION AllBinaryLayerManager-append1(J-allbinaryLayerManager, J-weaponLayer)
+            COMPUTE J-next = (FUNCTION MOD((J-next + J-increment) + 2147483648, 4294967296) - 2147483648)
+        END-PERFORM
+    GOBACK.
+END FUNCTION StrghtMltPrjctlWpnPrt-prc75908.
 

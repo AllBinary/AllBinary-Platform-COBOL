@@ -1,127 +1,242 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.business.init
+*> Java class LicenseInitInfoUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.business.init
-unit LicenseInitInfoUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LcnsIntInfUtl-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 LicenseInitInfoUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 LicenseInitInfoUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF LicenseInitInfoUtil-jset-instance = 0
+        MOVE 1 TO LicenseInitInfoUtil-jset-instance
+        COMPUTE LicenseInitInfoUtil-jcell-instance = FUNCTION LicenseInitInfoUtil-new0
+    END-IF
+    MOVE LicenseInitInfoUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION LcnsIntInfUtl-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LcnsIntInfUtlstaticiS11001.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 LicenseInitInfoUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION LcnsIntInfUtl-static-instance TO J-RESULT
+    MOVE J-VALUE TO LicenseInitInfoUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION LcnsIntInfUtlstaticiS11001.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LicenseInitInfoUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("LicenseInitInfoUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_INITFILENAME")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ABOUT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_PRIVACY_POLICY")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_OFFICIAL_ALLBINARY_SERVICES_SERVER")
+    COMPUTE JVALUE = FUNCTION JR-STR("licenseinitdata.dat")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_INITFILENAME", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("about")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ABOUT", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("privacy_policy")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_PRIVACY_POLICY", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("https://services.allbinary.com/LicServ/serverssl.php")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_OFFICIAL_ALLBINARY_SERVICES_SERVER", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION LicenseInitInfoUtil-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LicenseInitInfo;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LcnsIntInfUtl-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION LcnsIntInfUtl-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION LcnsIntInfUtl-getInstance0.
 
-type
-  {AB:TYPES}
-  TLicenseInitInfoUtil = class(TObject)
-  public
-    INITFILENAME: string;
-    ABOUT: string;
-    PRIVACY_POLICY: string;
-    OFFICIAL_ALLBINARY_SERVICES_SERVER: string;
-    class var instance: TLicenseInitInfoUtil;
-    procedure InitFields;
-        class function getInstance: TLicenseInitInfoUtil; static;
-        procedure setFilePath(filePath: string); virtual;
-        constructor Create;
-        procedure write(initData: TLicenseInitInfo); virtual;
-        function read: TLicenseInitInfo; virtual;
-        function readAgain(initializeCounter: Integer): TLicenseInitInfo; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LcnsIntInfUtl-setFilePath1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-filePath BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-filePath RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION LcnsIntInfUtl-setFilePath1.
 
-implementation
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LicenseInitInfoUtil-write1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-initData BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-initData RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION LicenseInitInfoUtil-write1.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LicenseInitInfoUtil-read0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = 0
+        COMPUTE J-RESULT = FUNCTION LicenseInitInfoUtil-readAgain1(J-THIS, jtemp1)
+        GOBACK
+    GOBACK.
+END FUNCTION LicenseInitInfoUtil-read0.
 
-procedure TLicenseInitInfoUtil.InitFields;
-begin
-  Self.INITFILENAME := 'licenseinitdata.dat';
-  Self.ABOUT := 'about';
-  Self.PRIVACY_POLICY := 'privacy_policy';
-  Self.OFFICIAL_ALLBINARY_SERVICES_SERVER := 'https://services.allbinary.com/LicServ/serverssl.php';
-end;
-    
-
-class function TLicenseInitInfoUtil.getInstance: TLicenseInitInfoUtil;
-begin
-        Exit(TLicenseInitInfoUtil.instance);
-end;
-    
-
-procedure TLicenseInitInfoUtil.setFilePath(filePath: string);
-begin
-    TJava.MonitorEnter(Self);
-    try
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
-
-constructor TLicenseInitInfoUtil.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
-
-// throws Exception
-procedure TLicenseInitInfoUtil.write(initData: TLicenseInitInfo);
-begin
-    TJava.MonitorEnter(Self);
-    try
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
-
-// throws Exception
-function TLicenseInitInfoUtil.read: TLicenseInitInfo;
-begin
-    TJava.MonitorEnter(Self);
-    try
-        Exit(Self.readAgain(0));
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
-
-// throws Exception
-function TLicenseInitInfoUtil.readAgain(initializeCounter: Integer): TLicenseInitInfo;
-var
-  licenseInitInfo_: TLicenseInitInfo;
-begin
-    TJava.MonitorEnter(Self);
-    try
-        licenseInitInfo_ := TLicenseInitInfo.Create();
-        licenseInitInfo_.clearServers();
-        licenseInitInfo_.addServer(Self.OFFICIAL_ALLBINARY_SERVICES_SERVER);
-        Exit(licenseInitInfo_);
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TLicenseInitInfoUtil.instance := TLicenseInitInfoUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LicenseInitInfoUtil-readAgain1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-licenseInitInfo BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-initializeCounter BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-initializeCounter RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-licenseInitInfo = FUNCTION LicenseInitInfo-new0
+        COMPUTE JDISCARD = FUNCTION LicenseInitInfo-clearServers0(J-licenseInitInfo)
+        COMPUTE JDISCARD = FUNCTION LicenseInitInfo-addServer1(J-licenseInitInfo, FUNCTION JR-GET(J-THIS, "f_OFFICIAL_ALLBINARY_SERVICES_SERVER"))
+        COMPUTE J-RESULT = J-licenseInitInfo
+        GOBACK
+    GOBACK.
+END FUNCTION LicenseInitInfoUtil-readAgain1.
 

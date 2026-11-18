@@ -1,84 +1,138 @@
-// Generated Code Do Not Modify
-// package org.allbinary.physics.movement
-unit PreciseConstantVelocityMovement;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.physics.movement
+*> Java class PreciseConstantVelocityMovement
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AllBinaryGameLayer, BasicVelocityProperties, BasicDecimal, BasicConstantVelocityMovement;
-
-type
-  {AB:TYPES}
-  TPreciseConstantVelocityMovement = class(TBasicConstantVelocityMovement)
-  public
-    accumulatedX: Integer;
-    accumulatedY: Integer;
-    accumulatedZ: Integer;
-    factorValue: Integer;
-    procedure InitFields;
-        constructor Create(basicDecimal_: TBasicDecimal; velocityProperties: TBasicVelocityProperties);
-        procedure init(speedBasicDecimal: TBasicDecimal; angle: Integer; otherAngle: Integer); override;
-        procedure process(layer: TAllBinaryGameLayer); override;
-  end;
-
-implementation
-uses
-  MathUtil, ScaleFactorFactory;
-
-
-{AB:CODE}
-
-procedure TPreciseConstantVelocityMovement.InitFields;
-begin
-  
-  
-  
-  Self.factorValue := TScaleFactorFactory.getInstance().DEFAULT_SCALE_VALUE;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrcsCnstntVlctyMvmnt-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-basicDecimal BINARY-DOUBLE.
+01 J-velocityProperties BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-basicDecimal J-velocityProperties RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("PreciseConstantVelocityMovement")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_accumulatedX")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_accumulatedY")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_accumulatedZ")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_factorValue")
     
-
-constructor TPreciseConstantVelocityMovement.Create(basicDecimal_: TBasicDecimal; velocityProperties: TBasicVelocityProperties);
-begin
-        inherited Create(basicDecimal_, velocityProperties);
-        InitFields;
-end;
     
-
-procedure TPreciseConstantVelocityMovement.init(speedBasicDecimal: TBasicDecimal; angle: Integer; otherAngle: Integer);
-begin
-end;
     
+    COMPUTE jtemp1 = FUNCTION SclFctrFctry-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_DEFAULT_SCALE_VALUE")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_factorValue", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION PrcsCnstntVlctyMvmnt-new2.
 
-// throws Exception
-procedure TPreciseConstantVelocityMovement.process(layer: TAllBinaryGameLayer);
-var
-  mathUtil_: TMathUtil;
-  velocityProperties: TBasicVelocityProperties;
-begin
-        mathUtil_ := TMathUtil.getInstance();
-        velocityProperties := Self.getVelocityProperties();
-        Self.accumulatedX := Integer(Trunc(((Self.accumulatedX) + (velocityProperties.getVelocityXBasicDecimalP().getUnscaled()))));
-        Self.accumulatedY := Integer(Trunc(((Self.accumulatedY) + (velocityProperties.getVelocityYBasicDecimalP().getUnscaled()))));
-        Self.accumulatedZ := Integer(Trunc(((Self.accumulatedZ) + (velocityProperties.getVelocityZBasicDecimalP().getUnscaled()))));
-        layer.moveDXYZ((Self.accumulatedX) div (Self.factorValue), (Self.accumulatedY) div (Self.factorValue), (Self.accumulatedZ) div (Self.factorValue));
-        if (mathUtil_.abs(Self.accumulatedX)) > (Self.factorValue) then begin
-            Self.accumulatedX := 0;
-        end;
-        if (mathUtil_.abs(Self.accumulatedY)) > (Self.factorValue) then begin
-            Self.accumulatedY := 0;
-        end;
-        if (mathUtil_.abs(Self.accumulatedZ)) > (Self.factorValue) then begin
-            Self.accumulatedZ := 0;
-        end;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrcsCnstntVlctyMvmnt-init3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-speedBasicDecimal BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-otherAngle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-speedBasicDecimal J-angle J-otherAngle RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION PrcsCnstntVlctyMvmnt-init3.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrcsCnstntVlctyMvmnt-process1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-mathUtil BINARY-DOUBLE.
+01 J-velocityProperties BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layer RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-mathUtil = FUNCTION MathUtil-getInstance0
+        COMPUTE J-velocityProperties = FUNCTION BscCnstntVlctyMvmnt-gtVlc50700(J-THIS)
+        COMPUTE jtemp2 = FUNCTION BscVlctyPrprts-gtVlctyXBs63775(J-velocityProperties)
+        COMPUTE JVALUE = (FUNCTION MOD(((FUNCTION JR-GET(J-THIS, "f_accumulatedX") + FUNCTION JR-CLASS-NAME(jtemp2))) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_accumulatedX", JVALUE)
+        COMPUTE jtemp3 = FUNCTION BscVlctyPrprts-gtVlctyYBs99895(J-velocityProperties)
+        COMPUTE JVALUE = (FUNCTION MOD(((FUNCTION JR-GET(J-THIS, "f_accumulatedY") + FUNCTION JR-CLASS-NAME(jtemp3))) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_accumulatedY", JVALUE)
+        COMPUTE jtemp4 = FUNCTION BscVlctyPrprts-gtVlctyZBs46026(J-velocityProperties)
+        COMPUTE JVALUE = (FUNCTION MOD(((FUNCTION JR-GET(J-THIS, "f_accumulatedZ") + FUNCTION JR-CLASS-NAME(jtemp4))) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_accumulatedZ", JVALUE)
+        COMPUTE jtemp5 = (FUNCTION MOD(FUNCTION INTEGER-PART(FUNCTION JR-GET(J-THIS, "f_accumulatedX") / FUNCTION JR-GET(J-THIS, "f_factorValue")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp6 = (FUNCTION MOD(FUNCTION INTEGER-PART(FUNCTION JR-GET(J-THIS, "f_accumulatedY") / FUNCTION JR-GET(J-THIS, "f_factorValue")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp7 = (FUNCTION MOD(FUNCTION INTEGER-PART(FUNCTION JR-GET(J-THIS, "f_accumulatedZ") / FUNCTION JR-GET(J-THIS, "f_factorValue")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION AllBinaryLayer-moveDXYZ3(J-layer, jtemp5, jtemp6, jtemp7)
+        IF (FUNCTION MathUtil-abs1(J-mathUtil, FUNCTION JR-GET(J-THIS, "f_accumulatedX")) > FUNCTION JR-GET(J-THIS, "f_factorValue"))
+            COMPUTE JVALUE = 0
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_accumulatedX", JVALUE)
+        END-IF
+        IF (FUNCTION MathUtil-abs1(J-mathUtil, FUNCTION JR-GET(J-THIS, "f_accumulatedY")) > FUNCTION JR-GET(J-THIS, "f_factorValue"))
+            COMPUTE JVALUE = 0
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_accumulatedY", JVALUE)
+        END-IF
+        IF (FUNCTION MathUtil-abs1(J-mathUtil, FUNCTION JR-GET(J-THIS, "f_accumulatedZ")) > FUNCTION JR-GET(J-THIS, "f_factorValue"))
+            COMPUTE JVALUE = 0
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_accumulatedZ", JVALUE)
+        END-IF
+    GOBACK.
+END FUNCTION PrcsCnstntVlctyMvmnt-process1.
 

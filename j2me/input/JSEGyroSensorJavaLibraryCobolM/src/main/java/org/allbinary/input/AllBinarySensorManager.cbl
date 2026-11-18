@@ -1,96 +1,209 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input
+*> Java class AllBinarySensorManager
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input
-unit AllBinarySensorManager;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnrySnsrMngr-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AllBinarySensorManager-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 AllBinarySensorManager-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF AllBinarySensorManager-jset-instance = 0
+        MOVE 1 TO AllBinarySensorManager-jset-instance
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE AllBinarySensorManager-jcell-instance = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+    END-IF
+    MOVE AllBinarySensorManager-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION AllBnrySnsrMngr-sttc-nstnc.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnrySnsrMngrsttcnS90899.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AllBinarySensorManager-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION AllBnrySnsrMngr-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO AllBinarySensorManager-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION AllBnrySnsrMngrsttcnS90899.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBinarySensorManager-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("AllBinarySensorManager")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ORIENTATION_SENSOR_INPUT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ORIENTATION_TYPE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_list")
+    COMPUTE JVALUE = FUNCTION JR-STR("Orientation Sensor Input")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ORIENTATION_SENSOR_INPUT", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Orientation Type")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ORIENTATION_TYPE", JVALUE)
+    COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION AllBinarySensorManager-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, BasicArrayList;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnrySnsrMngr-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+        IF (FUNCTION AllBnrySnsrMngr-sttc-nstnc = FUNCTION JR-GET(jtemp2, "f_NULL_OBJECT"))
+            COMPUTE JDISCARD = FUNCTION AllBnrySnsrMngrsttcnS90899(FUNCTION AllBinarySensorManager-new0)
+        END-IF
+        COMPUTE J-RESULT = FUNCTION AllBnrySnsrMngr-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION AllBnrySnsrMngr-getInstance0.
 
-type
-  {AB:TYPES}
-  TAllBinarySensorManager = class(TObject)
-  public
-    ORIENTATION_SENSOR_INPUT: string;
-    ORIENTATION_TYPE: string;
-    list: TBasicArrayList;
-    class var instance: TObject;
-    procedure InitFields;
-        class function getInstance: TAllBinarySensorManager; static;
-        constructor Create;
-        procedure init; virtual;
-        function getSensorNamesList: TBasicArrayList; virtual;
-        procedure shutdown; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBinarySensorManager-init0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION AllBinarySensorManager-init0.
 
-implementation
-uses
-  NullUtil, BasicArrayListD;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnrySnsrMngr-gtSnsrNmsLst0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_list")
+        GOBACK
+    GOBACK.
+END FUNCTION AllBnrySnsrMngr-gtSnsrNmsLst0.
 
-
-{AB:CODE}
-
-procedure TAllBinarySensorManager.InitFields;
-begin
-  Self.ORIENTATION_SENSOR_INPUT := 'Orientation Sensor Input';
-  Self.ORIENTATION_TYPE := 'Orientation Type';
-  Self.list := TBasicArrayListD.Create();
-end;
-    
-
-class function TAllBinarySensorManager.getInstance: TAllBinarySensorManager;
-begin
-        if (TAllBinarySensorManager.instance) = (TNullUtil.getInstance().NULL_OBJECT) then begin
-            TAllBinarySensorManager.instance := TAllBinarySensorManager.Create();
-        end;
-        Exit(TAllBinarySensorManager(TJava.ToObject(TAllBinarySensorManager.instance)));
-end;
-    
-
-constructor TAllBinarySensorManager.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
-
-procedure TAllBinarySensorManager.init;
-begin
-end;
-    
-
-function TAllBinarySensorManager.getSensorNamesList: TBasicArrayList;
-begin
-        Exit(Self.list);
-end;
-    
-
-procedure TAllBinarySensorManager.shutdown;
-begin
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TAllBinarySensorManager.instance := TJava.Box(TNullUtil.getInstance().NULL_OBJECT);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnrySnsrMngr-shutdown0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION AllBnrySnsrMngr-shutdown0.
 

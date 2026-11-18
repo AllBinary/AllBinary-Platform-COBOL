@@ -1,177 +1,268 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.displayable.canvas
+*> Java class PopupMenuInputProcessor
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.displayable.canvas
-unit PopupMenuInputProcessor;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Rectangle, MyCanvas, MotionGestureEvent, RectangleCollisionUtil, TimeDelayHelper, BasicArrayList, BasicMenuInputProcessor;
-
-type
-  {AB:TYPES}
-  TPopupMenuInputProcessor = class(TBasicMenuInputProcessor)
-  public
-    rectangleCollisionUtil: TRectangleCollisionUtil;
-    CLICK_DELAY: Integer;
-    clickTimeHelper: TTimeDelayHelper;
-    rectangle: TRectangle;
-    procedure InitFields;
-        constructor Create(gameKeyEventList: TBasicArrayList; playerInputId: Integer; gameCanvas: TMyCanvas; rectangle_: TRectangle);
-        procedure init(rectangle_: TRectangle); virtual;
-        function processInput(key: Integer): Integer; virtual;
-        function processInputList: Integer; override;
-        function processMotionInputs: Integer; virtual;
-        procedure processMotionInput(motionGestureEvent_: TMotionGestureEvent); virtual;
-  end;
-
-implementation
-uses
-  AllBinaryGameCanvas, Canvas, GameInputStrings, GameKeyEvent, GPoint, MotionGestureInput, TouchMotionGestureFactory, PreLogUtil, StringMaker, CommonSeps;
-
-
-{AB:CODE}
-
-procedure TPopupMenuInputProcessor.InitFields;
-begin
-  Self.rectangleCollisionUtil := TRectangleCollisionUtil.getInstance();
-  Self.CLICK_DELAY := 120;
-  Self.clickTimeHelper := TTimeDelayHelper.Create(Self.CLICK_DELAY);
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PopupMenuInputProcessor-new4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-gameKeyEventList BINARY-DOUBLE.
+01 J-playerInputId BINARY-DOUBLE.
+01 J-gameCanvas BINARY-DOUBLE.
+01 J-rectangle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-gameKeyEventList J-playerInputId J-gameCanvas J-rectangle RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("PopupMenuInputProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_rectangleCollisionUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_CLICK_DELAY")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_clickTimeHelper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_rectangle")
+    COMPUTE JVALUE = FUNCTION RctnglCllsnUtl-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_rectangleCollisionUtil", JVALUE)
+    COMPUTE JVALUE = 120
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_CLICK_DELAY", JVALUE)
+    COMPUTE JVALUE = FUNCTION TimeDelayHelper-new1(FUNCTION JR-GET(J-THIS, "f_CLICK_DELAY"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_clickTimeHelper", JVALUE)
     
+        CONTINUE
+        COMPUTE JVALUE = J-rectangle
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_rectangle", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION PopupMenuInputProcessor-new4.
 
-constructor TPopupMenuInputProcessor.Create(gameKeyEventList: TBasicArrayList; playerInputId: Integer; gameCanvas: TMyCanvas; rectangle_: TRectangle);
-begin
-        inherited Create(gameKeyEventList, playerInputId, gameCanvas);
-        InitFields;
-        Self.rectangle := rectangle_;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PopupMenuInputProcessor-init1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-rectangle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-rectangle RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-rectangle
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_rectangle", JVALUE)
+    GOBACK.
+END FUNCTION PopupMenuInputProcessor-init1.
 
-procedure TPopupMenuInputProcessor.init(rectangle_: TRectangle);
-begin
-        Self.rectangle := rectangle_;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PppMnInptPrcssr-processInput1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameCanvas BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-key BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-key RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (J-key = FUNCTION Canvas-static-KEY-STAR)
+            COMPUTE J-gameCanvas = FUNCTION BscMnInptPrcssr-getCanvas0(J-THIS)
+            COMPUTE JDISCARD = FUNCTION AllBnryGmCnvs-toggleMenu0(J-gameCanvas)
+            COMPUTE J-RESULT = 1
+            GOBACK
+        END-IF
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION PppMnInptPrcssr-processInput1.
 
-// throws Exception
-function TPopupMenuInputProcessor.processInput(key: Integer): Integer;
-var
-  gameCanvas: TAllBinaryGameCanvas;
-begin
-        if (key) = (TCanvas.KEY_STAR) then begin
-            gameCanvas := TAllBinaryGameCanvas(TJava.ToObject(Self.getCanvas()));
-            gameCanvas.toggleMenu();
-            Exit(1);
-        end;
-        Exit(0);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PppMnInptPrcssr-prcssInptLst0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-motionInputsIndex BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-key BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE J-motionInputsIndex = FUNCTION PppMnInptPrcssr-prcssMtnInpts0(J-THIS)
+            COMPUTE J-list = FUNCTION GameInput-getGameKeyEventList0(J-THIS)
+            COMPUTE J-size = FUNCTION BasicArrayList-size0(J-list)
+            COMPUTE J-key = 0
+            CONTINUE
+            COMPUTE J-index = 0
+            MOVE 1 TO JFIRST1
+            PERFORM FOREVER
+                IF JFIRST1 = 0
+                    COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+                END-IF
+                MOVE 0 TO JFIRST1
+                IF NOT (J-index < J-size) EXIT PERFORM END-IF
+                COMPUTE J-gameKeyEvent = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
+                IF (J-gameKeyEvent NOT = 0)
+                    COMPUTE J-key = FUNCTION GameKeyEvent-getKey0(J-gameKeyEvent)
+                    IF (FUNCTION PppMnInptPrcssr-processInput1(J-THIS, J-key) = 1)
+                        EXIT PERFORM
+                    END-IF
+                END-IF
+            END-PERFORM
+            COMPUTE JDISCARD = FUNCTION GameInput-clear0(J-THIS)
+            IF ((J-size > 0) OR (J-motionInputsIndex >= 0))
+                COMPUTE J-RESULT = 1
+                GOBACK
+            ELSE
+                COMPUTE J-RESULT = (0 - 1)
+                GOBACK
+            END-IF
+    GOBACK.
+END FUNCTION PppMnInptPrcssr-prcssInptLst0.
 
-// throws Exception
-function TPopupMenuInputProcessor.processInputList: Integer;
-var
-  motionInputsIndex: Integer;
-  list: TBasicArrayList;
-  size: Integer;
-  key: Integer;
-  gameKeyEvent_: TGameKeyEvent;
-  index: Integer;
-begin
-        try
-            motionInputsIndex := Self.processMotionInputs();
-            list := Self.getGameKeyEventList();
-            size := list.size();
-            key := 0;
-            
-            for index := 0 to size - 1 do begin
-                gameKeyEvent_ := TGameKeyEvent(TJava.ToObject(list.objectArray[index]));
-                if (gameKeyEvent_) <> (nil) then begin
-                    key := gameKeyEvent_.getKey();
-                    if (Self.processInput(key)) = (1) then begin
-                        Break;
-                    end;
-                end;
-            end;
-            Self.clear();
-            if ((size) > (0)) or ((motionInputsIndex) >= (0)) then begin
-                Exit(1);
-            end else begin
-                Exit(-1);
-            end;
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), TGameInputStrings.getInstance().PROCESS_INPUT, TJava.Box(e));
-            Exit(-1);
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PppMnInptPrcssr-prcssMtnInpts0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-lastIndex BINARY-DOUBLE.
+01 J-motionGestureEvent BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-lastIndex = (FUNCTION MOD((FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_motionGestureEventList")) - 1) + 2147483648, 4294967296) - 2147483648)
+        IF (J-lastIndex >= 0)
+            COMPUTE J-motionGestureEvent = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_motionGestureEventList"), "f_objectArray"), J-lastIndex)
+            COMPUTE JDISCARD = FUNCTION PppMnInptPrcssr-prcssMtnInpt1(J-THIS, J-motionGestureEvent)
+        END-IF
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_motionGestureEventList"))
+        COMPUTE J-RESULT = J-lastIndex
+        GOBACK
+    GOBACK.
+END FUNCTION PppMnInptPrcssr-prcssMtnInpts0.
 
-// throws Exception
-function TPopupMenuInputProcessor.processMotionInputs: Integer;
-var
-  lastIndex: Integer;
-  motionGestureEvent_: TMotionGestureEvent;
-begin
-        lastIndex := (Self.motionGestureEventList.size()) - (1);
-        if (lastIndex) >= (0) then begin
-            motionGestureEvent_ := TMotionGestureEvent(TJava.ToObject(Self.motionGestureEventList.objectArray[lastIndex]));
-            Self.processMotionInput(motionGestureEvent_);
-        end;
-        Self.motionGestureEventList.clear();
-        Exit(lastIndex);
-end;
-    
-
-// throws Exception
-procedure TPopupMenuInputProcessor.processMotionInput(motionGestureEvent_: TMotionGestureEvent);
-var
-  touchMotionGestureFactory_: TTouchMotionGestureFactory;
-  motionGestureInput_: TMotionGestureInput;
-  point: TGPoint;
-  rectPoint: TGPoint;
-  gameCanvas: TAllBinaryGameCanvas;
-begin
-        if (motionGestureEvent_) = (nil) then begin
-            Self.logUtil.putF('Exception: Bug', TJava.Box(Self), Self.gameInputStrings.PROCESS_MOTION_INPUT);
-            Exit;
-        end;
-        touchMotionGestureFactory_ := TTouchMotionGestureFactory.getInstance();
-        motionGestureInput_ := motionGestureEvent_.getMotionGesture();
-        if (motionGestureInput_) = (touchMotionGestureFactory_.RELEASED) then begin
-            point := motionGestureEvent_.getCurrentPoint();
-            rectPoint := Self.rectangle.getPoint();
-            if Self.rectangleCollisionUtil.isInside(rectPoint.getX(), rectPoint.getY(), (Self.rectangle.getMaxX()) + (20), Self.rectangle.getMaxY(), point.getX(), point.getY()) then begin
-                if Self.clickTimeHelper.isTimeTNT() then begin
-                    gameCanvas := TAllBinaryGameCanvas(TJava.ToObject(Self.getCanvas()));
-                    gameCanvas.toggleMenu();
-                end;
-            end;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PppMnInptPrcssr-prcssMtnInpt1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-touchMotionGestureFactory BINARY-DOUBLE.
+01 J-motionGestureInput BINARY-DOUBLE.
+01 J-point BINARY-DOUBLE.
+01 J-rectPoint BINARY-DOUBLE.
+01 J-gameCanvas BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-motionGestureEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-motionGestureEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (J-motionGestureEvent = 0)
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+            GOBACK
+        END-IF
+        COMPUTE J-touchMotionGestureFactory = FUNCTION TchMtnGstrFctry-getInstance0
+        COMPUTE J-motionGestureInput = FUNCTION MtnGstrEvnt-getMotionGesture0(J-motionGestureEvent)
+        IF (J-motionGestureInput = FUNCTION JR-GET(J-touchMotionGestureFactory, "f_RELEASED"))
+            COMPUTE J-point = FUNCTION MtnGstrEvnt-getCurrentPoint0(J-motionGestureEvent)
+            COMPUTE J-rectPoint = FUNCTION Rectangle-getPoint0(FUNCTION JR-GET(J-THIS, "f_rectangle"))
+            COMPUTE jtemp3 = 20
+            COMPUTE jtemp2 = (FUNCTION MOD((FUNCTION Rectangle-getMaxX0(FUNCTION JR-GET(J-THIS, "f_rectangle")) + jtemp3) + 2147483648, 4294967296) - 2147483648)
+            IF (FUNCTION RctnglCllsnUtl-isInside6(FUNCTION JR-GET(J-THIS, "f_rectangleCollisionUtil"), FUNCTION GPoint-getX0(J-rectPoint), FUNCTION GPoint-getY0(J-rectPoint), jtemp2, FUNCTION Rectangle-getMaxY0(FUNCTION JR-GET(J-THIS,
+        "f_rectangle")), FUNCTION GPoint-getX0(J-point), FUNCTION GPoint-getY0(J-point)) = 1)
+                IF (FUNCTION TimeDelayHelper-isTimeTNT0(FUNCTION JR-GET(J-THIS, "f_clickTimeHelper")) = 1)
+                    COMPUTE J-gameCanvas = FUNCTION BscMnInptPrcssr-getCanvas0(J-THIS)
+                    COMPUTE JDISCARD = FUNCTION AllBnryGmCnvs-toggleMenu0(J-gameCanvas)
+                END-IF
+            END-IF
+        END-IF
+    GOBACK.
+END FUNCTION PppMnInptPrcssr-prcssMtnInpt1.
 

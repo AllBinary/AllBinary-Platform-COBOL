@@ -1,72 +1,122 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.midlet
+*> Java class LicenseLoadingTypeFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.midlet
-unit LicenseLoadingTypeFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LcnsLdngTypFctry-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 LicenseLoadingTypeFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 LicenseLoadingTypeFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF LicenseLoadingTypeFactory-jset-instance = 0
+        MOVE 1 TO LicenseLoadingTypeFactory-jset-instance
+        COMPUTE LicenseLoadingTypeFactory-jcell-instance = FUNCTION LicenseLoadingTypeFactory-new0
+    END-IF
+    MOVE LicenseLoadingTypeFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION LcnsLdngTypFctry-sttc-nstnc.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LcnsLdngTypFctrysttcS77142.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 LicenseLoadingTypeFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION LcnsLdngTypFctry-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO LicenseLoadingTypeFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION LcnsLdngTypFctrysttcS77142.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LicenseLoadingTypeFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("LicenseLoadingTypeFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_INITIAL_LOADING")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_GAME_START")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_LOGIN")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_OTHER")
+    COMPUTE JVALUE = FUNCTION LicenseLoadingType-new1(FUNCTION JR-STR("Initial Loading"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_INITIAL_LOADING", JVALUE)
+    COMPUTE JVALUE = FUNCTION LicenseLoadingType-new1(FUNCTION JR-STR("Game Start"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_GAME_START", JVALUE)
+    COMPUTE JVALUE = FUNCTION LicenseLoadingType-new1(FUNCTION JR-STR("Login"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_LOGIN", JVALUE)
+    COMPUTE JVALUE = FUNCTION LicenseLoadingType-new1(FUNCTION JR-STR("Other/Usually The First Non Demo Level"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_OTHER", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION LicenseLoadingTypeFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LicenseLoadingType;
-
-type
-  {AB:TYPES}
-  TLicenseLoadingTypeFactory = class(TObject)
-  public
-    INITIAL_LOADING: TLicenseLoadingType;
-    GAME_START: TLicenseLoadingType;
-    LOGIN: TLicenseLoadingType;
-    OTHER: TLicenseLoadingType;
-    class var instance: TLicenseLoadingTypeFactory;
-    procedure InitFields;
-    constructor Create;
-        class function getIntance: TLicenseLoadingTypeFactory; static;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TLicenseLoadingTypeFactory.InitFields;
-begin
-  Self.INITIAL_LOADING := TLicenseLoadingType.Create('Initial Loading');
-  Self.GAME_START := TLicenseLoadingType.Create('Game Start');
-  Self.LOGIN := TLicenseLoadingType.Create('Login');
-  Self.OTHER := TLicenseLoadingType.Create('Other/Usually The First Non Demo Level');
-end;
-
-constructor TLicenseLoadingTypeFactory.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TLicenseLoadingTypeFactory.getIntance: TLicenseLoadingTypeFactory;
-begin
-        Exit(TLicenseLoadingTypeFactory.instance);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TLicenseLoadingTypeFactory.instance := TLicenseLoadingTypeFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LcnsLdngTypFctry-getIntance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION LcnsLdngTypFctry-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION LcnsLdngTypFctry-getIntance0.
 

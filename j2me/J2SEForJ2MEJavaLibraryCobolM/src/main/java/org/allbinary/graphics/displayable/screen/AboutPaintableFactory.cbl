@@ -1,76 +1,124 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.displayable.screen
+*> Java class AboutPaintableFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2022 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-  
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.displayable.screen
-unit AboutPaintableFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbtPntblFctry-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AboutPaintableFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 AboutPaintableFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF AboutPaintableFactory-jset-instance = 0
+        MOVE 1 TO AboutPaintableFactory-jset-instance
+        COMPUTE AboutPaintableFactory-jcell-instance = FUNCTION AboutPaintableFactory-new0
+    END-IF
+    MOVE AboutPaintableFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION AbtPntblFctry-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbtPntblFctrystaticiS83199.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AboutPaintableFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION AbtPntblFctry-static-instance TO J-RESULT
+    MOVE J-VALUE TO AboutPaintableFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION AbtPntblFctrystaticiS83199.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AboutPaintableFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-INFO BINARY-DOUBLE.
+01 J-DEVELOPERS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("AboutPaintableFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_paintableArray")
+    COMPUTE JVALUE = FUNCTION JR-ARRAY-ADD(FUNCTION JR-NEW-ARRAY(JZERO), FUNCTION NullPaintable-getInstance0)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_paintableArray", JVALUE)
+        COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+        COMPUTE J-INFO = FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-NEW-ARRAY(JZERO), FUNCTION JR-STR("Built with the")), FUNCTION
+        JR-STR("AllBinary Platform")), FUNCTION JR-GET(jtemp1, "f_EMPTY_STRING")), FUNCTION JR-STR("Comments or Questions:")), FUNCTION JR-STR("support@allbinary.com"))
+        COMPUTE J-DEVELOPERS = FUNCTION JR-ARRAY-ADD(FUNCTION JR-ARRAY-ADD(FUNCTION JR-NEW-ARRAY(JZERO), FUNCTION JR-STR("Developed By:")), FUNCTION JR-STR("Travis Berthelot"))
+        COMPUTE jtemp2 = FUNCTION AboutPaintable-getInstance2(J-INFO, J-DEVELOPERS)
+        COMPUTE JVALUE = FUNCTION AbtPntbl-gtPntblArryInstnc0(jtemp2)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_paintableArray", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION AboutPaintableFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Paintable;
-
-type
-  {AB:TYPES}
-  TAboutPaintableFactory = class(TObject)
-  public
-    paintableArray: TArray<TPaintable>;
-    class var instance: TAboutPaintableFactory;
-    procedure InitFields;
-        class function getInstance: TAboutPaintableFactory; static;
-        constructor Create;
-  end;
-
-implementation
-uses
-  AboutPaintable, NullPaintable, StringUtil;
-
-
-{AB:CODE}
-
-procedure TAboutPaintableFactory.InitFields;
-begin
-  Self.paintableArray := TArray<TPaintable>.Create(TNullPaintable.getInstance());
-end;
-    
-
-class function TAboutPaintableFactory.getInstance: TAboutPaintableFactory;
-begin
-        Exit(TAboutPaintableFactory.instance);
-end;
-    
-
-constructor TAboutPaintableFactory.Create;
-var
-  INFO: TArray<string>;
-  DEVELOPERS: TArray<string>;
-begin
-    inherited Create;
-    InitFields;
-        INFO := TArray<string>.Create('Built with the', 'AllBinary Platform', TStringUtil.getInstance().EMPTY_STRING, 'Comments or Questions:', 'support@allbinary.com');
-        DEVELOPERS := TArray<string>.Create('Developed By:', 'Travis Berthelot');
-        Self.paintableArray := TAboutPaintable.getInstance(INFO, DEVELOPERS).getPaintableArrayInstance();
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TAboutPaintableFactory.instance := TAboutPaintableFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AbtPntblFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION AbtPntblFctry-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION AbtPntblFctry-getInstance0.
 

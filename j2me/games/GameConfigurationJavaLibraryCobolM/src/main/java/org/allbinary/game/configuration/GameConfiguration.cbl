@@ -1,200 +1,579 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.configuration
+*> Java class GameConfiguration
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.configuration
-unit GameConfiguration;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtn-static-MIN-VALUE.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameConfiguration-jcell-MIN_VALUE BINARY-DOUBLE EXTERNAL.
+01 GameConfiguration-jset-MIN_VALUE BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GameConfiguration-jset-MIN_VALUE = 0
+        MOVE 1 TO GameConfiguration-jset-MIN_VALUE
+        COMPUTE GameConfiguration-jcell-MIN_VALUE = FUNCTION Integer-static-MIN-VALUE
+    END-IF
+    MOVE GameConfiguration-jcell-MIN_VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GmCnfgrtn-static-MIN-VALUE.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtnstaticMINVAS71144.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameConfiguration-jcell-MIN_VALUE BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GmCnfgrtn-static-MIN-VALUE TO J-RESULT
+    MOVE J-VALUE TO GameConfiguration-jcell-MIN_VALUE
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GmCnfgrtnstaticMINVAS71144.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameConfiguration-new4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-name BINARY-DOUBLE.
+01 J-defaultValue BINARY-DOUBLE.
+01 J-minValue BINARY-DOUBLE.
+01 J-maxValue BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-name J-defaultValue J-minValue J-maxValue RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameConfiguration")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_name")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_defaultValue")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_value")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_minValue")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_maxValue")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_modifiable")
+    COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_EMPTY_STRING")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_name", JVALUE)
+    COMPUTE jtemp3 = 0
+    COMPUTE jtemp2 = FUNCTION SmllIntgrSngltnFctry-gtInstnc0
+    COMPUTE JVALUE = FUNCTION SmllIntgrSngltnFctry-getAt1(jtemp2, jtemp3)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_defaultValue", JVALUE)
+    COMPUTE JVALUE = FUNCTION GmCnfgrtn-static-MIN-VALUE
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_value", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_defaultValue")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_minValue", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_defaultValue")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_maxValue", JVALUE)
+    COMPUTE jtemp4 = FUNCTION BooleanFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp4, "f_TRUE")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_modifiable", JVALUE)
+        COMPUTE JDISCARD = FUNCTION GameConfiguration-setName1(J-THIS, J-name)
+        COMPUTE JDISCARD = FUNCTION GmCnfgrtn-setDefaultValue1(J-THIS, J-defaultValue)
+        COMPUTE JVALUE = FUNCTION GmCnfgrtn-getDefaultValue0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_value", JVALUE)
+        COMPUTE JDISCARD = FUNCTION GameConfiguration-setMinValue1(J-THIS, J-minValue)
+        COMPUTE JDISCARD = FUNCTION GameConfiguration-setMaxValue1(J-THIS, J-maxValue)
+        COMPUTE jtemp6 = FUNCTION GmCnfgrtnSngltn-getInstance0
+        COMPUTE jtemp5 = FUNCTION GmCnfgrtnSngltn-getHashtable0(jtemp6)
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp5)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GameConfiguration-new4.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameConfiguration-setValue1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-oldValue BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-value BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-value RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION JR-GET(J-THIS, "f_value") NOT = J-value)
+            COMPUTE J-oldValue = FUNCTION JR-GET(J-THIS, "f_value")
+            COMPUTE JVALUE = J-value
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_value", JVALUE)
+            COMPUTE jtemp13 = FUNCTION StringMaker-new0
+            COMPUTE jtemp12 = FUNCTION StringMaker-append1(jtemp13, FUNCTION JR-GET(J-THIS, "f_name"))
+            COMPUTE jtemp11 = FUNCTION StringMaker-append1(jtemp12, FUNCTION JR-STR(" value: from: "))
+            COMPUTE jtemp10 = FUNCTION StringMaker-appendint1(jtemp11, J-oldValue)
+            COMPUTE jtemp9 = FUNCTION StringMaker-append1(jtemp10, FUNCTION JR-STR(" to "))
+            COMPUTE jtemp8 = FUNCTION StringMaker-appendint1(jtemp9, FUNCTION JR-GET(J-THIS, "f_value"))
+            COMPUTE jtemp7 = FUNCTION GmFtrEvntHndlr-getInstance0
+            COMPUTE JDISCARD = FUNCTION BasicEventHandler-fireEvent1(jtemp7, FUNCTION GameFeatureEvent-new2(J-THIS, FUNCTION JR-TO-STRING(jtemp8)))
+        END-IF
+    GOBACK.
+END FUNCTION GameConfiguration-setValue1.
 
-type
-  {AB:TYPES}
-  TGameConfiguration = class(TObject)
-  public
-    name: string;
-    defaultValue: Integer;
-    value: Integer;
-    minValue: Integer;
-    maxValue: Integer;
-    modifiable: Boolean;
-    class var MIN_VALUE: Integer;
-    procedure InitFields;
-        constructor Create(name: string; defaultValue: Integer; minValue: Integer; maxValue: Integer);
-        procedure setValue(value: Integer); virtual;
-        function getValue: Integer; virtual;
-        procedure setMaxValue(maxValue: Integer); virtual;
-        function getMaxValue: Integer; virtual;
-        procedure setMinValue(minValue: Integer); virtual;
-        function getMinValue: Integer; virtual;
-        procedure setName(name: string); virtual;
-        function getName: string; virtual;
-        procedure setDefaultValue(defaultValue: Integer); virtual;
-        function getDefaultValue: Integer; virtual;
-        procedure setDefault; virtual;
-        function toString: string; virtual;
-        procedure setModifiable(modifiable: Boolean); virtual;
-        function isModifiable: Boolean; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameConfiguration-getValue0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_value")
+        GOBACK
+    GOBACK.
+END FUNCTION GameConfiguration-getValue0.
 
-implementation
-uses
-  GameConfigurationSingleton, GameFeatureEvent, GameFeatureEventHandler, BooleanFactory, SmallIntegerSingletonFactory, StringMaker, StringUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameConfiguration-setMaxValue1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-maxValue BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-maxValue RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-maxValue
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_maxValue", JVALUE)
+    GOBACK.
+END FUNCTION GameConfiguration-setMaxValue1.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameConfiguration-getMaxValue0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_maxValue")
+        GOBACK
+    GOBACK.
+END FUNCTION GameConfiguration-getMaxValue0.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameConfiguration-setMinValue1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-minValue BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-minValue RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-minValue
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_minValue", JVALUE)
+    GOBACK.
+END FUNCTION GameConfiguration-setMinValue1.
 
-procedure TGameConfiguration.InitFields;
-begin
-  Self.name := TStringUtil.getInstance().EMPTY_STRING;
-  Self.defaultValue := TSmallIntegerSingletonFactory.getInstance().getAt(0);
-  Self.value := TGameConfiguration.MIN_VALUE;
-  Self.minValue := Self.defaultValue;
-  Self.maxValue := Self.defaultValue;
-  Self.modifiable := TBooleanFactory.getInstance().TRUE_;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameConfiguration-getMinValue0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_minValue")
+        GOBACK
+    GOBACK.
+END FUNCTION GameConfiguration-getMinValue0.
 
-constructor TGameConfiguration.Create(name: string; defaultValue: Integer; minValue: Integer; maxValue: Integer);
-begin
-    inherited Create;
-    InitFields;
-        Self.setName(name);
-        Self.setDefaultValue(defaultValue);
-        Self.value := Self.getDefaultValue();
-        Self.setMinValue(minValue);
-        Self.setMaxValue(maxValue);
-        TGameConfigurationSingleton.getInstance().getHashtable().put(TJava.Box(Self.getName()), TJava.Box(Self));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameConfiguration-setName1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-name BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-name RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-name
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_name", JVALUE)
+    GOBACK.
+END FUNCTION GameConfiguration-setName1.
 
-// throws Exception
-procedure TGameConfiguration.setValue(value: Integer);
-var
-  oldValue: Integer;
-begin
-        if (Self.value) <> (value) then begin
-            oldValue := Self.value;
-            Self.value := value;
-            TGameFeatureEventHandler.getInstance().fireEvent(TGameFeatureEvent.Create(TJava.Box(Self), TStringMaker.Create().append(Self.name).append(' value: from: ').appendint((oldValue)).append(' to ').appendint((Self.value)).toString()));
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameConfiguration-getName0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_name")
+        GOBACK
+    GOBACK.
+END FUNCTION GameConfiguration-getName0.
 
-function TGameConfiguration.getValue: Integer;
-begin
-        Exit(Self.value);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtn-setDefaultValue1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-defaultValue BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-defaultValue RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-defaultValue
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_defaultValue", JVALUE)
+    GOBACK.
+END FUNCTION GmCnfgrtn-setDefaultValue1.
 
-procedure TGameConfiguration.setMaxValue(maxValue: Integer);
-begin
-        Self.maxValue := maxValue;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtn-getDefaultValue0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_defaultValue")
+        GOBACK
+    GOBACK.
+END FUNCTION GmCnfgrtn-getDefaultValue0.
 
-function TGameConfiguration.getMaxValue: Integer;
-begin
-        Exit(Self.maxValue);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameConfiguration-setDefault0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION GameConfiguration-setValue1(J-THIS, FUNCTION GmCnfgrtn-getDefaultValue0(J-THIS))
+    GOBACK.
+END FUNCTION GameConfiguration-setDefault0.
 
-procedure TGameConfiguration.setMinValue(minValue: Integer);
-begin
-        Self.minValue := minValue;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameConfiguration-toString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringBuffer BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+01 jtemp18 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR("Name: "))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_name"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR(" Min: "))
+        COMPUTE jtemp14 = FUNCTION GameConfiguration-getMinValue0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, jtemp14)
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR(" Max: "))
+        COMPUTE jtemp15 = FUNCTION GameConfiguration-getMaxValue0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, jtemp15)
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR(" Value: "))
+        COMPUTE jtemp16 = FUNCTION GameConfiguration-getValue0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, jtemp16)
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR(" Default: "))
+        COMPUTE jtemp17 = FUNCTION GmCnfgrtn-getDefaultValue0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, jtemp17)
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR(" Modifiable: "))
+        COMPUTE jtemp18 = FUNCTION GmCnfgrtn-isModifiable0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendboolean1(J-stringBuffer, jtemp18)
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(J-stringBuffer)
+        GOBACK
+    GOBACK.
+END FUNCTION GameConfiguration-toString0.
 
-function TGameConfiguration.getMinValue: Integer;
-begin
-        Exit(Self.minValue);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtn-setModifiable1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-modifiable BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-modifiable RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-modifiable
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_modifiable", JVALUE)
+    GOBACK.
+END FUNCTION GmCnfgrtn-setModifiable1.
 
-procedure TGameConfiguration.setName(name: string);
-begin
-        Self.name := name;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmCnfgrtn-isModifiable0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_modifiable")
+        GOBACK
+    GOBACK.
+END FUNCTION GmCnfgrtn-isModifiable0.
 
-function TGameConfiguration.getName: string;
-begin
-        Exit(Self.name);
-end;
-    
-
-procedure TGameConfiguration.setDefaultValue(defaultValue: Integer);
-begin
-        Self.defaultValue := defaultValue;
-end;
-    
-
-function TGameConfiguration.getDefaultValue: Integer;
-begin
-        Exit(Self.defaultValue);
-end;
-    
-
-// throws Exception
-procedure TGameConfiguration.setDefault;
-begin
-        Self.setValue(Self.getDefaultValue());
-end;
-    
-
-function TGameConfiguration.toString: string;
-var
-  stringBuffer: TStringMaker;
-begin
-        stringBuffer := TStringMaker.Create();
-        stringBuffer.append('Name: ');
-        stringBuffer.append(Self.name);
-        stringBuffer.append(' Min: ');
-        stringBuffer.appendint((Self.getMinValue()));
-        stringBuffer.append(' Max: ');
-        stringBuffer.appendint((Self.getMaxValue()));
-        stringBuffer.append(' Value: ');
-        stringBuffer.appendint((Self.getValue()));
-        stringBuffer.append(' Default: ');
-        stringBuffer.appendint((Self.getDefaultValue()));
-        stringBuffer.append(' Modifiable: ');
-        stringBuffer.appendboolean((Self.isModifiable()));
-        Exit(stringBuffer.toString());
-end;
-    
-
-procedure TGameConfiguration.setModifiable(modifiable: Boolean);
-begin
-        Self.modifiable := modifiable;
-end;
-    
-
-function TGameConfiguration.isModifiable: Boolean;
-begin
-        Exit(Self.modifiable);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TGameConfiguration.MIN_VALUE := Low(Integer);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+PROGRAM-ID. GameConfiguration-toString.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION GameConfiguration-toString0(J-THIS)
+    GOBACK.
+END PROGRAM GameConfiguration-toString.
 

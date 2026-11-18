@@ -1,174 +1,408 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.caption
+*> Java class CaptionIndexedAnimation
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.caption
-unit CaptionIndexedAnimation;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, Player, Animation, AnimationBehavior, IndexedAnimation, AllBinaryEventObject, TimeDelayHelper;
-
-type
-  {AB:TYPES}
-  TCaptionIndexedAnimation = class(TIndexedAnimation)
-  public
-    animationInterface: TAnimation;
-    movieIndexedAnimationInterface: TIndexedAnimation;
-    captionDx: Integer;
-    captionDy: Integer;
-    dx: Integer;
-    dy: Integer;
-    time: Integer;
-    END_EVENT: TAllBinaryEventObject;
-    timeDelayHelper: TTimeDelayHelper;
-    player: IPlayer;
-    procedure InitFields;
-        constructor Create(animationInterface: TAnimation; movieIndexedAnimationInterface: TIndexedAnimation; player_: IPlayer; captionDx: Integer; captionDy: Integer; dx: Integer; dy: Integer; time: Integer; animationBehavior_: TAnimationBehavior);
-        procedure nextFrame; override;
-        function isLastFrame: Boolean; override;
-        procedure previousFrame; override;
-        procedure setFrame(index: Integer); override;
-        function getFrame: Integer; override;
-        function getSize: Integer; override;
-        procedure setSequence(sequence: TArray<Integer>); override;
-        function getSequence: TArray<Integer>; override;
-        procedure paintXY(graphics_: TGraphics; x: Integer; y: Integer); override;
-        procedure paintThreedXYZ(graphics_: TGraphics; x: Integer; y: Integer; z: Integer); override;
-  end;
-
-implementation
-uses
-  AnimationEventHandler, PrimitiveIntUtil, GameTickTimeDelayHelperFactory;
-
-
-{AB:CODE}
-
-procedure TCaptionIndexedAnimation.InitFields;
-begin
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CaptionIndexedAnimation-new9.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-timePerFrame BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-animationInterface BINARY-DOUBLE.
+01 J-movieIndexedAnimationInterface BINARY-DOUBLE.
+01 J-player BINARY-DOUBLE.
+01 J-captionDx BINARY-DOUBLE.
+01 J-captionDy BINARY-DOUBLE.
+01 J-dx BINARY-DOUBLE.
+01 J-dy BINARY-DOUBLE.
+01 J-time BINARY-DOUBLE.
+01 J-animationBehavior BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-animationInterface J-movieIndexedAnimationInterface J-player J-captionDx J-captionDy J-dx J-dy J-time J-animationBehavior RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CaptionIndexedAnimation")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_animationInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_movieIndexedAnimationInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_captionDx")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_captionDy")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_dx")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_dy")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_time")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_END_EVENT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_timeDelayHelper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_player")
     
-
-constructor TCaptionIndexedAnimation.Create(animationInterface: TAnimation; movieIndexedAnimationInterface: TIndexedAnimation; player_: IPlayer; captionDx: Integer; captionDy: Integer; dx: Integer; dy: Integer; time: Integer; animationBehavior_: TAnimationBehavior);
-var
-  timePerFrame: Integer;
-begin
-        inherited Create(animationBehavior_);
-        InitFields;
-        Self.animationInterface := animationInterface;
-        Self.movieIndexedAnimationInterface := movieIndexedAnimationInterface;
-        Self.captionDx := captionDx;
-        Self.captionDy := captionDy;
-        Self.dx := dx;
-        Self.dy := dy;
-        Self.time := time;
-        Self.END_EVENT := TAllBinaryEventObject.Create(TJava.Box(Self));
-        timePerFrame := (Self.time) div (Self.getSize());
-        Self.timeDelayHelper := TTimeDelayHelper.Create(timePerFrame);
-        Self.player := player_;
-        Self.player.start();
-end;
     
-
-// throws Exception
-procedure TCaptionIndexedAnimation.nextFrame;
-begin
-        if Self.timeDelayHelper.isTime(TGameTickTimeDelayHelperFactory.getInstance().startTime) then begin
-            Self.movieIndexedAnimationInterface.nextFrame();
-        end;
-        if Self.isLastFrame() then begin
-            TAnimationEventHandler.getInstance().fireEvent(Self.END_EVENT);
-        end;
-end;
     
-
-function TCaptionIndexedAnimation.isLastFrame: Boolean;
-begin
-        if (Self.movieIndexedAnimationInterface.getFrame()) = ((Self.getSize()) - (1)) then begin
-            Exit(True);
-        end else begin
-            Exit(False);
-        end;
-end;
     
-
-procedure TCaptionIndexedAnimation.previousFrame;
-begin
-        Self.movieIndexedAnimationInterface.previousFrame();
-end;
     
-
-procedure TCaptionIndexedAnimation.setFrame(index: Integer);
-begin
-        Self.movieIndexedAnimationInterface.setFrame(index);
-end;
     
-
-function TCaptionIndexedAnimation.getFrame: Integer;
-begin
-        Exit(Self.movieIndexedAnimationInterface.getFrame());
-end;
     
-
-function TCaptionIndexedAnimation.getSize: Integer;
-begin
-        Exit(Self.movieIndexedAnimationInterface.getSize());
-end;
     
-
-procedure TCaptionIndexedAnimation.setSequence(sequence: TArray<Integer>);
-begin
-end;
     
-
-function TCaptionIndexedAnimation.getSequence: TArray<Integer>;
-begin
-        Exit(TPrimitiveIntUtil.getArrayInstance());
-end;
     
+        CONTINUE
+        COMPUTE JVALUE = J-animationInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animationInterface", JVALUE)
+        COMPUTE JVALUE = J-movieIndexedAnimationInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_movieIndexedAnimationInterface", JVALUE)
+        COMPUTE JVALUE = J-captionDx
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_captionDx", JVALUE)
+        COMPUTE JVALUE = J-captionDy
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_captionDy", JVALUE)
+        COMPUTE JVALUE = J-dx
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_dx", JVALUE)
+        COMPUTE JVALUE = J-dy
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_dy", JVALUE)
+        COMPUTE JVALUE = J-time
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_time", JVALUE)
+        COMPUTE JVALUE = FUNCTION AllBinaryEventObject-new1(J-THIS)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_END_EVENT", JVALUE)
+        COMPUTE J-timePerFrame = (FUNCTION MOD(FUNCTION INTEGER-PART(FUNCTION JR-GET(J-THIS, "f_time") / FUNCTION CptnIndxdAnmtn-getSize0(J-THIS)) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JVALUE = FUNCTION TimeDelayHelper-new1(J-timePerFrame)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_timeDelayHelper", JVALUE)
+        COMPUTE JVALUE = J-player
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_player", JVALUE)
+        COMPUTE JDISCARD = FUNCTION Player-start0(FUNCTION JR-GET(J-THIS, "f_player"))
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CaptionIndexedAnimation-new9.
 
-procedure TCaptionIndexedAnimation.paintXY(graphics_: TGraphics; x: Integer; y: Integer);
-begin
-        Self.animationInterface.paintXY(graphics_, (x) + (Self.captionDx), (y) + (Self.captionDy));
-        Self.movieIndexedAnimationInterface.paintXY(graphics_, ((x) + (Self.captionDx)) + (Self.dx), ((y) + (Self.captionDy)) + (Self.dy));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CptnIndxdAnmtn-nextFrame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = FUNCTION GmTckTmDlyHlprFctry-gtInstnc0
+        IF (FUNCTION TimeDelayHelper-isTime1(FUNCTION JR-GET(J-THIS, "f_timeDelayHelper"), FUNCTION JR-GET(jtemp1, "f_startTime")) = 1)
+            COMPUTE JDISCARD = FUNCTION Animation-nextFrame0(FUNCTION JR-GET(J-THIS, "f_movieIndexedAnimationInterface"))
+        END-IF
+        IF (FUNCTION CptnIndxdAnmtn-isLastFrame0(J-THIS) = 1)
+            COMPUTE jtemp2 = FUNCTION AnmtnEvntHndlr-getInstance0
+            COMPUTE JDISCARD = FUNCTION BasicEventHandler-fireEvent1(jtemp2, FUNCTION JR-GET(J-THIS, "f_END_EVENT"))
+        END-IF
+    GOBACK.
+END FUNCTION CptnIndxdAnmtn-nextFrame0.
 
-procedure TCaptionIndexedAnimation.paintThreedXYZ(graphics_: TGraphics; x: Integer; y: Integer; z: Integer);
-begin
-        Self.animationInterface.paintThreedXYZ(graphics_, (x) + (Self.captionDx), (y) + (Self.captionDy), z);
-        Self.movieIndexedAnimationInterface.paintThreedXYZ(graphics_, ((x) + (Self.captionDx)) + (Self.dx), ((y) + (Self.captionDy)) + (Self.dy), z);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CptnIndxdAnmtn-isLastFrame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION IndexedAnimation-getFrame0(FUNCTION JR-GET(J-THIS, "f_movieIndexedAnimationInterface")) = (FUNCTION MOD((FUNCTION CptnIndxdAnmtn-getSize0(J-THIS) - 1) + 2147483648, 4294967296) - 2147483648))
+            COMPUTE J-RESULT = 1
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = 0
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION CptnIndxdAnmtn-isLastFrame0.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CptnIndxdAnmtn-previousFrame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION IndxdAnmtn-previousFrame0(FUNCTION JR-GET(J-THIS, "f_movieIndexedAnimationInterface"))
+    GOBACK.
+END FUNCTION CptnIndxdAnmtn-previousFrame0.
 
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CptnIndxdAnmtn-setFrame1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-index RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION IndexedAnimation-setFrame1(FUNCTION JR-GET(J-THIS, "f_movieIndexedAnimationInterface"), J-index)
+    GOBACK.
+END FUNCTION CptnIndxdAnmtn-setFrame1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CptnIndxdAnmtn-getFrame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION IndexedAnimation-getFrame0(FUNCTION JR-GET(J-THIS, "f_movieIndexedAnimationInterface"))
+        GOBACK
+    GOBACK.
+END FUNCTION CptnIndxdAnmtn-getFrame0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CptnIndxdAnmtn-getSize0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION IndexedAnimation-getSize0(FUNCTION JR-GET(J-THIS, "f_movieIndexedAnimationInterface"))
+        GOBACK
+    GOBACK.
+END FUNCTION CptnIndxdAnmtn-getSize0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CptnIndxdAnmtn-setSequence1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-sequence BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-sequence RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION CptnIndxdAnmtn-setSequence1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CptnIndxdAnmtn-getSequence0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION PrmtvIntUtl-getArrayInstance0
+        GOBACK
+    GOBACK.
+END FUNCTION CptnIndxdAnmtn-getSequence0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CptnIndxdAnmtn-paintXY3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp3 = (FUNCTION MOD((J-x + FUNCTION JR-GET(J-THIS, "f_captionDx")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp4 = (FUNCTION MOD((J-y + FUNCTION JR-GET(J-THIS, "f_captionDy")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION Animation-paintXY3(FUNCTION JR-GET(J-THIS, "f_animationInterface"), J-graphics, jtemp3, jtemp4)
+        COMPUTE jtemp6 = (FUNCTION MOD((J-x + FUNCTION JR-GET(J-THIS, "f_captionDx")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp8 = (FUNCTION MOD((J-y + FUNCTION JR-GET(J-THIS, "f_captionDy")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp5 = (FUNCTION MOD((jtemp6 + FUNCTION JR-GET(J-THIS, "f_dx")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp7 = (FUNCTION MOD((jtemp8 + FUNCTION JR-GET(J-THIS, "f_dy")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION Animation-paintXY3(FUNCTION JR-GET(J-THIS, "f_movieIndexedAnimationInterface"), J-graphics, jtemp5, jtemp7)
+    GOBACK.
+END FUNCTION CptnIndxdAnmtn-paintXY3.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CptnIndxdAnmtn-paintThreedXYZ4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-z BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-x J-y J-z RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp9 = (FUNCTION MOD((J-x + FUNCTION JR-GET(J-THIS, "f_captionDx")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp10 = (FUNCTION MOD((J-y + FUNCTION JR-GET(J-THIS, "f_captionDy")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION Animation-paintThreedXYZ4(FUNCTION JR-GET(J-THIS, "f_animationInterface"), J-graphics, jtemp9, jtemp10, J-z)
+        COMPUTE jtemp12 = (FUNCTION MOD((J-x + FUNCTION JR-GET(J-THIS, "f_captionDx")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp14 = (FUNCTION MOD((J-y + FUNCTION JR-GET(J-THIS, "f_captionDy")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp11 = (FUNCTION MOD((jtemp12 + FUNCTION JR-GET(J-THIS, "f_dx")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp13 = (FUNCTION MOD((jtemp14 + FUNCTION JR-GET(J-THIS, "f_dy")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION Animation-paintThreedXYZ4(FUNCTION JR-GET(J-THIS, "f_movieIndexedAnimationInterface"), J-graphics, jtemp11, jtemp13, J-z)
+    GOBACK.
+END FUNCTION CptnIndxdAnmtn-paintThreedXYZ4.
 

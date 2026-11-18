@@ -36,6 +36,25 @@ PROCEDURE DIVISION RETURNING J-RESULT.
 END FUNCTION OprtngSystmFctry-sttc-nstnc.
 
 IDENTIFICATION DIVISION.
+FUNCTION-ID. OprtngSystmFctrysttcS21232.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 OperatingSystemFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION OprtngSystmFctry-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO OperatingSystemFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION OprtngSystmFctrysttcS21232.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. OperatingSystemFactory-new0.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -66,7 +85,7 @@ PROCEDURE DIVISION RETURNING J-RESULT.
     COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
     COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
     COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
-    COMPUTE JVALUE = FUNCTION NOprtngSystm-sttc-NO-OPEREM
+    COMPUTE JVALUE = FUNCTION NOprtngSystm-sttc-NO-O33314
     COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_genericOperatingSystem", JVALUE)
     COMPUTE JVALUE = 0
     COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hasDetected", JVALUE)
@@ -103,7 +122,7 @@ PROCEDURE DIVISION RETURNING J-RESULT.
 END FUNCTION OprtngSystmFctry-getInstance0.
 
 IDENTIFICATION DIVISION.
-FUNCTION-ID. OprtngSystmFctry-gtOprtngSysc0.
+FUNCTION-ID. OprtngSystmFctry-gtOprtng62787.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
 REPOSITORY.
@@ -163,7 +182,7 @@ PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
                         COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-STR("Found a Linux OS"), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_GET_INSTANCE"))
                     END-IF
                     COMPUTE jtemp10 = FUNCTION LnxOprtngSystmFctry-gtInstnc0
-                    COMPUTE JVALUE = FUNCTION LnxOprtngSystmFctry-gtOprtngc0(jtemp10)
+                    COMPUTE JVALUE = FUNCTION LnxOprtngSystmFctry-gtOpr32882(jtemp10)
                     COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_genericOperatingSystem", JVALUE)
                 ELSE
                     IF (FUNCTION JR-INDEX-OF(J-osName, FUNCTION JR-GET(J-operatingSystems, "f_WINDOWS")) >= 0)
@@ -171,8 +190,8 @@ PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
                     IF (FUNCTION JR-CLASS-NAME(FUNCTION LogConfigTypes-static-LOGGING) = 1)
                         COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-STR("Found a Windows OS"), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_GET_INSTANCE"))
                     END-IF
-                    COMPUTE jtemp8 = FUNCTION WndwsOprtngSystmFctry-gtInstc0
-                    COMPUTE JVALUE = FUNCTION WndwsOprtngSystmFctry-gtOprtc0(jtemp8)
+                    COMPUTE jtemp8 = FUNCTION WndwsOprtngSystmFctry-gtI68263
+                    COMPUTE JVALUE = FUNCTION WndwsOprtngSystmFctry-gtO34329(jtemp8)
                     COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_genericOperatingSystem", JVALUE)
                 ELSE
                     IF (FUNCTION JR-INDEX-OF(J-osName, FUNCTION JR-GET(J-operatingSystems, "f_SOLARIS")) >= 0)
@@ -181,7 +200,7 @@ PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
                         COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-STR("Found a Solaris OS"), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_GET_INSTANCE"))
                     END-IF
                     COMPUTE jtemp6 = FUNCTION SlrsOprtngSystmFctry-gtInstnc0
-                    COMPUTE JVALUE = FUNCTION SlrsOprtngSystmFctry-gtOprtnc0(jtemp6)
+                    COMPUTE JVALUE = FUNCTION SlrsOprtngSystmFctry-gtOp85472(jtemp6)
                     COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_genericOperatingSystem", JVALUE)
                 ELSE
                     COMPUTE jtemp4 = FUNCTION StringMaker-new0
@@ -202,5 +221,5 @@ PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
             COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_genericOperatingSystem")
             GOBACK
     GOBACK.
-END FUNCTION OprtngSystmFctry-gtOprtngSysc0.
+END FUNCTION OprtngSystmFctry-gtOprtng62787.
 

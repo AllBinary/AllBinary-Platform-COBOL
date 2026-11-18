@@ -1,95 +1,188 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.displayable
+*> Java class GameLevelDisplayChangeEventListenersFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.displayable
-unit GameLevelDisplayChangeEventListenersFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmLvlDsplyChngEvntLstnr-74685.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameLevelDisplayChangeEventListenersFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 GameLevelDisplayChangeEventListenersFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GameLevelDisplayChangeEventListenersFactory-jset-instance = 0
+        MOVE 1 TO GameLevelDisplayChangeEventListenersFactory-jset-instance
+        COMPUTE GameLevelDisplayChangeEventListenersFactory-jcell-instance = FUNCTION GmLvlDsplyChngEvntLstnr-64368
+    END-IF
+    MOVE GameLevelDisplayChangeEventListenersFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION GmLvlDsplyChngEvntLstnr-74685.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmLvlDsplyChngEvntLsS44705.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameLevelDisplayChangeEventListenersFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GmLvlDsplyChngEvntLstnr-74685 TO J-RESULT
+    MOVE J-VALUE TO GameLevelDisplayChangeEventListenersFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GmLvlDsplyChngEvntLsS44705.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmLvlDsplyChngEvntLstnr-64368.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameLevelDisplayChangeEventListenersFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_list")
+    COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GmLvlDsplyChngEvntLstnr-64368.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, DisplayChangeEventListener, BasicArrayList;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmLvlDsplyChngEvntLstnr-95644.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION GmLvlDsplyChngEvntLstnr-74685
+        GOBACK
+    GOBACK.
+END FUNCTION GmLvlDsplyChngEvntLstnr-95644.
 
-type
-  {AB:TYPES}
-  TGameLevelDisplayChangeEventListenersFactory = class(TObject)
-  public
-    list: TBasicArrayList;
-    class var instance: TGameLevelDisplayChangeEventListenersFactory;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TGameLevelDisplayChangeEventListenersFactory; static;
-        procedure add(displayChangeEventListener_: IDisplayChangeEventListener);
-        procedure clear;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmLvlDsplyChngEvntLstnr-58711.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-displayChangeEventListener BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-displayChangeEventListener RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), J-displayChangeEventListener)
+        COMPUTE jtemp1 = FUNCTION DsplyChngEvntHndlr-gtInstnc0
+        COMPUTE JDISCARD = FUNCTION BscEvntHndlr-addLstnrIntrfc1(jtemp1, J-displayChangeEventListener)
+    GOBACK.
+END FUNCTION GmLvlDsplyChngEvntLstnr-58711.
 
-implementation
-uses
-  DisplayChangeEventHandler, BasicEventHandler, BasicArrayListD, EventListenerInterface;
-
-
-{AB:CODE}
-
-procedure TGameLevelDisplayChangeEventListenersFactory.InitFields;
-begin
-  Self.list := TBasicArrayListD.Create();
-end;
-
-constructor TGameLevelDisplayChangeEventListenersFactory.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TGameLevelDisplayChangeEventListenersFactory.getInstance: TGameLevelDisplayChangeEventListenersFactory;
-begin
-        Exit(TGameLevelDisplayChangeEventListenersFactory.instance);
-end;
-    
-
-procedure TGameLevelDisplayChangeEventListenersFactory.add(displayChangeEventListener_: IDisplayChangeEventListener);
-begin
-        Self.list.add(TJava.Box(displayChangeEventListener_));
-        TDisplayChangeEventHandler.getInstance().addListenerInterface((TJava.ToObject(displayChangeEventListener_) as IEventListenerInterface));
-end;
-    
-
-procedure TGameLevelDisplayChangeEventListenersFactory.clear;
-var
-  displayChangeEventHandler_: TBasicEventHandler;
-  displayChangeEventListener_: IDisplayChangeEventListener;
-  index: Integer;
-begin
-        displayChangeEventHandler_ := TDisplayChangeEventHandler.getInstance();
-        
-        index := Self.list.size();
-        while (TJava.PreDec(index)) >= (0) do begin
-            displayChangeEventListener_ := (TJava.ToObject(Self.list.objectArray[index]) as IDisplayChangeEventListener);
-            displayChangeEventHandler_.removeListener(displayChangeEventListener_);
-        end;
-        Self.list.clear();
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TGameLevelDisplayChangeEventListenersFactory.instance := TGameLevelDisplayChangeEventListenersFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmLvlDsplyChngEvntLstnr-40976.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-displayChangeEventHandler BINARY-DOUBLE.
+01 J-displayChangeEventListener BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-displayChangeEventHandler = FUNCTION DsplyChngEvntHndlr-gtInstnc0
+        CONTINUE
+        COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp2 = J-index
+        COMPUTE J-index = FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_list"))
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            MOVE 0 TO JFIRST1
+            IF NOT (jtemp2 >= 0) EXIT PERFORM END-IF
+            COMPUTE J-displayChangeEventListener = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_list"), "f_objectArray"), J-index)
+            COMPUTE JDISCARD = FUNCTION BscEvntHndlr-removeListener1(J-displayChangeEventHandler, J-displayChangeEventListener)
+        END-PERFORM
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-clear0(FUNCTION JR-GET(J-THIS, "f_list"))
+    GOBACK.
+END FUNCTION GmLvlDsplyChngEvntLstnr-40976.
 

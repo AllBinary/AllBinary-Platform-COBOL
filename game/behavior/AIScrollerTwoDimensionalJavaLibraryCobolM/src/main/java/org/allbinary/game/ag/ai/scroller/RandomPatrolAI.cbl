@@ -1,91 +1,134 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.ai.scroller
+*> Java class RandomPatrolAI
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.ai.scroller
-unit RandomPatrolAI;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RandomPatrolAI-new3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-hashtable BINARY-DOUBLE.
+01 J-ownerLayerInterface BINARY-DOUBLE.
+01 J-gameInput BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-hashtable J-ownerLayerInterface J-gameInput RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("RandomPatrolAI")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_changedDirection")
+    COMPUTE JVALUE = 1
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_changedDirection", JVALUE)
+        CONTINUE
+        COMPUTE JDISCARD = FUNCTION RndmPtrlAI-updtRndmDstnc0(J-THIS)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION RandomPatrolAI-new3.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RndmPtrlAI-updtRndmDstnc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = FUNCTION MyRandomFactory-getInstance0
+        COMPUTE JVALUE = FUNCTION MyRndmFctry-gtAbsltNxtInt1(jtemp1, FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_maxDistance")))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_currentDistance", JVALUE)
+    GOBACK.
+END FUNCTION RndmPtrlAI-updtRndmDstnc0.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RandomPatrolAI-processAI1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryLayerManager BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasePatrolAI-update0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION BasicAI-processKeyAI1(J-THIS, FUNCTION JR-GET(J-THIS, "f_keyDirection"))
+        IF (FUNCTION JR-GET(J-THIS, "f_changedDirection") = 1)
+            COMPUTE JDISCARD = FUNCTION BasicAI-processKeyAI1(J-THIS, FUNCTION Canvas-static-KEY-NUM1)
+            COMPUTE JDISCARD = FUNCTION RndmPtrlAI-updtRndmDstnc0(J-THIS)
+            COMPUTE JVALUE = 0
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_changedDirection", JVALUE)
+        END-IF
+    GOBACK.
+END FUNCTION RandomPatrolAI-processAI1.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameInput, AllBinaryLayer, AllBinaryLayerManager, ABHashtable, BasePatrolAI;
-
-type
-  {AB:TYPES}
-  TRandomPatrolAI = class(TBasePatrolAI)
-  public
-    changedDirection: Boolean;
-    procedure InitFields;
-        constructor Create(hashtable: TABHashtable<TObject, TObject>; ownerLayerInterface: TAllBinaryLayer; gameInput_: TGameInput);
-        procedure updateRandomDistance;
-        procedure processAI(allBinaryLayerManager_: TAllBinaryLayerManager); override;
-        procedure nextDirection; override;
-  end;
-
-implementation
-uses
-  Canvas, MyRandomFactory;
-
-
-{AB:CODE}
-
-procedure TRandomPatrolAI.InitFields;
-begin
-  Self.changedDirection := True;
-end;
-    
-
-constructor TRandomPatrolAI.Create(hashtable: TABHashtable<TObject, TObject>; ownerLayerInterface: TAllBinaryLayer; gameInput_: TGameInput);
-begin
-        inherited Create(hashtable, ownerLayerInterface, gameInput_);
-        InitFields;
-        Self.updateRandomDistance();
-end;
-    
-
-procedure TRandomPatrolAI.updateRandomDistance;
-begin
-        Self.currentDistance := TMyRandomFactory.getInstance().getAbsoluteNextInt(Self.maxDistance.intValue());
-end;
-    
-
-// throws Exception
-procedure TRandomPatrolAI.processAI(allBinaryLayerManager_: TAllBinaryLayerManager);
-begin
-        inherited update();
-        inherited processKeyAI(Self.keyDirection);
-        if Self.changedDirection then begin
-            inherited processKeyAI(TCanvas.KEY_NUM1);
-            Self.updateRandomDistance();
-            Self.changedDirection := False;
-        end;
-end;
-    
-
-procedure TRandomPatrolAI.nextDirection;
-begin
-        inherited nextDirection();
-        Self.changedDirection := True;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RandomPatrolAI-nextDirection0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasePatrolAI-nextDirection0(J-THIS)
+        COMPUTE JVALUE = 1
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_changedDirection", JVALUE)
+    GOBACK.
+END FUNCTION RandomPatrolAI-nextDirection0.
 

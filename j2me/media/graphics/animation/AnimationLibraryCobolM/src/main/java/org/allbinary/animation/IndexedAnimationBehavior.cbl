@@ -1,73 +1,74 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2022 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation
+*> Java class IndexedAnimationBehavior
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. IndexedAnimationBehavior-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-loopTotal BINARY-DOUBLE.
+01 J-frameDelayTime BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-loopTotal J-frameDelayTime RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("IndexedAnimationBehavior")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_frameDelayTime")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_loopTotal")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_elapsedTime")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_loopIndex")
     
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation
-unit IndexedAnimationBehavior;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AnimationBehavior;
-
-type
-  {AB:TYPES}
-  TIndexedAnimationBehavior = class(TAnimationBehavior)
-  public
-    frameDelayTime: Int64;
-    loopTotal: Integer;
-    elapsedTime: Int64;
-    loopIndex: Integer;
-    procedure InitFields;
-        constructor Create(loopTotal: Integer; frameDelayTime: Int64);
-        procedure reset; override;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TIndexedAnimationBehavior.InitFields;
-begin
-  
-  
-  
-  
-end;
     
-
-constructor TIndexedAnimationBehavior.Create(loopTotal: Integer; frameDelayTime: Int64);
-begin
-    inherited Create;
-    InitFields;
-        Self.loopTotal := loopTotal;
-        Self.frameDelayTime := frameDelayTime;
-end;
     
+    
+        COMPUTE JVALUE = J-loopTotal
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_loopTotal", JVALUE)
+        COMPUTE JVALUE = J-frameDelayTime
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_frameDelayTime", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION IndexedAnimationBehavior-new2.
 
-procedure TIndexedAnimationBehavior.reset;
-begin
-        Self.loopIndex := 0;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. IndxdAnmtnBhvr-reset0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = 0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_loopIndex", JVALUE)
+    GOBACK.
+END FUNCTION IndxdAnmtnBhvr-reset0.
 

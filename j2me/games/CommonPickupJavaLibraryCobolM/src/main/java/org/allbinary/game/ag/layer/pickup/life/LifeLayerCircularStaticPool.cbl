@@ -1,69 +1,69 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.layer.pickup.life
+*> Java class LifeLayerCircularStaticPool
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.layer.pickup.life
-unit LifeLayerCircularStaticPool;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LfLyrCrclrSttcPl-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-allbinaryLayerFactoryInterface BINARY-DOUBLE.
+01 J-total BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-allbinaryLayerFactoryInterface J-total RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("LifeLayerCircularStaticPool")
+        COMPUTE JDISCARD = FUNCTION AllBnryLyrCrclrPl-intAllB73472(J-THIS, J-allbinaryLayerFactoryInterface, J-total)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION LfLyrCrclrSttcPl-new2.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AllBinaryLayer, AllBinaryLayerCircularPool, AllBinaryLayerFactoryInterface;
-
-type
-  {AB:TYPES}
-  TLifeLayerCircularStaticPool = class(TAllBinaryLayerCircularPool)
-  public
-        constructor Create(allbinaryLayerFactoryInterface_: IAllBinaryLayerFactoryInterface; total: Integer);
-        procedure visit(sourceLayerInterface: TAllBinaryLayer); virtual;
-  end;
-
-implementation
-uses
-  LifeLayer, Life, LifeInterfaceCompositeInterface;
-
-
-{AB:CODE}
-    
-
-constructor TLifeLayerCircularStaticPool.Create(allbinaryLayerFactoryInterface_: IAllBinaryLayerFactoryInterface; total: Integer);
-begin
-    inherited Create;
-        inherited initAllBinaryLayerCircularPool(allbinaryLayerFactoryInterface_, total);
-end;
-    
-
-// throws Exception
-procedure TLifeLayerCircularStaticPool.visit(sourceLayerInterface: TAllBinaryLayer);
-var
-  lifeLayer_: TLifeLayer;
-  lifeInterfaceCompositeInterface_: ILifeInterfaceCompositeInterface;
-  lifeInterface: TLife;
-begin
-        lifeLayer_ := TLifeLayer(TJava.ToObject(Self.getNextInstance()));
-        lifeInterfaceCompositeInterface_ := (TJava.ToObject(sourceLayerInterface) as ILifeInterfaceCompositeInterface);
-        lifeInterface := lifeInterfaceCompositeInterface_.getLifeInterface();
-        lifeLayer_.visit(lifeInterface);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LfLyrCrclrSttcPl-visit1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-lifeLayer BINARY-DOUBLE.
+01 J-lifeInterfaceCompositeInterface BINARY-DOUBLE.
+01 J-lifeInterface BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-sourceLayerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-sourceLayerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-lifeLayer = FUNCTION BsCrclrPl-getNextInstance0(J-THIS)
+        COMPUTE J-lifeInterfaceCompositeInterface = J-sourceLayerInterface
+        COMPUTE J-lifeInterface = FUNCTION LfIntrfcCmpstIntrfc-gtLfI62756(J-lifeInterfaceCompositeInterface)
+        COMPUTE JDISCARD = FUNCTION LifeLayer-visit1(J-lifeLayer, J-lifeInterface)
+    GOBACK.
+END FUNCTION LfLyrCrclrSttcPl-visit1.
 

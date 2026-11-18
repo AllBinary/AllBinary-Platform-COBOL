@@ -1,104 +1,132 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.form.item.validation
+*> Java class TextItemUserIdentifierVisitor
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.form.item.validation
-unit TextItemUserIdentifierVisitor;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TxtItmUsrIdntfrVstr-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("TextItemUserIdentifierVisitor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION TxtItmUsrIdntfrVstr-new0.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TxtItmUsrIdntfrVstr-visit1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-value BINARY-DOUBLE.
+01 J-charValue BINARY-DOUBLE.
+01 J-stringValidationUtil BINARY-DOUBLE.
+01 J-commonStrings BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-anyType BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-anyType RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-value = J-anyType
+        IF (FUNCTION JR-STR-LENGTH(J-value) < 2)
+            COMPUTE jtemp2 = 0
+            COMPUTE J-charValue = FUNCTION JR-CHAR-AT(J-value, jtemp2)
+            COMPUTE J-stringValidationUtil = FUNCTION StrngVldtnUtl-getInstance0
+            IF (FUNCTION StringValidationUtil-isNumber1(J-stringValidationUtil, J-value) = 1)
+                COMPUTE jtemp6 = FUNCTION BooleanFactory-getInstance0
+                COMPUTE J-RESULT = FUNCTION JR-GET(jtemp6, "f_TRUE")
+                GOBACK
+            ELSE
+                IF (FUNCTION TxtItmUsrIdntfrVstr-isLetter1(J-THIS, J-charValue) = 1)
+                COMPUTE jtemp5 = FUNCTION BooleanFactory-getInstance0
+                COMPUTE J-RESULT = FUNCTION JR-GET(jtemp5, "f_TRUE")
+                GOBACK
+            ELSE
+                CONTINUE
+                    COMPUTE jtemp3 = FUNCTION TxtNtfctnUtl-getInstance0
+                    COMPUTE JDISCARD = FUNCTION TxtNtfctnUtl-fireError1(jtemp3, FUNCTION JR-STR("Only Letters & Numbers Allowed"))
+                COMPUTE jtemp4 = FUNCTION BooleanFactory-getInstance0
+                COMPUTE J-RESULT = FUNCTION JR-GET(jtemp4, "f_FALSE")
+                GOBACK
+            END-IF
+            END-IF
+        ELSE
+            COMPUTE jtemp1 = FUNCTION BooleanFactory-getInstance0
+            COMPUTE J-RESULT = FUNCTION JR-GET(jtemp1, "f_FALSE")
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION TxtItmUsrIdntfrVstr-visit1.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LogUtil, Visitor;
-
-type
-  {AB:TYPES}
-  TTextItemUserIdentifierVisitor = class(TVisitor)
-  public
-    logUtil: TLogUtil;
-    procedure InitFields;
-        constructor Create;
-        function visit(anyType: TObject): TObject; override;
-        function isLetter(charValue: WideChar): Boolean; virtual;
-  end;
-
-implementation
-uses
-  TextNotificationUtil, BooleanFactory, CommonStrings;
-
-
-{AB:CODE}
-
-procedure TTextItemUserIdentifierVisitor.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-end;
-    
-
-constructor TTextItemUserIdentifierVisitor.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
-
-function TTextItemUserIdentifierVisitor.visit(anyType: TObject): TObject;
-var
-  value: string;
-  charValue: WideChar;
-  stringValidationUtil_: TObject;
-  commonStrings_: TCommonStrings;
-begin
-        value := TJava.UnboxString(TJava.ToObject(anyType));
-        if (System.Length(value)) < (2) then begin
-            charValue := value[(0) + 1];
-            stringValidationUtil_ := nil;
-            if TJava.IsNumber(value) then begin
-                Exit(TJava.Box(TBooleanFactory.getInstance().TRUE_));
-            end else if Self.isLetter(charValue) then begin
-                Exit(TJava.Box(TBooleanFactory.getInstance().TRUE_));
-            end else begin
-                try
-                    TTextNotificationUtil.getInstance().fireError('Only Letters & Numbers Allowed');
-                except
-                    on e: SysUtils.Exception do begin
-                    commonStrings_ := TCommonStrings.getInstance();
-                    Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.VISIT, TJava.Box(e));
-                    end;
-                end;
-                Exit(TJava.Box(TBooleanFactory.getInstance().FALSE_));
-            end;
-        end else begin
-            Exit(TJava.Box(TBooleanFactory.getInstance().FALSE_));
-        end;
-end;
-    
-
-function TTextItemUserIdentifierVisitor.isLetter(charValue: WideChar): Boolean;
-var
-  value: Integer;
-begin
-        value := Ord(charValue);
-        Exit(((((value) > (64)) and ((value) < (91)))) or ((((value) > (96)) and ((value) < (123)))));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TxtItmUsrIdntfrVstr-isLetter1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-value BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-charValue BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-charValue RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-value = J-charValue
+        COMPUTE J-RESULT = FUNCTION MAX(((FUNCTION MAX(0, FUNCTION SIGN(J-value - 64)) * FUNCTION MAX(0, FUNCTION SIGN(91 - J-value)))), ((FUNCTION MAX(0, FUNCTION SIGN(J-value - 96)) * FUNCTION MAX(0, FUNCTION SIGN(123 - J-value)))))
+        GOBACK
+    GOBACK.
+END FUNCTION TxtItmUsrIdntfrVstr-isLetter1.
 

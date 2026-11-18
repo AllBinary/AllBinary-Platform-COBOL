@@ -1,76 +1,101 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.ai
+*> Java class OptimizedArtificialIntelligenceLayerProcessorForCollidableLayer
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.ai
-unit OptimizedArtificialIntelligenceLayerProcessorForCollidableLayer;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OptmzdArtfclIntllgncLyr-33910.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("OptimizedArtificialIntelligenceLayerProcessorForCollidableLayer")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION OptmzdArtfclIntllgncLyr-33910.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OptmzdArtfclIntllgncLyr-86294.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-artificialIntelligenceCompositeInterface BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryLayerManager BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager J-layerInterface J-index RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-artificialIntelligenceCompositeInterface = J-layerInterface
+        COMPUTE jtemp1 = FUNCTION ClldblCmpstLyr-gtArtfclIn26783(J-artificialIntelligenceCompositeInterface)
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp1)
+    GOBACK.
+END FUNCTION OptmzdArtfclIntllgncLyr-86294.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AllBinaryLayer, AllBinaryLayerManager, LayerProcessor;
-
-type
-  {AB:TYPES}
-  TOptimizedArtificialIntelligenceLayerProcessorForCollidableLayer = class(TLayerProcessor)
-  public
-        constructor Create;
-        procedure processAt(allBinaryLayerManager_: TAllBinaryLayerManager; layerInterface: TAllBinaryLayer; index: Integer); override;
-        function isProcessorLayer(layerInterface: TAllBinaryLayer): Boolean; override;
-  end;
-
-implementation
-uses
-  OptimizedArtificialIntelligenceLayerManager, CollidableCompositeLayer;
-
-
-{AB:CODE}
-    
-
-constructor TOptimizedArtificialIntelligenceLayerProcessorForCollidableLayer.Create;
-begin
-        inherited Create(TOptimizedArtificialIntelligenceLayerManager.Create());
-end;
-    
-
-// throws Exception
-procedure TOptimizedArtificialIntelligenceLayerProcessorForCollidableLayer.processAt(allBinaryLayerManager_: TAllBinaryLayerManager; layerInterface: TAllBinaryLayer; index: Integer);
-var
-  artificialIntelligenceCompositeInterface: TCollidableCompositeLayer;
-begin
-        artificialIntelligenceCompositeInterface := TCollidableCompositeLayer(TJava.ToObject(layerInterface));
-        artificialIntelligenceCompositeInterface.getArtificialIntelligenceInterface().processAI(allBinaryLayerManager_);
-end;
-    
-
-// throws Exception
-function TOptimizedArtificialIntelligenceLayerProcessorForCollidableLayer.isProcessorLayer(layerInterface: TAllBinaryLayer): Boolean;
-begin
-        if layerInterface.implmentsArtificialIntelligenceCompositeInterface() then begin
-            Exit(True);
-        end else begin
-            Exit(False);
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OptmzdArtfclIntllgncLyr-30695.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION AllBnryLyr-implmntsArtfcl63135(J-layerInterface) = 1)
+            COMPUTE J-RESULT = 1
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = 0
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION OptmzdArtfclIntllgncLyr-30695.
 

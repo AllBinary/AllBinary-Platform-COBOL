@@ -1,147 +1,201 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.score
+*> Java class ScoreComparator
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.score
-unit ScoreComparator;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, RecordComparator, LogUtil;
-
-type
-  {AB:TYPES}
-  TScoreComparator = class(TInterfacedObject, IRecordComparator)
-  public
-    logUtil: TLogUtil;
-    isHighestBest: Boolean;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(isHighestBest: Boolean);
-        function getBestScore: Int64; virtual;
-        function compare(recordOne: TArray<ShortInt>; recordTwo: TArray<ShortInt>): Integer; virtual;
-        function getHighTooLow(scoreOne: Int64; scoreTwo: Int64): Integer; virtual;
-        function getLowTooHigh(scoreOne: Int64; scoreTwo: Int64): Integer; virtual;
-  end;
-
-implementation
-uses
-  CommonStrings;
-
-
-{AB:CODE}
-
-procedure TScoreComparator.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  
-end;
-
-function TScoreComparator.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScoreComparator-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-isHighestBest BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-isHighestBest RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ScoreComparator")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_isHighestBest")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
     
+        COMPUTE JVALUE = J-isHighestBest
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_isHighestBest", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ScoreComparator-new1.
 
-constructor TScoreComparator.Create(isHighestBest: Boolean);
-begin
-    inherited Create;
-    InitFields;
-        Self.isHighestBest := isHighestBest;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScoreComparator-getBestScore0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = ((FUNCTION JR-GET(J-THIS, "f_isHighestBest")) * (FUNCTION Long-static-MAX-VALUE) + (1 - (FUNCTION JR-GET(J-THIS, "f_isHighestBest"))) * (0))
+        GOBACK
+    GOBACK.
+END FUNCTION ScoreComparator-getBestScore0.
 
-function TScoreComparator.getBestScore: Int64;
-begin
-        Exit(TJava.IfThen<Variant>(Self.isHighestBest, High(Int64), 0));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScoreComparator-compare2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-byteArrayInputStreamOne BINARY-DOUBLE.
+01 J-inputStreamOne BINARY-DOUBLE.
+01 J-byteArrayInputStreamTwo BINARY-DOUBLE.
+01 J-inputStreamTwo BINARY-DOUBLE.
+01 J-scoreOne BINARY-DOUBLE.
+01 J-scoreTwo BINARY-DOUBLE.
+01 J-commonStrings BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-recordOne BINARY-DOUBLE.
+01 J-recordTwo BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-recordOne J-recordTwo RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-byteArrayInputStreamOne = FUNCTION ByteArrayInputStream-new1(J-recordOne)
+        COMPUTE J-inputStreamOne = FUNCTION DataInputStream-new1(J-byteArrayInputStreamOne)
+        COMPUTE J-byteArrayInputStreamTwo = FUNCTION ByteArrayInputStream-new1(J-recordTwo)
+        COMPUTE J-inputStreamTwo = FUNCTION DataInputStream-new1(J-byteArrayInputStreamTwo)
+        COMPUTE J-scoreOne = 0
+        COMPUTE J-scoreTwo = 0
+        CONTINUE
+            COMPUTE JDISCARD = FUNCTION DataInputStream-readUTF0(J-inputStreamOne)
+            COMPUTE JDISCARD = FUNCTION DataInputStream-readUTF0(J-inputStreamTwo)
+            COMPUTE J-scoreOne = FUNCTION DataInputStream-readLong0(J-inputStreamOne)
+            COMPUTE J-scoreTwo = FUNCTION DataInputStream-readLong0(J-inputStreamTwo)
+        IF (FUNCTION JR-GET(J-THIS, "f_isHighestBest") = 1)
+            COMPUTE J-RESULT = FUNCTION ScoreComparator-getHighTooLow2(J-THIS, J-scoreOne, J-scoreTwo)
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = FUNCTION ScoreComparator-getLowTooHigh2(J-THIS, J-scoreOne, J-scoreTwo)
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION ScoreComparator-compare2.
 
-function TScoreComparator.compare(recordOne: TArray<ShortInt>; recordTwo: TArray<ShortInt>): Integer;
-var
-  byteArrayInputStreamOne: TByteArrayInputStream;
-  inputStreamOne: TDataInputStream;
-  byteArrayInputStreamTwo: TByteArrayInputStream;
-  inputStreamTwo: TDataInputStream;
-  scoreOne: Int64;
-  scoreTwo: Int64;
-  commonStrings_: TCommonStrings;
-begin
-        byteArrayInputStreamOne := TByteArrayInputStream.Create(recordOne);
-        inputStreamOne := TDataInputStream.Create(byteArrayInputStreamOne);
-        byteArrayInputStreamTwo := TByteArrayInputStream.Create(recordTwo);
-        inputStreamTwo := TDataInputStream.Create(byteArrayInputStreamTwo);
-        scoreOne := 0;
-        scoreTwo := 0;
-        try
-            inputStreamOne.readUTF();
-            inputStreamTwo.readUTF();
-            scoreOne := inputStreamOne.readLong();
-            scoreTwo := inputStreamTwo.readLong();
-        except
-            on e: TEOFException do begin
-            commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), 'compare', TJava.Box(e));
-            end;
-            on e: TIOException do begin
-            commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), 'compare', TJava.Box(e));
-            end;
-            on e: SysUtils.Exception do begin
-            commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), 'compare', TJava.Box(e));
-            end;
-        end;
-        if Self.isHighestBest then begin
-            Exit(Self.getHighTooLow(scoreOne, scoreTwo));
-        end else begin
-            Exit(Self.getLowTooHigh(scoreOne, scoreTwo));
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScoreComparator-getHighTooLow2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-scoreOne BINARY-DOUBLE.
+01 J-scoreTwo BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-scoreOne J-scoreTwo RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (J-scoreOne > J-scoreTwo)
+            COMPUTE J-RESULT = FUNCTION RcrdCmprtr-static-PRECEDES
+            GOBACK
+        ELSE
+            IF (J-scoreOne < J-scoreTwo)
+            COMPUTE J-RESULT = FUNCTION RcrdCmprtr-static-FOLLOWS
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = FUNCTION RcrdCmprtr-static-EQUIVALENT
+            GOBACK
+        END-IF
+        END-IF
+    GOBACK.
+END FUNCTION ScoreComparator-getHighTooLow2.
 
-function TScoreComparator.getHighTooLow(scoreOne: Int64; scoreTwo: Int64): Integer;
-begin
-        if (scoreOne) > (scoreTwo) then begin
-            Exit(IRecordComparator.PRECEDES);
-        end else if (scoreOne) < (scoreTwo) then begin
-            Exit(IRecordComparator.FOLLOWS);
-        end else begin
-            Exit(IRecordComparator.EQUIVALENT);
-        end;
-end;
-    
-
-function TScoreComparator.getLowTooHigh(scoreOne: Int64; scoreTwo: Int64): Integer;
-begin
-        if (scoreOne) < (scoreTwo) then begin
-            Exit(IRecordComparator.PRECEDES);
-        end else if (scoreOne) > (scoreTwo) then begin
-            Exit(IRecordComparator.FOLLOWS);
-        end else begin
-            Exit(IRecordComparator.EQUIVALENT);
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScoreComparator-getLowTooHigh2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-scoreOne BINARY-DOUBLE.
+01 J-scoreTwo BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-scoreOne J-scoreTwo RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (J-scoreOne < J-scoreTwo)
+            COMPUTE J-RESULT = FUNCTION RcrdCmprtr-static-PRECEDES
+            GOBACK
+        ELSE
+            IF (J-scoreOne > J-scoreTwo)
+            COMPUTE J-RESULT = FUNCTION RcrdCmprtr-static-FOLLOWS
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = FUNCTION RcrdCmprtr-static-EQUIVALENT
+            GOBACK
+        END-IF
+        END-IF
+    GOBACK.
+END FUNCTION ScoreComparator-getLowTooHigh2.
 

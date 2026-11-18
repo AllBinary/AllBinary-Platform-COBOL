@@ -1,96 +1,172 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.image
+*> Java class ImageTypeUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.image
-unit ImageTypeUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgTypUtl-static-SINGLETON.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ImageTypeUtil-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+01 ImageTypeUtil-jset-SINGLETON BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF ImageTypeUtil-jset-SINGLETON = 0
+        MOVE 1 TO ImageTypeUtil-jset-SINGLETON
+        COMPUTE ImageTypeUtil-jcell-SINGLETON = FUNCTION ImageTypeUtil-new0
+    END-IF
+    MOVE ImageTypeUtil-jcell-SINGLETON TO J-RESULT
+    GOBACK.
+END FUNCTION ImgTypUtl-static-SINGLETON.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgTypUtlstaticSINGLS35908.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ImageTypeUtil-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION ImgTypUtl-static-SINGLETON TO J-RESULT
+    MOVE J-VALUE TO ImageTypeUtil-jcell-SINGLETON
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION ImgTypUtlstaticSINGLS35908.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImageTypeUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ImageTypeUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_PNG")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_JPG")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_GIF")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_list")
+    COMPUTE JVALUE = FUNCTION JR-STR("png")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_PNG", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("jpg")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_JPG", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("gif")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_GIF", JVALUE)
+    COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), FUNCTION JR-GET(J-THIS, "f_JPG"))
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), FUNCTION JR-GET(J-THIS, "f_GIF"))
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), FUNCTION JR-GET(J-THIS, "f_PNG"))
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ImageTypeUtil-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, BasicArrayList;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImageTypeUtil-isSupported1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-name BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-mediaFileType BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-mediaFileType RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-mediaFileType = FUNCTION JR-TOLOWERCASE(J-mediaFileType)
+        COMPUTE J-index = (FUNCTION MOD((FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_list")) - 1) + 2147483648, 4294967296) - 2147483648)
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index >= 0) EXIT PERFORM END-IF
+            COMPUTE J-name = FUNCTION BasicArrayList-get1(FUNCTION JR-GET(J-THIS, "f_list"), J-index)
+            IF (FUNCTION JR-COMPARETO(J-mediaFileType, J-name) = 0)
+                COMPUTE J-RESULT = 1
+                GOBACK
+            END-IF
+        END-PERFORM
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION ImageTypeUtil-isSupported1.
 
-type
-  {AB:TYPES}
-  TImageTypeUtil = class(TObject)
-  public
-    PNG: string;
-    JPG: string;
-    GIF: string;
-    list: TBasicArrayList;
-    class var SINGLETON: TImageTypeUtil;
-    procedure InitFields;
-        constructor Create;
-        function isSupported(mediaFileType: string): Boolean; virtual;
-        class function getInstance: TImageTypeUtil; static;
-  end;
-
-implementation
-uses
-  BasicArrayListD;
-
-
-{AB:CODE}
-
-procedure TImageTypeUtil.InitFields;
-begin
-  Self.PNG := 'png';
-  Self.JPG := 'jpg';
-  Self.GIF := 'gif';
-  Self.list := TBasicArrayListD.Create();
-end;
-    
-
-constructor TImageTypeUtil.Create;
-begin
-    inherited Create;
-    InitFields;
-        Self.list.add(TJava.Box(Self.JPG));
-        Self.list.add(TJava.Box(Self.GIF));
-        Self.list.add(TJava.Box(Self.PNG));
-end;
-    
-
-function TImageTypeUtil.isSupported(mediaFileType: string): Boolean;
-var
-  name: string;
-  index: Integer;
-begin
-        mediaFileType := LowerCase(mediaFileType);
-        for index := (Self.list.size()) - (1) downto 0 do begin
-            name := TJava.UnboxString(TJava.ToObject(Self.list.get(index)));
-            if (CompareStr(mediaFileType, name)) = (0) then begin
-                Exit(True);
-            end;
-        end;
-        Exit(False);
-end;
-    
-
-class function TImageTypeUtil.getInstance: TImageTypeUtil;
-begin
-        Exit(TImageTypeUtil.SINGLETON);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TImageTypeUtil.SINGLETON := TImageTypeUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImageTypeUtil-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION ImgTypUtl-static-SINGLETON
+        GOBACK
+    GOBACK.
+END FUNCTION ImageTypeUtil-getInstance0.
 

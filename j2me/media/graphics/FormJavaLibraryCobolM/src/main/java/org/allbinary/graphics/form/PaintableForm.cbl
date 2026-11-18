@@ -1,89 +1,216 @@
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.form
-unit PaintableForm;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.form
+*> Java class PaintableForm
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PntblFrm-sttc-NULL-PAI70322.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PaintableForm-jcell-NULL_PAINTABLE_FORM BINARY-DOUBLE EXTERNAL.
+01 PaintableForm-jset-NULL_PAINTABLE_FORM BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF PaintableForm-jset-NULL_PAINTABLE_FORM = 0
+        MOVE 1 TO PaintableForm-jset-NULL_PAINTABLE_FORM
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE PaintableForm-jcell-NULL_PAINTABLE_FORM = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+    END-IF
+    MOVE PaintableForm-jcell-NULL_PAINTABLE_FORM TO J-RESULT
+    GOBACK.
+END FUNCTION PntblFrm-sttc-NULL-PAI70322.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PntblFrmsttcNULLPAI7S42506.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PaintableForm-jcell-NULL_PAINTABLE_FORM BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION PntblFrm-sttc-NULL-PAI70322 TO J-RESULT
+    MOVE J-VALUE TO PaintableForm-jcell-NULL_PAINTABLE_FORM
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION PntblFrmsttcNULLPAI7S42506.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Rectangle, BasicColor, CanvasStrings, ABCustomItem, FormType, ABCustomForm;
-
-type
-  {AB:TYPES}
-  TPaintableForm = class(TABCustomForm)
-  public
-    canvasStrings: TCanvasStrings;
-    rectangle: TRectangle;
-    x: Integer;
-    y: Integer;
-    formType: TFormType;
-    class var NULL_PAINTABLE_FORM: TObject;
-    procedure InitFields;
-        class function getNullPaintableForm: TPaintableForm; static;
-        constructor Create(title: string; items: TArray<TABCustomItem>; backgroundBasicColor: TBasicColor; foregroundBasicColor: TBasicColor);
-        procedure init(rectangle_: TRectangle; formType_: TFormType); virtual;
-        function getWidth: Integer; override;
-  end;
-
-implementation
-uses
-  FormTypeFactory, GPoint, RectangleFactory, BasicColorFactory, NullUtil, StringUtil;
-
-
-{AB:CODE}
-
-procedure TPaintableForm.InitFields;
-begin
-  Self.canvasStrings := TCanvasStrings.getInstance();
-  Self.rectangle := TRectangleFactory.SINGLETON;
-  
-  
-  Self.formType := TFormTypeFactory.getInstance().NULL_FORM_TYPE;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PaintableForm-new4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-title BINARY-DOUBLE.
+01 J-items BINARY-DOUBLE.
+01 J-backgroundBasicColor BINARY-DOUBLE.
+01 J-foregroundBasicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-title J-items J-backgroundBasicColor J-foregroundBasicColor RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("PaintableForm")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_canvasStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_rectangle")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_x")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_y")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_formType")
+    COMPUTE JVALUE = FUNCTION CanvasStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_canvasStrings", JVALUE)
+    COMPUTE JVALUE = FUNCTION RctnglFctry-static-SINGLETON
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_rectangle", JVALUE)
     
-
-class function TPaintableForm.getNullPaintableForm: TPaintableForm;
-begin
-        if (TPaintableForm.NULL_PAINTABLE_FORM) = (TNullUtil.getInstance().NULL_OBJECT) then begin
-            TPaintableForm.NULL_PAINTABLE_FORM := TPaintableForm.Create(TStringUtil.getInstance().EMPTY_STRING, nil, TBasicColorFactory.getInstance().BLACK, TBasicColorFactory.getInstance().WHITE);
-        end;
-        Exit(TPaintableForm(TJava.ToObject(TPaintableForm.NULL_PAINTABLE_FORM)));
-end;
     
+    COMPUTE jtemp8 = FUNCTION FormTypeFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp8, "f_NULL_FORM_TYPE")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_formType", JVALUE)
+        CONTINUE
+        COMPUTE jtemp9 = 0
+        COMPUTE JDISCARD = FUNCTION ABCustomForm-setSelectedIndex1(J-THIS, jtemp9)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION PaintableForm-new4.
 
-constructor TPaintableForm.Create(title: string; items: TArray<TABCustomItem>; backgroundBasicColor: TBasicColor; foregroundBasicColor: TBasicColor);
-begin
-        inherited Create(title, items, backgroundBasicColor, foregroundBasicColor);
-        InitFields;
-        Self.setSelectedIndex(0);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PntblFrm-getNullPaintableForm0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+        IF (FUNCTION PntblFrm-sttc-NULL-PAI70322 = FUNCTION JR-GET(jtemp2, "f_NULL_OBJECT"))
+            COMPUTE jtemp5 = 0
+            COMPUTE jtemp3 = FUNCTION StringUtil-getInstance0
+            COMPUTE jtemp6 = FUNCTION BasicColorFactory-getInstance0
+            COMPUTE jtemp7 = FUNCTION BasicColorFactory-getInstance0
+            COMPUTE jtemp4 = FUNCTION JR-NEW-ARRAY(jtemp5)
+            COMPUTE JDISCARD = FUNCTION PntblFrmsttcNULLPAI7S42506(FUNCTION PaintableForm-new4(FUNCTION JR-GET(jtemp3, "f_EMPTY_STRING"), jtemp4, FUNCTION JR-GET(jtemp6, "f_BLACK"), FUNCTION JR-GET(jtemp7, "f_WHITE")))
+        END-IF
+        COMPUTE J-RESULT = FUNCTION PntblFrm-sttc-NULL-PAI70322
+        GOBACK
+    GOBACK.
+END FUNCTION PntblFrm-getNullPaintableForm0.
 
-// throws Exception
-procedure TPaintableForm.init(rectangle_: TRectangle; formType_: TFormType);
-var
-  point: TGPoint;
-begin
-        Self.rectangle := rectangle_;
-        point := Self.rectangle.getPoint();
-        Self.x := point.getX();
-        Self.y := point.getY();
-        Self.formType := formType_;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PaintableForm-init2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-point BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-rectangle BINARY-DOUBLE.
+01 J-formType BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-rectangle J-formType RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-rectangle
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_rectangle", JVALUE)
+        COMPUTE J-point = FUNCTION Rectangle-getPoint0(FUNCTION JR-GET(J-THIS, "f_rectangle"))
+        COMPUTE JVALUE = FUNCTION GPoint-getX0(J-point)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_x", JVALUE)
+        COMPUTE JVALUE = FUNCTION GPoint-getY0(J-point)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_y", JVALUE)
+        COMPUTE JVALUE = J-formType
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_formType", JVALUE)
+    GOBACK.
+END FUNCTION PaintableForm-init2.
 
-function TPaintableForm.getWidth: Integer;
-begin
-        Exit(Self.rectangle.getWidth());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TPaintableForm.NULL_PAINTABLE_FORM := TJava.Box(TNullUtil.getInstance().NULL_OBJECT);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PaintableForm-getWidth0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION Rectangle-getWidth0(FUNCTION JR-GET(J-THIS, "f_rectangle"))
+        GOBACK
+    GOBACK.
+END FUNCTION PaintableForm-getWidth0.
 

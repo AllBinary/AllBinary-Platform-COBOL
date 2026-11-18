@@ -1,212 +1,560 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.opengles
+*> Java class CurrentDisplayableFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.opengles
-unit CurrentDisplayableFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CrrntDsplyblFctry-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CurrentDisplayableFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 CurrentDisplayableFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF CurrentDisplayableFactory-jset-instance = 0
+        MOVE 1 TO CurrentDisplayableFactory-jset-instance
+        COMPUTE CurrentDisplayableFactory-jcell-instance = FUNCTION CurrentDisplayableFactory-new0
+    END-IF
+    MOVE CurrentDisplayableFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION CrrntDsplyblFctry-sttc-nstnc.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CrrntDsplyblFctrysttS95466.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CurrentDisplayableFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION CrrntDsplyblFctry-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO CurrentDisplayableFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION CrrntDsplyblFctrysttS95466.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CurrentDisplayableFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CurrentDisplayableFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_canvasStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_stringUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SET_DISPLAYABLE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SET_RUNNABLE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_CLEAR_RUNNABLE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SET_USED_RUNNABLE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_RUNNABLE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_RUNNABLE_WAS_ALREADY_IN_USE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DEFAULT_CHILD_NAME_LIST")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_displayable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_openGlReadydisplayable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_runnable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_usedRunnable")
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
+    COMPUTE JVALUE = FUNCTION CanvasStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_canvasStrings", JVALUE)
+    COMPUTE JVALUE = FUNCTION StringUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_stringUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("setDisplayable")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SET_DISPLAYABLE", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("setRunnable")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SET_RUNNABLE", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("clearRunnable")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_CLEAR_RUNNABLE", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("setUsedRunnable")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SET_USED_RUNNABLE", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Runnable: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_RUNNABLE", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Runnable was already in use: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_RUNNABLE_WAS_ALREADY_IN_USE", JVALUE)
+    COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DEFAULT_CHILD_NAME_LIST", JVALUE)
+    COMPUTE JVALUE = FUNCTION NullDisplayable-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_displayable", JVALUE)
+    COMPUTE JVALUE = FUNCTION NullDisplayable-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_openGlReadydisplayable", JVALUE)
+    COMPUTE JVALUE = FUNCTION NllWtGmRnnbl-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_runnable", JVALUE)
+    COMPUTE JVALUE = FUNCTION NllWtGmRnnbl-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_usedRunnable", JVALUE)
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_DEFAULT_CHILD_NAME_LIST"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_canvasStrings"), "f_ABOUT"))
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_DEFAULT_CHILD_NAME_LIST"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_canvasStrings"), "f_OPTIONS"))
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_DEFAULT_CHILD_NAME_LIST"), FUNCTION GmInptMppngCnvs-static-NAME)
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_DEFAULT_CHILD_NAME_LIST"), FUNCTION GmInptMppngInstrctnsCnv-10507)
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_DEFAULT_CHILD_NAME_LIST"), FUNCTION HighScoresCanvas-static-NAME)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CurrentDisplayableFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Displayable, GameRunnable, CanvasStrings, MyCanvas, StringUtil, CommonStrings, BasicArrayList;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CrrntDsplyblFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION CrrntDsplyblFctry-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION CrrntDsplyblFctry-getInstance0.
 
-type
-  {AB:TYPES}
-  TCurrentDisplayableFactory = class(TObject)
-  public
-    commonStrings: TCommonStrings;
-    canvasStrings: TCanvasStrings;
-    stringUtil: TStringUtil;
-    SET_DISPLAYABLE: string;
-    SET_RUNNABLE: string;
-    CLEAR_RUNNABLE: string;
-    SET_USED_RUNNABLE: string;
-    RUNNABLE_: string;
-    RUNNABLE_WAS_ALREADY_IN_USE: string;
-    DEFAULT_CHILD_NAME_LIST: TBasicArrayList;
-    displayable: TDisplayable;
-    openGlReadydisplayable: TDisplayable;
-    runnable: TGameRunnable;
-    usedRunnable: TGameRunnable;
-    class var instance: TCurrentDisplayableFactory;
-    procedure InitFields;
-        class function getInstance: TCurrentDisplayableFactory; static;
-        constructor Create;
-        procedure setMyCanvas(displayable_: TMyCanvas); virtual;
-        procedure setDisplayable(displayable_: TDisplayable); virtual;
-        procedure setOpenGlReadydisplayable(openGlReadydisplayable: TDisplayable); virtual;
-        function getOpenGlReadydisplayable: TDisplayable; virtual;
-        procedure setRunnable(runnable: TGameRunnable); virtual;
-        procedure clearRunnable; virtual;
-        procedure update;
-        function getDisplayable: TDisplayable; virtual;
-        function getUsedRunnable: TGameRunnable; virtual;
-        procedure setUsedRunnable(usedRunnable: TGameRunnable); virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CrrntDsplyblFctry-setMyCanvas1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-displayable BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-displayable RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION JR-STR-EQUALS(FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_displayable")), FUNCTION JR-STR("MyCanvas")) = 1)
+            COMPUTE jtemp1 = FUNCTION JR-GET(J-THIS, "f_displayable")
+            IF (FUNCTION MyCanvas-hasChild1(J-displayable, jtemp1) = 1)
+                COMPUTE jtemp4 = FUNCTION StringMaker-new0
+                COMPUTE jtemp3 = FUNCTION StringMaker-append1(jtemp4, FUNCTION JR-STR("Child Displayable is already set for: "))
+                COMPUTE jtemp2 = FUNCTION StringMaker-append1(jtemp3, FUNCTION StringUtil-toString1(FUNCTION JR-GET(J-THIS, "f_stringUtil"), J-displayable))
+                COMPUTE JDISCARD = FUNCTION PreLogUtil-put3(FUNCTION JR-TO-STRING(jtemp2), J-THIS, FUNCTION JR-GET(J-THIS, "f_SET_DISPLAYABLE"))
+                GOBACK
+            END-IF
+        END-IF
+        COMPUTE JDISCARD = FUNCTION CrrntDsplyblFctry-stDsplybl1(J-THIS, J-displayable)
+    GOBACK.
+END FUNCTION CrrntDsplyblFctry-setMyCanvas1.
 
-implementation
-uses
-  OpenGLFeatureFactory, J2MEUtil, Features, AllBinaryGameCanvas, DemoCanvas, GameInputMappingCanvas, GameInputMappingInstructionsCanvas, NullDisplayable, NullWaitGameRunnable, SWTUtil, HighScoresCanvas, GraphicsStrings, PreLogUtil, StringMaker, CommonSeps, NullRunnable, BasicArrayListD;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CrrntDsplyblFctry-stDsplybl1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-displayable BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-displayable RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-displayable
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_displayable", JVALUE)
+        COMPUTE JDISCARD = FUNCTION CrrntDsplyblFctry-stOpnGl87919(J-THIS, J-displayable)
+    GOBACK.
+END FUNCTION CrrntDsplyblFctry-stDsplybl1.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CrrntDsplyblFctry-stOpnGl87919.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-openGlReadydisplayable BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-openGlReadydisplayable RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-openGlReadydisplayable
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_openGlReadydisplayable", JVALUE)
+        COMPUTE JDISCARD = FUNCTION CrrntDsplyblFctry-update0(J-THIS)
+    GOBACK.
+END FUNCTION CrrntDsplyblFctry-stOpnGl87919.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CrrntDsplyblFctry-gtOpnGl34037.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_openGlReadydisplayable")
+        GOBACK
+    GOBACK.
+END FUNCTION CrrntDsplyblFctry-gtOpnGl34037.
 
-procedure TCurrentDisplayableFactory.InitFields;
-begin
-  Self.commonStrings := TCommonStrings.getInstance();
-  Self.canvasStrings := TCanvasStrings.getInstance();
-  Self.stringUtil := TStringUtil.getInstance();
-  Self.SET_DISPLAYABLE := 'setDisplayable';
-  Self.SET_RUNNABLE := 'setRunnable';
-  Self.CLEAR_RUNNABLE := 'clearRunnable';
-  Self.SET_USED_RUNNABLE := 'setUsedRunnable';
-  Self.RUNNABLE_ := 'Runnable: ';
-  Self.RUNNABLE_WAS_ALREADY_IN_USE := 'Runnable was already in use: ';
-  Self.DEFAULT_CHILD_NAME_LIST := TBasicArrayListD.Create();
-  Self.displayable := TNullDisplayable.getInstance();
-  Self.openGlReadydisplayable := TNullDisplayable.getInstance();
-  Self.runnable := TNullWaitGameRunnable.getInstance();
-  Self.usedRunnable := TNullWaitGameRunnable.getInstance();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CrrntDsplyblFctry-setRunnable1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-runnable BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-runnable RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp7 = FUNCTION StringMaker-new0
+        COMPUTE jtemp6 = FUNCTION StringMaker-append1(jtemp7, FUNCTION JR-GET(J-THIS, "f_RUNNABLE"))
+        COMPUTE jtemp5 = FUNCTION StringMaker-append1(jtemp6, FUNCTION StringUtil-toString1(FUNCTION JR-GET(J-THIS, "f_stringUtil"), J-runnable))
+        COMPUTE JDISCARD = FUNCTION PreLogUtil-put3(FUNCTION JR-TO-STRING(jtemp5), J-THIS, FUNCTION JR-GET(J-THIS, "f_SET_RUNNABLE"))
+        COMPUTE JVALUE = J-runnable
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_runnable", JVALUE)
+        IF (FUNCTION JR-GET(J-THIS, "f_usedRunnable") NOT = FUNCTION JR-GET(J-THIS, "f_runnable"))
+            COMPUTE JDISCARD = FUNCTION CrrntDsplyblFctry-update0(J-THIS)
+        ELSE
+            COMPUTE jtemp10 = FUNCTION StringMaker-new0
+            COMPUTE jtemp9 = FUNCTION StringMaker-append1(jtemp10, FUNCTION JR-GET(J-THIS, "f_RUNNABLE_WAS_ALREADY_IN_USE"))
+            COMPUTE jtemp8 = FUNCTION StringMaker-append1(jtemp9, FUNCTION StringUtil-toString1(FUNCTION JR-GET(J-THIS, "f_stringUtil"), J-runnable))
+            COMPUTE JDISCARD = FUNCTION PreLogUtil-put3(FUNCTION JR-TO-STRING(jtemp8), J-THIS, FUNCTION JR-GET(J-THIS, "f_SET_RUNNABLE"))
+        END-IF
+    GOBACK.
+END FUNCTION CrrntDsplyblFctry-setRunnable1.
 
-class function TCurrentDisplayableFactory.getInstance: TCurrentDisplayableFactory;
-begin
-        Exit(TCurrentDisplayableFactory.instance);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CrrntDsplyblFctry-clrRnnbl0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp13 = FUNCTION StringMaker-new0
+        COMPUTE jtemp12 = FUNCTION StringMaker-append1(jtemp13, FUNCTION JR-GET(J-THIS, "f_RUNNABLE"))
+        COMPUTE jtemp11 = FUNCTION StringMaker-append1(jtemp12, FUNCTION StringUtil-toString1(FUNCTION JR-GET(J-THIS, "f_stringUtil"), FUNCTION NullRunnable-getInstance0))
+        COMPUTE JDISCARD = FUNCTION PreLogUtil-put3(FUNCTION JR-TO-STRING(jtemp11), J-THIS, FUNCTION JR-GET(J-THIS, "f_CLEAR_RUNNABLE"))
+        COMPUTE JDISCARD = FUNCTION CrrntDsplyblFctry-stUsdRnnbl1(J-THIS, FUNCTION NllWtGmRnnbl-getInstance0)
+    GOBACK.
+END FUNCTION CrrntDsplyblFctry-clrRnnbl0.
 
-constructor TCurrentDisplayableFactory.Create;
-begin
-    inherited Create;
-    InitFields;
-        Self.DEFAULT_CHILD_NAME_LIST.add(TJava.Box(Self.canvasStrings.ABOUT));
-        Self.DEFAULT_CHILD_NAME_LIST.add(TJava.Box(Self.canvasStrings.OPTIONS));
-        Self.DEFAULT_CHILD_NAME_LIST.add(TJava.Box(TGameInputMappingCanvas.NAME));
-        Self.DEFAULT_CHILD_NAME_LIST.add(TJava.Box(TGameInputMappingInstructionsCanvas.NAME));
-        Self.DEFAULT_CHILD_NAME_LIST.add(TJava.Box(THighScoresCanvas.NAME));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CrrntDsplyblFctry-update0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-commonSeps BINARY-DOUBLE.
+01 J-features BINARY-DOUBLE.
+01 J-stringMaker BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+01 jtemp18 BINARY-DOUBLE.
+01 jtemp19 BINARY-DOUBLE.
+01 jtemp20 BINARY-DOUBLE.
+01 jtemp21 BINARY-DOUBLE.
+01 jtemp22 BINARY-DOUBLE.
+01 jtemp23 BINARY-DOUBLE.
+01 jtemp24 BINARY-DOUBLE.
+01 jtemp25 BINARY-DOUBLE.
+01 jtemp26 BINARY-DOUBLE.
+01 jtemp27 BINARY-DOUBLE.
+01 jtemp28 BINARY-DOUBLE.
+01 jtemp29 BINARY-DOUBLE.
+01 jtemp30 BINARY-DOUBLE.
+01 jtemp31 BINARY-DOUBLE.
+01 jtemp32 BINARY-DOUBLE.
+01 jtemp33 BINARY-DOUBLE.
+01 jtemp34 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE J-commonSeps = FUNCTION CommonSeps-getInstance0
+            COMPUTE J-features = FUNCTION Features-getInstance0
+            COMPUTE J-stringMaker = FUNCTION StringMaker-new0
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringMaker, FUNCTION StringUtil-toString1(FUNCTION JR-GET(J-THIS, "f_stringUtil"), FUNCTION JR-GET(J-THIS, "f_openGlReadydisplayable")))
+            COMPUTE jtemp14 = FUNCTION OpnGLFtrFctry-getInstance0
+            IF ((FUNCTION SWTUtil-static-isSWT = 1) AND (NOT (FUNCTION Features-isDefault1(J-features, FUNCTION JR-GET(jtemp14, "f_OPENGL")) = 1)))
+                COMPUTE jtemp34 = FUNCTION StringMaker-append1(J-stringMaker, FUNCTION JR-GET(J-commonSeps, "f_SPACE"))
+                COMPUTE jtemp33 = FUNCTION StringMaker-append1(jtemp34, FUNCTION SWTUtil-static-SWT)
+                COMPUTE jtemp32 = FUNCTION StringMaker-append1(jtemp33, FUNCTION JR-GET(J-commonSeps, "f_SPACE"))
+                COMPUTE jtemp31 = FUNCTION StringMaker-append1(jtemp32, FUNCTION JR-GET(J-THIS, "f_RUNNABLE"))
+                COMPUTE jtemp30 = FUNCTION StringMaker-append1(jtemp31, FUNCTION StringUtil-toString1(FUNCTION JR-GET(J-THIS, "f_stringUtil"), FUNCTION NullRunnable-getInstance0))
+                COMPUTE JDISCARD = FUNCTION PreLogUtil-put3(FUNCTION JR-TO-STRING(jtemp30), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_UPDATE"))
+                COMPUTE JDISCARD = FUNCTION CrrntDsplyblFctry-stUsdRnnbl1(J-THIS, FUNCTION NllWtGmRnnbl-getInstance0)
+            ELSE
+                IF (FUNCTION J2MEUtil-isHTML0 = 1)
+                COMPUTE jtemp29 = FUNCTION GraphicsStrings-getInstance0
+                COMPUTE jtemp28 = FUNCTION StringMaker-append1(J-stringMaker, FUNCTION JR-GET(J-commonSeps, "f_SPACE"))
+                COMPUTE jtemp27 = FUNCTION StringMaker-append1(jtemp28, FUNCTION JR-GET(jtemp29, "f_HTML"))
+                COMPUTE jtemp26 = FUNCTION StringMaker-append1(jtemp27, FUNCTION JR-GET(J-commonSeps, "f_SPACE"))
+                COMPUTE jtemp25 = FUNCTION StringMaker-append1(jtemp26, FUNCTION JR-GET(J-THIS, "f_RUNNABLE"))
+                COMPUTE jtemp24 = FUNCTION StringMaker-append1(jtemp25, FUNCTION StringUtil-toString1(FUNCTION JR-GET(J-THIS, "f_stringUtil"), FUNCTION JR-GET(J-THIS, "f_runnable")))
+                COMPUTE JDISCARD = FUNCTION PreLogUtil-put3(FUNCTION JR-TO-STRING(jtemp24), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_UPDATE"))
+                COMPUTE JDISCARD = FUNCTION CrrntDsplyblFctry-stUsdRnnbl1(J-THIS, FUNCTION JR-GET(J-THIS, "f_runnable"))
+            ELSE
+                COMPUTE jtemp15 = FUNCTION OpnGLFtrFctry-getInstance0
+            IF (((FUNCTION JR-STR-EQUALS(FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_openGlReadydisplayable")), FUNCTION JR-STR("DemoCanvas")) = 1) OR (FUNCTION JR-STR-EQUALS(FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS,
+        "f_openGlReadydisplayable")), FUNCTION JR-STR("AllBinaryGameCanvas")) = 1)) OR (FUNCTION Features-isDefault1(J-features, FUNCTION JR-GET(jtemp15, "f_OPENGL")) = 1))
+                COMPUTE jtemp23 = FUNCTION OpnGLFtrFctry-getInstance0
+                COMPUTE jtemp22 = FUNCTION StringMaker-append1(J-stringMaker, FUNCTION JR-GET(J-commonSeps, "f_SPACE"))
+                COMPUTE jtemp21 = FUNCTION StringMaker-append1(jtemp22, FUNCTION JR-TO-STRING(FUNCTION JR-GET(jtemp23, "f_OPENGL")))
+                COMPUTE jtemp20 = FUNCTION StringMaker-append1(jtemp21, FUNCTION JR-GET(J-commonSeps, "f_SPACE"))
+                COMPUTE jtemp19 = FUNCTION StringMaker-append1(jtemp20, FUNCTION JR-GET(J-THIS, "f_RUNNABLE"))
+                COMPUTE jtemp18 = FUNCTION StringMaker-append1(jtemp19, FUNCTION StringUtil-toString1(FUNCTION JR-GET(J-THIS, "f_stringUtil"), FUNCTION JR-GET(J-THIS, "f_runnable")))
+                COMPUTE JDISCARD = FUNCTION PreLogUtil-put3(FUNCTION JR-TO-STRING(jtemp18), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_UPDATE"))
+                COMPUTE JDISCARD = FUNCTION CrrntDsplyblFctry-stUsdRnnbl1(J-THIS, FUNCTION JR-GET(J-THIS, "f_runnable"))
+            ELSE
+                COMPUTE jtemp17 = FUNCTION StringMaker-append1(J-stringMaker, FUNCTION JR-GET(J-THIS, "f_RUNNABLE"))
+                COMPUTE jtemp16 = FUNCTION StringMaker-append1(jtemp17, FUNCTION StringUtil-toString1(FUNCTION JR-GET(J-THIS, "f_stringUtil"), FUNCTION NullRunnable-getInstance0))
+                COMPUTE JDISCARD = FUNCTION PreLogUtil-put3(FUNCTION JR-TO-STRING(jtemp16), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_UPDATE"))
+                COMPUTE JDISCARD = FUNCTION CrrntDsplyblFctry-stUsdRnnbl1(J-THIS, FUNCTION NllWtGmRnnbl-getInstance0)
+            END-IF
+            END-IF
+            END-IF
+    GOBACK.
+END FUNCTION CrrntDsplyblFctry-update0.
 
-procedure TCurrentDisplayableFactory.setMyCanvas(displayable_: TMyCanvas);
-begin
-        if (TJava.ToObject(Self.displayable) is TMyCanvas) then begin
-            if displayable_.hasChild(TMyCanvas(TJava.ToObject(Self.displayable))) then begin
-                TPreLogUtil.put(TStringMaker.Create().append('Child Displayable is already set for: ').append(Self.stringUtil.toString(displayable_)).toString(), TJava.Box(Self), Self.SET_DISPLAYABLE);
-                Exit;
-            end;
-        end;
-        Self.setDisplayable(displayable_);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CrrntDsplyblFctry-gtDsplybl0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_displayable")
+        GOBACK
+    GOBACK.
+END FUNCTION CrrntDsplyblFctry-gtDsplybl0.
 
-procedure TCurrentDisplayableFactory.setDisplayable(displayable_: TDisplayable);
-begin
-        Self.displayable := displayable_;
-        Self.setOpenGlReadydisplayable(displayable_);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CrrntDsplyblFctry-gtUsdRnnbl0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_usedRunnable")
+        GOBACK
+    GOBACK.
+END FUNCTION CrrntDsplyblFctry-gtUsdRnnbl0.
 
-procedure TCurrentDisplayableFactory.setOpenGlReadydisplayable(openGlReadydisplayable: TDisplayable);
-begin
-        Self.openGlReadydisplayable := openGlReadydisplayable;
-        Self.update();
-end;
-    
-
-function TCurrentDisplayableFactory.getOpenGlReadydisplayable: TDisplayable;
-begin
-        Exit(Self.openGlReadydisplayable);
-end;
-    
-
-procedure TCurrentDisplayableFactory.setRunnable(runnable: TGameRunnable);
-begin
-        TPreLogUtil.put(TStringMaker.Create().append(Self.RUNNABLE_).append(Self.stringUtil.toString(runnable)).toString(), TJava.Box(Self), Self.SET_RUNNABLE);
-        Self.runnable := runnable;
-        if (Self.usedRunnable) <> (Self.runnable) then begin
-            Self.update();
-        end else begin
-            TPreLogUtil.put(TStringMaker.Create().append(Self.RUNNABLE_WAS_ALREADY_IN_USE).append(Self.stringUtil.toString(runnable)).toString(), TJava.Box(Self), Self.SET_RUNNABLE);
-        end;
-end;
-    
-
-procedure TCurrentDisplayableFactory.clearRunnable;
-begin
-        TPreLogUtil.put(TStringMaker.Create().append(Self.RUNNABLE_).append(Self.stringUtil.toString(TNullRunnable.getInstance())).toString(), TJava.Box(Self), Self.CLEAR_RUNNABLE);
-        Self.setUsedRunnable(TNullWaitGameRunnable.getInstance());
-end;
-    
-
-procedure TCurrentDisplayableFactory.update;
-var
-  commonSeps_: TCommonSeps;
-  features_: TFeatures;
-  stringMaker_: TStringMaker;
-begin
-        TJava.MonitorEnter(Self);
-        try
-            commonSeps_ := TCommonSeps.getInstance();
-            features_ := TFeatures.getInstance();
-            stringMaker_ := TStringMaker.Create();
-            stringMaker_.append(Self.stringUtil.toString(Self.openGlReadydisplayable));
-            if (TSWTUtil.isSWT) and (not (features_.isDefault(TOpenGLFeatureFactory.getInstance().OPENGL))) then begin
-                TPreLogUtil.put(stringMaker_.append(commonSeps_.SPACE).append(TSWTUtil.SWT).append(commonSeps_.SPACE).append(Self.RUNNABLE_).append(Self.stringUtil.toString(TNullRunnable.getInstance())).toString(), TJava.Box(Self), Self.commonStrings.UPDATE);
-                Self.setUsedRunnable(TNullWaitGameRunnable.getInstance());
-            end else if TJ2MEUtil.isHTML() then begin
-                TPreLogUtil.put(stringMaker_.append(commonSeps_.SPACE).append(TGraphicsStrings.getInstance().HTML).append(commonSeps_.SPACE).append(Self.RUNNABLE_).append(Self.stringUtil.toString(Self.runnable)).toString(), TJava.Box(Self), Self.commonStrings.UPDATE);
-                Self.setUsedRunnable(Self.runnable);
-            end else if (((TJava.ToObject(Self.openGlReadydisplayable) is TDemoCanvas)) or ((TJava.ToObject(Self.openGlReadydisplayable) is TAllBinaryGameCanvas))) or (features_.isDefault(TOpenGLFeatureFactory.getInstance().OPENGL)) then begin
-                TPreLogUtil.put(stringMaker_.append(commonSeps_.SPACE).append(TOpenGLFeatureFactory.getInstance().OPENGL.toString()).append(commonSeps_.SPACE).append(Self.RUNNABLE_).append(Self.stringUtil.toString(Self.runnable)).toString(), TJava.Box(Self), Self.commonStrings.UPDATE);
-                Self.setUsedRunnable(Self.runnable);
-            end else begin
-                TPreLogUtil.put(stringMaker_.append(Self.RUNNABLE_).append(Self.stringUtil.toString(TNullRunnable.getInstance())).toString(), TJava.Box(Self), Self.commonStrings.UPDATE);
-                Self.setUsedRunnable(TNullWaitGameRunnable.getInstance());
-            end;
-        finally
-            TJava.MonitorExit(Self);
-        end;
-end;
-    
-
-function TCurrentDisplayableFactory.getDisplayable: TDisplayable;
-begin
-        Exit(Self.displayable);
-end;
-    
-
-function TCurrentDisplayableFactory.getUsedRunnable: TGameRunnable;
-begin
-        Exit(Self.usedRunnable);
-end;
-    
-
-procedure TCurrentDisplayableFactory.setUsedRunnable(usedRunnable: TGameRunnable);
-begin
-        TPreLogUtil.put(TStringMaker.Create().append(Self.RUNNABLE_).append(Self.stringUtil.toString(Self.runnable)).append(TCommonSeps.getInstance().COLON_SEP).append(Self.stringUtil.toString(usedRunnable)).toString(), TJava.Box(Self), Self.SET_USED_RUNNABLE);
-        Self.usedRunnable := usedRunnable;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TCurrentDisplayableFactory.instance := TCurrentDisplayableFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CrrntDsplyblFctry-stUsdRnnbl1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp35 BINARY-DOUBLE.
+01 jtemp36 BINARY-DOUBLE.
+01 jtemp37 BINARY-DOUBLE.
+01 jtemp38 BINARY-DOUBLE.
+01 jtemp39 BINARY-DOUBLE.
+01 jtemp40 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-usedRunnable BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-usedRunnable RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp39 = FUNCTION StringMaker-new0
+        COMPUTE jtemp40 = FUNCTION CommonSeps-getInstance0
+        COMPUTE jtemp38 = FUNCTION StringMaker-append1(jtemp39, FUNCTION JR-GET(J-THIS, "f_RUNNABLE"))
+        COMPUTE jtemp37 = FUNCTION StringMaker-append1(jtemp38, FUNCTION StringUtil-toString1(FUNCTION JR-GET(J-THIS, "f_stringUtil"), FUNCTION JR-GET(J-THIS, "f_runnable")))
+        COMPUTE jtemp36 = FUNCTION StringMaker-append1(jtemp37, FUNCTION JR-GET(jtemp40, "f_COLON_SEP"))
+        COMPUTE jtemp35 = FUNCTION StringMaker-append1(jtemp36, FUNCTION StringUtil-toString1(FUNCTION JR-GET(J-THIS, "f_stringUtil"), J-usedRunnable))
+        COMPUTE JDISCARD = FUNCTION PreLogUtil-put3(FUNCTION JR-TO-STRING(jtemp35), J-THIS, FUNCTION JR-GET(J-THIS, "f_SET_USED_RUNNABLE"))
+        COMPUTE JVALUE = J-usedRunnable
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_usedRunnable", JVALUE)
+    GOBACK.
+END FUNCTION CrrntDsplyblFctry-stUsdRnnbl1.
 

@@ -1,79 +1,91 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.displayable.canvas
+*> Java class BasicPaintablesCanvas
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.displayable.canvas
-unit BasicPaintablesCanvas;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, CommandListener, Graphics, AllBinaryGameLayerManager, ColorFillBasePaintable, Paintable, GameCommandCanvas;
-
-type
-  {AB:TYPES}
-  TBasicPaintablesCanvas = class(TGameCommandCanvas)
-  public
-    paintableArray: TArray<TPaintable>;
-    colorFillPaintable: TColorFillBasePaintable;
-    procedure InitFields;
-        constructor Create(cmdListener: ICommandListener; name: string; allBinaryGameLayerManager_: TAllBinaryGameLayerManager; paintableArray: TArray<TPaintable>);
-        procedure paint(graphics_: TGraphics); override;
-  end;
-
-implementation
-uses
-  ColorFillPaintableFactory;
-
-
-{AB:CODE}
-
-procedure TBasicPaintablesCanvas.InitFields;
-begin
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicPaintablesCanvas-new4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-cmdListener BINARY-DOUBLE.
+01 J-name BINARY-DOUBLE.
+01 J-allBinaryGameLayerManager BINARY-DOUBLE.
+01 J-paintableArray BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-cmdListener J-name J-allBinaryGameLayerManager J-paintableArray RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("BasicPaintablesCanvas")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_paintableArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_colorFillPaintable")
     
-
-constructor TBasicPaintablesCanvas.Create(cmdListener: ICommandListener; name: string; allBinaryGameLayerManager_: TAllBinaryGameLayerManager; paintableArray: TArray<TPaintable>);
-begin
-        inherited Create(cmdListener, name, allBinaryGameLayerManager_.getBackgroundBasicColor(), allBinaryGameLayerManager_.getForegroundBasicColor());
-        InitFields;
-        Self.paintableArray := paintableArray;
-        Self.colorFillPaintable := TColorFillPaintableFactory.getInstance().getInstance(allBinaryGameLayerManager_.getBackgroundBasicColor(), False);
-end;
     
+        CONTINUE
+        COMPUTE JVALUE = J-paintableArray
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_paintableArray", JVALUE)
+        COMPUTE jtemp2 = 0
+        COMPUTE jtemp1 = FUNCTION ClrFllPntblFctry-getInstance0
+        COMPUTE JVALUE = FUNCTION ClrFllPntblFctry-getInstance2(jtemp1, FUNCTION AllBnryGmLyrMngr-gtBckgrn74413(J-allBinaryGameLayerManager), jtemp2)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_colorFillPaintable", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION BasicPaintablesCanvas-new4.
 
-procedure TBasicPaintablesCanvas.paint(graphics_: TGraphics);
-var
-  index: Integer;
-begin
-        Self.colorFillPaintable.paint(graphics_);
-        graphics_.setColor(Self.foregroundColor);
-        for index := (System.Length(Self.paintableArray)) - (1) downto 0 do begin
-            Self.paintableArray[index].paint(graphics_);
-        end;
-        inherited paint(graphics_);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicPaintablesCanvas-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-index BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION ColorFillBasePaintable-paint1(FUNCTION JR-GET(J-THIS, "f_colorFillPaintable"), J-graphics)
+        COMPUTE JDISCARD = FUNCTION Graphics-setColor1(J-graphics, FUNCTION JR-GET(J-THIS, "f_foregroundColor"))
+        COMPUTE J-index = (FUNCTION MOD((FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_paintableArray")) - 1) + 2147483648, 4294967296) - 2147483648)
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index >= 0) EXIT PERFORM END-IF
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_paintableArray"), J-index))
+        END-PERFORM
+        COMPUTE JDISCARD = FUNCTION GameCommandCanvas-paint1(J-THIS, J-graphics)
+    GOBACK.
+END FUNCTION BasicPaintablesCanvas-paint1.
 

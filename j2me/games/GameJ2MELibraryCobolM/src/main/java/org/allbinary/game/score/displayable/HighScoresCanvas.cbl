@@ -1,236 +1,503 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.score.displayable
+*> Java class HighScoresCanvas
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.score.displayable
-unit HighScoresCanvas;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HighScoresCanvas-static-NAME.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 HighScoresCanvas-jcell-NAME BINARY-DOUBLE EXTERNAL.
+01 HighScoresCanvas-jset-NAME BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF HighScoresCanvas-jset-NAME = 0
+        MOVE 1 TO HighScoresCanvas-jset-NAME
+        COMPUTE HighScoresCanvas-jcell-NAME = FUNCTION JR-STR("HighScoresCanvas")
+    END-IF
+    MOVE HighScoresCanvas-jcell-NAME TO J-RESULT
+    GOBACK.
+END FUNCTION HighScoresCanvas-static-NAME.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HighScoresCanvasstatS13338.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 HighScoresCanvas-jcell-NAME BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION HighScoresCanvas-static-NAME TO J-RESULT
+    MOVE J-VALUE TO HighScoresCanvas-jcell-NAME
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION HighScoresCanvasstatS13338.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Command, CommandListener, Graphics, GameInfo, GameCommandCanvas, AllBinaryGameLayerManager, ColorFillBasePaintable, HighScoreCommandsFactory, HighScores, HighScoresCanvasInputProcessor, HighScoresCanvasInputProcessorFactoryInterface, HighScoresFactoryInterface, HighScoresHelperBase, HighScoresPaintable, HighScoresResultsListener, Paintable, SimpleTextPaintable;
-
-type
-  {AB:TYPES}
-  THighScoresCanvas = class(TGameCommandCanvas, IHighScoresResultsListener)
-  public
-    paintable: TPaintable;
-    highScoreCommandsFactory: THighScoreCommandsFactory;
-    waitPaintable: TSimpleTextPaintable;
-    highScoresPaintable: THighScoresPaintable;
-    highScoresFactoryInterface: IHighScoresFactoryInterface;
-    colorFillPaintable: TColorFillBasePaintable;
-    highScoresHelper: THighScoresHelperBase;
-    gameInfo: TGameInfo;
-    highScoresCanvasInputProcessor: THighScoresCanvasInputProcessor;
-    currentCommand: TCommand;
-    hasPainted: Boolean;
-    class var NAME: string;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(commandListener_: ICommandListener; allBinaryGameLayerManager_: TAllBinaryGameLayerManager; gameInfo_: TGameInfo; paintable_: THighScoresPaintable; highScoresFactoryInterface_: IHighScoresFactoryInterface; highScoresCanvasInputProcessorFactoryInterface_: IHighScoresCanvasInputProcessorFactoryInterface);
-        procedure initCommands(cmdListener: ICommandListener); virtual;
-        procedure open; virtual;
-        procedure close; virtual;
-        procedure paint(graphics_: TGraphics); virtual;
-        procedure executeUpdate; virtual;
-        function getHighScoresPaintable: THighScoresPaintable;
-        procedure setHighScoresArray(highScoresArray: TArray<THighScores>); virtual;
-        procedure updateCommand(command_: TCommand); virtual;
-        function getGameInfo: TGameInfo; virtual;
-        procedure setPaintable(paintable_: TPaintable);
-  end;
-
-implementation
-uses
-  HighScoreRunnable, GameCommandsFactory, ColorFillPaintableFactory, NoHighScoresFactory, NullHighScoresSingletonFactory, BasicColorFactory, NullPaintable, LogUtil, StringMaker, CommonStrings, SecondaryThreadPool;
-
-
-{AB:CODE}
-
-procedure THighScoresCanvas.InitFields;
-begin
-  Self.paintable := TNullPaintable.getInstance();
-  Self.highScoreCommandsFactory := THighScoreCommandsFactory.getInstance();
-  Self.waitPaintable := TSimpleTextPaintable.Create(Self.commonStrings.PLEASE_WAIT_FOR_SERVER, TBasicColorFactory.getInstance().WHITE);
-  
-  
-  
-  Self.highScoresHelper := THighScoresHelperBase.Create();
-  
-  
-  Self.currentCommand := Self.highScoreCommandsFactory.HIGH_SCORE_COMMANDS[0];
-  Self.hasPainted := False;
-end;
-
-function THighScoresCanvas.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HighScoresCanvas-new6.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-commandListener BINARY-DOUBLE.
+01 J-allBinaryGameLayerManager BINARY-DOUBLE.
+01 J-gameInfo BINARY-DOUBLE.
+01 J-paintable BINARY-DOUBLE.
+01 J-highScoresFactoryInterface BINARY-DOUBLE.
+01 J-highScoresCanvasInputProcessorFactoryInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-commandListener J-allBinaryGameLayerManager J-gameInfo J-paintable J-highScoresFactoryInterface J-highScoresCanvasInputProcessorFactoryInterface RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("HighScoresCanvas")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_paintable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_highScoreCommandsFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_waitPaintable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_highScoresPaintable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_highScoresFactoryInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_colorFillPaintable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_highScoresHelper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameInfo")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_highScoresCanvasInputProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_currentCommand")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_hasPainted")
+    COMPUTE JVALUE = FUNCTION NullPaintable-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_paintable", JVALUE)
+    COMPUTE JVALUE = FUNCTION HghScrCmmndsFctry-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_highScoreCommandsFactory", JVALUE)
+    COMPUTE jtemp1 = FUNCTION BasicColorFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION SimpleTextPaintable-new2(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_PLEASE_WAIT_FOR_SERVER"), FUNCTION JR-GET(jtemp1, "f_WHITE"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_waitPaintable", JVALUE)
     
-
-constructor THighScoresCanvas.Create(commandListener_: ICommandListener; allBinaryGameLayerManager_: TAllBinaryGameLayerManager; gameInfo_: TGameInfo; paintable_: THighScoresPaintable; highScoresFactoryInterface_: IHighScoresFactoryInterface; highScoresCanvasInputProcessorFactoryInterface_: IHighScoresCanvasInputProcessorFactoryInterface);
-begin
-        inherited Create(commandListener_, THighScoresCanvas.NAME, allBinaryGameLayerManager_.getBackgroundBasicColor(), allBinaryGameLayerManager_.getForegroundBasicColor());
-        InitFields;
-        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_);
-        Self.highScoresPaintable := paintable_;
-        Self.highScoresFactoryInterface := highScoresFactoryInterface_;
-        Self.highScoresCanvasInputProcessor := highScoresCanvasInputProcessorFactoryInterface_.getInstance(Self);
-        Self.gameInfo := gameInfo_;
-        Self.waitPaintable.setBasicColorP(allBinaryGameLayerManager_.getForegroundBasicColor());
-        Self.getHighScoresPaintable().setBasicColorP(allBinaryGameLayerManager_.getForegroundBasicColor());
-        Self.colorFillPaintable := TColorFillPaintableFactory.getInstance().getInstance(allBinaryGameLayerManager_.getBackgroundBasicColor(), False);
-        if (System.Length(Self.highScoresHelper.getHighScoresArray())) = (System.Length(TNoHighScoresFactory.getInstance().NO_HIGH_SCORES)) then begin
-            Self.setPaintable(Self.waitPaintable);
-        end else begin
-            Self.logUtil.putF('Show HighScores that are already loaded', TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_);
-            Self.updateCommand(Self.currentCommand);
-            Self.setPaintable(Self.getHighScoresPaintable());
-        end;
-        TSecondaryThreadPool.getInstance().runTask(THighScoreRunnable.Create(Self));
-end;
     
-
-procedure THighScoresCanvas.initCommands(cmdListener: ICommandListener);
-begin
-        Self.removeAllCommands();
-        Self.addCommand(TGameCommandsFactory.getInstance().CLOSE_AND_SHOW_GAME_CANVAS);
-        Self.setCommandListener(cmdListener);
-end;
     
-
-procedure THighScoresCanvas.open;
-begin
-        inherited open();
-        Self.highScoresCanvasInputProcessor.open();
-end;
+    COMPUTE JVALUE = FUNCTION HighScoresHelperBase-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_highScoresHelper", JVALUE)
     
-
-// throws Exception
-procedure THighScoresCanvas.close;
-begin
-        inherited close();
-        Self.highScoresCanvasInputProcessor.close();
-end;
     
+    COMPUTE jtemp2 = 0
+    COMPUTE JVALUE = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_highScoreCommandsFactory"), "f_HIGH_SCORE_COMMANDS"), jtemp2)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_currentCommand", JVALUE)
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hasPainted", JVALUE)
+        CONTINUE
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        COMPUTE JVALUE = J-paintable
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_highScoresPaintable", JVALUE)
+        COMPUTE JVALUE = J-highScoresFactoryInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_highScoresFactoryInterface", JVALUE)
+        COMPUTE JVALUE = FUNCTION HghScrsCnvsInptPrcssrFc-66136(J-highScoresCanvasInputProcessorFactoryInterface, J-THIS)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_highScoresCanvasInputProcessor", JVALUE)
+        COMPUTE JVALUE = J-gameInfo
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameInfo", JVALUE)
+        COMPUTE JDISCARD = FUNCTION SmplTxtPntbl-setBasicColorP1(FUNCTION JR-GET(J-THIS, "f_waitPaintable"), FUNCTION AllBnryGmLyrMngr-gtFrgrnd84733(J-allBinaryGameLayerManager))
+        COMPUTE jtemp3 = FUNCTION HghScrsCnvs-gtHghScrsPntbl0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION HghScrsPntbl-setBasicColorP1(jtemp3, FUNCTION AllBnryGmLyrMngr-gtFrgrnd84733(J-allBinaryGameLayerManager))
+        COMPUTE jtemp5 = 0
+        COMPUTE jtemp4 = FUNCTION ClrFllPntblFctry-getInstance0
+        COMPUTE JVALUE = FUNCTION ClrFllPntblFctry-getInstance2(jtemp4, FUNCTION AllBnryGmLyrMngr-gtBckgrn74413(J-allBinaryGameLayerManager), jtemp5)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_colorFillPaintable", JVALUE)
+        COMPUTE jtemp7 = FUNCTION NHghScrsFctry-getInstance0
+        COMPUTE jtemp6 = FUNCTION HghScrsHlprBs-gtHghScrsArry0(FUNCTION JR-GET(J-THIS, "f_highScoresHelper"))
+        IF (FUNCTION JR-ARRAY-LENGTH(jtemp6) = FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(jtemp7, "f_NO_HIGH_SCORES")))
+            COMPUTE JDISCARD = FUNCTION HighScoresCanvas-setPaintable1(J-THIS, FUNCTION JR-GET(J-THIS, "f_waitPaintable"))
+        ELSE
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+            COMPUTE JDISCARD = FUNCTION HghScrsCnvs-updateCommand1(J-THIS, FUNCTION JR-GET(J-THIS, "f_currentCommand"))
+            COMPUTE JDISCARD = FUNCTION HighScoresCanvas-setPaintable1(J-THIS, FUNCTION HghScrsCnvs-gtHghScrsPntbl0(J-THIS))
+        END-IF
+        COMPUTE jtemp8 = FUNCTION ScndryThrdPl-getInstance0
+        COMPUTE JDISCARD = FUNCTION SecondaryThreadPool-runTask1(jtemp8, FUNCTION HighScoreRunnable-new1(J-THIS))
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION HighScoresCanvas-new6.
 
-procedure THighScoresCanvas.paint(graphics_: TGraphics);
-begin
-        Self.colorFillPaintable.paint(graphics_);
-        Self.paintable.paint(graphics_);
-        if (Self.waitPaintable) <> (Self.paintable) then begin
-            Self.highScoresCanvasInputProcessor.paint(graphics_);
-        end;
-        inherited paint(graphics_);
-        Self.hasPainted := True;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HighScoresCanvas-initCommands1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp9 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-cmdListener BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-cmdListener RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION MyCanvas-removeAllCommands0(J-THIS)
+        COMPUTE jtemp9 = FUNCTION GmCmmndsFctry-getInstance0
+        COMPUTE JDISCARD = FUNCTION MyCanvas-addCommand1(J-THIS, FUNCTION JR-GET(jtemp9, "f_CLOSE_AND_SHOW_GAME_CANVAS"))
+        COMPUTE JDISCARD = FUNCTION MyCanvas-setCommandListener1(J-THIS, J-cmdListener)
+    GOBACK.
+END FUNCTION HighScoresCanvas-initCommands1.
 
-procedure THighScoresCanvas.executeUpdate;
-begin
-        try
-            Self.highScoresFactoryInterface.fetchHighScores(Self.getGameInfo(), Self);
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.UPDATE, TJava.Box(e));
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HighScoresCanvas-open0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION GameCommandCanvas-open0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION HghScrsCnvsInptPrcssr-open0(FUNCTION JR-GET(J-THIS, "f_highScoresCanvasInputProcessor"))
+    GOBACK.
+END FUNCTION HighScoresCanvas-open0.
 
-function THighScoresCanvas.getHighScoresPaintable: THighScoresPaintable;
-begin
-        Exit(Self.highScoresPaintable);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HighScoresCanvas-close0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION GameCommandCanvas-close0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION HghScrsCnvsInptPrcssr-close0(FUNCTION JR-GET(J-THIS, "f_highScoresCanvasInputProcessor"))
+    GOBACK.
+END FUNCTION HighScoresCanvas-close0.
 
-procedure THighScoresCanvas.setHighScoresArray(highScoresArray: TArray<THighScores>);
-begin
-        try
-            if (highScoresArray) <> (nil) then begin
-                Self.logUtil.putF(TStringMaker.Create().append(Self.commonStrings.START).appendint(System.Length(highScoresArray)).toString(), TJava.Box(Self), 'setHighScoresArray');
-            end else begin
-                Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), 'setHighScoresArray');
-            end;
-            Self.highScoresHelper.setHighScoresArray(highScoresArray);
-            Self.updateCommand(Self.currentCommand);
-            Self.setPaintable(Self.getHighScoresPaintable());
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.UPDATE, TJava.Box(e));
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HighScoresCanvas-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION ColorFillBasePaintable-paint1(FUNCTION JR-GET(J-THIS, "f_colorFillPaintable"), J-graphics)
+        COMPUTE JDISCARD = FUNCTION Paintable-paint1(FUNCTION JR-GET(J-THIS, "f_paintable"), J-graphics)
+        IF (FUNCTION JR-GET(J-THIS, "f_waitPaintable") NOT = FUNCTION JR-GET(J-THIS, "f_paintable"))
+            COMPUTE JDISCARD = FUNCTION HghScrsCnvsInptPrcssr-paint1(FUNCTION JR-GET(J-THIS, "f_highScoresCanvasInputProcessor"), J-graphics)
+        END-IF
+        COMPUTE JDISCARD = FUNCTION GameCommandCanvas-paint1(J-THIS, J-graphics)
+        COMPUTE JVALUE = 1
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hasPainted", JVALUE)
+    GOBACK.
+END FUNCTION HighScoresCanvas-paint1.
 
-// throws Exception
-procedure THighScoresCanvas.updateCommand(command_: TCommand);
-var
-  gameCommandsFactory_: TGameCommandsFactory;
-  index: Integer;
-  nextIndex: Integer;
-  highScoresArray: TArray<THighScores>;
-begin
-        Self.logUtil.putF(TStringMaker.Create().append(Self.commonStrings.START).append(Self.stringUtil.toString(command_)).toString(), TJava.Box(Self), Self.commonStrings.UPDATE);
-        gameCommandsFactory_ := TGameCommandsFactory.getInstance();
-        if Self.highScoreCommandsFactory.isHighScoreCommand(command_) then begin
-            index := Self.highScoreCommandsFactory.getIndex(command_);
-            nextIndex := (index) + (1);
-            highScoresArray := Self.highScoresHelper.getHighScoresArray();
-            if (nextIndex) >= (System.Length(highScoresArray)) then begin
-                nextIndex := 0;
-            end;
-            if (System.Length(highScoresArray)) > (0) then begin
-                Self.getHighScoresPaintable().setHighScores(highScoresArray[index]);
-            end else begin
-                Self.getHighScoresPaintable().setHighScores(TNullHighScoresSingletonFactory.getInstance());
-            end;
-            if (index) <> (nextIndex) then begin
-                Self.removeAllCommands();
-                Self.addCommand(gameCommandsFactory_.CLOSE_AND_SHOW_GAME_CANVAS);
-                Self.addCommand(Self.highScoreCommandsFactory.HIGH_SCORE_COMMANDS[nextIndex]);
-            end;
-        end;
-        Self.currentCommand := command_;
-        Self.close();
-        inherited initMenu();
-        Self.open();
-        Self.repaintBehavior.onChangeRepaint(Self);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrsCnvs-executeUpdate0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE JDISCARD = FUNCTION HghScrsFctryIntrfc-ftchHg32573(FUNCTION JR-GET(J-THIS, "f_highScoresFactoryInterface"), FUNCTION HighScoresCanvas-getGameInfo0(J-THIS), J-THIS)
+    GOBACK.
+END FUNCTION HghScrsCnvs-executeUpdate0.
 
-function THighScoresCanvas.getGameInfo: TGameInfo;
-begin
-        Exit(Self.gameInfo);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrsCnvs-gtHghScrsPntbl0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_highScoresPaintable")
+        GOBACK
+    GOBACK.
+END FUNCTION HghScrsCnvs-gtHghScrsPntbl0.
 
-procedure THighScoresCanvas.setPaintable(paintable_: TPaintable);
-begin
-        Self.paintable := paintable_;
-        Self.repaintBehavior.onChangeRepaint(Self);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrsCnvs-stHghScrsArry1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-highScoresArray BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-highScoresArray RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            IF (J-highScoresArray NOT = 0)
+                COMPUTE jtemp12 = FUNCTION StringMaker-new0
+                COMPUTE jtemp11 = FUNCTION StringMaker-append1(jtemp12, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_START"))
+                COMPUTE jtemp10 = FUNCTION StringMaker-appendint1(jtemp11, FUNCTION JR-ARRAY-LENGTH(J-highScoresArray))
+                COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+            ELSE
+                COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+            END-IF
+            COMPUTE JDISCARD = FUNCTION HghScrsHlprBs-stHghScrsArry1(FUNCTION JR-GET(J-THIS, "f_highScoresHelper"), J-highScoresArray)
+            COMPUTE JDISCARD = FUNCTION HghScrsCnvs-updateCommand1(J-THIS, FUNCTION JR-GET(J-THIS, "f_currentCommand"))
+            COMPUTE JDISCARD = FUNCTION HighScoresCanvas-setPaintable1(J-THIS, FUNCTION HghScrsCnvs-gtHghScrsPntbl0(J-THIS))
+    GOBACK.
+END FUNCTION HghScrsCnvs-stHghScrsArry1.
 
-initialization
-  {AB:INITIALIZATION}
-  THighScoresCanvas.NAME := 'HighScoresCanvas';
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HghScrsCnvs-updateCommand1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameCommandsFactory BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-nextIndex BINARY-DOUBLE.
+01 J-highScoresArray BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+01 jtemp18 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-command BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-command RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp15 = FUNCTION StringMaker-new0
+        COMPUTE jtemp14 = FUNCTION StringMaker-append1(jtemp15, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_START"))
+        COMPUTE jtemp13 = FUNCTION StringMaker-append1(jtemp14, FUNCTION JR-TO-STRING(FUNCTION JR-GET(J-THIS, "f_stringUtil")))
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        COMPUTE J-gameCommandsFactory = FUNCTION GmCmmndsFctry-getInstance0
+        IF (FUNCTION HghScrCmmndsBsFctry-isHgh46252(FUNCTION JR-GET(J-THIS, "f_highScoreCommandsFactory"), J-command) = 1)
+            COMPUTE J-index = FUNCTION HghScrCmmndsBsFctry-getIndex1(FUNCTION JR-GET(J-THIS, "f_highScoreCommandsFactory"), J-command)
+            COMPUTE jtemp16 = 1
+            COMPUTE J-nextIndex = (FUNCTION MOD((J-index + jtemp16) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE J-highScoresArray = FUNCTION HghScrsHlprBs-gtHghScrsArry0(FUNCTION JR-GET(J-THIS, "f_highScoresHelper"))
+            IF (J-nextIndex >= FUNCTION JR-ARRAY-LENGTH(J-highScoresArray))
+                COMPUTE J-nextIndex = 0
+            END-IF
+            IF (FUNCTION JR-ARRAY-LENGTH(J-highScoresArray) > 0)
+                COMPUTE jtemp18 = FUNCTION HghScrsCnvs-gtHghScrsPntbl0(J-THIS)
+                COMPUTE JDISCARD = FUNCTION HghScrsPntbl-setHighScores1(jtemp18, FUNCTION JR-ARRAY-GET(J-highScoresArray, J-index))
+            ELSE
+                COMPUTE jtemp17 = FUNCTION HghScrsCnvs-gtHghScrsPntbl0(J-THIS)
+                COMPUTE JDISCARD = FUNCTION HghScrsPntbl-setHighScores1(jtemp17, FUNCTION NllHghScrsSngltnFctry-gtI23303)
+            END-IF
+            IF (J-index NOT = J-nextIndex)
+                COMPUTE JDISCARD = FUNCTION MyCanvas-removeAllCommands0(J-THIS)
+                COMPUTE JDISCARD = FUNCTION MyCanvas-addCommand1(J-THIS, FUNCTION JR-GET(J-gameCommandsFactory, "f_CLOSE_AND_SHOW_GAME_CANVAS"))
+                COMPUTE JDISCARD = FUNCTION MyCanvas-addCommand1(J-THIS, FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_highScoreCommandsFactory"), "f_HIGH_SCORE_COMMANDS"), J-nextIndex))
+            END-IF
+        END-IF
+        COMPUTE JVALUE = J-command
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_currentCommand", JVALUE)
+        COMPUTE JDISCARD = FUNCTION HighScoresCanvas-close0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION GameCommandCanvas-initMenu0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION HighScoresCanvas-open0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_repaintBehavior"))
+    GOBACK.
+END FUNCTION HghScrsCnvs-updateCommand1.
 
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HighScoresCanvas-getGameInfo0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_gameInfo")
+        GOBACK
+    GOBACK.
+END FUNCTION HighScoresCanvas-getGameInfo0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HighScoresCanvas-setPaintable1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-paintable BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-paintable RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-paintable
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_paintable", JVALUE)
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_repaintBehavior"))
+    GOBACK.
+END FUNCTION HighScoresCanvas-setPaintable1.
 

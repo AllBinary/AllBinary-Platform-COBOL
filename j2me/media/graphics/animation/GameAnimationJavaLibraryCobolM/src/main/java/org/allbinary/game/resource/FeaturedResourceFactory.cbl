@@ -1,151 +1,260 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.resource
+*> Java class FeaturedResourceFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.resource
-unit FeaturedResourceFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FeaturedResourceFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("FeaturedResourceFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_list")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ANIMATION_FEATURES")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_IMAGE_LABEL")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_IMAGE_GRAPHICS_ARRAY")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_IMAGE_GRAPHICS_ROTATION")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SPRITE_QUARTER")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SPRITE_FULL")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_IS_LOADING_LEVEL_LABEL")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_IS_FEATURE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_GAME_FEATURE_CONTROLLED")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Animation Features: Vector: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ANIMATION_FEATURES", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR(" Image: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_IMAGE_LABEL", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Image Array: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_IMAGE_GRAPHICS_ARRAY", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Image Rotate: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_IMAGE_GRAPHICS_ROTATION", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR(" Sprite Quarter: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SPRITE_QUARTER", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR(" Sprite Full: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SPRITE_FULL", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR(" isLoadingLevel ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_IS_LOADING_LEVEL_LABEL", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR(" isFeature: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_IS_FEATURE", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("GameFeatureControlledInterface: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_GAME_FEATURE_CONTROLLED", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION FeaturedResourceFactory-new0.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FeaturedResourceFactory-init1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-size BINARY-DOUBLE.
+01 J-featureInterface BINARY-DOUBLE.
+01 J-isLoadingLevel BINARY-DOUBLE.
+01 J-isFeature BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-features BINARY-DOUBLE.
+01 J-graphicsFeatureFactory BINARY-DOUBLE.
+01 J-stringBuffer BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-level BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-level RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_list"))
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-featureInterface = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_list"), "f_objectArray"), J-index)
+            COMPUTE J-isLoadingLevel = FUNCTION GmFtrCntrlldIntrfc-isLdngLvl1(J-featureInterface, J-level)
+            COMPUTE J-isFeature = FUNCTION GmFtrCntrlldIntrfc-isFeature0(J-featureInterface)
+            COMPUTE jtemp9 = FUNCTION StringMaker-new0
+            COMPUTE jtemp8 = FUNCTION StringMaker-append1(jtemp9, FUNCTION JR-GET(J-THIS, "f_GAME_FEATURE_CONTROLLED"))
+            COMPUTE jtemp10 = FUNCTION RsrcLdngLvlFctry-getInstance0
+            COMPUTE jtemp7 = FUNCTION StringMaker-append1(jtemp8, FUNCTION JR-TO-STRING(J-featureInterface))
+            COMPUTE jtemp11 = FUNCTION CommonSeps-getInstance0
+            COMPUTE jtemp6 = FUNCTION StringMaker-append1(jtemp7, FUNCTION JR-GET(J-THIS, "f_IS_LOADING_LEVEL_LABEL"))
+            COMPUTE jtemp5 = FUNCTION StringMaker-append1(jtemp6, FUNCTION RsrcLdngLvlFctry-gtLvlStrng1(jtemp10, J-level))
+            COMPUTE jtemp4 = FUNCTION StringMaker-append1(jtemp5, FUNCTION JR-GET(jtemp11, "f_COLON_SEP"))
+            COMPUTE jtemp3 = FUNCTION StringMaker-appendboolean1(jtemp4, J-isLoadingLevel)
+            COMPUTE jtemp2 = FUNCTION StringMaker-append1(jtemp3, FUNCTION JR-GET(J-THIS, "f_IS_FEATURE"))
+            COMPUTE jtemp1 = FUNCTION StringMaker-appendboolean1(jtemp2, J-isFeature)
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp1), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_INIT"))
+            IF ((J-isLoadingLevel = 1) AND (J-isFeature = 1))
+                COMPUTE JDISCARD = FUNCTION GmFtrCntrlldIntrfc-init1(J-featureInterface, J-level)
+            END-IF
+        END-PERFORM
+        COMPUTE J-features = FUNCTION Features-getInstance0
+        COMPUTE J-graphicsFeatureFactory = FUNCTION GrphcsFtrFctry-getInstance0
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_ANIMATION_FEATURES"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendboolean1(J-stringBuffer, FUNCTION Features-isFeature1(J-features, FUNCTION JR-GET(J-graphicsFeatureFactory, "f_VECTOR_GRAPHICS")))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_IMAGE_LABEL"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendboolean1(J-stringBuffer, FUNCTION Features-isFeature1(J-features, FUNCTION JR-GET(J-graphicsFeatureFactory, "f_IMAGE_GRAPHICS")))
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-stringBuffer), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_INIT"))
+        IF (FUNCTION Features-isFeature1(J-features, FUNCTION JR-GET(J-graphicsFeatureFactory, "f_IMAGE_GRAPHICS")) = 1)
+            COMPUTE jtemp12 = 0
+            COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringBuffer, jtemp12, FUNCTION StringMaker-length0(J-stringBuffer))
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_IMAGE_GRAPHICS_ARRAY"))
+            COMPUTE JDISCARD = FUNCTION StringMaker-appendboolean1(J-stringBuffer, FUNCTION Features-isFeature1(J-features, FUNCTION JR-GET(J-graphicsFeatureFactory, "f_IMAGE_TO_ARRAY_GRAPHICS")))
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_IMAGE_GRAPHICS_ROTATION"))
+            COMPUTE JDISCARD = FUNCTION StringMaker-appendboolean1(J-stringBuffer, FUNCTION Features-isFeature1(J-features, FUNCTION JR-GET(J-graphicsFeatureFactory, "f_IMAGE_TO_ARRAY_GRAPHICS")))
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_SPRITE_QUARTER"))
+            COMPUTE JDISCARD = FUNCTION StringMaker-appendboolean1(J-stringBuffer, FUNCTION Features-isFeature1(J-features, FUNCTION JR-GET(J-graphicsFeatureFactory, "f_SPRITE_QUARTER_ROTATION_GRAPHICS")))
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_SPRITE_FULL"))
+            COMPUTE JDISCARD = FUNCTION StringMaker-appendboolean1(J-stringBuffer, FUNCTION Features-isFeature1(J-features, FUNCTION JR-GET(J-graphicsFeatureFactory, "f_SPRITE_FULL_GRAPHICS")))
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-stringBuffer), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_INIT"))
+        END-IF
+    GOBACK.
+END FUNCTION FeaturedResourceFactory-init1.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FeaturedResourceFactory-clear0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-clear0(FUNCTION JR-GET(J-THIS, "f_list"))
+    GOBACK.
+END FUNCTION FeaturedResourceFactory-clear0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameFeatureControlledInterface, LogUtil, CommonStrings, BasicArrayList;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FeaturedResourceFactory-add1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-featureInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-featureInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp16 = FUNCTION CommonLabels-getInstance0
+        COMPUTE jtemp17 = FUNCTION StringUtil-getInstance0
+        COMPUTE jtemp15 = FUNCTION StringMaker-new0
+        COMPUTE jtemp14 = FUNCTION StringMaker-append1(jtemp15, FUNCTION JR-GET(jtemp16, "f_START_LABEL"))
+        COMPUTE jtemp13 = FUNCTION StringMaker-append1(jtemp14, FUNCTION StringUtil-toString1(jtemp17, J-featureInterface))
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp13), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_ADD"))
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), J-featureInterface)
+    GOBACK.
+END FUNCTION FeaturedResourceFactory-add1.
 
-type
-  {AB:TYPES}
-  TFeaturedResourceFactory = class(TObject)
-  public
-    logUtil: TLogUtil;
-    list: TBasicArrayList;
-    commonStrings: TCommonStrings;
-    ANIMATION_FEATURES: string;
-    IMAGE_LABEL: string;
-    IMAGE_GRAPHICS_ARRAY: string;
-    IMAGE_GRAPHICS_ROTATION: string;
-    SPRITE_QUARTER: string;
-    SPRITE_FULL: string;
-    IS_LOADING_LEVEL_LABEL: string;
-    IS_FEATURE: string;
-    GAME_FEATURE_CONTROLLED: string;
-    procedure InitFields;
-        constructor Create;
-        procedure init(level: Integer); virtual;
-        procedure clear; virtual;
-        procedure add(featureInterface: IGameFeatureControlledInterface); virtual;
-        function getList: TBasicArrayList; virtual;
-  end;
-
-implementation
-uses
-  ResourceLoadingLevelFactory, Features, GraphicsFeatureFactory, StringMaker, StringUtil, CommonLabels, CommonSeps, BasicArrayListD;
-
-
-{AB:CODE}
-
-procedure TFeaturedResourceFactory.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.list := TBasicArrayListD.Create();
-  Self.commonStrings := TCommonStrings.getInstance();
-  Self.ANIMATION_FEATURES := 'Animation Features: Vector: ';
-  Self.IMAGE_LABEL := ' Image: ';
-  Self.IMAGE_GRAPHICS_ARRAY := 'Image Array: ';
-  Self.IMAGE_GRAPHICS_ROTATION := 'Image Rotate: ';
-  Self.SPRITE_QUARTER := ' Sprite Quarter: ';
-  Self.SPRITE_FULL := ' Sprite Full: ';
-  Self.IS_LOADING_LEVEL_LABEL := ' isLoadingLevel ';
-  Self.IS_FEATURE := ' isFeature: ';
-  Self.GAME_FEATURE_CONTROLLED := 'GameFeatureControlledInterface: ';
-end;
-    
-
-constructor TFeaturedResourceFactory.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
-
-// throws Exception
-procedure TFeaturedResourceFactory.init(level: Integer);
-var
-  size: Integer;
-  featureInterface: IGameFeatureControlledInterface;
-  isLoadingLevel: Boolean;
-  isFeature: Boolean;
-  index: Integer;
-  features_: TFeatures;
-  graphicsFeatureFactory_: TGraphicsFeatureFactory;
-  stringBuffer: TStringMaker;
-begin
-        size := Self.list.size();
-        for index := 0 to size - 1 do begin
-            featureInterface := (TJava.ToObject(Self.list.objectArray[index]) as IGameFeatureControlledInterface);
-            isLoadingLevel := featureInterface.isLoadingLevel(level);
-            isFeature := featureInterface.isFeature();
-            Self.logUtil.putF(TStringMaker.Create().append(Self.GAME_FEATURE_CONTROLLED).append(TJava.ToString(TJava.ToObject(featureInterface))).append(Self.IS_LOADING_LEVEL_LABEL).append(TResourceLoadingLevelFactory.getInstance().getLevelString(level)).append(TCommonSeps.getInstance().COLON_SEP).appendboolean(isLoadingLevel).append(Self.IS_FEATURE).appendboolean(isFeature).toString(), TJava.Box(Self), Self.commonStrings.INIT);
-            if (isLoadingLevel) and (isFeature) then begin
-                featureInterface.init(level);
-            end;
-        end;
-        features_ := TFeatures.getInstance();
-        graphicsFeatureFactory_ := TGraphicsFeatureFactory.getInstance();
-        stringBuffer := TStringMaker.Create();
-        stringBuffer.append(Self.ANIMATION_FEATURES);
-        stringBuffer.appendboolean(features_.isFeature(graphicsFeatureFactory_.VECTOR_GRAPHICS));
-        stringBuffer.append(Self.IMAGE_LABEL);
-        stringBuffer.appendboolean(features_.isFeature(graphicsFeatureFactory_.IMAGE_GRAPHICS));
-        Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), Self.commonStrings.INIT);
-        if features_.isFeature(graphicsFeatureFactory_.IMAGE_GRAPHICS) then begin
-            stringBuffer.delete_(0, stringBuffer.length());
-            stringBuffer.append(Self.IMAGE_GRAPHICS_ARRAY);
-            stringBuffer.appendboolean(features_.isFeature(graphicsFeatureFactory_.IMAGE_TO_ARRAY_GRAPHICS));
-            stringBuffer.append(Self.IMAGE_GRAPHICS_ROTATION);
-            stringBuffer.appendboolean(features_.isFeature(graphicsFeatureFactory_.IMAGE_TO_ARRAY_GRAPHICS));
-            stringBuffer.append(Self.SPRITE_QUARTER);
-            stringBuffer.appendboolean(features_.isFeature(graphicsFeatureFactory_.SPRITE_QUARTER_ROTATION_GRAPHICS));
-            stringBuffer.append(Self.SPRITE_FULL);
-            stringBuffer.appendboolean(features_.isFeature(graphicsFeatureFactory_.SPRITE_FULL_GRAPHICS));
-            Self.logUtil.putF(stringBuffer.toString(), TJava.Box(Self), Self.commonStrings.INIT);
-        end;
-end;
-    
-
-procedure TFeaturedResourceFactory.clear;
-begin
-        Self.list.clear();
-end;
-    
-
-procedure TFeaturedResourceFactory.add(featureInterface: IGameFeatureControlledInterface);
-begin
-        Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().START_LABEL).append(TStringUtil.getInstance().toString(TJava.ToObject(featureInterface))).toString(), TJava.Box(Self), Self.commonStrings.ADD);
-        Self.list.add(TJava.Box(featureInterface));
-end;
-    
-
-function TFeaturedResourceFactory.getList: TBasicArrayList;
-begin
-        Exit(Self.list);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FtrdRsrcFctry-getList0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_list")
+        GOBACK
+    GOBACK.
+END FUNCTION FtrdRsrcFctry-getList0.
 

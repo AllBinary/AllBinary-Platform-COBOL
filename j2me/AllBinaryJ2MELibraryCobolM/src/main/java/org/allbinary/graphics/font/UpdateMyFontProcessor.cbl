@@ -1,66 +1,65 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2025 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.font
+*> Java class UpdateMyFontProcessor
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. UpdateMyFontProcessor-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-keyValueDrawCharArray BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-keyValueDrawCharArray RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("UpdateMyFontProcessor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_updateMeasurementProcessor")
     
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.font
-unit UpdateMyFontProcessor;
+        COMPUTE JVALUE = J-keyValueDrawCharArray
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_updateMeasurementProcessor", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION UpdateMyFontProcessor-new1.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, UpdateMyFontInterface, MyFontProcessor;
-
-type
-  {AB:TYPES}
-  TUpdateMyFontProcessor = class(TMyFontProcessor)
-  public
-    updateMeasurementProcessor: IUpdateMyFontInterface;
-    procedure InitFields;
-        constructor Create(keyValueDrawCharArray: IUpdateMyFontInterface);
-        procedure process(graphics_: TGraphics); override;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TUpdateMyFontProcessor.InitFields;
-begin
-  
-end;
-    
-
-constructor TUpdateMyFontProcessor.Create(keyValueDrawCharArray: IUpdateMyFontInterface);
-begin
-    inherited Create;
-    InitFields;
-        Self.updateMeasurementProcessor := keyValueDrawCharArray;
-end;
-    
-
-procedure TUpdateMyFontProcessor.process(graphics_: TGraphics);
-begin
-        Self.updateMeasurementProcessor.updateMeasurement(graphics_);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. UpdateMyFontProcessor-process1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION UpdtMyFntIntrfc-updtMsrmnt1(FUNCTION JR-GET(J-THIS, "f_updateMeasurementProcessor"), J-graphics)
+    GOBACK.
+END FUNCTION UpdateMyFontProcessor-process1.
 

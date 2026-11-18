@@ -1,582 +1,1544 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2011 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.displayable
+*> Java class DisplayInfoSingleton
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DsplyInfSngltn-sttc-SINGLETON.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 DisplayInfoSingleton-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+01 DisplayInfoSingleton-jset-SINGLETON BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF DisplayInfoSingleton-jset-SINGLETON = 0
+        MOVE 1 TO DisplayInfoSingleton-jset-SINGLETON
+        COMPUTE DisplayInfoSingleton-jcell-SINGLETON = FUNCTION DisplayInfoSingleton-new0
+    END-IF
+    MOVE DisplayInfoSingleton-jcell-SINGLETON TO J-RESULT
+    GOBACK.
+END FUNCTION DsplyInfSngltn-sttc-SINGLETON.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DsplyInfSngltnsttcSIS38529.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 DisplayInfoSingleton-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION DsplyInfSngltn-sttc-SINGLETON TO J-RESULT
+    MOVE J-VALUE TO DisplayInfoSingleton-jcell-SINGLETON
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION DsplyInfSngltnsttcSIS38529.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DisplayInfoSingleton-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("DisplayInfoSingleton")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonLabels")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonSeps")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ORIENTATION")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ADJUSTING_FOR_SCALING_IN_PORTRAIT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ADJUSTING_FOR_SCALING_IN_LANDSCAPE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_last")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_lastHalf")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_full")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_top")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_left")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_xOffset")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_yOffset")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_scaleLargestTo")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_WIDTH")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_HEIGHT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_CUSTOM_WIDTH")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_CUSTOM_HEIGHT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_scalableListener")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_displayRatio")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ratio")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SET_LAST_SIZE_METHOD_NAME")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_FULL_WIDTH")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_FULL_HEIGHT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_LAST_WIDTH")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_LAST_HEIGHT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_PORTRAIT")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_LANDSCAPE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_displayChangeEvent")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_FIRE_METHOD_NAME")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_REASON")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_UPDATE_FROM_ORIENTATION_CHANGE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_list")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DISPLAY_INFO")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_FULL")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_LAST")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_LAST_HALF")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonLabels-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonLabels", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonSeps-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonSeps", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("ORIENTATION")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ORIENTATION", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Adjusting for Scaling in portrait display ratio: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ADJUSTING_FOR_SCALING_IN_PORTRAIT", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Adjusting for Scaling in landscape display ratio: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ADJUSTING_FOR_SCALING_IN_LANDSCAPE", JVALUE)
+    COMPUTE jtemp1 = 4
+    COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY(jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_last", JVALUE)
+    COMPUTE jtemp2 = 4
+    COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY(jtemp2)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_lastHalf", JVALUE)
+    COMPUTE jtemp3 = 4
+    COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY(jtemp3)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_full", JVALUE)
     
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.displayable
-unit DisplayInfoSingleton;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Displayable, DisplayChangeEvent, LogUtil, StringMaker, CommonLabels, CommonSeps, CommonStrings, BasicArrayList, BaseScalable, ScalableListener;
-
-type
-  {AB:TYPES}
-  TDisplayInfoSingleton = class(TObject)
-  public
-    logUtil: TLogUtil;
-    commonLabels: TCommonLabels;
-    commonSeps: TCommonSeps;
-    commonStrings: TCommonStrings;
-    ORIENTATION: string;
-    ADJUSTING_FOR_SCALING_IN_PORTRAIT: string;
-    ADJUSTING_FOR_SCALING_IN_LANDSCAPE: string;
-    last: TArray<Integer>;
-    lastHalf: TArray<Integer>;
-    full: TArray<Integer>;
-    top: Integer;
-    left: Integer;
-    xOffset: Integer;
-    yOffset: Integer;
-    scaleLargestTo: Single;
-    WIDTH: Integer;
-    HEIGHT: Integer;
-    CUSTOM_WIDTH: Integer;
-    CUSTOM_HEIGHT: Integer;
-    scalableListener: TBaseScalable;
-    displayRatio: Single;
-    ratio: Single;
-    SET_LAST_SIZE_METHOD_NAME: string;
-    FULL_WIDTH: string;
-    FULL_HEIGHT: string;
-    LAST_WIDTH: string;
-    LAST_HEIGHT: string;
-    PORTRAIT: string;
-    LANDSCAPE: string;
-    displayChangeEvent: TDisplayChangeEvent;
-    FIRE_METHOD_NAME: string;
-    REASON: string;
-    UPDATE_FROM_ORIENTATION_CHANGE: string;
-    list: TBasicArrayList;
-    DISPLAY_INFO: string;
-    FULL_: string;
-    LAST_: string;
-    LAST_HALF: string;
-    class var SINGLETON: TDisplayInfoSingleton;
-    procedure InitFields;
-        class function getInstance: TDisplayInfoSingleton; static;
-        constructor Create;
-        function getLastHalf: TArray<Integer>; virtual;
-        function getLast: TArray<Integer>; virtual;
-        function getFull: TArray<Integer>; virtual;
-        function getScaleLargestTo: Single; virtual;
-        procedure setScaleLargestTo(scaleLargestTo: Integer); virtual;
-        procedure setLastSize(aLastWidth: Integer; aLastHeight: Integer; reason: string); virtual;
-        procedure setLastSizeForce(aLastWidth: Integer; aLastHeight: Integer; reason: string);
-        function isPortraitWH(lastWidth: Integer; lastHeight: Integer): Boolean; virtual;
-        function isPortrait: Boolean; virtual;
-        procedure add(reason: string); virtual;
-        procedure process; virtual;
-        procedure processForced; virtual;
-        procedure update(displayable_: TDisplayable; reason: string); virtual;
-        function toString: string; virtual;
-        function toStringAppend(stringBuffer: TStringMaker): string; virtual;
-        function getTop: Integer; virtual;
-        function getLeft: Integer; virtual;
-        function getLastWidth: Integer; virtual;
-        function getLastHeight: Integer; virtual;
-        function getLastHalfWidth: Integer; virtual;
-        function getLastHalfHeight: Integer; virtual;
-        function getCustomLastWidth: Integer; virtual;
-        function getCustomLastHeight: Integer; virtual;
-        function getRawLastWidth: Integer; virtual;
-        function getRawLastHeight: Integer; virtual;
-        procedure setCustom(width: Integer; height: Integer); virtual;
-        procedure setScalableListener(scalableListener_: TBaseScalable); virtual;
-        function getScalableListener: IScalableListener; virtual;
-        function getRatio: Single; virtual;
-        function getDisplayRatio: Single; virtual;
-        procedure setOffset(left: Integer; top: Integer); virtual;
-        function getxOffset: Integer; virtual;
-        function getyOffset: Integer; virtual;
-  end;
-
-implementation
-uses
-  AndroidUtil, Features, DisplayChangeEventHandler, LastDisplayChangeEventHandler, OpenGLFeatureFactory, SWTJOGLProcessor, PreLogUtil, GenericOperatingSystem, OperatingSystemFactory, BasicArrayListD;
-
-
-{AB:CODE}
-
-procedure TDisplayInfoSingleton.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.commonLabels := TCommonLabels.getInstance();
-  Self.commonSeps := TCommonSeps.getInstance();
-  Self.commonStrings := TCommonStrings.getInstance();
-  Self.ORIENTATION := 'ORIENTATION';
-  Self.ADJUSTING_FOR_SCALING_IN_PORTRAIT := 'Adjusting for Scaling in portrait display ratio: ';
-  Self.ADJUSTING_FOR_SCALING_IN_LANDSCAPE := 'Adjusting for Scaling in landscape display ratio: ';
-  Self.last := TJava.NewArray<Integer>(4);
-  Self.lastHalf := TJava.NewArray<Integer>(4);
-  Self.full := TJava.NewArray<Integer>(4);
-  
-  
-  
-  
-  
-  Self.WIDTH := 0;
-  Self.HEIGHT := 1;
-  Self.CUSTOM_WIDTH := 2;
-  Self.CUSTOM_HEIGHT := 3;
-  Self.scalableListener := TBaseScalable.Create();
-  
-  Self.ratio := 1.0;
-  Self.SET_LAST_SIZE_METHOD_NAME := 'setLastSize';
-  Self.FULL_WIDTH := ' FullWidth: ';
-  Self.FULL_HEIGHT := ' FullHeight: ';
-  Self.LAST_WIDTH := 'LastWidth: ';
-  Self.LAST_HEIGHT := ' LastHeight: ';
-  Self.PORTRAIT := 'Portrait';
-  Self.LANDSCAPE := 'Landscape';
-  Self.displayChangeEvent := TDisplayChangeEvent.Create(TJava.Box(Self));
-  Self.FIRE_METHOD_NAME := 'fire';
-  Self.REASON := 'reason: ';
-  Self.UPDATE_FROM_ORIENTATION_CHANGE := 'Updating from Orientation Change ';
-  Self.list := TBasicArrayListD.Create();
-  Self.DISPLAY_INFO := 'Display Info: ';
-  Self.FULL_ := 'full';
-  Self.LAST_ := 'last';
-  Self.LAST_HALF := 'lastHalf';
-end;
     
-
-class function TDisplayInfoSingleton.getInstance: TDisplayInfoSingleton;
-begin
-        Exit(TDisplayInfoSingleton.SINGLETON);
-end;
     
-
-constructor TDisplayInfoSingleton.Create;
-var
-  size: Integer;
-  index: Integer;
-begin
-    inherited Create;
-    InitFields;
-        size := System.Length(Self.last);
-        for index := 0 to size - 1 do begin
-            Self.last[index] := 0;
-            Self.lastHalf[index] := 0;
-            Self.full[index] := 0;
-        end;
-        if TAndroidUtil.isAndroid() then begin
-            Self.scaleLargestTo := 640.0;
-        end else begin
-            Self.scaleLargestTo := 1080.0;
-        end;
-end;
     
-
-function TDisplayInfoSingleton.getLastHalf: TArray<Integer>;
-begin
-        Exit(Self.lastHalf);
-end;
     
-
-function TDisplayInfoSingleton.getLast: TArray<Integer>;
-begin
-        Exit(Self.last);
-end;
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_WIDTH", JVALUE)
+    COMPUTE JVALUE = 1
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_HEIGHT", JVALUE)
+    COMPUTE JVALUE = 2
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_CUSTOM_WIDTH", JVALUE)
+    COMPUTE JVALUE = 3
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_CUSTOM_HEIGHT", JVALUE)
+    COMPUTE JVALUE = FUNCTION BaseScalable-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_scalableListener", JVALUE)
     
+    COMPUTE JVALUEF = 1.0
+    COMPUTE JDISCARD = FUNCTION JR-SETF(J-THIS, "f_ratio", JVALUEF)
+    COMPUTE JVALUE = FUNCTION JR-STR("setLastSize")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SET_LAST_SIZE_METHOD_NAME", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR(" FullWidth: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_FULL_WIDTH", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR(" FullHeight: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_FULL_HEIGHT", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("LastWidth: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_LAST_WIDTH", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR(" LastHeight: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_LAST_HEIGHT", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Portrait")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_PORTRAIT", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Landscape")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_LANDSCAPE", JVALUE)
+    COMPUTE JVALUE = FUNCTION DisplayChangeEvent-new1(J-THIS)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_displayChangeEvent", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("fire")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_FIRE_METHOD_NAME", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("reason: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_REASON", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Updating from Orientation Change ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_UPDATE_FROM_ORIENTATION_CHANGE", JVALUE)
+    COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Display Info: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DISPLAY_INFO", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("full")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_FULL", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("last")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_LAST", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("lastHalf")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_LAST_HALF", JVALUE)
+        COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_last"))
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE JVALUE = 0
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_last"), J-index, JVALUE)
+            COMPUTE JVALUE = 0
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_lastHalf"), J-index, JVALUE)
+            COMPUTE JVALUE = 0
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_full"), J-index, JVALUE)
+        END-PERFORM
+        IF (FUNCTION AndroidUtil-isAndroid0 = 1)
+            COMPUTE JVALUEF = 640
+            COMPUTE JDISCARD = FUNCTION JR-SETF(J-THIS, "f_scaleLargestTo", JVALUEF)
+        ELSE
+            COMPUTE JVALUEF = 1080
+            COMPUTE JDISCARD = FUNCTION JR-SETF(J-THIS, "f_scaleLargestTo", JVALUEF)
+        END-IF
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION DisplayInfoSingleton-new0.
 
-function TDisplayInfoSingleton.getFull: TArray<Integer>;
-begin
-        Exit(Self.full);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DsplyInfSngltn-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION DsplyInfSngltn-sttc-SINGLETON
+        GOBACK
+    GOBACK.
+END FUNCTION DsplyInfSngltn-getInstance0.
 
-function TDisplayInfoSingleton.getScaleLargestTo: Single;
-begin
-        Exit(Self.scaleLargestTo);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DsplyInfSngltn-getLastHalf0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_lastHalf")
+        GOBACK
+    GOBACK.
+END FUNCTION DsplyInfSngltn-getLastHalf0.
 
-procedure TDisplayInfoSingleton.setScaleLargestTo(scaleLargestTo: Integer);
-begin
-        Self.scaleLargestTo := scaleLargestTo;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DisplayInfoSingleton-getLast0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_last")
+        GOBACK
+    GOBACK.
+END FUNCTION DisplayInfoSingleton-getLast0.
 
-procedure TDisplayInfoSingleton.setLastSize(aLastWidth: Integer; aLastHeight: Integer; reason: string);
-begin
-        if ((Self.full[Self.WIDTH]) <> (aLastWidth)) or ((Self.full[Self.HEIGHT]) <> (aLastHeight)) then begin
-            Self.setLastSizeForce(aLastWidth, aLastHeight, reason);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DisplayInfoSingleton-getFull0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_full")
+        GOBACK
+    GOBACK.
+END FUNCTION DisplayInfoSingleton-getFull0.
 
-procedure TDisplayInfoSingleton.setLastSizeForce(aLastWidth: Integer; aLastHeight: Integer; reason: string);
-var
-  stringMaker_: TStringMaker;
-  aFullWidth: Integer;
-  aFullHeight: Integer;
-  operatingSystemInterface: TGenericOperatingSystem;
-begin
-        stringMaker_ := TStringMaker.Create();
-        Self.logUtil.putF(stringMaker_.append(TCommonLabels.getInstance().START_LABEL).append(reason).toString(), TJava.Box(Self), Self.SET_LAST_SIZE_METHOD_NAME);
-        aFullWidth := aLastWidth;
-        aFullHeight := aLastHeight;
-        stringMaker_.delete_(0, stringMaker_.length());
-        Self.logUtil.putF(stringMaker_.append(Self.FULL_WIDTH).appendint(aFullWidth).append(Self.FULL_HEIGHT).appendint(aFullHeight).append(Self.toString()).toString(), TJava.Box(Self), Self.SET_LAST_SIZE_METHOD_NAME);
-        operatingSystemInterface := TOperatingSystemFactory.getInstance().getOperatingSystemInstance();
-        if operatingSystemInterface.isOverScan() then begin
-            aLastWidth := TJava.Divide((aLastWidth) * (operatingSystemInterface.getOverScanXPercent()), 100);
-            aLastHeight := TJava.Divide((aLastHeight) * (operatingSystemInterface.getOverScanYPercent()), 100);
-        end;
-        if operatingSystemInterface.isScalable() then begin
-            if Self.isPortraitWH(aLastWidth, aLastHeight) then begin
-                if (aLastHeight) > (Self.scaleLargestTo) then begin
-                    Self.displayRatio := (Self.scaleLargestTo) / (aLastHeight);
-                    Self.ratio := (aLastHeight) / (Self.scaleLargestTo);
-                    stringMaker_.delete_(0, stringMaker_.length());
-                    Self.logUtil.putF(stringMaker_.append(Self.ADJUSTING_FOR_SCALING_IN_PORTRAIT).appendfloat(Self.displayRatio).toString(), TJava.Box(Self), Self.SET_LAST_SIZE_METHOD_NAME);
-                    aLastWidth := Integer(Trunc(((aLastWidth) * (Self.displayRatio))));
-                    aLastHeight := Integer(Trunc(((aLastHeight) * (Self.displayRatio))));
-                    Self.scalableListener.scale(Self.ratio);
-                end else begin
-                    Self.ratio := 1.0;
-                    Self.scalableListener.scale(Self.ratio);
-                end;
-            end else begin
-                if (aLastWidth) > (Self.scaleLargestTo) then begin
-                    Self.displayRatio := (Self.scaleLargestTo) / (aLastWidth);
-                    Self.ratio := (aLastWidth) / (Self.scaleLargestTo);
-                    stringMaker_.delete_(0, stringMaker_.length());
-                    Self.logUtil.putF(stringMaker_.append(Self.ADJUSTING_FOR_SCALING_IN_LANDSCAPE).appendfloat(Self.displayRatio).toString(), TJava.Box(Self), Self.SET_LAST_SIZE_METHOD_NAME);
-                    aLastWidth := Integer(Trunc(((aLastWidth) * (Self.displayRatio))));
-                    aLastHeight := Integer(Trunc(((aLastHeight) * (Self.displayRatio))));
-                    Self.scalableListener.scale(Self.ratio);
-                end else begin
-                    Self.ratio := 1.0;
-                    Self.scalableListener.scale(Self.ratio);
-                end;
-            end;
-        end;
-        stringMaker_.delete_(0, stringMaker_.length());
-        Self.logUtil.putF(stringMaker_.append(Self.LAST_WIDTH).appendint(aLastWidth).append(Self.LAST_HEIGHT).appendint(aLastHeight).toString(), TJava.Box(Self), Self.SET_LAST_SIZE_METHOD_NAME);
-        Self.xOffset := (aFullWidth) - (aLastWidth);
-        Self.yOffset := (aFullHeight) - (aLastHeight);
-        Self.left := Self.scalableListener.getLeft(Self.xOffset);
-        Self.top := Self.scalableListener.getTop(Self.yOffset);
-        Self.full[Self.WIDTH] := aFullWidth;
-        Self.full[Self.HEIGHT] := aFullHeight;
-        Self.last[Self.WIDTH] := aLastWidth;
-        Self.lastHalf[Self.WIDTH] := (TJava.SignedRightShift(Self.last[Self.WIDTH], 1));
-        Self.last[Self.HEIGHT] := aLastHeight;
-        Self.lastHalf[Self.HEIGHT] := (TJava.SignedRightShift(Self.last[Self.HEIGHT], 1));
-        TSWTJOGLProcessor.getInstance().setCustom(aLastWidth, aLastHeight, Self.ratio);
-        Self.add(Self.SET_LAST_SIZE_METHOD_NAME);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DsplyInfSngltn-gtSclLrgstT0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT COMP-2.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GETF(J-THIS, "f_scaleLargestTo")
+        GOBACK
+    GOBACK.
+END FUNCTION DsplyInfSngltn-gtSclLrgstT0.
 
-function TDisplayInfoSingleton.isPortraitWH(lastWidth: Integer; lastHeight: Integer): Boolean;
-begin
-        if (lastHeight) > (lastWidth) then begin
-            Exit(True);
-        end else begin
-            Exit(False);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DsplyInfSngltn-stSclLrgstT1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-scaleLargestTo BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-scaleLargestTo RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUEF = J-scaleLargestTo
+        COMPUTE JDISCARD = FUNCTION JR-SETF(J-THIS, "f_scaleLargestTo", JVALUEF)
+    GOBACK.
+END FUNCTION DsplyInfSngltn-stSclLrgstT1.
 
-function TDisplayInfoSingleton.isPortrait: Boolean;
-begin
-        Exit(Self.isPortraitWH(Self.last[Self.WIDTH], Self.last[Self.HEIGHT]));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DsplyInfSngltn-setLastSize3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-aLastWidth BINARY-DOUBLE.
+01 J-aLastHeight BINARY-DOUBLE.
+01 J-reason BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-aLastWidth J-aLastHeight J-reason RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF ((FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_full"), FUNCTION JR-GET(J-THIS, "f_WIDTH")) NOT = J-aLastWidth) OR (FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_full"), FUNCTION JR-GET(J-THIS, "f_HEIGHT")) NOT =
+        J-aLastHeight))
+            COMPUTE JDISCARD = FUNCTION DsplyInfSngltn-stLstSzFrc3(J-THIS, J-aLastWidth, J-aLastHeight, J-reason)
+        END-IF
+    GOBACK.
+END FUNCTION DsplyInfSngltn-setLastSize3.
 
-procedure TDisplayInfoSingleton.add(reason: string);
-var
-  stringMaker_: TStringMaker;
-begin
-        stringMaker_ := TStringMaker.Create();
-        Self.logUtil.putF(stringMaker_.append(Self.REASON).append(reason).toString(), TJava.Box(Self), Self.FIRE_METHOD_NAME);
-        stringMaker_.delete_(0, stringMaker_.length());
-        Self.logUtil.putF(Self.toStringAppend(stringMaker_), TJava.Box(Self), Self.FIRE_METHOD_NAME);
-        Self.list.add(TJava.Box(reason));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DsplyInfSngltn-stLstSzFrc3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringMaker BINARY-DOUBLE.
+01 J-aFullWidth BINARY-DOUBLE.
+01 J-aFullHeight BINARY-DOUBLE.
+01 J-operatingSystemInterface BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 COMP-2.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+01 jtemp18 COMP-2.
+01 jtemp19 COMP-2.
+01 jtemp20 BINARY-DOUBLE.
+01 jtemp21 BINARY-DOUBLE.
+01 jtemp22 BINARY-DOUBLE.
+01 jtemp23 COMP-2.
+01 jtemp24 BINARY-DOUBLE.
+01 jtemp25 BINARY-DOUBLE.
+01 jtemp26 BINARY-DOUBLE.
+01 jtemp27 BINARY-DOUBLE.
+01 jtemp28 BINARY-DOUBLE.
+01 jtemp29 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-aLastWidth BINARY-DOUBLE.
+01 J-aLastHeight BINARY-DOUBLE.
+01 J-reason BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-aLastWidth J-aLastHeight J-reason RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringMaker = FUNCTION StringMaker-new0
+        COMPUTE jtemp6 = FUNCTION CommonLabels-getInstance0
+        COMPUTE jtemp5 = FUNCTION StringMaker-append1(J-stringMaker, FUNCTION JR-GET(jtemp6, "f_START_LABEL"))
+        COMPUTE jtemp4 = FUNCTION StringMaker-append1(jtemp5, J-reason)
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp4), J-THIS, FUNCTION JR-GET(J-THIS, "f_SET_LAST_SIZE_METHOD_NAME"))
+        COMPUTE J-aFullWidth = J-aLastWidth
+        COMPUTE J-aFullHeight = J-aLastHeight
+        COMPUTE jtemp7 = 0
+        COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringMaker, jtemp7, FUNCTION StringMaker-length0(J-stringMaker))
+        COMPUTE jtemp12 = FUNCTION StringMaker-append1(J-stringMaker, FUNCTION JR-GET(J-THIS, "f_FULL_WIDTH"))
+        COMPUTE jtemp11 = FUNCTION StringMaker-appendint1(jtemp12, J-aFullWidth)
+        COMPUTE jtemp10 = FUNCTION StringMaker-append1(jtemp11, FUNCTION JR-GET(J-THIS, "f_FULL_HEIGHT"))
+        COMPUTE jtemp9 = FUNCTION StringMaker-appendint1(jtemp10, J-aFullHeight)
+        COMPUTE jtemp8 = FUNCTION StringMaker-append1(jtemp9, FUNCTION DisplayInfoSingleton-toString0(J-THIS))
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp8), J-THIS, FUNCTION JR-GET(J-THIS, "f_SET_LAST_SIZE_METHOD_NAME"))
+        COMPUTE jtemp13 = FUNCTION OprtngSystmFctry-getInstance0
+        COMPUTE J-operatingSystemInterface = FUNCTION OprtngSystmFctry-gtOprtng62787(jtemp13)
+        IF (FUNCTION GnrcOprtngSystm-isOverScan0(J-operatingSystemInterface) = 1)
+            COMPUTE J-aLastWidth = (FUNCTION MOD(FUNCTION INTEGER-PART((FUNCTION MOD((J-aLastWidth * FUNCTION GnrcOprtngSystm-gtOvrScnX73554(J-operatingSystemInterface)) + 2147483648, 4294967296) - 2147483648) / 100) + 2147483648,
+        4294967296) - 2147483648)
+            COMPUTE J-aLastHeight = (FUNCTION MOD(FUNCTION INTEGER-PART((FUNCTION MOD((J-aLastHeight * FUNCTION GnrcOprtngSystm-gtOvrScnY60738(J-operatingSystemInterface)) + 2147483648, 4294967296) - 2147483648) / 100) + 2147483648,
+        4294967296) - 2147483648)
+        END-IF
+        IF (FUNCTION GnrcOprtngSystm-isScalable0(J-operatingSystemInterface) = 1)
+            IF (FUNCTION DsplyInfSngltn-isPortraitWH2(J-THIS, J-aLastWidth, J-aLastHeight) = 1)
+                IF (J-aLastHeight > FUNCTION JR-GETF(J-THIS, "f_scaleLargestTo"))
+                    COMPUTE JVALUEF = (FUNCTION JR-GETF(J-THIS, "f_scaleLargestTo") / J-aLastHeight)
+                    COMPUTE JDISCARD = FUNCTION JR-SETF(J-THIS, "f_displayRatio", JVALUEF)
+                    COMPUTE JVALUEF = (J-aLastHeight / FUNCTION JR-GETF(J-THIS, "f_scaleLargestTo"))
+                    COMPUTE JDISCARD = FUNCTION JR-SETF(J-THIS, "f_ratio", JVALUEF)
+                    COMPUTE jtemp20 = 0
+                    COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringMaker, jtemp20, FUNCTION StringMaker-length0(J-stringMaker))
+                    COMPUTE jtemp22 = FUNCTION StringMaker-append1(J-stringMaker, FUNCTION JR-GET(J-THIS, "f_ADJUSTING_FOR_SCALING_IN_PORTRAIT"))
+                    COMPUTE jtemp21 = FUNCTION StringMaker-appendfloat1(jtemp22, FUNCTION JR-GETF(J-THIS, "f_displayRatio"))
+                    COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp21), J-THIS, FUNCTION JR-GET(J-THIS, "f_SET_LAST_SIZE_METHOD_NAME"))
+                    COMPUTE J-aLastWidth = FUNCTION JR-D2I(((J-aLastWidth * FUNCTION JR-GETF(J-THIS, "f_displayRatio"))))
+                    COMPUTE J-aLastHeight = FUNCTION JR-D2I(((J-aLastHeight * FUNCTION JR-GETF(J-THIS, "f_displayRatio"))))
+                    COMPUTE jtemp23 = FUNCTION JR-GETF(J-THIS, "f_ratio")
+                    COMPUTE JDISCARD = FUNCTION BaseScalable-scale1(FUNCTION JR-GET(J-THIS, "f_scalableListener"), jtemp23)
+                ELSE
+                    COMPUTE JVALUEF = 1.0
+                    COMPUTE JDISCARD = FUNCTION JR-SETF(J-THIS, "f_ratio", JVALUEF)
+                    COMPUTE jtemp19 = FUNCTION JR-GETF(J-THIS, "f_ratio")
+                    COMPUTE JDISCARD = FUNCTION BaseScalable-scale1(FUNCTION JR-GET(J-THIS, "f_scalableListener"), jtemp19)
+                END-IF
+            ELSE
+                IF (J-aLastWidth > FUNCTION JR-GETF(J-THIS, "f_scaleLargestTo"))
+                    COMPUTE JVALUEF = (FUNCTION JR-GETF(J-THIS, "f_scaleLargestTo") / J-aLastWidth)
+                    COMPUTE JDISCARD = FUNCTION JR-SETF(J-THIS, "f_displayRatio", JVALUEF)
+                    COMPUTE JVALUEF = (J-aLastWidth / FUNCTION JR-GETF(J-THIS, "f_scaleLargestTo"))
+                    COMPUTE JDISCARD = FUNCTION JR-SETF(J-THIS, "f_ratio", JVALUEF)
+                    COMPUTE jtemp15 = 0
+                    COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringMaker, jtemp15, FUNCTION StringMaker-length0(J-stringMaker))
+                    COMPUTE jtemp17 = FUNCTION StringMaker-append1(J-stringMaker, FUNCTION JR-GET(J-THIS, "f_ADJUSTING_FOR_SCALING_IN_LANDSCAPE"))
+                    COMPUTE jtemp16 = FUNCTION StringMaker-appendfloat1(jtemp17, FUNCTION JR-GETF(J-THIS, "f_displayRatio"))
+                    COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp16), J-THIS, FUNCTION JR-GET(J-THIS, "f_SET_LAST_SIZE_METHOD_NAME"))
+                    COMPUTE J-aLastWidth = FUNCTION JR-D2I(((J-aLastWidth * FUNCTION JR-GETF(J-THIS, "f_displayRatio"))))
+                    COMPUTE J-aLastHeight = FUNCTION JR-D2I(((J-aLastHeight * FUNCTION JR-GETF(J-THIS, "f_displayRatio"))))
+                    COMPUTE jtemp18 = FUNCTION JR-GETF(J-THIS, "f_ratio")
+                    COMPUTE JDISCARD = FUNCTION BaseScalable-scale1(FUNCTION JR-GET(J-THIS, "f_scalableListener"), jtemp18)
+                ELSE
+                    COMPUTE JVALUEF = 1.0
+                    COMPUTE JDISCARD = FUNCTION JR-SETF(J-THIS, "f_ratio", JVALUEF)
+                    COMPUTE jtemp14 = FUNCTION JR-GETF(J-THIS, "f_ratio")
+                    COMPUTE JDISCARD = FUNCTION BaseScalable-scale1(FUNCTION JR-GET(J-THIS, "f_scalableListener"), jtemp14)
+                END-IF
+            END-IF
+        END-IF
+        COMPUTE jtemp24 = 0
+        COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringMaker, jtemp24, FUNCTION StringMaker-length0(J-stringMaker))
+        COMPUTE jtemp28 = FUNCTION StringMaker-append1(J-stringMaker, FUNCTION JR-GET(J-THIS, "f_LAST_WIDTH"))
+        COMPUTE jtemp27 = FUNCTION StringMaker-appendint1(jtemp28, J-aLastWidth)
+        COMPUTE jtemp26 = FUNCTION StringMaker-append1(jtemp27, FUNCTION JR-GET(J-THIS, "f_LAST_HEIGHT"))
+        COMPUTE jtemp25 = FUNCTION StringMaker-appendint1(jtemp26, J-aLastHeight)
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp25), J-THIS, FUNCTION JR-GET(J-THIS, "f_SET_LAST_SIZE_METHOD_NAME"))
+        COMPUTE JVALUE = (FUNCTION MOD((J-aFullWidth - J-aLastWidth) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_xOffset", JVALUE)
+        COMPUTE JVALUE = (FUNCTION MOD((J-aFullHeight - J-aLastHeight) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_yOffset", JVALUE)
+        COMPUTE JVALUE = FUNCTION BaseScalable-getLeft1(FUNCTION JR-GET(J-THIS, "f_scalableListener"), FUNCTION JR-GET(J-THIS, "f_xOffset"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_left", JVALUE)
+        COMPUTE JVALUE = FUNCTION BaseScalable-getTop1(FUNCTION JR-GET(J-THIS, "f_scalableListener"), FUNCTION JR-GET(J-THIS, "f_yOffset"))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_top", JVALUE)
+        COMPUTE JVALUE = J-aFullWidth
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_full"), FUNCTION JR-GET(J-THIS, "f_WIDTH"), JVALUE)
+        COMPUTE JVALUE = J-aFullHeight
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_full"), FUNCTION JR-GET(J-THIS, "f_HEIGHT"), JVALUE)
+        COMPUTE JVALUE = J-aLastWidth
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_last"), FUNCTION JR-GET(J-THIS, "f_WIDTH"), JVALUE)
+        COMPUTE JVALUE = (FUNCTION JR-SHIFT(JFIVE, FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_last"), FUNCTION JR-GET(J-THIS, "f_WIDTH")), 1))
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_lastHalf"), FUNCTION JR-GET(J-THIS, "f_WIDTH"), JVALUE)
+        COMPUTE JVALUE = J-aLastHeight
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_last"), FUNCTION JR-GET(J-THIS, "f_HEIGHT"), JVALUE)
+        COMPUTE JVALUE = (FUNCTION JR-SHIFT(JFIVE, FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_last"), FUNCTION JR-GET(J-THIS, "f_HEIGHT")), 1))
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_lastHalf"), FUNCTION JR-GET(J-THIS, "f_HEIGHT"), JVALUE)
+        COMPUTE jtemp29 = FUNCTION SWTJOGLProcessor-getInstance0
+        COMPUTE JDISCARD = FUNCTION SWTJOGLProcessor-setCustom3(jtemp29, J-aLastWidth, J-aLastHeight, FUNCTION JR-GETF(J-THIS, "f_ratio"))
+        COMPUTE JDISCARD = FUNCTION DisplayInfoSingleton-add1(J-THIS, FUNCTION JR-GET(J-THIS, "f_SET_LAST_SIZE_METHOD_NAME"))
+    GOBACK.
+END FUNCTION DsplyInfSngltn-stLstSzFrc3.
 
-procedure TDisplayInfoSingleton.process;
-begin
-        try
-            if (Self.list.size()) > (0) then begin
-                Self.processForced();
-            end;
-            Self.list.clear();
-        except
-            on e: SysUtils.Exception do begin
-            TPreLogUtil.putOE(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.FIRE_METHOD_NAME, TJava.Box(e));
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DsplyInfSngltn-isPortraitWH2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-lastWidth BINARY-DOUBLE.
+01 J-lastHeight BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-lastWidth J-lastHeight RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (J-lastHeight > J-lastWidth)
+            COMPUTE J-RESULT = 1
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = 0
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION DsplyInfSngltn-isPortraitWH2.
 
-procedure TDisplayInfoSingleton.processForced;
-var
-  swtJOGLProcessor_: TSWTJOGLProcessor;
-begin
-        try
-            swtJOGLProcessor_ := TSWTJOGLProcessor.getInstance();
-            swtJOGLProcessor_.clear();
-            TDisplayChangeEventHandler.getInstance().fireEvent(Self.displayChangeEvent);
-            TLastDisplayChangeEventHandler.getInstance().fireEvent(Self.displayChangeEvent);
-            swtJOGLProcessor_.onSurfaceChanged();
-        except
-            on e: SysUtils.Exception do begin
-            TPreLogUtil.putOE(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.FIRE_METHOD_NAME, TJava.Box(e));
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DsplyInfSngltn-isPortrait0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION DsplyInfSngltn-isPortraitWH2(J-THIS, FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_last"), FUNCTION JR-GET(J-THIS, "f_WIDTH")), FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_last"), FUNCTION
+        JR-GET(J-THIS, "f_HEIGHT")))
+        GOBACK
+    GOBACK.
+END FUNCTION DsplyInfSngltn-isPortrait0.
 
-procedure TDisplayInfoSingleton.update(displayable_: TDisplayable; reason: string);
-var
-  aLastWidth: Integer;
-  aLastHeight: Integer;
-  aFullWidth: Integer;
-  aFullHeight: Integer;
-  stringMaker_: TStringMaker;
-  features_: TFeatures;
-  openGLFeatureFactory_: TOpenGLFeatureFactory;
-  operatingSystemInterface: TGenericOperatingSystem;
-begin
-        aLastWidth := displayable_.getWidth();
-        aLastHeight := displayable_.getHeight();
-        aFullWidth := aLastWidth;
-        aFullHeight := aLastHeight;
-        stringMaker_ := TStringMaker.Create();
-        Self.logUtil.putF(stringMaker_.append(TCommonLabels.getInstance().START_LABEL).append(reason).append(Self.LAST_WIDTH).appendint(aLastWidth).append(Self.LAST_HEIGHT).appendint(aLastHeight).append(Self.commonSeps.SPACE).append(Self.toString()).toString(), TJava.Box(Self), Self.commonStrings.UPDATE);
-        if ((aLastWidth) > (0)) and ((aLastHeight) > (0)) then begin
-            features_ := TFeatures.getInstance();
-            openGLFeatureFactory_ := TOpenGLFeatureFactory.getInstance();
-            if ((not (features_.isDefault(openGLFeatureFactory_.OPENGL))) or ((Self.last[Self.WIDTH]) <> (aLastWidth))) or ((Self.last[Self.HEIGHT]) <> (aLastHeight)) then begin
-                stringMaker_.delete_(0, stringMaker_.length());
-                Self.logUtil.putF(stringMaker_.append(Self.UPDATE_FROM_ORIENTATION_CHANGE).toString(), TJava.Box(Self), Self.commonStrings.UPDATE);
-                operatingSystemInterface := TOperatingSystemFactory.getInstance().getOperatingSystemInstance();
-                if operatingSystemInterface.isOverScan() then begin
-                    aLastWidth := TJava.Divide((aLastWidth) * (operatingSystemInterface.getOverScanXPercent()), 100);
-                    aLastHeight := TJava.Divide((aLastHeight) * (operatingSystemInterface.getOverScanYPercent()), 100);
-                end;
-                if operatingSystemInterface.isScalable() then begin
-                    if Self.isPortraitWH(aLastWidth, aLastHeight) then begin
-                        if (aLastHeight) > (Self.scaleLargestTo) then begin
-                            Self.displayRatio := (Self.scaleLargestTo) / (aLastHeight);
-                            Self.ratio := (aLastHeight) / (Self.scaleLargestTo);
-                            stringMaker_.delete_(0, stringMaker_.length());
-                            Self.logUtil.putF(stringMaker_.append(Self.ADJUSTING_FOR_SCALING_IN_PORTRAIT).appendfloat(Self.displayRatio).toString(), TJava.Box(Self), Self.commonStrings.UPDATE);
-                            aLastWidth := Integer(Trunc(((aLastWidth) * (Self.displayRatio))));
-                            aLastHeight := Integer(Trunc(((aLastHeight) * (Self.displayRatio))));
-                            Self.scalableListener.scale(Self.ratio);
-                        end else begin
-                            Self.ratio := 1.0;
-                            Self.scalableListener.scale(Self.ratio);
-                        end;
-                    end else begin
-                        if (aLastWidth) > (Self.scaleLargestTo) then begin
-                            Self.displayRatio := (Self.scaleLargestTo) / (aLastWidth);
-                            Self.ratio := (aLastWidth) / (Self.scaleLargestTo);
-                            stringMaker_.delete_(0, stringMaker_.length());
-                            Self.logUtil.putF(stringMaker_.append(Self.ADJUSTING_FOR_SCALING_IN_LANDSCAPE).appendfloat(Self.displayRatio).toString(), TJava.Box(Self), Self.commonStrings.UPDATE);
-                            aLastWidth := Integer(Trunc(((aLastWidth) * (Self.displayRatio))));
-                            aLastHeight := Integer(Trunc(((aLastHeight) * (Self.displayRatio))));
-                            Self.scalableListener.scale(Self.ratio);
-                        end else begin
-                            Self.ratio := 1.0;
-                            Self.scalableListener.scale(Self.ratio);
-                        end;
-                    end;
-                end;
-                stringMaker_.delete_(0, stringMaker_.length());
-                Self.logUtil.putF(stringMaker_.append(Self.UPDATE_FROM_ORIENTATION_CHANGE).append(Self.LAST_WIDTH).appendint(aLastWidth).append(Self.LAST_HEIGHT).appendint(aLastHeight).toString(), TJava.Box(Self), Self.commonStrings.UPDATE);
-                Self.xOffset := (aFullWidth) - (aLastWidth);
-                Self.yOffset := (aFullHeight) - (aLastHeight);
-                Self.left := Self.scalableListener.getLeft(Self.xOffset);
-                Self.top := Self.scalableListener.getTop(Self.yOffset);
-                Self.full[Self.WIDTH] := aFullWidth;
-                Self.full[Self.HEIGHT] := aFullHeight;
-                Self.last[Self.WIDTH] := aLastWidth;
-                Self.lastHalf[Self.WIDTH] := (TJava.SignedRightShift(Self.last[Self.WIDTH], 1));
-                Self.last[Self.HEIGHT] := aLastHeight;
-                Self.lastHalf[Self.HEIGHT] := (TJava.SignedRightShift(Self.last[Self.HEIGHT], 1));
-                TSWTJOGLProcessor.getInstance().setCustom(aLastWidth, aLastHeight, Self.ratio);
-                Self.add(Self.commonStrings.UPDATE);
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DisplayInfoSingleton-add1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringMaker BINARY-DOUBLE.
+01 jtemp30 BINARY-DOUBLE.
+01 jtemp31 BINARY-DOUBLE.
+01 jtemp32 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-reason BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-reason RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringMaker = FUNCTION StringMaker-new0
+        COMPUTE jtemp31 = FUNCTION StringMaker-append1(J-stringMaker, FUNCTION JR-GET(J-THIS, "f_REASON"))
+        COMPUTE jtemp30 = FUNCTION StringMaker-append1(jtemp31, J-reason)
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp30), J-THIS, FUNCTION JR-GET(J-THIS, "f_FIRE_METHOD_NAME"))
+        COMPUTE jtemp32 = 0
+        COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringMaker, jtemp32, FUNCTION StringMaker-length0(J-stringMaker))
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION DsplyInfSngltn-toStringAppend1(J-THIS, J-stringMaker), J-THIS, FUNCTION JR-GET(J-THIS, "f_FIRE_METHOD_NAME"))
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), J-reason)
+    GOBACK.
+END FUNCTION DisplayInfoSingleton-add1.
 
-function TDisplayInfoSingleton.toString: string;
-var
-  stringBuffer: TStringMaker;
-begin
-        stringBuffer := TStringMaker.Create();
-        Exit(Self.toStringAppend(stringBuffer));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DisplayInfoSingleton-process0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            IF (FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_list")) > 0)
+                COMPUTE JDISCARD = FUNCTION DsplyInfSngltn-processForced0(J-THIS)
+            END-IF
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-clear0(FUNCTION JR-GET(J-THIS, "f_list"))
+    GOBACK.
+END FUNCTION DisplayInfoSingleton-process0.
 
-function TDisplayInfoSingleton.toStringAppend(stringBuffer: TStringMaker): string;
-begin
-        stringBuffer.append(Self.DISPLAY_INFO);
-        stringBuffer.append(Self.FULL_);
-        stringBuffer.append(Self.commonLabels.WIDTH_LABEL);
-        stringBuffer.appendint(Self.full[Self.WIDTH]);
-        stringBuffer.append(Self.commonSeps.SPACE);
-        stringBuffer.append(Self.FULL_);
-        stringBuffer.append(Self.commonLabels.HEIGHT_LABEL);
-        stringBuffer.appendint(Self.full[Self.HEIGHT]);
-        stringBuffer.append(Self.commonSeps.SPACE);
-        stringBuffer.append(Self.LAST_);
-        stringBuffer.append(Self.commonLabels.WIDTH_LABEL);
-        stringBuffer.appendint(Self.last[Self.WIDTH]);
-        stringBuffer.append(Self.commonSeps.SPACE);
-        stringBuffer.append(Self.LAST_);
-        stringBuffer.append(Self.commonLabels.HEIGHT_LABEL);
-        stringBuffer.appendint(Self.last[Self.HEIGHT]);
-        stringBuffer.append(Self.commonSeps.SPACE);
-        stringBuffer.append(Self.LAST_HALF);
-        stringBuffer.append(Self.commonLabels.WIDTH_LABEL);
-        stringBuffer.appendint(Self.lastHalf[Self.WIDTH]);
-        stringBuffer.append(Self.commonSeps.SPACE);
-        stringBuffer.append(Self.LAST_HALF);
-        stringBuffer.append(Self.commonLabels.HEIGHT_LABEL);
-        stringBuffer.appendint(Self.lastHalf[Self.HEIGHT]);
-        stringBuffer.append(Self.commonSeps.SPACE);
-        stringBuffer.append(TJava.IfThen<Variant>(Self.isPortrait(), Self.PORTRAIT, Self.LANDSCAPE));
-        Exit(stringBuffer.toString());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DsplyInfSngltn-processForced0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-swtJOGLProcessor BINARY-DOUBLE.
+01 jtemp33 BINARY-DOUBLE.
+01 jtemp34 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE J-swtJOGLProcessor = FUNCTION SWTJOGLProcessor-getInstance0
+            COMPUTE JDISCARD = FUNCTION SWTJOGLProcessor-clear0(J-swtJOGLProcessor)
+            COMPUTE jtemp33 = FUNCTION DsplyChngEvntHndlr-gtInstnc0
+            COMPUTE JDISCARD = FUNCTION BasicEventHandler-fireEvent1(jtemp33, FUNCTION JR-GET(J-THIS, "f_displayChangeEvent"))
+            COMPUTE jtemp34 = FUNCTION LstDsplyChngEvntHndlr-gtI14188
+            COMPUTE JDISCARD = FUNCTION BasicEventHandler-fireEvent1(jtemp34, FUNCTION JR-GET(J-THIS, "f_displayChangeEvent"))
+            COMPUTE JDISCARD = FUNCTION SWTJOGLPrcssr-onSrfcChngd0(J-swtJOGLProcessor)
+    GOBACK.
+END FUNCTION DsplyInfSngltn-processForced0.
 
-function TDisplayInfoSingleton.getTop: Integer;
-begin
-        Exit(Self.top);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DisplayInfoSingleton-update2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-aLastWidth BINARY-DOUBLE.
+01 J-aLastHeight BINARY-DOUBLE.
+01 J-aFullWidth BINARY-DOUBLE.
+01 J-aFullHeight BINARY-DOUBLE.
+01 J-stringMaker BINARY-DOUBLE.
+01 J-features BINARY-DOUBLE.
+01 J-openGLFeatureFactory BINARY-DOUBLE.
+01 J-operatingSystemInterface BINARY-DOUBLE.
+01 jtemp35 BINARY-DOUBLE.
+01 jtemp36 BINARY-DOUBLE.
+01 jtemp37 BINARY-DOUBLE.
+01 jtemp38 BINARY-DOUBLE.
+01 jtemp39 BINARY-DOUBLE.
+01 jtemp40 BINARY-DOUBLE.
+01 jtemp41 BINARY-DOUBLE.
+01 jtemp42 BINARY-DOUBLE.
+01 jtemp43 BINARY-DOUBLE.
+01 jtemp44 BINARY-DOUBLE.
+01 jtemp45 BINARY-DOUBLE.
+01 jtemp46 BINARY-DOUBLE.
+01 jtemp47 COMP-2.
+01 jtemp48 BINARY-DOUBLE.
+01 jtemp49 BINARY-DOUBLE.
+01 jtemp50 BINARY-DOUBLE.
+01 jtemp51 COMP-2.
+01 jtemp52 COMP-2.
+01 jtemp53 BINARY-DOUBLE.
+01 jtemp54 BINARY-DOUBLE.
+01 jtemp55 BINARY-DOUBLE.
+01 jtemp56 COMP-2.
+01 jtemp57 BINARY-DOUBLE.
+01 jtemp58 BINARY-DOUBLE.
+01 jtemp59 BINARY-DOUBLE.
+01 jtemp60 BINARY-DOUBLE.
+01 jtemp61 BINARY-DOUBLE.
+01 jtemp62 BINARY-DOUBLE.
+01 jtemp63 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-displayable BINARY-DOUBLE.
+01 J-reason BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-displayable J-reason RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-aLastWidth = FUNCTION Displayable-getWidth0(J-displayable)
+        COMPUTE J-aLastHeight = FUNCTION Displayable-getHeight0(J-displayable)
+        COMPUTE J-aFullWidth = J-aLastWidth
+        COMPUTE J-aFullHeight = J-aLastHeight
+        COMPUTE J-stringMaker = FUNCTION StringMaker-new0
+        COMPUTE jtemp43 = FUNCTION CommonLabels-getInstance0
+        COMPUTE jtemp42 = FUNCTION StringMaker-append1(J-stringMaker, FUNCTION JR-GET(jtemp43, "f_START_LABEL"))
+        COMPUTE jtemp41 = FUNCTION StringMaker-append1(jtemp42, J-reason)
+        COMPUTE jtemp40 = FUNCTION StringMaker-append1(jtemp41, FUNCTION JR-GET(J-THIS, "f_LAST_WIDTH"))
+        COMPUTE jtemp39 = FUNCTION StringMaker-appendint1(jtemp40, J-aLastWidth)
+        COMPUTE jtemp38 = FUNCTION StringMaker-append1(jtemp39, FUNCTION JR-GET(J-THIS, "f_LAST_HEIGHT"))
+        COMPUTE jtemp37 = FUNCTION StringMaker-appendint1(jtemp38, J-aLastHeight)
+        COMPUTE jtemp36 = FUNCTION StringMaker-append1(jtemp37, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonSeps"), "f_SPACE"))
+        COMPUTE jtemp35 = FUNCTION StringMaker-append1(jtemp36, FUNCTION DisplayInfoSingleton-toString0(J-THIS))
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp35), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_UPDATE"))
+        IF ((J-aLastWidth > 0) AND (J-aLastHeight > 0))
+            COMPUTE J-features = FUNCTION Features-getInstance0
+            COMPUTE J-openGLFeatureFactory = FUNCTION OpnGLFtrFctry-getInstance0
+            IF (((NOT (FUNCTION Features-isDefault1(J-features, FUNCTION JR-GET(J-openGLFeatureFactory, "f_OPENGL")) = 1)) OR (FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_last"), FUNCTION JR-GET(J-THIS, "f_WIDTH")) NOT =
+        J-aLastWidth)) OR (FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_last"), FUNCTION JR-GET(J-THIS, "f_HEIGHT")) NOT = J-aLastHeight))
+                COMPUTE jtemp44 = 0
+                COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringMaker, jtemp44, FUNCTION StringMaker-length0(J-stringMaker))
+                COMPUTE jtemp45 = FUNCTION StringMaker-append1(J-stringMaker, FUNCTION JR-GET(J-THIS, "f_UPDATE_FROM_ORIENTATION_CHANGE"))
+                COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp45), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_UPDATE"))
+                COMPUTE jtemp46 = FUNCTION OprtngSystmFctry-getInstance0
+                COMPUTE J-operatingSystemInterface = FUNCTION OprtngSystmFctry-gtOprtng62787(jtemp46)
+                IF (FUNCTION GnrcOprtngSystm-isOverScan0(J-operatingSystemInterface) = 1)
+                    COMPUTE J-aLastWidth = (FUNCTION MOD(FUNCTION INTEGER-PART((FUNCTION MOD((J-aLastWidth * FUNCTION GnrcOprtngSystm-gtOvrScnX73554(J-operatingSystemInterface)) + 2147483648, 4294967296) - 2147483648) / 100) + 2147483648,
+        4294967296) - 2147483648)
+                    COMPUTE J-aLastHeight = (FUNCTION MOD(FUNCTION INTEGER-PART((FUNCTION MOD((J-aLastHeight * FUNCTION GnrcOprtngSystm-gtOvrScnY60738(J-operatingSystemInterface)) + 2147483648, 4294967296) - 2147483648) / 100) +
+        2147483648, 4294967296) - 2147483648)
+                END-IF
+                IF (FUNCTION GnrcOprtngSystm-isScalable0(J-operatingSystemInterface) = 1)
+                    IF (FUNCTION DsplyInfSngltn-isPortraitWH2(J-THIS, J-aLastWidth, J-aLastHeight) = 1)
+                        IF (J-aLastHeight > FUNCTION JR-GETF(J-THIS, "f_scaleLargestTo"))
+                            COMPUTE JVALUEF = (FUNCTION JR-GETF(J-THIS, "f_scaleLargestTo") / J-aLastHeight)
+                            COMPUTE JDISCARD = FUNCTION JR-SETF(J-THIS, "f_displayRatio", JVALUEF)
+                            COMPUTE JVALUEF = (J-aLastHeight / FUNCTION JR-GETF(J-THIS, "f_scaleLargestTo"))
+                            COMPUTE JDISCARD = FUNCTION JR-SETF(J-THIS, "f_ratio", JVALUEF)
+                            COMPUTE jtemp53 = 0
+                            COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringMaker, jtemp53, FUNCTION StringMaker-length0(J-stringMaker))
+                            COMPUTE jtemp55 = FUNCTION StringMaker-append1(J-stringMaker, FUNCTION JR-GET(J-THIS, "f_ADJUSTING_FOR_SCALING_IN_PORTRAIT"))
+                            COMPUTE jtemp54 = FUNCTION StringMaker-appendfloat1(jtemp55, FUNCTION JR-GETF(J-THIS, "f_displayRatio"))
+                            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp54), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_UPDATE"))
+                            COMPUTE J-aLastWidth = FUNCTION JR-D2I(((J-aLastWidth * FUNCTION JR-GETF(J-THIS, "f_displayRatio"))))
+                            COMPUTE J-aLastHeight = FUNCTION JR-D2I(((J-aLastHeight * FUNCTION JR-GETF(J-THIS, "f_displayRatio"))))
+                            COMPUTE jtemp56 = FUNCTION JR-GETF(J-THIS, "f_ratio")
+                            COMPUTE JDISCARD = FUNCTION BaseScalable-scale1(FUNCTION JR-GET(J-THIS, "f_scalableListener"), jtemp56)
+                        ELSE
+                            COMPUTE JVALUEF = 1.0
+                            COMPUTE JDISCARD = FUNCTION JR-SETF(J-THIS, "f_ratio", JVALUEF)
+                            COMPUTE jtemp52 = FUNCTION JR-GETF(J-THIS, "f_ratio")
+                            COMPUTE JDISCARD = FUNCTION BaseScalable-scale1(FUNCTION JR-GET(J-THIS, "f_scalableListener"), jtemp52)
+                        END-IF
+                    ELSE
+                        IF (J-aLastWidth > FUNCTION JR-GETF(J-THIS, "f_scaleLargestTo"))
+                            COMPUTE JVALUEF = (FUNCTION JR-GETF(J-THIS, "f_scaleLargestTo") / J-aLastWidth)
+                            COMPUTE JDISCARD = FUNCTION JR-SETF(J-THIS, "f_displayRatio", JVALUEF)
+                            COMPUTE JVALUEF = (J-aLastWidth / FUNCTION JR-GETF(J-THIS, "f_scaleLargestTo"))
+                            COMPUTE JDISCARD = FUNCTION JR-SETF(J-THIS, "f_ratio", JVALUEF)
+                            COMPUTE jtemp48 = 0
+                            COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringMaker, jtemp48, FUNCTION StringMaker-length0(J-stringMaker))
+                            COMPUTE jtemp50 = FUNCTION StringMaker-append1(J-stringMaker, FUNCTION JR-GET(J-THIS, "f_ADJUSTING_FOR_SCALING_IN_LANDSCAPE"))
+                            COMPUTE jtemp49 = FUNCTION StringMaker-appendfloat1(jtemp50, FUNCTION JR-GETF(J-THIS, "f_displayRatio"))
+                            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp49), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_UPDATE"))
+                            COMPUTE J-aLastWidth = FUNCTION JR-D2I(((J-aLastWidth * FUNCTION JR-GETF(J-THIS, "f_displayRatio"))))
+                            COMPUTE J-aLastHeight = FUNCTION JR-D2I(((J-aLastHeight * FUNCTION JR-GETF(J-THIS, "f_displayRatio"))))
+                            COMPUTE jtemp51 = FUNCTION JR-GETF(J-THIS, "f_ratio")
+                            COMPUTE JDISCARD = FUNCTION BaseScalable-scale1(FUNCTION JR-GET(J-THIS, "f_scalableListener"), jtemp51)
+                        ELSE
+                            COMPUTE JVALUEF = 1.0
+                            COMPUTE JDISCARD = FUNCTION JR-SETF(J-THIS, "f_ratio", JVALUEF)
+                            COMPUTE jtemp47 = FUNCTION JR-GETF(J-THIS, "f_ratio")
+                            COMPUTE JDISCARD = FUNCTION BaseScalable-scale1(FUNCTION JR-GET(J-THIS, "f_scalableListener"), jtemp47)
+                        END-IF
+                    END-IF
+                END-IF
+                COMPUTE jtemp57 = 0
+                COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringMaker, jtemp57, FUNCTION StringMaker-length0(J-stringMaker))
+                COMPUTE jtemp62 = FUNCTION StringMaker-append1(J-stringMaker, FUNCTION JR-GET(J-THIS, "f_UPDATE_FROM_ORIENTATION_CHANGE"))
+                COMPUTE jtemp61 = FUNCTION StringMaker-append1(jtemp62, FUNCTION JR-GET(J-THIS, "f_LAST_WIDTH"))
+                COMPUTE jtemp60 = FUNCTION StringMaker-appendint1(jtemp61, J-aLastWidth)
+                COMPUTE jtemp59 = FUNCTION StringMaker-append1(jtemp60, FUNCTION JR-GET(J-THIS, "f_LAST_HEIGHT"))
+                COMPUTE jtemp58 = FUNCTION StringMaker-appendint1(jtemp59, J-aLastHeight)
+                COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp58), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_UPDATE"))
+                COMPUTE JVALUE = (FUNCTION MOD((J-aFullWidth - J-aLastWidth) + 2147483648, 4294967296) - 2147483648)
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_xOffset", JVALUE)
+                COMPUTE JVALUE = (FUNCTION MOD((J-aFullHeight - J-aLastHeight) + 2147483648, 4294967296) - 2147483648)
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_yOffset", JVALUE)
+                COMPUTE JVALUE = FUNCTION BaseScalable-getLeft1(FUNCTION JR-GET(J-THIS, "f_scalableListener"), FUNCTION JR-GET(J-THIS, "f_xOffset"))
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_left", JVALUE)
+                COMPUTE JVALUE = FUNCTION BaseScalable-getTop1(FUNCTION JR-GET(J-THIS, "f_scalableListener"), FUNCTION JR-GET(J-THIS, "f_yOffset"))
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_top", JVALUE)
+                COMPUTE JVALUE = J-aFullWidth
+                COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_full"), FUNCTION JR-GET(J-THIS, "f_WIDTH"), JVALUE)
+                COMPUTE JVALUE = J-aFullHeight
+                COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_full"), FUNCTION JR-GET(J-THIS, "f_HEIGHT"), JVALUE)
+                COMPUTE JVALUE = J-aLastWidth
+                COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_last"), FUNCTION JR-GET(J-THIS, "f_WIDTH"), JVALUE)
+                COMPUTE JVALUE = (FUNCTION JR-SHIFT(JFIVE, FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_last"), FUNCTION JR-GET(J-THIS, "f_WIDTH")), 1))
+                COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_lastHalf"), FUNCTION JR-GET(J-THIS, "f_WIDTH"), JVALUE)
+                COMPUTE JVALUE = J-aLastHeight
+                COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_last"), FUNCTION JR-GET(J-THIS, "f_HEIGHT"), JVALUE)
+                COMPUTE JVALUE = (FUNCTION JR-SHIFT(JFIVE, FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_last"), FUNCTION JR-GET(J-THIS, "f_HEIGHT")), 1))
+                COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_lastHalf"), FUNCTION JR-GET(J-THIS, "f_HEIGHT"), JVALUE)
+                COMPUTE jtemp63 = FUNCTION SWTJOGLProcessor-getInstance0
+                COMPUTE JDISCARD = FUNCTION SWTJOGLProcessor-setCustom3(jtemp63, J-aLastWidth, J-aLastHeight, FUNCTION JR-GETF(J-THIS, "f_ratio"))
+                COMPUTE JDISCARD = FUNCTION DisplayInfoSingleton-add1(J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_UPDATE"))
+            END-IF
+        END-IF
+    GOBACK.
+END FUNCTION DisplayInfoSingleton-update2.
 
-function TDisplayInfoSingleton.getLeft: Integer;
-begin
-        Exit(Self.left);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DisplayInfoSingleton-toString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringBuffer BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE J-RESULT = FUNCTION DsplyInfSngltn-toStringAppend1(J-THIS, J-stringBuffer)
+        GOBACK
+    GOBACK.
+END FUNCTION DisplayInfoSingleton-toString0.
 
-function TDisplayInfoSingleton.getLastWidth: Integer;
-begin
-        Exit(Self.last[Self.WIDTH]);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DsplyInfSngltn-toStringAppend1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp64 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-stringBuffer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-stringBuffer RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_DISPLAY_INFO"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_FULL"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonLabels"), "f_WIDTH_LABEL"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_full"), FUNCTION JR-GET(J-THIS, "f_WIDTH")))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonSeps"), "f_SPACE"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_FULL"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonLabels"), "f_HEIGHT_LABEL"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_full"), FUNCTION JR-GET(J-THIS, "f_HEIGHT")))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonSeps"), "f_SPACE"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_LAST"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonLabels"), "f_WIDTH_LABEL"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_last"), FUNCTION JR-GET(J-THIS, "f_WIDTH")))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonSeps"), "f_SPACE"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_LAST"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonLabels"), "f_HEIGHT_LABEL"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_last"), FUNCTION JR-GET(J-THIS, "f_HEIGHT")))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonSeps"), "f_SPACE"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_LAST_HALF"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonLabels"), "f_WIDTH_LABEL"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_lastHalf"), FUNCTION JR-GET(J-THIS, "f_WIDTH")))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonSeps"), "f_SPACE"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_LAST_HALF"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonLabels"), "f_HEIGHT_LABEL"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_lastHalf"), FUNCTION JR-GET(J-THIS, "f_HEIGHT")))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonSeps"), "f_SPACE"))
+        COMPUTE jtemp64 = ((FUNCTION DsplyInfSngltn-isPortrait0(J-THIS)) * (FUNCTION JR-GET(J-THIS, "f_PORTRAIT")) + (1 - (FUNCTION DsplyInfSngltn-isPortrait0(J-THIS))) * (FUNCTION JR-GET(J-THIS, "f_LANDSCAPE")))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, jtemp64)
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(J-stringBuffer)
+        GOBACK
+    GOBACK.
+END FUNCTION DsplyInfSngltn-toStringAppend1.
 
-function TDisplayInfoSingleton.getLastHeight: Integer;
-begin
-        Exit(Self.last[Self.HEIGHT]);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DisplayInfoSingleton-getTop0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_top")
+        GOBACK
+    GOBACK.
+END FUNCTION DisplayInfoSingleton-getTop0.
 
-function TDisplayInfoSingleton.getLastHalfWidth: Integer;
-begin
-        Exit(Self.lastHalf[Self.WIDTH]);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DisplayInfoSingleton-getLeft0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_left")
+        GOBACK
+    GOBACK.
+END FUNCTION DisplayInfoSingleton-getLeft0.
 
-function TDisplayInfoSingleton.getLastHalfHeight: Integer;
-begin
-        Exit(Self.lastHalf[Self.HEIGHT]);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DsplyInfSngltn-getLastWidth0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_last"), FUNCTION JR-GET(J-THIS, "f_WIDTH"))
+        GOBACK
+    GOBACK.
+END FUNCTION DsplyInfSngltn-getLastWidth0.
 
-function TDisplayInfoSingleton.getCustomLastWidth: Integer;
-begin
-        Exit(Self.last[Self.CUSTOM_WIDTH]);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DsplyInfSngltn-getLastHeight0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_last"), FUNCTION JR-GET(J-THIS, "f_HEIGHT"))
+        GOBACK
+    GOBACK.
+END FUNCTION DsplyInfSngltn-getLastHeight0.
 
-function TDisplayInfoSingleton.getCustomLastHeight: Integer;
-begin
-        Exit(Self.last[Self.CUSTOM_HEIGHT]);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DsplyInfSngltn-gtLstHlfWdth0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_lastHalf"), FUNCTION JR-GET(J-THIS, "f_WIDTH"))
+        GOBACK
+    GOBACK.
+END FUNCTION DsplyInfSngltn-gtLstHlfWdth0.
 
-function TDisplayInfoSingleton.getRawLastWidth: Integer;
-begin
-        Exit(Self.last[Self.WIDTH]);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DsplyInfSngltn-gtLstHlfHght0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_lastHalf"), FUNCTION JR-GET(J-THIS, "f_HEIGHT"))
+        GOBACK
+    GOBACK.
+END FUNCTION DsplyInfSngltn-gtLstHlfHght0.
 
-function TDisplayInfoSingleton.getRawLastHeight: Integer;
-begin
-        Exit(Self.last[Self.HEIGHT]);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DsplyInfSngltn-gtCstmLstWdth0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_last"), FUNCTION JR-GET(J-THIS, "f_CUSTOM_WIDTH"))
+        GOBACK
+    GOBACK.
+END FUNCTION DsplyInfSngltn-gtCstmLstWdth0.
 
-procedure TDisplayInfoSingleton.setCustom(width: Integer; height: Integer);
-begin
-        Self.last[Self.CUSTOM_WIDTH] := width;
-        Self.lastHalf[Self.CUSTOM_WIDTH] := (TJava.SignedRightShift(Self.last[Self.CUSTOM_WIDTH], 1));
-        Self.last[Self.CUSTOM_HEIGHT] := height;
-        Self.lastHalf[Self.CUSTOM_HEIGHT] := (TJava.SignedRightShift(Self.last[Self.CUSTOM_HEIGHT], 1));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DsplyInfSngltn-gtCstmLstHght0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_last"), FUNCTION JR-GET(J-THIS, "f_CUSTOM_HEIGHT"))
+        GOBACK
+    GOBACK.
+END FUNCTION DsplyInfSngltn-gtCstmLstHght0.
 
-procedure TDisplayInfoSingleton.setScalableListener(scalableListener_: TBaseScalable);
-begin
-        Self.scalableListener := scalableListener_;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DsplyInfSngltn-gtRwLstWdth0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_last"), FUNCTION JR-GET(J-THIS, "f_WIDTH"))
+        GOBACK
+    GOBACK.
+END FUNCTION DsplyInfSngltn-gtRwLstWdth0.
 
-function TDisplayInfoSingleton.getScalableListener: IScalableListener;
-begin
-        Exit(Self.scalableListener);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DsplyInfSngltn-gtRwLstHght0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_last"), FUNCTION JR-GET(J-THIS, "f_HEIGHT"))
+        GOBACK
+    GOBACK.
+END FUNCTION DsplyInfSngltn-gtRwLstHght0.
 
-function TDisplayInfoSingleton.getRatio: Single;
-begin
-        Exit(Self.ratio);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DsplyInfSngltn-setCustom2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-width J-height RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-width
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_last"), FUNCTION JR-GET(J-THIS, "f_CUSTOM_WIDTH"), JVALUE)
+        COMPUTE JVALUE = (FUNCTION JR-SHIFT(JFIVE, FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_last"), FUNCTION JR-GET(J-THIS, "f_CUSTOM_WIDTH")), 1))
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_lastHalf"), FUNCTION JR-GET(J-THIS, "f_CUSTOM_WIDTH"), JVALUE)
+        COMPUTE JVALUE = J-height
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_last"), FUNCTION JR-GET(J-THIS, "f_CUSTOM_HEIGHT"), JVALUE)
+        COMPUTE JVALUE = (FUNCTION JR-SHIFT(JFIVE, FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_last"), FUNCTION JR-GET(J-THIS, "f_CUSTOM_HEIGHT")), 1))
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_lastHalf"), FUNCTION JR-GET(J-THIS, "f_CUSTOM_HEIGHT"), JVALUE)
+    GOBACK.
+END FUNCTION DsplyInfSngltn-setCustom2.
 
-function TDisplayInfoSingleton.getDisplayRatio: Single;
-begin
-        Exit(Self.displayRatio);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DsplyInfSngltn-stSclblLstnr1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-scalableListener BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-scalableListener RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-scalableListener
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_scalableListener", JVALUE)
+    GOBACK.
+END FUNCTION DsplyInfSngltn-stSclblLstnr1.
 
-procedure TDisplayInfoSingleton.setOffset(left: Integer; top: Integer);
-begin
-        Self.left := left;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DsplyInfSngltn-gtSclblLstnr0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_scalableListener")
+        GOBACK
+    GOBACK.
+END FUNCTION DsplyInfSngltn-gtSclblLstnr0.
 
-function TDisplayInfoSingleton.getxOffset: Integer;
-begin
-        Exit(Self.xOffset);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DisplayInfoSingleton-getRatio0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT COMP-2.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GETF(J-THIS, "f_ratio")
+        GOBACK
+    GOBACK.
+END FUNCTION DisplayInfoSingleton-getRatio0.
 
-function TDisplayInfoSingleton.getyOffset: Integer;
-begin
-        Exit(Self.yOffset);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DsplyInfSngltn-gtDsplyRt0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT COMP-2.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GETF(J-THIS, "f_displayRatio")
+        GOBACK
+    GOBACK.
+END FUNCTION DsplyInfSngltn-gtDsplyRt0.
 
-initialization
-  {AB:INITIALIZATION}
-  TDisplayInfoSingleton.SINGLETON := TDisplayInfoSingleton.Create();
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DsplyInfSngltn-setOffset2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-left BINARY-DOUBLE.
+01 J-top BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-left J-top RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-left
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_left", JVALUE)
+    GOBACK.
+END FUNCTION DsplyInfSngltn-setOffset2.
 
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DsplyInfSngltn-getxOffset0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_xOffset")
+        GOBACK
+    GOBACK.
+END FUNCTION DsplyInfSngltn-getxOffset0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DsplyInfSngltn-getyOffset0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_yOffset")
+        GOBACK
+    GOBACK.
+END FUNCTION DsplyInfSngltn-getyOffset0.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. DisplayInfoSingleton-toString.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION DisplayInfoSingleton-toString0(J-THIS)
+    GOBACK.
+END PROGRAM DisplayInfoSingleton-toString.
 

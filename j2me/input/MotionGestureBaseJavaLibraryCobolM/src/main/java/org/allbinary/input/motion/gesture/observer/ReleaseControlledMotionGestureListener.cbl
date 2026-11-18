@@ -1,197 +1,458 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion.gesture.observer
+*> Java class ReleaseControlledMotionGestureListener
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion.gesture.observer
-unit ReleaseControlledMotionGestureListener;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, MotionGestureInput, LogUtil, AllBinaryEventObject, CommonStrings, BasicArrayList, CompleteMotionGestureListenerInterface, MotionGestureEvent, MotionGestureEventListener, BaseMotionGestureEventListener, EventListenerInterface;
-
-type
-  {AB:TYPES}
-  TReleaseControlledMotionGestureListener = class(TInterfacedObject, IMotionGestureEventListener, IBaseMotionGestureEventListener, IEventListenerInterface)
-  public
-    logUtil: TLogUtil;
-    commonStrings: TCommonStrings;
-    currentMotionGesture: TMotionGestureInput;
-    isMouseGestureOccurring: Boolean;
-    motionGestureCollection: TBasicArrayList;
-    signed: ICompleteMotionGestureListenerInterface;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(signed: ICompleteMotionGestureListenerInterface);
-        procedure onEvent(eventObject: TAllBinaryEventObject); virtual;
-        procedure onUpMotionGestureEvent(ev: TMotionGestureEvent); virtual;
-        procedure onDownMotionGestureEvent(ev: TMotionGestureEvent); virtual;
-        procedure onLeftMotionGestureEvent(ev: TMotionGestureEvent); virtual;
-        procedure onRightMotionGestureEvent(ev: TMotionGestureEvent); virtual;
-        procedure onDiagonalDownRightMotionGestureEvent(ev: TMotionGestureEvent); virtual;
-        procedure onDiagonalDownLeftMotionGestureEvent(ev: TMotionGestureEvent); virtual;
-        procedure onDiagonalUpRightMotionGestureEvent(ev: TMotionGestureEvent); virtual;
-        procedure onDiagonalUpLeftMotionGestureEvent(ev: TMotionGestureEvent); virtual;
-        procedure onPressedMotionGestureEvent(ev: TMotionGestureEvent); virtual;
-        procedure onScrolledMotionGestureEvent(motionGestureEvent_: TMotionGestureEvent); virtual;
-        procedure released(ev: TMotionGestureEvent); virtual;
-        procedure onMotionGestureEvent(ev: TMotionGestureEvent); virtual;
-  end;
-
-implementation
-uses
-  TouchMotionGestureFactory, ForcedLogUtil, StringMaker, StringUtil, BasicArrayListD;
-
-
-{AB:CODE}
-
-procedure TReleaseControlledMotionGestureListener.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.commonStrings := TCommonStrings.getInstance();
-  Self.currentMotionGesture := TTouchMotionGestureFactory.getInstance().NO_MOTION;
-  Self.isMouseGestureOccurring := False;
-  Self.motionGestureCollection := TBasicArrayListD.Create();
-  
-end;
-
-function TReleaseControlledMotionGestureListener.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RlsCntrlldMtnGstrLstnr-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-signed BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-signed RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ReleaseControlledMotionGestureListener")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_currentMotionGesture")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_isMouseGestureOccurring")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_motionGestureCollection")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_signed")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
+    COMPUTE jtemp1 = FUNCTION TchMtnGstrFctry-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_NO_MOTION")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_currentMotionGesture", JVALUE)
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_isMouseGestureOccurring", JVALUE)
+    COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_motionGestureCollection", JVALUE)
     
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_START"), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"),
+        "f_CONSTRUCTOR"))
+        COMPUTE JVALUE = J-signed
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_signed", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION RlsCntrlldMtnGstrLstnr-new1.
 
-constructor TReleaseControlledMotionGestureListener.Create(signed: ICompleteMotionGestureListenerInterface);
-begin
-    inherited Create;
-    InitFields;
-        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_);
-        Self.signed := signed;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RlsCntrlldMtnGstrLstnr-onEvnt1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION ForcedLogUtil-log2(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_NOT_IMPLEMENTED"), J-THIS)
+    GOBACK.
+END FUNCTION RlsCntrlldMtnGstrLstnr-onEvnt1.
 
-procedure TReleaseControlledMotionGestureListener.onEvent(eventObject: TAllBinaryEventObject);
-begin
-        TForcedLogUtil.log(Self.commonStrings.NOT_IMPLEMENTED, TJava.Box(Self));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RlsCntrlldMtnGstrLstnr-on40858.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ev BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ev RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION RlsCntrlldMtnGstrLstnr-on32272(J-THIS, J-ev)
+    GOBACK.
+END FUNCTION RlsCntrlldMtnGstrLstnr-on40858.
 
-procedure TReleaseControlledMotionGestureListener.onUpMotionGestureEvent(ev: TMotionGestureEvent);
-begin
-        Self.onMotionGestureEvent(ev);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RlsCntrlldMtnGstrLstnr-on75664.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ev BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ev RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION RlsCntrlldMtnGstrLstnr-on32272(J-THIS, J-ev)
+    GOBACK.
+END FUNCTION RlsCntrlldMtnGstrLstnr-on75664.
 
-procedure TReleaseControlledMotionGestureListener.onDownMotionGestureEvent(ev: TMotionGestureEvent);
-begin
-        Self.onMotionGestureEvent(ev);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RlsCntrlldMtnGstrLstnr-on93926.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ev BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ev RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION RlsCntrlldMtnGstrLstnr-on32272(J-THIS, J-ev)
+    GOBACK.
+END FUNCTION RlsCntrlldMtnGstrLstnr-on93926.
 
-procedure TReleaseControlledMotionGestureListener.onLeftMotionGestureEvent(ev: TMotionGestureEvent);
-begin
-        Self.onMotionGestureEvent(ev);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RlsCntrlldMtnGstrLstnr-on15155.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ev BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ev RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION RlsCntrlldMtnGstrLstnr-on32272(J-THIS, J-ev)
+    GOBACK.
+END FUNCTION RlsCntrlldMtnGstrLstnr-on15155.
 
-procedure TReleaseControlledMotionGestureListener.onRightMotionGestureEvent(ev: TMotionGestureEvent);
-begin
-        Self.onMotionGestureEvent(ev);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RlsCntrlldMtnGstrLstnr-on60981.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ev BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ev RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION RlsCntrlldMtnGstrLstnr-on32272(J-THIS, J-ev)
+    GOBACK.
+END FUNCTION RlsCntrlldMtnGstrLstnr-on60981.
 
-procedure TReleaseControlledMotionGestureListener.onDiagonalDownRightMotionGestureEvent(ev: TMotionGestureEvent);
-begin
-        Self.onMotionGestureEvent(ev);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RlsCntrlldMtnGstrLstnr-on84738.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ev BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ev RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION RlsCntrlldMtnGstrLstnr-on32272(J-THIS, J-ev)
+    GOBACK.
+END FUNCTION RlsCntrlldMtnGstrLstnr-on84738.
 
-procedure TReleaseControlledMotionGestureListener.onDiagonalDownLeftMotionGestureEvent(ev: TMotionGestureEvent);
-begin
-        Self.onMotionGestureEvent(ev);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RlsCntrlldMtnGstrLstnr-on83411.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ev BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ev RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION RlsCntrlldMtnGstrLstnr-on32272(J-THIS, J-ev)
+    GOBACK.
+END FUNCTION RlsCntrlldMtnGstrLstnr-on83411.
 
-procedure TReleaseControlledMotionGestureListener.onDiagonalUpRightMotionGestureEvent(ev: TMotionGestureEvent);
-begin
-        Self.onMotionGestureEvent(ev);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RlsCntrlldMtnGstrLstnr-on92695.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ev BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ev RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION RlsCntrlldMtnGstrLstnr-on32272(J-THIS, J-ev)
+    GOBACK.
+END FUNCTION RlsCntrlldMtnGstrLstnr-on92695.
 
-procedure TReleaseControlledMotionGestureListener.onDiagonalUpLeftMotionGestureEvent(ev: TMotionGestureEvent);
-begin
-        Self.onMotionGestureEvent(ev);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RlsCntrlldMtnGstrLstnr-on12651.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ev BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ev RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = 1
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_isMouseGestureOccurring", JVALUE)
+        COMPUTE jtemp2 = FUNCTION TchMtnGstrFctry-getInstance0
+        COMPUTE JVALUE = FUNCTION JR-GET(jtemp2, "f_NO_MOTION")
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_currentMotionGesture", JVALUE)
+        COMPUTE JDISCARD = FUNCTION RlsCntrlldMtnGstrLstnr-on32272(J-THIS, J-ev)
+    GOBACK.
+END FUNCTION RlsCntrlldMtnGstrLstnr-on12651.
 
-procedure TReleaseControlledMotionGestureListener.onPressedMotionGestureEvent(ev: TMotionGestureEvent);
-begin
-        Self.isMouseGestureOccurring := True;
-        Self.currentMotionGesture := TTouchMotionGestureFactory.getInstance().NO_MOTION;
-        Self.onMotionGestureEvent(ev);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RlsCntrlldMtnGstrLstnr-on36462.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-motionGestureEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-motionGestureEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION RlsCntrlldMtnGstrLstnr-on36462.
 
-procedure TReleaseControlledMotionGestureListener.onScrolledMotionGestureEvent(motionGestureEvent_: TMotionGestureEvent);
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RlsCntrlldMtnGstrLstnr-rlsd1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ev BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ev RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            IF (FUNCTION JR-GET(J-THIS, "f_isMouseGestureOccurring") = 0)
+                GOBACK
+            END-IF
+            COMPUTE JVALUE = 0
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_isMouseGestureOccurring", JVALUE)
+            COMPUTE JDISCARD = FUNCTION CmpltMtnGstrLstnrIntrfc-o89017(FUNCTION JR-GET(J-THIS, "f_signed"), FUNCTION JR-GET(J-THIS, "f_motionGestureCollection"))
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-clear0(FUNCTION JR-GET(J-THIS, "f_motionGestureCollection"))
+    GOBACK.
+END FUNCTION RlsCntrlldMtnGstrLstnr-rlsd1.
 
-procedure TReleaseControlledMotionGestureListener.released(ev: TMotionGestureEvent);
-begin
-        try
-            if (Self.isMouseGestureOccurring) = (False) then begin
-                Exit;
-            end;
-            Self.isMouseGestureOccurring := False;
-            Self.signed.onMotionGestureCompleted(Self.motionGestureCollection);
-            Self.motionGestureCollection.clear();
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(TStringMaker.Create().append(Self.commonStrings.EXCEPTION_LABEL).append(TStringUtil.getInstance().toString(ev.getMotionGesture())).toString(), TJava.Box(Self), 'release', TJava.Box(e));
-            end;
-        end;
-end;
-    
-
-procedure TReleaseControlledMotionGestureListener.onMotionGestureEvent(ev: TMotionGestureEvent);
-var
-  motionGestureInput_: TMotionGestureInput;
-begin
-        if (Self.isMouseGestureOccurring) = (False) then begin
-            Exit;
-        end;
-        motionGestureInput_ := ev.getMotionGesture();
-        if (motionGestureInput_) = (TTouchMotionGestureFactory.getInstance().PRESSED) then begin
-            Self.onPressedMotionGestureEvent(ev);
-        end else if (motionGestureInput_) = (TTouchMotionGestureFactory.getInstance().RELEASED) then begin
-            Self.released(ev);
-        end else begin
-            if (Self.currentMotionGesture) <> (motionGestureInput_) then begin
-                Self.currentMotionGesture := motionGestureInput_;
-                Self.motionGestureCollection.add(TJava.Box(ev.getMotionGesture()));
-            end;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RlsCntrlldMtnGstrLstnr-on32272.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-motionGestureInput BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ev BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ev RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION JR-GET(J-THIS, "f_isMouseGestureOccurring") = 0)
+            GOBACK
+        END-IF
+        COMPUTE J-motionGestureInput = FUNCTION MtnGstrEvnt-getMotionGesture0(J-ev)
+        COMPUTE jtemp7 = FUNCTION TchMtnGstrFctry-getInstance0
+        IF (J-motionGestureInput = FUNCTION JR-GET(jtemp7, "f_PRESSED"))
+            COMPUTE JDISCARD = FUNCTION RlsCntrlldMtnGstrLstnr-on12651(J-THIS, J-ev)
+        ELSE
+            COMPUTE jtemp8 = FUNCTION TchMtnGstrFctry-getInstance0
+        IF (J-motionGestureInput = FUNCTION JR-GET(jtemp8, "f_RELEASED"))
+            COMPUTE JDISCARD = FUNCTION RlsCntrlldMtnGstrLstnr-rlsd1(J-THIS, J-ev)
+        ELSE
+            IF (FUNCTION JR-GET(J-THIS, "f_currentMotionGesture") NOT = J-motionGestureInput)
+                COMPUTE JVALUE = J-motionGestureInput
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_currentMotionGesture", JVALUE)
+                COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_motionGestureCollection"), FUNCTION MtnGstrEvnt-getMotionGesture0(J-ev))
+            END-IF
+        END-IF
+        END-IF
+    GOBACK.
+END FUNCTION RlsCntrlldMtnGstrLstnr-on32272.
 

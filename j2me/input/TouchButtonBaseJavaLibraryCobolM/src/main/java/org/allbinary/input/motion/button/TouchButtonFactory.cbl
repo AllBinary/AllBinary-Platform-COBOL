@@ -1,131 +1,272 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion.button
+*> Java class TouchButtonFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion.button
-unit TouchButtonFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchBttnFctry-static-SINGLETON.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 TouchButtonFactory-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+01 TouchButtonFactory-jset-SINGLETON BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF TouchButtonFactory-jset-SINGLETON = 0
+        MOVE 1 TO TouchButtonFactory-jset-SINGLETON
+        COMPUTE TouchButtonFactory-jcell-SINGLETON = FUNCTION TouchButtonFactory-new0
+    END-IF
+    MOVE TouchButtonFactory-jcell-SINGLETON TO J-RESULT
+    GOBACK.
+END FUNCTION TchBttnFctry-static-SINGLETON.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchBttnFctrystaticSIS12483.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 TouchButtonFactory-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION TchBttnFctry-static-SINGLETON TO J-RESULT
+    MOVE J-VALUE TO TouchButtonFactory-jcell-SINGLETON
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION TchBttnFctrystaticSIS12483.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TouchButtonFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("TouchButtonFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_LIST")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_list")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_savedList")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_saved")
+    COMPUTE jtemp1 = FUNCTION BscArryLstUtl-getInstance0
+    COMPUTE JVALUE = FUNCTION BscArryLstUtl-gtImmtblInstnc0(jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_LIST", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_LIST")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_LIST")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_savedList", JVALUE)
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_saved", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION TouchButtonFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, BasicArrayList;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchBttnFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION TchBttnFctry-static-SINGLETON
+        GOBACK
+    GOBACK.
+END FUNCTION TchBttnFctry-getInstance0.
 
-type
-  {AB:TYPES}
-  TTouchButtonFactory = class(TObject)
-  public
-    LIST_: TBasicArrayList;
-    list: TBasicArrayList;
-    savedList: TBasicArrayList;
-    saved: Boolean;
-    class var SINGLETON: TTouchButtonFactory;
-    procedure InitFields;
-        class function getInstance: TTouchButtonFactory; static;
-        constructor Create;
-        procedure defaultList; virtual;
-        procedure toggle(save: Boolean; list: TBasicArrayList); virtual;
-        procedure setList(list: TBasicArrayList); virtual;
-        function getList: TBasicArrayList; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchBttnFctry-defaultList0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_LIST")
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
+        COMPUTE jtemp2 = 0
+        COMPUTE JDISCARD = FUNCTION TouchButtonFactory-toggle2(J-THIS, jtemp2, FUNCTION JR-GET(J-THIS, "f_LIST"))
+    GOBACK.
+END FUNCTION TchBttnFctry-defaultList0.
 
-implementation
-uses
-  BasicArrayListUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TouchButtonFactory-toggle2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-save BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-save J-list RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp3 = FUNCTION BscArryLstUtl-getInstance0
+        IF (J-list NOT = FUNCTION BscArryLstUtl-gtImmtblInstnc0(jtemp3))
+            COMPUTE JVALUE = J-list
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_savedList", JVALUE)
+            IF (NOT (FUNCTION JR-GET(J-THIS, "f_saved") = 1))
+                COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_savedList")
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
+            END-IF
+        ELSE
+            IF (J-save = 1)
+                IF (NOT (FUNCTION JR-GET(J-THIS, "f_saved") = 1))
+                    COMPUTE JVALUE = 1
+                    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_saved", JVALUE)
+                    COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_list")
+                    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_savedList", JVALUE)
+                    COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_LIST")
+                    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
+                ELSE
+                    CONTINUE
+                END-IF
+            ELSE
+                COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_savedList")
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
+                COMPUTE JVALUE = 0
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_saved", JVALUE)
+            END-IF
+        END-IF
+    GOBACK.
+END FUNCTION TouchButtonFactory-toggle2.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TouchButtonFactory-setList1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-list RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (J-list = 0)
+            COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+        END-IF
+        COMPUTE JVALUE = J-list
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
+    GOBACK.
+END FUNCTION TouchButtonFactory-setList1.
 
-{AB:CODE}
-
-procedure TTouchButtonFactory.InitFields;
-begin
-  Self.LIST_ := TBasicArrayListUtil.getInstance().getImmutableInstance();
-  Self.list := Self.LIST_;
-  Self.savedList := Self.LIST_;
-  Self.saved := False;
-end;
-    
-
-class function TTouchButtonFactory.getInstance: TTouchButtonFactory;
-begin
-        Exit(TTouchButtonFactory.SINGLETON);
-end;
-    
-
-constructor TTouchButtonFactory.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
-
-procedure TTouchButtonFactory.defaultList;
-begin
-        Self.list := Self.LIST_;
-        Self.toggle(False, Self.LIST_);
-end;
-    
-
-procedure TTouchButtonFactory.toggle(save: Boolean; list: TBasicArrayList);
-begin
-    TJava.MonitorEnter(Self);
-    try
-        if (list) <> (TBasicArrayListUtil.getInstance().getImmutableInstance()) then begin
-            Self.savedList := list;
-            if not (Self.saved) then begin
-                Self.list := Self.savedList;
-            end;
-        end else begin
-            if save then begin
-                if not (Self.saved) then begin
-                    Self.saved := True;
-                    Self.savedList := Self.list;
-                    Self.list := Self.LIST_;
-                end else begin
-                end;
-            end else begin
-                Self.list := Self.savedList;
-                Self.saved := False;
-            end;
-        end;
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
-
-// throws Exception
-procedure TTouchButtonFactory.setList(list: TBasicArrayList);
-begin
-        if (list) = (nil) then begin
-            raise SysUtils.Exception.Create('Null List');
-        end;
-        Self.list := list;
-end;
-    
-
-function TTouchButtonFactory.getList: TBasicArrayList;
-begin
-        Exit(Self.list);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TTouchButtonFactory.SINGLETON := TTouchButtonFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TouchButtonFactory-getList0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_list")
+        GOBACK
+    GOBACK.
+END FUNCTION TouchButtonFactory-getList0.
 

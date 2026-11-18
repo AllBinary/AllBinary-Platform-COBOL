@@ -1,71 +1,71 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.pipeline
+*> Java class RandomTranslation
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.pipeline
-unit RandomTranslation;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RandomTranslation-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("RandomTranslation")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION RandomTranslation-new0.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, BasicArrayList;
-
-type
-  {AB:TYPES}
-  TRandomTranslation = class(TObject)
-  public
-    constructor Create;
-        class function getInstance(vector: TBasicArrayList; howMuch: Integer): TBasicArrayList; static;
-  end;
-
-implementation
-uses
-  BasicGraphicsPipeline, MyRandomFactory;
-
-
-{AB:CODE}
-
-constructor TRandomTranslation.Create;
-begin
-  inherited Create;
-end;
-    
-
-// throws Exception
-class function TRandomTranslation.getInstance(vector: TBasicArrayList; howMuch: Integer): TBasicArrayList;
-var
-  myRandomFactory_: TMyRandomFactory;
-  x: Integer;
-  y: Integer;
-  graphicsPipe: TBasicGraphicsPipeline;
-begin
-        myRandomFactory_ := TMyRandomFactory.getInstance();
-        x := -myRandomFactory_.getNextInt(howMuch);
-        y := myRandomFactory_.getNextInt(howMuch);
-        graphicsPipe := TBasicGraphicsPipeline.Create(vector);
-        graphicsPipe.createMatrix();
-        graphicsPipe.translate(x, y);
-        Exit(graphicsPipe.getMatrix());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. RandomTranslation-getInstance2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-myRandomFactory BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-graphicsPipe BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-vector BINARY-DOUBLE.
+01 J-howMuch BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-vector J-howMuch RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-myRandomFactory = FUNCTION MyRandomFactory-getInstance0
+        COMPUTE J-x = (0 - FUNCTION MyRandomFactory-getNextInt1(J-myRandomFactory, J-howMuch))
+        COMPUTE J-y = FUNCTION MyRandomFactory-getNextInt1(J-myRandomFactory, J-howMuch)
+        COMPUTE J-graphicsPipe = FUNCTION BasicGraphicsPipeline-new1(J-vector)
+        COMPUTE JDISCARD = FUNCTION BscGrphcsPpln-createMatrix0(J-graphicsPipe)
+        COMPUTE JDISCARD = FUNCTION BscGrphcsPpln-translate2(J-graphicsPipe, J-x, J-y)
+        COMPUTE J-RESULT = FUNCTION BscGrphcsPpln-getMatrix0(J-graphicsPipe)
+        GOBACK
+    GOBACK.
+END FUNCTION RandomTranslation-getInstance2.
 

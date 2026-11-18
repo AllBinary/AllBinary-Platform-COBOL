@@ -1,213 +1,381 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.configuration
+*> Java class GameOptionsForm
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.configuration
-unit GameOptionsForm;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameOptionsForm-new4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameFeatureFormUtil BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-commandListener BINARY-DOUBLE.
+01 J-title BINARY-DOUBLE.
+01 J-backgrounBasicColor BINARY-DOUBLE.
+01 J-foregroundBasicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-commandListener J-title J-backgrounBasicColor J-foregroundBasicColor RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameOptionsForm")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_meUtil")
+    COMPUTE JVALUE = FUNCTION MIDPUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_meUtil", JVALUE)
+        CONTINUE
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+        COMPUTE JDISCARD = FUNCTION GmOptnsFrm-addConfiguration0(J-THIS)
+        COMPUTE J-gameFeatureFormUtil = FUNCTION GmFtrFrmUtl-getInstance0
+        COMPUTE jtemp1 = FUNCTION GmFtrChcGrps-gtExclsvInstnc0
+        COMPUTE JDISCARD = FUNCTION GmFtrFrmUtl-addChoiceGroup3(J-gameFeatureFormUtil, J-THIS, FUNCTION JR-CLASS-NAME(jtemp1), FUNCTION Choice-static-EXCLUSIVE)
+        COMPUTE jtemp2 = FUNCTION GmFtrChcGrps-gtMltplInstnc0
+        COMPUTE JDISCARD = FUNCTION GmFtrFrmUtl-addChoiceGroup3(J-gameFeatureFormUtil, J-THIS, FUNCTION JR-CLASS-NAME(jtemp2), FUNCTION Choice-static-MULTIPLE)
+        COMPUTE JDISCARD = FUNCTION GameOptionsForm-initCommands1(J-THIS, J-commandListener)
+        COMPUTE JDISCARD = FUNCTION Form-setItemStateListener1(J-THIS, FUNCTION GmFtrItmSttLstnr-new1(J-THIS))
+        COMPUTE JDISCARD = FUNCTION GmOptnsFrm-addTxtFldsIfSmltd0(J-THIS)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GameOptionsForm-new4.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmOptnsFrm-clsClntInfrmtn1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-abeClientInformation BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-abeClientInformation RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION CommandForm-close0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION GameOptionsForm-save1(J-THIS, J-abeClientInformation)
+    GOBACK.
+END FUNCTION GmOptnsFrm-clsClntInfrmtn1.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmOptnsFrm-addTxtFldsIfSmltd0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-key BINARY-DOUBLE.
+01 J-hashtable BINARY-DOUBLE.
+01 J-listCanBeNull BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp3 = FUNCTION OrientationData-getInstance0
+        COMPUTE J-key = FUNCTION JR-GET(jtemp3, "f_ORIENTATION_SENSOR_INPUT")
+        COMPUTE jtemp4 = FUNCTION GmFtrChcGrps-gtExclsvInstnc0
+        COMPUTE J-hashtable = FUNCTION JR-CLASS-NAME(jtemp4)
+        IF (J-hashtable NOT = 0)
+            COMPUTE J-listCanBeNull = FUNCTION Hashtable-get1(J-hashtable, J-key)
+            IF (J-listCanBeNull NOT = 0)
+                COMPUTE J-list = J-listCanBeNull
+                COMPUTE jtemp5 = FUNCTION SnsrFtrFctry-getInstance0
+                IF (FUNCTION BasicArrayList-contains1(J-list, FUNCTION JR-GET(jtemp5, "f_SIMULATED_ORIENTATION_SENSORS")) = 1)
+                    COMPUTE JDISCARD = FUNCTION GameOptionsForm-addTextFields0(J-THIS)
+                END-IF
+            END-IF
+        END-IF
+    GOBACK.
+END FUNCTION GmOptnsFrm-addTxtFldsIfSmltd0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, CommandListener, MIDPUtil, BasicColor, CommandForm, AbeClientInformationInterface;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameOptionsForm-addTextFields0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-hashtable BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-objectArray BINARY-DOUBLE.
+01 J-gameConfigurationTextInput BINARY-DOUBLE.
+01 J-textField BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-hashtable = FUNCTION GmCnfgrtnTxtInpt-getHashtable0
+        COMPUTE J-size = FUNCTION Hashtable-size0(J-hashtable)
+        COMPUTE jtemp6 = FUNCTION HashtableUtil-getInstance0
+        COMPUTE J-objectArray = FUNCTION HashtableUtil-getKeysAsArray1(jtemp6, J-hashtable)
+        CONTINUE
+        CONTINUE
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE jtemp7 = FUNCTION JR-ARRAY-GET(J-objectArray, J-index)
+            COMPUTE J-gameConfigurationTextInput = FUNCTION Hashtable-get1(J-hashtable, jtemp7)
+            COMPUTE jtemp8 = 30
+            COMPUTE J-textField = FUNCTION TextField-new4(FUNCTION GmCnfgrtnTxtInpt-getLabel0(J-gameConfigurationTextInput), FUNCTION GmCnfgrtnTxtInpt-getText0(J-gameConfigurationTextInput), jtemp8, FUNCTION TextField-static-ANY)
+            COMPUTE JDISCARD = FUNCTION MIDPUtil-appendItem2(FUNCTION JR-GET(J-THIS, "f_meUtil"), J-THIS, J-textField)
+        END-PERFORM
+    GOBACK.
+END FUNCTION GameOptionsForm-addTextFields0.
 
-type
-  {AB:TYPES}
-  TGameOptionsForm = class(TCommandForm)
-  public
-    meUtil: TMIDPUtil;
-    procedure InitFields;
-        constructor Create(commandListener_: ICommandListener; title: string; backgrounBasicColor: TBasicColor; foregroundBasicColor: TBasicColor);
-        procedure closeClientInformation(abeClientInformation: IAbeClientInformationInterface); virtual;
-        procedure addTextFieldsIfSimulated;
-        procedure addTextFields;
-        procedure addConfiguration;
-        procedure initCommands(cmdListener: ICommandListener); override;
-        procedure save(abeClientInformation: IAbeClientInformationInterface); virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmOptnsFrm-addConfiguration0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-METHOD_NAME BINARY-DOUBLE.
+01 J-NAME BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-GAUGE_CHANGE BINARY-DOUBLE.
+01 J-stringMaker BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-gameConfiguration BINARY-DOUBLE.
+01 J-gauge BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-METHOD_NAME = FUNCTION JR-STR("addConfiguration")
+        COMPUTE J-NAME = FUNCTION JR-STR("Name: ")
+        COMPUTE jtemp9 = FUNCTION GmCnfgrtnSngltn-getInstance0
+        COMPUTE J-list = FUNCTION GmCnfgrtnSngltn-gtOptnsBs84511(jtemp9)
+        COMPUTE jtemp10 = FUNCTION MyCommandsFactory-getInstance0
+        COMPUTE J-GAUGE_CHANGE = FUNCTION JR-GET(jtemp10, "f_GAUGE_CHANGE")
+        COMPUTE J-stringMaker = FUNCTION StringMaker-new0
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(J-list)
+        CONTINUE
+        CONTINUE
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST2
+        PERFORM FOREVER
+            IF JFIRST2 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST2
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-gameConfiguration = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
+            COMPUTE jtemp11 = 0
+            COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringMaker, jtemp11, FUNCTION StringMaker-length0(J-stringMaker))
+            COMPUTE jtemp13 = FUNCTION StringMaker-append1(J-stringMaker, J-NAME)
+            COMPUTE jtemp12 = FUNCTION StringMaker-append1(jtemp13, FUNCTION JR-TO-STRING(J-gameConfiguration))
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+            COMPUTE J-gauge = FUNCTION GameConfigurationGauge-new1(J-gameConfiguration)
+            COMPUTE JDISCARD = FUNCTION Gauge-setDefaultCommand1(J-gauge, J-GAUGE_CHANGE)
+            COMPUTE JDISCARD = FUNCTION Gauge-setItemCommandListener1(J-gauge, FUNCTION GmFtrItmCmmndLstnr-new1(J-THIS))
+            COMPUTE JDISCARD = FUNCTION MIDPUtil-appendItem2(FUNCTION JR-GET(J-THIS, "f_meUtil"), J-THIS, J-gauge)
+        END-PERFORM
+    GOBACK.
+END FUNCTION GmOptnsFrm-addConfiguration0.
 
-implementation
-uses
-  GameConfigurationTextInput, GameConfigurationSingleton, GameConfiguration, GameConfigurationGauge, GameConfigurationUtil, GameConfigurationCentral, Choice, Command, Item, TextField, GameCommandsFactory, GameFeatureChoiceGroups, GameFeatureFormUtil, GameFeatureItemCommandListener, GameFeatureItemStateListener, SensorFeatureFactory, GameConfigurationPersistanceSingleton, KeyValuePersistance, MyCommandsFactory, OrientationData, StringMaker, BasicArrayList, HashtableUtil, StdUtil, ABHashtable;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameOptionsForm-initCommands1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameCommandsFactory BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-cmdListener BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-cmdListener RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-gameCommandsFactory = FUNCTION GmCmmndsFctry-getInstance0
+        COMPUTE JDISCARD = FUNCTION CommandForm-removeAllCommands0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION CommandForm-addCommand1(J-THIS, FUNCTION JR-GET(J-gameCommandsFactory, "f_CLOSE_OPTIONS"))
+        COMPUTE JDISCARD = FUNCTION CommandForm-addCommand1(J-THIS, FUNCTION JR-GET(J-gameCommandsFactory, "f_DEFAULT_OPTIONS"))
+        COMPUTE JDISCARD = FUNCTION Form-setCommandListener1(J-THIS, J-cmdListener)
+    GOBACK.
+END FUNCTION GameOptionsForm-initCommands1.
 
-
-{AB:CODE}
-
-procedure TGameOptionsForm.InitFields;
-begin
-  Self.meUtil := TMIDPUtil.getInstance();
-end;
-    
-
-constructor TGameOptionsForm.Create(commandListener_: ICommandListener; title: string; backgrounBasicColor: TBasicColor; foregroundBasicColor: TBasicColor);
-var
-  gameFeatureFormUtil_: TGameFeatureFormUtil;
-begin
-        inherited Create(commandListener_, title, backgrounBasicColor, foregroundBasicColor);
-        InitFields;
-        Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.CONSTRUCTOR_);
-        Self.addConfiguration();
-        gameFeatureFormUtil_ := TGameFeatureFormUtil.getInstance();
-        gameFeatureFormUtil_.addChoiceGroup(Self, TGameFeatureChoiceGroups.getExclusiveInstance().get(), IChoice.EXCLUSIVE);
-        gameFeatureFormUtil_.addChoiceGroup(Self, TGameFeatureChoiceGroups.getMultipleInstance().get(), IChoice.MULTIPLE);
-        Self.initCommands(commandListener_);
-        Self.setItemStateListener(TGameFeatureItemStateListener.Create(Self));
-        Self.addTextFieldsIfSimulated();
-end;
-    
-
-// throws Exception
-procedure TGameOptionsForm.closeClientInformation(abeClientInformation: IAbeClientInformationInterface);
-begin
-        inherited close();
-        Self.save(abeClientInformation);
-end;
-    
-
-procedure TGameOptionsForm.addTextFieldsIfSimulated;
-var
-  key: string;
-  hashtable: TABHashtable<TObject, TObject>;
-  listCanBeNull: TObject;
-  list: TBasicArrayList;
-begin
-        key := TOrientationData.getInstance().ORIENTATION_SENSOR_INPUT;
-        hashtable := TGameFeatureChoiceGroups.getExclusiveInstance().get();
-        if (hashtable) <> (nil) then begin
-            listCanBeNull := TJava.Box(hashtable.get(TJava.Box(key)));
-            if (listCanBeNull) <> (nil) then begin
-                list := TBasicArrayList(TJava.ToObject(listCanBeNull));
-                if list.contains(TJava.Box(TSensorFeatureFactory.getInstance().SIMULATED_ORIENTATION_SENSORS)) then begin
-                    Self.addTextFields();
-                end;
-            end;
-        end;
-end;
-    
-
-procedure TGameOptionsForm.addTextFields;
-var
-  hashtable: TABHashtable<TObject, TObject>;
-  size: Integer;
-  objectArray: TArray<TObject>;
-  gameConfigurationTextInput_: TGameConfigurationTextInput;
-  textField_: TTextField;
-  index: Integer;
-begin
-        hashtable := TGameConfigurationTextInput.getHashtable();
-        size := hashtable.size();
-        objectArray := THashtableUtil.getInstance().getKeysAsArray(hashtable);
-        
-        
-        for index := 0 to size - 1 do begin
-            gameConfigurationTextInput_ := TGameConfigurationTextInput(TJava.ToObject(hashtable.get(TJava.Box(TJava.Box(objectArray[index])))));
-            textField_ := TTextField.Create(gameConfigurationTextInput_.getLabel(), gameConfigurationTextInput_.getText(), 30, TTextField.ANY);
-            Self.meUtil.appendItem(Self, textField_);
-        end;
-end;
-    
-
-procedure TGameOptionsForm.addConfiguration;
-var
-  METHOD_NAME: string;
-  NAME: string;
-  list: TBasicArrayList;
-  GAUGE_CHANGE: TCommand;
-  stringMaker_: TStringMaker;
-  size: Integer;
-  gameConfiguration_: TGameConfiguration;
-  gauge: TGameConfigurationGauge;
-  index: Integer;
-begin
-        METHOD_NAME := 'addConfiguration';
-        NAME := 'Name: ';
-        list := TGameConfigurationSingleton.getInstance().getOptionsBasicArrayList();
-        GAUGE_CHANGE := TMyCommandsFactory.getInstance().GAUGE_CHANGE;
-        stringMaker_ := TStringMaker.Create();
-        size := list.size();
-        
-        
-        for index := 0 to size - 1 do begin
-            gameConfiguration_ := TGameConfiguration(TJava.ToObject(list.objectArray[index]));
-            stringMaker_.delete_(0, stringMaker_.length());
-            Self.logUtil.putF(stringMaker_.append(NAME).append(gameConfiguration_.toString()).toString(), TJava.Box(Self), METHOD_NAME);
-            gauge := TGameConfigurationGauge.Create(gameConfiguration_);
-            gauge.setDefaultCommand(GAUGE_CHANGE);
-            gauge.setItemCommandListener(TGameFeatureItemCommandListener.Create(Self));
-            Self.meUtil.appendItem(Self, gauge);
-        end;
-end;
-    
-
-procedure TGameOptionsForm.initCommands(cmdListener: ICommandListener);
-var
-  gameCommandsFactory_: TGameCommandsFactory;
-begin
-        gameCommandsFactory_ := TGameCommandsFactory.getInstance();
-        Self.removeAllCommands();
-        Self.addCommand(gameCommandsFactory_.CLOSE_OPTIONS);
-        Self.addCommand(gameCommandsFactory_.DEFAULT_OPTIONS);
-        Self.setCommandListener(cmdListener);
-end;
-    
-
-// throws Exception
-procedure TGameOptionsForm.save(abeClientInformation: IAbeClientInformationInterface);
-var
-  size: Integer;
-  item_: TItem;
-  index: Integer;
-  hashtable: TABHashtable<TObject, TObject>;
-  SCALE: TGameConfiguration;
-  keyValuePersistance_: TKeyValuePersistance;
-  list: TBasicArrayList;
-  size2: Integer;
-  integer_: Integer;
-begin
-        size := Self.size();
-        
-        for index := 0 to size - 1 do begin
-            item_ := Self.get(index);
-            if (TJava.ToObject(item_) is TGameConfigurationGauge) then begin
-                TGameConfigurationUtil.getInstance().update(TGameConfigurationGauge(TJava.ToObject(item_)));
-            end else if (TJava.ToObject(item_) is TTextField) then begin
-                TGameConfigurationTextInput.update(TTextField(TJava.ToObject(item_)));
-            end;
-        end;
-        TGameConfigurationUtil.getInstance().updateCompetitionValue();
-        hashtable := TStdUtil.getInstance().createHashtable();
-        SCALE := TGameConfigurationCentral.getInstance().SCALE;
-        hashtable.put(TJava.Box(SCALE.getName()), TJava.Box(IntToStr((SCALE.getValue()))));
-        keyValuePersistance_ := TGameConfigurationPersistanceSingleton.getInstance();
-        keyValuePersistance_.clear();
-        keyValuePersistance_.loadAll(abeClientInformation);
-        list := keyValuePersistance_.getIds();
-        keyValuePersistance_.save(abeClientInformation, hashtable);
-        size2 := list.size();
-        
-        for index := 0 to size2 - 1 do begin
-            integer_ := Integer(list.objectArray[index]);
-            keyValuePersistance_.delete_(abeClientInformation, (integer_));
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameOptionsForm-save1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-size BINARY-DOUBLE.
+01 J-item BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-hashtable BINARY-DOUBLE.
+01 J-SCALE BINARY-DOUBLE.
+01 J-keyValuePersistance BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-size2 BINARY-DOUBLE.
+01 J-integer BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+01 jtemp18 BINARY-DOUBLE.
+01 jtemp19 BINARY-DOUBLE.
+01 jtemp20 BINARY-DOUBLE.
+01 JFIRST3 BINARY-DOUBLE.
+01 JFIRST4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-abeClientInformation BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-abeClientInformation RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-size = FUNCTION Form-size0(J-THIS)
+        CONTINUE
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST3
+        PERFORM FOREVER
+            IF JFIRST3 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST3
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-item = FUNCTION Form-get1(J-THIS, J-index)
+            IF (FUNCTION JR-STR-EQUALS(FUNCTION JR-CLASS-NAME(J-item), FUNCTION JR-STR("GameConfigurationGauge")) = 1)
+                COMPUTE jtemp16 = J-item
+                COMPUTE jtemp15 = FUNCTION GmCnfgrtnUtl-getInstance0
+                COMPUTE JDISCARD = FUNCTION GameConfigurationUtil-update1(jtemp15, jtemp16)
+            ELSE
+                IF (FUNCTION JR-STR-EQUALS(FUNCTION JR-CLASS-NAME(J-item), FUNCTION JR-STR("TextField")) = 1)
+                COMPUTE jtemp14 = J-item
+                COMPUTE JDISCARD = FUNCTION GmCnfgrtnTxtInpt-update1(jtemp14)
+            END-IF
+            END-IF
+        END-PERFORM
+        COMPUTE jtemp17 = FUNCTION GmCnfgrtnUtl-getInstance0
+        COMPUTE JDISCARD = FUNCTION GmCnfgrtnUtl-updtCmpttnVl0(jtemp17)
+        COMPUTE jtemp18 = FUNCTION StdUtil-getInstance0
+        COMPUTE J-hashtable = FUNCTION StdUtil-createHashtable0(jtemp18)
+        COMPUTE jtemp19 = FUNCTION GmCnfgrtnCntrl-getInstance0
+        COMPUTE J-SCALE = FUNCTION JR-GET(jtemp19, "f_SCALE")
+        COMPUTE jtemp20 = FUNCTION GameConfiguration-getValue0(J-SCALE)
+        COMPUTE JDISCARD = FUNCTION Hashtable-put2(J-hashtable, FUNCTION GameConfiguration-getName0(J-SCALE), FUNCTION JR-INT-STRING(FUNCTION JR-CLASS-NAME(jtemp20)))
+        COMPUTE J-keyValuePersistance = FUNCTION GmCnfgrtnPrsstncSngltn-gt56870
+        COMPUTE JDISCARD = FUNCTION BasicPersitance-clear0(J-keyValuePersistance)
+        COMPUTE JDISCARD = FUNCTION KeyValuePersistance-loadAll1(J-keyValuePersistance, J-abeClientInformation)
+        COMPUTE J-list = FUNCTION BasicPersitance-getIds0(J-keyValuePersistance)
+        COMPUTE JDISCARD = FUNCTION KeyValuePersistance-save2(J-keyValuePersistance, J-abeClientInformation, J-hashtable)
+        COMPUTE J-size2 = FUNCTION BasicArrayList-size0(J-list)
+        CONTINUE
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST4
+        PERFORM FOREVER
+            IF JFIRST4 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST4
+            IF NOT (J-index < J-size2) EXIT PERFORM END-IF
+            COMPUTE J-integer = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
+            COMPUTE JDISCARD = FUNCTION BasicPersitance-delete2(J-keyValuePersistance, J-abeClientInformation, J-integer)
+        END-PERFORM
+    GOBACK.
+END FUNCTION GameOptionsForm-save1.
 

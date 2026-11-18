@@ -1,85 +1,190 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.layer.special
+*> Java class AnalogInputBuilder
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.layer.special
-unit AnalogInputBuilder;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnlgInptBldr-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AnalogInputBuilder-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 AnalogInputBuilder-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF AnalogInputBuilder-jset-instance = 0
+        MOVE 1 TO AnalogInputBuilder-jset-instance
+        COMPUTE AnalogInputBuilder-jcell-instance = FUNCTION AnalogInputBuilder-new0
+    END-IF
+    MOVE AnalogInputBuilder-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION AnlgInptBldr-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnlgInptBldrstaticinS34071.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AnalogInputBuilder-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION AnlgInptBldr-static-instance TO J-RESULT
+    MOVE J-VALUE TO AnalogInputBuilder-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION AnlgInptBldrstaticinS34071.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnalogInputBuilder-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("AnalogInputBuilder")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION AnalogInputBuilder-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameInputProcessor, CollidableDestroyableDamageableLayer;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnlgInptBldr-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION AnlgInptBldr-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION AnlgInptBldr-getInstance0.
 
-type
-  {AB:TYPES}
-  TAnalogInputBuilder = class(TObject)
-  public
-    class var instance: TAnalogInputBuilder;
-    constructor Create;
-        class function getInstance: TAnalogInputBuilder; static;
-        procedure disable(inputProcessorArray: TArray<TGameInputProcessor>; collidableDestroyableDamageableLayer_: TCollidableDestroyableDamageableLayer); virtual;
-        procedure enable(inputProcessorArray: TArray<TGameInputProcessor>; collidableDestroyableDamageableLayer_: TCollidableDestroyableDamageableLayer); virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnalogInputBuilder-disable2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-inputProcessorArray BINARY-DOUBLE.
+01 J-collidableDestroyableDamageableLayer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-inputProcessorArray J-collidableDestroyableDamageableLayer RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = FUNCTION SpclUpGmInptPrcssr-new1(J-collidableDestroyableDamageableLayer)
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-inputProcessorArray, FUNCTION Canvas-static-UP, JVALUE)
+        COMPUTE JVALUE = FUNCTION SpclDwnGmInptPrcssr-new1(J-collidableDestroyableDamageableLayer)
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-inputProcessorArray, FUNCTION Canvas-static-DOWN, JVALUE)
+        COMPUTE JVALUE = FUNCTION SpclRghtGmInptPrcssr-new1(J-collidableDestroyableDamageableLayer)
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-inputProcessorArray, FUNCTION Canvas-static-RIGHT, JVALUE)
+        COMPUTE JVALUE = FUNCTION SpclLftGmInptPrcssr-new1(J-collidableDestroyableDamageableLayer)
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-inputProcessorArray, FUNCTION Canvas-static-LEFT, JVALUE)
+        COMPUTE JVALUE = FUNCTION Spcl1GmInptPrcssr-new1(J-collidableDestroyableDamageableLayer)
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-inputProcessorArray, FUNCTION Canvas-static-KEY-NUM0, JVALUE)
+        COMPUTE JVALUE = FUNCTION Spcl3GmInptPrcssr-new1(J-collidableDestroyableDamageableLayer)
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-inputProcessorArray, FUNCTION Canvas-static-KEY-NUM5, JVALUE)
+    GOBACK.
+END FUNCTION AnalogInputBuilder-disable2.
 
-implementation
-uses
-  SpecialUpGameInputProcessor, SpecialDownGameInputProcessor, SpecialRightGameInputProcessor, SpecialLeftGameInputProcessor, Special1GameInputProcessor, Special3GameInputProcessor, SpecialAnalogUpGameInputProcessor, SpecialAnalogDownGameInputProcessor, SpecialAnalogRightGameInputProcessor, SpecialAnalogLeftGameInputProcessor, SpecialAnalogLeftTriggerGameInputProcessor, SpecialAnalogRightTriggerGameInputProcessor, Canvas;
-
-
-{AB:CODE}
-
-constructor TAnalogInputBuilder.Create;
-begin
-  inherited Create;
-end;
-    
-
-class function TAnalogInputBuilder.getInstance: TAnalogInputBuilder;
-begin
-        Exit(TAnalogInputBuilder.instance);
-end;
-    
-
-procedure TAnalogInputBuilder.disable(inputProcessorArray: TArray<TGameInputProcessor>; collidableDestroyableDamageableLayer_: TCollidableDestroyableDamageableLayer);
-begin
-        inputProcessorArray[TCanvas.UP] := TSpecialUpGameInputProcessor.Create(collidableDestroyableDamageableLayer_);
-        inputProcessorArray[TCanvas.DOWN] := TSpecialDownGameInputProcessor.Create(collidableDestroyableDamageableLayer_);
-        inputProcessorArray[TCanvas.RIGHT] := TSpecialRightGameInputProcessor.Create(collidableDestroyableDamageableLayer_);
-        inputProcessorArray[TCanvas.LEFT] := TSpecialLeftGameInputProcessor.Create(collidableDestroyableDamageableLayer_);
-        inputProcessorArray[TCanvas.KEY_NUM0] := TSpecial1GameInputProcessor.Create(collidableDestroyableDamageableLayer_);
-        inputProcessorArray[TCanvas.KEY_NUM5] := TSpecial3GameInputProcessor.Create(collidableDestroyableDamageableLayer_);
-end;
-    
-
-procedure TAnalogInputBuilder.enable(inputProcessorArray: TArray<TGameInputProcessor>; collidableDestroyableDamageableLayer_: TCollidableDestroyableDamageableLayer);
-begin
-        inputProcessorArray[TCanvas.UP] := TSpecialAnalogUpGameInputProcessor.Create(collidableDestroyableDamageableLayer_);
-        inputProcessorArray[TCanvas.DOWN] := TSpecialAnalogDownGameInputProcessor.Create(collidableDestroyableDamageableLayer_);
-        inputProcessorArray[TCanvas.RIGHT] := TSpecialAnalogRightGameInputProcessor.Create(collidableDestroyableDamageableLayer_);
-        inputProcessorArray[TCanvas.LEFT] := TSpecialAnalogLeftGameInputProcessor.Create(collidableDestroyableDamageableLayer_);
-        inputProcessorArray[TCanvas.KEY_NUM0] := TSpecialAnalogLeftTriggerGameInputProcessor.Create(collidableDestroyableDamageableLayer_);
-        inputProcessorArray[TCanvas.KEY_NUM5] := TSpecialAnalogRightTriggerGameInputProcessor.Create(collidableDestroyableDamageableLayer_);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TAnalogInputBuilder.instance := TAnalogInputBuilder.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnalogInputBuilder-enable2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-inputProcessorArray BINARY-DOUBLE.
+01 J-collidableDestroyableDamageableLayer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-inputProcessorArray J-collidableDestroyableDamageableLayer RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = FUNCTION SpclAnlgUpGmInptPrcssr-new1(J-collidableDestroyableDamageableLayer)
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-inputProcessorArray, FUNCTION Canvas-static-UP, JVALUE)
+        COMPUTE JVALUE = FUNCTION SpclAnlgDwnGmInptPrcssr-new1(J-collidableDestroyableDamageableLayer)
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-inputProcessorArray, FUNCTION Canvas-static-DOWN, JVALUE)
+        COMPUTE JVALUE = FUNCTION SpclAnlgRghtGmInptPrcssr-new1(J-collidableDestroyableDamageableLayer)
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-inputProcessorArray, FUNCTION Canvas-static-RIGHT, JVALUE)
+        COMPUTE JVALUE = FUNCTION SpclAnlgLftGmInptPrcssr-new1(J-collidableDestroyableDamageableLayer)
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-inputProcessorArray, FUNCTION Canvas-static-LEFT, JVALUE)
+        COMPUTE JVALUE = FUNCTION SpclAnlgLftTrggrGmInptP-47928(J-collidableDestroyableDamageableLayer)
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-inputProcessorArray, FUNCTION Canvas-static-KEY-NUM0, JVALUE)
+        COMPUTE JVALUE = FUNCTION SpclAnlgRghtTrggrGmInpt-63110(J-collidableDestroyableDamageableLayer)
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-inputProcessorArray, FUNCTION Canvas-static-KEY-NUM5, JVALUE)
+    GOBACK.
+END FUNCTION AnalogInputBuilder-enable2.
 

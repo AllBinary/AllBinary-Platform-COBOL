@@ -1,108 +1,223 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.io
+*> Java class FileStreamFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.logic.io
-unit FileStreamFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FlStrmFctry-static-SINGLETON.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 FileStreamFactory-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+01 FileStreamFactory-jset-SINGLETON BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF FileStreamFactory-jset-SINGLETON = 0
+        MOVE 1 TO FileStreamFactory-jset-SINGLETON
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE FileStreamFactory-jcell-SINGLETON = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+    END-IF
+    MOVE FileStreamFactory-jcell-SINGLETON TO J-RESULT
+    GOBACK.
+END FUNCTION FlStrmFctry-static-SINGLETON.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FlStrmFctrystaticSINS23393.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 FileStreamFactory-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION FlStrmFctry-static-SINGLETON TO J-RESULT
+    MOVE J-VALUE TO FileStreamFactory-jcell-SINGLETON
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION FlStrmFctrystaticSINS23393.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FileStreamFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("FileStreamFactory")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION FileStreamFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AbFileInputStream, AbFileOutputStream;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FileStreamFactory-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+        IF (FUNCTION FlStrmFctry-static-SINGLETON = FUNCTION JR-GET(jtemp2, "f_NULL_OBJECT"))
+            COMPUTE JDISCARD = FUNCTION FlStrmFctrystaticSINS23393(FUNCTION FileStreamFactory-new0)
+        END-IF
+        COMPUTE J-RESULT = FUNCTION FlStrmFctry-static-SINGLETON
+        GOBACK
+    GOBACK.
+END FUNCTION FileStreamFactory-getInstance0.
 
-type
-  {AB:TYPES}
-  TFileStreamFactory = class(TObject)
-  public
-    class var SINGLETON: TObject;
-        class function getInstance: TFileStreamFactory; static;
-        constructor Create;
-        function getFileInputStreamInstance(path: string; fileName: string): TAbFileInputStream; virtual;
-        function getFileOutputStreamInstance(path: string; fileName: string): TAbFileOutputStream; virtual;
-        procedure delete_(path: string; fileName: string); virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FlStrmFctry-gtFlInptStrmI54889.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-FILEABPATH BINARY-DOUBLE.
+01 J-file BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-path BINARY-DOUBLE.
+01 J-fileName BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-path J-fileName RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-FILEABPATH = FUNCTION AbPath-new2(J-path, J-fileName)
+        COMPUTE J-file = FUNCTION AbFile-createAbFileFromAbPath1(J-FILEABPATH)
+        COMPUTE J-RESULT = FUNCTION AbFlInptStrm-createFromAbFile1(J-file)
+        GOBACK
+    GOBACK.
+END FUNCTION FlStrmFctry-gtFlInptStrmI54889.
 
-implementation
-uses
-  NullUtil, AbFile, AbPath;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FlStrmFctry-gtFlOtptStrmI85974.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-FILEABPATH BINARY-DOUBLE.
+01 J-file BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-path BINARY-DOUBLE.
+01 J-fileName BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-path J-fileName RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-FILEABPATH = FUNCTION AbPath-new2(J-path, J-fileName)
+        COMPUTE J-file = FUNCTION AbFile-createAbFileFromAbPath1(J-FILEABPATH)
+        IF (FUNCTION AbFile-exists0(J-file) = 1)
+            COMPUTE JDISCARD = FUNCTION AbFile-delete0(J-file)
+            COMPUTE JDISCARD = FUNCTION AbFile-createNewFile0(J-file)
+        END-IF
+        COMPUTE J-RESULT = FUNCTION AbFlOtptStrm-createFromAbFile1(J-file)
+        GOBACK
+    GOBACK.
+END FUNCTION FlStrmFctry-gtFlOtptStrmI85974.
 
-
-{AB:CODE}
-    
-
-class function TFileStreamFactory.getInstance: TFileStreamFactory;
-begin
-        if (TFileStreamFactory.SINGLETON) = (TNullUtil.getInstance().NULL_OBJECT) then begin
-            TFileStreamFactory.SINGLETON := TFileStreamFactory.Create();
-        end;
-        Exit(TFileStreamFactory(TJava.ToObject(TFileStreamFactory.SINGLETON)));
-end;
-    
-
-constructor TFileStreamFactory.Create;
-begin
-    inherited Create;
-end;
-    
-
-// throws Exception
-function TFileStreamFactory.getFileInputStreamInstance(path: string; fileName: string): TAbFileInputStream;
-var
-  FILEABPATH: TAbPath;
-  file_: TAbFile;
-begin
-        FILEABPATH := TAbPath.Create(path, fileName);
-        file_ := TAbFile.createAbFileFromAbPath(FILEABPATH);
-        Exit(TAbFileInputStream.createFromAbFile(file_));
-end;
-    
-
-// throws Exception
-function TFileStreamFactory.getFileOutputStreamInstance(path: string; fileName: string): TAbFileOutputStream;
-var
-  FILEABPATH: TAbPath;
-  file_: TAbFile;
-begin
-        FILEABPATH := TAbPath.Create(path, fileName);
-        file_ := TAbFile.createAbFileFromAbPath(FILEABPATH);
-        if file_.exists() then begin
-            file_.delete_();
-            file_.createNewFile();
-        end;
-        Exit(TAbFileOutputStream.createFromAbFile(file_));
-end;
-    
-
-// throws Exception
-procedure TFileStreamFactory.delete_(path: string; fileName: string);
-var
-  FILEABPATH: TAbPath;
-  file_: TAbFile;
-begin
-        FILEABPATH := TAbPath.Create(path, fileName);
-        file_ := TAbFile.createAbFileFromAbPath(FILEABPATH);
-        file_.delete_();
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TFileStreamFactory.SINGLETON := TJava.Box(TNullUtil.getInstance().NULL_OBJECT);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. FileStreamFactory-delete2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-FILEABPATH BINARY-DOUBLE.
+01 J-file BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-path BINARY-DOUBLE.
+01 J-fileName BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-path J-fileName RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-FILEABPATH = FUNCTION AbPath-new2(J-path, J-fileName)
+        COMPUTE J-file = FUNCTION AbFile-createAbFileFromAbPath1(J-FILEABPATH)
+        COMPUTE JDISCARD = FUNCTION AbFile-delete0(J-file)
+    GOBACK.
+END FUNCTION FileStreamFactory-delete2.
 

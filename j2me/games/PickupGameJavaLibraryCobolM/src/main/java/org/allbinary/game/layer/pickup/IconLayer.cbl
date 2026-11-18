@@ -1,85 +1,187 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.layer.pickup
+*> Java class IconLayer
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.layer.pickup
-unit IconLayer;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. IcnLyr-sttc-NULL-ICON-LAYER.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 IconLayer-jcell-NULL_ICON_LAYER BINARY-DOUBLE EXTERNAL.
+01 IconLayer-jset-NULL_ICON_LAYER BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF IconLayer-jset-NULL_ICON_LAYER = 0
+        MOVE 1 TO IconLayer-jset-NULL_ICON_LAYER
+        COMPUTE jtemp2 = 0
+    COMPUTE jtemp1 = FUNCTION NllAnmtnFctry-gtFctryInstnc0
+    COMPUTE jtemp3 = 0
+    COMPUTE jtemp4 = 0
+    COMPUTE IconLayer-jcell-NULL_ICON_LAYER = FUNCTION IconLayer-new3(FUNCTION JR-CLASS-NAME(jtemp1), jtemp3, jtemp4)
+    END-IF
+    MOVE IconLayer-jcell-NULL_ICON_LAYER TO J-RESULT
+    GOBACK.
+END FUNCTION IcnLyr-sttc-NULL-ICON-LAYER.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. IcnLyrsttcNULLICONLAS31407.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 IconLayer-jcell-NULL_ICON_LAYER BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION IcnLyr-sttc-NULL-ICON-LAYER TO J-RESULT
+    MOVE J-VALUE TO IconLayer-jcell-NULL_ICON_LAYER
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION IcnLyrsttcNULLICONLAS31407.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, Animation, AllBinaryLayer;
-
-type
-  {AB:TYPES}
-  TIconLayer = class(TAllBinaryLayer)
-  public
-    animationInterface: TAnimation;
-    class var NULL_ICON_LAYER: TIconLayer;
-    procedure InitFields;
-        constructor Create(animationInterface: TAnimation; width: Integer; height: Integer);
-        procedure paint(graphics_: TGraphics); override;
-        procedure paintThreed(graphics_: TGraphics); override;
-        function getAnimationInterface: TAnimation; virtual;
-  end;
-
-implementation
-uses
-  NullAnimationFactory, PointFactory, Rectangle, StringUtil, ViewPosition;
-
-
-{AB:CODE}
-
-procedure TIconLayer.InitFields;
-begin
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. IconLayer-new3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-animationInterface BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-animationInterface J-width J-height RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("IconLayer")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_animationInterface")
     
+        COMPUTE jtemp6 = FUNCTION PointFactory-getInstance0
+        COMPUTE jtemp5 = FUNCTION StringUtil-getInstance0
+        CONTINUE
+        COMPUTE JVALUE = J-animationInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animationInterface", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION IconLayer-new3.
 
-constructor TIconLayer.Create(animationInterface: TAnimation; width: Integer; height: Integer);
-begin
-        inherited Create(TStringUtil.getInstance().EMPTY_STRING, TRectangle.Create(TPointFactory.getInstance().ZERO_ZERO, width, height), TViewPosition.getInstanceD());
-        InitFields;
-        Self.animationInterface := animationInterface;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. IconLayer-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Animation-paintXY3(FUNCTION JR-GET(J-THIS, "f_animationInterface"), J-graphics, FUNCTION JR-GET(J-THIS, "f_x"), FUNCTION JR-GET(J-THIS, "f_y"))
+    GOBACK.
+END FUNCTION IconLayer-paint1.
 
-procedure TIconLayer.paint(graphics_: TGraphics);
-begin
-        Self.animationInterface.paintXY(graphics_, Self.x, Self.y);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. IconLayer-paintThreed1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Animation-paintThreedXYZ4(FUNCTION JR-GET(J-THIS, "f_animationInterface"), J-graphics, FUNCTION JR-GET(J-THIS, "f_x"), FUNCTION JR-GET(J-THIS, "f_y"), FUNCTION JR-GET(J-THIS, "f_z"))
+    GOBACK.
+END FUNCTION IconLayer-paintThreed1.
 
-procedure TIconLayer.paintThreed(graphics_: TGraphics);
-begin
-        Self.animationInterface.paintThreedXYZ(graphics_, Self.x, Self.y, Self.z);
-end;
-    
-
-function TIconLayer.getAnimationInterface: TAnimation;
-begin
-        Exit(Self.animationInterface);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TIconLayer.NULL_ICON_LAYER := TIconLayer.Create(TNullAnimationFactory.getFactoryInstance().getInstance(0), 0, 0);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. IcnLyr-getAnimationInterface0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_animationInterface")
+        GOBACK
+    GOBACK.
+END FUNCTION IcnLyr-getAnimationInterface0.
 

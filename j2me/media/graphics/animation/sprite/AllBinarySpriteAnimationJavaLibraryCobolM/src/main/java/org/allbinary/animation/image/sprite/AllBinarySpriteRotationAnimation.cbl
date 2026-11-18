@@ -1,109 +1,245 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.image.sprite
+*> Java class AllBinarySpriteRotationAnimation
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.image.sprite
-unit AllBinarySpriteRotationAnimation;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnrySprtRttnAnmtn-new3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-sprite BINARY-DOUBLE.
+01 J-image BINARY-DOUBLE.
+01 J-animationBehavior BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-sprite J-image J-animationBehavior RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("AllBinarySpriteRotationAnimation")
+        COMPUTE jtemp2 = FUNCTION AngleFactory-getInstance0
+        COMPUTE jtemp1 = (FUNCTION MOD(FUNCTION INTEGER-PART(((FUNCTION MOD(FUNCTION INTEGER-PART(FUNCTION JR-GET(jtemp2, "f_TOTAL_ANGLE") / FUNCTION Sprite-getRawFrameCount0(J-sprite)) + 2147483648, 4294967296) - 2147483648))) + 32768,
+        65536) - 32768)
+        CONTINUE
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_angleInfo"))
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION AllBnrySprtRttnAnmtn-new3.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnrySprtRttnAnmtn-nxtRttn0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Sprite-nextFrame0(FUNCTION JR-GET(J-THIS, "f_sprite"))
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_angleInfo"))
+    GOBACK.
+END FUNCTION AllBnrySprtRttnAnmtn-nxtRttn0.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnrySprtRttnAnmtn-prvsRttn0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Sprite-prevFrame0(FUNCTION JR-GET(J-THIS, "f_sprite"))
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_angleInfo"))
+    GOBACK.
+END FUNCTION AllBnrySprtRttnAnmtn-prvsRttn0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Image, Sprite, AnimationBehavior, Direction, Angle, HackRotationSpriteIndexedAnimation;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnrySprtRttnAnmtn-stFr45235.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-angle BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-direction BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-direction RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-angle = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_directionUtil"))
+        COMPUTE JDISCARD = FUNCTION AllBnrySprtRttnAnmtn-adjs66661(J-THIS, J-angle)
+    GOBACK.
+END FUNCTION AllBnrySprtRttnAnmtn-stFr45235.
 
-type
-  {AB:TYPES}
-  TAllBinarySpriteRotationAnimation = class(THackRotationSpriteIndexedAnimation)
-  public
-        constructor Create(sprite_: TSprite; image_: TImage; animationBehavior_: TAnimationBehavior);
-        procedure nextRotation; override;
-        procedure previousRotation; override;
-        procedure setFrameByDirection(direction_: TDirection); override;
-        procedure setFrameToAngle(angle_: TAngle); override;
-        procedure setFrame(index: Integer); override;
-        procedure adjustFrameToAngle(angle_: TAngle); override;
-        procedure adjustFrame(angle_: SmallInt); override;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnrySprtRttnAnmtn-stFr21920.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-angle RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION AllBnrySprtRttnAnmtn-adjs66661(J-THIS, J-angle)
+    GOBACK.
+END FUNCTION AllBnrySprtRttnAnmtn-stFr21920.
 
-implementation
-uses
-  AngleFactory, AngleInfo;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnrySprtRttnAnmtn-setFrame1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-index RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Sprite-setFrame1(FUNCTION JR-GET(J-THIS, "f_sprite"), J-index)
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_angleInfo"))
+    GOBACK.
+END FUNCTION AllBnrySprtRttnAnmtn-setFrame1.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnrySprtRttnAnmtn-adjs66661.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-angle RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION AllBnrySprtRttnAnmtn-adjstFrm1(J-THIS, FUNCTION Angle-getValue0(J-angle))
+    GOBACK.
+END FUNCTION AllBnrySprtRttnAnmtn-adjs66661.
 
-{AB:CODE}
-    
-
-constructor TAllBinarySpriteRotationAnimation.Create(sprite_: TSprite; image_: TImage; animationBehavior_: TAnimationBehavior);
-begin
-        inherited Create(sprite_, image_, TAngleInfo.getInstance(SmallInt(Trunc((TJava.Divide(TAngleFactory.getInstance().TOTAL_ANGLE, sprite_.getRawFrameCount()))))), animationBehavior_);
-        Self.angleInfo.adjustAngle(Self.sprite.getFrame());
-end;
-    
-
-procedure TAllBinarySpriteRotationAnimation.nextRotation;
-begin
-        Self.sprite.nextFrame();
-        Self.angleInfo.adjustAngle(Self.sprite.getFrame());
-end;
-    
-
-procedure TAllBinarySpriteRotationAnimation.previousRotation;
-begin
-        Self.sprite.prevFrame();
-        Self.angleInfo.adjustAngle(Self.sprite.getFrame());
-end;
-    
-
-procedure TAllBinarySpriteRotationAnimation.setFrameByDirection(direction_: TDirection);
-var
-  angle_: TAngle;
-begin
-        angle_ := Self.directionUtil.getFrameAngle(direction_);
-        Self.adjustFrameToAngle(angle_);
-end;
-    
-
-procedure TAllBinarySpriteRotationAnimation.setFrameToAngle(angle_: TAngle);
-begin
-        Self.adjustFrameToAngle(angle_);
-end;
-    
-
-procedure TAllBinarySpriteRotationAnimation.setFrame(index: Integer);
-begin
-        Self.sprite.setFrame(index);
-        Self.angleInfo.adjustAngle(Self.getFrame());
-end;
-    
-
-procedure TAllBinarySpriteRotationAnimation.adjustFrameToAngle(angle_: TAngle);
-begin
-        Self.adjustFrame(angle_.getValue());
-end;
-    
-
-procedure TAllBinarySpriteRotationAnimation.adjustFrame(angle_: SmallInt);
-begin
-        Self.setFrame(Self.frameUtil.getFrameForAngle(angle_, Integer(Trunc(Self.angleInfo.getAngleIncrementInfo().getAngleIncrement()))));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnrySprtRttnAnmtn-adjstFrm1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-angle RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp4 = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_angleInfo"))
+        COMPUTE jtemp3 = FUNCTION JR-CLASS-NAME(jtemp4)
+        COMPUTE JDISCARD = FUNCTION AllBnrySprtRttnAnmtn-setFrame1(J-THIS, FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_frameUtil")))
+    GOBACK.
+END FUNCTION AllBnrySprtRttnAnmtn-adjstFrm1.
 

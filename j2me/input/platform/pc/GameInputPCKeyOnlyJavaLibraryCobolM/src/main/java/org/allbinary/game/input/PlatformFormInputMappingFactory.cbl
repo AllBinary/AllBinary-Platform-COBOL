@@ -1,104 +1,168 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.input
+*> Java class PlatformFormInputMappingFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.input
-unit PlatformFormInputMappingFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PltfrmFrmInptMppngFctry-57374.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PlatformFormInputMappingFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 PlatformFormInputMappingFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF PlatformFormInputMappingFactory-jset-instance = 0
+        MOVE 1 TO PlatformFormInputMappingFactory-jset-instance
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE PlatformFormInputMappingFactory-jcell-instance = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+    END-IF
+    MOVE PlatformFormInputMappingFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION PltfrmFrmInptMppngFctry-57374.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PltfrmFrmInptMppngFcS57942.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PlatformFormInputMappingFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION PltfrmFrmInptMppngFctry-57374 TO J-RESULT
+    MOVE J-VALUE TO PlatformFormInputMappingFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION PltfrmFrmInptMppngFcS57942.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PltfrmFrmInptMppngFctry-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("PlatformFormInputMappingFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_inputToGameKeyMapping")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION InptTGmKyMppng-gtNllInstnc0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_inputToGameKeyMapping", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION PltfrmFrmInptMppngFctry-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, InputToGameKeyMapping, LogUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PltfrmFrmInptMppngFctry-g52123.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+        IF (FUNCTION PltfrmFrmInptMppngFctry-57374 = FUNCTION JR-GET(jtemp2, "f_NULL_OBJECT"))
+            COMPUTE JDISCARD = FUNCTION PltfrmFrmInptMppngFcS57942(FUNCTION PltfrmFrmInptMppngFctry-new0)
+        END-IF
+        COMPUTE J-RESULT = FUNCTION PltfrmFrmInptMppngFctry-57374
+        GOBACK
+    GOBACK.
+END FUNCTION PltfrmFrmInptMppngFctry-g52123.
 
-type
-  {AB:TYPES}
-  TPlatformFormInputMappingFactory = class(TObject)
-  public
-    logUtil: TLogUtil;
-    inputToGameKeyMapping: TInputToGameKeyMapping;
-    class var instance: TObject;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TPlatformFormInputMappingFactory; static;
-        function getOrCreate: TInputToGameKeyMapping; virtual;
-  end;
-
-implementation
-uses
-  PCKeyFactory, GameKeyFactory, NullUtil, CommonStrings;
-
-
-{AB:CODE}
-
-procedure TPlatformFormInputMappingFactory.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.inputToGameKeyMapping := TInputToGameKeyMapping.getNullInstance();
-end;
-
-constructor TPlatformFormInputMappingFactory.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TPlatformFormInputMappingFactory.getInstance: TPlatformFormInputMappingFactory;
-begin
-        if (TPlatformFormInputMappingFactory.instance) = (TNullUtil.getInstance().NULL_OBJECT) then begin
-            TPlatformFormInputMappingFactory.instance := TPlatformFormInputMappingFactory.Create();
-        end;
-        Exit(TPlatformFormInputMappingFactory(TJava.ToObject(TPlatformFormInputMappingFactory.instance)));
-end;
-    
-
-function TPlatformFormInputMappingFactory.getOrCreate: TInputToGameKeyMapping;
-var
-  pcKeyFactory_: TPCKeyFactory;
-  inputToGameKeyMapping_: TInputToGameKeyMapping;
-  gameKeyFactory_: TGameKeyFactory;
-  commonStrings_: TCommonStrings;
-begin
-        try
-            if (Self.inputToGameKeyMapping) = (TInputToGameKeyMapping.getNullInstance()) then begin
-                pcKeyFactory_ := TPCKeyFactory.getInstance();
-                inputToGameKeyMapping_ := TInputToGameKeyMapping.Create();
-                gameKeyFactory_ := TGameKeyFactory.getInstance();
-                inputToGameKeyMapping_.add(gameKeyFactory_.UP, pcKeyFactory_.DPAD_UP);
-                inputToGameKeyMapping_.add(gameKeyFactory_.DOWN, pcKeyFactory_.DPAD_DOWN);
-                inputToGameKeyMapping_.add(gameKeyFactory_.LEFT, pcKeyFactory_.DPAD_LEFT);
-                inputToGameKeyMapping_.add(gameKeyFactory_.RIGHT, pcKeyFactory_.DPAD_RIGHT);
-                inputToGameKeyMapping_.add(gameKeyFactory_.KEY_NUM1, pcKeyFactory_.ENTER);
-                Self.inputToGameKeyMapping := inputToGameKeyMapping_;
-            end;
-        except
-            on e: SysUtils.Exception do begin
-            commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.GET_INSTANCE, TJava.Box(e));
-            end;
-        end;
-        Exit(Self.inputToGameKeyMapping);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TPlatformFormInputMappingFactory.instance := TJava.Box(TNullUtil.getInstance().NULL_OBJECT);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PltfrmFrmInptMppngFctry-g33796.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-pcKeyFactory BINARY-DOUBLE.
+01 J-inputToGameKeyMapping BINARY-DOUBLE.
+01 J-gameKeyFactory BINARY-DOUBLE.
+01 J-commonStrings BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            IF (FUNCTION JR-GET(J-THIS, "f_inputToGameKeyMapping") = FUNCTION InptTGmKyMppng-gtNllInstnc0)
+                COMPUTE J-pcKeyFactory = FUNCTION PCKeyFactory-getInstance0
+                COMPUTE J-inputToGameKeyMapping = FUNCTION InputToGameKeyMapping-new0
+                COMPUTE J-gameKeyFactory = FUNCTION GameKeyFactory-getInstance0
+                COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_UP"), FUNCTION JR-GET(J-pcKeyFactory, "f_DPAD_UP"))
+                COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_DOWN"), FUNCTION JR-GET(J-pcKeyFactory, "f_DPAD_DOWN"))
+                COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_LEFT"), FUNCTION JR-GET(J-pcKeyFactory, "f_DPAD_LEFT"))
+                COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_RIGHT"), FUNCTION JR-GET(J-pcKeyFactory, "f_DPAD_RIGHT"))
+                COMPUTE JDISCARD = FUNCTION InputToGameKeyMapping-add2(J-inputToGameKeyMapping, FUNCTION JR-GET(J-gameKeyFactory, "f_KEY_NUM1"), FUNCTION JR-GET(J-pcKeyFactory, "f_ENTER"))
+                COMPUTE JVALUE = J-inputToGameKeyMapping
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_inputToGameKeyMapping", JVALUE)
+            END-IF
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_inputToGameKeyMapping")
+        GOBACK
+    GOBACK.
+END FUNCTION PltfrmFrmInptMppngFctry-g33796.
 

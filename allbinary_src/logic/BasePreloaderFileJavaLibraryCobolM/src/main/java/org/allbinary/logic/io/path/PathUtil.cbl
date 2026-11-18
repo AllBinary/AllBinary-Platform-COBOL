@@ -1,218 +1,545 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.logic.io.path
+*> Java class PathUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.logic.io.path
-unit PathUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PathUtil-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PathUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 PathUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF PathUtil-jset-instance = 0
+        MOVE 1 TO PathUtil-jset-instance
+        COMPUTE PathUtil-jcell-instance = FUNCTION PathUtil-new0
+    END-IF
+    MOVE PathUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION PathUtil-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PathUtilstaticinstanS95676.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PathUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION PathUtil-static-instance TO J-RESULT
+    MOVE J-VALUE TO PathUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION PathUtilstaticinstanS95676.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PathUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("PathUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_abPathData")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_filePathData")
+    COMPUTE JVALUE = FUNCTION AbPathData-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_abPathData", JVALUE)
+    COMPUTE JVALUE = FUNCTION FilePathData-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_filePathData", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION PathUtil-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, FilePathData, AbPathData, AbFilePath, AbPath;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PathUtil-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION PathUtil-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION PathUtil-getInstance0.
 
-type
-  {AB:TYPES}
-  // Used to correct user input for paths
-  TPathUtil = class(TObject)
-  public
-    abPathData: TAbPathData;
-    filePathData: TFilePathData;
-    class var instance: TPathUtil;
-    procedure InitFields;
-        class function getInstance: TPathUtil; static;
-        constructor Create;
-        function getExtensionWithAbFilePath(abFilePath_: TAbFilePath): string; virtual;
-        function getExtensionWithAbPath(abPath_: TAbPath): string; virtual;
-        function getWithoutExtensionWithAbFilePath(abFilePath_: TAbFilePath): string; virtual;
-        function getWithoutExtensionWithAbPath(abPath_: TAbPath): string; virtual;
-        function getWithoutExtension(filePath: string): string; virtual;
-        function isValid(path: string): Boolean; virtual;
-        function isValidStart(path: string): Boolean;
-        function isValidEnd(path: string): Boolean;
-        function adjustStart(path: string): string; virtual;
-        function adjustEnd(path: string): string; virtual;
-        function adjust(path: string): string; virtual;
-        function removeNameFromPath(path: string): TAbPath; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PthUtl-gtExtnsnWthAbFlPth1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-abFilePath BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-abFilePath RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION AbPathData-getExtension1(FUNCTION JR-GET(J-THIS, "f_abPathData"), FUNCTION JR-TO-STRING(J-abFilePath))
+        GOBACK
+    GOBACK.
+END FUNCTION PthUtl-gtExtnsnWthAbFlPth1.
 
-implementation
-uses
-  StringUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PthUtl-getExtensionWithAbPath1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-abPath BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-abPath RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION AbPathData-getExtension1(FUNCTION JR-GET(J-THIS, "f_abPathData"), FUNCTION JR-TO-STRING(J-abPath))
+        GOBACK
+    GOBACK.
+END FUNCTION PthUtl-getExtensionWithAbPath1.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PthUtl-gtWthtExtnsnWthAbFlPth1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-abFilePath BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-abFilePath RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION PathUtil-getWithoutExtension1(J-THIS, FUNCTION JR-TO-STRING(J-abFilePath))
+        GOBACK
+    GOBACK.
+END FUNCTION PthUtl-gtWthtExtnsnWthAbFlPth1.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PthUtl-gtWthtExtnsnWthAbPth1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-abPath BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-abPath RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION PathUtil-getWithoutExtension1(J-THIS, FUNCTION JR-TO-STRING(J-abPath))
+        GOBACK
+    GOBACK.
+END FUNCTION PthUtl-gtWthtExtnsnWthAbPth1.
 
-procedure TPathUtil.InitFields;
-begin
-  Self.abPathData := TAbPathData.getInstance();
-  Self.filePathData := TFilePathData.getInstance();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PathUtil-getWithoutExtension1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-indexOfFileExtensionDelmiter BINARY-DOUBLE.
+01 J-pathWithoutExtension BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-filePath BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-filePath RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-indexOfFileExtensionDelmiter = FUNCTION AbPathData-getExtensionIndex1(FUNCTION JR-GET(J-THIS, "f_abPathData"), J-filePath)
+        COMPUTE J-pathWithoutExtension = J-filePath
+        IF (J-indexOfFileExtensionDelmiter >= 0)
+            COMPUTE jtemp1 = 0
+            COMPUTE J-pathWithoutExtension = FUNCTION JR-SUBSTRING(J-filePath, jtemp1, J-indexOfFileExtensionDelmiter)
+        END-IF
+        COMPUTE J-RESULT = J-pathWithoutExtension
+        GOBACK
+    GOBACK.
+END FUNCTION PathUtil-getWithoutExtension1.
 
-class function TPathUtil.getInstance: TPathUtil;
-begin
-        Exit(TPathUtil.instance);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PathUtil-isValid1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-path BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-path RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION PathUtil-isValidStart1(J-THIS, J-path) = 1)
+            IF (FUNCTION PathUtil-isValidEnd1(J-THIS, J-path) = 1)
+                COMPUTE J-RESULT = 1
+                GOBACK
+            END-IF
+        END-IF
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION PathUtil-isValid1.
 
-constructor TPathUtil.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PathUtil-isValidStart1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-path BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-path RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = 0
+        COMPUTE jtemp3 = 0
+        IF ((FUNCTION JR-CHAR-AT(J-path, jtemp2) = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_abPathData"), "f_SEPARATORCHAR")) OR (FUNCTION JR-CHAR-AT(J-path, jtemp3) = 46))
+            COMPUTE J-RESULT = 1
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = 0
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION PathUtil-isValidStart1.
 
-function TPathUtil.getExtensionWithAbFilePath(abFilePath_: TAbFilePath): string;
-begin
-        Exit(Self.abPathData.getExtension(abFilePath_.toString()));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PathUtil-isValidEnd1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringValidationUtil BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-path BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-path RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringValidationUtil = FUNCTION StrngVldtnUtl-getInstance0
+        IF (FUNCTION StringValidationUtil-isEmpty1(J-stringValidationUtil, J-path) = 1)
+            COMPUTE J-RESULT = 0
+            GOBACK
+        END-IF
+        COMPUTE jtemp4 = (FUNCTION MOD((FUNCTION JR-STR-LENGTH(J-path) - 1) + 2147483648, 4294967296) - 2147483648)
+        IF (FUNCTION JR-CHAR-AT(J-path, jtemp4) = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_abPathData"), "f_SEPARATORCHAR"))
+            COMPUTE J-RESULT = 1
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = 0
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION PathUtil-isValidEnd1.
 
-function TPathUtil.getExtensionWithAbPath(abPath_: TAbPath): string;
-begin
-        Exit(Self.abPathData.getExtension(abPath_.toString()));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PathUtil-adjustStart1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-path BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-path RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (NOT (FUNCTION PathUtil-isValidStart1(J-THIS, J-path) = 1))
+            COMPUTE J-path = FUNCTION JR-CONCAT(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_abPathData"), "f_SEPARATOR"), J-path)
+        END-IF
+        COMPUTE J-RESULT = J-path
+        GOBACK
+    GOBACK.
+END FUNCTION PathUtil-adjustStart1.
 
-// throws Exception
-function TPathUtil.getWithoutExtensionWithAbFilePath(abFilePath_: TAbFilePath): string;
-begin
-        Exit(Self.getWithoutExtension(abFilePath_.toString()));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PathUtil-adjustEnd1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-path BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-path RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (NOT (FUNCTION PathUtil-isValidEnd1(J-THIS, J-path) = 1))
+            COMPUTE J-path = FUNCTION JR-CONCAT(J-path, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_abPathData"), "f_SEPARATOR"))
+        END-IF
+        COMPUTE J-RESULT = J-path
+        GOBACK
+    GOBACK.
+END FUNCTION PathUtil-adjustEnd1.
 
-// throws Exception
-function TPathUtil.getWithoutExtensionWithAbPath(abPath_: TAbPath): string;
-begin
-        Exit(Self.getWithoutExtension(abPath_.toString()));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PathUtil-adjust1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringValidationUtil BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-path BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-path RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringValidationUtil = FUNCTION StrngVldtnUtl-getInstance0
+        IF (FUNCTION StringValidationUtil-isEmpty1(J-stringValidationUtil, J-path) = 1)
+            COMPUTE J-RESULT = FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_abPathData"), "f_SEPARATOR")
+            GOBACK
+        END-IF
+        IF (FUNCTION JR-INDEX-OF(J-path, FUNCTION JR-STR("\\")) >= 0)
+            COMPUTE jtemp5 = 92
+            COMPUTE J-path = FUNCTION JR-REPLACE(J-path, jtemp5, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_abPathData"), "f_SEPARATORCHAR"))
+        END-IF
+        COMPUTE J-RESULT = J-path
+        GOBACK
+    GOBACK.
+END FUNCTION PathUtil-adjust1.
 
-// throws Exception
-function TPathUtil.getWithoutExtension(filePath: string): string;
-var
-  indexOfFileExtensionDelmiter: Integer;
-  pathWithoutExtension: string;
-begin
-        indexOfFileExtensionDelmiter := Self.abPathData.getExtensionIndex(filePath);
-        pathWithoutExtension := filePath;
-        if (indexOfFileExtensionDelmiter) >= (0) then begin
-            pathWithoutExtension := Copy(filePath, (0) + 1, (indexOfFileExtensionDelmiter) - (0));
-        end;
-        Exit(pathWithoutExtension);
-end;
-    
-
-function TPathUtil.isValid(path: string): Boolean;
-begin
-        if Self.isValidStart(path) then begin
-            if Self.isValidEnd(path) then begin
-                Exit(True);
-            end;
-        end;
-        Exit(False);
-end;
-    
-
-function TPathUtil.isValidStart(path: string): Boolean;
-begin
-        if ((path[(0) + 1]) = (Self.abPathData.SEPARATORCHAR)) or ((path[(0) + 1]) = ('.')) then begin
-            Exit(True);
-        end else begin
-            Exit(False);
-        end;
-end;
-    
-
-function TPathUtil.isValidEnd(path: string): Boolean;
-var
-  stringValidationUtil_: TObject;
-begin
-        stringValidationUtil_ := nil;
-        if (path = '') then begin
-            Exit(False);
-        end;
-        if (path[((System.Length(path)) - (1)) + 1]) = (Self.abPathData.SEPARATORCHAR) then begin
-            Exit(True);
-        end else begin
-            Exit(False);
-        end;
-end;
-    
-
-function TPathUtil.adjustStart(path: string): string;
-begin
-        if not (Self.isValidStart(path)) then begin
-            path := TJava.ToString(Self.abPathData.SEPARATOR) + path;
-        end;
-        Exit(path);
-end;
-    
-
-function TPathUtil.adjustEnd(path: string): string;
-begin
-        if not (Self.isValidEnd(path)) then begin
-            path := path + TJava.ToString(Self.abPathData.SEPARATOR);
-        end;
-        Exit(path);
-end;
-    
-
-function TPathUtil.adjust(path: string): string;
-var
-  stringValidationUtil_: TObject;
-begin
-        stringValidationUtil_ := nil;
-        if (path = '') then begin
-            Exit(Self.abPathData.SEPARATOR);
-        end;
-        if ((Pos(TJava.ToString('\'), path) - 1)) >= (0) then begin
-            path := StringReplace(path, '\', Self.abPathData.SEPARATORCHAR, [rfReplaceAll]);
-        end;
-        Exit(path);
-end;
-    
-
-// throws Exception
-function TPathUtil.removeNameFromPath(path: string): TAbPath;
-var
-  endIndex: Integer;
-  pathWithoutName: string;
-begin
-        endIndex := (RPos(TJava.ToString(Self.abPathData.SEPARATOR), path) - 1);
-        if (endIndex) < (0) then begin
-            endIndex := (RPos(TJava.ToString(Self.filePathData.SEPARATORCHAR), path) - 1);
-        end;
-        if (endIndex) < (0) then begin
-            Exit(TAbPath.createAbPath());
-        end;
-        if (System.Length(path)) = ((endIndex) + (1)) then begin
-            Exit(Self.removeNameFromPath(Copy(path, (0) + 1, ((endIndex) - (1)) - (0))));
-        end else begin
-            pathWithoutName := Copy(path, (0) + 1, (endIndex) - (0));
-            Exit(TAbPath.Create(pathWithoutName, TStringUtil.getInstance().EMPTY_STRING));
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TPathUtil.instance := TPathUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PathUtil-removeNameFromPath1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-endIndex BINARY-DOUBLE.
+01 J-pathWithoutName BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-path BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-path RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-endIndex = FUNCTION JR-LASTINDEXOF(J-path, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_abPathData"), "f_SEPARATOR"))
+        IF (J-endIndex < 0)
+            COMPUTE J-endIndex = FUNCTION JR-LASTINDEXOF(J-path, FUNCTION JR-CHAR-STRING(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_filePathData"), "f_SEPARATORCHAR")))
+        END-IF
+        IF (J-endIndex < 0)
+            COMPUTE J-RESULT = FUNCTION AbPath-createAbPath0
+            GOBACK
+        END-IF
+        COMPUTE jtemp6 = 1
+        IF (FUNCTION JR-STR-LENGTH(J-path) = (FUNCTION MOD((J-endIndex + jtemp6) + 2147483648, 4294967296) - 2147483648))
+            COMPUTE jtemp9 = 0
+            COMPUTE jtemp10 = (FUNCTION MOD((J-endIndex - 1) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE J-RESULT = FUNCTION PathUtil-removeNameFromPath1(J-THIS, FUNCTION JR-SUBSTRING(J-path, jtemp9, jtemp10))
+            GOBACK
+        ELSE
+            COMPUTE jtemp7 = 0
+            COMPUTE J-pathWithoutName = FUNCTION JR-SUBSTRING(J-path, jtemp7, J-endIndex)
+            COMPUTE jtemp8 = FUNCTION StringUtil-getInstance0
+            COMPUTE J-RESULT = FUNCTION AbPath-new2(J-pathWithoutName, FUNCTION JR-GET(jtemp8, "f_EMPTY_STRING"))
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION PathUtil-removeNameFromPath1.
 

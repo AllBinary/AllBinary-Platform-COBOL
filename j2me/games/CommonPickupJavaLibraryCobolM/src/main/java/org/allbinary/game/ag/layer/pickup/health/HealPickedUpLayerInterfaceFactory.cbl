@@ -1,99 +1,220 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.layer.pickup.health
+*> Java class HealPickedUpLayerInterfaceFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.layer.pickup.health
-unit HealPickedUpLayerInterfaceFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HlPckdUpLyrIntrfcFctry-s41632.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 HealPickedUpLayerInterfaceFactory-jcell-pickedUpLayerInterfaceFactoryInterface BINARY-DOUBLE EXTERNAL.
+01 HealPickedUpLayerInterfaceFactory-jset-pickedUpLayerInterfaceFactoryInterface BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF HealPickedUpLayerInterfaceFactory-jset-pickedUpLayerInterfaceFactoryInterface = 0
+        MOVE 1 TO HealPickedUpLayerInterfaceFactory-jset-pickedUpLayerInterfaceFactoryInterface
+        COMPUTE HealPickedUpLayerInterfaceFactory-jcell-pickedUpLayerInterfaceFactoryInterface = FUNCTION CntdPckdUpLyrIntrfcFctr-47319
+    END-IF
+    MOVE HealPickedUpLayerInterfaceFactory-jcell-pickedUpLayerInterfaceFactoryInterface TO J-RESULT
+    GOBACK.
+END FUNCTION HlPckdUpLyrIntrfcFctry-s41632.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HlPckdUpLyrIntrfcFctS39941.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 HealPickedUpLayerInterfaceFactory-jcell-pickedUpLayerInterfaceFactoryInterface BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION HlPckdUpLyrIntrfcFctry-s41632 TO J-RESULT
+    MOVE J-VALUE TO HealPickedUpLayerInterfaceFactory-jcell-pickedUpLayerInterfaceFactoryInterface
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION HlPckdUpLyrIntrfcFctS39941.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HlPckdUpLyrIntrfcFctry-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("HealPickedUpLayerInterfaceFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_pool")
+    COMPUTE jtemp1 = 1
+    COMPUTE JVALUE = FUNCTION HlLyrCrclrSttcPl-new2(FUNCTION HealLayerFactory-new0, jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_pool", JVALUE)
+        COMPUTE jtemp5 = FUNCTION HealthResources-getInstance0
+        COMPUTE jtemp4 = FUNCTION FtrdAnmtnIntrfcFctryInt-53898
+        COMPUTE jtemp6 = 0
+        COMPUTE jtemp11 = FUNCTION HealthResources-getInstance0
+        COMPUTE jtemp3 = FUNCTION FtrdAnmtnIntrfcFctryInt-13097(jtemp4, FUNCTION JR-GET(jtemp5, "f_RESOURCE"))
+        COMPUTE jtemp7 = 10
+        COMPUTE jtemp8 = 10
+        COMPUTE jtemp10 = FUNCTION FtrdAnmtnIntrfcFctryInt-53898
+        COMPUTE jtemp12 = 0
+        COMPUTE jtemp2 = FUNCTION PckdUpLyrTypFctry-getInstance0
+        COMPUTE jtemp9 = FUNCTION FtrdAnmtnIntrfcFctryInt-13097(jtemp10, FUNCTION JR-GET(jtemp11, "f_RESOURCE"))
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION HlPckdUpLyrIntrfcFctry-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, PickedUpLayerInterfaceFactory, PickedUpLayerInterfaceFactoryInterface, PickupProcessorInterface, AllBinaryLayer, HealLayerCircularStaticPool;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HlPckdUpLyrIntrfcFctry-init0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION HlPckdUpLyrIntrfcFctS39941(FUNCTION HlPckdUpLyrIntrfcFctry-new0)
+    GOBACK.
+END FUNCTION HlPckdUpLyrIntrfcFctry-init0.
 
-type
-  {AB:TYPES}
-  THealPickedUpLayerInterfaceFactory = class(TPickedUpLayerInterfaceFactory, IPickupProcessorInterface)
-  public
-    pool: THealLayerCircularStaticPool;
-    class var pickedUpLayerInterfaceFactoryInterface: IPickedUpLayerInterfaceFactoryInterface;
-    procedure InitFields;
-    function JavaObject: TObject;
-        class procedure init; static;
-        constructor Create;
-        function getTotal: Integer; virtual;
-        class function getInstance: IPickedUpLayerInterfaceFactoryInterface; static;
-        procedure process(sourceLayerInterface: TAllBinaryLayer); virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HlPckdUpLyrIntrfcFctry-gtTtl0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = 1
+        GOBACK
+    GOBACK.
+END FUNCTION HlPckdUpLyrIntrfcFctry-gtTtl0.
 
-implementation
-uses
-  HealLayerFactory, HealthResources, FeaturedAnimationInterfaceFactoryInterfaceFactory, CountedPickedUpLayerInterfaceFactory, IconLayerFactory, PickedUpLayerTypeFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HlPckdUpLyrIntrfcFctry-gt46962.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION HlPckdUpLyrIntrfcFctry-s41632
+        GOBACK
+    GOBACK.
+END FUNCTION HlPckdUpLyrIntrfcFctry-gt46962.
 
-
-{AB:CODE}
-
-procedure THealPickedUpLayerInterfaceFactory.InitFields;
-begin
-  Self.pool := THealLayerCircularStaticPool.Create(THealLayerFactory.Create(), 1);
-end;
-
-function THealPickedUpLayerInterfaceFactory.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-    
-
-// throws Exception
-class procedure THealPickedUpLayerInterfaceFactory.init;
-begin
-        THealPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface := THealPickedUpLayerInterfaceFactory.Create();
-end;
-    
-
-constructor THealPickedUpLayerInterfaceFactory.Create;
-begin
-        inherited Create(TPickedUpLayerTypeFactory.getInstance().HEAL, TIconLayerFactory.getInstance(TFeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(THealthResources.getInstance().RESOURCE).getInstance(0), 10, 10), TFeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(THealthResources.getInstance().RESOURCE).getInstance(0));
-        InitFields;
-end;
-    
-
-function THealPickedUpLayerInterfaceFactory.getTotal: Integer;
-begin
-        Exit(1);
-end;
-    
-
-class function THealPickedUpLayerInterfaceFactory.getInstance: IPickedUpLayerInterfaceFactoryInterface;
-begin
-        Exit(THealPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface);
-end;
-    
-
-// throws Exception
-procedure THealPickedUpLayerInterfaceFactory.process(sourceLayerInterface: TAllBinaryLayer);
-begin
-        Self.pool.visit(sourceLayerInterface);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  THealPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface := TCountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY;
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HlPckdUpLyrIntrfcFctry-prcss1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-sourceLayerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-sourceLayerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION HlLyrCrclrSttcPl-visit1(FUNCTION JR-GET(J-THIS, "f_pool"), J-sourceLayerInterface)
+    GOBACK.
+END FUNCTION HlPckdUpLyrIntrfcFctry-prcss1.
 

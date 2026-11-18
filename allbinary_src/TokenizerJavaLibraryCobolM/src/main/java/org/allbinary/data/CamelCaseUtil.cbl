@@ -1,96 +1,183 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.data
+*> Java class CamelCaseUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.data
-unit CamelCaseUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CamelCaseUtil-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CamelCaseUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 CamelCaseUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF CamelCaseUtil-jset-instance = 0
+        MOVE 1 TO CamelCaseUtil-jset-instance
+        COMPUTE CamelCaseUtil-jcell-instance = FUNCTION CamelCaseUtil-new0
+    END-IF
+    MOVE CamelCaseUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION CamelCaseUtil-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CamelCaseUtilstaticiS47831.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CamelCaseUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION CamelCaseUtil-static-instance TO J-RESULT
+    MOVE J-VALUE TO CamelCaseUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION CamelCaseUtilstaticiS47831.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CamelCaseUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CamelCaseUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonSeps")
+    COMPUTE JVALUE = FUNCTION CommonSeps-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonSeps", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CamelCaseUtil-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, StringMaker, CommonSeps;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CamelCaseUtil-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION CamelCaseUtil-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION CamelCaseUtil-getInstance0.
 
-type
-  {AB:TYPES}
-  TCamelCaseUtil = class(TObject)
-  public
-    commonSeps: TCommonSeps;
-    class var instance: TCamelCaseUtil;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TCamelCaseUtil; static;
-        function getAsCamelCase(string_: string; stringBuilder: TStringMaker): string; virtual;
-  end;
-
-implementation
-uses
-  StringUtil, Tokenizer, BasicArrayList, BasicArrayListD;
-
-
-{AB:CODE}
-
-procedure TCamelCaseUtil.InitFields;
-begin
-  Self.commonSeps := TCommonSeps.getInstance();
-end;
-
-constructor TCamelCaseUtil.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TCamelCaseUtil.getInstance: TCamelCaseUtil;
-begin
-        Exit(TCamelCaseUtil.instance);
-end;
-    
-
-// throws Exception
-function TCamelCaseUtil.getAsCamelCase(string_: string; stringBuilder: TStringMaker): string;
-var
-  stringValidationUtil_: TObject;
-  list: TBasicArrayList;
-  tokenizer_: TTokenizer;
-  size: Integer;
-  word: string;
-  i: Integer;
-begin
-        stringValidationUtil_ := nil;
-        stringBuilder.delete_(0, stringBuilder.length());
-        list := TBasicArrayListD.Create();
-        tokenizer_ := TTokenizer.Create(Self.commonSeps.UNDERSCORE);
-        tokenizer_.getTokensFromString(string_, list);
-        size := list.size();
-        
-        for i := 0 to size - 1 do begin
-            word := TJava.UnboxString(TJava.ToObject(list.get(i)));
-            word := TJava.IfThen<Variant>((word = ''), word, TStringMaker.Create().appendchar(UpCase(word[(0) + 1])).append(LowerCase(Copy(word, (1) + 1, MaxInt))).toString());
-            stringBuilder.append(word);
-        end;
-        Exit(stringBuilder.toString());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TCamelCaseUtil.instance := TCamelCaseUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CamelCaseUtil-getAsCamelCase2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringValidationUtil BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-tokenizer BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-word BINARY-DOUBLE.
+01 J-i BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-string BINARY-DOUBLE.
+01 J-stringBuilder BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-string J-stringBuilder RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringValidationUtil = FUNCTION StrngVldtnUtl-getInstance0
+        COMPUTE jtemp1 = 0
+        COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringBuilder, jtemp1, FUNCTION StringMaker-length0(J-stringBuilder))
+        COMPUTE J-list = FUNCTION BasicArrayListD-new0
+        COMPUTE J-tokenizer = FUNCTION Tokenizer-new1(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonSeps"), "f_UNDERSCORE"))
+        COMPUTE JDISCARD = FUNCTION Tokenizer-getTokensFromString2(J-tokenizer, J-string, J-list)
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(J-list)
+        CONTINUE
+        COMPUTE J-i = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-i = (FUNCTION MOD(J-i + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-i < J-size) EXIT PERFORM END-IF
+            COMPUTE J-word = FUNCTION BasicArrayList-get1(J-list, J-i)
+            COMPUTE jtemp5 = 0
+            COMPUTE jtemp7 = 1
+            COMPUTE jtemp6 = FUNCTION JR-SUBSTRING(J-word, jtemp7)
+            COMPUTE jtemp4 = FUNCTION StringMaker-new0
+            COMPUTE jtemp3 = FUNCTION StringMaker-appendchar1(jtemp4, FUNCTION Character-toUpperCase1(FUNCTION JR-CHAR-AT(J-word, jtemp5)))
+            COMPUTE jtemp2 = FUNCTION StringMaker-append1(jtemp3, FUNCTION JR-TOLOWERCASE(jtemp6))
+            COMPUTE J-word = ((FUNCTION StringValidationUtil-isEmpty1(J-stringValidationUtil, J-word)) * (J-word) + (1 - (FUNCTION StringValidationUtil-isEmpty1(J-stringValidationUtil, J-word))) * (FUNCTION JR-TO-STRING(jtemp2)))
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuilder, J-word)
+        END-PERFORM
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(J-stringBuilder)
+        GOBACK
+    GOBACK.
+END FUNCTION CamelCaseUtil-getAsCamelCase2.
 

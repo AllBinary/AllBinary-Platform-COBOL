@@ -1,244 +1,626 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2011 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.resource
+*> Java class BaseResourceAnimationInterfaceFactoryInterfaceFactory
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsRsrcAnmtnIntrfcFctryI-36876.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-name BINARY-DOUBLE.
+01 J-hashtable BINARY-DOUBLE.
+01 J-rectangleHashtable BINARY-DOUBLE.
+01 J-rectangleArrayHashtable BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-name J-hashtable J-rectangleHashtable J-rectangleArrayHashtable RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("BaseResourceAnimationInterfaceFactoryInterfaceFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_hashtable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_rectangleHashtable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_rectangleArrayOfArraysHashtable")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_name")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_initialized")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
     
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.resource
-unit BaseResourceAnimationInterfaceFactoryInterfaceFactory;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, BasicAnimationInterfaceFactoryInterface, Rectangle, ImageCache, LogUtil, CommonStrings, ABHashtable, FeatureResourceAnimationInterfaceFactoryInterface, GameFeatureControlledInterface, RectangleResourceFactoryInterface, ResourceAnimationInterfaceFactoryInterface;
-
-type
-  {AB:TYPES}
-  TBaseResourceAnimationInterfaceFactoryInterfaceFactory = class(TInterfacedObject, IFeatureResourceAnimationInterfaceFactoryInterface, IGameFeatureControlledInterface, IRectangleResourceFactoryInterface, IResourceAnimationInterfaceFactoryInterface)
-  public
-    logUtil: TLogUtil;
-    commonStrings: TCommonStrings;
-    hashtable: TABHashtable<TObject, TObject>;
-    rectangleHashtable: TABHashtable<TObject, TObject>;
-    rectangleArrayOfArraysHashtable: TABHashtable<TObject, TObject>;
-    name: string;
-    initialized: Boolean;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(name: string; hashtable: TABHashtable<TObject, TObject>; rectangleHashtable: TABHashtable<TObject, TObject>; rectangleArrayHashtable: TABHashtable<TObject, TObject>);
-        function getName: string; virtual;
-        procedure init(level: Integer); virtual;
-        procedure initImageCache(imageCache_: TImageCache; level: Integer); virtual;
-        procedure add(resource: string; animationInterfaceFactoryInterface: IBasicAnimationInterfaceFactoryInterface); virtual;
-        function getBasicAnimationInterfaceFactoryInstance(resource: string): IBasicAnimationInterfaceFactoryInterface; virtual;
-        function getRectangle(resource: string): TRectangle; virtual;
-        procedure addRectangle(resource: string; rectangle_: TRectangle); virtual;
-        function getRectangleArrayOfArrays(resource: string): TArray<TArray<TRectangle>>; virtual;
-        procedure addRectangleArrayOfArrays(resource: string; rectangleArrayOfArrays: TArray<TArray<TRectangle>>); virtual;
-        function isFeature: Boolean; virtual;
-        function isLoadingLevel(level: Integer): Boolean; virtual;
-        function toString: string; virtual;
-        function getHashtable: TABHashtable<TObject, TObject>; virtual;
-        function getRectangleHashtable: TABHashtable<TObject, TObject>; virtual;
-        function getRectangleArrayOfArraysHashtable: TABHashtable<TObject, TObject>; virtual;
-        procedure setInitialized(initialized: Boolean); virtual;
-        function isInitialized: Boolean; virtual;
-  end;
-
-implementation
-uses
-  NullAnimationFactory, ResourceLoadingLevelFactory, RectangleFactory, StringMaker, CommonSeps;
-
-
-{AB:CODE}
-
-procedure TBaseResourceAnimationInterfaceFactoryInterfaceFactory.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.commonStrings := TCommonStrings.getInstance();
-  
-  
-  
-  
-  
-end;
-
-function TBaseResourceAnimationInterfaceFactoryInterfaceFactory.JavaObject: TObject;
-begin
-  Result := Self;
-end;
     
-
-constructor TBaseResourceAnimationInterfaceFactoryInterfaceFactory.Create(name: string; hashtable: TABHashtable<TObject, TObject>; rectangleHashtable: TABHashtable<TObject, TObject>; rectangleArrayHashtable: TABHashtable<TObject, TObject>);
-begin
-    inherited Create;
-    InitFields;
-        Self.hashtable := hashtable;
-        Self.rectangleHashtable := rectangleHashtable;
-        Self.rectangleArrayOfArraysHashtable := rectangleArrayHashtable;
-        Self.name := name;
-end;
     
-
-function TBaseResourceAnimationInterfaceFactoryInterfaceFactory.getName: string;
-begin
-        Exit(Self.name);
-end;
     
-
-// throws Exception
-procedure TBaseResourceAnimationInterfaceFactoryInterfaceFactory.init(level: Integer);
-var
-  commonStrings_: TCommonStrings;
-begin
-        commonStrings_ := TCommonStrings.getInstance();
-        Self.logUtil.putF(TStringMaker.Create().append('Available List of Animations: ').append(Self.hashtable.toString()).toString(), TJava.Box(Self), commonStrings_.INIT);
-        Self.setInitialized(True);
-end;
     
+        COMPUTE JVALUE = J-hashtable
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_hashtable", JVALUE)
+        COMPUTE JVALUE = J-rectangleHashtable
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_rectangleHashtable", JVALUE)
+        COMPUTE JVALUE = J-rectangleArrayHashtable
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_rectangleArrayOfArraysHashtable", JVALUE)
+        COMPUTE JVALUE = J-name
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_name", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION BsRsrcAnmtnIntrfcFctryI-36876.
 
-// throws Exception
-procedure TBaseResourceAnimationInterfaceFactoryInterfaceFactory.initImageCache(imageCache_: TImageCache; level: Integer);
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsRsrcAnmtnIntrfcFctryI-60021.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_name")
+        GOBACK
+    GOBACK.
+END FUNCTION BsRsrcAnmtnIntrfcFctryI-60021.
 
-// throws Exception
-procedure TBaseResourceAnimationInterfaceFactoryInterfaceFactory.add(resource: string; animationInterfaceFactoryInterface: IBasicAnimationInterfaceFactoryInterface);
-begin
-        if Self.hashtable.containsKey(TJava.Box(TJava.Box(resource))) then begin
-            raise SysUtils.Exception.Create(TStringMaker.Create().append('Resource Already Created: ').append(resource).toString());
-        end;
-        Self.hashtable.put(TJava.Box(resource), TJava.Box(animationInterfaceFactoryInterface));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsRsrcAnmtnIntrfcFctryI-32786.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-commonStrings BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-level BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-level RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-commonStrings = FUNCTION CommonStrings-getInstance0
+        COMPUTE jtemp3 = FUNCTION StringMaker-new0
+        COMPUTE jtemp2 = FUNCTION StringMaker-append1(jtemp3, FUNCTION JR-STR("Available List of Animations: "))
+        COMPUTE jtemp1 = FUNCTION StringMaker-append1(jtemp2, FUNCTION JR-TO-STRING(FUNCTION JR-GET(J-THIS, "f_hashtable")))
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp1), J-THIS, FUNCTION JR-GET(J-commonStrings, "f_INIT"))
+        COMPUTE jtemp4 = 1
+        COMPUTE JDISCARD = FUNCTION BsRsrcAnmtnIntrfcFctryI-94659(J-THIS, jtemp4)
+    GOBACK.
+END FUNCTION BsRsrcAnmtnIntrfcFctryI-32786.
 
-// throws Exception
-function TBaseResourceAnimationInterfaceFactoryInterfaceFactory.getBasicAnimationInterfaceFactoryInstance(resource: string): IBasicAnimationInterfaceFactoryInterface;
-var
-  basicAnimationInterfaceFactoryInterfaceCanBeNull: TObject;
-begin
-        basicAnimationInterfaceFactoryInterfaceCanBeNull := TJava.Box(Self.hashtable.get(TJava.Box(resource)));
-        if (basicAnimationInterfaceFactoryInterfaceCanBeNull) = (nil) then begin
-            Exit(TNullAnimationFactory.NULL_NOT_FOR_USE_ANIMATION_FACTORY);
-        end;
-        Exit((TJava.ToObject(basicAnimationInterfaceFactoryInterfaceCanBeNull) as IBasicAnimationInterfaceFactoryInterface));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsRsrcAnmtnIntrfcFctryI-37614.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-imageCache BINARY-DOUBLE.
+01 J-level BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-imageCache J-level RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION BsRsrcAnmtnIntrfcFctryI-37614.
 
-// throws Exception
-function TBaseResourceAnimationInterfaceFactoryInterfaceFactory.getRectangle(resource: string): TRectangle;
-var
-  rectangleCanBeNull: TObject;
-begin
-        rectangleCanBeNull := TJava.Box(Self.rectangleHashtable.get(TJava.Box(resource)));
-        if (rectangleCanBeNull) = (nil) then begin
-            Exit(TRectangleFactory.SINGLETON);
-        end;
-        Exit(TRectangle(TJava.ToObject(rectangleCanBeNull)));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsRsrcAnmtnIntrfcFctryI-31216.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-resource BINARY-DOUBLE.
+01 J-animationInterfaceFactoryInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-resource J-animationInterfaceFactoryInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp5 = J-resource
+        IF (FUNCTION Hashtable-containsKey1(FUNCTION JR-GET(J-THIS, "f_hashtable"), jtemp5) = 1)
+            COMPUTE jtemp8 = FUNCTION StringMaker-new0
+            COMPUTE jtemp7 = FUNCTION StringMaker-append1(jtemp8, FUNCTION JR-STR("Resource Already Created: "))
+            COMPUTE jtemp6 = FUNCTION StringMaker-append1(jtemp7, J-resource)
+            COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+        END-IF
+        COMPUTE JDISCARD = FUNCTION Hashtable-put2(FUNCTION JR-GET(J-THIS, "f_hashtable"), J-resource, J-animationInterfaceFactoryInterface)
+    GOBACK.
+END FUNCTION BsRsrcAnmtnIntrfcFctryI-31216.
 
-// throws Exception
-procedure TBaseResourceAnimationInterfaceFactoryInterfaceFactory.addRectangle(resource: string; rectangle_: TRectangle);
-begin
-        Self.rectangleHashtable.put(TJava.Box(resource), TJava.Box(rectangle_));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsRsrcAnmtnIntrfcFctryI-80388.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-basicAnimationInterfaceFactoryInterfaceCanBeNull BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-resource BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-resource RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-basicAnimationInterfaceFactoryInterfaceCanBeNull = FUNCTION Hashtable-get1(FUNCTION JR-GET(J-THIS, "f_hashtable"), J-resource)
+        IF (J-basicAnimationInterfaceFactoryInterfaceCanBeNull = 0)
+            COMPUTE J-RESULT = FUNCTION NllAnmtnFctry-sttc-68402
+            GOBACK
+        END-IF
+        COMPUTE J-RESULT = J-basicAnimationInterfaceFactoryInterfaceCanBeNull
+        GOBACK
+    GOBACK.
+END FUNCTION BsRsrcAnmtnIntrfcFctryI-80388.
 
-// throws Exception
-function TBaseResourceAnimationInterfaceFactoryInterfaceFactory.getRectangleArrayOfArrays(resource: string): TArray<TArray<TRectangle>>;
-var
-  valueCanBeNull: TObject;
-  rectangleArrayOfArrays: TArray<TArray<TRectangle>>;
-begin
-        valueCanBeNull := TJava.Box(Self.rectangleArrayOfArraysHashtable.get(TJava.Box(resource)));
-        if (valueCanBeNull) <> (nil) then begin
-            rectangleArrayOfArrays := TJava.UnboxArrayOfArrays<TRectangle>(TJava.ToObject(valueCanBeNull));
-            Exit(rectangleArrayOfArrays);
-        end else begin
-            Exit(TRectangleFactory.ARRAY_OF_ARRAYS);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsRsrcAnmtnIntrfcFctryI-71727.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-rectangleCanBeNull BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-resource BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-resource RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-rectangleCanBeNull = FUNCTION Hashtable-get1(FUNCTION JR-GET(J-THIS, "f_rectangleHashtable"), J-resource)
+        IF (J-rectangleCanBeNull = 0)
+            COMPUTE J-RESULT = FUNCTION RctnglFctry-static-SINGLETON
+            GOBACK
+        END-IF
+        COMPUTE J-RESULT = J-rectangleCanBeNull
+        GOBACK
+    GOBACK.
+END FUNCTION BsRsrcAnmtnIntrfcFctryI-71727.
 
-// throws Exception
-procedure TBaseResourceAnimationInterfaceFactoryInterfaceFactory.addRectangleArrayOfArrays(resource: string; rectangleArrayOfArrays: TArray<TArray<TRectangle>>);
-begin
-        Self.rectangleArrayOfArraysHashtable.put(TJava.Box(resource), TJava.BoxArrayOfArrays<TRectangle>(rectangleArrayOfArrays));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsRsrcAnmtnIntrfcFctryI-37971.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-resource BINARY-DOUBLE.
+01 J-rectangle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-resource J-rectangle RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Hashtable-put2(FUNCTION JR-GET(J-THIS, "f_rectangleHashtable"), J-resource, J-rectangle)
+    GOBACK.
+END FUNCTION BsRsrcAnmtnIntrfcFctryI-37971.
 
-function TBaseResourceAnimationInterfaceFactoryInterfaceFactory.isFeature: Boolean;
-begin
-        Exit(False);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsRsrcAnmtnIntrfcFctryI-42133.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-valueCanBeNull BINARY-DOUBLE.
+01 J-rectangleArrayOfArrays BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-resource BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-resource RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-valueCanBeNull = FUNCTION Hashtable-get1(FUNCTION JR-GET(J-THIS, "f_rectangleArrayOfArraysHashtable"), J-resource)
+        IF (J-valueCanBeNull NOT = 0)
+            COMPUTE J-rectangleArrayOfArrays = J-valueCanBeNull
+            COMPUTE J-RESULT = J-rectangleArrayOfArrays
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = FUNCTION RctnglFctry-sttc-ARRAY56945
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION BsRsrcAnmtnIntrfcFctryI-42133.
 
-function TBaseResourceAnimationInterfaceFactoryInterfaceFactory.isLoadingLevel(level: Integer): Boolean;
-var
-  resourceLoadingLevelFactory_: TResourceLoadingLevelFactory;
-begin
-        resourceLoadingLevelFactory_ := TResourceLoadingLevelFactory.getInstance();
-        if (level) = (resourceLoadingLevelFactory_.LOAD_ALL.getLevel()) then begin
-            Exit(True);
-        end else begin
-            Exit(False);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsRsrcAnmtnIntrfcFctryI-86600.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-resource BINARY-DOUBLE.
+01 J-rectangleArrayOfArrays BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-resource J-rectangleArrayOfArrays RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Hashtable-put2(FUNCTION JR-GET(J-THIS, "f_rectangleArrayOfArraysHashtable"), J-resource, J-rectangleArrayOfArrays)
+    GOBACK.
+END FUNCTION BsRsrcAnmtnIntrfcFctryI-86600.
 
-function TBaseResourceAnimationInterfaceFactoryInterfaceFactory.toString: string;
-begin
-        Exit(TStringMaker.Create().append(Self.ClassType.ClassName).append(TCommonSeps.getInstance().SEMICOLON).append(TCommonSeps.getInstance().SPACE).append(Self.name).toString());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsRsrcAnmtnIntrfcFctryI-29632.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION BsRsrcAnmtnIntrfcFctryI-29632.
 
-function TBaseResourceAnimationInterfaceFactoryInterfaceFactory.getHashtable: TABHashtable<TObject, TObject>;
-begin
-        Exit(Self.hashtable);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsRsrcAnmtnIntrfcFctryI-26333.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-resourceLoadingLevelFactory BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-level BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-level RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-resourceLoadingLevelFactory = FUNCTION RsrcLdngLvlFctry-getInstance0
+        IF (J-level = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-resourceLoadingLevelFactory, "f_LOAD_ALL")))
+            COMPUTE J-RESULT = 1
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = 0
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION BsRsrcAnmtnIntrfcFctryI-26333.
 
-function TBaseResourceAnimationInterfaceFactoryInterfaceFactory.getRectangleHashtable: TABHashtable<TObject, TObject>;
-begin
-        Exit(Self.rectangleHashtable);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsRsrcAnmtnIntrfcFctryI-99487.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp14 = FUNCTION JR-CLASS-NAME(J-THIS)
+        COMPUTE jtemp15 = FUNCTION CommonSeps-getInstance0
+        COMPUTE jtemp13 = FUNCTION StringMaker-new0
+        COMPUTE jtemp16 = FUNCTION CommonSeps-getInstance0
+        COMPUTE jtemp12 = FUNCTION StringMaker-append1(jtemp13, jtemp14)
+        COMPUTE jtemp11 = FUNCTION StringMaker-append1(jtemp12, FUNCTION JR-GET(jtemp15, "f_SEMICOLON"))
+        COMPUTE jtemp10 = FUNCTION StringMaker-append1(jtemp11, FUNCTION JR-GET(jtemp16, "f_SPACE"))
+        COMPUTE jtemp9 = FUNCTION StringMaker-append1(jtemp10, FUNCTION JR-GET(J-THIS, "f_name"))
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(jtemp9)
+        GOBACK
+    GOBACK.
+END FUNCTION BsRsrcAnmtnIntrfcFctryI-99487.
 
-function TBaseResourceAnimationInterfaceFactoryInterfaceFactory.getRectangleArrayOfArraysHashtable: TABHashtable<TObject, TObject>;
-begin
-        Exit(Self.rectangleArrayOfArraysHashtable);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsRsrcAnmtnIntrfcFctryI-11406.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_hashtable")
+        GOBACK
+    GOBACK.
+END FUNCTION BsRsrcAnmtnIntrfcFctryI-11406.
 
-procedure TBaseResourceAnimationInterfaceFactoryInterfaceFactory.setInitialized(initialized: Boolean);
-begin
-        Self.initialized := initialized;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsRsrcAnmtnIntrfcFctryI-56630.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_rectangleHashtable")
+        GOBACK
+    GOBACK.
+END FUNCTION BsRsrcAnmtnIntrfcFctryI-56630.
 
-function TBaseResourceAnimationInterfaceFactoryInterfaceFactory.isInitialized: Boolean;
-begin
-        Exit(Self.initialized);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsRsrcAnmtnIntrfcFctryI-94486.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_rectangleArrayOfArraysHashtable")
+        GOBACK
+    GOBACK.
+END FUNCTION BsRsrcAnmtnIntrfcFctryI-94486.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsRsrcAnmtnIntrfcFctryI-94659.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-initialized BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-initialized RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-initialized
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_initialized", JVALUE)
+    GOBACK.
+END FUNCTION BsRsrcAnmtnIntrfcFctryI-94659.
 
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsRsrcAnmtnIntrfcFctryI-45603.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_initialized")
+        GOBACK
+    GOBACK.
+END FUNCTION BsRsrcAnmtnIntrfcFctryI-45603.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. BaseResourceAnimation-toString.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION BsRsrcAnmtnIntrfcFctryI-99487(J-THIS)
+    GOBACK.
+END PROGRAM BaseResourceAnimation-toString.
 

@@ -1,87 +1,147 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion.button
+*> Java class BasicTouchButtonsBuilder
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion.button
-unit BasicTouchButtonsBuilder;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscTchBttnsBldr-sttc-SIN38070.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BasicTouchButtonsBuilder-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+01 BasicTouchButtonsBuilder-jset-SINGLETON BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF BasicTouchButtonsBuilder-jset-SINGLETON = 0
+        MOVE 1 TO BasicTouchButtonsBuilder-jset-SINGLETON
+        COMPUTE BasicTouchButtonsBuilder-jcell-SINGLETON = FUNCTION BasicTouchButtonsBuilder-new0
+    END-IF
+    MOVE BasicTouchButtonsBuilder-jcell-SINGLETON TO J-RESULT
+    GOBACK.
+END FUNCTION BscTchBttnsBldr-sttc-SIN38070.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscTchBttnsBldrsttcSS85333.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 BasicTouchButtonsBuilder-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION BscTchBttnsBldr-sttc-SIN38070 TO J-RESULT
+    MOVE J-VALUE TO BasicTouchButtonsBuilder-jcell-SINGLETON
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION BscTchBttnsBldrsttcSS85333.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicTouchButtonsBuilder-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("BasicTouchButtonsBuilder")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION BasicTouchButtonsBuilder-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LogUtil, BasicArrayList, BaseTouchInput;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscTchBttnsBldr-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION BscTchBttnsBldr-sttc-SIN38070
+        GOBACK
+    GOBACK.
+END FUNCTION BscTchBttnsBldr-getInstance0.
 
-type
-  {AB:TYPES}
-  TBasicTouchButtonsBuilder = class(TBaseTouchInput)
-  public
-    logUtil: TLogUtil;
-    class var SINGLETON: TBasicTouchButtonsBuilder;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TBaseTouchInput; static;
-        function getList: TBasicArrayList; override;
-  end;
-
-implementation
-uses
-  CommonStrings, BasicArrayListD, BasicArrayListUtil;
-
-
-{AB:CODE}
-
-procedure TBasicTouchButtonsBuilder.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-end;
-
-constructor TBasicTouchButtonsBuilder.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TBasicTouchButtonsBuilder.getInstance: TBaseTouchInput;
-begin
-        Exit(TBasicTouchButtonsBuilder.SINGLETON);
-end;
-    
-
-function TBasicTouchButtonsBuilder.getList: TBasicArrayList;
-var
-  list: TBasicArrayList;
-begin
-        try
-            Self.logUtil.putF(Self.commonStrings.START, TJava.Box(Self), Self.commonStrings.GET_LIST);
-            list := TBasicArrayListD.Create();
-            Exit(list);
-        except
-            on e: SysUtils.Exception do begin
-            Self.logUtil.put(Self.commonStrings.EXCEPTION, TJava.Box(Self), Self.commonStrings.GET_LIST, TJava.Box(e));
-            Exit(TBasicArrayListUtil.getInstance().getImmutableInstance());
-            end;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TBasicTouchButtonsBuilder.SINGLETON := TBasicTouchButtonsBuilder.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscTchBttnsBldr-getList0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-list BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_START"), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"),
+        "f_GET_LIST"))
+            COMPUTE J-list = FUNCTION BasicArrayListD-new0
+            COMPUTE J-RESULT = J-list
+            GOBACK
+    GOBACK.
+END FUNCTION BscTchBttnsBldr-getList0.
 

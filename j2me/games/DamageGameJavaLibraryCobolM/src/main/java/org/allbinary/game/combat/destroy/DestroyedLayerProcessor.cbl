@@ -1,104 +1,199 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.combat.destroy
+*> Java class DestroyedLayerProcessor
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.combat.destroy
-unit DestroyedLayerProcessor;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DstrydLyrPrcssr-sttc-D27733.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 DestroyedLayerProcessor-jcell-DESTROYED_LAYER_PROCESSOR BINARY-DOUBLE EXTERNAL.
+01 DestroyedLayerProcessor-jset-DESTROYED_LAYER_PROCESSOR BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF DestroyedLayerProcessor-jset-DESTROYED_LAYER_PROCESSOR = 0
+        MOVE 1 TO DestroyedLayerProcessor-jset-DESTROYED_LAYER_PROCESSOR
+        COMPUTE DestroyedLayerProcessor-jcell-DESTROYED_LAYER_PROCESSOR = FUNCTION BscLyrPrcssr-sttc-NULL18804
+    END-IF
+    MOVE DestroyedLayerProcessor-jcell-DESTROYED_LAYER_PROCESSOR TO J-RESULT
+    GOBACK.
+END FUNCTION DstrydLyrPrcssr-sttc-D27733.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DstrydLyrPrcssrsttcDS27457.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 DestroyedLayerProcessor-jcell-DESTROYED_LAYER_PROCESSOR BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION DstrydLyrPrcssr-sttc-D27733 TO J-RESULT
+    MOVE J-VALUE TO DestroyedLayerProcessor-jcell-DESTROYED_LAYER_PROCESSOR
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION DstrydLyrPrcssrsttcDS27457.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DestroyedLayerProcessor-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("DestroyedLayerProcessor")
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION DestroyedLayerProcessor-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AllBinaryLayerManager, BasicLayerProcessor;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DestroyedLayerProcessor-init0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION DstrydLyrPrcssrsttcDS27457(FUNCTION DestroyedLayerProcessor-new0)
+    GOBACK.
+END FUNCTION DestroyedLayerProcessor-init0.
 
-type
-  {AB:TYPES}
-  TDestroyedLayerProcessor = class(TBasicLayerProcessor)
-  public
-    class var DESTROYED_LAYER_PROCESSOR: TBasicLayerProcessor;
-        constructor Create;
-        class procedure init; static;
-        class function getInstance: TBasicLayerProcessor; static;
-        procedure process(allBinaryLayerManager_: TAllBinaryLayerManager); override;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DstrydLyrPrcssr-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION DstrydLyrPrcssr-sttc-D27733
+        GOBACK
+    GOBACK.
+END FUNCTION DstrydLyrPrcssr-getInstance0.
 
-implementation
-uses
-  DestroyEventCircularStaticPool, DestroyedEvent, DestroyedEventHandler, AllBinaryLayer, StringMaker, StringUtil, CommonStrings, BasicArrayList;
-
-
-{AB:CODE}
-    
-
-constructor TDestroyedLayerProcessor.Create;
-begin
-    inherited Create;
-end;
-    
-
-class procedure TDestroyedLayerProcessor.init;
-begin
-        TDestroyedLayerProcessor.DESTROYED_LAYER_PROCESSOR := TDestroyedLayerProcessor.Create();
-end;
-    
-
-class function TDestroyedLayerProcessor.getInstance: TBasicLayerProcessor;
-begin
-        Exit(TDestroyedLayerProcessor.DESTROYED_LAYER_PROCESSOR);
-end;
-    
-
-// throws Exception
-procedure TDestroyedLayerProcessor.process(allBinaryLayerManager_: TAllBinaryLayerManager);
-var
-  list: TBasicArrayList;
-  size: Integer;
-  destroyedEventHandler_: TDestroyedEventHandler;
-  destroyEventCircularStaticPool_: TDestroyEventCircularStaticPool;
-  destroyedEvent_: TDestroyedEvent;
-  layerInterface: TAllBinaryLayer;
-  layerInterfaceCanBeNull: TObject;
-  commonStrings_: TCommonStrings;
-  index: Integer;
-begin
-        list := Self.getList();
-        size := list.size();
-        destroyedEventHandler_ := TDestroyedEventHandler.getInstance();
-        destroyEventCircularStaticPool_ := TDestroyEventCircularStaticPool.getInstance();
-        
-        
-        for index := 0 to size - 1 do begin
-            layerInterfaceCanBeNull := TJava.Box(list.objectArray[index]);
-            if (layerInterfaceCanBeNull) <> (nil) then begin
-                layerInterface := TAllBinaryLayer(TJava.ToObject(layerInterfaceCanBeNull));
-                allBinaryLayerManager_.remove(layerInterface);
-                destroyedEvent_ := destroyEventCircularStaticPool_.getInstanceForLayer(layerInterface);
-                destroyedEventHandler_.fireEvent(destroyedEvent_);
-            end else begin
-                commonStrings_ := TCommonStrings.getInstance();
-            end;
-        end;
-        list.clear();
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TDestroyedLayerProcessor.DESTROYED_LAYER_PROCESSOR := TBasicLayerProcessor.NULL_LAYER_PROCESSOR;
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. DstrydLyrPrcssr-process1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-list BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-destroyedEventHandler BINARY-DOUBLE.
+01 J-destroyEventCircularStaticPool BINARY-DOUBLE.
+01 J-destroyedEvent BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-layerInterfaceCanBeNull BINARY-DOUBLE.
+01 J-commonStrings BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryLayerManager BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-list = FUNCTION BasicLayerProcessor-getList0(J-THIS)
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(J-list)
+        COMPUTE J-destroyedEventHandler = FUNCTION DstrydEvntHndlr-getInstance0
+        COMPUTE J-destroyEventCircularStaticPool = FUNCTION DstryEvntCrclrSttcPl-gtInstnc0
+        CONTINUE
+        CONTINUE
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-layerInterfaceCanBeNull = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
+            IF (J-layerInterfaceCanBeNull NOT = 0)
+                COMPUTE J-layerInterface = J-layerInterfaceCanBeNull
+                COMPUTE JDISCARD = FUNCTION AllBinaryLayerManager-remove1(J-allBinaryLayerManager, J-layerInterface)
+                COMPUTE J-destroyedEvent = FUNCTION DstryEvntCrclrSttcPl-gtIn32395(J-destroyEventCircularStaticPool, J-layerInterface)
+                COMPUTE JDISCARD = FUNCTION DstrydEvntHndlr-fireEvent1(J-destroyedEventHandler, J-destroyedEvent)
+            ELSE
+                COMPUTE J-commonStrings = FUNCTION CommonStrings-getInstance0
+            END-IF
+        END-PERFORM
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-clear0(J-list)
+    GOBACK.
+END FUNCTION DstrydLyrPrcssr-process1.
 

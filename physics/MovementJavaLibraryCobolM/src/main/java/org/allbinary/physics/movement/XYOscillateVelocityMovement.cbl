@@ -1,91 +1,124 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.physics.movement
+*> Java class XYOscillateVelocityMovement
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.physics.movement
-unit XYOscillateVelocityMovement;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AllBinaryGameLayer, BasicDecimal, BasicConstantVelocityMovement;
-
-type
-  {AB:TYPES}
-  TXYOscillateVelocityMovement = class(TBasicConstantVelocityMovement)
-  public
-    oscillateMin: Integer;
-    oscillateMax: Integer;
-    oscillate: Integer;
-    oscillatePositive: Boolean;
-    procedure InitFields;
-        constructor Create(speedBasicDecimal: TBasicDecimal; oscillateMin: Integer; oscillateMax: Integer);
-        procedure process(layer: TAllBinaryGameLayer); override;
-  end;
-
-implementation
-uses
-  VelocityProperties;
-
-
-{AB:CODE}
-
-procedure TXYOscillateVelocityMovement.InitFields;
-begin
-  
-  
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. XYOsclltVlctyMvmnt-new3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-speedBasicDecimal BINARY-DOUBLE.
+01 J-oscillateMin BINARY-DOUBLE.
+01 J-oscillateMax BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-speedBasicDecimal J-oscillateMin J-oscillateMax RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("XYOscillateVelocityMovement")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_oscillateMin")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_oscillateMax")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_oscillate")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_oscillatePositive")
     
-
-constructor TXYOscillateVelocityMovement.Create(speedBasicDecimal: TBasicDecimal; oscillateMin: Integer; oscillateMax: Integer);
-begin
-        inherited Create(speedBasicDecimal, TVelocityProperties.Create(Integer(Trunc(speedBasicDecimal.getUnscaled())), Integer(Trunc(speedBasicDecimal.getUnscaled()))));
-        InitFields;
-        Self.oscillateMin := oscillateMin;
-        Self.oscillateMax := oscillateMax;
-end;
     
+    
+    
+        COMPUTE jtemp1 = (FUNCTION MOD(FUNCTION BasicDecimal-getUnscaled0(J-speedBasicDecimal) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp2 = (FUNCTION MOD(FUNCTION BasicDecimal-getUnscaled0(J-speedBasicDecimal) + 2147483648, 4294967296) - 2147483648)
+        CONTINUE
+        COMPUTE JVALUE = J-oscillateMin
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_oscillateMin", JVALUE)
+        COMPUTE JVALUE = J-oscillateMax
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_oscillateMax", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION XYOsclltVlctyMvmnt-new3.
 
-// throws Exception
-procedure TXYOscillateVelocityMovement.process(layer: TAllBinaryGameLayer);
-begin
-        inherited process(layer);
-        if (Self.oscillate) < (Self.oscillateMin) then begin
-            Self.oscillatePositive := True;
-            Self.getVelocityProperties().getVelocityYBasicDecimalP().addint(3000);
-        end else if (Self.oscillate) > (Self.oscillateMax) then begin
-            Self.oscillatePositive := False;
-            Self.getVelocityProperties().getVelocityYBasicDecimalP().subtractint(3000);
-        end;
-        if Self.oscillatePositive then begin
-            Inc(Self.oscillate);
-            Self.getVelocityProperties().getVelocityXBasicDecimalP().addint(5000);
-        end else begin
-            Dec(Self.oscillate);
-            Self.getVelocityProperties().getVelocityXBasicDecimalP().subtractint(5000);
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. XYOsclltVlctyMvmnt-process1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layer RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BscCnstntVlctyMvmnt-process1(J-THIS, J-layer)
+        IF (FUNCTION JR-GET(J-THIS, "f_oscillate") < FUNCTION JR-GET(J-THIS, "f_oscillateMin"))
+            COMPUTE JVALUE = 1
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_oscillatePositive", JVALUE)
+            COMPUTE jtemp7 = FUNCTION BscCnstntVlctyMvmnt-gtVlc50700(J-THIS)
+            COMPUTE jtemp8 = 3000
+            COMPUTE jtemp6 = FUNCTION JR-CLASS-NAME(jtemp7)
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp6)
+        ELSE
+            IF (FUNCTION JR-GET(J-THIS, "f_oscillate") > FUNCTION JR-GET(J-THIS, "f_oscillateMax"))
+            COMPUTE JVALUE = 0
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_oscillatePositive", JVALUE)
+            COMPUTE jtemp4 = FUNCTION BscCnstntVlctyMvmnt-gtVlc50700(J-THIS)
+            COMPUTE jtemp5 = 3000
+            COMPUTE jtemp3 = FUNCTION JR-CLASS-NAME(jtemp4)
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp3)
+        END-IF
+        END-IF
+        IF (FUNCTION JR-GET(J-THIS, "f_oscillatePositive") = 1)
+            COMPUTE JVALUE = (FUNCTION MOD(FUNCTION JR-GET(J-THIS, "f_oscillate") + 1 + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_oscillate", JVALUE)
+            COMPUTE jtemp13 = FUNCTION BscCnstntVlctyMvmnt-gtVlc50700(J-THIS)
+            COMPUTE jtemp14 = 5000
+            COMPUTE jtemp12 = FUNCTION JR-CLASS-NAME(jtemp13)
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp12)
+        ELSE
+            COMPUTE JVALUE = (FUNCTION MOD(FUNCTION JR-GET(J-THIS, "f_oscillate") - 1 + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_oscillate", JVALUE)
+            COMPUTE jtemp10 = FUNCTION BscCnstntVlctyMvmnt-gtVlc50700(J-THIS)
+            COMPUTE jtemp11 = 5000
+            COMPUTE jtemp9 = FUNCTION JR-CLASS-NAME(jtemp10)
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp9)
+        END-IF
+    GOBACK.
+END FUNCTION XYOsclltVlctyMvmnt-process1.
 

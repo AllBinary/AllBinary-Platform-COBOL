@@ -1,152 +1,280 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.layer.resources
+*> Java class GameGraphicsResourceUtil
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.layer.resources
-unit GameGraphicsResourceUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmGrphcsRsrcUtl-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameGraphicsResourceUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 GameGraphicsResourceUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GameGraphicsResourceUtil-jset-instance = 0
+        MOVE 1 TO GameGraphicsResourceUtil-jset-instance
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE GameGraphicsResourceUtil-jcell-instance = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+    END-IF
+    MOVE GameGraphicsResourceUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION GmGrphcsRsrcUtl-sttc-nstnc.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmGrphcsRsrcUtlsttcnS21742.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameGraphicsResourceUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GmGrphcsRsrcUtl-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO GameGraphicsResourceUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GmGrphcsRsrcUtlsttcnS21742.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameGraphicsResourceUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-commonStrings BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameGraphicsResourceUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SPRITE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_QUARTER")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_name")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("_sprite")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SPRITE", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("_quarter")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_QUARTER", JVALUE)
+    COMPUTE jtemp3 = FUNCTION StringUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp3, "f_EMPTY_STRING")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_name", JVALUE)
+        CONTINUE
+            COMPUTE JVALUE = FUNCTION GmGrphcsRsrcUtl-getString0(J-THIS)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_name", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GameGraphicsResourceUtil-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GraphicsFeature, LogUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmGrphcsRsrcUtl-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+        IF (FUNCTION GmGrphcsRsrcUtl-sttc-nstnc = FUNCTION JR-GET(jtemp2, "f_NULL_OBJECT"))
+            COMPUTE JDISCARD = FUNCTION GmGrphcsRsrcUtlsttcnS21742(FUNCTION GameGraphicsResourceUtil-new0)
+        END-IF
+        COMPUTE J-RESULT = FUNCTION GmGrphcsRsrcUtl-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION GmGrphcsRsrcUtl-getInstance0.
 
-type
-  {AB:TYPES}
-  TGameGraphicsResourceUtil = class(TObject)
-  public
-    logUtil: TLogUtil;
-    SPRITE: string;
-    QUARTER: string;
-    name: string;
-    class var instance: TObject;
-    procedure InitFields;
-        class function getInstance: TGameGraphicsResourceUtil; static;
-        constructor Create;
-        function getString: string;
-        function getStringForFeature(graphicsFeature_: TGraphicsFeature): string; virtual;
-        function getName: string; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmGrphcsRsrcUtl-getString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-graphicsFeatureFactory BINARY-DOUBLE.
+01 J-graphicsFeature BINARY-DOUBLE.
+01 J-features BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-graphicsFeatureFactory = FUNCTION GrphcsFtrFctry-getInstance0
+        COMPUTE J-graphicsFeature = FUNCTION JR-GET(J-graphicsFeatureFactory, "f_NONE")
+        COMPUTE J-features = FUNCTION Features-getInstance0
+        IF (FUNCTION Features-isFeature1(J-features, FUNCTION JR-GET(J-graphicsFeatureFactory, "f_IMAGE_TO_ARRAY_GRAPHICS")) = 1)
+            COMPUTE J-graphicsFeature = FUNCTION JR-GET(J-graphicsFeatureFactory, "f_IMAGE_TO_ARRAY_GRAPHICS")
+        ELSE
+            IF (FUNCTION Features-isFeature1(J-features, FUNCTION JR-GET(J-graphicsFeatureFactory, "f_SPRITE_FULL_GRAPHICS")) = 1)
+            COMPUTE J-graphicsFeature = FUNCTION JR-GET(J-graphicsFeatureFactory, "f_SPRITE_FULL_GRAPHICS")
+        ELSE
+            IF (FUNCTION Features-isFeature1(J-features, FUNCTION JR-GET(J-graphicsFeatureFactory, "f_SPRITE_QUARTER_ROTATION_GRAPHICS")) = 1)
+            COMPUTE J-graphicsFeature = FUNCTION JR-GET(J-graphicsFeatureFactory, "f_SPRITE_QUARTER_ROTATION_GRAPHICS")
+        ELSE
+            IF (FUNCTION Features-isFeature1(J-features, FUNCTION JR-GET(J-graphicsFeatureFactory, "f_IMAGE_ROTATION_ON_THE_FLY")) = 1)
+            COMPUTE J-graphicsFeature = FUNCTION JR-GET(J-graphicsFeatureFactory, "f_IMAGE_ROTATION_ON_THE_FLY")
+        END-IF
+        END-IF
+        END-IF
+        END-IF
+        COMPUTE J-RESULT = FUNCTION GmGrphcsRsrcUtl-gtStrngFrFtr1(J-THIS, J-graphicsFeature)
+        GOBACK
+    GOBACK.
+END FUNCTION GmGrphcsRsrcUtl-getString0.
 
-implementation
-uses
-  Features, GraphicsFeatureFactory, CanvasStrings, OpenGLFeatureUtil, NullUtil, StringMaker, StringUtil, CommonStrings;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmGrphcsRsrcUtl-gtStrngFrFtr1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringBuffer BINARY-DOUBLE.
+01 J-graphicsFeatureFactory BINARY-DOUBLE.
+01 J-features BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphicsFeature BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphicsFeature RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE J-graphicsFeatureFactory = FUNCTION GrphcsFtrFctry-getInstance0
+        COMPUTE jtemp4 = 0
+        COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringBuffer, jtemp4, FUNCTION StringMaker-length0(J-stringBuffer))
+        COMPUTE J-features = FUNCTION Features-getInstance0
+        IF (FUNCTION Features-isFeature1(J-features, FUNCTION JR-GET(J-graphicsFeatureFactory, "f_VECTOR_GRAPHICS")) = 1)
+            CONTINUE
+        ELSE
+            IF (FUNCTION Features-isFeature1(J-features, FUNCTION JR-GET(J-graphicsFeatureFactory, "f_IMAGE_GRAPHICS")) = 1)
+            IF ((J-graphicsFeature = FUNCTION JR-GET(J-graphicsFeatureFactory, "f_IMAGE_TO_ARRAY_GRAPHICS")) OR (J-graphicsFeature = FUNCTION JR-GET(J-graphicsFeatureFactory, "f_IMAGE_ROTATION_ON_THE_FLY")))
+                CONTINUE
+            ELSE
+                IF (J-graphicsFeature = FUNCTION JR-GET(J-graphicsFeatureFactory, "f_SPRITE_FULL_GRAPHICS"))
+                COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_SPRITE"))
+            ELSE
+                IF (J-graphicsFeature = FUNCTION JR-GET(J-graphicsFeatureFactory, "f_SPRITE_QUARTER_ROTATION_GRAPHICS"))
+                COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_QUARTER"))
+                COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_SPRITE"))
+            ELSE
+                COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+            END-IF
+            END-IF
+            END-IF
+        ELSE
+            COMPUTE jtemp5 = FUNCTION OpenGLFeatureUtil-getInstance0
+        IF (FUNCTION OpenGLFeatureUtil-isAnyThreed0(jtemp5) = 1)
+            COMPUTE jtemp6 = FUNCTION CanvasStrings-getInstance0
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(jtemp6, "f_OBJ_MODEL"))
+        ELSE
+            COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
+        END-IF
+        END-IF
+        END-IF
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(J-stringBuffer)
+        GOBACK
+    GOBACK.
+END FUNCTION GmGrphcsRsrcUtl-gtStrngFrFtr1.
 
-
-{AB:CODE}
-
-procedure TGameGraphicsResourceUtil.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.SPRITE := '_sprite';
-  Self.QUARTER := '_quarter';
-  Self.name := TStringUtil.getInstance().EMPTY_STRING;
-end;
-    
-
-class function TGameGraphicsResourceUtil.getInstance: TGameGraphicsResourceUtil;
-begin
-        if (TGameGraphicsResourceUtil.instance) = (TNullUtil.getInstance().NULL_OBJECT) then begin
-            TGameGraphicsResourceUtil.instance := TGameGraphicsResourceUtil.Create();
-        end;
-        Exit(TGameGraphicsResourceUtil(TJava.ToObject(TGameGraphicsResourceUtil.instance)));
-end;
-    
-
-constructor TGameGraphicsResourceUtil.Create;
-var
-  commonStrings_: TCommonStrings;
-begin
-    inherited Create;
-    InitFields;
-        try
-            Self.name := Self.getString();
-        except
-            on e: SysUtils.Exception do begin
-            commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), commonStrings_.CONSTRUCTOR_, TJava.Box(e));
-            end;
-        end;
-end;
-    
-
-// throws Exception
-function TGameGraphicsResourceUtil.getString: string;
-var
-  graphicsFeatureFactory_: TGraphicsFeatureFactory;
-  graphicsFeature_: TGraphicsFeature;
-  features_: TFeatures;
-begin
-        graphicsFeatureFactory_ := TGraphicsFeatureFactory.getInstance();
-        graphicsFeature_ := graphicsFeatureFactory_.NONE;
-        features_ := TFeatures.getInstance();
-        if features_.isFeature(graphicsFeatureFactory_.IMAGE_TO_ARRAY_GRAPHICS) then begin
-            graphicsFeature_ := graphicsFeatureFactory_.IMAGE_TO_ARRAY_GRAPHICS;
-        end else if features_.isFeature(graphicsFeatureFactory_.SPRITE_FULL_GRAPHICS) then begin
-            graphicsFeature_ := graphicsFeatureFactory_.SPRITE_FULL_GRAPHICS;
-        end else if features_.isFeature(graphicsFeatureFactory_.SPRITE_QUARTER_ROTATION_GRAPHICS) then begin
-            graphicsFeature_ := graphicsFeatureFactory_.SPRITE_QUARTER_ROTATION_GRAPHICS;
-        end else if features_.isFeature(graphicsFeatureFactory_.IMAGE_ROTATION_ON_THE_FLY) then begin
-            graphicsFeature_ := graphicsFeatureFactory_.IMAGE_ROTATION_ON_THE_FLY;
-        end;
-        Exit(Self.getStringForFeature(graphicsFeature_));
-end;
-    
-
-// throws Exception
-function TGameGraphicsResourceUtil.getStringForFeature(graphicsFeature_: TGraphicsFeature): string;
-var
-  stringBuffer: TStringMaker;
-  graphicsFeatureFactory_: TGraphicsFeatureFactory;
-  features_: TFeatures;
-begin
-        stringBuffer := TStringMaker.Create();
-        graphicsFeatureFactory_ := TGraphicsFeatureFactory.getInstance();
-        stringBuffer.delete_(0, stringBuffer.length());
-        features_ := TFeatures.getInstance();
-        if features_.isFeature(graphicsFeatureFactory_.VECTOR_GRAPHICS) then begin
-        end else if features_.isFeature(graphicsFeatureFactory_.IMAGE_GRAPHICS) then begin
-            if ((graphicsFeature_) = (graphicsFeatureFactory_.IMAGE_TO_ARRAY_GRAPHICS)) or ((graphicsFeature_) = (graphicsFeatureFactory_.IMAGE_ROTATION_ON_THE_FLY)) then begin
-            end else if (graphicsFeature_) = (graphicsFeatureFactory_.SPRITE_FULL_GRAPHICS) then begin
-                stringBuffer.append(Self.SPRITE);
-            end else if (graphicsFeature_) = (graphicsFeatureFactory_.SPRITE_QUARTER_ROTATION_GRAPHICS) then begin
-                stringBuffer.append(Self.QUARTER);
-                stringBuffer.append(Self.SPRITE);
-            end else begin
-                raise SysUtils.Exception.Create('None/Unknown Sub Image Resource Type Specified');
-            end;
-        end else if TOpenGLFeatureUtil.getInstance().isAnyThreed() then begin
-            stringBuffer.append(TCanvasStrings.getInstance().OBJ_MODEL);
-        end else begin
-            raise SysUtils.Exception.Create('None/Unknown Main Image Resource Type Specified');
-        end;
-        Exit(stringBuffer.toString());
-end;
-    
-
-function TGameGraphicsResourceUtil.getName: string;
-begin
-        Exit(Self.name);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TGameGraphicsResourceUtil.instance := TJava.Box(TNullUtil.getInstance().NULL_OBJECT);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmGrphcsRsrcUtl-getName0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_name")
+        GOBACK
+    GOBACK.
+END FUNCTION GmGrphcsRsrcUtl-getName0.
 

@@ -4,7 +4,7 @@
 *> Java class WindowsOperatingSystemFactory
 
 IDENTIFICATION DIVISION.
-FUNCTION-ID. WndwsOprtngSystmFctry-sttc-nc.
+FUNCTION-ID. WndwsOprtngSystmFctry-st66454.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
 REPOSITORY.
@@ -33,7 +33,26 @@ PROCEDURE DIVISION RETURNING J-RESULT.
     END-IF
     MOVE WindowsOperatingSystemFactory-jcell-instance TO J-RESULT
     GOBACK.
-END FUNCTION WndwsOprtngSystmFctry-sttc-nc.
+END FUNCTION WndwsOprtngSystmFctry-st66454.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WndwsOprtngSystmFctrS67197.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 WindowsOperatingSystemFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION WndwsOprtngSystmFctry-st66454 TO J-RESULT
+    MOVE J-VALUE TO WindowsOperatingSystemFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION WndwsOprtngSystmFctrS67197.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. WndwsOprtngSystmFctry-new0.
@@ -67,7 +86,7 @@ PROCEDURE DIVISION RETURNING J-RESULT.
 END FUNCTION WndwsOprtngSystmFctry-new0.
 
 IDENTIFICATION DIVISION.
-FUNCTION-ID. WndwsOprtngSystmFctry-gtInstc0.
+FUNCTION-ID. WndwsOprtngSystmFctry-gtI68263.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
 REPOSITORY.
@@ -88,13 +107,13 @@ LINKAGE SECTION.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
-        COMPUTE J-RESULT = FUNCTION WndwsOprtngSystmFctry-sttc-nc
+        COMPUTE J-RESULT = FUNCTION WndwsOprtngSystmFctry-st66454
         GOBACK
     GOBACK.
-END FUNCTION WndwsOprtngSystmFctry-gtInstc0.
+END FUNCTION WndwsOprtngSystmFctry-gtI68263.
 
 IDENTIFICATION DIVISION.
-FUNCTION-ID. WndwsOprtngSystmFctry-gtOprtc0.
+FUNCTION-ID. WndwsOprtngSystmFctry-gtO34329.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
 REPOSITORY.
@@ -146,7 +165,7 @@ PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
                 IF (FUNCTION JR-COMPARETO(J-osName, FUNCTION JR-GET(J-operatingSystems, "f_WINDOWS_VISTA")) = 0)
                 COMPUTE J-operatingSystemInterface = FUNCTION WindowsOS-new0
             ELSE
-                IF (FUNCTION OprtngSystms-isUnknwnSpcfcOSd0(J-operatingSystems) = 1)
+                IF (FUNCTION OprtngSystms-isUnknwnSpcf59109(J-operatingSystems) = 1)
                     COMPUTE J-operatingSystemInterface = FUNCTION WindowsOS-new0
                 ELSE
                     COMPUTE jtemp2 = FUNCTION JR-CONCAT(FUNCTION JR-STR("Specific Windows OS Not Supported: "), J-osName)
@@ -161,5 +180,5 @@ PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
             COMPUTE J-RESULT = J-operatingSystemInterface
             GOBACK
     GOBACK.
-END FUNCTION WndwsOprtngSystmFctry-gtOprtc0.
+END FUNCTION WndwsOprtngSystmFctry-gtO34329.
 

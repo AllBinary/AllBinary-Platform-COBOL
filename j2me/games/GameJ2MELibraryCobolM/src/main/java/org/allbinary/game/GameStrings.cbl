@@ -1,84 +1,140 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game
+*> Java class GameStrings
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game
-unit GameStrings;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameStrings-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameStrings-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 GameStrings-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GameStrings-jset-instance = 0
+        MOVE 1 TO GameStrings-jset-instance
+        COMPUTE GameStrings-jcell-instance = FUNCTION GameStrings-new0
+    END-IF
+    MOVE GameStrings-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION GameStrings-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameStringsstaticinsS28281.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameStrings-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GameStrings-static-instance TO J-RESULT
+    MOVE J-VALUE TO GameStrings-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GameStringsstaticinsS28281.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameStrings-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_PROCESS_TICK")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ON_GAME_INITIALIZED")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_UPDATESURFACE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ON_SET_DISPLAYABLE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_UNPAUSE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_TOGGLE_MENU")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SET_GAME_OVER")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_GAME_STATE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SET_GAME_STATE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_STOP_GAME_CANVAS_RUNNABLE_INTERFACE")
+    COMPUTE JVALUE = FUNCTION JR-STR("processTick")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_PROCESS_TICK", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("onGameInitialized")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ON_GAME_INITIALIZED", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("updateSurface")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_UPDATESURFACE", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("onSetDisplayable")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ON_SET_DISPLAYABLE", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("unPause")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_UNPAUSE", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("toggleMenu")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_TOGGLE_MENU", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("setGameOver")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SET_GAME_OVER", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Game State: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_GAME_STATE", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("setGameState")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SET_GAME_STATE", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("stopGameCanvasRunnableInterface")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_STOP_GAME_CANVAS_RUNNABLE_INTERFACE", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GameStrings-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
-
-type
-  {AB:TYPES}
-  TGameStrings = class(TObject)
-  public
-    PROCESS_TICK: string;
-    ON_GAME_INITIALIZED: string;
-    UPDATESURFACE: string;
-    ON_SET_DISPLAYABLE: string;
-    UNPAUSE: string;
-    TOGGLE_MENU: string;
-    SET_GAME_OVER: string;
-    GAME_STATE: string;
-    SET_GAME_STATE: string;
-    STOP_GAME_CANVAS_RUNNABLE_INTERFACE: string;
-    class var instance: TGameStrings;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TGameStrings; static;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TGameStrings.InitFields;
-begin
-  Self.PROCESS_TICK := 'processTick';
-  Self.ON_GAME_INITIALIZED := 'onGameInitialized';
-  Self.UPDATESURFACE := 'updateSurface';
-  Self.ON_SET_DISPLAYABLE := 'onSetDisplayable';
-  Self.UNPAUSE := 'unPause';
-  Self.TOGGLE_MENU := 'toggleMenu';
-  Self.SET_GAME_OVER := 'setGameOver';
-  Self.GAME_STATE := 'Game State: ';
-  Self.SET_GAME_STATE := 'setGameState';
-  Self.STOP_GAME_CANVAS_RUNNABLE_INTERFACE := 'stopGameCanvasRunnableInterface';
-end;
-
-constructor TGameStrings.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TGameStrings.getInstance: TGameStrings;
-begin
-        Exit(TGameStrings.instance);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TGameStrings.instance := TGameStrings.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameStrings-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION GameStrings-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION GameStrings-getInstance0.
 

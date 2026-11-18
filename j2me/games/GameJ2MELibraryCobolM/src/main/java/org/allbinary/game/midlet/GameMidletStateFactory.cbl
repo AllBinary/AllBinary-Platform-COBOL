@@ -1,73 +1,189 @@
-// Generated Code Do Not Modify
-// package org.allbinary.game.midlet
-unit GameMidletStateFactory;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.midlet
+*> Java class GameMidletStateFactory
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmMdltSttFctry-sttc-INSTANCE.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameMidletStateFactory-jcell-INSTANCE BINARY-DOUBLE EXTERNAL.
+01 GameMidletStateFactory-jset-INSTANCE BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GameMidletStateFactory-jset-INSTANCE = 0
+        MOVE 1 TO GameMidletStateFactory-jset-INSTANCE
+        COMPUTE GameMidletStateFactory-jcell-INSTANCE = FUNCTION GameMidletStateFactory-new0
+    END-IF
+    MOVE GameMidletStateFactory-jcell-INSTANCE TO J-RESULT
+    GOBACK.
+END FUNCTION GmMdltSttFctry-sttc-INSTANCE.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmMdltSttFctrysttcINS40907.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameMidletStateFactory-jcell-INSTANCE BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GmMdltSttFctry-sttc-INSTANCE TO J-RESULT
+    MOVE J-VALUE TO GameMidletStateFactory-jcell-INSTANCE
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GmMdltSttFctrysttcINS40907.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameState, LogUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameMidletStateFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameMidletStateFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_currentGameState")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE jtemp1 = FUNCTION GameStateFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_NO_GAME_STATE")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_currentGameState", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GameMidletStateFactory-new0.
 
-type
-  {AB:TYPES}
-  TGameMidletStateFactory = class(TObject)
-  public
-    logUtil: TLogUtil;
-    currentGameState: TGameState;
-    class var INSTANCE: TGameMidletStateFactory;
-    procedure InitFields;
-        constructor Create;
-        class function getInstance: TGameMidletStateFactory; static;
-        function getCurrentGameState: TGameState; virtual;
-        procedure setCurrentGameState(currentGameState: TGameState); virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmMdltSttFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION GmMdltSttFctry-sttc-INSTANCE
+        GOBACK
+    GOBACK.
+END FUNCTION GmMdltSttFctry-getInstance0.
 
-implementation
-uses
-  GameStateFactory, StringMaker, StringUtil, CommonLabels;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmMdltSttFctry-gtCrrntGmStt0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_currentGameState")
+        GOBACK
+    GOBACK.
+END FUNCTION GmMdltSttFctry-gtCrrntGmStt0.
 
-
-{AB:CODE}
-
-procedure TGameMidletStateFactory.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.currentGameState := TGameStateFactory.getInstance().NO_GAME_STATE;
-end;
-    
-
-constructor TGameMidletStateFactory.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
-
-class function TGameMidletStateFactory.getInstance: TGameMidletStateFactory;
-begin
-        Exit(TGameMidletStateFactory.INSTANCE);
-end;
-    
-
-function TGameMidletStateFactory.getCurrentGameState: TGameState;
-begin
-        Exit(Self.currentGameState);
-end;
-    
-
-procedure TGameMidletStateFactory.setCurrentGameState(currentGameState: TGameState);
-begin
-        Self.logUtil.putF(TStringMaker.Create().append(TCommonLabels.getInstance().CURRENT).append(' GameState: ').append(TStringUtil.getInstance().toString(currentGameState)).toString(), TJava.Box(Self), 'setCurrentGameState');
-        Self.currentGameState := currentGameState;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TGameMidletStateFactory.INSTANCE := TGameMidletStateFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmMdltSttFctry-stCrrntGmStt1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-currentGameState BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-currentGameState RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp6 = FUNCTION CommonLabels-getInstance0
+        COMPUTE jtemp5 = FUNCTION StringMaker-new0
+        COMPUTE jtemp7 = FUNCTION StringUtil-getInstance0
+        COMPUTE jtemp4 = FUNCTION StringMaker-append1(jtemp5, FUNCTION JR-GET(jtemp6, "f_CURRENT"))
+        COMPUTE jtemp3 = FUNCTION StringMaker-append1(jtemp4, FUNCTION JR-STR(" GameState: "))
+        COMPUTE jtemp2 = FUNCTION StringMaker-append1(jtemp3, FUNCTION StringUtil-toString1(jtemp7, J-currentGameState))
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp2), J-THIS, FUNCTION JR-STR("setCurrentGameState"))
+        COMPUTE JVALUE = J-currentGameState
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_currentGameState", JVALUE)
+    GOBACK.
+END FUNCTION GmMdltSttFctry-stCrrntGmStt1.
 

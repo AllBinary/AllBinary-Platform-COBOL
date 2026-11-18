@@ -1,82 +1,185 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2025 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.opengles.shader
-unit CompositeShaderUpdater;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.opengles.shader
+*> Java class CompositeShaderUpdater
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpstShdrUpdtr-sttc-nstncC.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CompositeShaderUpdater-jcell-instanceC BINARY-DOUBLE EXTERNAL.
+01 CompositeShaderUpdater-jset-instanceC BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF CompositeShaderUpdater-jset-instanceC = 0
+        MOVE 1 TO CompositeShaderUpdater-jset-instanceC
+        COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp2 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp3 = FUNCTION StringUtil-getInstance0
+    COMPUTE jtemp4 = FUNCTION NullUtil-getInstance0
+    COMPUTE CompositeShaderUpdater-jcell-instanceC = FUNCTION CompositeShaderUpdater-new4(FUNCTION StringUtil-getArrayInstance0(jtemp1), FUNCTION StringUtil-getArrayInstance0(jtemp2), FUNCTION StringUtil-getArrayInstance0(jtemp3), FUNCTION
+        JR-GET(jtemp4, "f_NULL_INT_ARRAY"))
+    END-IF
+    MOVE CompositeShaderUpdater-jcell-instanceC TO J-RESULT
+    GOBACK.
+END FUNCTION CmpstShdrUpdtr-sttc-nstncC.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpstShdrUpdtrsttcnsS68176.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 CompositeShaderUpdater-jcell-instanceC BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION CmpstShdrUpdtr-sttc-nstncC TO J-RESULT
+    MOVE J-VALUE TO CompositeShaderUpdater-jcell-instanceC
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION CmpstShdrUpdtrsttcnsS68176.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, EGLConfig, GL10, CommonSeps, ShaderUpdater;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CompositeShaderUpdater-new4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-uniformBlockArray BINARY-DOUBLE.
+01 J-uniformArray BINARY-DOUBLE.
+01 J-attributeArray BINARY-DOUBLE.
+01 J-attributeHandleArray BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-uniformBlockArray J-uniformArray J-attributeArray J-attributeHandleArray RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CompositeShaderUpdater")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonSeps")
+    COMPUTE JVALUE = FUNCTION CommonSeps-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonSeps", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CompositeShaderUpdater-new4.
 
-type
-  {AB:TYPES}
-  TCompositeShaderUpdater = class(TShaderUpdater)
-  public
-    commonSeps: TCommonSeps;
-    class var instanceC: TCompositeShaderUpdater;
-    procedure InitFields;
-        class function getInstance: TCompositeShaderUpdater; static;
-        constructor Create(uniformBlockArray: TArray<string>; uniformArray: TArray<string>; attributeArray: TArray<string>; attributeHandleArray: TArray<Integer>);
-        procedure onSurfaceCreated(gl: IGL10; eglConfig_: TEGLConfig; programHandle: Integer); virtual;
-        procedure onSurfaceDestroyed(gl: IGL10); virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpstShdrUpdtr-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION CmpstShdrUpdtr-sttc-nstncC
+        GOBACK
+    GOBACK.
+END FUNCTION CmpstShdrUpdtr-getInstance0.
 
-implementation
-uses
-  NullUtil, StringUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpstShdrUpdtr-onSrfcCrtd3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gl BINARY-DOUBLE.
+01 J-eglConfig BINARY-DOUBLE.
+01 J-programHandle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gl J-eglConfig J-programHandle RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION CmpstShdrUpdtr-onSrfcCrtd3.
 
-
-{AB:CODE}
-
-procedure TCompositeShaderUpdater.InitFields;
-begin
-  Self.commonSeps := TCommonSeps.getInstance();
-end;
-    
-
-class function TCompositeShaderUpdater.getInstance: TCompositeShaderUpdater;
-begin
-        Exit(TCompositeShaderUpdater.instanceC);
-end;
-    
-
-constructor TCompositeShaderUpdater.Create(uniformBlockArray: TArray<string>; uniformArray: TArray<string>; attributeArray: TArray<string>; attributeHandleArray: TArray<Integer>);
-begin
-    inherited Create;
-    InitFields;
-end;
-    
-
-procedure TCompositeShaderUpdater.onSurfaceCreated(gl: IGL10; eglConfig_: TEGLConfig; programHandle: Integer);
-begin
-end;
-    
-
-procedure TCompositeShaderUpdater.onSurfaceDestroyed(gl: IGL10);
-begin
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TCompositeShaderUpdater.instanceC := TCompositeShaderUpdater.Create(TStringUtil.getInstance().getArrayInstance(), TStringUtil.getInstance().getArrayInstance(), TStringUtil.getInstance().getArrayInstance(), TNullUtil.getInstance().NULL_INT_ARRAY);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpstShdrUpdtr-onSrfcDstryd1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gl BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gl RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION CmpstShdrUpdtr-onSrfcDstryd1.
 

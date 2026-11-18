@@ -1,111 +1,187 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.identification
+*> Java class Group
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Group-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-teamName BINARY-DOUBLE.
+01 J-teamId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-teamName J-teamId RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("Group")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_name")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_teamId")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_string")
+    COMPUTE jtemp1 = FUNCTION StringUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_EMPTY_STRING")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_name", JVALUE)
     
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.identification
-unit Group;
+    COMPUTE jtemp2 = FUNCTION StringUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp2, "f_EMPTY_STRING")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_string", JVALUE)
+        COMPUTE JVALUE = J-teamId
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_teamId", JVALUE)
+        COMPUTE JDISCARD = FUNCTION Group-setName1(J-THIS, J-teamName)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION Group-new2.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Group-getGroupName0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_name")
+        GOBACK
+    GOBACK.
+END FUNCTION Group-getGroupName0.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Group-setName1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-groupCommonFactory BINARY-DOUBLE.
+01 J-stringBuffer BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-name BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-name RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-name
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_name", JVALUE)
+        COMPUTE J-groupCommonFactory = FUNCTION GrpCmmnFctry-getInstance0
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-groupCommonFactory, "f_GROUP_NAME_LABEL"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_name"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-groupCommonFactory, "f_ID_LABEL"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendshort1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_teamId"))
+        COMPUTE JVALUE = FUNCTION JR-TO-STRING(J-stringBuffer)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_string", JVALUE)
+    GOBACK.
+END FUNCTION Group-setName1.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GroupInterface;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Group-getGroupId0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_teamId")
+        GOBACK
+    GOBACK.
+END FUNCTION Group-getGroupId0.
 
-type
-  {AB:TYPES}
-  TGroup = class(TInterfacedObject, IGroupInterface)
-  public
-    name: string;
-    teamId: SmallInt;
-    string_: string;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(teamName: string; teamId: SmallInt);
-        function getGroupName: string; virtual;
-        procedure setName(name: string); virtual;
-        function getGroupId: SmallInt; virtual;
-        function toString: string; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Group-toString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_string")
+        GOBACK
+    GOBACK.
+END FUNCTION Group-toString0.
 
-implementation
-uses
-  GroupCommonFactory, StringMaker, StringUtil;
-
-
-{AB:CODE}
-
-procedure TGroup.InitFields;
-begin
-  Self.name := TStringUtil.getInstance().EMPTY_STRING;
-  
-  Self.string_ := TStringUtil.getInstance().EMPTY_STRING;
-end;
-
-function TGroup.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-    
-
-constructor TGroup.Create(teamName: string; teamId: SmallInt);
-begin
-    inherited Create;
-    InitFields;
-        Self.teamId := teamId;
-        Self.setName(teamName);
-end;
-    
-
-function TGroup.getGroupName: string;
-begin
-        Exit(Self.name);
-end;
-    
-
-procedure TGroup.setName(name: string);
-var
-  groupCommonFactory_: TGroupCommonFactory;
-  stringBuffer: TStringMaker;
-begin
-        Self.name := name;
-        groupCommonFactory_ := TGroupCommonFactory.getInstance();
-        stringBuffer := TStringMaker.Create();
-        stringBuffer.append(groupCommonFactory_.GROUP_NAME_LABEL);
-        stringBuffer.append(Self.name);
-        stringBuffer.append(groupCommonFactory_.ID_LABEL);
-        stringBuffer.appendshort(Self.teamId);
-        Self.string_ := stringBuffer.toString();
-end;
-    
-
-function TGroup.getGroupId: SmallInt;
-begin
-        Exit(Self.teamId);
-end;
-    
-
-function TGroup.toString: string;
-begin
-        Exit(Self.string_);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+PROGRAM-ID. Group-toString.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION Group-toString0(J-THIS)
+    GOBACK.
+END PROGRAM Group-toString.
 

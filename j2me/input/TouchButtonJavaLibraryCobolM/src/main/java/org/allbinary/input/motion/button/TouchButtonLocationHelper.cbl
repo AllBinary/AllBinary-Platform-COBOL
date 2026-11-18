@@ -1,146 +1,291 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input.motion.button
+*> Java class TouchButtonLocationHelper
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input.motion.button
-unit TouchButtonLocationHelper;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
-
-type
-  {AB:TYPES}
-  TTouchButtonLocationHelper = class(TObject)
-  public
-    totalColumns: Integer;
-    totalRows: Integer;
-    columnsRemainder: Integer;
-    rowsRemainder: Integer;
-    columnsRemainderHalf: Integer;
-    rowsRemainderHalf: Integer;
-    procedure InitFields;
-        constructor Create;
-        function getTotalColumns: Integer; virtual;
-        function getTotalRows: Integer; virtual;
-        function getColumnsRemainder: Integer; virtual;
-        function getRowsRemainder: Integer; virtual;
-        function getColumnsRemainderHalf: Integer; virtual;
-        function getRowsRemainderHalf: Integer; virtual;
-        function toString: string; virtual;
-  end;
-
-implementation
-uses
-  CommonButtons, DisplayInfoSingleton, StringMaker;
-
-
-{AB:CODE}
-
-procedure TTouchButtonLocationHelper.InitFields;
-begin
-  
-  
-  
-  
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TouchButtonLocationHelper-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-buttonSize BINARY-DOUBLE.
+01 J-displayInfo BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 COMP-2.
+01 jtemp3 COMP-2.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("TouchButtonLocationHelper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_totalColumns")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_totalRows")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_columnsRemainder")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_rowsRemainder")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_columnsRemainderHalf")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_rowsRemainderHalf")
     
-
-constructor TTouchButtonLocationHelper.Create;
-var
-  buttonSize: Integer;
-  displayInfo: TDisplayInfoSingleton;
-begin
-    inherited Create;
-    InitFields;
-        buttonSize := TCommonButtons.getInstance().STANDARD_BUTTON_SIZE;
-        displayInfo := TDisplayInfoSingleton.getInstance();
-        Self.totalColumns := Round(((1.0 * (displayInfo.getLastWidth()))) / (buttonSize));
-        Self.totalRows := Round(((1.0 * (displayInfo.getLastHeight()))) / (buttonSize));
-        Self.columnsRemainder := (displayInfo.getLastWidth()) mod (buttonSize);
-        Self.columnsRemainderHalf := (TJava.SignedRightShift(Self.columnsRemainder, 1));
-        Self.rowsRemainder := (displayInfo.getLastHeight()) mod (buttonSize);
-        Self.rowsRemainderHalf := (TJava.SignedRightShift(Self.rowsRemainder, 1));
-end;
     
-
-function TTouchButtonLocationHelper.getTotalColumns: Integer;
-begin
-        Exit(Self.totalColumns);
-end;
     
-
-function TTouchButtonLocationHelper.getTotalRows: Integer;
-begin
-        Exit(Self.totalRows);
-end;
     
-
-function TTouchButtonLocationHelper.getColumnsRemainder: Integer;
-begin
-        Exit(Self.columnsRemainder);
-end;
     
-
-function TTouchButtonLocationHelper.getRowsRemainder: Integer;
-begin
-        Exit(Self.rowsRemainder);
-end;
     
+        COMPUTE jtemp1 = FUNCTION CommonButtons-getInstance0
+        COMPUTE J-buttonSize = FUNCTION JR-GET(jtemp1, "f_STANDARD_BUTTON_SIZE")
+        COMPUTE J-displayInfo = FUNCTION DsplyInfSngltn-getInstance0
+        COMPUTE jtemp2 = (FUNCTION DsplyInfSngltn-getLastWidth0(J-displayInfo) / J-buttonSize)
+        COMPUTE JVALUE = FUNCTION JR-ROUND(jtemp2)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_totalColumns", JVALUE)
+        COMPUTE jtemp3 = (FUNCTION DsplyInfSngltn-getLastHeight0(J-displayInfo) / J-buttonSize)
+        COMPUTE JVALUE = FUNCTION JR-ROUND(jtemp3)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_totalRows", JVALUE)
+        COMPUTE JVALUE = FUNCTION REM(FUNCTION DsplyInfSngltn-getLastWidth0(J-displayInfo), J-buttonSize)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_columnsRemainder", JVALUE)
+        COMPUTE JVALUE = (FUNCTION JR-SHIFT(JFIVE, FUNCTION JR-GET(J-THIS, "f_columnsRemainder"), 1))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_columnsRemainderHalf", JVALUE)
+        COMPUTE JVALUE = FUNCTION REM(FUNCTION DsplyInfSngltn-getLastHeight0(J-displayInfo), J-buttonSize)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_rowsRemainder", JVALUE)
+        COMPUTE JVALUE = (FUNCTION JR-SHIFT(JFIVE, FUNCTION JR-GET(J-THIS, "f_rowsRemainder"), 1))
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_rowsRemainderHalf", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION TouchButtonLocationHelper-new0.
 
-function TTouchButtonLocationHelper.getColumnsRemainderHalf: Integer;
-begin
-        Exit(Self.columnsRemainderHalf);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchBttnLctnHlpr-gtTtlClmns0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_totalColumns")
+        GOBACK
+    GOBACK.
+END FUNCTION TchBttnLctnHlpr-gtTtlClmns0.
 
-function TTouchButtonLocationHelper.getRowsRemainderHalf: Integer;
-begin
-        Exit(Self.rowsRemainderHalf);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchBttnLctnHlpr-getTotalRows0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_totalRows")
+        GOBACK
+    GOBACK.
+END FUNCTION TchBttnLctnHlpr-getTotalRows0.
 
-function TTouchButtonLocationHelper.toString: string;
-var
-  stringBuffer: TStringMaker;
-begin
-        stringBuffer := TStringMaker.Create();
-        stringBuffer.append('totalColumns: ');
-        stringBuffer.appendint(Self.totalColumns);
-        stringBuffer.append(' totalRows: ');
-        stringBuffer.appendint(Self.totalRows);
-        stringBuffer.append(' columnsRemainder: ');
-        stringBuffer.appendint(Self.columnsRemainder);
-        stringBuffer.append(' rowsRemainder: ');
-        stringBuffer.appendint(Self.rowsRemainder);
-        stringBuffer.append(' columnsRemainderHalf: ');
-        stringBuffer.appendint(Self.columnsRemainderHalf);
-        stringBuffer.append(' rowsRemainderHalf: ');
-        stringBuffer.appendint(Self.rowsRemainderHalf);
-        Exit(stringBuffer.toString());
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchBttnLctnHlpr-gtClmnsRmndr0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_columnsRemainder")
+        GOBACK
+    GOBACK.
+END FUNCTION TchBttnLctnHlpr-gtClmnsRmndr0.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchBttnLctnHlpr-gtRwsRmndr0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_rowsRemainder")
+        GOBACK
+    GOBACK.
+END FUNCTION TchBttnLctnHlpr-gtRwsRmndr0.
 
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchBttnLctnHlpr-gtClmnsRm39318.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_columnsRemainderHalf")
+        GOBACK
+    GOBACK.
+END FUNCTION TchBttnLctnHlpr-gtClmnsRm39318.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchBttnLctnHlpr-gtRwsRmndrHlf0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_rowsRemainderHalf")
+        GOBACK
+    GOBACK.
+END FUNCTION TchBttnLctnHlpr-gtRwsRmndrHlf0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TchBttnLctnHlpr-toString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringBuffer BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR("totalColumns: "))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_totalColumns"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR(" totalRows: "))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_totalRows"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR(" columnsRemainder: "))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_columnsRemainder"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR(" rowsRemainder: "))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_rowsRemainder"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR(" columnsRemainderHalf: "))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_columnsRemainderHalf"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR(" rowsRemainderHalf: "))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, FUNCTION JR-GET(J-THIS, "f_rowsRemainderHalf"))
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(J-stringBuffer)
+        GOBACK
+    GOBACK.
+END FUNCTION TchBttnLctnHlpr-toString0.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. TouchButtonLocationHe-toString.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION TchBttnLctnHlpr-toString0(J-THIS)
+    GOBACK.
+END PROGRAM TouchButtonLocationHe-toString.
 

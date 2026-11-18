@@ -1,203 +1,328 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.input
+*> Java class TestingInputSingleton
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.input
-unit TestingInputSingleton;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TstngInptSngltn-sttc-nstnc.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 TestingInputSingleton-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 TestingInputSingleton-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF TestingInputSingleton-jset-instance = 0
+        MOVE 1 TO TestingInputSingleton-jset-instance
+        COMPUTE TestingInputSingleton-jcell-instance = FUNCTION TestingInputSingleton-new0
+    END-IF
+    MOVE TestingInputSingleton-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION TstngInptSngltn-sttc-nstnc.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TstngInptSngltnsttcnS32768.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 TestingInputSingleton-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION TstngInptSngltn-sttc-nstnc TO J-RESULT
+    MOVE J-VALUE TO TestingInputSingleton-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION TstngInptSngltnsttcnS32768.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TestingInputSingleton-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("TestingInputSingleton")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_inputProcessorArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_testInputPaintable")
+    COMPUTE jtemp1 = FUNCTION InputFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY(FUNCTION JR-GET(jtemp1, "f_MAX"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_inputProcessorArray", JVALUE)
+    COMPUTE JVALUE = FUNCTION NullPaintable-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_testInputPaintable", JVALUE)
+        COMPUTE jtemp2 = FUNCTION StringUtil-getInstance0
+        CONTINUE
+        COMPUTE JDISCARD = FUNCTION GameInputProcessorUtil-init1(FUNCTION JR-GET(J-THIS, "f_inputProcessorArray"))
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION TestingInputSingleton-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, AllBinaryGameLayer, PaintableInterface, AllBinaryLayerManager, BasicArrayList, TestInputInterface, GameInputProcessor, GameInputInterface, NamedInterface;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TstngInptSngltn-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION TstngInptSngltn-sttc-nstnc
+        GOBACK
+    GOBACK.
+END FUNCTION TstngInptSngltn-getInstance0.
 
-type
-  {AB:TYPES}
-  TTestingInputSingleton = class(TAllBinaryGameLayer, IGameInputInterface, INamedInterface)
-  public
-    inputProcessorArray: TArray<TGameInputProcessor>;
-    testInputPaintable: IPaintableInterface;
-    class var instance: TTestingInputSingleton;
-    procedure InitFields;
-    function JavaObject: TObject;
-        class function getInstance: TTestingInputSingleton; static;
-        constructor Create;
-        procedure initInputProcessors; virtual;
-        procedure initInputProcessorsForTestInput(aTestInputInterface: ITestInputInterface); virtual;
-        procedure processInputList(allbinaryLayerManager_: TAllBinaryLayerManager; list: TBasicArrayList); virtual;
-        procedure processInput(allbinaryLayerManager_: TAllBinaryLayerManager); virtual;
-        procedure paint(graphics_: TGraphics); virtual;
-        function implmentsGameInputInterface: Boolean; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TstngInptSngltn-intInptPr75153.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION TstngInptSngltn-intInptPr75153.
 
-implementation
-uses
-  InputFactory, GameInputProcessorUtil, Canvas, GameKeyEvent, RectangleFactory, NullPaintable, StringUtil, ViewPosition;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TstngInptSngltn-intInptPr66695.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-testInputInterface BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-aTestInputInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-aTestInputInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-testInputInterface = J-aTestInputInterface
+        COMPUTE JVALUE = J-testInputInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_testInputPaintable", JVALUE)
+        COMPUTE JVALUE = FUNCTION GameInputProcessor-new0
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_inputProcessorArray"), FUNCTION Canvas-static-UP, JVALUE)
+        COMPUTE JVALUE = FUNCTION GameInputProcessor-new0
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_inputProcessorArray"), FUNCTION Canvas-static-DOWN, JVALUE)
+        COMPUTE JVALUE = FUNCTION GameInputProcessor-new0
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_inputProcessorArray"), FUNCTION Canvas-static-LEFT, JVALUE)
+        COMPUTE JVALUE = FUNCTION GameInputProcessor-new0
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_inputProcessorArray"), FUNCTION Canvas-static-RIGHT, JVALUE)
+        COMPUTE JVALUE = FUNCTION GameInputProcessor-new0
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_inputProcessorArray"), FUNCTION Canvas-static-KEY-NUM7, JVALUE)
+        COMPUTE JVALUE = FUNCTION GameInputProcessor-new0
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-THIS, "f_inputProcessorArray"), FUNCTION Canvas-static-KEY-NUM9, JVALUE)
+        COMPUTE JDISCARD = FUNCTION GameInputProcessorUtil-init1(FUNCTION JR-GET(J-THIS, "f_inputProcessorArray"))
+    GOBACK.
+END FUNCTION TstngInptSngltn-intInptPr66695.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TstngInptSngltn-prcssInptLst2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-key BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allbinaryLayerManager BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allbinaryLayerManager J-list RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-key = 0
+        CONTINUE
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(J-list)
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-gameKeyEvent = (FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index))
+            COMPUTE J-key = FUNCTION GameKeyEvent-getKey0(J-gameKeyEvent)
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_inputProcessorArray"), J-key))
+        END-PERFORM
+    GOBACK.
+END FUNCTION TstngInptSngltn-prcssInptLst2.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TstngInptSngltn-processInput1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allbinaryLayerManager BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allbinaryLayerManager RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION TstngInptSngltn-prcssInptLst2(J-THIS, J-allbinaryLayerManager, FUNCTION AllBnryGmLyr-gtGmKyEvntLst0(J-THIS))
+        COMPUTE jtemp3 = FUNCTION AllBnryGmLyr-gtGmKyEvntLst0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp3)
+    GOBACK.
+END FUNCTION TstngInptSngltn-processInput1.
 
-procedure TTestingInputSingleton.InitFields;
-begin
-  Self.inputProcessorArray := TJava.NewArray<TGameInputProcessor>(TInputFactory.getInstance().MAX);
-  Self.testInputPaintable := TNullPaintable.getInstance();
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TestingInputSingleton-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION PaintableInterface-paint1(FUNCTION JR-GET(J-THIS, "f_testInputPaintable"), J-graphics)
+    GOBACK.
+END FUNCTION TestingInputSingleton-paint1.
 
-function TTestingInputSingleton.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-    
-
-class function TTestingInputSingleton.getInstance: TTestingInputSingleton;
-begin
-        Exit(TTestingInputSingleton.instance);
-end;
-    
-
-constructor TTestingInputSingleton.Create;
-begin
-        inherited Create(TStringUtil.getInstance().EMPTY_STRING, TRectangleFactory.SINGLETON, TViewPosition.getInstanceD());
-        InitFields;
-        TGameInputProcessorUtil.init(Self.inputProcessorArray);
-end;
-    
-
-procedure TTestingInputSingleton.initInputProcessors;
-begin
-end;
-    
-
-procedure TTestingInputSingleton.initInputProcessorsForTestInput(aTestInputInterface: ITestInputInterface);
-var
-  testInputInterface_: ITestInputInterface;
-begin
-        testInputInterface_ := aTestInputInterface;
-        Self.testInputPaintable := testInputInterface_;
-        Self.inputProcessorArray[TCanvas.UP] := TGameInputProcessor.Create() (* Java anonymous class body: implement it as a named class
-            
-
-        // throws Exception
-        procedure T.processEvent(allbinaryLayerManager: TAllBinaryLayerManager; gameKeyEvent: TGameKeyEvent);
-begin
-                testInputInterface_.up();
-end;
-*);
-        Self.inputProcessorArray[TCanvas.DOWN] := TGameInputProcessor.Create() (* Java anonymous class body: implement it as a named class
-            
-
-        // throws Exception
-        procedure T.processEvent(allbinaryLayerManager: TAllBinaryLayerManager; gameKeyEvent: TGameKeyEvent);
-begin
-                testInputInterface_.down();
-end;
-*);
-        Self.inputProcessorArray[TCanvas.LEFT] := TGameInputProcessor.Create() (* Java anonymous class body: implement it as a named class
-            
-
-        // throws Exception
-        procedure T.processEvent(allbinaryLayerManager: TAllBinaryLayerManager; gameKeyEvent: TGameKeyEvent);
-begin
-                testInputInterface_.left();
-end;
-*);
-        Self.inputProcessorArray[TCanvas.RIGHT] := TGameInputProcessor.Create() (* Java anonymous class body: implement it as a named class
-            
-
-        // throws Exception
-        procedure T.processEvent(allbinaryLayerManager: TAllBinaryLayerManager; gameKeyEvent: TGameKeyEvent);
-begin
-                testInputInterface_.right();
-end;
-*);
-        Self.inputProcessorArray[TCanvas.KEY_NUM7] := TGameInputProcessor.Create() (* Java anonymous class body: implement it as a named class
-            
-
-        // throws Exception
-        procedure T.processEvent(allbinaryLayerManager: TAllBinaryLayerManager; gameKeyEvent: TGameKeyEvent);
-begin
-                testInputInterface_.strafeLeft();
-end;
-*);
-        Self.inputProcessorArray[TCanvas.KEY_NUM9] := TGameInputProcessor.Create() (* Java anonymous class body: implement it as a named class
-            
-
-        // throws Exception
-        procedure T.processEvent(allbinaryLayerManager: TAllBinaryLayerManager; gameKeyEvent: TGameKeyEvent);
-begin
-                testInputInterface_.strafeRight();
-end;
-*);
-        TGameInputProcessorUtil.init(Self.inputProcessorArray);
-end;
-    
-
-// throws Exception
-procedure TTestingInputSingleton.processInputList(allbinaryLayerManager_: TAllBinaryLayerManager; list: TBasicArrayList);
-var
-  key: Integer;
-  gameKeyEvent_: TGameKeyEvent;
-  size: Integer;
-  index: Integer;
-begin
-    TJava.MonitorEnter(Self);
-    try
-        key := 0;
-        
-        size := list.size();
-        for index := 0 to size - 1 do begin
-            gameKeyEvent_ := (TGameKeyEvent(TJava.ToObject(list.objectArray[index])));
-            key := gameKeyEvent_.getKey();
-            Self.inputProcessorArray[key].processEvent(allbinaryLayerManager_, TGameKeyEvent.NONE);
-        end;
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
-
-// throws Exception
-procedure TTestingInputSingleton.processInput(allbinaryLayerManager_: TAllBinaryLayerManager);
-begin
-    TJava.MonitorEnter(Self);
-    try
-        Self.processInputList(allbinaryLayerManager_, Self.getGameKeyEventList());
-        Self.getGameKeyEventList().clear();
-    finally
-    TJava.MonitorExit(Self);
-    end;
-end;
-    
-
-procedure TTestingInputSingleton.paint(graphics_: TGraphics);
-begin
-        Self.testInputPaintable.paint(graphics_);
-end;
-    
-
-function TTestingInputSingleton.implmentsGameInputInterface: Boolean;
-begin
-        Exit(True);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TTestingInputSingleton.instance := TTestingInputSingleton.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TstngInptSngltn-implmntsG18900.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = 1
+        GOBACK
+    GOBACK.
+END FUNCTION TstngInptSngltn-implmntsG18900.
 

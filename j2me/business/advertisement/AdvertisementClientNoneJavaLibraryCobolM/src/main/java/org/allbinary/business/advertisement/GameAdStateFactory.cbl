@@ -1,86 +1,209 @@
-// Generated Code Do Not Modify
-// package org.allbinary.business.advertisement
-unit GameAdStateFactory;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.business.advertisement
+*> Java class GameAdStateFactory
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmAdSttFctry-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameAdStateFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 GameAdStateFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GameAdStateFactory-jset-instance = 0
+        MOVE 1 TO GameAdStateFactory-jset-instance
+        COMPUTE GameAdStateFactory-jcell-instance = FUNCTION GameAdStateFactory-new0
+    END-IF
+    MOVE GameAdStateFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION GmAdSttFctry-static-instance.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmAdSttFctrystaticinS20961.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameAdStateFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GmAdSttFctry-static-instance TO J-RESULT
+    MOVE J-VALUE TO GameAdStateFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GmAdSttFctrystaticinS20961.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameAdState, SoftwareInformation, GameAdStateBase, GameAdStateFactoryInterface;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameAdStateFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameAdStateFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameAdStateArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameAdState")
+    COMPUTE JVALUE = FUNCTION JR-ARRAY-ADD(FUNCTION JR-NEW-ARRAY(JZERO), FUNCTION GameAdState-new1(FUNCTION AppNmLcnsngAdCnfgrtn-new0))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameAdStateArray", JVALUE)
+    COMPUTE jtemp1 = 0
+    COMPUTE JVALUE = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_gameAdStateArray"), jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameAdState", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GameAdStateFactory-new0.
 
-type
-  {AB:TYPES}
-  TGameAdStateFactory = class(TInterfacedObject, IGameAdStateFactoryInterface)
-  public
-    gameAdStateArray: TArray<TGameAdState>;
-    gameAdState: TGameAdState;
-    class var instance: TGameAdStateFactory;
-    procedure InitFields;
-    function JavaObject: TObject;
-    constructor Create;
-        class function getInstance: TGameAdStateFactory; static;
-        function getCurrentInstance: TGameAdState; virtual;
-        function getInstanceForApp(softwareInformation_: TSoftwareInformation): TGameAdStateBase; virtual;
-        function isEnabled: Boolean; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmAdSttFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION GmAdSttFctry-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION GmAdSttFctry-getInstance0.
 
-implementation
-uses
-  AppNameLicensingAdConfiguration;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmAdSttFctry-gtCrrntInstnc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_gameAdState")
+        GOBACK
+    GOBACK.
+END FUNCTION GmAdSttFctry-gtCrrntInstnc0.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmAdSttFctry-gtInstncFrApp1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-softwareInformation BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-softwareInformation RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = 0
+        COMPUTE JVALUE = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_gameAdStateArray"), jtemp2)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameAdState", JVALUE)
+        COMPUTE jtemp3 = 0
+        COMPUTE J-RESULT = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_gameAdStateArray"), jtemp3)
+        GOBACK
+    GOBACK.
+END FUNCTION GmAdSttFctry-gtInstncFrApp1.
 
-{AB:CODE}
-
-procedure TGameAdStateFactory.InitFields;
-begin
-  Self.gameAdStateArray := TArray<TGameAdState>.Create(TGameAdState.Create(TAppNameLicensingAdConfiguration.Create()));
-  Self.gameAdState := Self.gameAdStateArray[0];
-end;
-
-function TGameAdStateFactory.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-
-constructor TGameAdStateFactory.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TGameAdStateFactory.getInstance: TGameAdStateFactory;
-begin
-        Exit(TGameAdStateFactory.instance);
-end;
-    
-
-function TGameAdStateFactory.getCurrentInstance: TGameAdState;
-begin
-        Exit(Self.gameAdState);
-end;
-    
-
-// throws Exception
-function TGameAdStateFactory.getInstanceForApp(softwareInformation_: TSoftwareInformation): TGameAdStateBase;
-begin
-        Self.gameAdState := Self.gameAdStateArray[0];
-        Exit(Self.gameAdStateArray[0]);
-end;
-    
-
-function TGameAdStateFactory.isEnabled: Boolean;
-begin
-        Exit(False);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TGameAdStateFactory.instance := TGameAdStateFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameAdStateFactory-isEnabled0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = 0
+        GOBACK
+    GOBACK.
+END FUNCTION GameAdStateFactory-isEnabled0.
 

@@ -1,73 +1,123 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.layer.pickup.points
+*> Java class PointsResources
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.layer.pickup.points
-unit PointsResources;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PntsRsrcs-static-SINGLETON.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PointsResources-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+01 PointsResources-jset-SINGLETON BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF PointsResources-jset-SINGLETON = 0
+        MOVE 1 TO PointsResources-jset-SINGLETON
+        COMPUTE PointsResources-jcell-SINGLETON = FUNCTION PointsResources-new0
+    END-IF
+    MOVE PointsResources-jcell-SINGLETON TO J-RESULT
+    GOBACK.
+END FUNCTION PntsRsrcs-static-SINGLETON.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PntsRsrcsstaticSINGLS67218.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PointsResources-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION PntsRsrcs-static-SINGLETON TO J-RESULT
+    MOVE J-VALUE TO PointsResources-jcell-SINGLETON
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION PntsRsrcsstaticSINGLS67218.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PointsResources-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("PointsResources")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_RESOURCE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_RESOURCE_2")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_RESOURCE_3")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_RESOURCE_4")
+    COMPUTE JVALUE = FUNCTION JR-STR("points_drop_20_by_20.png")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_RESOURCE", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("points_2_drop_20_by_20.png")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_RESOURCE_2", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("points_3_drop_20_by_20.png")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_RESOURCE_3", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("points_4_drop_20_by_20.png")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_RESOURCE_4", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION PointsResources-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
-
-type
-  {AB:TYPES}
-  TPointsResources = class(TObject)
-  public
-    RESOURCE: string;
-    RESOURCE_2: string;
-    RESOURCE_3: string;
-    RESOURCE_4: string;
-    class var SINGLETON: TPointsResources;
-    procedure InitFields;
-        constructor Create;
-        class function getInstance: TPointsResources; static;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TPointsResources.InitFields;
-begin
-  Self.RESOURCE := 'points_drop_20_by_20.png';
-  Self.RESOURCE_2 := 'points_2_drop_20_by_20.png';
-  Self.RESOURCE_3 := 'points_3_drop_20_by_20.png';
-  Self.RESOURCE_4 := 'points_4_drop_20_by_20.png';
-end;
-    
-
-constructor TPointsResources.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
-
-class function TPointsResources.getInstance: TPointsResources;
-begin
-        Exit(TPointsResources.SINGLETON);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TPointsResources.SINGLETON := TPointsResources.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PointsResources-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION PntsRsrcs-static-SINGLETON
+        GOBACK
+    GOBACK.
+END FUNCTION PointsResources-getInstance0.
 

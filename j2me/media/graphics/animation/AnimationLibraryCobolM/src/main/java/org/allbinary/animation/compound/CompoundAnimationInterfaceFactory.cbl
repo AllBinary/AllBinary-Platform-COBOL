@@ -1,122 +1,221 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.compound
+*> Java class CompoundAnimationInterfaceFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpndAnmtnIntrfcFctry-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-basicAnimationInterfaceFactoryInterfaceArray BINARY-DOUBLE.
+01 J-animationBehaviorFactory BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-basicAnimationInterfaceFactoryInterfaceArray J-animationBehaviorFactory RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CompoundAnimationInterfaceFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_basicAnimationInterfaceFactoryInterfaceArrayP")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_animationBehaviorFactory")
     
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.compound
-unit CompoundAnimationInterfaceFactory;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Animation, AnimationBehaviorFactory, AnimationInterfaceFactoryInterface, ScaleProperties, BasicAnimationInterfaceFactoryInterface;
-
-type
-  {AB:TYPES}
-  TCompoundAnimationInterfaceFactory = class(TInterfacedObject, IAnimationInterfaceFactoryInterface, IBasicAnimationInterfaceFactoryInterface)
-  public
-    basicAnimationInterfaceFactoryInterfaceArrayP: TArray<IAnimationInterfaceFactoryInterface>;
-    animationBehaviorFactory: TAnimationBehaviorFactory;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(basicAnimationInterfaceFactoryInterfaceArray: TArray<IAnimationInterfaceFactoryInterface>; animationBehaviorFactory_: TAnimationBehaviorFactory);
-        function getInstance(instanceId: Integer): TAnimation; virtual;
-        function createArray(size: Integer): TArray<TAnimation>; virtual;
-        function createAnimation(animationInterfaceArray: TArray<TAnimation>): TAnimation; virtual;
-        function getBasicAnimationInterfaceFactoryInterfaceArray: TArray<IAnimationInterfaceFactoryInterface>; virtual;
-        procedure setInitialScale(scaleProperties_: TScaleProperties); virtual;
-  end;
-
-implementation
-uses
-  NullAnimationFactory, ForcedLogUtil;
-
-
-{AB:CODE}
-
-procedure TCompoundAnimationInterfaceFactory.InitFields;
-begin
-  
-  
-end;
-
-function TCompoundAnimationInterfaceFactory.JavaObject: TObject;
-begin
-  Result := Self;
-end;
     
+        COMPUTE JVALUE = J-basicAnimationInterfaceFactoryInterfaceArray
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicAnimationInterfaceFactoryInterfaceArrayP", JVALUE)
+        COMPUTE JVALUE = J-animationBehaviorFactory
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animationBehaviorFactory", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CmpndAnmtnIntrfcFctry-new2.
 
-constructor TCompoundAnimationInterfaceFactory.Create(basicAnimationInterfaceFactoryInterfaceArray: TArray<IAnimationInterfaceFactoryInterface>; animationBehaviorFactory_: TAnimationBehaviorFactory);
-begin
-    inherited Create;
-    InitFields;
-        Self.basicAnimationInterfaceFactoryInterfaceArrayP := basicAnimationInterfaceFactoryInterfaceArray;
-        Self.animationBehaviorFactory := animationBehaviorFactory_;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpndAnmtnIntrfcFctry-gtI34227.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-size BINARY-DOUBLE.
+01 J-animationInterfaceArray BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-instanceId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-instanceId RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_basicAnimationInterfaceFactoryInterfaceArrayP"))
+        COMPUTE J-animationInterfaceArray = FUNCTION CmpndAnmtnIntrfcFctry-crtArry1(J-THIS, J-size)
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE JVALUE = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_basicAnimationInterfaceFactoryInterfaceArrayP"), J-index))
+            COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-animationInterfaceArray, J-index, JVALUE)
+        END-PERFORM
+        COMPUTE J-RESULT = FUNCTION CmpndAnmtnIntrfcFctry-crt25968(J-THIS, J-animationInterfaceArray)
+        GOBACK
+    GOBACK.
+END FUNCTION CmpndAnmtnIntrfcFctry-gtI34227.
 
-// throws Exception
-function TCompoundAnimationInterfaceFactory.getInstance(instanceId: Integer): TAnimation;
-var
-  size: Integer;
-  animationInterfaceArray: TArray<TAnimation>;
-  index: Integer;
-begin
-        size := System.Length(Self.basicAnimationInterfaceFactoryInterfaceArrayP);
-        animationInterfaceArray := Self.createArray(size);
-        for index := 0 to size - 1 do begin
-            animationInterfaceArray[index] := Self.basicAnimationInterfaceFactoryInterfaceArrayP[index].getInstance(instanceId);
-        end;
-        Exit(Self.createAnimation(animationInterfaceArray));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpndAnmtnIntrfcFctry-crtArry1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-size RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = FUNCTION NllAnmtnFctry-gtFctryInstnc0
+        COMPUTE J-RESULT = FUNCTION JR-GET(jtemp1, "f_EMPTY_ARRAY")
+        GOBACK
+    GOBACK.
+END FUNCTION CmpndAnmtnIntrfcFctry-crtArry1.
 
-function TCompoundAnimationInterfaceFactory.createArray(size: Integer): TArray<TAnimation>;
-begin
-        Exit(TNullAnimationFactory.getFactoryInstance().EMPTY_ARRAY);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpndAnmtnIntrfcFctry-crt25968.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-animationInterfaceArray BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-animationInterfaceArray RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp3 = 0
+        COMPUTE jtemp2 = FUNCTION NllAnmtnFctry-gtFctryInstnc0
+        COMPUTE J-RESULT = FUNCTION JR-CLASS-NAME(jtemp2)
+        GOBACK
+    GOBACK.
+END FUNCTION CmpndAnmtnIntrfcFctry-crt25968.
 
-function TCompoundAnimationInterfaceFactory.createAnimation(animationInterfaceArray: TArray<TAnimation>): TAnimation;
-begin
-        Exit(TNullAnimationFactory.getFactoryInstance().getInstance(0));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpndAnmtnIntrfcFctry-gtB19767.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_basicAnimationInterfaceFactoryInterfaceArrayP")
+        GOBACK
+    GOBACK.
+END FUNCTION CmpndAnmtnIntrfcFctry-gtB19767.
 
-function TCompoundAnimationInterfaceFactory.getBasicAnimationInterfaceFactoryInterfaceArray: TArray<IAnimationInterfaceFactoryInterface>;
-begin
-        Exit(Self.basicAnimationInterfaceFactoryInterfaceArrayP);
-end;
-    
-
-procedure TCompoundAnimationInterfaceFactory.setInitialScale(scaleProperties_: TScaleProperties);
-var
-  size: Integer;
-  index: Integer;
-begin
-        size := System.Length(Self.basicAnimationInterfaceFactoryInterfaceArrayP);
-        for index := 0 to size - 1 do begin
-            Self.basicAnimationInterfaceFactoryInterfaceArrayP[index].setInitialScale(scaleProperties_);
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpndAnmtnIntrfcFctry-stI30605.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-size BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-scaleProperties BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-scaleProperties RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_basicAnimationInterfaceFactoryInterfaceArrayP"))
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST2
+        PERFORM FOREVER
+            IF JFIRST2 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST2
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_basicAnimationInterfaceFactoryInterfaceArrayP"), J-index))
+        END-PERFORM
+    GOBACK.
+END FUNCTION CmpndAnmtnIntrfcFctry-stI30605.
 

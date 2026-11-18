@@ -1,93 +1,181 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2022 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.displayable
-unit AlwaysRepaintBehavior;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.displayable
+*> Java class AlwaysRepaintBehavior
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AlwysRpntBhvr-sttc-nstncC.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AlwaysRepaintBehavior-jcell-instanceC BINARY-DOUBLE EXTERNAL.
+01 AlwaysRepaintBehavior-jset-instanceC BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF AlwaysRepaintBehavior-jset-instanceC = 0
+        MOVE 1 TO AlwaysRepaintBehavior-jset-instanceC
+        COMPUTE AlwaysRepaintBehavior-jcell-instanceC = FUNCTION AlwaysRepaintBehavior-new0
+    END-IF
+    MOVE AlwaysRepaintBehavior-jcell-instanceC TO J-RESULT
+    GOBACK.
+END FUNCTION AlwysRpntBhvr-sttc-nstncC.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AlwysRpntBhvrsttcnstS55193.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AlwaysRepaintBehavior-jcell-instanceC BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION AlwysRpntBhvr-sttc-nstncC TO J-RESULT
+    MOVE J-VALUE TO AlwaysRepaintBehavior-jcell-instanceC
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION AlwysRpntBhvrsttcnstS55193.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Canvas, RepaintBehavior;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AlwaysRepaintBehavior-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("AlwaysRepaintBehavior")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NAME")
+    COMPUTE JVALUE = FUNCTION JR-STR("AlwaysRepaintBehavior")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NAME", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION AlwaysRepaintBehavior-new0.
 
-type
-  {AB:TYPES}
-  TAlwaysRepaintBehavior = class(TRepaintBehavior)
-  public
-    NAME: string;
-    class var instanceC: TAlwaysRepaintBehavior;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TAlwaysRepaintBehavior; static;
-        procedure repaint(canvas_: TCanvas); override;
-        procedure onChangeRepaint(canvas_: TCanvas); override;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AlwysRpntBhvr-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION AlwysRpntBhvr-sttc-nstncC
+        GOBACK
+    GOBACK.
+END FUNCTION AlwysRpntBhvr-getInstance0.
 
-implementation
-uses
-  RepaintRunnable, Features, DisplayInfoSingleton, OpenGLFeatureFactory, LogUtil, CommonStrings, NullRunnable;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AlwaysRepaintBehavior-repaint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-features BINARY-DOUBLE.
+01 J-openGLFeatureFactory BINARY-DOUBLE.
+01 J-thread BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-canvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-canvas RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-features = FUNCTION Features-getInstance0
+        COMPUTE J-openGLFeatureFactory = FUNCTION OpnGLFtrFctry-getInstance0
+        IF (FUNCTION Features-isFeature1(J-features, FUNCTION JR-GET(J-openGLFeatureFactory, "f_OPENGL")) = 1)
+            COMPUTE jtemp1 = FUNCTION DsplyInfSngltn-getInstance0
+            COMPUTE JDISCARD = FUNCTION DisplayInfoSingleton-process0(jtemp1)
+        ELSE
+            COMPUTE J-thread = FUNCTION Thread-new2(FUNCTION RepaintRunnable-new1(J-canvas), FUNCTION JR-GET(J-THIS, "f_NAME"))
+            COMPUTE JDISCARD = FUNCTION Thread-start0(J-thread)
+        END-IF
+    GOBACK.
+END FUNCTION AlwaysRepaintBehavior-repaint1.
 
-
-{AB:CODE}
-
-procedure TAlwaysRepaintBehavior.InitFields;
-begin
-  Self.NAME := 'AlwaysRepaintBehavior';
-end;
-
-constructor TAlwaysRepaintBehavior.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TAlwaysRepaintBehavior.getInstance: TAlwaysRepaintBehavior;
-begin
-        Exit(TAlwaysRepaintBehavior.instanceC);
-end;
-    
-
-procedure TAlwaysRepaintBehavior.repaint(canvas_: TCanvas);
-var
-  features_: TFeatures;
-  openGLFeatureFactory_: TOpenGLFeatureFactory;
-  thread: TThread;
-begin
-        features_ := TFeatures.getInstance();
-        openGLFeatureFactory_ := TOpenGLFeatureFactory.getInstance();
-        if features_.isFeature(openGLFeatureFactory_.OPENGL) then begin
-            TDisplayInfoSingleton.getInstance().process();
-        end else begin
-            thread := TThread.Create(True);
-            thread.start();
-        end;
-end;
-    
-
-procedure TAlwaysRepaintBehavior.onChangeRepaint(canvas_: TCanvas);
-begin
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TAlwaysRepaintBehavior.instanceC := TAlwaysRepaintBehavior.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AlwysRpntBhvr-onChangeRepaint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-canvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-canvas RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION AlwysRpntBhvr-onChangeRepaint1.
 

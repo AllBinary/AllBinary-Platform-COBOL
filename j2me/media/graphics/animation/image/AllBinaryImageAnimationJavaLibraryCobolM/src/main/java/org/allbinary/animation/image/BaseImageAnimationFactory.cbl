@@ -1,160 +1,339 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.image
+*> Java class BaseImageAnimationFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BaseImageAnimationFactory-new7.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-image BINARY-DOUBLE.
+01 J-sequenceArray BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-dx BINARY-DOUBLE.
+01 J-dy BINARY-DOUBLE.
+01 J-animationBehaviorFactory BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-image J-sequenceArray J-width J-height J-dx J-dy J-animationBehaviorFactory RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("BaseImageAnimationFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_animationFactoryImageScaleUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_image")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_animationBehaviorFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_sequenceArray")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_animationFactoryInitializationVisitor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_scaleProperties")
+    COMPUTE JVALUE = FUNCTION AnmtnFctryImgSclUtl-gtInstnc0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animationFactoryImageScaleUtil", JVALUE)
     
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.image
-unit BaseImageAnimationFactory;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Image, Animation, AnimationBehaviorFactory, AnimationInterfaceFactoryInterface, AnimationFactoryImageScaleUtil, ScaleProperties, AnimationFactoryInitializationVisitor, BasicAnimationInterfaceFactoryInterface;
-
-type
-  {AB:TYPES}
-  TBaseImageAnimationFactory = class(TInterfacedObject, IAnimationInterfaceFactoryInterface, IBasicAnimationInterfaceFactoryInterface)
-  public
-    animationFactoryImageScaleUtil: TAnimationFactoryImageScaleUtil;
-    image: TImage;
-    animationBehaviorFactory: TAnimationBehaviorFactory;
-    sequenceArray: TArray<Integer>;
-    animationFactoryInitializationVisitor: TAnimationFactoryInitializationVisitor;
-    scaleProperties: TScaleProperties;
-    procedure InitFields;
-    function JavaObject: TObject;
-        class function createFactoryBase(image_: TImage; sequenceArray: TArray<Integer>; width: Integer; height: Integer; animationBehaviorFactory_: TAnimationBehaviorFactory): TBaseImageAnimationFactory; static;
-        constructor Create(image_: TImage; sequenceArray: TArray<Integer>; width: Integer; height: Integer; dx: Integer; dy: Integer; animationBehaviorFactory_: TAnimationBehaviorFactory);
-        function getInstance(instanceId: Integer): TAnimation; virtual;
-        function getImage: TImage; virtual;
-        function getSequenceArray: TArray<Integer>; virtual;
-        procedure setInitialScale(scaleProperties_: TScaleProperties); virtual;
-        function getAnimationFactoryInitializationVisitorP: TAnimationFactoryInitializationVisitor; virtual;
-        function getScalePropertiesP: TScaleProperties; virtual;
-        function toString: string; virtual;
-  end;
-
-implementation
-uses
-  NullAnimationFactory, ForcedLogUtil, StringMaker, CommonLabels, CommonSeps;
-
-
-{AB:CODE}
-
-procedure TBaseImageAnimationFactory.InitFields;
-begin
-  Self.animationFactoryImageScaleUtil := TAnimationFactoryImageScaleUtil.getInstance();
-  
-  
-  
-  
-  Self.scaleProperties := TScaleProperties.instance;
-end;
-
-function TBaseImageAnimationFactory.JavaObject: TObject;
-begin
-  Result := Self;
-end;
     
-
-// throws Exception
-class function TBaseImageAnimationFactory.createFactoryBase(image_: TImage; sequenceArray: TArray<Integer>; width: Integer; height: Integer; animationBehaviorFactory_: TAnimationBehaviorFactory): TBaseImageAnimationFactory;
-begin
-        Exit(TBaseImageAnimationFactory.Create(image_, sequenceArray, width, height, 0, 0, animationBehaviorFactory_));
-end;
     
-
-constructor TBaseImageAnimationFactory.Create(image_: TImage; sequenceArray: TArray<Integer>; width: Integer; height: Integer; dx: Integer; dy: Integer; animationBehaviorFactory_: TAnimationBehaviorFactory);
-begin
-    inherited Create;
-    InitFields;
-        Self.animationFactoryInitializationVisitor := TAnimationFactoryInitializationVisitor.Create();
-        Self.image := image_;
-        Self.animationFactoryInitializationVisitor.width := width;
-        Self.animationFactoryInitializationVisitor.height := height;
-        Self.animationBehaviorFactory := animationBehaviorFactory_;
-        Self.sequenceArray := sequenceArray;
-        Self.animationFactoryInitializationVisitor.dx := dx;
-        Self.animationFactoryInitializationVisitor.dy := dy;
-end;
     
+    COMPUTE JVALUE = FUNCTION SclPrprts-static-instance
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_scaleProperties", JVALUE)
+        COMPUTE JVALUE = FUNCTION AnmtnFctryIntlztnVstr-new0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animationFactoryInitializationVisitor", JVALUE)
+        COMPUTE JVALUE = J-image
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_image", JVALUE)
+        COMPUTE JVALUE = J-width
+        COMPUTE JDISCARD = FUNCTION JR-SET(FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor"), "f_width", JVALUE)
+        COMPUTE JVALUE = J-height
+        COMPUTE JDISCARD = FUNCTION JR-SET(FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor"), "f_height", JVALUE)
+        COMPUTE JVALUE = J-animationBehaviorFactory
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animationBehaviorFactory", JVALUE)
+        COMPUTE JVALUE = J-sequenceArray
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_sequenceArray", JVALUE)
+        COMPUTE JVALUE = J-dx
+        COMPUTE JDISCARD = FUNCTION JR-SET(FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor"), "f_dx", JVALUE)
+        COMPUTE JVALUE = J-dy
+        COMPUTE JDISCARD = FUNCTION JR-SET(FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor"), "f_dy", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION BaseImageAnimationFactory-new7.
 
-// throws Exception
-function TBaseImageAnimationFactory.getInstance(instanceId: Integer): TAnimation;
-begin
-        Exit(TNullAnimationFactory.getFactoryInstance().getInstance(instanceId));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsImgAnmtnFctry-crtFctryBs5.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-image BINARY-DOUBLE.
+01 J-sequenceArray BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-animationBehaviorFactory BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-image J-sequenceArray J-width J-height J-animationBehaviorFactory RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = 0
+        COMPUTE jtemp2 = 0
+        COMPUTE J-RESULT = FUNCTION BaseImageAnimationFactory-new7(J-image, J-sequenceArray, J-width, J-height, jtemp1, jtemp2, J-animationBehaviorFactory)
+        GOBACK
+    GOBACK.
+END FUNCTION BsImgAnmtnFctry-crtFctryBs5.
 
-function TBaseImageAnimationFactory.getImage: TImage;
-begin
-        Exit(Self.image);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsImgAnmtnFctry-getInstance1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-instanceId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-instanceId RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp3 = FUNCTION NllAnmtnFctry-gtFctryInstnc0
+        COMPUTE J-RESULT = FUNCTION JR-CLASS-NAME(jtemp3)
+        GOBACK
+    GOBACK.
+END FUNCTION BsImgAnmtnFctry-getInstance1.
 
-function TBaseImageAnimationFactory.getSequenceArray: TArray<Integer>;
-begin
-        Exit(Self.sequenceArray);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsImgAnmtnFctry-getImage0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_image")
+        GOBACK
+    GOBACK.
+END FUNCTION BsImgAnmtnFctry-getImage0.
 
-procedure TBaseImageAnimationFactory.setInitialScale(scaleProperties_: TScaleProperties);
-begin
-        Self.scaleProperties := scaleProperties_;
-        if Self.scaleProperties.shouldScale then begin
-            Self.scaleProperties.scaleWidth := Integer(Trunc(((Self.animationFactoryInitializationVisitor.width) * (Self.scaleProperties.scaleX))));
-            Self.scaleProperties.scaleHeight := Integer(Trunc(((Self.animationFactoryInitializationVisitor.height) * (Self.scaleProperties.scaleY))));
-        end else begin
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsImgAnmtnFctry-gtSqncArry0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_sequenceArray")
+        GOBACK
+    GOBACK.
+END FUNCTION BsImgAnmtnFctry-gtSqncArry0.
 
-function TBaseImageAnimationFactory.getAnimationFactoryInitializationVisitorP: TAnimationFactoryInitializationVisitor;
-begin
-        Exit(Self.animationFactoryInitializationVisitor);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsImgAnmtnFctry-stIntlScl1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-scaleProperties BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-scaleProperties RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-scaleProperties
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_scaleProperties", JVALUE)
+        IF (FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_scaleProperties"), "f_shouldScale") = 1)
+            COMPUTE JVALUE = FUNCTION JR-D2I(((FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor"), "f_width") * FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_scaleProperties"), "f_scaleX"))))
+            COMPUTE JDISCARD = FUNCTION JR-SET(FUNCTION JR-GET(J-THIS, "f_scaleProperties"), "f_scaleWidth", JVALUE)
+            COMPUTE JVALUE = FUNCTION JR-D2I(((FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor"), "f_height") * FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_scaleProperties"), "f_scaleY"))))
+            COMPUTE JDISCARD = FUNCTION JR-SET(FUNCTION JR-GET(J-THIS, "f_scaleProperties"), "f_scaleHeight", JVALUE)
+        ELSE
+            CONTINUE
+        END-IF
+    GOBACK.
+END FUNCTION BsImgAnmtnFctry-stIntlScl1.
 
-function TBaseImageAnimationFactory.getScalePropertiesP: TScaleProperties;
-begin
-        Exit(Self.scaleProperties);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsImgAnmtnFctry-gtAnmtnFc36193.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor")
+        GOBACK
+    GOBACK.
+END FUNCTION BsImgAnmtnFctry-gtAnmtnFc36193.
 
-function TBaseImageAnimationFactory.toString: string;
-var
-  commonSeps_: TCommonSeps;
-  commonLabels_: TCommonLabels;
-  stringBuffer: TStringMaker;
-begin
-        commonSeps_ := TCommonSeps.getInstance();
-        commonLabels_ := TCommonLabels.getInstance();
-        stringBuffer := TStringMaker.Create();
-        stringBuffer.append(inherited toString());
-        stringBuffer.append(commonLabels_.HEIGHT_LABEL);
-        stringBuffer.appendint(Integer(Trunc(Self.image.getHeight())));
-        stringBuffer.append(commonSeps_.SPACE);
-        stringBuffer.append(Self.animationFactoryInitializationVisitor.toString());
-        Exit(stringBuffer.toString());
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsImgAnmtnFctry-gtSclPrprtsP0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_scaleProperties")
+        GOBACK
+    GOBACK.
+END FUNCTION BsImgAnmtnFctry-gtSclPrprtsP0.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BsImgAnmtnFctry-toString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-commonSeps BINARY-DOUBLE.
+01 J-commonLabels BINARY-DOUBLE.
+01 J-stringBuffer BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-commonSeps = FUNCTION CommonSeps-getInstance0
+        COMPUTE J-commonLabels = FUNCTION CommonLabels-getInstance0
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION -toString0(J-THIS))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-commonLabels, "f_HEIGHT_LABEL"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, FUNCTION Image-getHeight0(FUNCTION JR-GET(J-THIS, "f_image")))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-commonSeps, "f_SPACE"))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-TO-STRING(FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor")))
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(J-stringBuffer)
+        GOBACK
+    GOBACK.
+END FUNCTION BsImgAnmtnFctry-toString0.
 
-end.
+IDENTIFICATION DIVISION.
+PROGRAM-ID. BaseImageAnimationFac-toString.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION BsImgAnmtnFctry-toString0(J-THIS)
+    GOBACK.
+END PROGRAM BaseImageAnimationFac-toString.
 

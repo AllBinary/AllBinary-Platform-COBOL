@@ -1,144 +1,362 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.image.sprite
+*> Java class HackRotationSpriteIndexedAnimation
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.image.sprite
-unit HackRotationSpriteIndexedAnimation;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, Image, Sprite, AnimationBehavior, RotationAnimation, AngleInfo;
-
-type
-  {AB:TYPES}
-  THackRotationSpriteIndexedAnimation = class(TRotationAnimation)
-  public
-    sprite: TSprite;
-    image: TImage;
-    procedure InitFields;
-        constructor Create(sprite_: TSprite; image_: TImage; angleInfo_: TAngleInfo; animationBehavior_: TAnimationBehavior);
-        function getAnimationSize: Integer; override;
-        procedure paintFrame(g: TGraphics; frame: Integer; x: Integer; y: Integer); virtual;
-        procedure paintXY(g: TGraphics; x: Integer; y: Integer); override;
-        procedure paint(g: TGraphics); virtual;
-        procedure nextRotation; override;
-        procedure previousRotation; override;
-        function getSize: Integer; override;
-        procedure setFrame(frame: Integer); override;
-        function getFrame: Integer; override;
-        procedure setSequence(sequence: TArray<Integer>); override;
-        function getSequence: TArray<Integer>; override;
-  end;
-
-implementation
-uses
-  PrimitiveIntUtil, CircularIndexUtil;
-
-
-{AB:CODE}
-
-procedure THackRotationSpriteIndexedAnimation.InitFields;
-begin
-  
-  
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HckRttnSprtIndxdAnmtn-new4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-sprite BINARY-DOUBLE.
+01 J-image BINARY-DOUBLE.
+01 J-angleInfo BINARY-DOUBLE.
+01 J-animationBehavior BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-sprite J-image J-angleInfo J-animationBehavior RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("HackRotationSpriteIndexedAnimation")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_sprite")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_image")
     
-
-constructor THackRotationSpriteIndexedAnimation.Create(sprite_: TSprite; image_: TImage; angleInfo_: TAngleInfo; animationBehavior_: TAnimationBehavior);
-begin
-        inherited Create(angleInfo_, TCircularIndexUtil.createInstance(TJava.Divide(360, angleInfo_.getAngleIncrementInfo().getAngleIncrement())), animationBehavior_);
-        InitFields;
-        Self.sprite := sprite_;
-        Self.image := image_;
-end;
     
+        COMPUTE jtemp2 = FUNCTION AnglInf-getAngleIncrementInfo0(J-angleInfo)
+        COMPUTE jtemp1 = (FUNCTION MOD(FUNCTION INTEGER-PART(360 / FUNCTION JR-CLASS-NAME(jtemp2)) + 2147483648, 4294967296) - 2147483648)
+        CONTINUE
+        COMPUTE JVALUE = J-sprite
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_sprite", JVALUE)
+        COMPUTE JVALUE = J-image
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_image", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION HckRttnSprtIndxdAnmtn-new4.
 
-// throws Exception
-function THackRotationSpriteIndexedAnimation.getAnimationSize: Integer;
-begin
-        Exit(Self.getSize());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HckRttnSprtIndxdAnmtn-gtA62350.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION HckRttnSprtIndxdAnmtn-getSize0(J-THIS)
+        GOBACK
+    GOBACK.
+END FUNCTION HckRttnSprtIndxdAnmtn-gtA62350.
 
-procedure THackRotationSpriteIndexedAnimation.paintFrame(g: TGraphics; frame: Integer; x: Integer; y: Integer);
-begin
-        Self.setFrame(frame);
-        Self.paintXY(g, x, y);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HckRttnSprtIndxdAnmtn-pntFrm4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-g BINARY-DOUBLE.
+01 J-frame BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-g J-frame J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION HckRttnSprtIndxdAnmtn-stFrm1(J-THIS, J-frame)
+        COMPUTE JDISCARD = FUNCTION HckRttnSprtIndxdAnmtn-paintXY3(J-THIS, J-g, J-x, J-y)
+    GOBACK.
+END FUNCTION HckRttnSprtIndxdAnmtn-pntFrm4.
 
-procedure THackRotationSpriteIndexedAnimation.paintXY(g: TGraphics; x: Integer; y: Integer);
-begin
-        Self.sprite.setPosition(x, y);
-        Self.paint(g);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HckRttnSprtIndxdAnmtn-paintXY3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-g BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-g J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Sprite-setPosition2(FUNCTION JR-GET(J-THIS, "f_sprite"), J-x, J-y)
+        COMPUTE JDISCARD = FUNCTION HckRttnSprtIndxdAnmtn-paint1(J-THIS, J-g)
+    GOBACK.
+END FUNCTION HckRttnSprtIndxdAnmtn-paintXY3.
 
-procedure THackRotationSpriteIndexedAnimation.paint(g: TGraphics);
-begin
-        Self.sprite.paint(g);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HckRttnSprtIndxdAnmtn-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-g BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-g RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Sprite-paint1(FUNCTION JR-GET(J-THIS, "f_sprite"), J-g)
+    GOBACK.
+END FUNCTION HckRttnSprtIndxdAnmtn-paint1.
 
-procedure THackRotationSpriteIndexedAnimation.nextRotation;
-begin
-        Self.sprite.nextFrame();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HckRttnSprtIndxdAnmtn-nxtRttn0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Sprite-nextFrame0(FUNCTION JR-GET(J-THIS, "f_sprite"))
+    GOBACK.
+END FUNCTION HckRttnSprtIndxdAnmtn-nxtRttn0.
 
-procedure THackRotationSpriteIndexedAnimation.previousRotation;
-begin
-        Self.sprite.prevFrame();
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HckRttnSprtIndxdAnmtn-prv21805.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Sprite-prevFrame0(FUNCTION JR-GET(J-THIS, "f_sprite"))
+    GOBACK.
+END FUNCTION HckRttnSprtIndxdAnmtn-prv21805.
 
-function THackRotationSpriteIndexedAnimation.getSize: Integer;
-begin
-        Exit(Self.sprite.getRawFrameCount());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HckRttnSprtIndxdAnmtn-getSize0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION Sprite-getRawFrameCount0(FUNCTION JR-GET(J-THIS, "f_sprite"))
+        GOBACK
+    GOBACK.
+END FUNCTION HckRttnSprtIndxdAnmtn-getSize0.
 
-procedure THackRotationSpriteIndexedAnimation.setFrame(frame: Integer);
-begin
-        Self.sprite.setFrame(frame);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HckRttnSprtIndxdAnmtn-stFrm1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-frame BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-frame RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Sprite-setFrame1(FUNCTION JR-GET(J-THIS, "f_sprite"), J-frame)
+    GOBACK.
+END FUNCTION HckRttnSprtIndxdAnmtn-stFrm1.
 
-function THackRotationSpriteIndexedAnimation.getFrame: Integer;
-begin
-        Exit(Self.sprite.getFrame());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HckRttnSprtIndxdAnmtn-gtFrm0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION Sprite-getFrame0(FUNCTION JR-GET(J-THIS, "f_sprite"))
+        GOBACK
+    GOBACK.
+END FUNCTION HckRttnSprtIndxdAnmtn-gtFrm0.
 
-procedure THackRotationSpriteIndexedAnimation.setSequence(sequence: TArray<Integer>);
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HckRttnSprtIndxdAnmtn-stSqnc1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-sequence BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-sequence RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION HckRttnSprtIndxdAnmtn-stSqnc1.
 
-function THackRotationSpriteIndexedAnimation.getSequence: TArray<Integer>;
-begin
-        Exit(TPrimitiveIntUtil.getArrayInstance());
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HckRttnSprtIndxdAnmtn-gtSqnc0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION PrmtvIntUtl-getArrayInstance0
+        GOBACK
+    GOBACK.
+END FUNCTION HckRttnSprtIndxdAnmtn-gtSqnc0.
 

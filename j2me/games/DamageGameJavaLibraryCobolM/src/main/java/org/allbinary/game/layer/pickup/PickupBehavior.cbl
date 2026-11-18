@@ -1,230 +1,445 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.layer.pickup
+*> Java class PickupBehavior
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.layer.pickup
-unit PickupBehavior;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PckpBhvr-sttc-NULL-PIC41140.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PickupBehavior-jcell-NULL_PICKUP_BEHAVIOR BINARY-DOUBLE EXTERNAL.
+01 PickupBehavior-jset-NULL_PICKUP_BEHAVIOR BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF PickupBehavior-jset-NULL_PICKUP_BEHAVIOR = 0
+        MOVE 1 TO PickupBehavior-jset-NULL_PICKUP_BEHAVIOR
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE PickupBehavior-jcell-NULL_PICKUP_BEHAVIOR = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+    END-IF
+    MOVE PickupBehavior-jcell-NULL_PICKUP_BEHAVIOR TO J-RESULT
+    GOBACK.
+END FUNCTION PckpBhvr-sttc-NULL-PIC41140.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PckpBhvrsttcNULLPIC4S58104.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PickupBehavior-jcell-NULL_PICKUP_BEHAVIOR BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION PckpBhvr-sttc-NULL-PIC41140 TO J-RESULT
+    MOVE J-VALUE TO PickupBehavior-jcell-NULL_PICKUP_BEHAVIOR
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION PckpBhvrsttcNULLPIC4S58104.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, CollidableCompositeLayer, CountedLayerInterfaceFactoryPart, LogUtil, PickupProcessorInterface, PickedUpLayerInterface, CountedPickedUpLayerInterfaceFactoryInterface, PickedUpLayerType, PickupBehaviorInterface;
-
-type
-  {AB:TYPES}
-  TPickupBehavior = class(TInterfacedObject, IPickupBehaviorInterface)
-  public
-    logUtil: TLogUtil;
-    countedIndex: Integer;
-    ownerLayerInterface: TCollidableCompositeLayer;
-    class var NULL_PICKUP_BEHAVIOR: TObject;
-    procedure InitFields;
-    function JavaObject: TObject;
-        class function getNullInstance: TPickupBehavior; static;
-        constructor Create(ownerLayerInterface: TCollidableCompositeLayer; countedIndex: Integer);
-        procedure doPickup(pickupProcessorInterface_: IPickupProcessorInterface); virtual;
-        procedure doPickupLayer(pickupLayerInterface: IPickedUpLayerInterface); virtual;
-        procedure add(countedPickedUpLayerInterfaceFactoryInterface_: ICountedPickedUpLayerInterfaceFactoryInterface); virtual;
-        procedure addAt(countedPickedUpLayerInterfaceFactoryInterface_: ICountedPickedUpLayerInterfaceFactoryInterface; partIndex: Integer); virtual;
-        function getFirstAvailableCountedLayerInterfaceFactory(pickedUpLayerTypeArray: TArray<TPickedUpLayerType>): TCountedLayerInterfaceFactoryPart; virtual;
-        function getCountedLayerInterfaceFactoryForSlot(slotIndex: Integer): TCountedLayerInterfaceFactoryPart; virtual;
-        function getCountedIndex: Integer; virtual;
-  end;
-
-implementation
-uses
-  PickedUpLayerInterfaceFactoryInterface, PickedUpLayerTypeFactory, CountedPickedUpLayerInterfaceFactory, HealthInterfaceCompositeInterface, CollidableDestroyableDamageableLayer, PartInterface, NullUtil, PreLogUtil, CommonStrings;
-
-
-{AB:CODE}
-
-procedure TPickupBehavior.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  
-  
-end;
-
-function TPickupBehavior.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PickupBehavior-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-ownerLayerInterface BINARY-DOUBLE.
+01 J-countedIndex BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-ownerLayerInterface J-countedIndex RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("PickupBehavior")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_countedIndex")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ownerLayerInterface")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
     
-
-class function TPickupBehavior.getNullInstance: TPickupBehavior;
-begin
-        if (TPickupBehavior.NULL_PICKUP_BEHAVIOR) = (TNullUtil.getInstance().NULL_OBJECT) then begin
-            TPickupBehavior.NULL_PICKUP_BEHAVIOR := TPickupBehavior.Create(TCollidableCompositeLayer.getNullInstance(), 0);
-        end;
-        Exit(TPickupBehavior(TJava.ToObject(TPickupBehavior.NULL_PICKUP_BEHAVIOR)));
-end;
     
+        COMPUTE JVALUE = J-ownerLayerInterface
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ownerLayerInterface", JVALUE)
+        COMPUTE JVALUE = J-countedIndex
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_countedIndex", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION PickupBehavior-new2.
 
-constructor TPickupBehavior.Create(ownerLayerInterface: TCollidableCompositeLayer; countedIndex: Integer);
-begin
-    inherited Create;
-    InitFields;
-        Self.ownerLayerInterface := ownerLayerInterface;
-        Self.countedIndex := countedIndex;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PckpBhvr-getNullInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+        IF (FUNCTION PckpBhvr-sttc-NULL-PIC41140 = FUNCTION JR-GET(jtemp2, "f_NULL_OBJECT"))
+            COMPUTE jtemp3 = 0
+            COMPUTE JDISCARD = FUNCTION PckpBhvrsttcNULLPIC4S58104(FUNCTION PickupBehavior-new2(FUNCTION ClldblCmpstLyr-gtNllInstnc0, jtemp3))
+        END-IF
+        COMPUTE J-RESULT = FUNCTION PckpBhvr-sttc-NULL-PIC41140
+        GOBACK
+    GOBACK.
+END FUNCTION PckpBhvr-getNullInstance0.
 
-procedure TPickupBehavior.doPickup(pickupProcessorInterface_: IPickupProcessorInterface);
-var
-  healthInterfaceCompositeInterface_: IHealthInterfaceCompositeInterface;
-  commonStrings_: TCommonStrings;
-begin
-        try
-            healthInterfaceCompositeInterface_ := (TJava.ToObject(Self.ownerLayerInterface) as IHealthInterfaceCompositeInterface);
-            if healthInterfaceCompositeInterface_.getHealthInterface().isAlive() then begin
-                pickupProcessorInterface_.process(Self.ownerLayerInterface);
-            end;
-        except
-            on e: SysUtils.Exception do begin
-            commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), 'doPickup', TJava.Box(e));
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PickupBehavior-doPickup1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-healthInterfaceCompositeInterface BINARY-DOUBLE.
+01 J-commonStrings BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-pickupProcessorInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-pickupProcessorInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE J-healthInterfaceCompositeInterface = FUNCTION JR-GET(J-THIS, "f_ownerLayerInterface")
+            COMPUTE jtemp4 = FUNCTION HlthIntrfcCmpstIntrfc-gtH90368(J-healthInterfaceCompositeInterface)
+            IF (FUNCTION JR-CLASS-NAME(jtemp4) = 1)
+                COMPUTE JDISCARD = FUNCTION PckpPrcssrIntrfc-process1(J-pickupProcessorInterface, FUNCTION JR-GET(J-THIS, "f_ownerLayerInterface"))
+            END-IF
+    GOBACK.
+END FUNCTION PickupBehavior-doPickup1.
 
-procedure TPickupBehavior.doPickupLayer(pickupLayerInterface: IPickedUpLayerInterface);
-var
-  pickedUpLayerInterfaceFactoryInterface_: IPickedUpLayerInterfaceFactoryInterface;
-  pickedUpLayerType_: TPickedUpLayerType;
-  pickedUpLayerTypeFactory_: TPickedUpLayerTypeFactory;
-  pickupProcessorInterface_: IPickupProcessorInterface;
-  collidableDestroyableDamageableLayer_: TCollidableDestroyableDamageableLayer;
-  commonStrings_: TCommonStrings;
-begin
-        try
-            pickedUpLayerInterfaceFactoryInterface_ := pickupLayerInterface.getPickedUpLayerInterfaceFactoryInterface();
-            pickedUpLayerType_ := pickedUpLayerInterfaceFactoryInterface_.getPickedUpLayerType();
-            pickedUpLayerTypeFactory_ := TPickedUpLayerTypeFactory.getInstance();
-            if ((((pickedUpLayerType_) = (pickedUpLayerTypeFactory_.BEAM)) or ((pickedUpLayerType_) = (pickedUpLayerTypeFactory_.MINE))) or ((pickedUpLayerType_) = (pickedUpLayerTypeFactory_.PROJECTILE))) or ((pickedUpLayerType_) = (pickedUpLayerTypeFactory_.ENHANCEMENT)) then begin
-                Self.add((TJava.ToObject(pickedUpLayerInterfaceFactoryInterface_) as ICountedPickedUpLayerInterfaceFactoryInterface));
-            end else if (pickedUpLayerInterfaceFactoryInterface_.getPickedUpLayerType()) = (pickedUpLayerTypeFactory_.PART) then begin
-                collidableDestroyableDamageableLayer_ := TCollidableDestroyableDamageableLayer(TJava.ToObject(Self.ownerLayerInterface));
-                collidableDestroyableDamageableLayer_.addPart(pickedUpLayerInterfaceFactoryInterface_);
-            end else if (pickedUpLayerType_) = (pickedUpLayerTypeFactory_.NONE) then begin
-            end else begin
-                pickupProcessorInterface_ := (TJava.ToObject(pickedUpLayerInterfaceFactoryInterface_) as IPickupProcessorInterface);
-                Self.doPickup(pickupProcessorInterface_);
-            end;
-            pickupLayerInterface.setPickedUp();
-        except
-            on e: SysUtils.Exception do begin
-            commonStrings_ := TCommonStrings.getInstance();
-            TPreLogUtil.putOE(commonStrings_.EXCEPTION, TJava.Box(Self), 'doPickup', TJava.Box(e));
-            end;
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PickupBehavior-doPickupLayer1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-pickedUpLayerInterfaceFactoryInterface BINARY-DOUBLE.
+01 J-pickedUpLayerType BINARY-DOUBLE.
+01 J-pickedUpLayerTypeFactory BINARY-DOUBLE.
+01 J-pickupProcessorInterface BINARY-DOUBLE.
+01 J-collidableDestroyableDamageableLayer BINARY-DOUBLE.
+01 J-commonStrings BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-pickupLayerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-pickupLayerInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE J-pickedUpLayerInterfaceFactoryInterface = FUNCTION PckdUpLyrIntrfc-gtPckdUpL19396(J-pickupLayerInterface)
+            COMPUTE J-pickedUpLayerType = FUNCTION PckdUpLyrIntrfcFctryInt-70215(J-pickedUpLayerInterfaceFactoryInterface)
+            COMPUTE J-pickedUpLayerTypeFactory = FUNCTION PckdUpLyrTypFctry-getInstance0
+            IF ((((J-pickedUpLayerType = FUNCTION JR-GET(J-pickedUpLayerTypeFactory, "f_BEAM")) OR (J-pickedUpLayerType = FUNCTION JR-GET(J-pickedUpLayerTypeFactory, "f_MINE"))) OR (J-pickedUpLayerType = FUNCTION
+        JR-GET(J-pickedUpLayerTypeFactory, "f_PROJECTILE"))) OR (J-pickedUpLayerType = FUNCTION JR-GET(J-pickedUpLayerTypeFactory, "f_ENHANCEMENT")))
+                COMPUTE jtemp5 = J-pickedUpLayerInterfaceFactoryInterface
+                COMPUTE JDISCARD = FUNCTION PickupBehavior-add1(J-THIS, jtemp5)
+            ELSE
+                IF (FUNCTION PckdUpLyrIntrfcFctryInt-70215(J-pickedUpLayerInterfaceFactoryInterface) = FUNCTION JR-GET(J-pickedUpLayerTypeFactory, "f_PART"))
+                COMPUTE J-collidableDestroyableDamageableLayer = FUNCTION JR-GET(J-THIS, "f_ownerLayerInterface")
+                COMPUTE JDISCARD = FUNCTION ClldblDstryblDmgblLyr-addPart1(J-collidableDestroyableDamageableLayer, J-pickedUpLayerInterfaceFactoryInterface)
+            ELSE
+                IF (J-pickedUpLayerType = FUNCTION JR-GET(J-pickedUpLayerTypeFactory, "f_NONE"))
+                CONTINUE
+            ELSE
+                COMPUTE J-pickupProcessorInterface = J-pickedUpLayerInterfaceFactoryInterface
+                COMPUTE JDISCARD = FUNCTION PickupBehavior-doPickup1(J-THIS, J-pickupProcessorInterface)
+            END-IF
+            END-IF
+            END-IF
+            COMPUTE JDISCARD = FUNCTION PckdUpLyrIntrfc-setPickedUp0(J-pickupLayerInterface)
+    GOBACK.
+END FUNCTION PickupBehavior-doPickupLayer1.
 
-procedure TPickupBehavior.add(countedPickedUpLayerInterfaceFactoryInterface_: ICountedPickedUpLayerInterfaceFactoryInterface);
-var
-  partIndex: Integer;
-begin
-        partIndex := (countedPickedUpLayerInterfaceFactoryInterface_.getId()) + (Self.countedIndex);
-        Self.addAt(countedPickedUpLayerInterfaceFactoryInterface_, partIndex);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PickupBehavior-add1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-partIndex BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-countedPickedUpLayerInterfaceFactoryInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-countedPickedUpLayerInterfaceFactoryInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-partIndex = (FUNCTION MOD((FUNCTION CntdPckdUpLyrIntrfcFctr-78815(J-countedPickedUpLayerInterfaceFactoryInterface) + FUNCTION JR-GET(J-THIS, "f_countedIndex")) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION PickupBehavior-addAt2(J-THIS, J-countedPickedUpLayerInterfaceFactoryInterface, J-partIndex)
+    GOBACK.
+END FUNCTION PickupBehavior-add1.
 
-procedure TPickupBehavior.addAt(countedPickedUpLayerInterfaceFactoryInterface_: ICountedPickedUpLayerInterfaceFactoryInterface; partIndex: Integer);
-var
-  collidableDestroyableDamageableLayer_: TCollidableDestroyableDamageableLayer;
-  countedLayerInterfaceFactory: TCountedLayerInterfaceFactoryPart;
-begin
-        collidableDestroyableDamageableLayer_ := TCollidableDestroyableDamageableLayer(TJava.ToObject(Self.ownerLayerInterface));
-        countedLayerInterfaceFactory := TCountedLayerInterfaceFactoryPart(TJava.ToObject(collidableDestroyableDamageableLayer_.getPartInterfaceArray()[partIndex]));
-        countedLayerInterfaceFactory.setTotal((countedLayerInterfaceFactory.getTotal()) + (countedPickedUpLayerInterfaceFactoryInterface_.getTotal()));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PickupBehavior-addAt2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-collidableDestroyableDamageableLayer BINARY-DOUBLE.
+01 J-countedLayerInterfaceFactory BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-countedPickedUpLayerInterfaceFactoryInterface BINARY-DOUBLE.
+01 J-partIndex BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-countedPickedUpLayerInterfaceFactoryInterface J-partIndex RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-collidableDestroyableDamageableLayer = FUNCTION JR-GET(J-THIS, "f_ownerLayerInterface")
+        COMPUTE J-countedLayerInterfaceFactory = FUNCTION JR-ARRAY-GET(FUNCTION ClldblDstryblDmgblLyr-gtP81790(J-collidableDestroyableDamageableLayer), J-partIndex)
+        COMPUTE jtemp6 = (FUNCTION MOD((FUNCTION CntdLyrIntrfcFctryPrt-gtTtl0(J-countedLayerInterfaceFactory) + FUNCTION CntdPckdUpLyrIntrfcFctr-18056(J-countedPickedUpLayerInterfaceFactoryInterface)) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION CntdLyrIntrfcFctryPrt-stTtl1(J-countedLayerInterfaceFactory, jtemp6)
+    GOBACK.
+END FUNCTION PickupBehavior-addAt2.
 
-function TPickupBehavior.getFirstAvailableCountedLayerInterfaceFactory(pickedUpLayerTypeArray: TArray<TPickedUpLayerType>): TCountedLayerInterfaceFactoryPart;
-var
-  collidableDestroyableDamageableLayer_: TCollidableDestroyableDamageableLayer;
-  partInterfaceArray: TArray<IPartInterface>;
-  size: Integer;
-  nextCountedLayerInterfaceFactory: TCountedLayerInterfaceFactoryPart;
-  countedPickedUpLayerInterfaceFactory_: TCountedPickedUpLayerInterfaceFactory;
-  index2: Integer;
-  index: Integer;
-begin
-        collidableDestroyableDamageableLayer_ := TCollidableDestroyableDamageableLayer(TJava.ToObject(Self.ownerLayerInterface));
-        partInterfaceArray := collidableDestroyableDamageableLayer_.getPartInterfaceArray();
-        size := System.Length(partInterfaceArray);
-        
-        
-        for index := Self.countedIndex to size - 1 do begin
-            nextCountedLayerInterfaceFactory := TCountedLayerInterfaceFactoryPart(TJava.ToObject(collidableDestroyableDamageableLayer_.getPartInterfaceArray()[index]));
-            countedPickedUpLayerInterfaceFactory_ := nextCountedLayerInterfaceFactory.getCountedPickedUpLayerInterfaceFactory();
-            index2 := System.Length(pickedUpLayerTypeArray);
-            while (TJava.PreDec(index2)) >= (0) do begin
-                if (countedPickedUpLayerInterfaceFactory_.getPickedUpLayerType()) = (pickedUpLayerTypeArray[index2]) then begin
-                    if (nextCountedLayerInterfaceFactory.getTotal()) > (0) then begin
-                        Exit(nextCountedLayerInterfaceFactory);
-                    end;
-                end;
-            end;
-        end;
-        Exit(TCountedLayerInterfaceFactoryPart.NULL_COUNTED_LAYER_INTERFACE_FACTORY);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PckpBhvr-gtFrstAvlblCntdL71969.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-collidableDestroyableDamageableLayer BINARY-DOUBLE.
+01 J-partInterfaceArray BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-nextCountedLayerInterfaceFactory BINARY-DOUBLE.
+01 J-countedPickedUpLayerInterfaceFactory BINARY-DOUBLE.
+01 J-index2 BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-pickedUpLayerTypeArray BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-pickedUpLayerTypeArray RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-collidableDestroyableDamageableLayer = FUNCTION JR-GET(J-THIS, "f_ownerLayerInterface")
+        COMPUTE J-partInterfaceArray = FUNCTION ClldblDstryblDmgblLyr-gtP81790(J-collidableDestroyableDamageableLayer)
+        COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(J-partInterfaceArray)
+        CONTINUE
+        CONTINUE
+        COMPUTE J-index = FUNCTION JR-GET(J-THIS, "f_countedIndex")
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-nextCountedLayerInterfaceFactory = FUNCTION JR-ARRAY-GET(FUNCTION ClldblDstryblDmgblLyr-gtP81790(J-collidableDestroyableDamageableLayer), J-index)
+            COMPUTE J-countedPickedUpLayerInterfaceFactory = FUNCTION CntdLyrIntrfcFctryPrt-gtC10786(J-nextCountedLayerInterfaceFactory)
+            COMPUTE J-index2 = (FUNCTION MOD(J-index2 - 1 + 2147483648, 4294967296) - 2147483648)
+            COMPUTE jtemp7 = J-index2
+            COMPUTE J-index2 = FUNCTION JR-ARRAY-LENGTH(J-pickedUpLayerTypeArray)
+            MOVE 1 TO JFIRST2
+            PERFORM FOREVER
+                MOVE 0 TO JFIRST2
+                IF NOT (jtemp7 >= 0) EXIT PERFORM END-IF
+                IF (FUNCTION PckdUpLyrIntrfcFctry-gtPc30531(J-countedPickedUpLayerInterfaceFactory) = FUNCTION JR-ARRAY-GET(J-pickedUpLayerTypeArray, J-index2))
+                    IF (FUNCTION CntdLyrIntrfcFctryPrt-gtTtl0(J-nextCountedLayerInterfaceFactory) > 0)
+                        COMPUTE J-RESULT = J-nextCountedLayerInterfaceFactory
+                        GOBACK
+                    END-IF
+                END-IF
+            END-PERFORM
+        END-PERFORM
+        COMPUTE J-RESULT = FUNCTION CntdLyrIntrfcFctryPrt-60998
+        GOBACK
+    GOBACK.
+END FUNCTION PckpBhvr-gtFrstAvlblCntdL71969.
 
-// throws Exception
-function TPickupBehavior.getCountedLayerInterfaceFactoryForSlot(slotIndex: Integer): TCountedLayerInterfaceFactoryPart;
-var
-  currentSlot: Integer;
-  collidableDestroyableDamageableLayer_: TCollidableDestroyableDamageableLayer;
-  partInterfaceArray: TArray<IPartInterface>;
-  size: Integer;
-  nextCountedLayerInterfaceFactory: TCountedLayerInterfaceFactoryPart;
-  index: Integer;
-begin
-        currentSlot := 0;
-        collidableDestroyableDamageableLayer_ := TCollidableDestroyableDamageableLayer(TJava.ToObject(Self.ownerLayerInterface));
-        partInterfaceArray := collidableDestroyableDamageableLayer_.getPartInterfaceArray();
-        size := System.Length(partInterfaceArray);
-        
-        for index := Self.countedIndex to size - 1 do begin
-            nextCountedLayerInterfaceFactory := TCountedLayerInterfaceFactoryPart(TJava.ToObject(collidableDestroyableDamageableLayer_.getPartInterfaceArray()[index]));
-            if (nextCountedLayerInterfaceFactory.getTotal()) > (0) then begin
-                if (currentSlot) = (slotIndex) then begin
-                    Exit(nextCountedLayerInterfaceFactory);
-                end else begin
-                    Inc(currentSlot);
-                end;
-            end;
-        end;
-        Exit(TCountedLayerInterfaceFactoryPart.NULL_COUNTED_LAYER_INTERFACE_FACTORY);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PckpBhvr-gtCntdLyrIntrfcF67833.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-currentSlot BINARY-DOUBLE.
+01 J-collidableDestroyableDamageableLayer BINARY-DOUBLE.
+01 J-partInterfaceArray BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-nextCountedLayerInterfaceFactory BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 JFIRST3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-slotIndex BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-slotIndex RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-currentSlot = 0
+        COMPUTE J-collidableDestroyableDamageableLayer = FUNCTION JR-GET(J-THIS, "f_ownerLayerInterface")
+        COMPUTE J-partInterfaceArray = FUNCTION ClldblDstryblDmgblLyr-gtP81790(J-collidableDestroyableDamageableLayer)
+        COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(J-partInterfaceArray)
+        CONTINUE
+        COMPUTE J-index = FUNCTION JR-GET(J-THIS, "f_countedIndex")
+        MOVE 1 TO JFIRST3
+        PERFORM FOREVER
+            IF JFIRST3 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST3
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-nextCountedLayerInterfaceFactory = FUNCTION JR-ARRAY-GET(FUNCTION ClldblDstryblDmgblLyr-gtP81790(J-collidableDestroyableDamageableLayer), J-index)
+            IF (FUNCTION CntdLyrIntrfcFctryPrt-gtTtl0(J-nextCountedLayerInterfaceFactory) > 0)
+                IF (J-currentSlot = J-slotIndex)
+                    COMPUTE J-RESULT = J-nextCountedLayerInterfaceFactory
+                    GOBACK
+                ELSE
+                    COMPUTE J-currentSlot = (FUNCTION MOD(J-currentSlot + 1 + 2147483648, 4294967296) - 2147483648)
+                END-IF
+            END-IF
+        END-PERFORM
+        COMPUTE J-RESULT = FUNCTION CntdLyrIntrfcFctryPrt-60998
+        GOBACK
+    GOBACK.
+END FUNCTION PckpBhvr-gtCntdLyrIntrfcF67833.
 
-function TPickupBehavior.getCountedIndex: Integer;
-begin
-        Exit(Self.countedIndex);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TPickupBehavior.NULL_PICKUP_BEHAVIOR := TJava.Box(TNullUtil.getInstance().NULL_OBJECT);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PckpBhvr-getCountedIndex0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_countedIndex")
+        GOBACK
+    GOBACK.
+END FUNCTION PckpBhvr-getCountedIndex0.
 

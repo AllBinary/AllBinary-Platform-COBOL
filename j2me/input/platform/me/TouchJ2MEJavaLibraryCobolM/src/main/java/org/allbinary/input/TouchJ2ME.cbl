@@ -1,118 +1,145 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.input
+*> Java class TouchJ2ME
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.input
-unit TouchJ2ME;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TouchJ2ME-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-motionGesturesHandler BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("TouchJ2ME")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DEVICE_ID")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_motionRecognizer")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DEVICE_ID", JVALUE)
+    COMPUTE JVALUE = FUNCTION AllMotionRecognizer-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_motionRecognizer", JVALUE)
+        COMPUTE jtemp1 = FUNCTION AllMtnRcgnzr-gtMtnGstrRcgnzr0(FUNCTION JR-GET(J-THIS, "f_motionRecognizer"))
+        COMPUTE J-motionGesturesHandler = FUNCTION JR-CLASS-NAME(jtemp1)
+        COMPUTE JDISCARD = FUNCTION BscEvntHndlr-addLstnrIntrfc1(J-motionGesturesHandler, FUNCTION GameMotionGestureListener-new1(FUNCTION MtnGstrRcvIntrfcFctry-gtI96898))
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION TouchJ2ME-new0.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TouchJ2ME-pointerDragged2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-commonStrings BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE jtemp2 = 0
+            COMPUTE JDISCARD = FUNCTION AllMtnRcgnzr-prcssDrggdMt39672(FUNCTION JR-GET(J-THIS, "f_motionRecognizer"), J-x, J-y, FUNCTION JR-GET(J-THIS, "f_DEVICE_ID"), jtemp2)
+    GOBACK.
+END FUNCTION TouchJ2ME-pointerDragged2.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TouchJ2ME-pointerPressed2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-commonStrings BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE jtemp3 = 0
+            COMPUTE JDISCARD = FUNCTION AllMtnRcgnzr-prcssStrtMtnEvnt4(FUNCTION JR-GET(J-THIS, "f_motionRecognizer"), J-x, J-y, FUNCTION JR-GET(J-THIS, "f_DEVICE_ID"), jtemp3)
+    GOBACK.
+END FUNCTION TouchJ2ME-pointerPressed2.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AllMotionRecognizer, LogUtil;
-
-type
-  {AB:TYPES}
-  // TouchJ2ME
-  TTouchJ2ME = class(TObject)
-  public
-    logUtil: TLogUtil;
-    DEVICE_ID: Integer;
-    motionRecognizer: TAllMotionRecognizer;
-    procedure InitFields;
-        constructor Create;
-        procedure pointerDragged(x: Integer; y: Integer); virtual;
-        procedure pointerPressed(x: Integer; y: Integer); virtual;
-        procedure pointerReleased(x: Integer; y: Integer); virtual;
-  end;
-
-implementation
-uses
-  BasicMotionGesturesHandler, GameMotionGestureListener, MotionGestureReceiveInterfaceFactory, CommonStrings;
-
-
-{AB:CODE}
-
-procedure TTouchJ2ME.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.DEVICE_ID := 0;
-  Self.motionRecognizer := TAllMotionRecognizer.Create();
-end;
-    
-
-constructor TTouchJ2ME.Create;
-var
-  motionGesturesHandler: TBasicMotionGesturesHandler;
-begin
-    inherited Create;
-    InitFields;
-        motionGesturesHandler := Self.motionRecognizer.getMotionGestureRecognizer().getMotionGesturesHandler();
-        motionGesturesHandler.addListenerInterface(TGameMotionGestureListener.Create(TMotionGestureReceiveInterfaceFactory.getInstance()));
-end;
-    
-
-procedure TTouchJ2ME.pointerDragged(x: Integer; y: Integer);
-var
-  commonStrings_: TCommonStrings;
-begin
-        try
-            Self.motionRecognizer.processDraggedMotionEvent(x, y, Self.DEVICE_ID, 0);
-        except
-            on e: SysUtils.Exception do begin
-            commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), 'pointerDragged', TJava.Box(e));
-            end;
-        end;
-end;
-    
-
-procedure TTouchJ2ME.pointerPressed(x: Integer; y: Integer);
-var
-  commonStrings_: TCommonStrings;
-begin
-        try
-            Self.motionRecognizer.processStartMotionEvent(x, y, Self.DEVICE_ID, 0);
-        except
-            on e: SysUtils.Exception do begin
-            commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), 'pointerPressed', TJava.Box(e));
-            end;
-        end;
-end;
-    
-
-procedure TTouchJ2ME.pointerReleased(x: Integer; y: Integer);
-var
-  commonStrings_: TCommonStrings;
-begin
-        try
-            Self.motionRecognizer.processEndMotionEvent(x, y, Self.DEVICE_ID, 0);
-        except
-            on e: SysUtils.Exception do begin
-            commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), 'pointerReleased', TJava.Box(e));
-            end;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TouchJ2ME-pointerReleased2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-commonStrings BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE jtemp4 = 0
+            COMPUTE JDISCARD = FUNCTION AllMtnRcgnzr-prcssEndMtnEvnt4(FUNCTION JR-GET(J-THIS, "f_motionRecognizer"), J-x, J-y, FUNCTION JR-GET(J-THIS, "f_DEVICE_ID"), jtemp4)
+    GOBACK.
+END FUNCTION TouchJ2ME-pointerReleased2.
 

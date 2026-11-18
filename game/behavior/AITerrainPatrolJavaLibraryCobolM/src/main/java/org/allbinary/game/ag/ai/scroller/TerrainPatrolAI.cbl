@@ -1,102 +1,136 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.ai.scroller
+*> Java class TerrainPatrolAI
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.ai.scroller
-unit TerrainPatrolAI;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TerrainPatrolAI-new3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-hashtable BINARY-DOUBLE.
+01 J-ownerLayerInterface BINARY-DOUBLE.
+01 J-gameInput BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-hashtable J-ownerLayerInterface J-gameInput RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("TerrainPatrolAI")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_terrainEventListener")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DOWN")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_CLIFF")
+    COMPUTE JVALUE = FUNCTION TerrainEventListener-new0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_terrainEventListener", JVALUE)
+    COMPUTE jtemp1 = FUNCTION AngleFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-GET(jtemp1, "f_DOWN")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DOWN", JVALUE)
+    COMPUTE JVALUE = FUNCTION BasicTerrainInfo-new1(FUNCTION JR-GET(J-THIS, "f_DOWN"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_CLIFF", JVALUE)
+        CONTINUE
+        COMPUTE jtemp2 = FUNCTION TrrnEvntHndlr-getInstance1(J-ownerLayerInterface)
+        COMPUTE JDISCARD = FUNCTION TrrnEvntHndlr-addListener1(jtemp2, FUNCTION JR-GET(J-THIS, "f_terrainEventListener"))
+        COMPUTE jtemp3 = FUNCTION TrrnEvntCrclrSttcPl-gtInstnc0
+        COMPUTE JDISCARD = FUNCTION TrrnEvntLstnr-onTerrainEvent1(FUNCTION JR-GET(J-THIS, "f_terrainEventListener"), FUNCTION TrrnEvntCrclrSttcPl-getNext1(jtemp3, FUNCTION JR-GET(J-THIS, "f_CLIFF")))
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION TerrainPatrolAI-new3.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TerrainPatrolAI-update0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasePatrolAI-update0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION TrrnPtrlAI-chngDrctnIfClf75982(J-THIS)
+    GOBACK.
+END FUNCTION TerrainPatrolAI-update0.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameInput, BasicTerrainInfo, TerrainEventListener, AllBinaryLayer, Angle, ABHashtable, PacePatrolAI;
-
-type
-  {AB:TYPES}
-  TTerrainPatrolAI = class(TPacePatrolAI)
-  public
-    terrainEventListener: TTerrainEventListener;
-    DOWN: TAngle;
-    CLIFF: TBasicTerrainInfo;
-    procedure InitFields;
-        constructor Create(hashtable: TABHashtable<TObject, TObject>; ownerLayerInterface: TAllBinaryLayer; gameInput_: TGameInput);
-        procedure update; override;
-        procedure changeDirectionIfCliffReached;
-  end;
-
-implementation
-uses
-  TerrainEvent, TerrainEventCircularStaticPool, TerrainEventHandler, AngleFactory, BasicArrayList;
-
-
-{AB:CODE}
-
-procedure TTerrainPatrolAI.InitFields;
-begin
-  Self.terrainEventListener := TTerrainEventListener.Create();
-  Self.DOWN := TAngleFactory.getInstance().DOWN;
-  Self.CLIFF := TBasicTerrainInfo.Create(Self.DOWN);
-end;
-    
-
-constructor TTerrainPatrolAI.Create(hashtable: TABHashtable<TObject, TObject>; ownerLayerInterface: TAllBinaryLayer; gameInput_: TGameInput);
-begin
-        inherited Create(hashtable, ownerLayerInterface, gameInput_);
-        InitFields;
-        TTerrainEventHandler.getInstance(ownerLayerInterface).addListener(Self.terrainEventListener);
-        Self.terrainEventListener.onTerrainEvent(TTerrainEventCircularStaticPool.getInstance().getNext(Self.CLIFF));
-end;
-    
-
-procedure TTerrainPatrolAI.update;
-begin
-        inherited update();
-        Self.changeDirectionIfCliffReached();
-end;
-    
-
-procedure TTerrainPatrolAI.changeDirectionIfCliffReached;
-var
-  list: TBasicArrayList;
-  size: Integer;
-  terrainEvent_: TTerrainEvent;
-  basicTerrainInfo_: TBasicTerrainInfo;
-  angle_: TAngle;
-  index: Integer;
-begin
-        list := Self.terrainEventListener.getList();
-        size := list.size();
-        for index := 0 to size - 1 do begin
-            terrainEvent_ := TTerrainEvent(TJava.ToObject(list.removeAt(index)));
-            basicTerrainInfo_ := terrainEvent_.getBasicTerrainInfo();
-            angle_ := basicTerrainInfo_.getAngle();
-            if (angle_) = (Self.DOWN) then begin
-                Self.nextDirection();
-                if not (Self.isFollowLimitedByTerrain) then begin
-                    Self.logUtil.putF('Following Limited', TJava.Box(Self), 'onTerrainEvent');
-                    Self.isFollowLimitedByTerrain := True;
-                end;
-            end;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. TrrnPtrlAI-chngDrctnIfClf75982.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-list BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-terrainEvent BINARY-DOUBLE.
+01 J-basicTerrainInfo BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-list = FUNCTION TerrainEventListener-getList0(FUNCTION JR-GET(J-THIS, "f_terrainEventListener"))
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(J-list)
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-terrainEvent = FUNCTION BasicArrayList-removeAt1(J-list, J-index)
+            COMPUTE J-basicTerrainInfo = FUNCTION TrrnEvnt-getBasicTerrainInfo0(J-terrainEvent)
+            COMPUTE J-angle = FUNCTION BasicTerrainInfo-getAngle0(J-basicTerrainInfo)
+            IF (J-angle = FUNCTION JR-GET(J-THIS, "f_DOWN"))
+                COMPUTE JDISCARD = FUNCTION BasePatrolAI-nextDirection0(J-THIS)
+                IF (NOT (FUNCTION JR-GET(J-THIS, "f_isFollowLimitedByTerrain") = 1))
+                    COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_logUtil"))
+                    COMPUTE JVALUE = 1
+                    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_isFollowLimitedByTerrain", JVALUE)
+                END-IF
+            END-IF
+        END-PERFORM
+    GOBACK.
+END FUNCTION TrrnPtrlAI-chngDrctnIfClf75982.
 

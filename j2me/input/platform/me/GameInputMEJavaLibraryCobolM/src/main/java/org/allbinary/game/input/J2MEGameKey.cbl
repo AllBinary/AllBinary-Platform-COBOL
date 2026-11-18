@@ -1,82 +1,130 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.input
+*> Java class J2MEGameKey
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.input
-unit J2MEGameKey;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. J2MEGameKey-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-id BINARY-DOUBLE.
+01 J-inputFactory BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-key BINARY-DOUBLE.
+01 J-keyName BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-key J-keyName RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("J2MEGameKey")
+        CONTINUE
+        COMPUTE J-id = FUNCTION Input-getId0(J-THIS)
+        IF (J-id >= 0)
+            COMPUTE J-inputFactory = FUNCTION InputFactory-getInstance0
+            COMPUTE JDISCARD = FUNCTION InputFactory-add2(J-inputFactory, J-id, J-THIS)
+        END-IF
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION J2MEGameKey-new2.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. J2MEGameKey-toString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp3 = FUNCTION StringMaker-new0
+        COMPUTE jtemp2 = FUNCTION StringMaker-append1(jtemp3, FUNCTION JR-STR("J2MEGameKey: "))
+        COMPUTE jtemp1 = FUNCTION StringMaker-append1(jtemp2, FUNCTION Input-toString0(J-THIS))
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(jtemp1)
+        GOBACK
+    GOBACK.
+END FUNCTION J2MEGameKey-toString0.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. J2MEGameKey-getString1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-input BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-keyCode BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-keyCode RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp4 = FUNCTION InputFactory-getInstance0
+        COMPUTE J-input = FUNCTION InputFactory-getInstanceById1(jtemp4, J-keyCode)
+        IF (J-input NOT = 0)
+            COMPUTE J-RESULT = FUNCTION Input-getName0(J-input)
+            GOBACK
+        ELSE
+            COMPUTE jtemp5 = FUNCTION StringUtil-getInstance0
+            COMPUTE J-RESULT = FUNCTION JR-GET(jtemp5, "f_EMPTY_STRING")
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION J2MEGameKey-getString1.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Input;
-
-type
-  {AB:TYPES}
-  TJ2MEGameKey = class(TInput)
-  public
-        constructor Create(key: Integer; keyName: string);
-        function toString: string; override;
-        class function getString(keyCode: Integer): string; static;
-  end;
-
-implementation
-uses
-  InputFactory, StringMaker, StringUtil;
-
-
-{AB:CODE}
-    
-
-constructor TJ2MEGameKey.Create(key: Integer; keyName: string);
-var
-  id: Integer;
-  inputFactory_: TInputFactory;
-begin
-        inherited Create(key, keyName);
-        id := Self.getId();
-        if (id) >= (0) then begin
-            inputFactory_ := TInputFactory.getInstance();
-            inputFactory_.add(id, Self);
-        end;
-end;
-    
-
-function TJ2MEGameKey.toString: string;
-begin
-        Exit(TStringMaker.Create().append('J2MEGameKey: ').append(inherited toString()).toString());
-end;
-    
-
-class function TJ2MEGameKey.getString(keyCode: Integer): string;
-var
-  input_: TInput;
-begin
-        input_ := TInputFactory.getInstance().getInstanceById(keyCode);
-        if (input_) <> (nil) then begin
-            Exit(input_.getName());
-        end else begin
-            Exit(TStringUtil.getInstance().EMPTY_STRING);
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+PROGRAM-ID. J2MEGameKey-toString.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION J2MEGameKey-toString0(J-THIS)
+    GOBACK.
+END PROGRAM J2MEGameKey-toString.
 

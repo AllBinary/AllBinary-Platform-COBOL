@@ -1,103 +1,163 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game
+*> Java class Intermission
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game
-unit Intermission;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, TimeDelayHelper, IntermissionEnableListenerInterface, IntermissionInterface;
-
-type
-  {AB:TYPES}
-  TIntermission = class(TInterfacedObject, IIntermissionInterface)
-  public
-    enabled: Boolean;
-    timeElapsedHelper: TTimeDelayHelper;
-    intermissionEnableListener: IIntermissionEnableListenerInterface;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create;
-        procedure setListener(enableListener: IIntermissionEnableListenerInterface); virtual;
-        function getTimeDelayHelper: TTimeDelayHelper; virtual;
-        procedure setEnabled(enabled: Boolean); virtual;
-        function isEnabled: Boolean; virtual;
-  end;
-
-implementation
-uses
-  NullIntermissionEnableListener;
-
-
-{AB:CODE}
-
-procedure TIntermission.InitFields;
-begin
-  
-  Self.timeElapsedHelper := TTimeDelayHelper.Create(0);
-  Self.intermissionEnableListener := TNullIntermissionEnableListener.getInstance();
-end;
-
-function TIntermission.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Intermission-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("Intermission")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_enabled")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_timeElapsedHelper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_intermissionEnableListener")
     
+    COMPUTE jtemp1 = 0
+    COMPUTE JVALUE = FUNCTION TimeDelayHelper-new1(jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_timeElapsedHelper", JVALUE)
+    COMPUTE JVALUE = FUNCTION NllIntrmssnEnblLstnr-gtInstnc0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_intermissionEnableListener", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION Intermission-new0.
 
-constructor TIntermission.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Intermission-setListener1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-enableListener BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-enableListener RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-enableListener
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_intermissionEnableListener", JVALUE)
+    GOBACK.
+END FUNCTION Intermission-setListener1.
 
-procedure TIntermission.setListener(enableListener: IIntermissionEnableListenerInterface);
-begin
-        Self.intermissionEnableListener := enableListener;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Intrmssn-getTimeDelayHelper0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_timeElapsedHelper")
+        GOBACK
+    GOBACK.
+END FUNCTION Intrmssn-getTimeDelayHelper0.
 
-function TIntermission.getTimeDelayHelper: TTimeDelayHelper;
-begin
-        Exit(Self.timeElapsedHelper);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Intermission-setEnabled1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-enabled BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-enabled RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-enabled
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_enabled", JVALUE)
+        IF (FUNCTION Intermission-isEnabled0(J-THIS) = 1)
+            COMPUTE jtemp2 = FUNCTION Intrmssn-getTimeDelayHelper0(J-THIS)
+            COMPUTE JDISCARD = FUNCTION TmDlyHlpr-setStartTimeTNT0(jtemp2)
+        END-IF
+        COMPUTE JDISCARD = FUNCTION IntrmssnEnblLstnrIntrfc-n78961(FUNCTION JR-GET(J-THIS, "f_intermissionEnableListener"), J-enabled)
+    GOBACK.
+END FUNCTION Intermission-setEnabled1.
 
-procedure TIntermission.setEnabled(enabled: Boolean);
-begin
-        Self.enabled := enabled;
-        if Self.isEnabled() then begin
-            Self.getTimeDelayHelper().setStartTimeTNT();
-        end;
-        Self.intermissionEnableListener.notifyIntermission(enabled);
-end;
-    
-
-function TIntermission.isEnabled: Boolean;
-begin
-        Exit(Self.enabled);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Intermission-isEnabled0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_enabled")
+        GOBACK
+    GOBACK.
+END FUNCTION Intermission-isEnabled0.
 

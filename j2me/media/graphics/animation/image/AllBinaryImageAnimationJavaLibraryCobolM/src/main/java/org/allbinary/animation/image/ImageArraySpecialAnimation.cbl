@@ -1,128 +1,241 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.image
+*> Java class ImageArraySpecialAnimation
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.image
-unit ImageArraySpecialAnimation;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArrySpclAnmtn-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-imageArray BINARY-DOUBLE.
+01 J-animationBehavior BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-imageArray J-animationBehavior RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ImageArraySpecialAnimation")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_timeDelayHelper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_loopCount")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_loopCountTotal")
+    COMPUTE jtemp1 = 270
+    COMPUTE JVALUE = FUNCTION TimeDelayHelper-new1(jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_timeDelayHelper", JVALUE)
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_loopCount", JVALUE)
+    COMPUTE JVALUE = 1
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_loopCountTotal", JVALUE)
+        CONTINUE
+        COMPUTE JDISCARD = FUNCTION ImgArrySpclAnmtn-reset0(J-THIS)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ImgArrySpclAnmtn-new2.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArrySpclAnmtn-getLoopCount0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_loopCount")
+        GOBACK
+    GOBACK.
+END FUNCTION ImgArrySpclAnmtn-getLoopCount0.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArrySpclAnmtn-setLastFrame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = (FUNCTION MOD((FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil")) - 1) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil"))
+    GOBACK.
+END FUNCTION ImgArrySpclAnmtn-setLastFrame0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, Image, AnimationBehavior, SpecialAnimationInterface, TimeDelayHelper, ImageArrayAnimation, AnimationInterface, IndexedAnimationInterface, LocationPaintableInterface, SequenceInterface, SequentialAnimationInterface;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArrySpclAnmtn-reset0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp3 = (FUNCTION MOD((FUNCTION ImageArrayAnimation-getSize0(J-THIS) - 1) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE JDISCARD = FUNCTION ImageArrayAnimation-setFrame1(J-THIS, jtemp3)
+        COMPUTE JVALUE = 0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_loopCount", JVALUE)
+    GOBACK.
+END FUNCTION ImgArrySpclAnmtn-reset0.
 
-type
-  {AB:TYPES}
-  TImageArraySpecialAnimation = class(TImageArrayAnimation, ISpecialAnimationInterface, IAnimationInterface, IIndexedAnimationInterface, ILocationPaintableInterface, ISequenceInterface, ISequentialAnimationInterface)
-  public
-    timeDelayHelper: TTimeDelayHelper;
-    loopCount: Integer;
-    loopCountTotal: Integer;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(imageArray: TArray<TImage>; animationBehavior_: TAnimationBehavior);
-        function getLoopCount: Integer; virtual;
-        procedure setLastFrame; virtual;
-        procedure reset; virtual;
-        procedure nextFrame; virtual;
-        function isComplete: Boolean; virtual;
-        procedure paintXY(graphics_: TGraphics; x: Integer; y: Integer); virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArrySpclAnmtn-nextFrame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION ImageArrayAnimation-getFrame0(J-THIS) > 0)
+            COMPUTE jtemp4 = FUNCTION GmTckTmDlyHlprFctry-gtInstnc0
+            IF (FUNCTION TimeDelayHelper-isTime1(FUNCTION JR-GET(J-THIS, "f_timeDelayHelper"), FUNCTION JR-GET(jtemp4, "f_startTime")) = 1)
+                COMPUTE JDISCARD = FUNCTION ImgArryAnmtn-previousFrame0(J-THIS)
+                IF (FUNCTION ImageArrayAnimation-getFrame0(J-THIS) = 0)
+                    COMPUTE JVALUE = (FUNCTION MOD(FUNCTION JR-GET(J-THIS, "f_loopCount") + 1 + 2147483648, 4294967296) - 2147483648)
+                    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_loopCount", JVALUE)
+                END-IF
+            END-IF
+        END-IF
+    GOBACK.
+END FUNCTION ImgArrySpclAnmtn-nextFrame0.
 
-implementation
-uses
-  DisplayInfoSingleton, GameTickTimeDelayHelperFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArrySpclAnmtn-isComplete0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF ((FUNCTION JR-GET(J-THIS, "f_loopCount") < FUNCTION JR-GET(J-THIS, "f_loopCountTotal")) OR (FUNCTION ImageArrayAnimation-getFrame0(J-THIS) NOT = 0))
+            COMPUTE J-RESULT = 0
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = 1
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION ImgArrySpclAnmtn-isComplete0.
 
-
-{AB:CODE}
-
-procedure TImageArraySpecialAnimation.InitFields;
-begin
-  Self.timeDelayHelper := TTimeDelayHelper.Create(270);
-  Self.loopCount := 0;
-  Self.loopCountTotal := 1;
-end;
-
-function TImageArraySpecialAnimation.JavaObject: TObject;
-begin
-  Result := Self;
-end;
-    
-
-constructor TImageArraySpecialAnimation.Create(imageArray: TArray<TImage>; animationBehavior_: TAnimationBehavior);
-begin
-        inherited Create(imageArray, animationBehavior_);
-        InitFields;
-        Self.reset();
-end;
-    
-
-function TImageArraySpecialAnimation.getLoopCount: Integer;
-begin
-        Exit(Self.loopCount);
-end;
-    
-
-procedure TImageArraySpecialAnimation.setLastFrame;
-begin
-        Self.circularIndexUtil.setIndex((Self.circularIndexUtil.getSize()) - (1));
-end;
-    
-
-procedure TImageArraySpecialAnimation.reset;
-begin
-        Self.setFrame((Self.getSize()) - (1));
-        Self.loopCount := 0;
-end;
-    
-
-procedure TImageArraySpecialAnimation.nextFrame;
-begin
-        if (Self.getFrame()) > (0) then begin
-            if Self.timeDelayHelper.isTime(TGameTickTimeDelayHelperFactory.getInstance().startTime) then begin
-                Self.previousFrame();
-                if (Self.getFrame()) = (0) then begin
-                    Inc(Self.loopCount);
-                end;
-            end;
-        end;
-end;
-    
-
-function TImageArraySpecialAnimation.isComplete: Boolean;
-begin
-        if ((Self.loopCount) < (Self.loopCountTotal)) or ((Self.getFrame()) <> (0)) then begin
-            Exit(False);
-        end else begin
-            Exit(True);
-        end;
-end;
-    
-
-procedure TImageArraySpecialAnimation.paintXY(graphics_: TGraphics; x: Integer; y: Integer);
-begin
-        x := (TDisplayInfoSingleton.getInstance().getLastHalfWidth()) - ((TJava.SignedRightShift(Self.getImage(Self.circularIndexUtil.getIndex()).getWidth(), 1)));
-        y := 5;
-        inherited paintXY(graphics_, x, y);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ImgArrySpclAnmtn-paintXY3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp6 = FUNCTION ImageArrayAnimation-getImage1(J-THIS, FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil")))
+        COMPUTE jtemp5 = FUNCTION DsplyInfSngltn-getInstance0
+        COMPUTE J-x = (FUNCTION MOD((FUNCTION DsplyInfSngltn-gtLstHlfWdth0(jtemp5) - (FUNCTION JR-SHIFT(JFIVE, FUNCTION JR-CLASS-NAME(jtemp6), 1))) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE J-y = 5
+        COMPUTE JDISCARD = FUNCTION ImageArrayAnimation-paintXY3(J-THIS, J-graphics, J-x, J-y)
+    GOBACK.
+END FUNCTION ImgArrySpclAnmtn-paintXY3.
 

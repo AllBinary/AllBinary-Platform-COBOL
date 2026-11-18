@@ -1,123 +1,255 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.input.event
+*> Java class GameKeyEventFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.input.event
-unit GameKeyEventFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmKyEvntFctry-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameKeyEventFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 GameKeyEventFactory-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GameKeyEventFactory-jset-instance = 0
+        MOVE 1 TO GameKeyEventFactory-jset-instance
+        COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
+    COMPUTE GameKeyEventFactory-jcell-instance = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+    END-IF
+    MOVE GameKeyEventFactory-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION GmKyEvntFctry-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmKyEvntFctrystaticiS10650.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameKeyEventFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GmKyEvntFctry-static-instance TO J-RESULT
+    MOVE J-VALUE TO GameKeyEventFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GmKyEvntFctrystaticiS10650.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameKeyEventFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameKeyEventFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_TOUCH_BUTTON_SOURCE_ID")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_MOTION_GESTURE_SOURCE_ID")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_MAX_SOURCES")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ARRAY")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = 2
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_TOUCH_BUTTON_SOURCE_ID", JVALUE)
+    COMPUTE JVALUE = 3
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_MOTION_GESTURE_SOURCE_ID", JVALUE)
+    COMPUTE JVALUE = 4
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_MAX_SOURCES", JVALUE)
+    COMPUTE jtemp3 = FUNCTION InputFactory-getInstance0
+    COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY2(FUNCTION JR-GET(J-THIS, "f_MAX_SOURCES"), FUNCTION JR-GET(jtemp3, "f_MAX"))
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ARRAY", JVALUE)
+        CONTINUE
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GameKeyEventFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameKeyEventSourceInterface, Input, LogUtil, GameKeyEvent;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmKyEvntFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp2 = FUNCTION NullUtil-getInstance0
+        IF (FUNCTION GmKyEvntFctry-static-instance = FUNCTION JR-GET(jtemp2, "f_NULL_OBJECT"))
+            COMPUTE JDISCARD = FUNCTION GmKyEvntFctrystaticiS10650(FUNCTION GameKeyEventFactory-new0)
+        END-IF
+        COMPUTE J-RESULT = FUNCTION GmKyEvntFctry-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION GmKyEvntFctry-getInstance0.
 
-type
-  {AB:TYPES}
-  TGameKeyEventFactory = class(TObject)
-  public
-    logUtil: TLogUtil;
-    TOUCH_BUTTON_SOURCE_ID: Integer;
-    MOTION_GESTURE_SOURCE_ID: Integer;
-    MAX_SOURCES: Integer;
-    ARRAY_: TArray<TArray<TGameKeyEvent>>;
-    class var instance: TObject;
-    procedure InitFields;
-        class function getInstance: TGameKeyEventFactory; static;
-        constructor Create;
-        procedure init; virtual;
-        function getInstanceForKey(anyType: IGameKeyEventSourceInterface; key: Integer): TGameKeyEvent; virtual;
-        function getInstanceForInput(anyType: IGameKeyEventSourceInterface; input_: TInput): TGameKeyEvent; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameKeyEventFactory-init0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-nullUtil BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-index2 BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-nullUtil = FUNCTION NullUtil-getInstance0
+        COMPUTE jtemp4 = FUNCTION InputFactory-getInstance0
+        COMPUTE J-size = FUNCTION JR-GET(jtemp4, "f_MAX")
+        COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp6 = J-index
+        COMPUTE J-index = FUNCTION JR-GET(J-THIS, "f_MAX_SOURCES")
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            MOVE 0 TO JFIRST1
+            IF NOT (jtemp6 >= 0) EXIT PERFORM END-IF
+            COMPUTE J-index2 = (FUNCTION MOD(J-index2 - 1 + 2147483648, 4294967296) - 2147483648)
+            COMPUTE jtemp5 = J-index2
+            COMPUTE J-index2 = J-size
+            MOVE 1 TO JFIRST2
+            PERFORM FOREVER
+                MOVE 0 TO JFIRST2
+                IF NOT (jtemp5 >= 0) EXIT PERFORM END-IF
+                COMPUTE JVALUE = FUNCTION GameKeyEvent-createEvent3(FUNCTION JR-GET(J-nullUtil, "f_NULL_OBJECT"), J-index, J-index2)
+                COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_ARRAY"), J-index), J-index2, JVALUE)
+            END-PERFORM
+        END-PERFORM
+    GOBACK.
+END FUNCTION GameKeyEventFactory-init0.
 
-implementation
-uses
-  InputFactory, NullUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmKyEvntFctry-gtInstncFrKy2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameKeyEvent BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-anyType BINARY-DOUBLE.
+01 J-key BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-anyType J-key RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-gameKeyEvent = FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_ARRAY"), FUNCTION GmKyEvntSrcIntrfc-getSourceId0(J-anyType)), J-key)
+        COMPUTE J-RESULT = J-gameKeyEvent
+        GOBACK
+    GOBACK.
+END FUNCTION GmKyEvntFctry-gtInstncFrKy2.
 
-
-{AB:CODE}
-
-procedure TGameKeyEventFactory.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.TOUCH_BUTTON_SOURCE_ID := 2;
-  Self.MOTION_GESTURE_SOURCE_ID := 3;
-  Self.MAX_SOURCES := 4;
-  Self.ARRAY_ := TJava.NewArray2<TGameKeyEvent>(Self.MAX_SOURCES, TInputFactory.getInstance().MAX);
-end;
-    
-
-class function TGameKeyEventFactory.getInstance: TGameKeyEventFactory;
-begin
-        if (TGameKeyEventFactory.instance) = (TNullUtil.getInstance().NULL_OBJECT) then begin
-            TGameKeyEventFactory.instance := TGameKeyEventFactory.Create();
-        end;
-        Exit(TGameKeyEventFactory(TJava.ToObject(TGameKeyEventFactory.instance)));
-end;
-    
-
-constructor TGameKeyEventFactory.Create;
-begin
-    inherited Create;
-    InitFields;
-end;
-    
-
-procedure TGameKeyEventFactory.init;
-var
-  nullUtil_: TNullUtil;
-  size: Integer;
-  index2: Integer;
-  index: Integer;
-begin
-        nullUtil_ := TNullUtil.getInstance();
-        size := TInputFactory.getInstance().MAX;
-        index := Self.MAX_SOURCES;
-        while (TJava.PreDec(index)) >= (0) do begin
-            index2 := size;
-            while (TJava.PreDec(index2)) >= (0) do begin
-                Self.ARRAY_[index][index2] := TGameKeyEvent.createEvent(TJava.Box(nullUtil_.NULL_OBJECT), index, index2);
-            end;
-        end;
-end;
-    
-
-// throws Exception
-function TGameKeyEventFactory.getInstanceForKey(anyType: IGameKeyEventSourceInterface; key: Integer): TGameKeyEvent;
-var
-  gameKeyEvent_: TGameKeyEvent;
-begin
-        gameKeyEvent_ := Self.ARRAY_[anyType.getSourceId()][key];
-        Exit(gameKeyEvent_);
-end;
-    
-
-// throws Exception
-function TGameKeyEventFactory.getInstanceForInput(anyType: IGameKeyEventSourceInterface; input_: TInput): TGameKeyEvent;
-var
-  gameKeyEvent_: TGameKeyEvent;
-begin
-        gameKeyEvent_ := Self.ARRAY_[anyType.getSourceId()][input_.getId()];
-        Exit(gameKeyEvent_);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TGameKeyEventFactory.instance := TJava.Box(TNullUtil.getInstance().NULL_OBJECT);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmKyEvntFctry-gtInstncFrInpt2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameKeyEvent BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-anyType BINARY-DOUBLE.
+01 J-input BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-anyType J-input RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-gameKeyEvent = FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_ARRAY"), FUNCTION GmKyEvntSrcIntrfc-getSourceId0(J-anyType)), FUNCTION Input-getId0(J-input))
+        COMPUTE J-RESULT = J-gameKeyEvent
+        GOBACK
+    GOBACK.
+END FUNCTION GmKyEvntFctry-gtInstncFrInpt2.
 

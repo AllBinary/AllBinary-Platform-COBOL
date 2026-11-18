@@ -1,57 +1,113 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.media
+*> Java class AllBinaryNoVibration
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.media
-unit AllBinaryNoVibration;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryNVbrtn-sttc-NO-V85037.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AllBinaryNoVibration-jcell-NO_VIBRATION BINARY-DOUBLE EXTERNAL.
+01 AllBinaryNoVibration-jset-NO_VIBRATION BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF AllBinaryNoVibration-jset-NO_VIBRATION = 0
+        MOVE 1 TO AllBinaryNoVibration-jset-NO_VIBRATION
+        COMPUTE AllBinaryNoVibration-jcell-NO_VIBRATION = FUNCTION AllBinaryNoVibration-new0
+    END-IF
+    MOVE AllBinaryNoVibration-jcell-NO_VIBRATION TO J-RESULT
+    GOBACK.
+END FUNCTION AllBnryNVbrtn-sttc-NO-V85037.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBnryNVbrtnsttcNOVS62170.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 AllBinaryNoVibration-jcell-NO_VIBRATION BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION AllBnryNVbrtn-sttc-NO-V85037 TO J-RESULT
+    MOVE J-VALUE TO AllBinaryNoVibration-jcell-NO_VIBRATION
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION AllBnryNVbrtnsttcNOVS62170.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBinaryNoVibration-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("AllBinaryNoVibration")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION AllBinaryNoVibration-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, AllBinaryVibrationME;
-
-type
-  {AB:TYPES}
-  TAllBinaryNoVibration = class(TAllBinaryVibrationME)
-  public
-    class var NO_VIBRATION: TAllBinaryVibrationME;
-    constructor Create;
-        procedure vibrate(duration: Integer; type_: Integer; volume: Integer); override;
-  end;
-
-implementation
-
-{AB:CODE}
-
-constructor TAllBinaryNoVibration.Create;
-begin
-  inherited Create;
-end;
-    
-
-procedure TAllBinaryNoVibration.vibrate(duration: Integer; type_: Integer; volume: Integer);
-begin
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TAllBinaryNoVibration.NO_VIBRATION := TAllBinaryNoVibration.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AllBinaryNoVibration-vibrate3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-duration BINARY-DOUBLE.
+01 J-type BINARY-DOUBLE.
+01 J-volume BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-duration J-type J-volume RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION AllBinaryNoVibration-vibrate3.
 

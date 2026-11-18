@@ -4,7 +4,7 @@
 *> Java class LinuxOperatingSystemFactory
 
 IDENTIFICATION DIVISION.
-FUNCTION-ID. LnxOprtngSystmFctry-sttc-nsnc.
+FUNCTION-ID. LnxOprtngSystmFctry-sttc12229.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
 REPOSITORY.
@@ -33,7 +33,26 @@ PROCEDURE DIVISION RETURNING J-RESULT.
     END-IF
     MOVE LinuxOperatingSystemFactory-jcell-instance TO J-RESULT
     GOBACK.
-END FUNCTION LnxOprtngSystmFctry-sttc-nsnc.
+END FUNCTION LnxOprtngSystmFctry-sttc12229.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LnxOprtngSystmFctrysS81356.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 LinuxOperatingSystemFactory-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION LnxOprtngSystmFctry-sttc12229 TO J-RESULT
+    MOVE J-VALUE TO LinuxOperatingSystemFactory-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION LnxOprtngSystmFctrysS81356.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. LnxOprtngSystmFctry-new0.
@@ -88,13 +107,13 @@ LINKAGE SECTION.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
-        COMPUTE J-RESULT = FUNCTION LnxOprtngSystmFctry-sttc-nsnc
+        COMPUTE J-RESULT = FUNCTION LnxOprtngSystmFctry-sttc12229
         GOBACK
     GOBACK.
 END FUNCTION LnxOprtngSystmFctry-gtInstnc0.
 
 IDENTIFICATION DIVISION.
-FUNCTION-ID. LnxOprtngSystmFctry-gtOprtngc0.
+FUNCTION-ID. LnxOprtngSystmFctry-gtOpr32882.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
 REPOSITORY.
@@ -131,7 +150,7 @@ PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
             IF (FUNCTION JR-COMPARETO(J-osName, FUNCTION JR-GET(J-operatingSystems, "f_LINUX")) = 0)
                 COMPUTE J-operatingSystemInterface = FUNCTION LinuxOS-new0
             ELSE
-                IF (FUNCTION OprtngSystms-isUnknwnSpcfcOSd0(J-operatingSystems) = 1)
+                IF (FUNCTION OprtngSystms-isUnknwnSpcf59109(J-operatingSystems) = 1)
                     COMPUTE J-operatingSystemInterface = FUNCTION LinuxOS-new0
                 ELSE
                     COMPUTE jtemp2 = FUNCTION JR-CONCAT(FUNCTION JR-STR("Specific Linux OS Not Supported: "), J-osName)
@@ -141,5 +160,5 @@ PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
             COMPUTE J-RESULT = J-operatingSystemInterface
             GOBACK
     GOBACK.
-END FUNCTION LnxOprtngSystmFctry-gtOprtngc0.
+END FUNCTION LnxOprtngSystmFctry-gtOpr32882.
 

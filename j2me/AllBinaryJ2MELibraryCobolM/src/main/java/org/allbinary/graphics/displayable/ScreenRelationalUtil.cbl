@@ -1,98 +1,278 @@
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.displayable
-unit ScreenRelationalUtil;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.displayable
+*> Java class ScreenRelationalUtil
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScrnRltnlUtl-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ScreenRelationalUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 ScreenRelationalUtil-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF ScreenRelationalUtil-jset-instance = 0
+        MOVE 1 TO ScreenRelationalUtil-jset-instance
+        COMPUTE ScreenRelationalUtil-jcell-instance = FUNCTION ScreenRelationalUtil-new0
+    END-IF
+    MOVE ScreenRelationalUtil-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION ScrnRltnlUtl-static-instance.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScrnRltnlUtlstaticinS15320.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ScreenRelationalUtil-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION ScrnRltnlUtl-static-instance TO J-RESULT
+    MOVE J-VALUE TO ScreenRelationalUtil-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION ScrnRltnlUtlstaticinS15320.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Image;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScreenRelationalUtil-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ScreenRelationalUtil")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ScreenRelationalUtil-new0.
 
-type
-  {AB:TYPES}
-  TScreenRelationalUtil = class(TObject)
-  public
-    class var instance: TScreenRelationalUtil;
-    constructor Create;
-        class function getInstance: TScreenRelationalUtil; static;
-        function getScaleImage(image_: TImage): Single; virtual;
-        function getScaleWH(aWidth: Integer; aHeight: Integer): Single; virtual;
-        function getScaleWHA(aWidth: Integer; aHeight: Integer; add: Integer): Single; virtual;
-        function getScaledHeight(aWidth: Integer; aHeight: Integer): Integer; virtual;
-        function getScaledHeightAdd(aWidth: Integer; aHeight: Integer; add: Integer): Integer; virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScrnRltnlUtl-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION ScrnRltnlUtl-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION ScrnRltnlUtl-getInstance0.
 
-implementation
-uses
-  DisplayInfoSingleton;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScrnRltnlUtl-getScaleImage1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-image BINARY-DOUBLE.
+01 J-RESULT COMP-2.
+PROCEDURE DIVISION USING J-THIS J-image RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION ScrnRltnlUtl-getScaleWH2(J-THIS, FUNCTION Image-getWidth0(J-image), FUNCTION Image-getHeight0(J-image))
+        GOBACK
+    GOBACK.
+END FUNCTION ScrnRltnlUtl-getScaleImage1.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScrnRltnlUtl-getScaleWH2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-aWidth BINARY-DOUBLE.
+01 J-aHeight BINARY-DOUBLE.
+01 J-RESULT COMP-2.
+PROCEDURE DIVISION USING J-THIS J-aWidth J-aHeight RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = 20
+        COMPUTE J-RESULT = FUNCTION ScrnRltnlUtl-getScaleWHA3(J-THIS, J-aWidth, J-aHeight, jtemp1)
+        GOBACK
+    GOBACK.
+END FUNCTION ScrnRltnlUtl-getScaleWH2.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScrnRltnlUtl-getScaleWHA3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-displayInfoSingleton BINARY-DOUBLE.
+01 J-last BINARY-DOUBLE.
+01 J-width COMP-2.
+01 J-height COMP-2.
+01 J-largestSize COMP-2.
+01 J-scale COMP-2.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-aWidth BINARY-DOUBLE.
+01 J-aHeight BINARY-DOUBLE.
+01 J-add BINARY-DOUBLE.
+01 J-RESULT COMP-2.
+PROCEDURE DIVISION USING J-THIS J-aWidth J-aHeight J-add RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-displayInfoSingleton = FUNCTION DsplyInfSngltn-getInstance0
+        COMPUTE J-last = FUNCTION DisplayInfoSingleton-getLast0(J-displayInfoSingleton)
+        COMPUTE J-width = FUNCTION JR-ARRAY-GET(J-last, FUNCTION JR-GET(J-displayInfoSingleton, "f_WIDTH"))
+        COMPUTE J-height = FUNCTION JR-ARRAY-GET(J-last, FUNCTION JR-GET(J-displayInfoSingleton, "f_HEIGHT"))
+        COMPUTE J-largestSize = J-width
+        IF (J-largestSize < J-height)
+            COMPUTE J-largestSize = J-height
+        END-IF
+        COMPUTE J-scale = ((J-largestSize) / J-aWidth)
+        COMPUTE J-RESULT = J-scale
+        GOBACK
+    GOBACK.
+END FUNCTION ScrnRltnlUtl-getScaleWHA3.
 
-constructor TScreenRelationalUtil.Create;
-begin
-  inherited Create;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScrnRltnlUtl-getScaledHeight2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-aWidth BINARY-DOUBLE.
+01 J-aHeight BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-aWidth J-aHeight RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-D2I(((FUNCTION ScrnRltnlUtl-getScaleWH2(J-THIS, J-aWidth, J-aHeight) * J-aHeight)))
+        GOBACK
+    GOBACK.
+END FUNCTION ScrnRltnlUtl-getScaledHeight2.
 
-class function TScreenRelationalUtil.getInstance: TScreenRelationalUtil;
-begin
-        Exit(TScreenRelationalUtil.instance);
-end;
-    
-
-function TScreenRelationalUtil.getScaleImage(image_: TImage): Single;
-begin
-        Exit(Self.getScaleWH(image_.getWidth(), image_.getHeight()));
-end;
-    
-
-function TScreenRelationalUtil.getScaleWH(aWidth: Integer; aHeight: Integer): Single;
-begin
-        Exit(Self.getScaleWHA(aWidth, aHeight, 20));
-end;
-    
-
-function TScreenRelationalUtil.getScaleWHA(aWidth: Integer; aHeight: Integer; add: Integer): Single;
-var
-  displayInfoSingleton_: TDisplayInfoSingleton;
-  last: TArray<Integer>;
-  width: Single;
-  height: Single;
-  largestSize: Single;
-  scale: Single;
-begin
-        displayInfoSingleton_ := TDisplayInfoSingleton.getInstance();
-        last := displayInfoSingleton_.getLast();
-        width := last[displayInfoSingleton_.WIDTH];
-        height := last[displayInfoSingleton_.HEIGHT];
-        largestSize := width;
-        if (largestSize) < (height) then begin
-            largestSize := height;
-        end;
-        scale := ((largestSize)) / (aWidth);
-        Exit(scale);
-end;
-    
-
-function TScreenRelationalUtil.getScaledHeight(aWidth: Integer; aHeight: Integer): Integer;
-begin
-        Exit(Integer(Trunc(((Self.getScaleWH(aWidth, aHeight)) * (aHeight)))));
-end;
-    
-
-function TScreenRelationalUtil.getScaledHeightAdd(aWidth: Integer; aHeight: Integer; add: Integer): Integer;
-begin
-        Exit(Integer(Trunc(((Self.getScaleWHA(aWidth, aHeight, add)) * (aHeight)))));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TScreenRelationalUtil.instance := TScreenRelationalUtil.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ScrnRltnlUtl-gtScldHghtAdd3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-aWidth BINARY-DOUBLE.
+01 J-aHeight BINARY-DOUBLE.
+01 J-add BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-aWidth J-aHeight J-add RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-D2I(((FUNCTION ScrnRltnlUtl-getScaleWHA3(J-THIS, J-aWidth, J-aHeight, J-add) * J-aHeight)))
+        GOBACK
+    GOBACK.
+END FUNCTION ScrnRltnlUtl-gtScldHghtAdd3.
 

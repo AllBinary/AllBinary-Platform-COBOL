@@ -1,89 +1,114 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.image.sprite
+*> Java class ColorCompositeSpriteIndexedAnimationFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.image.sprite
-unit ColorCompositeSpriteIndexedAnimationFactory;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Image, Animation, AnimationBehaviorFactory, ProceduralAnimationInterfaceFactoryInterface, BaseImageAnimationFactory, BasicColor, AnimationFactorySpriteScaleUtil, BasicAnimationInterfaceFactoryInterface;
-
-type
-  {AB:TYPES}
-  TColorCompositeSpriteIndexedAnimationFactory = class(TBaseImageAnimationFactory, IProceduralAnimationInterfaceFactoryInterface, IBasicAnimationInterfaceFactoryInterface)
-  public
-    animationFactorySpriteScaleUtil: TAnimationFactorySpriteScaleUtil;
-    basicColorArray: TArray<TBasicColor>;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(image_: TImage; basicColorArray: TArray<TBasicColor>; width: Integer; height: Integer; animationBehaviorFactory_: TAnimationBehaviorFactory);
-        function getInstance(instanceId: Integer): TAnimation; virtual;
-        function getInstanceAnimation(animationInterface: TAnimation): TAnimation; virtual;
-  end;
-
-implementation
-uses
-  SpriteIndexedAnimation, Sprite, PrimitiveIntUtil;
-
-
-{AB:CODE}
-
-procedure TColorCompositeSpriteIndexedAnimationFactory.InitFields;
-begin
-  Self.animationFactorySpriteScaleUtil := TAnimationFactorySpriteScaleUtil.getInstance();
-  
-end;
-
-function TColorCompositeSpriteIndexedAnimationFactory.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClrCmpstSprtIndxdAnmtnF-45492.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-image BINARY-DOUBLE.
+01 J-basicColorArray BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-animationBehaviorFactory BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-image J-basicColorArray J-width J-height J-animationBehaviorFactory RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ColorCompositeSpriteIndexedAnimationFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_animationFactorySpriteScaleUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_basicColorArray")
+    COMPUTE JVALUE = FUNCTION AnmtnFctrySprtSclUtl-gtInstnc0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animationFactorySpriteScaleUtil", JVALUE)
     
+        COMPUTE jtemp1 = 0
+        COMPUTE jtemp2 = 0
+        CONTINUE
+        COMPUTE JVALUE = J-basicColorArray
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_basicColorArray", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ClrCmpstSprtIndxdAnmtnF-45492.
 
-constructor TColorCompositeSpriteIndexedAnimationFactory.Create(image_: TImage; basicColorArray: TArray<TBasicColor>; width: Integer; height: Integer; animationBehaviorFactory_: TAnimationBehaviorFactory);
-begin
-        inherited Create(image_, TPrimitiveIntUtil.getArrayInstance(), width, height, 0, 0, animationBehaviorFactory_);
-        InitFields;
-        Self.basicColorArray := basicColorArray;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClrCmpstSprtIndxdAnmtnF-81591.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-sprite BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-instanceId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-instanceId RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-sprite = FUNCTION AnmtnFctrySprtSclUtl-crtImg5(FUNCTION JR-GET(J-THIS, "f_animationFactorySpriteScaleUtil"), FUNCTION BsImgAnmtnFctry-getImage0(J-THIS), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS,
+        "f_animationFactoryInitializationVisitor"), "f_width"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor"), "f_height"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_scaleProperties"), "f_scaleWidth"),
+        FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_scaleProperties"), "f_scaleHeight"))
+        COMPUTE J-RESULT = FUNCTION SpriteIndexedAnimation-new4(J-sprite, FUNCTION BsImgAnmtnFctry-getImage0(J-THIS), FUNCTION JR-GET(J-THIS, "f_basicColorArray"), FUNCTION AnmtnBhvrFctry-gtOrCrtInstnc0(FUNCTION JR-GET(J-THIS,
+        "f_animationBehaviorFactory")))
+        GOBACK
+    GOBACK.
+END FUNCTION ClrCmpstSprtIndxdAnmtnF-81591.
 
-// throws Exception
-function TColorCompositeSpriteIndexedAnimationFactory.getInstance(instanceId: Integer): TAnimation;
-var
-  sprite_: TSprite;
-begin
-        sprite_ := Self.animationFactorySpriteScaleUtil.createImage(Self.getImage(), Self.animationFactoryInitializationVisitor.width, Self.animationFactoryInitializationVisitor.height, Self.scaleProperties.scaleWidth, Self.scaleProperties.scaleHeight);
-        Exit(TSpriteIndexedAnimation.Create(sprite_, Self.getImage(), Self.basicColorArray, Self.animationBehaviorFactory.getOrCreateInstance()));
-end;
-    
-
-// throws Exception
-function TColorCompositeSpriteIndexedAnimationFactory.getInstanceAnimation(animationInterface: TAnimation): TAnimation;
-begin
-        Exit(Self.getInstance(0));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClrCmpstSprtIndxdAnmtnF-92196.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-animationInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-animationInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp3 = 0
+        COMPUTE J-RESULT = FUNCTION ClrCmpstSprtIndxdAnmtnF-81591(J-THIS, jtemp3)
+        GOBACK
+    GOBACK.
+END FUNCTION ClrCmpstSprtIndxdAnmtnF-92196.
 

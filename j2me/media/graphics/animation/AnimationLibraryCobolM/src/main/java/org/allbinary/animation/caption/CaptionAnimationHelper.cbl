@@ -1,105 +1,190 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.animation.caption
+*> Java class CaptionAnimationHelper
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.animation.caption
-unit CaptionAnimationHelper;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Graphics, Animation, TextAnimation, BasicColor, TimeDelayHelper, CaptionAnimationHelperBase;
-
-type
-  {AB:TYPES}
-  TCaptionAnimationHelper = class(TCaptionAnimationHelperBase)
-  public
-    timeHelper: TTimeDelayHelper;
-    textAnimation: TTextAnimation;
-    captionAnimation: TAnimation;
-    animation: TAnimation;
-    procedure InitFields;
-        constructor Create(captionAnimation_: TAnimation; captionDx: Integer; captionDy: Integer; dx: Integer; dy: Integer);
-        function isShowing: Boolean; override;
-        procedure tick; override;
-        procedure update(message: string; basicColor_: TBasicColor); override;
-        procedure paintXY(graphics_: TGraphics; x: Integer; y: Integer); override;
-  end;
-
-implementation
-uses
-  CaptionAnimation, AnimationBehavior, NullAnimationFactory, StringUtil, GameTickTimeDelayHelperFactory;
-
-
-{AB:CODE}
-
-procedure TCaptionAnimationHelper.InitFields;
-begin
-  Self.timeHelper := TTimeDelayHelper.Create(620);
-  Self.textAnimation := TTextAnimation.Create(TStringUtil.getInstance().EMPTY_STRING, TAnimationBehavior.getInstance());
-  
-  Self.animation := TNullAnimationFactory.getFactoryInstance().getInstance(0);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CaptionAnimationHelper-new5.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-captionAnimation BINARY-DOUBLE.
+01 J-captionDx BINARY-DOUBLE.
+01 J-captionDy BINARY-DOUBLE.
+01 J-dx BINARY-DOUBLE.
+01 J-dy BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-captionAnimation J-captionDx J-captionDy J-dx J-dy RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("CaptionAnimationHelper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_timeHelper")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_textAnimation")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_captionAnimation")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_animation")
+    COMPUTE jtemp1 = 620
+    COMPUTE JVALUE = FUNCTION TimeDelayHelper-new1(jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_timeHelper", JVALUE)
+    COMPUTE jtemp2 = FUNCTION StringUtil-getInstance0
+    COMPUTE JVALUE = FUNCTION TextAnimation-new2(FUNCTION JR-GET(jtemp2, "f_EMPTY_STRING"), FUNCTION AnimationBehavior-getInstance0)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_textAnimation", JVALUE)
     
+    COMPUTE jtemp4 = 0
+    COMPUTE jtemp3 = FUNCTION NllAnmtnFctry-gtFctryInstnc0
+    COMPUTE JVALUE = FUNCTION JR-CLASS-NAME(jtemp3)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animation", JVALUE)
+        COMPUTE JVALUE = FUNCTION CaptionAnimation-new6(J-captionAnimation, FUNCTION JR-GET(J-THIS, "f_textAnimation"), J-captionDx, J-captionDy, J-dx, J-dy)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_captionAnimation", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION CaptionAnimationHelper-new5.
 
-constructor TCaptionAnimationHelper.Create(captionAnimation_: TAnimation; captionDx: Integer; captionDy: Integer; dx: Integer; dy: Integer);
-begin
-    inherited Create;
-    InitFields;
-        Self.captionAnimation := TCaptionAnimation.Create(captionAnimation_, Self.textAnimation, captionDx, captionDy, dx, dy);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CptnAnmtnHlpr-isShowing0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION JR-GET(J-THIS, "f_animation") = FUNCTION JR-GET(J-THIS, "f_captionAnimation"))
+            COMPUTE J-RESULT = 1
+            GOBACK
+        ELSE
+            COMPUTE J-RESULT = 0
+            GOBACK
+        END-IF
+    GOBACK.
+END FUNCTION CptnAnmtnHlpr-isShowing0.
 
-function TCaptionAnimationHelper.isShowing: Boolean;
-begin
-        if (Self.animation) = (Self.captionAnimation) then begin
-            Exit(True);
-        end else begin
-            Exit(False);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CaptionAnimationHelper-tick0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp5 = FUNCTION GmTckTmDlyHlprFctry-gtInstnc0
+        IF (FUNCTION TimeDelayHelper-isTime1(FUNCTION JR-GET(J-THIS, "f_timeHelper"), FUNCTION JR-GET(jtemp5, "f_startTime")) = 1)
+            COMPUTE jtemp7 = 0
+            COMPUTE jtemp6 = FUNCTION NllAnmtnFctry-gtFctryInstnc0
+            COMPUTE JVALUE = FUNCTION JR-CLASS-NAME(jtemp6)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animation", JVALUE)
+        END-IF
+    GOBACK.
+END FUNCTION CaptionAnimationHelper-tick0.
 
-procedure TCaptionAnimationHelper.tick;
-begin
-        if Self.timeHelper.isTime(TGameTickTimeDelayHelperFactory.getInstance().startTime) then begin
-            Self.animation := TNullAnimationFactory.getFactoryInstance().getInstance(0);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CaptionAnimationHelper-update2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-message BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-message J-basicColor RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Animation-setBasicColorP1(FUNCTION JR-GET(J-THIS, "f_textAnimation"), J-basicColor)
+        COMPUTE JDISCARD = FUNCTION TextAnimation-setText1(FUNCTION JR-GET(J-THIS, "f_textAnimation"), J-message)
+        COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_captionAnimation")
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_animation", JVALUE)
+        COMPUTE JDISCARD = FUNCTION TmDlyHlpr-setStartTimeTNT0(FUNCTION JR-GET(J-THIS, "f_timeHelper"))
+    GOBACK.
+END FUNCTION CaptionAnimationHelper-update2.
 
-procedure TCaptionAnimationHelper.update(message: string; basicColor_: TBasicColor);
-begin
-        Self.textAnimation.setBasicColorP(basicColor_);
-        Self.textAnimation.setText(message);
-        Self.animation := Self.captionAnimation;
-        Self.timeHelper.setStartTimeTNT();
-end;
-    
-
-procedure TCaptionAnimationHelper.paintXY(graphics_: TGraphics; x: Integer; y: Integer);
-begin
-        Self.animation.paintXY(graphics_, x, y);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CptnAnmtnHlpr-paintXY3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION Animation-paintXY3(FUNCTION JR-GET(J-THIS, "f_animation"), J-graphics, J-x, J-y)
+    GOBACK.
+END FUNCTION CptnAnmtnHlpr-paintXY3.
 

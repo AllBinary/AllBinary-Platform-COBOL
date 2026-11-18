@@ -1,201 +1,362 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.pipeline
+*> Java class BasicGraphicsPipeline
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.pipeline
-unit BasicGraphicsPipeline;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, Angle, NoDecimalTrigTable, BasicArrayList;
-
-type
-  {AB:TYPES}
-  TBasicGraphicsPipeline = class(TObject)
-  public
-    pointBasicArrayList: TBasicArrayList;
-    noDecimalTrigTable: TNoDecimalTrigTable;
-    procedure InitFields;
-        constructor Create(points: TBasicArrayList);
-        procedure setInitMatrix(points: TBasicArrayList); virtual;
-        procedure createMatrix; virtual;
-        procedure translate(x: Integer; y: Integer); virtual;
-        procedure rotateToAngle(angle_: TAngle); virtual;
-        procedure rotate(angle_: Integer);
-        procedure mirror(width: Integer); virtual;
-        function getMatrix: TBasicArrayList; virtual;
-  end;
-
-implementation
-uses
-  GPoint, PointFactory, BasicArrayListD;
-
-
-{AB:CODE}
-
-procedure TBasicGraphicsPipeline.InitFields;
-begin
-  
-  Self.noDecimalTrigTable := TNoDecimalTrigTable.getInstance();
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicGraphicsPipeline-new1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-points BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-points RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("BasicGraphicsPipeline")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_pointBasicArrayList")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_noDecimalTrigTable")
     
+    COMPUTE JVALUE = FUNCTION NDcmlTrgTbl-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_noDecimalTrigTable", JVALUE)
+        COMPUTE JVALUE = J-points
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_pointBasicArrayList", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION BasicGraphicsPipeline-new1.
 
-constructor TBasicGraphicsPipeline.Create(points: TBasicArrayList);
-begin
-    inherited Create;
-    InitFields;
-        Self.pointBasicArrayList := points;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscGrphcsPpln-setInitMatrix1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-points BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-points RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-points
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_pointBasicArrayList", JVALUE)
+    GOBACK.
+END FUNCTION BscGrphcsPpln-setInitMatrix1.
 
-procedure TBasicGraphicsPipeline.setInitMatrix(points: TBasicArrayList);
-begin
-        Self.pointBasicArrayList := points;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscGrphcsPpln-createMatrix0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION BscGrphcsPpln-createMatrix0.
 
-procedure TBasicGraphicsPipeline.createMatrix;
-begin
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscGrphcsPpln-translate2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-newBasicArrayList BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-pointFactory BINARY-DOUBLE.
+01 J-secondPoint BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 JFIRST1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-x J-y RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-newBasicArrayList = FUNCTION BasicArrayListD-new0
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_pointBasicArrayList"))
+        COMPUTE J-pointFactory = FUNCTION PointFactory-getInstance0
+        CONTINUE
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST1
+        PERFORM FOREVER
+            IF JFIRST1 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST1
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-secondPoint = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_pointBasicArrayList"), "f_objectArray"), J-index)
+            IF (FUNCTION GPoint-getX0(J-secondPoint) NOT = 1000)
+                COMPUTE jtemp1 = (FUNCTION MOD((FUNCTION GPoint-getX0(J-secondPoint) + J-x) + 2147483648, 4294967296) - 2147483648)
+                COMPUTE jtemp2 = (FUNCTION MOD((FUNCTION GPoint-getY0(J-secondPoint) + J-y) + 2147483648, 4294967296) - 2147483648)
+                COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-newBasicArrayList, FUNCTION PointFactory-createXY2(J-pointFactory, jtemp1, jtemp2))
+            ELSE
+                COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-newBasicArrayList, J-secondPoint)
+            END-IF
+        END-PERFORM
+        COMPUTE JVALUE = J-newBasicArrayList
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_pointBasicArrayList", JVALUE)
+    GOBACK.
+END FUNCTION BscGrphcsPpln-translate2.
 
-// throws Exception
-procedure TBasicGraphicsPipeline.translate(x: Integer; y: Integer);
-var
-  newBasicArrayList: TBasicArrayList;
-  size: Integer;
-  pointFactory_: TPointFactory;
-  secondPoint: TGPoint;
-  index: Integer;
-begin
-        newBasicArrayList := TBasicArrayListD.Create();
-        size := Self.pointBasicArrayList.size();
-        pointFactory_ := TPointFactory.getInstance();
-        
-        for index := 0 to size - 1 do begin
-            secondPoint := TGPoint(TJava.ToObject(Self.pointBasicArrayList.objectArray[index]));
-            if (secondPoint.getX()) <> (1000) then begin
-                newBasicArrayList.add(TJava.Box(pointFactory_.createXY((secondPoint.getX()) + (x), (secondPoint.getY()) + (y))));
-            end else begin
-                newBasicArrayList.add(TJava.Box(secondPoint));
-            end;
-        end;
-        Self.pointBasicArrayList := newBasicArrayList;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscGrphcsPpln-rotateToAngle1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-angle RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp3 = FUNCTION Angle-getValue0(J-angle)
+        COMPUTE JDISCARD = FUNCTION BasicGraphicsPipeline-rotate1(J-THIS, jtemp3)
+    GOBACK.
+END FUNCTION BscGrphcsPpln-rotateToAngle1.
 
-// throws Exception
-procedure TBasicGraphicsPipeline.rotateToAngle(angle_: TAngle);
-begin
-        Self.rotate(Integer(Trunc(angle_.getValue())));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicGraphicsPipeline-rotate1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-newBasicArrayList BINARY-DOUBLE.
+01 J-secondPoint BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-secondX BINARY-DOUBLE.
+01 J-secondY BINARY-DOUBLE.
+01 J-point BINARY-DOUBLE.
+01 J-pointFactory BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-sin BINARY-DOUBLE.
+01 J-cos BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 JFIRST2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-angle RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-newBasicArrayList = FUNCTION BasicArrayListD-new0
+        CONTINUE
+        CONTINUE
+        CONTINUE
+        CONTINUE
+        CONTINUE
+        COMPUTE J-pointFactory = FUNCTION PointFactory-getInstance0
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_pointBasicArrayList"))
+        CONTINUE
+        CONTINUE
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST2
+        PERFORM FOREVER
+            IF JFIRST2 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST2
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-secondPoint = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_pointBasicArrayList"), "f_objectArray"), J-index)
+            IF (FUNCTION GPoint-getX0(J-secondPoint) NOT = 1000)
+                COMPUTE J-sin = FUNCTION NoDecimalTrigTable-sin1(FUNCTION JR-GET(J-THIS, "f_noDecimalTrigTable"), J-angle)
+                COMPUTE J-cos = FUNCTION NoDecimalTrigTable-cos1(FUNCTION JR-GET(J-THIS, "f_noDecimalTrigTable"), J-angle)
+                COMPUTE J-y = (FUNCTION GPoint-getY0(J-secondPoint) * J-sin)
+                COMPUTE J-secondX = (((FUNCTION GPoint-getX0(J-secondPoint) * J-cos)) - J-y)
+                COMPUTE jtemp4 = ((FUNCTION GPoint-getX0(J-secondPoint) * J-sin))
+                COMPUTE jtemp5 = ((FUNCTION GPoint-getY0(J-secondPoint) * J-cos))
+                COMPUTE J-secondY = (jtemp4 + jtemp5)
+                COMPUTE jtemp6 = (FUNCTION MOD(FUNCTION INTEGER-PART((FUNCTION MOD(J-secondX + 2147483648, 4294967296) - 2147483648) / 10000) + 2147483648, 4294967296) - 2147483648)
+                COMPUTE jtemp7 = (FUNCTION MOD(FUNCTION INTEGER-PART((FUNCTION MOD(J-secondY + 2147483648, 4294967296) - 2147483648) / 10000) + 2147483648, 4294967296) - 2147483648)
+                COMPUTE J-point = FUNCTION PointFactory-createXY2(J-pointFactory, jtemp6, jtemp7)
+                COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-newBasicArrayList, J-point)
+            ELSE
+                COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-newBasicArrayList, J-secondPoint)
+            END-IF
+        END-PERFORM
+        COMPUTE JVALUE = J-newBasicArrayList
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_pointBasicArrayList", JVALUE)
+    GOBACK.
+END FUNCTION BasicGraphicsPipeline-rotate1.
 
-// throws Exception
-procedure TBasicGraphicsPipeline.rotate(angle_: Integer);
-var
-  newBasicArrayList: TBasicArrayList;
-  secondPoint: TGPoint;
-  y: Int64;
-  secondX: Int64;
-  secondY: Int64;
-  point: TGPoint;
-  pointFactory_: TPointFactory;
-  size: Integer;
-  sin: Int64;
-  cos: Int64;
-  index: Integer;
-begin
-        newBasicArrayList := TBasicArrayListD.Create();
-        
-        
-        
-        
-        
-        pointFactory_ := TPointFactory.getInstance();
-        size := Self.pointBasicArrayList.size();
-        
-        
-        for index := 0 to size - 1 do begin
-            secondPoint := TGPoint(TJava.ToObject(Self.pointBasicArrayList.objectArray[index]));
-            if (secondPoint.getX()) <> (1000) then begin
-                sin := Self.noDecimalTrigTable.sin(angle_);
-                cos := Self.noDecimalTrigTable.cos(angle_);
-                y := (secondPoint.getY()) * (sin);
-                secondX := (((secondPoint.getX()) * (cos))) - (y);
-                secondY := (((secondPoint.getX()) * (sin))) + (((secondPoint.getY()) * (cos)));
-                point := pointFactory_.createXY((Integer(secondX)) div (10000), (Integer(secondY)) div (10000));
-                newBasicArrayList.add(TJava.Box(point));
-            end else begin
-                newBasicArrayList.add(TJava.Box(secondPoint));
-            end;
-        end;
-        Self.pointBasicArrayList := newBasicArrayList;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BasicGraphicsPipeline-mirror1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-pointFactory BINARY-DOUBLE.
+01 J-halfWidth BINARY-DOUBLE.
+01 J-newBasicArrayList BINARY-DOUBLE.
+01 J-secondPoint BINARY-DOUBLE.
+01 J-newX BINARY-DOUBLE.
+01 J-point BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 JFIRST3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-width RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-pointFactory = FUNCTION PointFactory-getInstance0
+        COMPUTE J-halfWidth = (FUNCTION JR-SHIFT(JFIVE, J-width, 1))
+        COMPUTE J-newBasicArrayList = FUNCTION BasicArrayListD-new0
+        CONTINUE
+        CONTINUE
+        CONTINUE
+        COMPUTE J-size = FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_pointBasicArrayList"))
+        COMPUTE J-index = 0
+        MOVE 1 TO JFIRST3
+        PERFORM FOREVER
+            IF JFIRST3 = 0
+                COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+            END-IF
+            MOVE 0 TO JFIRST3
+            IF NOT (J-index < J-size) EXIT PERFORM END-IF
+            COMPUTE J-secondPoint = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_pointBasicArrayList"), "f_objectArray"), J-index)
+            IF (FUNCTION GPoint-getX0(J-secondPoint) NOT = 1000)
+                COMPUTE J-newX = 0
+                IF (FUNCTION GPoint-getX0(J-secondPoint) > J-halfWidth)
+                    COMPUTE J-newX = (FUNCTION MOD((J-halfWidth - ((FUNCTION MOD((FUNCTION GPoint-getX0(J-secondPoint) - J-halfWidth) + 2147483648, 4294967296) - 2147483648))) + 2147483648, 4294967296) - 2147483648)
+                ELSE
+                    COMPUTE jtemp8 = ((FUNCTION MOD((J-halfWidth - FUNCTION GPoint-getX0(J-secondPoint)) + 2147483648, 4294967296) - 2147483648))
+                    COMPUTE J-newX = (FUNCTION MOD((J-halfWidth + jtemp8) + 2147483648, 4294967296) - 2147483648)
+                END-IF
+                COMPUTE J-point = FUNCTION PointFactory-createXY2(J-pointFactory, J-newX, FUNCTION GPoint-getY0(J-secondPoint))
+                COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-newBasicArrayList, J-point)
+            ELSE
+                COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-newBasicArrayList, J-secondPoint)
+            END-IF
+        END-PERFORM
+        COMPUTE JVALUE = J-newBasicArrayList
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_pointBasicArrayList", JVALUE)
+    GOBACK.
+END FUNCTION BasicGraphicsPipeline-mirror1.
 
-// throws Exception
-procedure TBasicGraphicsPipeline.mirror(width: Integer);
-var
-  pointFactory_: TPointFactory;
-  halfWidth: Integer;
-  newBasicArrayList: TBasicArrayList;
-  secondPoint: TGPoint;
-  newX: Integer;
-  point: TGPoint;
-  size: Integer;
-  index: Integer;
-begin
-        pointFactory_ := TPointFactory.getInstance();
-        halfWidth := (TJava.SignedRightShift(width, 1));
-        newBasicArrayList := TBasicArrayListD.Create();
-        
-        
-        
-        size := Self.pointBasicArrayList.size();
-        for index := 0 to size - 1 do begin
-            secondPoint := TGPoint(TJava.ToObject(Self.pointBasicArrayList.objectArray[index]));
-            if (secondPoint.getX()) <> (1000) then begin
-                newX := 0;
-                if (secondPoint.getX()) > (halfWidth) then begin
-                    newX := (halfWidth) - (((secondPoint.getX()) - (halfWidth)));
-                end else begin
-                    newX := (halfWidth) + (((halfWidth) - (secondPoint.getX())));
-                end;
-                point := pointFactory_.createXY(newX, secondPoint.getY());
-                newBasicArrayList.add(TJava.Box(point));
-            end else begin
-                newBasicArrayList.add(TJava.Box(secondPoint));
-            end;
-        end;
-        Self.pointBasicArrayList := newBasicArrayList;
-end;
-    
-
-function TBasicGraphicsPipeline.getMatrix: TBasicArrayList;
-begin
-        Exit(Self.pointBasicArrayList);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. BscGrphcsPpln-getMatrix0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_pointBasicArrayList")
+        GOBACK
+    GOBACK.
+END FUNCTION BscGrphcsPpln-getMatrix0.
 

@@ -1,86 +1,143 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2025 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
-    
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.configuration.persistance
-unit PersistanceStrings;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.configuration.persistance
+*> Java class PersistanceStrings
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrsstncStrngs-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PersistanceStrings-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 PersistanceStrings-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF PersistanceStrings-jset-instance = 0
+        MOVE 1 TO PersistanceStrings-jset-instance
+        COMPUTE PersistanceStrings-jcell-instance = FUNCTION PersistanceStrings-new0
+    END-IF
+    MOVE PersistanceStrings-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION PrsstncStrngs-static-instance.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrsstncStrngsstaticiS95802.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 PersistanceStrings-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION PrsstncStrngs-static-instance TO J-RESULT
+    MOVE J-VALUE TO PersistanceStrings-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION PrsstncStrngsstaticiS95802.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PersistanceStrings-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("PersistanceStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_SAVING")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NUMBER_OF_RECORDS")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_LOADING_ID")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_LOAD_ALL")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_DELETING_WITH_ID")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_CLOSING_RECORDSTORE")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_NOT_SAVING")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ERROR_LOADING")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ERROR_LOADING_ID")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ID")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_GAME_ACTION_INPUT")
+    COMPUTE JVALUE = FUNCTION JR-STR("Saving: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_SAVING", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Number of records: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NUMBER_OF_RECORDS", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Loading data with id: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_LOADING_ID", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("loadAll")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_LOAD_ALL", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Deleting data with id: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_DELETING_WITH_ID", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Closing RecordStore")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_CLOSING_RECORDSTORE", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Not Saving: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_NOT_SAVING", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Error Loading gameActionInput: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ERROR_LOADING", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Error Loading id: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ERROR_LOADING_ID", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR(" id: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ID", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR(" GameActionInput: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_GAME_ACTION_INPUT", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION PersistanceStrings-new0.
 
-type
-  {AB:TYPES}
-  TPersistanceStrings = class(TObject)
-  public
-    SAVING: string;
-    NUMBER_OF_RECORDS: string;
-    LOADING_ID: string;
-    LOAD_ALL: string;
-    DELETING_WITH_ID: string;
-    CLOSING_RECORDSTORE: string;
-    NOT_SAVING: string;
-    ERROR_LOADING: string;
-    ERROR_LOADING_ID: string;
-    ID: string;
-    GAME_ACTION_INPUT: string;
-    class var instance: TPersistanceStrings;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TPersistanceStrings; static;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TPersistanceStrings.InitFields;
-begin
-  Self.SAVING := 'Saving: ';
-  Self.NUMBER_OF_RECORDS := 'Number of records: ';
-  Self.LOADING_ID := 'Loading data with id: ';
-  Self.LOAD_ALL := 'loadAll';
-  Self.DELETING_WITH_ID := 'Deleting data with id: ';
-  Self.CLOSING_RECORDSTORE := 'Closing RecordStore';
-  Self.NOT_SAVING := 'Not Saving: ';
-  Self.ERROR_LOADING := 'Error Loading gameActionInput: ';
-  Self.ERROR_LOADING_ID := 'Error Loading id: ';
-  Self.ID := ' id: ';
-  Self.GAME_ACTION_INPUT := ' GameActionInput: ';
-end;
-
-constructor TPersistanceStrings.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TPersistanceStrings.getInstance: TPersistanceStrings;
-begin
-        Exit(TPersistanceStrings.instance);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TPersistanceStrings.instance := TPersistanceStrings.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. PrsstncStrngs-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION PrsstncStrngs-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION PrsstncStrngs-getInstance0.
 

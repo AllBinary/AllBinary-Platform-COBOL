@@ -1,185 +1,675 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.combat.weapon
+*> Java class WeaponProperties
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.combat.weapon
-unit WeaponProperties;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WpnPrprts-sttc-NULL-WE36388.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 WeaponProperties-jcell-NULL_WEAPON_PROPERTIES BINARY-DOUBLE EXTERNAL.
+01 WeaponProperties-jset-NULL_WEAPON_PROPERTIES BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF WeaponProperties-jset-NULL_WEAPON_PROPERTIES = 0
+        MOVE 1 TO WeaponProperties-jset-NULL_WEAPON_PROPERTIES
+        COMPUTE jtemp1 = 0
+    COMPUTE jtemp2 = 0
+    COMPUTE jtemp3 = 0
+    COMPUTE jtemp4 = 0
+    COMPUTE jtemp5 = (FUNCTION MOD(FUNCTION INTEGER-PART(0) + 32768, 65536) - 32768)
+    COMPUTE WeaponProperties-jcell-NULL_WEAPON_PROPERTIES = FUNCTION WeaponProperties-new5(jtemp1, jtemp2, jtemp3, jtemp4, jtemp5)
+    END-IF
+    MOVE WeaponProperties-jcell-NULL_WEAPON_PROPERTIES TO J-RESULT
+    GOBACK.
+END FUNCTION WpnPrprts-sttc-NULL-WE36388.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WpnPrprtssttcNULLWE3S49362.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 WeaponProperties-jcell-NULL_WEAPON_PROPERTIES BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION WpnPrprts-sttc-NULL-WE36388 TO J-RESULT
+    MOVE J-VALUE TO WeaponProperties-jcell-NULL_WEAPON_PROPERTIES
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION WpnPrprtssttcNULLWE3S49362.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WpnPrprts-static-messageSent.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 WeaponProperties-jcell-messageSent BINARY-DOUBLE EXTERNAL.
+01 WeaponProperties-jset-messageSent BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF WeaponProperties-jset-messageSent = 0
+        MOVE 1 TO WeaponProperties-jset-messageSent
+        COMPUTE WeaponProperties-jcell-messageSent = 0
+    END-IF
+    MOVE WeaponProperties-jcell-messageSent TO J-RESULT
+    GOBACK.
+END FUNCTION WpnPrprts-static-messageSent.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, BasicDecimal, SimpleWeaponProperties;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WpnPrprtsstaticmessaS52152.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 WeaponProperties-jcell-messageSent BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION WpnPrprts-static-messageSent TO J-RESULT
+    MOVE J-VALUE TO WeaponProperties-jcell-messageSent
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION WpnPrprtsstaticmessaS52152.
 
-type
-  {AB:TYPES}
-  TWeaponProperties = class(TSimpleWeaponProperties)
-  public
-    reloadTime: Int64;
-    targetingTime: Int64;
-    speed: TBasicDecimal;
-    MAX: Int64;
-    ZERO: SmallInt;
-    class var NULL_WEAPON_PROPERTIES: TWeaponProperties;
-    class var messageSent: Boolean;
-    class var DAMAGE: string;
-    class var RANGE: string;
-    class var RELOAD: string;
-    procedure InitFields;
-        constructor Create(reloadTime: Int64; targetingTime: Int64; speed: Int64; damage: Integer; dissipation: SmallInt);
-        procedure setReloadTime(reloadTime: Int64);
-        function getReloadTime: Int64; virtual;
-        procedure setTargetingTime(targetingTime: Int64);
-        function getTargetingTime: Int64; virtual;
-        function getSpeed: TBasicDecimal; virtual;
-        procedure setSpeed(speed: TBasicDecimal); virtual;
-        function getDamageI(range: Integer): Integer; virtual;
-        function toStringArray: TArray<string>; virtual;
-        function toString: string; override;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WpnPrprts-static-DAMAGE.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 WeaponProperties-jcell-DAMAGE BINARY-DOUBLE EXTERNAL.
+01 WeaponProperties-jset-DAMAGE BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF WeaponProperties-jset-DAMAGE = 0
+        MOVE 1 TO WeaponProperties-jset-DAMAGE
+        COMPUTE WeaponProperties-jcell-DAMAGE = FUNCTION JR-STR("Damage: ")
+    END-IF
+    MOVE WeaponProperties-jcell-DAMAGE TO J-RESULT
+    GOBACK.
+END FUNCTION WpnPrprts-static-DAMAGE.
 
-implementation
-uses
-  PreLogUtil, StringMaker, CommonSeps, CommonStrings;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WpnPrprtsstaticDAMAGS31128.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 WeaponProperties-jcell-DAMAGE BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION WpnPrprts-static-DAMAGE TO J-RESULT
+    MOVE J-VALUE TO WeaponProperties-jcell-DAMAGE
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION WpnPrprtsstaticDAMAGS31128.
 
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WeaponProperties-static-RANGE.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 WeaponProperties-jcell-RANGE BINARY-DOUBLE EXTERNAL.
+01 WeaponProperties-jset-RANGE BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF WeaponProperties-jset-RANGE = 0
+        MOVE 1 TO WeaponProperties-jset-RANGE
+        COMPUTE WeaponProperties-jcell-RANGE = FUNCTION JR-STR("Range: ")
+    END-IF
+    MOVE WeaponProperties-jcell-RANGE TO J-RESULT
+    GOBACK.
+END FUNCTION WeaponProperties-static-RANGE.
 
-{AB:CODE}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WeaponPropertiesstatS38871.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 WeaponProperties-jcell-RANGE BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION WeaponProperties-static-RANGE TO J-RESULT
+    MOVE J-VALUE TO WeaponProperties-jcell-RANGE
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION WeaponPropertiesstatS38871.
 
-procedure TWeaponProperties.InitFields;
-begin
-  
-  
-  Self.speed := TBasicDecimal.ZERO_BIGDECIMAL;
-  Self.MAX := 10240;
-  Self.ZERO := 0;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WpnPrprts-static-RELOAD.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 WeaponProperties-jcell-RELOAD BINARY-DOUBLE EXTERNAL.
+01 WeaponProperties-jset-RELOAD BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF WeaponProperties-jset-RELOAD = 0
+        MOVE 1 TO WeaponProperties-jset-RELOAD
+        COMPUTE WeaponProperties-jcell-RELOAD = FUNCTION JR-STR("Reload: ")
+    END-IF
+    MOVE WeaponProperties-jcell-RELOAD TO J-RESULT
+    GOBACK.
+END FUNCTION WpnPrprts-static-RELOAD.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WpnPrprtsstaticRELOAS91844.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 WeaponProperties-jcell-RELOAD BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION WpnPrprts-static-RELOAD TO J-RESULT
+    MOVE J-VALUE TO WeaponProperties-jcell-RELOAD
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION WpnPrprtsstaticRELOAS91844.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WeaponProperties-new5.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-MESSAGE BINARY-DOUBLE.
+01 J-commonStrings BINARY-DOUBLE.
+01 J-unscaledDamage BINARY-DOUBLE.
+01 J-scaledDissipation BINARY-DOUBLE.
+01 J-value BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+01 jtemp9 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-reloadTime BINARY-DOUBLE.
+01 J-targetingTime BINARY-DOUBLE.
+01 J-speed BINARY-DOUBLE.
+01 J-damage BINARY-DOUBLE.
+01 J-dissipation BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-reloadTime J-targetingTime J-speed J-damage J-dissipation RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("WeaponProperties")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_reloadTime")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_targetingTime")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_speed")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_MAX")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_ZERO")
     
-
-constructor TWeaponProperties.Create(reloadTime: Int64; targetingTime: Int64; speed: Int64; damage: Integer; dissipation: SmallInt);
-var
-  MESSAGE: string;
-  commonStrings_: TCommonStrings;
-  unscaledDamage: Int64;
-  scaledDissipation: Integer;
-  value: Int64;
-begin
-    inherited Create;
-    InitFields;
-        if (((speed) < (Self.MAX)) and ((speed) <> (0))) and (not (TWeaponProperties.messageSent)) then begin
-            MESSAGE := 'Danger Danger Danger: Speed probably to slow if using 1 degree calculations as velocity for a single axis could be below 1024: ';
-            commonStrings_ := TCommonStrings.getInstance();
-            TPreLogUtil.put(TStringMaker.Create().append(MESSAGE).appendlong(speed).toString(), TJava.Box(Self), commonStrings_.CONSTRUCTOR_);
-            TWeaponProperties.messageSent := True;
-        end;
-        Self.setReloadTime(reloadTime);
-        Self.setTargetingTime(targetingTime);
-        Self.setDamage(damage);
-        Self.setDissipation(dissipation);
-        Self.setSpeed(TBasicDecimal.Create(speed));
-        if (dissipation) <> (Self.ZERO) then begin
-            unscaledDamage := (Self.speed.getUnscaled()) * (damage);
-            scaledDissipation := (dissipation) * (Self.speed.getScaledFactorValue());
-            value := ((unscaledDamage) div (Int64(scaledDissipation)));
-            Self.setRange((Integer(((value) * (9)))) div (10));
-        end;
-end;
     
+    COMPUTE JVALUE = FUNCTION BscDcml-sttc-ZERO-BIGDECIMAL
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_speed", JVALUE)
+    COMPUTE JVALUE = 10240
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_MAX", JVALUE)
+    COMPUTE JVALUE = 0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_ZERO", JVALUE)
+        IF (((J-speed < FUNCTION JR-GET(J-THIS, "f_MAX")) AND (J-speed NOT = 0)) AND (NOT (FUNCTION WpnPrprts-static-messageSent = 1)))
+            COMPUTE J-MESSAGE = FUNCTION JR-STR("Danger Danger Danger: Speed probably to slow if using 1 degree calculations as velocity for a single axis could be below 1024: ")
+            COMPUTE J-commonStrings = FUNCTION CommonStrings-getInstance0
+            COMPUTE jtemp8 = FUNCTION StringMaker-new0
+            COMPUTE jtemp7 = FUNCTION StringMaker-append1(jtemp8, J-MESSAGE)
+            COMPUTE jtemp6 = FUNCTION StringMaker-appendlong1(jtemp7, J-speed)
+            COMPUTE JDISCARD = FUNCTION PreLogUtil-put3(FUNCTION JR-TO-STRING(jtemp6), J-THIS, FUNCTION JR-GET(J-commonStrings, "f_CONSTRUCTOR"))
+            COMPUTE JDISCARD = FUNCTION WpnPrprtsstaticmessaS52152(1)
+        END-IF
+        COMPUTE JDISCARD = FUNCTION WpnPrprts-setReloadTime1(J-THIS, J-reloadTime)
+        COMPUTE JDISCARD = FUNCTION WpnPrprts-setTargetingTime1(J-THIS, J-targetingTime)
+        COMPUTE JDISCARD = FUNCTION SmplWpnPrprts-setDamage1(J-THIS, J-damage)
+        COMPUTE JDISCARD = FUNCTION SmplWpnPrprts-setDissipation1(J-THIS, J-dissipation)
+        COMPUTE JDISCARD = FUNCTION WeaponProperties-setSpeed1(J-THIS, FUNCTION BasicDecimal-new1(J-speed))
+        IF (J-dissipation NOT = FUNCTION JR-GET(J-THIS, "f_ZERO"))
+            COMPUTE J-unscaledDamage = (FUNCTION BasicDecimal-getUnscaled0(FUNCTION JR-GET(J-THIS, "f_speed")) * J-damage)
+            COMPUTE J-scaledDissipation = (FUNCTION MOD((J-dissipation * FUNCTION BscDcml-getScaledFactorValue0(FUNCTION JR-GET(J-THIS, "f_speed"))) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE J-value = (FUNCTION INTEGER-PART(J-unscaledDamage / J-scaledDissipation))
+            COMPUTE jtemp9 = (FUNCTION MOD(FUNCTION INTEGER-PART((FUNCTION MOD(((J-value * 9)) + 2147483648, 4294967296) - 2147483648) / 10) + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JDISCARD = FUNCTION SmplWpnPrprts-setRange1(J-THIS, jtemp9)
+        END-IF
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION WeaponProperties-new5.
 
-procedure TWeaponProperties.setReloadTime(reloadTime: Int64);
-begin
-        Self.reloadTime := reloadTime;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WpnPrprts-setReloadTime1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-reloadTime BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-reloadTime RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-reloadTime
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_reloadTime", JVALUE)
+    GOBACK.
+END FUNCTION WpnPrprts-setReloadTime1.
 
-function TWeaponProperties.getReloadTime: Int64;
-begin
-        Exit(Self.reloadTime);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WpnPrprts-getReloadTime0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_reloadTime")
+        GOBACK
+    GOBACK.
+END FUNCTION WpnPrprts-getReloadTime0.
 
-procedure TWeaponProperties.setTargetingTime(targetingTime: Int64);
-begin
-        Self.targetingTime := targetingTime;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WpnPrprts-setTargetingTime1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-targetingTime BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-targetingTime RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-targetingTime
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_targetingTime", JVALUE)
+    GOBACK.
+END FUNCTION WpnPrprts-setTargetingTime1.
 
-function TWeaponProperties.getTargetingTime: Int64;
-begin
-        Exit(Self.targetingTime);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WpnPrprts-getTargetingTime0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_targetingTime")
+        GOBACK
+    GOBACK.
+END FUNCTION WpnPrprts-getTargetingTime0.
 
-function TWeaponProperties.getSpeed: TBasicDecimal;
-begin
-        Exit(Self.speed);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WeaponProperties-getSpeed0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION JR-GET(J-THIS, "f_speed")
+        GOBACK
+    GOBACK.
+END FUNCTION WeaponProperties-getSpeed0.
 
-procedure TWeaponProperties.setSpeed(speed: TBasicDecimal);
-begin
-        Self.speed := speed;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WeaponProperties-setSpeed1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-speed BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-speed RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = J-speed
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_speed", JVALUE)
+    GOBACK.
+END FUNCTION WeaponProperties-setSpeed1.
 
-function TWeaponProperties.getDamageI(range: Integer): Integer;
-begin
-        Exit((Self.getDamage()) - (((((Self.getDissipation()) * (range))) div (Self.speed.getScaled()))));
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WeaponProperties-getDamageI1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-range BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-range RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = (FUNCTION MOD((FUNCTION SmplWpnPrprts-getDamage0(J-THIS) - ((FUNCTION MOD(FUNCTION INTEGER-PART(((FUNCTION MOD((FUNCTION SmplWpnPrprts-getDissipation0(J-THIS) * J-range) + 2147483648, 4294967296) - 2147483648)) /
+        FUNCTION BasicDecimal-getScaled0(FUNCTION JR-GET(J-THIS, "f_speed"))) + 2147483648, 4294967296) - 2147483648))) + 2147483648, 4294967296) - 2147483648)
+        GOBACK
+    GOBACK.
+END FUNCTION WeaponProperties-getDamageI1.
 
-function TWeaponProperties.toStringArray: TArray<string>;
-var
-  index: Integer;
-  stringArray: TArray<string>;
-  stringBuffer: TStringMaker;
-begin
-        index := 0;
-        stringArray := TJava.NewArray<string>(3);
-        stringBuffer := TStringMaker.Create();
-        stringArray[TJava.PostInc(index)] := stringBuffer.append(TWeaponProperties.DAMAGE).appendint(Integer(Trunc(Self.getDamage()))).toString();
-        stringBuffer.delete_(0, stringBuffer.length());
-        stringArray[TJava.PostInc(index)] := stringBuffer.append(TWeaponProperties.RANGE).appendint(Integer(Trunc(Self.getRange()))).toString();
-        stringBuffer.delete_(0, stringBuffer.length());
-        stringArray[TJava.PostInc(index)] := stringBuffer.append(TWeaponProperties.RELOAD).appendlong(Self.getReloadTime()).toString();
-        Exit(stringArray);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WpnPrprts-toStringArray0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-index BINARY-DOUBLE.
+01 J-stringArray BINARY-DOUBLE.
+01 J-stringBuffer BINARY-DOUBLE.
+01 jtemp10 BINARY-DOUBLE.
+01 jtemp11 BINARY-DOUBLE.
+01 jtemp12 BINARY-DOUBLE.
+01 jtemp13 BINARY-DOUBLE.
+01 jtemp14 BINARY-DOUBLE.
+01 jtemp15 BINARY-DOUBLE.
+01 jtemp16 BINARY-DOUBLE.
+01 jtemp17 BINARY-DOUBLE.
+01 jtemp18 BINARY-DOUBLE.
+01 jtemp19 BINARY-DOUBLE.
+01 jtemp20 BINARY-DOUBLE.
+01 jtemp21 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-index = 0
+        COMPUTE jtemp10 = 3
+        COMPUTE J-stringArray = FUNCTION JR-NEW-ARRAY(jtemp10)
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE jtemp13 = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION WpnPrprts-static-DAMAGE)
+        COMPUTE jtemp11 = J-index
+        COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp12 = FUNCTION StringMaker-appendint1(jtemp13, FUNCTION SmplWpnPrprts-getDamage0(J-THIS))
+        COMPUTE JVALUE = FUNCTION JR-TO-STRING(jtemp12)
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-stringArray, jtemp11, JVALUE)
+        COMPUTE jtemp14 = 0
+        COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringBuffer, jtemp14, FUNCTION StringMaker-length0(J-stringBuffer))
+        COMPUTE jtemp17 = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION WeaponProperties-static-RANGE)
+        COMPUTE jtemp15 = J-index
+        COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp16 = FUNCTION StringMaker-appendint1(jtemp17, FUNCTION SmplWpnPrprts-getRange0(J-THIS))
+        COMPUTE JVALUE = FUNCTION JR-TO-STRING(jtemp16)
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-stringArray, jtemp15, JVALUE)
+        COMPUTE jtemp18 = 0
+        COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringBuffer, jtemp18, FUNCTION StringMaker-length0(J-stringBuffer))
+        COMPUTE jtemp21 = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION WpnPrprts-static-RELOAD)
+        COMPUTE jtemp19 = J-index
+        COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp20 = FUNCTION StringMaker-appendlong1(jtemp21, FUNCTION WpnPrprts-getReloadTime0(J-THIS))
+        COMPUTE JVALUE = FUNCTION JR-TO-STRING(jtemp20)
+        COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-stringArray, jtemp19, JVALUE)
+        COMPUTE J-RESULT = J-stringArray
+        GOBACK
+    GOBACK.
+END FUNCTION WpnPrprts-toStringArray0.
 
-function TWeaponProperties.toString: string;
-var
-  stringBuffer: TStringMaker;
-begin
-        stringBuffer := TStringMaker.Create();
-        stringBuffer.append(TWeaponProperties.DAMAGE).appendint(Integer(Trunc(Self.getDamage())));
-        stringBuffer.append(TCommonSeps.getInstance().SPACE);
-        stringBuffer.append(TWeaponProperties.RANGE).appendint(Integer(Trunc(Self.getRange())));
-        stringBuffer.append(TCommonSeps.getInstance().SPACE);
-        stringBuffer.append(TWeaponProperties.RELOAD).appendlong(Self.getReloadTime());
-        Exit(stringBuffer.toString());
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. WeaponProperties-toString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-stringBuffer BINARY-DOUBLE.
+01 jtemp22 BINARY-DOUBLE.
+01 jtemp23 BINARY-DOUBLE.
+01 jtemp24 BINARY-DOUBLE.
+01 jtemp25 BINARY-DOUBLE.
+01 jtemp26 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
+        COMPUTE jtemp22 = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION WpnPrprts-static-DAMAGE)
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(jtemp22, FUNCTION SmplWpnPrprts-getDamage0(J-THIS))
+        COMPUTE jtemp23 = FUNCTION CommonSeps-getInstance0
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(jtemp23, "f_SPACE"))
+        COMPUTE jtemp24 = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION WeaponProperties-static-RANGE)
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(jtemp24, FUNCTION SmplWpnPrprts-getRange0(J-THIS))
+        COMPUTE jtemp25 = FUNCTION CommonSeps-getInstance0
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(jtemp25, "f_SPACE"))
+        COMPUTE jtemp26 = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION WpnPrprts-static-RELOAD)
+        COMPUTE JDISCARD = FUNCTION StringMaker-appendlong1(jtemp26, FUNCTION WpnPrprts-getReloadTime0(J-THIS))
+        COMPUTE J-RESULT = FUNCTION JR-TO-STRING(J-stringBuffer)
+        GOBACK
+    GOBACK.
+END FUNCTION WeaponProperties-toString0.
 
-initialization
-  {AB:INITIALIZATION}
-  TWeaponProperties.NULL_WEAPON_PROPERTIES := TWeaponProperties.Create(0, 0, 0, 0, SmallInt(0));
-  TWeaponProperties.messageSent := False;
-  TWeaponProperties.DAMAGE := 'Damage: ';
-  TWeaponProperties.RANGE := 'Range: ';
-  TWeaponProperties.RELOAD := 'Reload: ';
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+PROGRAM-ID. WeaponProperties-toString.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION WeaponProperties-toString0(J-THIS)
+    GOBACK.
+END PROGRAM WeaponProperties-toString.
 

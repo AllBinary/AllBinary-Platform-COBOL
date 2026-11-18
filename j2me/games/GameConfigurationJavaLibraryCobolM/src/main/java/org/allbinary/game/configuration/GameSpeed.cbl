@@ -1,81 +1,186 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.configuration
+*> Java class GameSpeed
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.configuration
-unit GameSpeed;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameSpeed-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameSpeed-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 GameSpeed-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF GameSpeed-jset-instance = 0
+        MOVE 1 TO GameSpeed-jset-instance
+        COMPUTE GameSpeed-jcell-instance = FUNCTION GameSpeed-new0
+    END-IF
+    MOVE GameSpeed-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION GameSpeed-static-instance.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameSpeedstaticinstaS94612.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 GameSpeed-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION GameSpeed-static-instance TO J-RESULT
+    MOVE J-VALUE TO GameSpeed-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION GameSpeedstaticinstaS94612.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameSpeed-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameSpeed")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GameSpeed-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameSpeed-getSpeed0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-speedGameConfiguration BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = FUNCTION GmCnfgrtnCntrl-getInstance0
+        COMPUTE J-speedGameConfiguration = FUNCTION JR-GET(jtemp1, "f_SPEED")
+        COMPUTE jtemp3 = FUNCTION GameConfiguration-getMaxValue0(J-speedGameConfiguration)
+        COMPUTE jtemp4 = FUNCTION GameConfiguration-getValue0(J-speedGameConfiguration)
+        COMPUTE jtemp2 = (FUNCTION MOD((FUNCTION JR-CLASS-NAME(jtemp3) - FUNCTION JR-CLASS-NAME(jtemp4)) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE jtemp5 = 1
+        COMPUTE J-RESULT = ((FUNCTION MOD((jtemp2 + jtemp5) + 2147483648, 4294967296) - 2147483648))
+        GOBACK
+    GOBACK.
+END FUNCTION GameSpeed-getSpeed0.
 
-type
-  {AB:TYPES}
-  TGameSpeed = class(TObject)
-  public
-    class var instance: TGameSpeed;
-    constructor Create;
-        function getSpeed: Integer;
-        function getDelay: Integer;
-        class function getInstance: TGameSpeed; static;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameSpeed-getDelay0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-speedGameConfiguration BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp6 = FUNCTION GmCnfgrtnCntrl-getInstance0
+        COMPUTE J-speedGameConfiguration = FUNCTION JR-GET(jtemp6, "f_SPEED")
+        COMPUTE jtemp7 = FUNCTION GameConfiguration-getMaxValue0(J-speedGameConfiguration)
+        COMPUTE jtemp8 = FUNCTION GameConfiguration-getValue0(J-speedGameConfiguration)
+        COMPUTE J-RESULT = (FUNCTION MOD((19 * ((FUNCTION MOD((FUNCTION JR-CLASS-NAME(jtemp7) - FUNCTION JR-CLASS-NAME(jtemp8)) + 2147483648, 4294967296) - 2147483648))) + 2147483648, 4294967296) - 2147483648)
+        GOBACK
+    GOBACK.
+END FUNCTION GameSpeed-getDelay0.
 
-implementation
-uses
-  GameConfigurationCentral, GameConfiguration;
-
-
-{AB:CODE}
-
-constructor TGameSpeed.Create;
-begin
-  inherited Create;
-end;
-    
-
-function TGameSpeed.getSpeed: Integer;
-var
-  speedGameConfiguration: TGameConfiguration;
-begin
-        speedGameConfiguration := TGameConfigurationCentral.getInstance().SPEED;
-        Exit(((((speedGameConfiguration.getMaxValue())) - ((speedGameConfiguration.getValue()))) + (1)));
-end;
-    
-
-function TGameSpeed.getDelay: Integer;
-var
-  speedGameConfiguration: TGameConfiguration;
-begin
-        speedGameConfiguration := TGameConfigurationCentral.getInstance().SPEED;
-        Exit((19) * ((((speedGameConfiguration.getMaxValue())) - ((speedGameConfiguration.getValue())))));
-end;
-    
-
-class function TGameSpeed.getInstance: TGameSpeed;
-begin
-        Exit(TGameSpeed.instance);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TGameSpeed.instance := TGameSpeed.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GameSpeed-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION GameSpeed-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION GameSpeed-getInstance0.
 

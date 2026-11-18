@@ -1,89 +1,194 @@
-{
- 
-  AllBinary Open License Version 1 
-  Copyright (c) 2025 AllBinary 
-   
-  By agreeing to this license you and any business entity you represent are 
-  legally bound to the AllBinary Open License Version 1 legal agreement. 
-   
-  You may obtain the AllBinary Open License Version 1 legal agreement from 
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-   
-  Created By: Travis Berthelot 
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.graphics.opengles.shader
+*> Java class ShaderManager
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ShaderManager-static-instance.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ShaderManager-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 ShaderManager-jset-instance BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF ShaderManager-jset-instance = 0
+        MOVE 1 TO ShaderManager-jset-instance
+        COMPUTE jtemp1 = (0 - 1)
+    COMPUTE jtemp2 = (0 - 1)
+    COMPUTE ShaderManager-jcell-instance = FUNCTION ShaderManager-new2(jtemp1, jtemp2)
+    END-IF
+    MOVE ShaderManager-jcell-instance TO J-RESULT
+    GOBACK.
+END FUNCTION ShaderManager-static-instance.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ShaderManagerstaticiS53834.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 ShaderManager-jcell-instance BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION ShaderManager-static-instance TO J-RESULT
+    MOVE J-VALUE TO ShaderManager-jcell-instance
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION ShaderManagerstaticiS53834.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ShaderManager-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-GL_VERTEX_SHADER BINARY-DOUBLE.
+01 J-GL_FRAGMENT_SHADER BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-GL_VERTEX_SHADER J-GL_FRAGMENT_SHADER RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("ShaderManager")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_LOAD_SHADER")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_commonStrings")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_GL_VERTEX_SHADER")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_GL_FRAGMENT_SHADER")
+    COMPUTE JVALUE = FUNCTION JR-STR("loadShader")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_LOAD_SHADER", JVALUE)
+    COMPUTE JVALUE = FUNCTION CommonStrings-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_commonStrings", JVALUE)
     
-}
-// Generated Code Do Not Modify
-// package org.allbinary.graphics.opengles.shader
-unit ShaderManager;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GL10, CommonStrings, BasicArrayList;
-
-type
-  {AB:TYPES}
-  TShaderManager = class(TObject)
-  public
-    LOAD_SHADER: string;
-    commonStrings: TCommonStrings;
-    GL_VERTEX_SHADER: Integer;
-    GL_FRAGMENT_SHADER: Integer;
-    class var instance: TShaderManager;
-    procedure InitFields;
-        class function getInstance: TShaderManager; static;
-        constructor Create(GL_VERTEX_SHADER: Integer; GL_FRAGMENT_SHADER: Integer);
-        function load(gl: IGL10; resource: string; shaderAsStringArray: TArray<string>; shaderType: Integer): Integer; virtual;
-        function loadShader(gl: IGL10; resource: string; stringList: TBasicArrayList; shaderType: Integer): Integer; virtual;
-  end;
-
-implementation
-
-{AB:CODE}
-
-procedure TShaderManager.InitFields;
-begin
-  Self.LOAD_SHADER := 'loadShader';
-  Self.commonStrings := TCommonStrings.getInstance();
-  
-  
-end;
     
+        COMPUTE JVALUE = J-GL_VERTEX_SHADER
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_GL_VERTEX_SHADER", JVALUE)
+        COMPUTE JVALUE = J-GL_FRAGMENT_SHADER
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_GL_FRAGMENT_SHADER", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION ShaderManager-new2.
 
-class function TShaderManager.getInstance: TShaderManager;
-begin
-        Exit(TShaderManager.instance);
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ShaderManager-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION ShaderManager-static-instance
+        GOBACK
+    GOBACK.
+END FUNCTION ShaderManager-getInstance0.
 
-constructor TShaderManager.Create(GL_VERTEX_SHADER: Integer; GL_FRAGMENT_SHADER: Integer);
-begin
-    inherited Create;
-    InitFields;
-        Self.GL_VERTEX_SHADER := GL_VERTEX_SHADER;
-        Self.GL_FRAGMENT_SHADER := GL_FRAGMENT_SHADER;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ShaderManager-load4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gl BINARY-DOUBLE.
+01 J-resource BINARY-DOUBLE.
+01 J-shaderAsStringArray BINARY-DOUBLE.
+01 J-shaderType BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gl J-resource J-shaderAsStringArray J-shaderType RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = (0 - 1)
+        GOBACK
+    GOBACK.
+END FUNCTION ShaderManager-load4.
 
-function TShaderManager.load(gl: IGL10; resource: string; shaderAsStringArray: TArray<string>; shaderType: Integer): Integer;
-begin
-        Exit(-1);
-end;
-    
-
-function TShaderManager.loadShader(gl: IGL10; resource: string; stringList: TBasicArrayList; shaderType: Integer): Integer;
-begin
-        Exit(-1);
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TShaderManager.instance := TShaderManager.Create(-1, -1);
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ShaderManager-loadShader4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gl BINARY-DOUBLE.
+01 J-resource BINARY-DOUBLE.
+01 J-stringList BINARY-DOUBLE.
+01 J-shaderType BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gl J-resource J-stringList J-shaderType RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = (0 - 1)
+        GOBACK
+    GOBACK.
+END FUNCTION ShaderManager-loadShader4.
 

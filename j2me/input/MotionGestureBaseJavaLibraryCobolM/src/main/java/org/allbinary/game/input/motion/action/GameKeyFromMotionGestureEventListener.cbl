@@ -1,97 +1,115 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.input.motion.action
+*> Java class GameKeyFromMotionGestureEventListener
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.input.motion.action
-unit GameKeyFromMotionGestureEventListener;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmKyFrmMtnGstrEvntLstnr-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("GameKeyFromMotionGestureEventListener")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_previousGameKeyEvent")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE JVALUE = FUNCTION GameKeyEvent-static-NONE
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_previousGameKeyEvent", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION GmKyFrmMtnGstrEvntLstnr-new0.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmKyFrmMtnGstrEvntLstnr-o63081.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE jtemp1 = FUNCTION EventStrings-getInstance0
+        COMPUTE JDISCARD = FUNCTION ForcedLogUtil-log2(FUNCTION JR-GET(jtemp1, "f_PERFORMANCE_MESSAGE"), J-THIS)
+    GOBACK.
+END FUNCTION GmKyFrmMtnGstrEvntLstnr-o63081.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, CompleteMotionGestureInputEvent, CompleteMotionGestureInputEventListener, GameKeyEvent, LogUtil, AllBinaryEventObject;
-
-type
-  {AB:TYPES}
-  TGameKeyFromMotionGestureEventListener = class(TCompleteMotionGestureInputEventListener)
-  public
-    logUtil: TLogUtil;
-    previousGameKeyEvent: TGameKeyEvent;
-    procedure InitFields;
-    constructor Create;
-        procedure onEvent(eventObject: TAllBinaryEventObject); override;
-        procedure onCompleteMotionGestureInputEvent(completeMotionGestureInputEvent_: TCompleteMotionGestureInputEvent); override;
-  end;
-
-implementation
-uses
-  GameKeyCompleteMotionGestureInputEvent, DownGameKeyEventHandler, UpGameKeyEventHandler, ForcedLogUtil, EventStrings, CommonStrings;
-
-
-{AB:CODE}
-
-procedure TGameKeyFromMotionGestureEventListener.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.previousGameKeyEvent := TGameKeyEvent.NONE;
-end;
-
-constructor TGameKeyFromMotionGestureEventListener.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-procedure TGameKeyFromMotionGestureEventListener.onEvent(eventObject: TAllBinaryEventObject);
-begin
-        TForcedLogUtil.log(TEventStrings.getInstance().PERFORMANCE_MESSAGE, TJava.Box(Self));
-end;
-    
-
-procedure TGameKeyFromMotionGestureEventListener.onCompleteMotionGestureInputEvent(completeMotionGestureInputEvent_: TCompleteMotionGestureInputEvent);
-var
-  gameKeyCompleteMotionGestureInputEvent_: TGameKeyCompleteMotionGestureInputEvent;
-  gameKeyEvent_: TGameKeyEvent;
-  commonStrings_: TCommonStrings;
-begin
-        try
-            gameKeyCompleteMotionGestureInputEvent_ := TGameKeyCompleteMotionGestureInputEvent(TJava.ToObject(completeMotionGestureInputEvent_));
-            gameKeyEvent_ := gameKeyCompleteMotionGestureInputEvent_.getGameKeyEvent();
-            if (gameKeyEvent_) <> (Self.previousGameKeyEvent) then begin
-                if (Self.previousGameKeyEvent) <> (TGameKeyEvent.NONE) then begin
-                    TUpGameKeyEventHandler.getInstance().fireEvent(Self.previousGameKeyEvent);
-                end;
-                Self.previousGameKeyEvent := gameKeyEvent_;
-                if ((gameKeyEvent_) <> (nil)) and ((gameKeyEvent_) <> (TGameKeyEvent.NONE)) then begin
-                    TDownGameKeyEventHandler.getInstance().fireEvent(gameKeyEvent_);
-                end;
-            end;
-        except
-            on e: SysUtils.Exception do begin
-            commonStrings_ := TCommonStrings.getInstance();
-            Self.logUtil.put(commonStrings_.EXCEPTION, TJava.Box(Self), 'onCompleteMotionGestureInputEvent', TJava.Box(e));
-            end;
-        end;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmKyFrmMtnGstrEvntLstnr-o38006.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-gameKeyCompleteMotionGestureInputEvent BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 J-commonStrings BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-completeMotionGestureInputEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-completeMotionGestureInputEvent RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+            COMPUTE J-gameKeyCompleteMotionGestureInputEvent = J-completeMotionGestureInputEvent
+            COMPUTE J-gameKeyEvent = FUNCTION GmKyCmpltMtnGstrInptEvn-99543(J-gameKeyCompleteMotionGestureInputEvent)
+            IF (J-gameKeyEvent NOT = FUNCTION JR-GET(J-THIS, "f_previousGameKeyEvent"))
+                IF (FUNCTION JR-GET(J-THIS, "f_previousGameKeyEvent") NOT = FUNCTION GameKeyEvent-static-NONE)
+                    COMPUTE jtemp2 = FUNCTION UpGmKyEvntHndlr-getInstance0
+                    COMPUTE JDISCARD = FUNCTION UpGmKyEvntHndlrBs-fireEvent1(jtemp2, FUNCTION JR-GET(J-THIS, "f_previousGameKeyEvent"))
+                END-IF
+                COMPUTE JVALUE = J-gameKeyEvent
+                COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_previousGameKeyEvent", JVALUE)
+                IF ((J-gameKeyEvent NOT = 0) AND (J-gameKeyEvent NOT = FUNCTION GameKeyEvent-static-NONE))
+                    COMPUTE jtemp3 = FUNCTION DwnGmKyEvntHndlr-getInstance0
+                    COMPUTE JDISCARD = FUNCTION DwnGmKyEvntHndlrBs-fireEvent1(jtemp3, J-gameKeyEvent)
+                END-IF
+            END-IF
+    GOBACK.
+END FUNCTION GmKyFrmMtnGstrEvntLstnr-o38006.
 

@@ -1,103 +1,228 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.layer
+*> Java class LayerInterfaceFactory
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.layer
-unit LayerInterfaceFactory;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LyrIntrfcFctry-sttc-SINGLETON.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 LayerInterfaceFactory-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+01 LayerInterfaceFactory-jset-SINGLETON BINARY-DOUBLE EXTERNAL.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    IF LayerInterfaceFactory-jset-SINGLETON = 0
+        MOVE 1 TO LayerInterfaceFactory-jset-SINGLETON
+        COMPUTE LayerInterfaceFactory-jcell-SINGLETON = FUNCTION LayerInterfaceFactory-new0
+    END-IF
+    MOVE LayerInterfaceFactory-jcell-SINGLETON TO J-RESULT
+    GOBACK.
+END FUNCTION LyrIntrfcFctry-sttc-SINGLETON.
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LyrIntrfcFctrysttcSIS42692.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 LayerInterfaceFactory-jcell-SINGLETON BINARY-DOUBLE EXTERNAL.
+LINKAGE SECTION.
+01 J-VALUE BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
+    MOVE FUNCTION LyrIntrfcFctry-sttc-SINGLETON TO J-RESULT
+    MOVE J-VALUE TO LayerInterfaceFactory-jcell-SINGLETON
+    MOVE J-VALUE TO J-RESULT
+    GOBACK.
+END FUNCTION LyrIntrfcFctrysttcSIS42692.
 
-interface
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LayerInterfaceFactory-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("LayerInterfaceFactory")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_logUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_list")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_HASHTABLE_LABEL")
+    COMPUTE JVALUE = FUNCTION LogUtil-getInstance0
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_logUtil", JVALUE)
+    COMPUTE jtemp1 = FUNCTION BscArryLstUtl-getInstance0
+    COMPUTE JVALUE = FUNCTION BscArryLstUtl-gtImmtblInstnc0(jtemp1)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
+    COMPUTE JVALUE = FUNCTION JR-STR("Hashtable: ")
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_HASHTABLE_LABEL", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION LayerInterfaceFactory-new0.
 
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, LogUtil, ABHashtable, BasicArrayList, AllBinaryLayer, LayerInterfaceFactoryInterface;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LyrIntrfcFctry-getInstance0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION LyrIntrfcFctry-sttc-SINGLETON
+        GOBACK
+    GOBACK.
+END FUNCTION LyrIntrfcFctry-getInstance0.
 
-type
-  {AB:TYPES}
-  TLayerInterfaceFactory = class(TObject)
-  public
-    logUtil: TLogUtil;
-    list: TBasicArrayList;
-    HASHTABLE_LABEL: string;
-    class var SINGLETON: TLayerInterfaceFactory;
-    procedure InitFields;
-    constructor Create;
-        class function getInstance: TLayerInterfaceFactory; static;
-        procedure init; virtual;
-        function getNexInstance(hashtable: TABHashtable<TObject, TObject>; x: Integer; y: Integer; z: Integer): TAllBinaryLayer; virtual;
-        procedure add(layerInterfaceFactoryInterface_: ILayerInterfaceFactoryInterface); virtual;
-  end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LayerInterfaceFactory-init0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
+    GOBACK.
+END FUNCTION LayerInterfaceFactory-init0.
 
-implementation
-uses
-  ABLayer, StringMaker, StringUtil, CommonStrings, BasicArrayListD, BasicArrayListUtil;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LyrIntrfcFctry-getNexInstance4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-commonStrings BINARY-DOUBLE.
+01 J-typeInteger BINARY-DOUBLE.
+01 J-layerInterfaceFactoryInterface BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-hashtable BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-z BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-hashtable J-x J-y J-z RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-commonStrings = FUNCTION CommonStrings-getInstance0
+        COMPUTE jtemp5 = FUNCTION StringUtil-getInstance0
+        COMPUTE jtemp4 = FUNCTION StringMaker-new0
+        COMPUTE jtemp3 = FUNCTION StringMaker-append1(jtemp4, FUNCTION JR-GET(J-THIS, "f_HASHTABLE_LABEL"))
+        COMPUTE jtemp2 = FUNCTION StringMaker-append1(jtemp3, FUNCTION StringUtil-toString1(jtemp5, J-hashtable))
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(jtemp2), J-THIS, FUNCTION JR-GET(J-commonStrings, "f_GET_INSTANCE"))
+        COMPUTE jtemp6 = FUNCTION ABLayer-static-ID
+        COMPUTE J-typeInteger = FUNCTION Hashtable-get1(J-hashtable, jtemp6)
+        COMPUTE jtemp7 = (FUNCTION MOD((J-typeInteger - 1) + 2147483648, 4294967296) - 2147483648)
+        COMPUTE J-layerInterfaceFactoryInterface = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_list"), "f_objectArray"), jtemp7)
+        COMPUTE J-RESULT = FUNCTION LyrIntrfcFctryIntrfc-gtNx57154(J-layerInterfaceFactoryInterface, J-hashtable, J-x, J-y, J-z)
+        GOBACK
+    GOBACK.
+END FUNCTION LyrIntrfcFctry-getNexInstance4.
 
-
-{AB:CODE}
-
-procedure TLayerInterfaceFactory.InitFields;
-begin
-  Self.logUtil := TLogUtil.getInstance();
-  Self.list := TBasicArrayListUtil.getInstance().getImmutableInstance();
-  Self.HASHTABLE_LABEL := 'Hashtable: ';
-end;
-
-constructor TLayerInterfaceFactory.Create;
-begin
-  inherited Create;
-  InitFields;
-end;
-    
-
-class function TLayerInterfaceFactory.getInstance: TLayerInterfaceFactory;
-begin
-        Exit(TLayerInterfaceFactory.SINGLETON);
-end;
-    
-
-procedure TLayerInterfaceFactory.init;
-begin
-        Self.list := TBasicArrayListD.Create();
-end;
-    
-
-// throws Exception
-function TLayerInterfaceFactory.getNexInstance(hashtable: TABHashtable<TObject, TObject>; x: Integer; y: Integer; z: Integer): TAllBinaryLayer;
-var
-  commonStrings_: TCommonStrings;
-  typeInteger: Integer;
-  layerInterfaceFactoryInterface_: ILayerInterfaceFactoryInterface;
-begin
-        commonStrings_ := TCommonStrings.getInstance();
-        Self.logUtil.putF(TStringMaker.Create().append(Self.HASHTABLE_LABEL).append(TStringUtil.getInstance().toString(hashtable)).toString(), TJava.Box(Self), commonStrings_.GET_INSTANCE);
-        typeInteger := Integer(hashtable.get(TJava.Box(TJava.Box(TABLayer.ID))));
-        layerInterfaceFactoryInterface_ := (TJava.ToObject(Self.list.objectArray[((typeInteger)) - (1)]) as ILayerInterfaceFactoryInterface);
-        Exit(layerInterfaceFactoryInterface_.getNextInstance(hashtable, x, y, z));
-end;
-    
-
-procedure TLayerInterfaceFactory.add(layerInterfaceFactoryInterface_: ILayerInterfaceFactoryInterface);
-begin
-        Self.list.add(TJava.Box(layerInterfaceFactoryInterface_));
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  TLayerInterfaceFactory.SINGLETON := TLayerInterfaceFactory.Create();
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LayerInterfaceFactory-add1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerInterfaceFactoryInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerInterfaceFactoryInterface RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), J-layerInterfaceFactoryInterface)
+    GOBACK.
+END FUNCTION LayerInterfaceFactory-add1.
 

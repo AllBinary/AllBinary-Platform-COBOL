@@ -1,202 +1,317 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.ai
+*> Java class HorizontaRotationManeuverAI
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
-  
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
-  
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-  
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.ai
-unit HorizontaRotationManeuverAI;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, ArtificialIntelligenceTransitionInterface, IndexedAnimation, BasicAI, GameInput, BasicVelocityProperties, VelocityInterface, AllBinaryLayer, AllBinaryLayerManager, CircularIndexUtil;
-
-type
-  {AB:TYPES}
-  THorizontaRotationManeuverAI = class(TBasicAI, IArtificialIntelligenceTransitionInterface)
-  public
-    circularIndexUtil: TCircularIndexUtil;
-    currentSpeedDivisor: Integer;
-    rotationAnimationInterface: TIndexedAnimation;
-    baseVelocityInterface: TBasicVelocityProperties;
-    velocityInterface: IVelocityInterface;
-    procedure InitFields;
-    function JavaObject: TObject;
-        constructor Create(ownerLayerInterface: TAllBinaryLayer; gameInput_: TGameInput);
-        procedure transition; virtual;
-        procedure processAI(allBinaryLayerManager_: TAllBinaryLayerManager); virtual;
-        procedure reverse; virtual;
-        procedure accelerate;
-        procedure drop;
-        function getId: Integer; virtual;
-  end;
-
-implementation
-uses
-  Canvas, ArtificialIntelligence, RotationAnimationInterface, RotationAnimationInterfaceCompositeInterface, VelocityInterfaceCompositeInterface, DisplayInfoSingleton, AngleIncrementInfo;
-
-
-{AB:CODE}
-
-procedure THorizontaRotationManeuverAI.InitFields;
-begin
-  Self.circularIndexUtil := TCircularIndexUtil.createInstanceAt(10, High(Integer));
-  Self.currentSpeedDivisor := 5;
-  
-  
-  
-end;
-
-function THorizontaRotationManeuverAI.JavaObject: TObject;
-begin
-  Result := Self;
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HrzntRttnMnvrAI-new2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 J-rotationAnimationInterfaceCompositeInterface BINARY-DOUBLE.
+01 J-velocityInterfaceCompositeInterface BINARY-DOUBLE.
+01 J-rotationAnimationInterface BINARY-DOUBLE.
+01 J-angleIncrementInfo BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-ownerLayerInterface BINARY-DOUBLE.
+01 J-gameInput BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-ownerLayerInterface J-gameInput RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("HorizontaRotationManeuverAI")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_circularIndexUtil")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_currentSpeedDivisor")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_rotationAnimationInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_baseVelocityInterface")
+    COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_velocityInterface")
+    COMPUTE jtemp1 = 10
+    COMPUTE JVALUE = FUNCTION CrclrIndxUtl-createInstanceAt2(jtemp1, FUNCTION Integer-static-MAX-VALUE)
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_circularIndexUtil", JVALUE)
+    COMPUTE JVALUE = 5
+    COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_currentSpeedDivisor", JVALUE)
     
-
-constructor THorizontaRotationManeuverAI.Create(ownerLayerInterface: TAllBinaryLayer; gameInput_: TGameInput);
-var
-  rotationAnimationInterfaceCompositeInterface_: IRotationAnimationInterfaceCompositeInterface;
-  velocityInterfaceCompositeInterface_: IVelocityInterfaceCompositeInterface;
-  rotationAnimationInterface_: IRotationAnimationInterface;
-  angleIncrementInfo_: TAngleIncrementInfo;
-begin
-        inherited Create(ownerLayerInterface, gameInput_);
-        InitFields;
-        rotationAnimationInterfaceCompositeInterface_ := (TJava.ToObject(Self.getOwnerLayerInterface()) as IRotationAnimationInterfaceCompositeInterface);
-        Self.rotationAnimationInterface := rotationAnimationInterfaceCompositeInterface_.getRotationAnimationInterface();
-        velocityInterfaceCompositeInterface_ := (TJava.ToObject(Self.getOwnerLayerInterface()) as IVelocityInterfaceCompositeInterface);
-        Self.baseVelocityInterface := velocityInterfaceCompositeInterface_.getVelocityProperties();
-        Self.velocityInterface := (TJava.ToObject(Self.baseVelocityInterface) as IVelocityInterface);
-        rotationAnimationInterface_ := (TJava.ToObject(Self.rotationAnimationInterface) as IRotationAnimationInterface);
-        angleIncrementInfo_ := rotationAnimationInterface_.getAngleInfoP().getAngleIncrementInfo();
-        rotationAnimationInterfaceCompositeInterface_.setFrame(angleIncrementInfo_.RIGHT_FRAME.intValue());
-end;
     
-
-procedure THorizontaRotationManeuverAI.transition;
-var
-  rotationAnimationInterface_: IRotationAnimationInterface;
-  angleIncrementInfo_: TAngleIncrementInfo;
-  rotationAnimationInterfaceCompositeInterface_: IRotationAnimationInterfaceCompositeInterface;
-  allbinaryLayer_: TAllBinaryLayer;
-begin
-        rotationAnimationInterface_ := (TJava.ToObject(Self.rotationAnimationInterface) as IRotationAnimationInterface);
-        angleIncrementInfo_ := rotationAnimationInterface_.getAngleInfoP().getAngleIncrementInfo();
-        rotationAnimationInterfaceCompositeInterface_ := (TJava.ToObject(Self.getOwnerLayerInterface()) as IRotationAnimationInterfaceCompositeInterface);
-        rotationAnimationInterfaceCompositeInterface_.setFrame(angleIncrementInfo_.RIGHT_FRAME.intValue());
-        allbinaryLayer_ := Self.getOwnerLayerInterface();
-        allbinaryLayer_.setPosition(allbinaryLayer_.getXP(), 1, allbinaryLayer_.getZP());
-end;
     
+        CONTINUE
+        COMPUTE J-rotationAnimationInterfaceCompositeInterface = FUNCTION BscAI-getOwnerLayerInterface0(J-THIS)
+        COMPUTE JVALUE = FUNCTION RttnAnmtnIntrfcCmpstInt-44966(J-rotationAnimationInterfaceCompositeInterface)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_rotationAnimationInterface", JVALUE)
+        COMPUTE J-velocityInterfaceCompositeInterface = FUNCTION BscAI-getOwnerLayerInterface0(J-THIS)
+        COMPUTE JVALUE = FUNCTION VlctyIntrfcCmpstIntrfc-gt15512(J-velocityInterfaceCompositeInterface)
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_baseVelocityInterface", JVALUE)
+        COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_baseVelocityInterface")
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_velocityInterface", JVALUE)
+        COMPUTE J-rotationAnimationInterface = FUNCTION JR-GET(J-THIS, "f_rotationAnimationInterface")
+        COMPUTE jtemp2 = FUNCTION RttnAnmtnIntrfc-getAngleInfoP0(J-rotationAnimationInterface)
+        COMPUTE J-angleIncrementInfo = FUNCTION JR-CLASS-NAME(jtemp2)
+        COMPUTE JDISCARD = FUNCTION RttnAnmtnIntrfcCmpstInt-90736(J-rotationAnimationInterfaceCompositeInterface, FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-angleIncrementInfo, "f_RIGHT_FRAME")))
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION HrzntRttnMnvrAI-new2.
 
-// throws Exception
-procedure THorizontaRotationManeuverAI.processAI(allBinaryLayerManager_: TAllBinaryLayerManager);
-var
-  rotationAnimationInterface_: IRotationAnimationInterface;
-  angleIncrementInfo_: TAngleIncrementInfo;
-  frame: Integer;
-  ownerLayerInterface: TAllBinaryLayer;
-  displayInfo: TDisplayInfoSingleton;
-  index: Integer;
-begin
-        rotationAnimationInterface_ := ((TJava.ToObject(Self.rotationAnimationInterface) as IRotationAnimationInterface));
-        angleIncrementInfo_ := rotationAnimationInterface_.getAngleInfoP().getAngleIncrementInfo();
-        frame := Self.rotationAnimationInterface.getFrame();
-        ownerLayerInterface := Self.getOwnerLayerInterface();
-        if (((ownerLayerInterface.getXP()) - (ownerLayerInterface.getWidth())) <= (0)) and ((frame) = (angleIncrementInfo_.LEFT_FRAME.intValue())) then begin
-            Self.reverse();
-            Self.drop();
-        end;
-        displayInfo := TDisplayInfoSingleton.getInstance();
-        if (((ownerLayerInterface.getX2()) + (ownerLayerInterface.getWidth())) > (displayInfo.getLastWidth())) and ((frame) = (angleIncrementInfo_.RIGHT_FRAME.intValue())) then begin
-            Self.reverse();
-            Self.accelerate();
-            Self.drop();
-        end;
-        index := Self.circularIndexUtil.getIndex();
-        if (((index) mod (Self.currentSpeedDivisor)) = (0)) and (((index) mod (2)) = (0)) then begin
-            inherited processKeyAI(TCanvas.UP);
-            Self.velocityInterface.limitMaxXYVelocity(TJava.Divide(Self.velocityInterface.getMaxForwardVelocity(), Self.currentSpeedDivisor));
-        end;
-        Self.circularIndexUtil.next();
-        if (frame) = (angleIncrementInfo_.LEFT_FRAME.intValue()) then begin
-            inherited processKeyAI(TCanvas.KEY_NUM0);
-        end else if (frame) = (angleIncrementInfo_.RIGHT_FRAME.intValue()) then begin
-            inherited processKeyAI(TCanvas.KEY_POUND);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HrzntRttnMnvrAI-transition0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-rotationAnimationInterface BINARY-DOUBLE.
+01 J-angleIncrementInfo BINARY-DOUBLE.
+01 J-rotationAnimationInterfaceCompositeInterface BINARY-DOUBLE.
+01 J-allbinaryLayer BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-rotationAnimationInterface = FUNCTION JR-GET(J-THIS, "f_rotationAnimationInterface")
+        COMPUTE jtemp3 = FUNCTION RttnAnmtnIntrfc-getAngleInfoP0(J-rotationAnimationInterface)
+        COMPUTE J-angleIncrementInfo = FUNCTION JR-CLASS-NAME(jtemp3)
+        COMPUTE J-rotationAnimationInterfaceCompositeInterface = FUNCTION BscAI-getOwnerLayerInterface0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION RttnAnmtnIntrfcCmpstInt-90736(J-rotationAnimationInterfaceCompositeInterface, FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-angleIncrementInfo, "f_RIGHT_FRAME")))
+        COMPUTE J-allbinaryLayer = FUNCTION BscAI-getOwnerLayerInterface0(J-THIS)
+        COMPUTE jtemp4 = 1
+        COMPUTE JDISCARD = FUNCTION AllBinaryLayer-setPosition3(J-allbinaryLayer, FUNCTION AllBinaryLayer-getXP0(J-allbinaryLayer), jtemp4, FUNCTION AllBinaryLayer-getZP0(J-allbinaryLayer))
+    GOBACK.
+END FUNCTION HrzntRttnMnvrAI-transition0.
 
-procedure THorizontaRotationManeuverAI.reverse;
-var
-  rotationAnimationInterface_: IRotationAnimationInterface;
-  angleIncrementInfo_: TAngleIncrementInfo;
-  frame: Integer;
-  rotationAnimationInterfaceCompositeInterface_: IRotationAnimationInterfaceCompositeInterface;
-begin
-        rotationAnimationInterface_ := (TJava.ToObject(Self.rotationAnimationInterface) as IRotationAnimationInterface);
-        angleIncrementInfo_ := rotationAnimationInterface_.getAngleInfoP().getAngleIncrementInfo();
-        frame := Self.rotationAnimationInterface.getFrame();
-        if (frame) = (angleIncrementInfo_.LEFT_FRAME.intValue()) then begin
-            rotationAnimationInterfaceCompositeInterface_ := (TJava.ToObject(Self.getOwnerLayerInterface()) as IRotationAnimationInterfaceCompositeInterface);
-            rotationAnimationInterfaceCompositeInterface_.setFrame(angleIncrementInfo_.RIGHT_FRAME.intValue());
-            Self.baseVelocityInterface.zero();
-        end else if (frame) = (angleIncrementInfo_.RIGHT_FRAME.intValue()) then begin
-            rotationAnimationInterfaceCompositeInterface_ := (TJava.ToObject(Self.getOwnerLayerInterface()) as IRotationAnimationInterfaceCompositeInterface);
-            rotationAnimationInterfaceCompositeInterface_.setFrame(angleIncrementInfo_.LEFT_FRAME.intValue());
-            Self.baseVelocityInterface.zero();
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HrzntRttnMnvrAI-processAI1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-rotationAnimationInterface BINARY-DOUBLE.
+01 J-angleIncrementInfo BINARY-DOUBLE.
+01 J-frame BINARY-DOUBLE.
+01 J-ownerLayerInterface BINARY-DOUBLE.
+01 J-displayInfo BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 jtemp5 BINARY-DOUBLE.
+01 jtemp6 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryLayerManager BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-rotationAnimationInterface = (FUNCTION JR-GET(J-THIS, "f_rotationAnimationInterface"))
+        COMPUTE jtemp5 = FUNCTION RttnAnmtnIntrfc-getAngleInfoP0(J-rotationAnimationInterface)
+        COMPUTE J-angleIncrementInfo = FUNCTION JR-CLASS-NAME(jtemp5)
+        COMPUTE J-frame = FUNCTION IndexedAnimation-getFrame0(FUNCTION JR-GET(J-THIS, "f_rotationAnimationInterface"))
+        COMPUTE J-ownerLayerInterface = FUNCTION BscAI-getOwnerLayerInterface0(J-THIS)
+        IF (((FUNCTION MOD((FUNCTION AllBinaryLayer-getXP0(J-ownerLayerInterface) - FUNCTION AllBinaryLayer-getWidth0(J-ownerLayerInterface)) + 2147483648, 4294967296) - 2147483648) <= 0) AND (J-frame = FUNCTION JR-CLASS-NAME(FUNCTION
+        JR-GET(J-angleIncrementInfo, "f_LEFT_FRAME"))))
+            COMPUTE JDISCARD = FUNCTION HrzntRttnMnvrAI-reverse0(J-THIS)
+            COMPUTE JDISCARD = FUNCTION HrzntRttnMnvrAI-drop0(J-THIS)
+        END-IF
+        COMPUTE J-displayInfo = FUNCTION DsplyInfSngltn-getInstance0
+        IF (((FUNCTION MOD((FUNCTION AllBinaryLayer-getX20(J-ownerLayerInterface) + FUNCTION AllBinaryLayer-getWidth0(J-ownerLayerInterface)) + 2147483648, 4294967296) - 2147483648) > FUNCTION DsplyInfSngltn-getLastWidth0(J-displayInfo))
+        AND (J-frame = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-angleIncrementInfo, "f_RIGHT_FRAME"))))
+            COMPUTE JDISCARD = FUNCTION HrzntRttnMnvrAI-reverse0(J-THIS)
+            COMPUTE JDISCARD = FUNCTION HrzntRttnMnvrAI-accelerate0(J-THIS)
+            COMPUTE JDISCARD = FUNCTION HrzntRttnMnvrAI-drop0(J-THIS)
+        END-IF
+        COMPUTE J-index = FUNCTION CircularIndexUtil-getIndex0(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil"))
+        IF ((FUNCTION REM(J-index, FUNCTION JR-GET(J-THIS, "f_currentSpeedDivisor")) = 0) AND (FUNCTION REM(J-index, 2) = 0))
+            COMPUTE JDISCARD = FUNCTION BasicAI-processKeyAI1(J-THIS, FUNCTION Canvas-static-UP)
+            COMPUTE jtemp6 = (FUNCTION MOD(FUNCTION INTEGER-PART(FUNCTION VlctyIntrfc-gtMxFrwrdVlcty0(FUNCTION JR-GET(J-THIS, "f_velocityInterface")) / FUNCTION JR-GET(J-THIS, "f_currentSpeedDivisor")) + 2147483648, 4294967296) -
+        2147483648)
+            COMPUTE JDISCARD = FUNCTION VlctyIntrfc-lmtMxXYVlcty1(FUNCTION JR-GET(J-THIS, "f_velocityInterface"), jtemp6)
+        END-IF
+        COMPUTE JDISCARD = FUNCTION CircularIndexUtil-next0(FUNCTION JR-GET(J-THIS, "f_circularIndexUtil"))
+        IF (J-frame = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-angleIncrementInfo, "f_LEFT_FRAME")))
+            COMPUTE JDISCARD = FUNCTION BasicAI-processKeyAI1(J-THIS, FUNCTION Canvas-static-KEY-NUM0)
+        ELSE
+            IF (J-frame = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-angleIncrementInfo, "f_RIGHT_FRAME")))
+            COMPUTE JDISCARD = FUNCTION BasicAI-processKeyAI1(J-THIS, FUNCTION Canvas-static-KEY-POUND)
+        END-IF
+        END-IF
+    GOBACK.
+END FUNCTION HrzntRttnMnvrAI-processAI1.
 
-procedure THorizontaRotationManeuverAI.accelerate;
-begin
-        if (Self.currentSpeedDivisor) > (1) then begin
-            Dec(Self.currentSpeedDivisor);
-        end;
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HrzntRttnMnvrAI-reverse0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-rotationAnimationInterface BINARY-DOUBLE.
+01 J-angleIncrementInfo BINARY-DOUBLE.
+01 J-frame BINARY-DOUBLE.
+01 J-rotationAnimationInterfaceCompositeInterface BINARY-DOUBLE.
+01 jtemp7 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-rotationAnimationInterface = FUNCTION JR-GET(J-THIS, "f_rotationAnimationInterface")
+        COMPUTE jtemp7 = FUNCTION RttnAnmtnIntrfc-getAngleInfoP0(J-rotationAnimationInterface)
+        COMPUTE J-angleIncrementInfo = FUNCTION JR-CLASS-NAME(jtemp7)
+        COMPUTE J-frame = FUNCTION IndexedAnimation-getFrame0(FUNCTION JR-GET(J-THIS, "f_rotationAnimationInterface"))
+        IF (J-frame = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-angleIncrementInfo, "f_LEFT_FRAME")))
+            COMPUTE J-rotationAnimationInterfaceCompositeInterface = FUNCTION BscAI-getOwnerLayerInterface0(J-THIS)
+            COMPUTE JDISCARD = FUNCTION RttnAnmtnIntrfcCmpstInt-90736(J-rotationAnimationInterfaceCompositeInterface, FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-angleIncrementInfo, "f_RIGHT_FRAME")))
+            COMPUTE JDISCARD = FUNCTION BasicVelocityProperties-zero0(FUNCTION JR-GET(J-THIS, "f_baseVelocityInterface"))
+        ELSE
+            IF (J-frame = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-angleIncrementInfo, "f_RIGHT_FRAME")))
+            COMPUTE J-rotationAnimationInterfaceCompositeInterface = FUNCTION BscAI-getOwnerLayerInterface0(J-THIS)
+            COMPUTE JDISCARD = FUNCTION RttnAnmtnIntrfcCmpstInt-90736(J-rotationAnimationInterfaceCompositeInterface, FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-angleIncrementInfo, "f_LEFT_FRAME")))
+            COMPUTE JDISCARD = FUNCTION BasicVelocityProperties-zero0(FUNCTION JR-GET(J-THIS, "f_baseVelocityInterface"))
+        END-IF
+        END-IF
+    GOBACK.
+END FUNCTION HrzntRttnMnvrAI-reverse0.
 
-procedure THorizontaRotationManeuverAI.drop;
-var
-  displayInfo: TDisplayInfoSingleton;
-  ownerLayerInterface: TAllBinaryLayer;
-  y: Integer;
-begin
-        displayInfo := TDisplayInfoSingleton.getInstance();
-        ownerLayerInterface := Self.getOwnerLayerInterface();
-        y := ownerLayerInterface.getYP();
-        if ((ownerLayerInterface.getY2()) + (ownerLayerInterface.getHeight())) > (displayInfo.getLastHeight()) then begin
-            y := 0;
-        end else begin
-            y := (y) + ((ownerLayerInterface.getHeight()) + (1));
-        end;
-        ownerLayerInterface.setPosition(ownerLayerInterface.getXP(), y, ownerLayerInterface.getZP());
-end;
-    
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HrzntRttnMnvrAI-accelerate0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        IF (FUNCTION JR-GET(J-THIS, "f_currentSpeedDivisor") > 1)
+            COMPUTE JVALUE = (FUNCTION MOD(FUNCTION JR-GET(J-THIS, "f_currentSpeedDivisor") - 1 + 2147483648, 4294967296) - 2147483648)
+            COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_currentSpeedDivisor", JVALUE)
+        END-IF
+    GOBACK.
+END FUNCTION HrzntRttnMnvrAI-accelerate0.
 
-function THorizontaRotationManeuverAI.getId: Integer;
-begin
-        Exit(TArtificialIntelligence.AI_ID);
-end;
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HrzntRttnMnvrAI-drop0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-displayInfo BINARY-DOUBLE.
+01 J-ownerLayerInterface BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 jtemp8 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-displayInfo = FUNCTION DsplyInfSngltn-getInstance0
+        COMPUTE J-ownerLayerInterface = FUNCTION BscAI-getOwnerLayerInterface0(J-THIS)
+        COMPUTE J-y = FUNCTION AllBinaryLayer-getYP0(J-ownerLayerInterface)
+        IF ((FUNCTION MOD((FUNCTION AllBinaryLayer-getY20(J-ownerLayerInterface) + FUNCTION AllBinaryLayer-getHeight0(J-ownerLayerInterface)) + 2147483648, 4294967296) - 2147483648) > FUNCTION DsplyInfSngltn-getLastHeight0(J-displayInfo))
+            COMPUTE J-y = 0
+        ELSE
+            COMPUTE jtemp8 = 1
+            COMPUTE J-y = (FUNCTION MOD((J-y + (FUNCTION MOD((FUNCTION AllBinaryLayer-getHeight0(J-ownerLayerInterface) + jtemp8) + 2147483648, 4294967296) - 2147483648)) + 2147483648, 4294967296) - 2147483648)
+        END-IF
+        COMPUTE JDISCARD = FUNCTION AllBinaryLayer-setPosition3(J-ownerLayerInterface, FUNCTION AllBinaryLayer-getXP0(J-ownerLayerInterface), J-y, FUNCTION AllBinaryLayer-getZP0(J-ownerLayerInterface))
+    GOBACK.
+END FUNCTION HrzntRttnMnvrAI-drop0.
 
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. HrzntRttnMnvrAI-getId0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        COMPUTE J-RESULT = FUNCTION ArtfclIntllgnc-static-AI-ID
+        GOBACK
+    GOBACK.
+END FUNCTION HrzntRttnMnvrAI-getId0.
 

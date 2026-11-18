@@ -1,55 +1,45 @@
-{
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package org.allbinary.game.ag.layer.hud.basic.notification
+*> Java class NoGameGameNotificationHud
 
-  AllBinary Open License Version 1
-  Copyright (c) 2011 AllBinary
- 
-  By agreeing to this license you and any business entity you represent are
-  legally bound to the AllBinary Open License Version 1 legal agreement.
- 
-  You may obtain the AllBinary Open License Version 1 legal agreement from
-  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
- 
-  Created By: Travis Berthelot
-   
-}
-// Generated Code Do Not Modify
-// package org.allbinary.game.ag.layer.hud.basic.notification
-unit NoGameGameNotificationHud;
-
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto, GameNotificationHud;
-
-type
-  {AB:TYPES}
-  TNoGameGameNotificationHud = class(TGameNotificationHud)
-  public
-        constructor Create;
-  end;
-
-implementation
-uses
-  BasicHudFactory, BasicColorFactory;
-
-
-{AB:CODE}
-    
-
-constructor TNoGameGameNotificationHud.Create;
-begin
-        inherited Create(TBasicHudFactory.getInstance().TOPCENTER, TBasicHudFactory.getInstance().HORIZONTAL, 2, TBasicColorFactory.getInstance().RED);
-        Self.updateMaxWidth := 40;
-        Self.updateMaxHeight := 14;
-end;
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. NoGameGameNotificationHud-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+01 jtemp1 BINARY-DOUBLE.
+01 jtemp2 BINARY-DOUBLE.
+01 jtemp3 BINARY-DOUBLE.
+01 jtemp4 BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("NoGameGameNotificationHud")
+        COMPUTE jtemp1 = FUNCTION BasicHudFactory-getInstance0
+        COMPUTE jtemp2 = FUNCTION BasicHudFactory-getInstance0
+        COMPUTE jtemp4 = FUNCTION BasicColorFactory-getInstance0
+        COMPUTE jtemp3 = 2
+        CONTINUE
+        COMPUTE JVALUE = 40
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_updateMaxWidth", JVALUE)
+        COMPUTE JVALUE = 14
+        COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_updateMaxHeight", JVALUE)
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION NoGameGameNotificationHud-new0.
 
