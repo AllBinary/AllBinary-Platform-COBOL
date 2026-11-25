@@ -35,3 +35,13 @@ PROCEDURE DIVISION USING J-textFieldItem J-min J-max J-allowOnEmpty RETURNING J-
     GOBACK.
 END FUNCTION PasswordValidator-new4.
 
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PasswordValidator-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "TextFieldItemValidator" TO J-CLASS
+    GOBACK.
+END PROGRAM PasswordValidator-jsuper.
+

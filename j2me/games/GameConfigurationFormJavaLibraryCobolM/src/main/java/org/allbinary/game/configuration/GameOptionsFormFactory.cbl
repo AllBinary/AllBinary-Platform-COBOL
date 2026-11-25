@@ -146,3 +146,32 @@ PROCEDURE DIVISION USING J-THIS J-commandListener J-title J-backgrounBasicColor 
     GOBACK.
 END FUNCTION GameOptionsFormFactory-init4.
 
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VGameOptionsFormFactory-init4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-commandListener BINARY-DOUBLE.
+01 J-title BINARY-DOUBLE.
+01 J-backgrounBasicColor BINARY-DOUBLE.
+01 J-foregroundBasicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-commandListener J-title J-backgrounBasicColor J-foregroundBasicColor J-RESULT.
+    COMPUTE J-RESULT = FUNCTION GameOptionsFormFactory-init4(J-THIS, J-commandListener, J-title, J-backgrounBasicColor, J-foregroundBasicColor)
+    GOBACK.
+END PROGRAM VGameOptionsFormFactory-init4.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. GameOptionsFormFactory-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM GameOptionsFormFactory-jsuper.
+

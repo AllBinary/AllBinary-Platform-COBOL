@@ -58,7 +58,7 @@ LOCAL-STORAGE SECTION.
 01 JSIX BINARY-DOUBLE VALUE 6.
 01 J-licenseInitInfo BINARY-DOUBLE.
 01 J-stringValidationUtil BINARY-DOUBLE.
-01 J-NONE BINARY-DOUBLE.
+01 J-NONE-C BINARY-DOUBLE.
 01 J-commonStrings BINARY-DOUBLE.
 01 J-logUtil BINARY-DOUBLE.
 01 jtemp1 BINARY-DOUBLE.
@@ -80,8 +80,8 @@ PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
             COMPUTE JDISCARD = FUNCTION ClntInfrmtn-setLicenseServers1(J-THIS, FUNCTION LicenseInitInfo-getServerList0(J-licenseInitInfo))
             COMPUTE J-stringValidationUtil = FUNCTION StrngVldtnUtl-getInstance0
             IF (FUNCTION StringValidationUtil-isEmpty1(J-stringValidationUtil, FUNCTION ClntInfrmtn-getLicenseId0(J-THIS)) = 1)
-                COMPUTE J-NONE = FUNCTION JR-STR("No License Id")
-                COMPUTE JDISCARD = FUNCTION ClntInfrmtn-setLicenseId1(J-THIS, J-NONE)
+                COMPUTE J-NONE-C = FUNCTION JR-STR("No License Id")
+                COMPUTE JDISCARD = FUNCTION ClntInfrmtn-setLicenseId1(J-THIS, J-NONE-C)
             END-IF
             COMPUTE J-commonStrings = FUNCTION CommonStrings-getInstance0
             COMPUTE jtemp5 = FUNCTION StringMaker-new0
@@ -90,4 +90,29 @@ PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
             COMPUTE JDISCARD = FUNCTION PreLogUtil-put3(FUNCTION JR-TO-STRING(jtemp3), J-THIS, FUNCTION JR-GET(J-commonStrings, "f_CONSTRUCTOR"))
     GOBACK.
 END FUNCTION AbeClientInformation-init0.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VAbeClientInformation-init0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION AbeClientInformation-init0(J-THIS)
+    GOBACK.
+END PROGRAM VAbeClientInformation-init0.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. AbeClientInformation-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "ClientInformation" TO J-CLASS
+    GOBACK.
+END PROGRAM AbeClientInformation-jsuper.
 

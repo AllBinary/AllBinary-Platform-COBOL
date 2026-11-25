@@ -159,3 +159,31 @@ PROCEDURE DIVISION USING J-THIS J-midletCommandListener J-command J-canvas RETUR
     GOBACK.
 END FUNCTION WebCommandProcessor-process3.
 
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VWebCommandProcessor-process3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-midletCommandListener BINARY-DOUBLE.
+01 J-command BINARY-DOUBLE.
+01 J-canvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-midletCommandListener J-command J-canvas J-RESULT.
+    COMPUTE J-RESULT = FUNCTION WebCommandProcessor-process3(J-THIS, J-midletCommandListener, J-command, J-canvas)
+    GOBACK.
+END PROGRAM VWebCommandProcessor-process3.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. WebCommandProcessor-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM WebCommandProcessor-jsuper.
+

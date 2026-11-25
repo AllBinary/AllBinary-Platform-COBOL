@@ -69,6 +69,24 @@ PROCEDURE DIVISION USING J-THIS J-speedBasicDecimal J-angle J-otherAngle RETURNI
 END FUNCTION DlydCnstntVlctyMvmnt-init3.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VDelayedConstantVelocity-init3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-speedBasicDecimal BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-otherAngle BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-speedBasicDecimal J-angle J-otherAngle J-RESULT.
+    COMPUTE J-RESULT = FUNCTION DlydCnstntVlctyMvmnt-init3(J-THIS, J-speedBasicDecimal, J-angle, J-otherAngle)
+    GOBACK.
+END PROGRAM VDelayedConstantVelocity-init3.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. DlydCnstntVlctyMvmnt-process1.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -95,8 +113,34 @@ PROCEDURE DIVISION USING J-THIS J-layer RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
         COMPUTE jtemp2 = FUNCTION GmTckTmDlyHlprFctry-gtInstnc0
         IF (FUNCTION TimeDelayHelper-isTime1(FUNCTION JR-GET(J-THIS, "f_timeDelayHelper"), FUNCTION JR-GET(jtemp2, "f_startTime")) = 1)
-            COMPUTE JDISCARD = FUNCTION BscCnstntVlctyMvmnt-process1(J-THIS, J-layer)
+            COMPUTE JDISCARD = FUNCTION BscCnstntVlctyMvmnt-process1J(J-THIS, J-layer)
         END-IF
     GOBACK.
 END FUNCTION DlydCnstntVlctyMvmnt-process1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VDelayedConstantVeloc-process1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layer J-RESULT.
+    COMPUTE J-RESULT = FUNCTION DlydCnstntVlctyMvmnt-process1(J-THIS, J-layer)
+    GOBACK.
+END PROGRAM VDelayedConstantVeloc-process1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. DelayedConstantVelocity-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "BasicConstantVelocityMovement" TO J-CLASS
+    GOBACK.
+END PROGRAM DelayedConstantVelocity-jsuper.
 

@@ -160,6 +160,22 @@ PROCEDURE DIVISION USING J-THIS J-originalImage RETURNING J-RESULT.
 END FUNCTION ImgCpyUtl-crtImgFrRttn1.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VImageC-createImageForRot51387.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-originalImage BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-originalImage J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ImgCpyUtl-crtImgFrRttn1(J-THIS, J-originalImage)
+    GOBACK.
+END PROGRAM VImageC-createImageForRot51387.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. ImageCopyUtil-createImage1.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -208,6 +224,22 @@ PROCEDURE DIVISION USING J-THIS J-originalImage RETURNING J-RESULT.
 END FUNCTION ImageCopyUtil-createImage1.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VImageCopyUtil-createImage1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-originalImage BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-originalImage J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ImageCopyUtil-createImage1(J-THIS, J-originalImage)
+    GOBACK.
+END PROGRAM VImageCopyUtil-createImage1.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. ImgCpyUtl-createImageScale3.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -245,8 +277,8 @@ PROCEDURE DIVISION USING J-THIS J-originalImage J-canvasScale J-resize RETURNING
             COMPUTE J-RESULT = J-originalImage
             GOBACK
         END-IF
-        COMPUTE J-newWidth = ((FUNCTION Image-getWidth0(J-originalImage) * J-canvasScale))
-        COMPUTE J-newHeight = ((FUNCTION Image-getHeight0(J-originalImage) * J-canvasScale))
+        COMPUTE J-newWidth = FUNCTION JR-D2I(((FUNCTION Image-getWidth0(J-originalImage) * J-canvasScale)))
+        COMPUTE J-newHeight = FUNCTION JR-D2I(((FUNCTION Image-getHeight0(J-originalImage) * J-canvasScale)))
         IF (J-resize = 1)
             IF (J-newWidth < J-newHeight)
                 COMPUTE J-newWidth = J-newHeight
@@ -268,4 +300,32 @@ PROCEDURE DIVISION USING J-THIS J-originalImage J-canvasScale J-resize RETURNING
         END-IF
     GOBACK.
 END FUNCTION ImgCpyUtl-createImageScale3.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VImageCopyUt-createImageScale3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-originalImage BINARY-DOUBLE.
+01 J-canvasScale COMP-2.
+01 J-resize BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-originalImage J-canvasScale J-resize J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ImgCpyUtl-createImageScale3(J-THIS, J-originalImage, J-canvasScale, J-resize)
+    GOBACK.
+END PROGRAM VImageCopyUt-createImageScale3.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. ImageCopyUtil-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM ImageCopyUtil-jsuper.
 

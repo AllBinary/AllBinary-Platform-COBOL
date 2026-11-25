@@ -38,16 +38,16 @@
 <!--        <module>../j2me/games/platform/j2se/AllBinaryOnJ2SEBasePlatformJavaLibraryCobolM</module>-->
         <module>../j2me/games/platform/j2se/AllBinaryOnJ2SEPlatformJavaLibraryCobolM</module>
         
-        <!--<module>../j2me/FullScreenJavaLibraryCobolM</module>-->
+        <module>../j2me/FullScreenJavaLibraryCobolM</module>
 
-        <!--<module>../j2me/SWTToJ2MELibraryCobolM</module>-->
+        <module>../j2me/SWTToJ2MELibraryCobolM</module>
         
         <module>../j2me/media/graphics/ImageCacheOpenGLESJavaLibraryCobolM</module>
         <module>../graphics/opengl/Min3dForNullJavaLibraryCobolM</module>
         <module>../graphics/opengl/OpenGLESFileConfigurationJavaLibraryCobolM</module>
         <module>../graphics/opengl/OpenGLESJavaLibraryCobolM</module>
         <module>../j2me/media/graphics/animation/vector/SVGToAllBinaryJavaLibraryCobolM</module>
-        <!--<module>../j2me/media/graphics/animation/image/ImageSwtJ2SEJavaLibraryCobolM</module>-->
+        <module>../j2me/media/graphics/animation/image/ImageSwtJ2SEJavaLibraryCobolM</module>
 
         <module>../j2me/media/graphics/layer/AllBinaryTiledLayerJavaLibraryCobolM</module>        
         <module>../j2me/media/graphics/geography/map/GeographicMapLibraryCobolM</module>

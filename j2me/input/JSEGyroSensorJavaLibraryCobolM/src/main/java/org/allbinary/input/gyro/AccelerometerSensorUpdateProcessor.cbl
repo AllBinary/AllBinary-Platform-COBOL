@@ -64,17 +64,17 @@ PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
         COMPUTE jtemp1 = FUNCTION Features-getInstance0
         IF (FUNCTION Features-isFeature1(jtemp1, FUNCTION JR-GET(J-sensorFeatureFactory, "f_ORIENTATION_SENSORS")) = 1)
             COMPUTE jtemp6 = FUNCTION AcclrmtrSnsrFctry-getInstance0
-            COMPUTE JDISCARD = FUNCTION AcclrmtrSnsrFctry-stCmplt22153(jtemp6, FUNCTION SnglKyPrssGmKyFrmMtnGst-69162)
+            COMPUTE JDISCARD = FUNCTION AllBnryOrnttnSnsr-stCmplt71756(jtemp6, FUNCTION SnglKyPrssGmKyFrmMtnGst-69162)
         ELSE
             COMPUTE jtemp2 = FUNCTION Features-getInstance0
         IF (FUNCTION Features-isFeature1(jtemp2, FUNCTION JR-GET(J-sensorFeatureFactory, "f_SIMULATED_ORIENTATION_SENSORS")) = 1)
             COMPUTE jtemp5 = FUNCTION AcclrmtrSnsrFctry-getInstance0
-            COMPUTE JDISCARD = FUNCTION AcclrmtrSnsrFctry-stCmplt22153(jtemp5, FUNCTION SnglKyPrssGmKyFrmMtnGst-69162)
+            COMPUTE JDISCARD = FUNCTION AllBnryOrnttnSnsr-stCmplt71756(jtemp5, FUNCTION SnglKyPrssGmKyFrmMtnGst-69162)
         ELSE
             COMPUTE jtemp3 = FUNCTION Features-getInstance0
         IF (FUNCTION Features-isFeature1(jtemp3, FUNCTION JR-GET(J-sensorFeatureFactory, "f_NO_ORIENTATION")) = 1)
             COMPUTE jtemp4 = FUNCTION AcclrmtrSnsrFctry-getInstance0
-            COMPUTE JDISCARD = FUNCTION AcclrmtrSnsrFctry-stCmplt22153(jtemp4, FUNCTION NCmpltMtnGstrInptEvntLs-93457)
+            COMPUTE JDISCARD = FUNCTION AllBnryOrnttnSnsr-stCmplt71756(jtemp4, FUNCTION NCmpltMtnGstrInptEvntLs-93457)
         ELSE
             COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
         END-IF
@@ -82,4 +82,29 @@ PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
         END-IF
     GOBACK.
 END FUNCTION AcclrmtrSnsrUpdtPrcssr-prcss0.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VAccelerometerSensorU-process0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION AcclrmtrSnsrUpdtPrcssr-prcss0(J-THIS)
+    GOBACK.
+END PROGRAM VAccelerometerSensorU-process0.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. AccelerometerSensorUpda-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Processor" TO J-CLASS
+    GOBACK.
+END PROGRAM AccelerometerSensorUpda-jsuper.
 

@@ -37,6 +37,55 @@ CONFIGURATION SECTION.
 REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
+LOCAL-STORAGE SECTION.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject RETURNING J-RESULT.
+    MOVE 0 TO JV-DONE
+    MOVE "CompleteMotionGestureInputEventListener" TO JV-CLASS
+    IF J-THIS NOT = 0
+        MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    END-IF
+    PERFORM UNTIL JV-DONE = 1
+        IF JV-CLASS = "CompleteMotionGestureInputEventListener"
+            COMPUTE J-RESULT = FUNCTION CmpltMtnGstrInptEvntLst-46329(J-THIS, J-eventObject)
+            MOVE 1 TO JV-DONE
+        ELSE
+            MOVE SPACES TO JV-NAME
+            STRING "V" DELIMITED BY SIZE JV-CLASS(1:20) DELIMITED BY SPACE "-onEvent1" DELIMITED BY SIZE INTO JV-NAME
+            CALL JV-NAME USING J-THIS J-eventObject J-RESULT
+                ON EXCEPTION
+                    MOVE SPACES TO JV-NAME
+                    STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                    CALL JV-NAME USING JV-CLASS
+                        ON EXCEPTION
+                            MOVE "CompleteMotionGestureInputEventListener" TO JV-CLASS
+                    END-CALL
+                    IF JV-CLASS = "Object"
+                        MOVE "CompleteMotionGestureInputEventListener" TO JV-CLASS
+                    END-IF
+                NOT ON EXCEPTION
+                    MOVE 1 TO JV-DONE
+            END-CALL
+        END-IF
+    END-PERFORM
+    GOBACK.
+END FUNCTION CmpltMtnGstrInptEvntLst-33157.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpltMtnGstrInptEvntLst-46329.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -56,10 +105,75 @@ PROCEDURE DIVISION USING J-THIS J-eventObject RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
         CONTINUE
     GOBACK.
-END FUNCTION CmpltMtnGstrInptEvntLst-33157.
+END FUNCTION CmpltMtnGstrInptEvntLst-46329.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VCompleteMotionGestur-onEvent1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject J-RESULT.
+    COMPUTE J-RESULT = FUNCTION CmpltMtnGstrInptEvntLst-46329(J-THIS, J-eventObject)
+    GOBACK.
+END PROGRAM VCompleteMotionGestur-onEvent1.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. CmpltMtnGstrInptEvntLst-44490.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
+LOCAL-STORAGE SECTION.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-completeMotionGestureInputEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-completeMotionGestureInputEvent RETURNING J-RESULT.
+    MOVE 0 TO JV-DONE
+    MOVE "CompleteMotionGestureInputEventListener" TO JV-CLASS
+    IF J-THIS NOT = 0
+        MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    END-IF
+    PERFORM UNTIL JV-DONE = 1
+        IF JV-CLASS = "CompleteMotionGestureInputEventListener"
+            COMPUTE J-RESULT = FUNCTION CmpltMtnGstrInptEvntLst-48613(J-THIS, J-completeMotionGestureInputEvent)
+            MOVE 1 TO JV-DONE
+        ELSE
+            MOVE SPACES TO JV-NAME
+            STRING "V" DELIMITED BY SIZE JV-CLASS(1:6) DELIMITED BY SPACE "-onCompleteMotionG30329" DELIMITED BY SIZE INTO JV-NAME
+            CALL JV-NAME USING J-THIS J-completeMotionGestureInputEvent J-RESULT
+                ON EXCEPTION
+                    MOVE SPACES TO JV-NAME
+                    STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                    CALL JV-NAME USING JV-CLASS
+                        ON EXCEPTION
+                            MOVE "CompleteMotionGestureInputEventListener" TO JV-CLASS
+                    END-CALL
+                    IF JV-CLASS = "Object"
+                        MOVE "CompleteMotionGestureInputEventListener" TO JV-CLASS
+                    END-IF
+                NOT ON EXCEPTION
+                    MOVE 1 TO JV-DONE
+            END-CALL
+        END-IF
+    END-PERFORM
+    GOBACK.
+END FUNCTION CmpltMtnGstrInptEvntLst-44490.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmpltMtnGstrInptEvntLst-48613.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
 REPOSITORY.
@@ -84,5 +198,31 @@ PROCEDURE DIVISION USING J-THIS J-completeMotionGestureInputEvent RETURNING J-RE
     MOVE 0 TO J-RESULT
         CONTINUE
     GOBACK.
-END FUNCTION CmpltMtnGstrInptEvntLst-44490.
+END FUNCTION CmpltMtnGstrInptEvntLst-48613.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VComple-onCompleteMotionG30329.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-completeMotionGestureInputEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-completeMotionGestureInputEvent J-RESULT.
+    COMPUTE J-RESULT = FUNCTION CmpltMtnGstrInptEvntLst-48613(J-THIS, J-completeMotionGestureInputEvent)
+    GOBACK.
+END PROGRAM VComple-onCompleteMotionG30329.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. CompleteMotionGestureIn-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM CompleteMotionGestureIn-jsuper.
 

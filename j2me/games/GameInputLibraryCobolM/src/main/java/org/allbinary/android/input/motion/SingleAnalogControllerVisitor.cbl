@@ -68,3 +68,30 @@ PROCEDURE DIVISION USING J-THIS J-allbinaryLayerManager J-analogLocationInputPro
     GOBACK.
 END FUNCTION SnglAnlgCntrllrVstr-process2.
 
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VSingleAnalogControll-process2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allbinaryLayerManager BINARY-DOUBLE.
+01 J-analogLocationInputProcessor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allbinaryLayerManager J-analogLocationInputProcessor J-RESULT.
+    COMPUTE J-RESULT = FUNCTION SnglAnlgCntrllrVstr-process2(J-THIS, J-allbinaryLayerManager, J-analogLocationInputProcessor)
+    GOBACK.
+END PROGRAM VSingleAnalogControll-process2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. SingleAnalogControllerV-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "AnalogControllerVisitor" TO J-CLASS
+    GOBACK.
+END PROGRAM SingleAnalogControllerV-jsuper.
+

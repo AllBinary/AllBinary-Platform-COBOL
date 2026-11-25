@@ -62,3 +62,32 @@ PROCEDURE DIVISION USING J-THIS J-numberOfEnemiesLeft J-artificialIntelligenceIn
     GOBACK.
 END FUNCTION NmbrLyrsSqncAIFctry-gtInstnc4.
 
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VNumberLayersSequ-getInstance4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-numberOfEnemiesLeft BINARY-DOUBLE.
+01 J-artificialIntelligenceInterface BINARY-DOUBLE.
+01 J-ownerLayerInterface BINARY-DOUBLE.
+01 J-gameInput BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-numberOfEnemiesLeft J-artificialIntelligenceInterface J-ownerLayerInterface J-gameInput J-RESULT.
+    COMPUTE J-RESULT = FUNCTION NmbrLyrsSqncAIFctry-gtInstnc4(J-THIS, J-numberOfEnemiesLeft, J-artificialIntelligenceInterface, J-ownerLayerInterface, J-gameInput)
+    GOBACK.
+END PROGRAM VNumberLayersSequ-getInstance4.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. NumberLayersSequenceAIF-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM NumberLayersSequenceAIF-jsuper.
+

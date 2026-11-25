@@ -150,7 +150,7 @@ PROCEDURE DIVISION USING J-THIS J-width J-height J-animationInterface RETURNING 
         COMPUTE jtemp3 = (FUNCTION JR-SHIFT(JFIVE, ((FUNCTION MOD((J-width * 3) + 2147483648, 4294967296) - 2147483648)), 1))
         COMPUTE jtemp4 = (FUNCTION JR-SHIFT(JFIVE, ((FUNCTION MOD((J-height * 3) + 2147483648, 4294967296) - 2147483648)), 1))
         COMPUTE jtemp1 = FUNCTION GmFtrImgCchFctry-getInstance0
-        COMPUTE J-image = FUNCTION GmFtrImgCchFctry-get3(jtemp1, jtemp2, jtemp3, jtemp4)
+        COMPUTE J-image = FUNCTION ImageCache-get3(jtemp1, jtemp2, jtemp3, jtemp4)
         COMPUTE J-graphics = FUNCTION Image-getGraphics0(J-image)
         COMPUTE J-tranlateX = (FUNCTION JR-SHIFT(JFIVE, J-width, 2))
         COMPUTE J-tranlateY = (FUNCTION JR-SHIFT(JFIVE, J-height, 2))
@@ -165,6 +165,24 @@ PROCEDURE DIVISION USING J-THIS J-width J-height J-animationInterface RETURNING 
         GOBACK
     GOBACK.
 END FUNCTION AnmtnFrmTImgUtl-gtInstncT54998.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VAnimati-getInstanceTranslate3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-animationInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-width J-height J-animationInterface J-RESULT.
+    COMPUTE J-RESULT = FUNCTION AnmtnFrmTImgUtl-gtInstncT54998(J-THIS, J-width, J-height, J-animationInterface)
+    GOBACK.
+END PROGRAM VAnimati-getInstanceTranslate3.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. AnmtnFrmTImgUtl-getInstanceWH3.
@@ -200,7 +218,7 @@ PROCEDURE DIVISION USING J-THIS J-width J-height J-animationInterface RETURNING 
     MOVE 0 TO J-RESULT
         COMPUTE jtemp10 = FUNCTION JR-CLASS-NAME(FUNCTION AnmtnFrmTImgUtl-sttc-nstnc)
         COMPUTE jtemp9 = FUNCTION GmFtrImgCchFctry-getInstance0
-        COMPUTE J-image = FUNCTION GmFtrImgCchFctry-get3(jtemp9, jtemp10, J-width, J-height)
+        COMPUTE J-image = FUNCTION ImageCache-get3(jtemp9, jtemp10, J-width, J-height)
         COMPUTE J-graphics = FUNCTION Image-getGraphics0(J-image)
         COMPUTE jtemp11 = 0
         COMPUTE jtemp12 = 0
@@ -209,4 +227,32 @@ PROCEDURE DIVISION USING J-THIS J-width J-height J-animationInterface RETURNING 
         GOBACK
     GOBACK.
 END FUNCTION AnmtnFrmTImgUtl-getInstanceWH3.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VAnimationFrame-getInstanceWH3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-animationInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-width J-height J-animationInterface J-RESULT.
+    COMPUTE J-RESULT = FUNCTION AnmtnFrmTImgUtl-getInstanceWH3(J-THIS, J-width, J-height, J-animationInterface)
+    GOBACK.
+END PROGRAM VAnimationFrame-getInstanceWH3.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. AnimationFrameToImageUt-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM AnimationFrameToImageUt-jsuper.
 

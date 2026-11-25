@@ -116,6 +116,56 @@ CONFIGURATION SECTION.
 REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
+LOCAL-STORAGE SECTION.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allbinaryLayerManager BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allbinaryLayerManager J-gameKeyEvent RETURNING J-RESULT.
+    MOVE 0 TO JV-DONE
+    MOVE "GameInputProcessor" TO JV-CLASS
+    IF J-THIS NOT = 0
+        MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    END-IF
+    PERFORM UNTIL JV-DONE = 1
+        IF JV-CLASS = "GameInputProcessor"
+            COMPUTE J-RESULT = FUNCTION GmInptPrcssr-processEvent2J(J-THIS, J-allbinaryLayerManager, J-gameKeyEvent)
+            MOVE 1 TO JV-DONE
+        ELSE
+            MOVE SPACES TO JV-NAME
+            STRING "V" DELIMITED BY SIZE JV-CLASS(1:15) DELIMITED BY SPACE "-processEvent2" DELIMITED BY SIZE INTO JV-NAME
+            CALL JV-NAME USING J-THIS J-allbinaryLayerManager J-gameKeyEvent J-RESULT
+                ON EXCEPTION
+                    MOVE SPACES TO JV-NAME
+                    STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                    CALL JV-NAME USING JV-CLASS
+                        ON EXCEPTION
+                            MOVE "GameInputProcessor" TO JV-CLASS
+                    END-CALL
+                    IF JV-CLASS = "Object"
+                        MOVE "GameInputProcessor" TO JV-CLASS
+                    END-IF
+                NOT ON EXCEPTION
+                    MOVE 1 TO JV-DONE
+            END-CALL
+        END-IF
+    END-PERFORM
+    GOBACK.
+END FUNCTION GmInptPrcssr-processEvent2.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmInptPrcssr-processEvent2J.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -136,7 +186,24 @@ PROCEDURE DIVISION USING J-THIS J-allbinaryLayerManager J-gameKeyEvent RETURNING
     MOVE 0 TO J-RESULT
         CONTINUE
     GOBACK.
-END FUNCTION GmInptPrcssr-processEvent2.
+END FUNCTION GmInptPrcssr-processEvent2J.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VGameInputProces-processEvent2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allbinaryLayerManager BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allbinaryLayerManager J-gameKeyEvent J-RESULT.
+    COMPUTE J-RESULT = FUNCTION GmInptPrcssr-processEvent2J(J-THIS, J-allbinaryLayerManager, J-gameKeyEvent)
+    GOBACK.
+END PROGRAM VGameInputProces-processEvent2.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. GmInptPrcssr-prcssRlsdEvnt2.
@@ -168,7 +235,75 @@ PROCEDURE DIVISION USING J-THIS J-allbinaryLayerManager J-gameKeyEvent RETURNING
 END FUNCTION GmInptPrcssr-prcssRlsdEvnt2.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VGameInp-processReleasedEvent2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allbinaryLayerManager BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allbinaryLayerManager J-gameKeyEvent J-RESULT.
+    COMPUTE J-RESULT = FUNCTION GmInptPrcssr-prcssRlsdEvnt2(J-THIS, J-allbinaryLayerManager, J-gameKeyEvent)
+    GOBACK.
+END PROGRAM VGameInp-processReleasedEvent2.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. GmInptPrcssr-processAnalog3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
+LOCAL-STORAGE SECTION.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allbinaryLayerManager BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 J-analogValue BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allbinaryLayerManager J-gameKeyEvent J-analogValue RETURNING J-RESULT.
+    MOVE 0 TO JV-DONE
+    MOVE "GameInputProcessor" TO JV-CLASS
+    IF J-THIS NOT = 0
+        MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    END-IF
+    PERFORM UNTIL JV-DONE = 1
+        IF JV-CLASS = "GameInputProcessor"
+            COMPUTE J-RESULT = FUNCTION GmInptPrcssr-processAnalog3J(J-THIS, J-allbinaryLayerManager, J-gameKeyEvent, J-analogValue)
+            MOVE 1 TO JV-DONE
+        ELSE
+            MOVE SPACES TO JV-NAME
+            STRING "V" DELIMITED BY SIZE JV-CLASS(1:14) DELIMITED BY SPACE "-processAnalog3" DELIMITED BY SIZE INTO JV-NAME
+            CALL JV-NAME USING J-THIS J-allbinaryLayerManager J-gameKeyEvent J-analogValue J-RESULT
+                ON EXCEPTION
+                    MOVE SPACES TO JV-NAME
+                    STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                    CALL JV-NAME USING JV-CLASS
+                        ON EXCEPTION
+                            MOVE "GameInputProcessor" TO JV-CLASS
+                    END-CALL
+                    IF JV-CLASS = "Object"
+                        MOVE "GameInputProcessor" TO JV-CLASS
+                    END-IF
+                NOT ON EXCEPTION
+                    MOVE 1 TO JV-DONE
+            END-CALL
+        END-IF
+    END-PERFORM
+    GOBACK.
+END FUNCTION GmInptPrcssr-processAnalog3.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. GmInptPrcssr-processAnalog3J.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
 REPOSITORY.
@@ -195,7 +330,25 @@ PROCEDURE DIVISION USING J-THIS J-allbinaryLayerManager J-gameKeyEvent J-analogV
     MOVE 0 TO J-RESULT
         CONTINUE
     GOBACK.
-END FUNCTION GmInptPrcssr-processAnalog3.
+END FUNCTION GmInptPrcssr-processAnalog3J.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VGameInputProce-processAnalog3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allbinaryLayerManager BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 J-analogValue BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allbinaryLayerManager J-gameKeyEvent J-analogValue J-RESULT.
+    COMPUTE J-RESULT = FUNCTION GmInptPrcssr-processAnalog3J(J-THIS, J-allbinaryLayerManager, J-gameKeyEvent, J-analogValue)
+    GOBACK.
+END PROGRAM VGameInputProce-processAnalog3.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. GameInputProcessor-process2.
@@ -227,6 +380,23 @@ PROCEDURE DIVISION USING J-THIS J-allbinaryLayerManager J-keyAsInteger RETURNING
 END FUNCTION GameInputProcessor-process2.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VGameInputProcessor-process2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allbinaryLayerManager BINARY-DOUBLE.
+01 J-keyAsInteger BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allbinaryLayerManager J-keyAsInteger J-RESULT.
+    COMPUTE J-RESULT = FUNCTION GameInputProcessor-process2(J-THIS, J-allbinaryLayerManager, J-keyAsInteger)
+    GOBACK.
+END PROGRAM VGameInputProcessor-process2.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. GmInptPrcssr-processReleased2.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -254,4 +424,31 @@ PROCEDURE DIVISION USING J-THIS J-allbinaryLayerManager J-keyAsInteger RETURNING
         CONTINUE
     GOBACK.
 END FUNCTION GmInptPrcssr-processReleased2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VGameInputPro-processReleased2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allbinaryLayerManager BINARY-DOUBLE.
+01 J-keyAsInteger BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allbinaryLayerManager J-keyAsInteger J-RESULT.
+    COMPUTE J-RESULT = FUNCTION GmInptPrcssr-processReleased2(J-THIS, J-allbinaryLayerManager, J-keyAsInteger)
+    GOBACK.
+END PROGRAM VGameInputPro-processReleased2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. GameInputProcessor-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM GameInputProcessor-jsuper.
 

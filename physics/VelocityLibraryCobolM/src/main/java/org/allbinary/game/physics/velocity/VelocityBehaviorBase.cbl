@@ -37,6 +37,57 @@ CONFIGURATION SECTION.
 REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
+LOCAL-STORAGE SECTION.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-velocityProperties BINARY-DOUBLE.
+01 J-nominator BINARY-DOUBLE.
+01 J-denominator BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-velocityProperties J-nominator J-denominator RETURNING J-RESULT.
+    MOVE 0 TO JV-DONE
+    MOVE "VelocityBehaviorBase" TO JV-CLASS
+    IF J-THIS NOT = 0
+        MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    END-IF
+    PERFORM UNTIL JV-DONE = 1
+        IF JV-CLASS = "VelocityBehaviorBase"
+            COMPUTE J-RESULT = FUNCTION VelocityBehaviorBase-reduce3J(J-THIS, J-velocityProperties, J-nominator, J-denominator)
+            MOVE 1 TO JV-DONE
+        ELSE
+            MOVE SPACES TO JV-NAME
+            STRING "V" DELIMITED BY SIZE JV-CLASS(1:21) DELIMITED BY SPACE "-reduce3" DELIMITED BY SIZE INTO JV-NAME
+            CALL JV-NAME USING J-THIS J-velocityProperties J-nominator J-denominator J-RESULT
+                ON EXCEPTION
+                    MOVE SPACES TO JV-NAME
+                    STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                    CALL JV-NAME USING JV-CLASS
+                        ON EXCEPTION
+                            MOVE "VelocityBehaviorBase" TO JV-CLASS
+                    END-CALL
+                    IF JV-CLASS = "Object"
+                        MOVE "VelocityBehaviorBase" TO JV-CLASS
+                    END-IF
+                NOT ON EXCEPTION
+                    MOVE 1 TO JV-DONE
+            END-CALL
+        END-IF
+    END-PERFORM
+    GOBACK.
+END FUNCTION VelocityBehaviorBase-reduce3.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VelocityBehaviorBase-reduce3J.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -58,7 +109,25 @@ PROCEDURE DIVISION USING J-THIS J-velocityProperties J-nominator J-denominator R
     MOVE 0 TO J-RESULT
         CONTINUE
     GOBACK.
-END FUNCTION VelocityBehaviorBase-reduce3.
+END FUNCTION VelocityBehaviorBase-reduce3J.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VVelocityBehaviorBase-reduce3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-velocityProperties BINARY-DOUBLE.
+01 J-nominator BINARY-DOUBLE.
+01 J-denominator BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-velocityProperties J-nominator J-denominator J-RESULT.
+    COMPUTE J-RESULT = FUNCTION VelocityBehaviorBase-reduce3J(J-THIS, J-velocityProperties, J-nominator, J-denominator)
+    GOBACK.
+END PROGRAM VVelocityBehaviorBase-reduce3.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. VelocityBehaviorBase-reduceX3.
@@ -67,17 +136,12 @@ CONFIGURATION SECTION.
 REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
 LOCAL-STORAGE SECTION.
-01 JDISCARD BINARY-DOUBLE.
-01 JVALUE BINARY-DOUBLE.
-01 JVALUEF COMP-2.
-01 JZERO BINARY-DOUBLE VALUE 0.
-01 JONE BINARY-DOUBLE VALUE 1.
-01 JTWO BINARY-DOUBLE VALUE 2.
-01 JTHREE BINARY-DOUBLE VALUE 3.
-01 JFOUR BINARY-DOUBLE VALUE 4.
-01 JFIVE BINARY-DOUBLE VALUE 5.
-01 JSIX BINARY-DOUBLE VALUE 6.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-velocityProperties BINARY-DOUBLE.
@@ -85,13 +149,39 @@ LINKAGE SECTION.
 01 J-denominator BINARY-DOUBLE.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION USING J-THIS J-velocityProperties J-nominator J-denominator RETURNING J-RESULT.
-    MOVE 0 TO J-RESULT
-        CONTINUE
+    MOVE 0 TO JV-DONE
+    MOVE "VelocityBehaviorBase" TO JV-CLASS
+    IF J-THIS NOT = 0
+        MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    END-IF
+    PERFORM UNTIL JV-DONE = 1
+        IF JV-CLASS = "VelocityBehaviorBase"
+            COMPUTE J-RESULT = FUNCTION VelocityBehaviorBase-reduceX3J(J-THIS, J-velocityProperties, J-nominator, J-denominator)
+            MOVE 1 TO JV-DONE
+        ELSE
+            MOVE SPACES TO JV-NAME
+            STRING "V" DELIMITED BY SIZE JV-CLASS(1:20) DELIMITED BY SPACE "-reduceX3" DELIMITED BY SIZE INTO JV-NAME
+            CALL JV-NAME USING J-THIS J-velocityProperties J-nominator J-denominator J-RESULT
+                ON EXCEPTION
+                    MOVE SPACES TO JV-NAME
+                    STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                    CALL JV-NAME USING JV-CLASS
+                        ON EXCEPTION
+                            MOVE "VelocityBehaviorBase" TO JV-CLASS
+                    END-CALL
+                    IF JV-CLASS = "Object"
+                        MOVE "VelocityBehaviorBase" TO JV-CLASS
+                    END-IF
+                NOT ON EXCEPTION
+                    MOVE 1 TO JV-DONE
+            END-CALL
+        END-IF
+    END-PERFORM
     GOBACK.
 END FUNCTION VelocityBehaviorBase-reduceX3.
 
 IDENTIFICATION DIVISION.
-FUNCTION-ID. VelocityBehaviorBase-reduceY3.
+FUNCTION-ID. VelocityBehaviorBase-reduceX3J.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
 REPOSITORY.
@@ -118,5 +208,132 @@ PROCEDURE DIVISION USING J-THIS J-velocityProperties J-nominator J-denominator R
     MOVE 0 TO J-RESULT
         CONTINUE
     GOBACK.
+END FUNCTION VelocityBehaviorBase-reduceX3J.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VVelocityBehaviorBase-reduceX3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-velocityProperties BINARY-DOUBLE.
+01 J-nominator BINARY-DOUBLE.
+01 J-denominator BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-velocityProperties J-nominator J-denominator J-RESULT.
+    COMPUTE J-RESULT = FUNCTION VelocityBehaviorBase-reduceX3J(J-THIS, J-velocityProperties, J-nominator, J-denominator)
+    GOBACK.
+END PROGRAM VVelocityBehaviorBase-reduceX3.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VelocityBehaviorBase-reduceY3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
+LOCAL-STORAGE SECTION.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-velocityProperties BINARY-DOUBLE.
+01 J-nominator BINARY-DOUBLE.
+01 J-denominator BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-velocityProperties J-nominator J-denominator RETURNING J-RESULT.
+    MOVE 0 TO JV-DONE
+    MOVE "VelocityBehaviorBase" TO JV-CLASS
+    IF J-THIS NOT = 0
+        MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    END-IF
+    PERFORM UNTIL JV-DONE = 1
+        IF JV-CLASS = "VelocityBehaviorBase"
+            COMPUTE J-RESULT = FUNCTION VelocityBehaviorBase-reduceY3J(J-THIS, J-velocityProperties, J-nominator, J-denominator)
+            MOVE 1 TO JV-DONE
+        ELSE
+            MOVE SPACES TO JV-NAME
+            STRING "V" DELIMITED BY SIZE JV-CLASS(1:20) DELIMITED BY SPACE "-reduceY3" DELIMITED BY SIZE INTO JV-NAME
+            CALL JV-NAME USING J-THIS J-velocityProperties J-nominator J-denominator J-RESULT
+                ON EXCEPTION
+                    MOVE SPACES TO JV-NAME
+                    STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                    CALL JV-NAME USING JV-CLASS
+                        ON EXCEPTION
+                            MOVE "VelocityBehaviorBase" TO JV-CLASS
+                    END-CALL
+                    IF JV-CLASS = "Object"
+                        MOVE "VelocityBehaviorBase" TO JV-CLASS
+                    END-IF
+                NOT ON EXCEPTION
+                    MOVE 1 TO JV-DONE
+            END-CALL
+        END-IF
+    END-PERFORM
+    GOBACK.
 END FUNCTION VelocityBehaviorBase-reduceY3.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. VelocityBehaviorBase-reduceY3J.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-velocityProperties BINARY-DOUBLE.
+01 J-nominator BINARY-DOUBLE.
+01 J-denominator BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-velocityProperties J-nominator J-denominator RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+        CONTINUE
+    GOBACK.
+END FUNCTION VelocityBehaviorBase-reduceY3J.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VVelocityBehaviorBase-reduceY3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-velocityProperties BINARY-DOUBLE.
+01 J-nominator BINARY-DOUBLE.
+01 J-denominator BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-velocityProperties J-nominator J-denominator J-RESULT.
+    COMPUTE J-RESULT = FUNCTION VelocityBehaviorBase-reduceY3J(J-THIS, J-velocityProperties, J-nominator, J-denominator)
+    GOBACK.
+END PROGRAM VVelocityBehaviorBase-reduceY3.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VelocityBehaviorBase-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM VelocityBehaviorBase-jsuper.
 

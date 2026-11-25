@@ -63,8 +63,34 @@ LINKAGE SECTION.
 PROCEDURE DIVISION USING J-THIS J-instanceId RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
         COMPUTE J-scaledImage = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_animationFactoryImageScaleUtil"))
-        COMPUTE J-RESULT = FUNCTION BottomToTopImageAnimation-new2(J-scaledImage, FUNCTION AnmtnBhvrFctry-gtOrCrtInstnc0(FUNCTION JR-GET(J-THIS, "f_animationBehaviorFactory")))
+        COMPUTE J-RESULT = FUNCTION BottomToTopImageAnimation-new2(J-scaledImage, FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_animationBehaviorFactory")))
         GOBACK
     GOBACK.
 END FUNCTION BttmTTpImgAnmtnFctry-gtInstnc1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VBottomToTopImage-getInstance1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-instanceId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-instanceId J-RESULT.
+    COMPUTE J-RESULT = FUNCTION BttmTTpImgAnmtnFctry-gtInstnc1(J-THIS, J-instanceId)
+    GOBACK.
+END PROGRAM VBottomToTopImage-getInstance1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. BottomToTopImageAnimati-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "BaseImageAnimationFactory" TO J-CLASS
+    GOBACK.
+END PROGRAM BottomToTopImageAnimati-jsuper.
 

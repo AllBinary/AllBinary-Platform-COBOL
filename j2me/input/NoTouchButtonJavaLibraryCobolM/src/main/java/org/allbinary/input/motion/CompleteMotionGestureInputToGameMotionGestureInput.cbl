@@ -11,8 +11,8 @@ REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 CompleteMotionGestureInputToGameMotionGestureInput-jcell-instance BINARY-DOUBLE EXTERNAL.
-01 CompleteMotionGestureInputToGameMotionGestureInput-jset-instance BINARY-DOUBLE EXTERNAL.
+01 CompleteMotionGestur-jcell-instance43984 BINARY-DOUBLE EXTERNAL.
+01 CompleteMotionGestur-jset-instance43984 BINARY-DOUBLE EXTERNAL.
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -27,11 +27,11 @@ LOCAL-STORAGE SECTION.
 LINKAGE SECTION.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION RETURNING J-RESULT.
-    IF CompleteMotionGestureInputToGameMotionGestureInput-jset-instance = 0
-        MOVE 1 TO CompleteMotionGestureInputToGameMotionGestureInput-jset-instance
-        COMPUTE CompleteMotionGestureInputToGameMotionGestureInput-jcell-instance = FUNCTION CmpltMtnGstrInptTGmMtnG-34485
+    IF CompleteMotionGestur-jset-instance43984 = 0
+        MOVE 1 TO CompleteMotionGestur-jset-instance43984
+        COMPUTE CompleteMotionGestur-jcell-instance43984 = FUNCTION CmpltMtnGstrInptTGmMtnG-34485
     END-IF
-    MOVE CompleteMotionGestureInputToGameMotionGestureInput-jcell-instance TO J-RESULT
+    MOVE CompleteMotionGestur-jcell-instance43984 TO J-RESULT
     GOBACK.
 END FUNCTION CmpltMtnGstrInptTGmMtnG-31630.
 
@@ -43,13 +43,13 @@ REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 CompleteMotionGestureInputToGameMotionGestureInput-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 CompleteMotionGestur-jcell-instance43984 BINARY-DOUBLE EXTERNAL.
 LINKAGE SECTION.
 01 J-VALUE BINARY-DOUBLE.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
     MOVE FUNCTION CmpltMtnGstrInptTGmMtnG-31630 TO J-RESULT
-    MOVE J-VALUE TO CompleteMotionGestureInputToGameMotionGestureInput-jcell-instance
+    MOVE J-VALUE TO CompleteMotionGestur-jcell-instance43984
     MOVE J-VALUE TO J-RESULT
     GOBACK.
 END FUNCTION CmpltMtnGstrInptTGmMS71206.
@@ -137,4 +137,29 @@ PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
         COMPUTE JDISCARD = FUNCTION PreLogUtil-put3(FUNCTION JR-STR("No Touch Button = No Compound Motion Gestures"), J-THIS, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_INIT"))
     GOBACK.
 END FUNCTION CmpltMtnGstrInptTGmMtnG-84333.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VCompleteMotionGestureIn-init0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION CmpltMtnGstrInptTGmMtnG-84333(J-THIS)
+    GOBACK.
+END PROGRAM VCompleteMotionGestureIn-init0.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. CompleteMotionGestureIn-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM CompleteMotionGestureIn-jsuper.
 

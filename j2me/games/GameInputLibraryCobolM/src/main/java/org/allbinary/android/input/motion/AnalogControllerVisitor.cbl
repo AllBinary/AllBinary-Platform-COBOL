@@ -37,6 +37,56 @@ CONFIGURATION SECTION.
 REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
+LOCAL-STORAGE SECTION.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allbinaryLayerManager BINARY-DOUBLE.
+01 J-analogLocationInputProcessor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allbinaryLayerManager J-analogLocationInputProcessor RETURNING J-RESULT.
+    MOVE 0 TO JV-DONE
+    MOVE "AnalogControllerVisitor" TO JV-CLASS
+    IF J-THIS NOT = 0
+        MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    END-IF
+    PERFORM UNTIL JV-DONE = 1
+        IF JV-CLASS = "AnalogControllerVisitor"
+            COMPUTE J-RESULT = FUNCTION AnlgCntrllrVstr-process2J(J-THIS, J-allbinaryLayerManager, J-analogLocationInputProcessor)
+            MOVE 1 TO JV-DONE
+        ELSE
+            MOVE SPACES TO JV-NAME
+            STRING "V" DELIMITED BY SIZE JV-CLASS(1:20) DELIMITED BY SPACE "-process2" DELIMITED BY SIZE INTO JV-NAME
+            CALL JV-NAME USING J-THIS J-allbinaryLayerManager J-analogLocationInputProcessor J-RESULT
+                ON EXCEPTION
+                    MOVE SPACES TO JV-NAME
+                    STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                    CALL JV-NAME USING JV-CLASS
+                        ON EXCEPTION
+                            MOVE "AnalogControllerVisitor" TO JV-CLASS
+                    END-CALL
+                    IF JV-CLASS = "Object"
+                        MOVE "AnalogControllerVisitor" TO JV-CLASS
+                    END-IF
+                NOT ON EXCEPTION
+                    MOVE 1 TO JV-DONE
+            END-CALL
+        END-IF
+    END-PERFORM
+    GOBACK.
+END FUNCTION AnlgCntrllrVstr-process2.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. AnlgCntrllrVstr-process2J.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -57,5 +107,32 @@ PROCEDURE DIVISION USING J-THIS J-allbinaryLayerManager J-analogLocationInputPro
     MOVE 0 TO J-RESULT
         CONTINUE
     GOBACK.
-END FUNCTION AnlgCntrllrVstr-process2.
+END FUNCTION AnlgCntrllrVstr-process2J.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VAnalogControllerVisi-process2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allbinaryLayerManager BINARY-DOUBLE.
+01 J-analogLocationInputProcessor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allbinaryLayerManager J-analogLocationInputProcessor J-RESULT.
+    COMPUTE J-RESULT = FUNCTION AnlgCntrllrVstr-process2J(J-THIS, J-allbinaryLayerManager, J-analogLocationInputProcessor)
+    GOBACK.
+END PROGRAM VAnalogControllerVisi-process2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. AnalogControllerVisitor-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM AnalogControllerVisitor-jsuper.
 

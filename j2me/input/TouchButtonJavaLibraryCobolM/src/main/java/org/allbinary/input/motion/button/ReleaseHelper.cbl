@@ -42,6 +42,56 @@ CONFIGURATION SECTION.
 REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
+LOCAL-STORAGE SECTION.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-touchButtonInput BINARY-DOUBLE.
+01 J-deviceId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-touchButtonInput J-deviceId RETURNING J-RESULT.
+    MOVE 0 TO JV-DONE
+    MOVE "ReleaseHelper" TO JV-CLASS
+    IF J-THIS NOT = 0
+        MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    END-IF
+    PERFORM UNTIL JV-DONE = 1
+        IF JV-CLASS = "ReleaseHelper"
+            COMPUTE J-RESULT = FUNCTION ReleaseHelper-release2J(J-THIS, J-touchButtonInput, J-deviceId)
+            MOVE 1 TO JV-DONE
+        ELSE
+            MOVE SPACES TO JV-NAME
+            STRING "V" DELIMITED BY SIZE JV-CLASS(1:20) DELIMITED BY SPACE "-release2" DELIMITED BY SIZE INTO JV-NAME
+            CALL JV-NAME USING J-THIS J-touchButtonInput J-deviceId J-RESULT
+                ON EXCEPTION
+                    MOVE SPACES TO JV-NAME
+                    STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                    CALL JV-NAME USING JV-CLASS
+                        ON EXCEPTION
+                            MOVE "ReleaseHelper" TO JV-CLASS
+                    END-CALL
+                    IF JV-CLASS = "Object"
+                        MOVE "ReleaseHelper" TO JV-CLASS
+                    END-IF
+                NOT ON EXCEPTION
+                    MOVE 1 TO JV-DONE
+            END-CALL
+        END-IF
+    END-PERFORM
+    GOBACK.
+END FUNCTION ReleaseHelper-release2.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ReleaseHelper-release2J.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -57,7 +107,7 @@ LOCAL-STORAGE SECTION.
 01 J-gameKeyEvent BINARY-DOUBLE.
 01 J-index BINARY-DOUBLE.
 01 jtemp1 BINARY-DOUBLE.
-01 JFIRST1 BINARY-DOUBLE.
+01 JFIRST-N66788 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-touchButtonInput BINARY-DOUBLE.
@@ -68,12 +118,12 @@ PROCEDURE DIVISION USING J-THIS J-touchButtonInput J-deviceId RETURNING J-RESULT
         CONTINUE
         CONTINUE
         COMPUTE J-index = (FUNCTION MOD((FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_touchButtonRecognizer"), "f_currentlyPressedTouchButtonSingleton")) - 1) + 2147483648, 4294967296) - 2147483648)
-        MOVE 1 TO JFIRST1
+        MOVE 1 TO JFIRST-N66788
         PERFORM FOREVER
-            IF JFIRST1 = 0
+            IF JFIRST-N66788 = 0
                 COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
             END-IF
-            MOVE 0 TO JFIRST1
+            MOVE 0 TO JFIRST-N66788
             IF NOT (J-index >= 0) EXIT PERFORM END-IF
             COMPUTE J-nextTouchButtonInput = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_touchButtonRecognizer"), "f_currentlyPressedTouchButtonSingleton"))
             COMPUTE J-gameKeyEvent = FUNCTION TchBttnInpt-getGameKeyEvent0(J-nextTouchButtonInput)
@@ -83,5 +133,32 @@ PROCEDURE DIVISION USING J-THIS J-touchButtonInput J-deviceId RETURNING J-RESULT
             COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_touchButtonRecognizer"), "f_currentlyPressedTouchButtonSingleton"))
         END-PERFORM
     GOBACK.
-END FUNCTION ReleaseHelper-release2.
+END FUNCTION ReleaseHelper-release2J.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VReleaseHelper-release2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-touchButtonInput BINARY-DOUBLE.
+01 J-deviceId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-touchButtonInput J-deviceId J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ReleaseHelper-release2J(J-THIS, J-touchButtonInput, J-deviceId)
+    GOBACK.
+END PROGRAM VReleaseHelper-release2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. ReleaseHelper-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM ReleaseHelper-jsuper.
 

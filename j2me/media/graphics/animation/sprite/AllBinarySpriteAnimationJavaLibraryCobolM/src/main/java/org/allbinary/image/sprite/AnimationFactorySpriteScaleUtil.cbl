@@ -214,3 +214,33 @@ PROCEDURE DIVISION USING J-THIS J-image J-width J-height J-scaleWidth J-scaleHei
     GOBACK.
 END FUNCTION AnmtnFctrySprtSclUtl-crtImg5.
 
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VAnimationFactory-createImage5.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-image BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-scaleWidth BINARY-DOUBLE.
+01 J-scaleHeight BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-image J-width J-height J-scaleWidth J-scaleHeight J-RESULT.
+    COMPUTE J-RESULT = FUNCTION AnmtnFctrySprtSclUtl-crtImg5(J-THIS, J-image, J-width, J-height, J-scaleWidth, J-scaleHeight)
+    GOBACK.
+END PROGRAM VAnimationFactory-createImage5.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. AnimationFactorySpriteS-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM AnimationFactorySpriteS-jsuper.
+

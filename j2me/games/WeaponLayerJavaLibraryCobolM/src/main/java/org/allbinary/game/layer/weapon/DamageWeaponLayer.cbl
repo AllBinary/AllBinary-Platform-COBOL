@@ -45,3 +45,13 @@ PROCEDURE DIVISION USING J-name J-remoteInfo J-movement J-animationInterface J-d
     GOBACK.
 END FUNCTION DamageWeaponLayer-new11.
 
+IDENTIFICATION DIVISION.
+PROGRAM-ID. DamageWeaponLayer-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "WeaponLayer" TO J-CLASS
+    GOBACK.
+END PROGRAM DamageWeaponLayer-jsuper.
+

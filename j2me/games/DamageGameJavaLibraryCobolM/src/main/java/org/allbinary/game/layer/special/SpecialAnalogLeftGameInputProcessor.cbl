@@ -58,7 +58,35 @@ LINKAGE SECTION.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION USING J-THIS J-allbinaryLayerManager J-gameKeyEvent J-xAnalogValue RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
-        COMPUTE JDISCARD = FUNCTION ClldblDstryblDmgblLyr-lftAnlg1(FUNCTION JR-GET(J-THIS, "f_collidableDestroyableDamageableLayer"), J-xAnalogValue)
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_collidableDestroyableDamageableLayer"))
     GOBACK.
 END FUNCTION SpclAnlgLftGmInptPrcssr-p47061.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VSpecialAnalogL-processAnalog3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allbinaryLayerManager BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 J-xAnalogValue BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allbinaryLayerManager J-gameKeyEvent J-xAnalogValue J-RESULT.
+    COMPUTE J-RESULT = FUNCTION SpclAnlgLftGmInptPrcssr-p47061(J-THIS, J-allbinaryLayerManager, J-gameKeyEvent, J-xAnalogValue)
+    GOBACK.
+END PROGRAM VSpecialAnalogL-processAnalog3.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. SpecialAnalogLeftGameIn-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "SpecialGameInputProcessor" TO J-CLASS
+    GOBACK.
+END PROGRAM SpecialAnalogLeftGameIn-jsuper.
 

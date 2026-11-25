@@ -94,6 +94,23 @@ PROCEDURE DIVISION USING J-THIS J-collidableDestroyableDamageableLayer J-xAnalog
 END FUNCTION AnalogControllerHelper-right2.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VAnalogControllerHelper-right2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-collidableDestroyableDamageableLayer BINARY-DOUBLE.
+01 J-xAnalogValue BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-collidableDestroyableDamageableLayer J-xAnalogValue J-RESULT.
+    COMPUTE J-RESULT = FUNCTION AnalogControllerHelper-right2(J-THIS, J-collidableDestroyableDamageableLayer, J-xAnalogValue)
+    GOBACK.
+END PROGRAM VAnalogControllerHelper-right2.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. AnalogControllerHelper-left2.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -125,6 +142,23 @@ PROCEDURE DIVISION USING J-THIS J-collidableDestroyableDamageableLayer J-xAnalog
         END-IF
     GOBACK.
 END FUNCTION AnalogControllerHelper-left2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VAnalogControllerHelper-left2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-collidableDestroyableDamageableLayer BINARY-DOUBLE.
+01 J-xAnalogValue BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-collidableDestroyableDamageableLayer J-xAnalogValue J-RESULT.
+    COMPUTE J-RESULT = FUNCTION AnalogControllerHelper-left2(J-THIS, J-collidableDestroyableDamageableLayer, J-xAnalogValue)
+    GOBACK.
+END PROGRAM VAnalogControllerHelper-left2.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. AnalogControllerHelper-up2.
@@ -160,6 +194,23 @@ PROCEDURE DIVISION USING J-THIS J-collidableDestroyableDamageableLayer J-xAnalog
 END FUNCTION AnalogControllerHelper-up2.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VAnalogControllerHelper-up2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-collidableDestroyableDamageableLayer BINARY-DOUBLE.
+01 J-xAnalogValue BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-collidableDestroyableDamageableLayer J-xAnalogValue J-RESULT.
+    COMPUTE J-RESULT = FUNCTION AnalogControllerHelper-up2(J-THIS, J-collidableDestroyableDamageableLayer, J-xAnalogValue)
+    GOBACK.
+END PROGRAM VAnalogControllerHelper-up2.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. AnalogControllerHelper-down2.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -191,4 +242,31 @@ PROCEDURE DIVISION USING J-THIS J-collidableDestroyableDamageableLayer J-xAnalog
         END-IF
     GOBACK.
 END FUNCTION AnalogControllerHelper-down2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VAnalogControllerHelper-down2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-collidableDestroyableDamageableLayer BINARY-DOUBLE.
+01 J-xAnalogValue BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-collidableDestroyableDamageableLayer J-xAnalogValue J-RESULT.
+    COMPUTE J-RESULT = FUNCTION AnalogControllerHelper-down2(J-THIS, J-collidableDestroyableDamageableLayer, J-xAnalogValue)
+    GOBACK.
+END PROGRAM VAnalogControllerHelper-down2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. AnalogControllerHelper-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM AnalogControllerHelper-jsuper.
 

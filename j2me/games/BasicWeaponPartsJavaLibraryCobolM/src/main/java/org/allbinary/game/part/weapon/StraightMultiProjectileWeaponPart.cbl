@@ -119,7 +119,7 @@ LOCAL-STORAGE SECTION.
 01 jtemp6 BINARY-DOUBLE.
 01 jtemp7 BINARY-DOUBLE.
 01 jtemp8 BINARY-DOUBLE.
-01 JFIRST1 BINARY-DOUBLE.
+01 JFIRST-N71997 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-allbinaryLayerManager BINARY-DOUBLE.
@@ -133,8 +133,8 @@ PROCEDURE DIVISION USING J-THIS J-allbinaryLayerManager J-angle J-otherAngle J-w
         COMPUTE J-sourceLayerInterface = FUNCTION BscWpnPrt-gtOwnrLyrIntrfc0(J-THIS)
         COMPUTE J-reducedWidth = ((FUNCTION MOD(FUNCTION INTEGER-PART((FUNCTION MOD((FUNCTION AllBinaryLayer-getWidth0(J-sourceLayerInterface) * 8) + 2147483648, 4294967296) - 2147483648) / 10) + 2147483648, 4294967296) - 2147483648))
         COMPUTE J-halfWidth = (FUNCTION JR-SHIFT(JFIVE, J-reducedWidth, 1))
-        COMPUTE J-x = FUNCTION RelativeRelationship-getX0(FUNCTION JR-GET(J-THIS, "f_relativeRelationship"))
-        COMPUTE J-y = FUNCTION RelativeRelationship-getY0(FUNCTION JR-GET(J-THIS, "f_relativeRelationship"))
+        COMPUTE J-x = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_relativeRelationship"))
+        COMPUTE J-y = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_relativeRelationship"))
         CONTINUE
         CONTINUE
         CONTINUE
@@ -143,12 +143,12 @@ PROCEDURE DIVISION USING J-THIS J-allbinaryLayerManager J-angle J-otherAngle J-w
         COMPUTE J-increment = (FUNCTION MOD(FUNCTION INTEGER-PART(J-reducedWidth / ((FUNCTION MOD((FUNCTION JR-GET(J-THIS, "f_total") - 1) + 2147483648, 4294967296) - 2147483648))) + 2147483648, 4294967296) - 2147483648)
         COMPUTE J-next = (0 - J-halfWidth)
         COMPUTE J-index = 0
-        MOVE 1 TO JFIRST1
+        MOVE 1 TO JFIRST-N71997
         PERFORM FOREVER
-            IF JFIRST1 = 0
+            IF JFIRST-N71997 = 0
                 COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
             END-IF
-            MOVE 0 TO JFIRST1
+            MOVE 0 TO JFIRST-N71997
             IF NOT (J-index < FUNCTION JR-GET(J-THIS, "f_total")) EXIT PERFORM END-IF
             COMPUTE jtemp2 = J-angle
             COMPUTE J-sine = ((J-next * FUNCTION NoDecimalTrigTable-sin1(FUNCTION JR-GET(J-THIS, "f_noDecimalTrigTable"), jtemp2)))
@@ -167,4 +167,34 @@ PROCEDURE DIVISION USING J-THIS J-allbinaryLayerManager J-angle J-otherAngle J-w
         END-PERFORM
     GOBACK.
 END FUNCTION StrghtMltPrjctlWpnPrt-prc75908.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VStraightMultiPr-processScore5.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allbinaryLayerManager BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-otherAngle BINARY-DOUBLE.
+01 J-weaponProperties BINARY-DOUBLE.
+01 J-scoreableInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allbinaryLayerManager J-angle J-otherAngle J-weaponProperties J-scoreableInterface J-RESULT.
+    COMPUTE J-RESULT = FUNCTION StrghtMltPrjctlWpnPrt-prc75908(J-THIS, J-allbinaryLayerManager, J-angle, J-otherAngle, J-weaponProperties, J-scoreableInterface)
+    GOBACK.
+END PROGRAM VStraightMultiPr-processScore5.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. StraightMultiProjectile-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "BasicWeaponPart" TO J-CLASS
+    GOBACK.
+END PROGRAM StraightMultiProjectile-jsuper.
 

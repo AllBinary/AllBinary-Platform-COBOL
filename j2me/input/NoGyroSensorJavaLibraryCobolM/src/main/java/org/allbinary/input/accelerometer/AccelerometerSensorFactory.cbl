@@ -11,8 +11,8 @@ REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 AccelerometerSensorFactory-jcell-allBinaryAccelerometerSensor BINARY-DOUBLE EXTERNAL.
-01 AccelerometerSensorFactory-jset-allBinaryAccelerometerSensor BINARY-DOUBLE EXTERNAL.
+01 AccelerometerSensorF-jcell-allBinaryAccelerometerSe58537 BINARY-DOUBLE EXTERNAL.
+01 AccelerometerSensorF-jset-allBinaryAccelerometerSe58537 BINARY-DOUBLE EXTERNAL.
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -27,11 +27,11 @@ LOCAL-STORAGE SECTION.
 LINKAGE SECTION.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION RETURNING J-RESULT.
-    IF AccelerometerSensorFactory-jset-allBinaryAccelerometerSensor = 0
-        MOVE 1 TO AccelerometerSensorFactory-jset-allBinaryAccelerometerSensor
-        COMPUTE AccelerometerSensorFactory-jcell-allBinaryAccelerometerSensor = FUNCTION AllBnryOrnttnSnsr-stt51610
+    IF AccelerometerSensorF-jset-allBinaryAccelerometerSe58537 = 0
+        MOVE 1 TO AccelerometerSensorF-jset-allBinaryAccelerometerSe58537
+        COMPUTE AccelerometerSensorF-jcell-allBinaryAccelerometerSe58537 = FUNCTION AllBnryOrnttnSnsr-stt51610
     END-IF
-    MOVE AccelerometerSensorFactory-jcell-allBinaryAccelerometerSensor TO J-RESULT
+    MOVE AccelerometerSensorF-jcell-allBinaryAccelerometerSe58537 TO J-RESULT
     GOBACK.
 END FUNCTION AcclrmtrSnsrFctry-sttc-l69604.
 
@@ -43,13 +43,13 @@ REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 AccelerometerSensorFactory-jcell-allBinaryAccelerometerSensor BINARY-DOUBLE EXTERNAL.
+01 AccelerometerSensorF-jcell-allBinaryAccelerometerSe58537 BINARY-DOUBLE EXTERNAL.
 LINKAGE SECTION.
 01 J-VALUE BINARY-DOUBLE.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
     MOVE FUNCTION AcclrmtrSnsrFctry-sttc-l69604 TO J-RESULT
-    MOVE J-VALUE TO AccelerometerSensorFactory-jcell-allBinaryAccelerometerSensor
+    MOVE J-VALUE TO AccelerometerSensorF-jcell-allBinaryAccelerometerSe58537
     MOVE J-VALUE TO J-RESULT
     GOBACK.
 END FUNCTION AcclrmtrSnsrFctrysttS97359.
@@ -149,4 +149,14 @@ PROCEDURE DIVISION RETURNING J-RESULT.
         GOBACK
     GOBACK.
 END FUNCTION AcclrmtrSnsrFctry-getInstance0.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. AccelerometerSensorFact-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM AccelerometerSensorFact-jsuper.
 

@@ -11,8 +11,8 @@ REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 DiagonalDownRightTouchInputToGameKeyEventAction-jcell-instance BINARY-DOUBLE EXTERNAL.
-01 DiagonalDownRightTouchInputToGameKeyEventAction-jset-instance BINARY-DOUBLE EXTERNAL.
+01 DiagonalDownRightTou-jcell-instance64907 BINARY-DOUBLE EXTERNAL.
+01 DiagonalDownRightTou-jset-instance64907 BINARY-DOUBLE EXTERNAL.
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -28,12 +28,12 @@ LOCAL-STORAGE SECTION.
 LINKAGE SECTION.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION RETURNING J-RESULT.
-    IF DiagonalDownRightTouchInputToGameKeyEventAction-jset-instance = 0
-        MOVE 1 TO DiagonalDownRightTouchInputToGameKeyEventAction-jset-instance
+    IF DiagonalDownRightTou-jset-instance64907 = 0
+        MOVE 1 TO DiagonalDownRightTou-jset-instance64907
         COMPUTE jtemp1 = FUNCTION NullUtil-getInstance0
-    COMPUTE DiagonalDownRightTouchInputToGameKeyEventAction-jcell-instance = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
+    COMPUTE DiagonalDownRightTou-jcell-instance64907 = FUNCTION JR-GET(jtemp1, "f_NULL_OBJECT")
     END-IF
-    MOVE DiagonalDownRightTouchInputToGameKeyEventAction-jcell-instance TO J-RESULT
+    MOVE DiagonalDownRightTou-jcell-instance64907 TO J-RESULT
     GOBACK.
 END FUNCTION DgnlDwnRghtTchInptTGmKy-49024.
 
@@ -45,13 +45,13 @@ REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 DiagonalDownRightTouchInputToGameKeyEventAction-jcell-instance BINARY-DOUBLE EXTERNAL.
+01 DiagonalDownRightTou-jcell-instance64907 BINARY-DOUBLE EXTERNAL.
 LINKAGE SECTION.
 01 J-VALUE BINARY-DOUBLE.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
     MOVE FUNCTION DgnlDwnRghtTchInptTGmKy-49024 TO J-RESULT
-    MOVE J-VALUE TO DiagonalDownRightTouchInputToGameKeyEventAction-jcell-instance
+    MOVE J-VALUE TO DiagonalDownRightTou-jcell-instance64907
     MOVE J-VALUE TO J-RESULT
     GOBACK.
 END FUNCTION DgnlDwnRghtTchInptTGS10079.
@@ -121,4 +121,14 @@ PROCEDURE DIVISION RETURNING J-RESULT.
         GOBACK
     GOBACK.
 END FUNCTION DgnlDwnRghtTchInptTGmKy-29897.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. DiagonalDownRightTouchI-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "GameKeyCompleteMotionGestureInputEvent" TO J-CLASS
+    GOBACK.
+END PROGRAM DiagonalDownRightTouchI-jsuper.
 

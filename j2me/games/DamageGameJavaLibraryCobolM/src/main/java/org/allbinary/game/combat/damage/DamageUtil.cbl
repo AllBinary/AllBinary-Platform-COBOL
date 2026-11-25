@@ -149,6 +149,23 @@ PROCEDURE DIVISION USING J-THIS J-damageableInterface J-damageableInterface2 RET
 END FUNCTION DamageUtil-process2.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VDamageUtil-process2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-damageableInterface BINARY-DOUBLE.
+01 J-damageableInterface2 BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-damageableInterface J-damageableInterface2 J-RESULT.
+    COMPUTE J-RESULT = FUNCTION DamageUtil-process2(J-THIS, J-damageableInterface, J-damageableInterface2)
+    GOBACK.
+END PROGRAM VDamageUtil-process2.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. DamageUtil-debugDamage2.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -192,4 +209,31 @@ PROCEDURE DIVISION USING J-THIS J-collidableInterfaceCompositeInterface1 J-colli
         END-IF
     GOBACK.
 END FUNCTION DamageUtil-debugDamage2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VDamageUtil-debugDamage2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-collidableInterfaceCompositeInterface1 BINARY-DOUBLE.
+01 J-collidableInterfaceCompositeInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-collidableInterfaceCompositeInterface1 J-collidableInterfaceCompositeInterface J-RESULT.
+    COMPUTE J-RESULT = FUNCTION DamageUtil-debugDamage2(J-THIS, J-collidableInterfaceCompositeInterface1, J-collidableInterfaceCompositeInterface)
+    GOBACK.
+END PROGRAM VDamageUtil-debugDamage2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. DamageUtil-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM DamageUtil-jsuper.
 

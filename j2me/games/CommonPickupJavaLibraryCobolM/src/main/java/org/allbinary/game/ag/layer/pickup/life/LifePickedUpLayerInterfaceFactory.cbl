@@ -11,8 +11,8 @@ REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 LifePickedUpLayerInterfaceFactory-jcell-pickedUpLayerInterfaceFactoryInterface BINARY-DOUBLE EXTERNAL.
-01 LifePickedUpLayerInterfaceFactory-jset-pickedUpLayerInterfaceFactoryInterface BINARY-DOUBLE EXTERNAL.
+01 LifePickedUpLayerInt-jcell-pickedUpLayerInterfaceFa18837 BINARY-DOUBLE EXTERNAL.
+01 LifePickedUpLayerInt-jset-pickedUpLayerInterfaceFa18837 BINARY-DOUBLE EXTERNAL.
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -27,11 +27,11 @@ LOCAL-STORAGE SECTION.
 LINKAGE SECTION.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION RETURNING J-RESULT.
-    IF LifePickedUpLayerInterfaceFactory-jset-pickedUpLayerInterfaceFactoryInterface = 0
-        MOVE 1 TO LifePickedUpLayerInterfaceFactory-jset-pickedUpLayerInterfaceFactoryInterface
-        COMPUTE LifePickedUpLayerInterfaceFactory-jcell-pickedUpLayerInterfaceFactoryInterface = FUNCTION CntdPckdUpLyrIntrfcFctr-47319
+    IF LifePickedUpLayerInt-jset-pickedUpLayerInterfaceFa18837 = 0
+        MOVE 1 TO LifePickedUpLayerInt-jset-pickedUpLayerInterfaceFa18837
+        COMPUTE LifePickedUpLayerInt-jcell-pickedUpLayerInterfaceFa18837 = FUNCTION CntdPckdUpLyrIntrfcFctr-47319
     END-IF
-    MOVE LifePickedUpLayerInterfaceFactory-jcell-pickedUpLayerInterfaceFactoryInterface TO J-RESULT
+    MOVE LifePickedUpLayerInt-jcell-pickedUpLayerInterfaceFa18837 TO J-RESULT
     GOBACK.
 END FUNCTION LfPckdUpLyrIntrfcFctry-s10529.
 
@@ -43,13 +43,13 @@ REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 LifePickedUpLayerInterfaceFactory-jcell-pickedUpLayerInterfaceFactoryInterface BINARY-DOUBLE EXTERNAL.
+01 LifePickedUpLayerInt-jcell-pickedUpLayerInterfaceFa18837 BINARY-DOUBLE EXTERNAL.
 LINKAGE SECTION.
 01 J-VALUE BINARY-DOUBLE.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
     MOVE FUNCTION LfPckdUpLyrIntrfcFctry-s10529 TO J-RESULT
-    MOVE J-VALUE TO LifePickedUpLayerInterfaceFactory-jcell-pickedUpLayerInterfaceFactoryInterface
+    MOVE J-VALUE TO LifePickedUpLayerInt-jcell-pickedUpLayerInterfaceFa18837
     MOVE J-VALUE TO J-RESULT
     GOBACK.
 END FUNCTION LfPckdUpLyrIntrfcFctS19785.
@@ -164,6 +164,21 @@ PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
 END FUNCTION LfPckdUpLyrIntrfcFctry-gtTtl0.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VLifePickedUpLayerIn-getTotal0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION LfPckdUpLyrIntrfcFctry-gtTtl0(J-THIS)
+    GOBACK.
+END PROGRAM VLifePickedUpLayerIn-getTotal0.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. LfPckdUpLyrIntrfcFctry-gt25603.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -217,4 +232,30 @@ PROCEDURE DIVISION USING J-THIS J-sourceLayerInterface RETURNING J-RESULT.
         COMPUTE JDISCARD = FUNCTION LfLyrCrclrSttcPl-visit1(FUNCTION JR-GET(J-THIS, "f_pool"), J-sourceLayerInterface)
     GOBACK.
 END FUNCTION LfPckdUpLyrIntrfcFctry-prcss1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VLifePickedUpLayerInt-process1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-sourceLayerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-sourceLayerInterface J-RESULT.
+    COMPUTE J-RESULT = FUNCTION LfPckdUpLyrIntrfcFctry-prcss1(J-THIS, J-sourceLayerInterface)
+    GOBACK.
+END PROGRAM VLifePickedUpLayerInt-process1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. LifePickedUpLayerInterf-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "PickedUpLayerInterfaceFactory" TO J-CLASS
+    GOBACK.
+END PROGRAM LifePickedUpLayerInterf-jsuper.
 

@@ -35,3 +35,13 @@ PROCEDURE DIVISION USING J-uniformBlockArray J-uniformArray J-attributeArray J-a
     GOBACK.
 END FUNCTION SmplCmpstShdrUpdtr-new4.
 
+IDENTIFICATION DIVISION.
+PROGRAM-ID. SimpleCompositeShaderUp-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "CompositeShaderUpdater" TO J-CLASS
+    GOBACK.
+END PROGRAM SimpleCompositeShaderUp-jsuper.
+

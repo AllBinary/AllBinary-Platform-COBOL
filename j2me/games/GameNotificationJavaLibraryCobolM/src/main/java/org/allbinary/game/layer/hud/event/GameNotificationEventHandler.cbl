@@ -117,12 +117,27 @@ PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
             COMPUTE jtemp1 = 0
             COMPUTE J-eventListenerInterface = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), jtemp1)
         END-IF
-        COMPUTE JDISCARD = FUNCTION BscEvntHndlr-rmvAllLstnrs0(J-THIS)
+        COMPUTE JDISCARD = FUNCTION BscEvntHndlr-rmvAllLstnrs0J(J-THIS)
         IF (J-eventListenerInterface NOT = FUNCTION NllEvntLstnr-sttc-NULL50885)
             COMPUTE JDISCARD = FUNCTION BscEvntHndlr-addLstnrIntrfc1(J-THIS, J-eventListenerInterface)
         END-IF
     GOBACK.
 END FUNCTION GmNtfctnEvntHndlr-rmvAllL40116.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VGameNotif-removeAllListeners0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION GmNtfctnEvntHndlr-rmvAllL40116(J-THIS)
+    GOBACK.
+END PROGRAM VGameNotif-removeAllListeners0.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. GmNtfctnEvntHndlr-getInstance0.
@@ -186,4 +201,31 @@ PROCEDURE DIVISION USING J-THIS J-eventObject J-eventListenerInterface RETURNING
         COMPUTE JDISCARD = FUNCTION GmNtfctnLstnrIntrfc-onGmN90959(J-gameNotificationListenerInterface, jtemp2)
     GOBACK.
 END FUNCTION GmNtfctnEvntHndlr-process2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VGameNotificationEven-process2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-eventListenerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject J-eventListenerInterface J-RESULT.
+    COMPUTE J-RESULT = FUNCTION GmNtfctnEvntHndlr-process2(J-THIS, J-eventObject, J-eventListenerInterface)
+    GOBACK.
+END PROGRAM VGameNotificationEven-process2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. GameNotificationEventHa-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "BasicEventHandler" TO J-CLASS
+    GOBACK.
+END PROGRAM GameNotificationEventHa-jsuper.
 

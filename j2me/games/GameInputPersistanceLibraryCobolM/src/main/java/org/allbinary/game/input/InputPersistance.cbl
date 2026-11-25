@@ -172,6 +172,22 @@ PROCEDURE DIVISION USING J-THIS J-abeClientInformation RETURNING J-RESULT.
 END FUNCTION InputPersistance-loadAll1.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VInputPersistance-loadAll1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-abeClientInformation BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-abeClientInformation J-RESULT.
+    COMPUTE J-RESULT = FUNCTION InputPersistance-loadAll1(J-THIS, J-abeClientInformation)
+    GOBACK.
+END PROGRAM VInputPersistance-loadAll1.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. InputPersistance-save2.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -213,8 +229,8 @@ LOCAL-STORAGE SECTION.
 01 jtemp15 BINARY-DOUBLE.
 01 jtemp16 BINARY-DOUBLE.
 01 jtemp17 BINARY-DOUBLE.
-01 JFIRST1 BINARY-DOUBLE.
-01 JFIRST2 BINARY-DOUBLE.
+01 JFIRST-N72087 BINARY-DOUBLE.
+01 JFIRST-N72224 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-abeClientInformation BINARY-DOUBLE.
@@ -242,23 +258,23 @@ PROCEDURE DIVISION USING J-THIS J-abeClientInformation J-hashtable RETURNING J-R
             COMPUTE J-inputObjectArray = FUNCTION HashtableUtil-getKeysAsArray1(FUNCTION JR-GET(J-THIS, "f_hashtableUtil"), J-hashtable)
             COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(J-inputObjectArray)
             COMPUTE J-index = 0
-            MOVE 1 TO JFIRST1
+            MOVE 1 TO JFIRST-N72087
             PERFORM FOREVER
-                IF JFIRST1 = 0
+                IF JFIRST-N72087 = 0
                     COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
                 END-IF
-                MOVE 0 TO JFIRST1
+                MOVE 0 TO JFIRST-N72087
                 IF NOT (J-index < J-size) EXIT PERFORM END-IF
                 COMPUTE J-gameActionInput = FUNCTION JR-ARRAY-GET(J-inputObjectArray, J-index)
                 COMPUTE jtemp14 = FUNCTION JR-ARRAY-GET(J-inputObjectArray, J-index)
                 COMPUTE J-list = FUNCTION Hashtable-get1(J-hashtable, jtemp14)
                 COMPUTE J-index2 = 0
-                MOVE 1 TO JFIRST2
+                MOVE 1 TO JFIRST-N72224
                 PERFORM FOREVER
-                    IF JFIRST2 = 0
+                    IF JFIRST-N72224 = 0
                         COMPUTE J-index2 = (FUNCTION MOD(J-index2 + 1 + 2147483648, 4294967296) - 2147483648)
                     END-IF
-                    MOVE 0 TO JFIRST2
+                    MOVE 0 TO JFIRST-N72224
                     IF NOT (J-index2 < FUNCTION BasicArrayList-size0(J-list)) EXIT PERFORM END-IF
                     COMPUTE jtemp15 = FUNCTION SmllIntgrSngltnFctry-getAt1(J-smallIntegerSingletonFactory, FUNCTION Input-getId0(J-gameActionInput))
                     COMPUTE J-gameActionInputIdAsString = FUNCTION JR-TO-STRING(jtemp15)
@@ -279,4 +295,31 @@ PROCEDURE DIVISION USING J-THIS J-abeClientInformation J-hashtable RETURNING J-R
             END-IF
     GOBACK.
 END FUNCTION InputPersistance-save2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VInputPersistance-save2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-abeClientInformation BINARY-DOUBLE.
+01 J-hashtable BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-abeClientInformation J-hashtable J-RESULT.
+    COMPUTE J-RESULT = FUNCTION InputPersistance-save2(J-THIS, J-abeClientInformation, J-hashtable)
+    GOBACK.
+END PROGRAM VInputPersistance-save2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. InputPersistance-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "BasicPersitance" TO J-CLASS
+    GOBACK.
+END PROGRAM InputPersistance-jsuper.
 

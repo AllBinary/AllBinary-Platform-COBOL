@@ -147,9 +147,9 @@ LOCAL-STORAGE SECTION.
 01 jtemp2 BINARY-DOUBLE.
 01 jtemp3 BINARY-DOUBLE.
 01 jtemp4 BINARY-DOUBLE.
-01 JFIRST1 BINARY-DOUBLE.
-01 JFIRST2 BINARY-DOUBLE.
-01 JFIRST3 BINARY-DOUBLE.
+01 JFIRST-N67433 BINARY-DOUBLE.
+01 JFIRST-N67551 BINARY-DOUBLE.
+01 JFIRST-N67820 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-points BINARY-DOUBLE.
@@ -165,23 +165,23 @@ PROCEDURE DIVISION USING J-THIS J-points J-width RETURNING J-RESULT.
             COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(J-points)
             COMPUTE J-pointsBasicArrayList = FUNCTION BasicArrayListS-new1(J-size)
             COMPUTE J-frame = 0
-            MOVE 1 TO JFIRST1
+            MOVE 1 TO JFIRST-N67433
             PERFORM FOREVER
-                IF JFIRST1 = 0
+                IF JFIRST-N67433 = 0
                     COMPUTE J-frame = (FUNCTION MOD(J-frame + 1 + 2147483648, 4294967296) - 2147483648)
                 END-IF
-                MOVE 0 TO JFIRST1
+                MOVE 0 TO JFIRST-N67433
                 IF NOT (J-frame < J-size) EXIT PERFORM END-IF
                 COMPUTE J-nextPoints = FUNCTION JR-ARRAY-GET(J-points, J-frame)
                 COMPUTE J-size2 = FUNCTION JR-ARRAY-LENGTH(J-nextPoints)
                 COMPUTE J-pointBasicArrayList = FUNCTION BasicArrayListS-new1(J-size2)
                 COMPUTE J-index = 0
-                MOVE 1 TO JFIRST2
+                MOVE 1 TO JFIRST-N67551
                 PERFORM FOREVER
-                    IF JFIRST2 = 0
+                    IF JFIRST-N67551 = 0
                         COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
                     END-IF
-                    MOVE 0 TO JFIRST2
+                    MOVE 0 TO JFIRST-N67551
                     IF NOT (J-index < J-size2) EXIT PERFORM END-IF
                     COMPUTE jtemp1 = 0
                     COMPUTE jtemp2 = 1
@@ -191,12 +191,12 @@ PROCEDURE DIVISION USING J-THIS J-points J-width RETURNING J-RESULT.
                 COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-pointsBasicArrayList, J-pointBasicArrayList)
             END-PERFORM
             COMPUTE J-index = 0
-            MOVE 1 TO JFIRST3
+            MOVE 1 TO JFIRST-N67820
             PERFORM FOREVER
-                IF JFIRST3 = 0
+                IF JFIRST-N67820 = 0
                     COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
                 END-IF
-                MOVE 0 TO JFIRST3
+                MOVE 0 TO JFIRST-N67820
                 IF NOT (J-index < FUNCTION JR-ARRAY-LENGTH(J-points)) EXIT PERFORM END-IF
                 COMPUTE jtemp3 = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-pointsBasicArrayList, "f_objectArray"), J-index)
                 COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-pointsBasicArrayList, FUNCTION VctrMrrrGnrtr-getInstance2b(J-THIS, jtemp3, J-width))
@@ -206,6 +206,23 @@ PROCEDURE DIVISION USING J-THIS J-points J-width RETURNING J-RESULT.
             GOBACK
     GOBACK.
 END FUNCTION VctrMrrrGnrtr-getInstance2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VVectorMirrorGene-getInstance2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-points BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-points J-width J-RESULT.
+    COMPUTE J-RESULT = FUNCTION VctrMrrrGnrtr-getInstance2(J-THIS, J-points, J-width)
+    GOBACK.
+END PROGRAM VVectorMirrorGene-getInstance2.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. VctrMrrrGnrtr-getInstance2b.
@@ -240,4 +257,31 @@ PROCEDURE DIVISION USING J-THIS J-pointBasicArrayList J-width RETURNING J-RESULT
         GOBACK
     GOBACK.
 END FUNCTION VctrMrrrGnrtr-getInstance2b.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VVectorMirrorGen-getInstance2b.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-pointBasicArrayList BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-pointBasicArrayList J-width J-RESULT.
+    COMPUTE J-RESULT = FUNCTION VctrMrrrGnrtr-getInstance2b(J-THIS, J-pointBasicArrayList, J-width)
+    GOBACK.
+END PROGRAM VVectorMirrorGen-getInstance2b.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VectorMirrorGenerator-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM VectorMirrorGenerator-jsuper.
 

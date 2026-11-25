@@ -60,8 +60,8 @@ LOCAL-STORAGE SECTION.
 01 J-numberOnSameTeam BINARY-DOUBLE.
 01 jtemp1 BINARY-DOUBLE.
 01 jtemp2 BINARY-DOUBLE.
-01 JFIRST1 BINARY-DOUBLE.
-01 JFIRST2 BINARY-DOUBLE.
+01 JFIRST-N68235 BINARY-DOUBLE.
+01 JFIRST-N68999 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-hashtable BINARY-DOUBLE.
@@ -75,12 +75,12 @@ PROCEDURE DIVISION USING J-THIS J-hashtable J-artificialIntelligenceInterface J-
         COMPUTE J-integerArray = FUNCTION JR-GET(jtemp1, "f_NUMBER_ON_SAME_TEAM_SEQUENCE")
         COMPUTE J-list = FUNCTION BasicArrayListD-new0
         COMPUTE J-index = 0
-        MOVE 1 TO JFIRST1
+        MOVE 1 TO JFIRST-N68235
         PERFORM FOREVER
-            IF JFIRST1 = 0
+            IF JFIRST-N68235 = 0
                 COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
             END-IF
-            MOVE 0 TO JFIRST1
+            MOVE 0 TO JFIRST-N68235
             IF NOT (J-index < FUNCTION JR-ARRAY-LENGTH(J-integerArray)) EXIT PERFORM END-IF
             COMPUTE jtemp2 = FUNCTION JR-ARRAY-GET(J-integerArray, J-index)
             COMPUTE J-integerCanBeNull = FUNCTION Hashtable-get1(J-hashtable, jtemp2)
@@ -105,12 +105,12 @@ PROCEDURE DIVISION USING J-THIS J-hashtable J-artificialIntelligenceInterface J-
         END-IF
         COMPUTE J-numberOnSameTeam = FUNCTION JR-NEW-ARRAY(FUNCTION BasicArrayList-size0(J-list))
         COMPUTE J-index = 0
-        MOVE 1 TO JFIRST2
+        MOVE 1 TO JFIRST-N68999
         PERFORM FOREVER
-            IF JFIRST2 = 0
+            IF JFIRST-N68999 = 0
                 COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
             END-IF
-            MOVE 0 TO JFIRST2
+            MOVE 0 TO JFIRST-N68999
             IF NOT (J-index < FUNCTION JR-ARRAY-LENGTH(J-numberOnSameTeam)) EXIT PERFORM END-IF
             COMPUTE JVALUE = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
             COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-numberOnSameTeam, J-index, JVALUE)
@@ -119,4 +119,33 @@ PROCEDURE DIVISION USING J-THIS J-hashtable J-artificialIntelligenceInterface J-
         GOBACK
     GOBACK.
 END FUNCTION NmbrOnOwnGrpSqncAIFctry-g20269.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VNumberOnOwnGroup-getInstance4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-hashtable BINARY-DOUBLE.
+01 J-artificialIntelligenceInterface BINARY-DOUBLE.
+01 J-ownerLayerInterface BINARY-DOUBLE.
+01 J-gameInput BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-hashtable J-artificialIntelligenceInterface J-ownerLayerInterface J-gameInput J-RESULT.
+    COMPUTE J-RESULT = FUNCTION NmbrOnOwnGrpSqncAIFctry-g20269(J-THIS, J-hashtable, J-artificialIntelligenceInterface, J-ownerLayerInterface, J-gameInput)
+    GOBACK.
+END PROGRAM VNumberOnOwnGroup-getInstance4.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. NumberOnOwnGroupSequenc-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM NumberOnOwnGroupSequenc-jsuper.
 

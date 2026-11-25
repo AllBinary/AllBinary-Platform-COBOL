@@ -77,6 +77,55 @@ CONFIGURATION SECTION.
 REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
+LOCAL-STORAGE SECTION.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-key BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-key RETURNING J-RESULT.
+    MOVE 0 TO JV-DONE
+    MOVE "CommandFormInputProcessor" TO JV-CLASS
+    IF J-THIS NOT = 0
+        MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    END-IF
+    PERFORM UNTIL JV-DONE = 1
+        IF JV-CLASS = "CommandFormInputProcessor"
+            COMPUTE J-RESULT = FUNCTION CmmndFrmInptPrcssr-prcssInpt1J(J-THIS, J-key)
+            MOVE 1 TO JV-DONE
+        ELSE
+            MOVE SPACES TO JV-NAME
+            STRING "V" DELIMITED BY SIZE JV-CLASS(1:15) DELIMITED BY SPACE "-processInput1" DELIMITED BY SIZE INTO JV-NAME
+            CALL JV-NAME USING J-THIS J-key J-RESULT
+                ON EXCEPTION
+                    MOVE SPACES TO JV-NAME
+                    STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                    CALL JV-NAME USING JV-CLASS
+                        ON EXCEPTION
+                            MOVE "CommandFormInputProcessor" TO JV-CLASS
+                    END-CALL
+                    IF JV-CLASS = "Object"
+                        MOVE "CommandFormInputProcessor" TO JV-CLASS
+                    END-IF
+                NOT ON EXCEPTION
+                    MOVE 1 TO JV-DONE
+            END-CALL
+        END-IF
+    END-PERFORM
+    GOBACK.
+END FUNCTION CmmndFrmInptPrcssr-prcssInpt1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmmndFrmInptPrcssr-prcssInpt1J.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -98,14 +147,14 @@ PROCEDURE DIVISION USING J-THIS J-key RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
         IF ((((J-key = FUNCTION Canvas-static-LEFT) OR (J-key = FUNCTION Canvas-static-RIGHT)) OR (J-key = FUNCTION Canvas-static-UP)) OR (J-key = FUNCTION Canvas-static-DOWN))
             COMPUTE jtemp4 = FUNCTION PrmryPlyrQFctry-getInstance0
-            COMPUTE JDISCARD = FUNCTION PrimaryPlayerQueueFactory-add1(jtemp4, FUNCTION SelectSound-getInstance0)
+            COMPUTE JDISCARD = FUNCTION PlayerQueue-add1(jtemp4, FUNCTION SelectSound-getInstance0)
             COMPUTE JDISCARD = FUNCTION ScrllSlctnFrm-processInputKey1(FUNCTION JR-GET(J-THIS, "f_form"), J-key)
             COMPUTE J-RESULT = 1
             GOBACK
         ELSE
             IF (J-key = FUNCTION Canvas-static-FIRE)
             COMPUTE jtemp3 = FUNCTION PrmryPlyrQFctry-getInstance0
-            COMPUTE JDISCARD = FUNCTION PrimaryPlayerQueueFactory-add1(jtemp3, FUNCTION SelectSound-getInstance0)
+            COMPUTE JDISCARD = FUNCTION PlayerQueue-add1(jtemp3, FUNCTION SelectSound-getInstance0)
             COMPUTE J-RESULT = FUNCTION CmmndFrmInptPrcssr-prcssCmmnd0(J-THIS)
             GOBACK
         END-IF
@@ -113,7 +162,23 @@ PROCEDURE DIVISION USING J-THIS J-key RETURNING J-RESULT.
         COMPUTE J-RESULT = 0
         GOBACK
     GOBACK.
-END FUNCTION CmmndFrmInptPrcssr-prcssInpt1.
+END FUNCTION CmmndFrmInptPrcssr-prcssInpt1J.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VCommandFormInpu-processInput1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-key BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-key J-RESULT.
+    COMPUTE J-RESULT = FUNCTION CmmndFrmInptPrcssr-prcssInpt1J(J-THIS, J-key)
+    GOBACK.
+END PROGRAM VCommandFormInpu-processInput1.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. CmmndFrmInptPrcssr-prcssCmmnd0.
@@ -157,7 +222,7 @@ PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
             COMPUTE JDISCARD = FUNCTION CommandRunnable-run0(jtemp7)
         ELSE
             COMPUTE jtemp6 = FUNCTION PrimaryThreadPool-getInstance0
-            COMPUTE JDISCARD = FUNCTION PrimaryThreadPool-runTask1(jtemp6, FUNCTION CommandRunnable-new2(J-THIS, J-command))
+            COMPUTE JDISCARD = FUNCTION ThreadPool-runTask1(jtemp6, FUNCTION CommandRunnable-new2(J-THIS, J-command))
         END-IF
         COMPUTE jtemp8 = FUNCTION GmCmmndsFctry-getInstance0
         IF (J-command = FUNCTION JR-GET(jtemp8, "f_QUIT_COMMAND"))
@@ -169,6 +234,21 @@ PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
         END-IF
     GOBACK.
 END FUNCTION CmmndFrmInptPrcssr-prcssCmmnd0.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VCommandFormIn-processCommand0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION CmmndFrmInptPrcssr-prcssCmmnd0(J-THIS)
+    GOBACK.
+END PROGRAM VCommandFormIn-processCommand0.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. CmmndFrmInptPrcssr-prcssI61415.
@@ -194,7 +274,7 @@ LOCAL-STORAGE SECTION.
 01 J-key BINARY-DOUBLE.
 01 J-gameKeyEvent BINARY-DOUBLE.
 01 J-index BINARY-DOUBLE.
-01 JFIRST1 BINARY-DOUBLE.
+01 JFIRST-N74928 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-RESULT BINARY-DOUBLE.
@@ -207,12 +287,12 @@ PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
             COMPUTE J-key = 0
             CONTINUE
             COMPUTE J-index = 0
-            MOVE 1 TO JFIRST1
+            MOVE 1 TO JFIRST-N74928
             PERFORM FOREVER
-                IF JFIRST1 = 0
+                IF JFIRST-N74928 = 0
                     COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
                 END-IF
-                MOVE 0 TO JFIRST1
+                MOVE 0 TO JFIRST-N74928
                 IF NOT (J-index < J-size) EXIT PERFORM END-IF
                 COMPUTE J-gameKeyEvent = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
                 COMPUTE J-key = FUNCTION GameKeyEvent-getKey0(J-gameKeyEvent)
@@ -232,6 +312,21 @@ PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
             END-IF
     GOBACK.
 END FUNCTION CmmndFrmInptPrcssr-prcssI61415.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VCommandForm-processInputList0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION CmmndFrmInptPrcssr-prcssI61415(J-THIS)
+    GOBACK.
+END PROGRAM VCommandForm-processInputList0.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. CmmndFrmInptPrcssr-prcssM69289.
@@ -270,7 +365,71 @@ PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
 END FUNCTION CmmndFrmInptPrcssr-prcssM69289.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VCommandF-processMotionInputs0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION CmmndFrmInptPrcssr-prcssM69289(J-THIS)
+    GOBACK.
+END PROGRAM VCommandF-processMotionInputs0.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. CmmndFrmInptPrcssr-prcssM17676.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
+LOCAL-STORAGE SECTION.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-motionGestureEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-motionGestureEvent RETURNING J-RESULT.
+    MOVE 0 TO JV-DONE
+    MOVE "CommandFormInputProcessor" TO JV-CLASS
+    IF J-THIS NOT = 0
+        MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    END-IF
+    PERFORM UNTIL JV-DONE = 1
+        IF JV-CLASS = "CommandFormInputProcessor"
+            COMPUTE J-RESULT = FUNCTION CmmndFrmInptPrcssr-prcssM69849(J-THIS, J-motionGestureEvent)
+            MOVE 1 TO JV-DONE
+        ELSE
+            MOVE SPACES TO JV-NAME
+            STRING "V" DELIMITED BY SIZE JV-CLASS(1:9) DELIMITED BY SPACE "-processMotionInput1" DELIMITED BY SIZE INTO JV-NAME
+            CALL JV-NAME USING J-THIS J-motionGestureEvent J-RESULT
+                ON EXCEPTION
+                    MOVE SPACES TO JV-NAME
+                    STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                    CALL JV-NAME USING JV-CLASS
+                        ON EXCEPTION
+                            MOVE "CommandFormInputProcessor" TO JV-CLASS
+                    END-CALL
+                    IF JV-CLASS = "Object"
+                        MOVE "CommandFormInputProcessor" TO JV-CLASS
+                    END-IF
+                NOT ON EXCEPTION
+                    MOVE 1 TO JV-DONE
+            END-CALL
+        END-IF
+    END-PERFORM
+    GOBACK.
+END FUNCTION CmmndFrmInptPrcssr-prcssM17676.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. CmmndFrmInptPrcssr-prcssM69849.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
 REPOSITORY.
@@ -306,7 +465,7 @@ PROCEDURE DIVISION USING J-THIS J-motionGestureEvent RETURNING J-RESULT.
                 COMPUTE J-index = FUNCTION ScrllSlctnFrm-gtSlctdIndx57022(FUNCTION JR-GET(J-THIS, "f_form"), J-point)
                 IF (J-index NOT = (0 - 1))
                     COMPUTE jtemp9 = FUNCTION PrmryPlyrQFctry-getInstance0
-                    COMPUTE JDISCARD = FUNCTION PrimaryPlayerQueueFactory-add1(jtemp9, FUNCTION SelectSound-getInstance0)
+                    COMPUTE JDISCARD = FUNCTION PlayerQueue-add1(jtemp9, FUNCTION SelectSound-getInstance0)
                     IF (J-index = FUNCTION ABCustomForm-getSelectedIndex0(FUNCTION JR-GET(J-THIS, "f_form")))
                         IF (FUNCTION TimeDelayHelper-isTimeTNT0(FUNCTION JR-GET(J-THIS, "f_clickTimeHelper")) = 1)
                             COMPUTE JDISCARD = FUNCTION CmmndFrmInptPrcssr-prcssCmmnd0(J-THIS)
@@ -338,7 +497,23 @@ PROCEDURE DIVISION USING J-THIS J-motionGestureEvent RETURNING J-RESULT.
         END-IF
         END-IF
     GOBACK.
-END FUNCTION CmmndFrmInptPrcssr-prcssM17676.
+END FUNCTION CmmndFrmInptPrcssr-prcssM69849.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VCommandFo-processMotionInput1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-motionGestureEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-motionGestureEvent J-RESULT.
+    COMPUTE J-RESULT = FUNCTION CmmndFrmInptPrcssr-prcssM69849(J-THIS, J-motionGestureEvent)
+    GOBACK.
+END PROGRAM VCommandFo-processMotionInput1.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. CmmndFrmInptPrcssr-toString0.
@@ -368,13 +543,28 @@ LINKAGE SECTION.
 PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
         COMPUTE jtemp13 = FUNCTION StringMaker-new0
-        COMPUTE jtemp12 = FUNCTION StringMaker-append1(jtemp13, FUNCTION GameInput-toString0(J-THIS))
+        COMPUTE jtemp12 = FUNCTION StringMaker-append1(jtemp13, FUNCTION JR-CLASS-NAME(J-THIS))
         COMPUTE jtemp11 = FUNCTION StringMaker-append1(jtemp12, FUNCTION JR-GET(J-THIS, "f_NAME_LABEL"))
         COMPUTE jtemp10 = FUNCTION StringMaker-append1(jtemp11, FUNCTION JR-TO-STRING(FUNCTION JR-GET(J-THIS, "f_form")))
         COMPUTE J-RESULT = FUNCTION JR-TO-STRING(jtemp10)
         GOBACK
     GOBACK.
 END FUNCTION CmmndFrmInptPrcssr-toString0.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VCommandFormInputPro-toString0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION CmmndFrmInptPrcssr-toString0(J-THIS)
+    GOBACK.
+END PROGRAM VCommandFormInputPro-toString0.
 
 IDENTIFICATION DIVISION.
 PROGRAM-ID. CommandFormInputProce-toString.
@@ -390,4 +580,14 @@ PROCEDURE DIVISION USING J-THIS J-RESULT.
     COMPUTE J-RESULT = FUNCTION CmmndFrmInptPrcssr-toString0(J-THIS)
     GOBACK.
 END PROGRAM CommandFormInputProce-toString.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. CommandFormInputProcess-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "BasicMenuInputProcessor" TO J-CLASS
+    GOBACK.
+END PROGRAM CommandFormInputProcess-jsuper.
 

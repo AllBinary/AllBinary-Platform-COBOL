@@ -52,7 +52,7 @@ LOCAL-STORAGE SECTION.
 01 J-analogLocationInput BINARY-DOUBLE.
 01 J-index BINARY-DOUBLE.
 01 jtemp1 BINARY-DOUBLE.
-01 JFIRST1 BINARY-DOUBLE.
+01 JFIRST-N67692 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-allbinaryLayerManager BINARY-DOUBLE.
@@ -64,16 +64,43 @@ PROCEDURE DIVISION USING J-THIS J-allbinaryLayerManager J-analogLocationInputPro
         COMPUTE J-analogLocationInputList = FUNCTION AnlgLctnInptFctry-getList0(jtemp1)
         CONTINUE
         COMPUTE J-index = (FUNCTION MOD((FUNCTION BasicArrayList-size0(J-analogLocationInputList) - 1) + 2147483648, 4294967296) - 2147483648)
-        MOVE 1 TO JFIRST1
+        MOVE 1 TO JFIRST-N67692
         PERFORM FOREVER
-            IF JFIRST1 = 0
+            IF JFIRST-N67692 = 0
                 COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
             END-IF
-            MOVE 0 TO JFIRST1
+            MOVE 0 TO JFIRST-N67692
             IF NOT (J-index >= 0) EXIT PERFORM END-IF
             COMPUTE J-analogLocationInput = FUNCTION BasicArrayList-get1(J-analogLocationInputList, J-index)
             COMPUTE JDISCARD = FUNCTION AnlgLctnInptPrcssr-process2(J-analogLocationInputProcessor, J-allbinaryLayerManager, J-analogLocationInput)
         END-PERFORM
     GOBACK.
 END FUNCTION AllAnlgCntrllrVstr-process2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VAllAnalogControllerV-process2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allbinaryLayerManager BINARY-DOUBLE.
+01 J-analogLocationInputProcessor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allbinaryLayerManager J-analogLocationInputProcessor J-RESULT.
+    COMPUTE J-RESULT = FUNCTION AllAnlgCntrllrVstr-process2(J-THIS, J-allbinaryLayerManager, J-analogLocationInputProcessor)
+    GOBACK.
+END PROGRAM VAllAnalogControllerV-process2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. AllAnalogControllerVisi-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "AnalogControllerVisitor" TO J-CLASS
+    GOBACK.
+END PROGRAM AllAnalogControllerVisi-jsuper.
 

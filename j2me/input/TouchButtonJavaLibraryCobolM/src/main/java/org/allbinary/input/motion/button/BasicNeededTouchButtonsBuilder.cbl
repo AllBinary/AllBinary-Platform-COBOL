@@ -56,10 +56,10 @@ LOCAL-STORAGE SECTION.
 01 J-basicTouchButtonCellPositionFactory BINARY-DOUBLE.
 01 J-commonButtons BINARY-DOUBLE.
 01 J-animationInterface BINARY-DOUBLE.
-01 J-UP BINARY-DOUBLE.
-01 J-DOWN BINARY-DOUBLE.
-01 J-LEFT BINARY-DOUBLE.
-01 J-RIGHT BINARY-DOUBLE.
+01 J-UP-C BINARY-DOUBLE.
+01 J-DOWN-C BINARY-DOUBLE.
+01 J-LEFT-C BINARY-DOUBLE.
+01 J-RIGHT-C BINARY-DOUBLE.
 01 jtemp1 BINARY-DOUBLE.
 01 jtemp2 BINARY-DOUBLE.
 01 jtemp3 BINARY-DOUBLE.
@@ -83,23 +83,48 @@ PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
             COMPUTE jtemp1 = FUNCTION NllAnmtnFctry-gtFctryInstnc0
             COMPUTE J-animationInterface = FUNCTION JR-CLASS-NAME(jtemp1)
             COMPUTE jtemp3 = FUNCTION BscTchInptFctry-getInstance0
-            COMPUTE J-UP = FUNCTION TouchButton-new7(FUNCTION JR-GET(jtemp3, "f_UP"), J-animationInterface, J-animationInterface, FUNCTION JR-GET(J-commonButtons, "f_NORMAL_BUTTON"), FUNCTION JR-GET(J-basicTouchButtonCellPositionFactory,
+            COMPUTE J-UP-C = FUNCTION TouchButton-new7(FUNCTION JR-GET(jtemp3, "f_UP"), J-animationInterface, J-animationInterface, FUNCTION JR-GET(J-commonButtons, "f_NORMAL_BUTTON"), FUNCTION JR-GET(J-basicTouchButtonCellPositionFactory,
         "f_SECOND_FROM_BOTTOM_LEFT"), FUNCTION TchBttnLctnHlpr-gtClmnsRm39318(J-touchButtonLocationHelper), FUNCTION TchBttnLctnHlpr-gtRwsRmndrHlf0(J-touchButtonLocationHelper))
             COMPUTE jtemp4 = FUNCTION BscTchInptFctry-getInstance0
-            COMPUTE J-DOWN = FUNCTION TouchButton-new7(FUNCTION JR-GET(jtemp4, "f_DOWN"), J-animationInterface, J-animationInterface, FUNCTION JR-GET(J-commonButtons, "f_NORMAL_BUTTON"), FUNCTION
+            COMPUTE J-DOWN-C = FUNCTION TouchButton-new7(FUNCTION JR-GET(jtemp4, "f_DOWN"), J-animationInterface, J-animationInterface, FUNCTION JR-GET(J-commonButtons, "f_NORMAL_BUTTON"), FUNCTION
         JR-GET(J-basicTouchButtonCellPositionFactory, "f_BOTTOM_LEFT"), FUNCTION TchBttnLctnHlpr-gtClmnsRm39318(J-touchButtonLocationHelper), FUNCTION TchBttnLctnHlpr-gtRwsRmndrHlf0(J-touchButtonLocationHelper))
             COMPUTE jtemp5 = FUNCTION BscTchInptFctry-getInstance0
-            COMPUTE J-LEFT = FUNCTION TouchButton-new7(FUNCTION JR-GET(jtemp5, "f_LEFT"), J-animationInterface, J-animationInterface, FUNCTION JR-GET(J-commonButtons, "f_NORMAL_BUTTON"), FUNCTION
+            COMPUTE J-LEFT-C = FUNCTION TouchButton-new7(FUNCTION JR-GET(jtemp5, "f_LEFT"), J-animationInterface, J-animationInterface, FUNCTION JR-GET(J-commonButtons, "f_NORMAL_BUTTON"), FUNCTION
         JR-GET(J-basicTouchButtonCellPositionFactory, "f_BOTTOM_SECOND_FROM_RIGHT"), FUNCTION TchBttnLctnHlpr-gtClmnsRm39318(J-touchButtonLocationHelper), FUNCTION TchBttnLctnHlpr-gtRwsRmndrHlf0(J-touchButtonLocationHelper))
             COMPUTE jtemp6 = FUNCTION BscTchInptFctry-getInstance0
-            COMPUTE J-RIGHT = FUNCTION TouchButton-new7(FUNCTION JR-GET(jtemp6, "f_RIGHT"), J-animationInterface, J-animationInterface, FUNCTION JR-GET(J-commonButtons, "f_NORMAL_BUTTON"), FUNCTION
+            COMPUTE J-RIGHT-C = FUNCTION TouchButton-new7(FUNCTION JR-GET(jtemp6, "f_RIGHT"), J-animationInterface, J-animationInterface, FUNCTION JR-GET(J-commonButtons, "f_NORMAL_BUTTON"), FUNCTION
         JR-GET(J-basicTouchButtonCellPositionFactory, "f_BOTTOM_RIGHT"), FUNCTION TchBttnLctnHlpr-gtClmnsRm39318(J-touchButtonLocationHelper), FUNCTION TchBttnLctnHlpr-gtRwsRmndrHlf0(J-touchButtonLocationHelper))
-            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-list, J-UP)
-            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-list, J-DOWN)
-            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-list, J-LEFT)
-            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-list, J-RIGHT)
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-list, J-UP-C)
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-list, J-DOWN-C)
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-list, J-LEFT-C)
+            COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-list, J-RIGHT-C)
             COMPUTE J-RESULT = J-list
             GOBACK
     GOBACK.
 END FUNCTION BscNddTchBttnsBldr-getList0.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VBasicNeededTouchButt-getList0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION BscNddTchBttnsBldr-getList0(J-THIS)
+    GOBACK.
+END PROGRAM VBasicNeededTouchButt-getList0.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. BasicNeededTouchButtons-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "BaseTouchInput" TO J-CLASS
+    GOBACK.
+END PROGRAM BasicNeededTouchButtons-jsuper.
 

@@ -147,11 +147,26 @@ LINKAGE SECTION.
 PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
         COMPUTE jtemp6 = FUNCTION PrmryPlyrQFctry-getInstance0
-        COMPUTE JDISCARD = FUNCTION PrimaryPlayerQueueFactory-add1(jtemp6, FUNCTION ErrorSound-getInstance0)
+        COMPUTE JDISCARD = FUNCTION PlayerQueue-add1(jtemp6, FUNCTION ErrorSound-getInstance0)
         COMPUTE jtemp7 = FUNCTION GmNtfctnEvntHndlr-getInstance0
         COMPUTE JDISCARD = FUNCTION BasicEventHandler-fireEvent1(jtemp7, FUNCTION JR-GET(J-THIS, "f_gameNotificationEvent"))
     GOBACK.
 END FUNCTION LckdFtrNtfctnUtl-fire0.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VLockedFeatureNotificati-fire0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION LckdFtrNtfctnUtl-fire0(J-THIS)
+    GOBACK.
+END PROGRAM VLockedFeatureNotificati-fire0.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. LckdFtrNtfctnUtl-frWthClr1.
@@ -180,10 +195,36 @@ LINKAGE SECTION.
 PROCEDURE DIVISION USING J-THIS J-basicColor RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
         COMPUTE jtemp8 = FUNCTION PrmryPlyrQFctry-getInstance0
-        COMPUTE JDISCARD = FUNCTION PrimaryPlayerQueueFactory-add1(jtemp8, FUNCTION ErrorSound-getInstance0)
+        COMPUTE JDISCARD = FUNCTION PlayerQueue-add1(jtemp8, FUNCTION ErrorSound-getInstance0)
         COMPUTE JDISCARD = FUNCTION GmNtfctnEvnt-setBasicColorP1(FUNCTION JR-GET(J-THIS, "f_gameNotificationEvent"), J-basicColor)
         COMPUTE jtemp9 = FUNCTION GmNtfctnEvntHndlr-getInstance0
         COMPUTE JDISCARD = FUNCTION BasicEventHandler-fireEvent1(jtemp9, FUNCTION JR-GET(J-THIS, "f_gameNotificationEvent"))
     GOBACK.
 END FUNCTION LckdFtrNtfctnUtl-frWthClr1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VLockedFeatureN-fireWithColor1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-basicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-basicColor J-RESULT.
+    COMPUTE J-RESULT = FUNCTION LckdFtrNtfctnUtl-frWthClr1(J-THIS, J-basicColor)
+    GOBACK.
+END PROGRAM VLockedFeatureN-fireWithColor1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. LockedFeatureNotificati-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM LockedFeatureNotificati-jsuper.
 

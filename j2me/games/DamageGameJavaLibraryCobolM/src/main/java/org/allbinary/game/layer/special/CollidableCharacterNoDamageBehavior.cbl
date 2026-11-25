@@ -78,6 +78,23 @@ PROCEDURE DIVISION USING J-THIS J-ownerLayer J-collidableInterfaceCompositeInter
 END FUNCTION ClldblChrctrNDmgBhvr-collide2.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VCollidableCharacterN-collide2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ownerLayer BINARY-DOUBLE.
+01 J-collidableInterfaceCompositeInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ownerLayer J-collidableInterfaceCompositeInterface J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ClldblChrctrNDmgBhvr-collide2(J-THIS, J-ownerLayer, J-collidableInterfaceCompositeInterface)
+    GOBACK.
+END PROGRAM VCollidableCharacterN-collide2.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. ClldblChrctrNDmgBhvr-clld41839.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -105,4 +122,31 @@ PROCEDURE DIVISION USING J-THIS J-ownerLayer J-collidableInterfaceCompositeInter
         COMPUTE JDISCARD = FUNCTION ForcedLogUtil-log2(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_NOT_IMPLEMENTED"), J-THIS)
     GOBACK.
 END FUNCTION ClldblChrctrNDmgBhvr-clld41839.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VCollidableC-collideInterface2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ownerLayer BINARY-DOUBLE.
+01 J-collidableInterfaceCompositeInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ownerLayer J-collidableInterfaceCompositeInterface J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ClldblChrctrNDmgBhvr-clld41839(J-THIS, J-ownerLayer, J-collidableInterfaceCompositeInterface)
+    GOBACK.
+END PROGRAM VCollidableC-collideInterface2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. CollidableCharacterNoDa-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "CollidableDestroyableDamageableBehavior" TO J-CLASS
+    GOBACK.
+END PROGRAM CollidableCharacterNoDa-jsuper.
 

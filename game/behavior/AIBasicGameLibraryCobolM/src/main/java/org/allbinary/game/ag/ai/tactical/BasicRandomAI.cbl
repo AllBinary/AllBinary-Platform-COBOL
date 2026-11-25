@@ -83,7 +83,7 @@ LOCAL-STORAGE SECTION.
 01 jtemp3 BINARY-DOUBLE.
 01 jtemp4 BINARY-DOUBLE.
 01 jtemp5 BINARY-DOUBLE.
-01 JFIRST1 BINARY-DOUBLE.
+01 JFIRST-N70720 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-allBinaryLayerManager BINARY-DOUBLE.
@@ -107,12 +107,12 @@ PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager RETURNING J-RESULT.
                 COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_keyArray"))
                 CONTINUE
                 COMPUTE J-index = 0
-                MOVE 1 TO JFIRST1
+                MOVE 1 TO JFIRST-N70720
                 PERFORM FOREVER
-                    IF JFIRST1 = 0
+                    IF JFIRST-N70720 = 0
                         COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
                     END-IF
-                    MOVE 0 TO JFIRST1
+                    MOVE 0 TO JFIRST-N70720
                     IF NOT (J-index < J-size) EXIT PERFORM END-IF
                     COMPUTE J-key = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_keyArray"), J-index)
                     COMPUTE J-likelyhoodIntegerKeyArray = FUNCTION JR-ARRAY-GET(J-likelyhoodIntegerArray, J-key)
@@ -132,4 +132,30 @@ PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager RETURNING J-RESULT.
         END-IF
     GOBACK.
 END FUNCTION BasicRandomAI-processAI1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VBasicRandomAI-processAI1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryLayerManager BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager J-RESULT.
+    COMPUTE J-RESULT = FUNCTION BasicRandomAI-processAI1(J-THIS, J-allBinaryLayerManager)
+    GOBACK.
+END PROGRAM VBasicRandomAI-processAI1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. BasicRandomAI-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "BasicAI" TO J-CLASS
+    GOBACK.
+END PROGRAM BasicRandomAI-jsuper.
 

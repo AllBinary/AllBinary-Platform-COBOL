@@ -42,6 +42,55 @@ CONFIGURATION SECTION.
 REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
+LOCAL-STORAGE SECTION.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
+    MOVE 0 TO JV-DONE
+    MOVE "ColorFillPaintable" TO JV-CLASS
+    IF J-THIS NOT = 0
+        MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    END-IF
+    PERFORM UNTIL JV-DONE = 1
+        IF JV-CLASS = "ColorFillPaintable"
+            COMPUTE J-RESULT = FUNCTION ColorFillPaintable-paint1J(J-THIS, J-graphics)
+            MOVE 1 TO JV-DONE
+        ELSE
+            MOVE SPACES TO JV-NAME
+            STRING "V" DELIMITED BY SIZE JV-CLASS(1:22) DELIMITED BY SPACE "-paint1" DELIMITED BY SIZE INTO JV-NAME
+            CALL JV-NAME USING J-THIS J-graphics J-RESULT
+                ON EXCEPTION
+                    MOVE SPACES TO JV-NAME
+                    STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                    CALL JV-NAME USING JV-CLASS
+                        ON EXCEPTION
+                            MOVE "ColorFillPaintable" TO JV-CLASS
+                    END-CALL
+                    IF JV-CLASS = "Object"
+                        MOVE "ColorFillPaintable" TO JV-CLASS
+                    END-IF
+                NOT ON EXCEPTION
+                    MOVE 1 TO JV-DONE
+            END-CALL
+        END-IF
+    END-PERFORM
+    GOBACK.
+END FUNCTION ColorFillPaintable-paint1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ColorFillPaintable-paint1J.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -67,5 +116,31 @@ PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
         COMPUTE JDISCARD = FUNCTION Graphics-fillRect4(J-graphics, jtemp1, jtemp2, FUNCTION DsplyInfSngltn-getLastWidth0(FUNCTION JR-GET(J-THIS, "f_displayInfoSingleton")), FUNCTION DsplyInfSngltn-getLastHeight0(FUNCTION JR-GET(J-THIS,
         "f_displayInfoSingleton")))
     GOBACK.
-END FUNCTION ColorFillPaintable-paint1.
+END FUNCTION ColorFillPaintable-paint1J.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VColorFillPaintable-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ColorFillPaintable-paint1J(J-THIS, J-graphics)
+    GOBACK.
+END PROGRAM VColorFillPaintable-paint1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. ColorFillPaintable-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "ColorFillBasePaintable" TO J-CLASS
+    GOBACK.
+END PROGRAM ColorFillPaintable-jsuper.
 

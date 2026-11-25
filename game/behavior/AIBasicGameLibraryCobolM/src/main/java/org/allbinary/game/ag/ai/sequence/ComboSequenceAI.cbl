@@ -55,7 +55,7 @@ LOCAL-STORAGE SECTION.
 01 J-artificialIntelligenceInterfaceArray BINARY-DOUBLE.
 01 J-size BINARY-DOUBLE.
 01 J-index BINARY-DOUBLE.
-01 JFIRST1 BINARY-DOUBLE.
+01 JFIRST-N68451 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-allBinaryLayerManager BINARY-DOUBLE.
@@ -65,16 +65,42 @@ PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager RETURNING J-RESULT.
         COMPUTE J-artificialIntelligenceInterfaceArray = FUNCTION ArryAI-gtArtfclIntllgncIntrfc0(J-THIS)
         COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(J-artificialIntelligenceInterfaceArray)
         COMPUTE J-index = 0
-        MOVE 1 TO JFIRST1
+        MOVE 1 TO JFIRST-N68451
         PERFORM FOREVER
-            IF JFIRST1 = 0
+            IF JFIRST-N68451 = 0
                 COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
             END-IF
-            MOVE 0 TO JFIRST1
+            MOVE 0 TO JFIRST-N68451
             IF NOT (J-index < J-size) EXIT PERFORM END-IF
             COMPUTE JDISCARD = FUNCTION SequenceAI-setIndex1(J-THIS, J-index)
-            COMPUTE JDISCARD = FUNCTION SequenceAI-processAI1(J-THIS, J-allBinaryLayerManager)
+            COMPUTE JDISCARD = FUNCTION SequenceAI-processAI1J(J-THIS, J-allBinaryLayerManager)
         END-PERFORM
     GOBACK.
 END FUNCTION ComboSequenceAI-processAI1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VComboSequenceAI-processAI1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryLayerManager BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ComboSequenceAI-processAI1(J-THIS, J-allBinaryLayerManager)
+    GOBACK.
+END PROGRAM VComboSequenceAI-processAI1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. ComboSequenceAI-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "SequenceAI" TO J-CLASS
+    GOBACK.
+END PROGRAM ComboSequenceAI-jsuper.
 

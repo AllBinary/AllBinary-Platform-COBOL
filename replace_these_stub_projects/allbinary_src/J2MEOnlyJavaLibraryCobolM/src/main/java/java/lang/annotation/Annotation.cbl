@@ -1,30 +1,85 @@
-// Generated Code Do Not Modify
-// package java.lang.annotation
-unit Annotation;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package java.lang.annotation
+*> Java class Annotation
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Annotation-new0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 J-THIS BINARY-DOUBLE.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("Annotation")
+    MOVE J-THIS TO J-RESULT
+    GOBACK.
+END FUNCTION Annotation-new0.
 
-interface
-
-uses
-  SysUtils, Classes, Math, DateUtils, StrUtils, Character, JavaLang, JavaUtil, JavaIo, JavaNio, JavaAwtEvent, JavaNet, JavaSecurity, JavaxCrypto;
-
-type
-  {AB:TYPES}
-  IAnnotation = interface(IJavaObject) ['IAnnotation']
-        function annotationType: TClass;
-  end;
-  TAnnotation = IAnnotation;
-
-implementation
-
-{AB:CODE}
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Annotation-annotationType0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
+LOCAL-STORAGE SECTION.
+01 JDISCARD BINARY-DOUBLE.
+01 JVALUE BINARY-DOUBLE.
+01 JVALUEF COMP-2.
+01 JZERO BINARY-DOUBLE VALUE 0.
+01 JONE BINARY-DOUBLE VALUE 1.
+01 JTWO BINARY-DOUBLE VALUE 2.
+01 JTHREE BINARY-DOUBLE VALUE 3.
+01 JFOUR BINARY-DOUBLE VALUE 4.
+01 JFIVE BINARY-DOUBLE VALUE 5.
+01 JSIX BINARY-DOUBLE VALUE 6.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+    IF J-THIS = 0
+        DISPLAY "java.lang.NullPointerException: Annotation.annotationType"
+        STOP RUN
+    END-IF
+    MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    MOVE 0 TO JV-DONE
+    PERFORM UNTIL JV-DONE = 1
+        MOVE SPACES TO JV-NAME
+        STRING "V" DELIMITED BY SIZE JV-CLASS(1:13) DELIMITED BY SPACE "-annotationType0" DELIMITED BY SIZE INTO JV-NAME
+        CALL JV-NAME USING J-THIS J-RESULT
+            ON EXCEPTION
+                MOVE SPACES TO JV-NAME
+                STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                CALL JV-NAME USING JV-CLASS
+                    ON EXCEPTION
+                        DISPLAY "AbstractMethodError: Annotation.annotationType"
+                        STOP RUN
+                END-CALL
+            NOT ON EXCEPTION
+                MOVE 1 TO JV-DONE
+        END-CALL
+    END-PERFORM
+    GOBACK.
+END FUNCTION Annotation-annotationType0.
 

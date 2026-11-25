@@ -70,7 +70,7 @@ LINKAGE SECTION.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION USING J-THIS J-abeClientInformation J-commandListener J-level RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
-        COMPUTE JDISCARD = FUNCTION BaseGameInitialization-init3(J-THIS, J-abeClientInformation, J-commandListener, J-level)
+        COMPUTE JDISCARD = FUNCTION BaseGameInitialization-init3J(J-THIS, J-abeClientInformation, J-commandListener, J-level)
         COMPUTE J-resourceLoadingLevelFactory = FUNCTION RsrcLdngLvlFctry-getInstance0
         IF ((NOT (FUNCTION BsGmIntlztn-isGameInitialized0(J-THIS) = 1)) AND (J-level = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-resourceLoadingLevelFactory, "f_LOAD_ALL"))))
             COMPUTE jtemp1 = 1
@@ -93,6 +93,24 @@ PROCEDURE DIVISION USING J-THIS J-abeClientInformation J-commandListener J-level
         COMPUTE JDISCARD = FUNCTION BsGmIntlztn-rsrcIntlztn1(J-THIS, J-level)
     GOBACK.
 END FUNCTION CommonGameInitialization-init3.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VCommonGameInitializatio-init3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-abeClientInformation BINARY-DOUBLE.
+01 J-commandListener BINARY-DOUBLE.
+01 J-level BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-abeClientInformation J-commandListener J-level J-RESULT.
+    COMPUTE J-RESULT = FUNCTION CommonGameInitialization-init3(J-THIS, J-abeClientInformation, J-commandListener, J-level)
+    GOBACK.
+END PROGRAM VCommonGameInitializatio-init3.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. CmmnGmIntlztn-initGame0.
@@ -120,4 +138,29 @@ PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
         COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
     GOBACK.
 END FUNCTION CmmnGmIntlztn-initGame0.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VCommonGameInitializ-initGame0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION CmmnGmIntlztn-initGame0(J-THIS)
+    GOBACK.
+END PROGRAM VCommonGameInitializ-initGame0.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. CommonGameInitializatio-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "BaseGameInitialization" TO J-CLASS
+    GOBACK.
+END PROGRAM CommonGameInitializatio-jsuper.
 

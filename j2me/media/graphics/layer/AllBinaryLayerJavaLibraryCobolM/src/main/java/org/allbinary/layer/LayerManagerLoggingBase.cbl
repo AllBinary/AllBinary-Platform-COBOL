@@ -37,6 +37,55 @@ CONFIGURATION SECTION.
 REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
+LOCAL-STORAGE SECTION.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerInterface RETURNING J-RESULT.
+    MOVE 0 TO JV-DONE
+    MOVE "LayerManagerLoggingBase" TO JV-CLASS
+    IF J-THIS NOT = 0
+        MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    END-IF
+    PERFORM UNTIL JV-DONE = 1
+        IF JV-CLASS = "LayerManagerLoggingBase"
+            COMPUTE J-RESULT = FUNCTION LyrMngrLggngBs-append1J(J-THIS, J-layerInterface)
+            MOVE 1 TO JV-DONE
+        ELSE
+            MOVE SPACES TO JV-NAME
+            STRING "V" DELIMITED BY SIZE JV-CLASS(1:21) DELIMITED BY SPACE "-append1" DELIMITED BY SIZE INTO JV-NAME
+            CALL JV-NAME USING J-THIS J-layerInterface J-RESULT
+                ON EXCEPTION
+                    MOVE SPACES TO JV-NAME
+                    STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                    CALL JV-NAME USING JV-CLASS
+                        ON EXCEPTION
+                            MOVE "LayerManagerLoggingBase" TO JV-CLASS
+                    END-CALL
+                    IF JV-CLASS = "Object"
+                        MOVE "LayerManagerLoggingBase" TO JV-CLASS
+                    END-IF
+                NOT ON EXCEPTION
+                    MOVE 1 TO JV-DONE
+            END-CALL
+        END-IF
+    END-PERFORM
+    GOBACK.
+END FUNCTION LyrMngrLggngBs-append1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LyrMngrLggngBs-append1J.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -56,10 +105,76 @@ PROCEDURE DIVISION USING J-THIS J-layerInterface RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
         CONTINUE
     GOBACK.
-END FUNCTION LyrMngrLggngBs-append1.
+END FUNCTION LyrMngrLggngBs-append1J.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VLayerManagerLoggingBa-append1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerInterface J-RESULT.
+    COMPUTE J-RESULT = FUNCTION LyrMngrLggngBs-append1J(J-THIS, J-layerInterface)
+    GOBACK.
+END PROGRAM VLayerManagerLoggingBa-append1.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. LyrMngrLggngBs-appendAt2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
+LOCAL-STORAGE SECTION.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerInterface J-index RETURNING J-RESULT.
+    MOVE 0 TO JV-DONE
+    MOVE "LayerManagerLoggingBase" TO JV-CLASS
+    IF J-THIS NOT = 0
+        MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    END-IF
+    PERFORM UNTIL JV-DONE = 1
+        IF JV-CLASS = "LayerManagerLoggingBase"
+            COMPUTE J-RESULT = FUNCTION LyrMngrLggngBs-appendAt2J(J-THIS, J-layerInterface, J-index)
+            MOVE 1 TO JV-DONE
+        ELSE
+            MOVE SPACES TO JV-NAME
+            STRING "V" DELIMITED BY SIZE JV-CLASS(1:19) DELIMITED BY SPACE "-appendAt2" DELIMITED BY SIZE INTO JV-NAME
+            CALL JV-NAME USING J-THIS J-layerInterface J-index J-RESULT
+                ON EXCEPTION
+                    MOVE SPACES TO JV-NAME
+                    STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                    CALL JV-NAME USING JV-CLASS
+                        ON EXCEPTION
+                            MOVE "LayerManagerLoggingBase" TO JV-CLASS
+                    END-CALL
+                    IF JV-CLASS = "Object"
+                        MOVE "LayerManagerLoggingBase" TO JV-CLASS
+                    END-IF
+                NOT ON EXCEPTION
+                    MOVE 1 TO JV-DONE
+            END-CALL
+        END-IF
+    END-PERFORM
+    GOBACK.
+END FUNCTION LyrMngrLggngBs-appendAt2.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LyrMngrLggngBs-appendAt2J.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
 REPOSITORY.
@@ -85,10 +200,76 @@ PROCEDURE DIVISION USING J-THIS J-layerInterface J-index RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
         CONTINUE
     GOBACK.
-END FUNCTION LyrMngrLggngBs-appendAt2.
+END FUNCTION LyrMngrLggngBs-appendAt2J.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VLayerManagerLogging-appendAt2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerInterface J-index J-RESULT.
+    COMPUTE J-RESULT = FUNCTION LyrMngrLggngBs-appendAt2J(J-THIS, J-layerInterface, J-index)
+    GOBACK.
+END PROGRAM VLayerManagerLogging-appendAt2.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. LyrMngrLggngBs-remove1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
+LOCAL-STORAGE SECTION.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerInterface RETURNING J-RESULT.
+    MOVE 0 TO JV-DONE
+    MOVE "LayerManagerLoggingBase" TO JV-CLASS
+    IF J-THIS NOT = 0
+        MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    END-IF
+    PERFORM UNTIL JV-DONE = 1
+        IF JV-CLASS = "LayerManagerLoggingBase"
+            COMPUTE J-RESULT = FUNCTION LyrMngrLggngBs-remove1J(J-THIS, J-layerInterface)
+            MOVE 1 TO JV-DONE
+        ELSE
+            MOVE SPACES TO JV-NAME
+            STRING "V" DELIMITED BY SIZE JV-CLASS(1:21) DELIMITED BY SPACE "-remove1" DELIMITED BY SIZE INTO JV-NAME
+            CALL JV-NAME USING J-THIS J-layerInterface J-RESULT
+                ON EXCEPTION
+                    MOVE SPACES TO JV-NAME
+                    STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                    CALL JV-NAME USING JV-CLASS
+                        ON EXCEPTION
+                            MOVE "LayerManagerLoggingBase" TO JV-CLASS
+                    END-CALL
+                    IF JV-CLASS = "Object"
+                        MOVE "LayerManagerLoggingBase" TO JV-CLASS
+                    END-IF
+                NOT ON EXCEPTION
+                    MOVE 1 TO JV-DONE
+            END-CALL
+        END-IF
+    END-PERFORM
+    GOBACK.
+END FUNCTION LyrMngrLggngBs-remove1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LyrMngrLggngBs-remove1J.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
 REPOSITORY.
@@ -113,10 +294,77 @@ PROCEDURE DIVISION USING J-THIS J-layerInterface RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
         CONTINUE
     GOBACK.
-END FUNCTION LyrMngrLggngBs-remove1.
+END FUNCTION LyrMngrLggngBs-remove1J.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VLayerManagerLoggingBa-remove1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerInterface J-RESULT.
+    COMPUTE J-RESULT = FUNCTION LyrMngrLggngBs-remove1J(J-THIS, J-layerInterface)
+    GOBACK.
+END PROGRAM VLayerManagerLoggingBa-remove1.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. LyrMngrLggngBs-removeResult3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
+LOCAL-STORAGE SECTION.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerManager BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-result-L BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerManager J-layerInterface J-result-L RETURNING J-RESULT.
+    MOVE 0 TO JV-DONE
+    MOVE "LayerManagerLoggingBase" TO JV-CLASS
+    IF J-THIS NOT = 0
+        MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    END-IF
+    PERFORM UNTIL JV-DONE = 1
+        IF JV-CLASS = "LayerManagerLoggingBase"
+            COMPUTE J-RESULT = FUNCTION LyrMngrLggngBs-removeResult3J(J-THIS, J-layerManager, J-layerInterface, J-result-L)
+            MOVE 1 TO JV-DONE
+        ELSE
+            MOVE SPACES TO JV-NAME
+            STRING "V" DELIMITED BY SIZE JV-CLASS(1:15) DELIMITED BY SPACE "-removeResult3" DELIMITED BY SIZE INTO JV-NAME
+            CALL JV-NAME USING J-THIS J-layerManager J-layerInterface J-result-L J-RESULT
+                ON EXCEPTION
+                    MOVE SPACES TO JV-NAME
+                    STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                    CALL JV-NAME USING JV-CLASS
+                        ON EXCEPTION
+                            MOVE "LayerManagerLoggingBase" TO JV-CLASS
+                    END-CALL
+                    IF JV-CLASS = "Object"
+                        MOVE "LayerManagerLoggingBase" TO JV-CLASS
+                    END-IF
+                NOT ON EXCEPTION
+                    MOVE 1 TO JV-DONE
+            END-CALL
+        END-IF
+    END-PERFORM
+    GOBACK.
+END FUNCTION LyrMngrLggngBs-removeResult3.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LyrMngrLggngBs-removeResult3J.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
 REPOSITORY.
@@ -143,10 +391,76 @@ PROCEDURE DIVISION USING J-THIS J-layerManager J-layerInterface J-result-L RETUR
     MOVE 0 TO J-RESULT
         CONTINUE
     GOBACK.
-END FUNCTION LyrMngrLggngBs-removeResult3.
+END FUNCTION LyrMngrLggngBs-removeResult3J.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VLayerManagerLog-removeResult3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerManager BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-result-L BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerManager J-layerInterface J-result-L J-RESULT.
+    COMPUTE J-RESULT = FUNCTION LyrMngrLggngBs-removeResult3J(J-THIS, J-layerManager, J-layerInterface, J-result-L)
+    GOBACK.
+END PROGRAM VLayerManagerLog-removeResult3.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. LayerManagerLoggingBase-clear0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
+LOCAL-STORAGE SECTION.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
+    MOVE 0 TO JV-DONE
+    MOVE "LayerManagerLoggingBase" TO JV-CLASS
+    IF J-THIS NOT = 0
+        MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    END-IF
+    PERFORM UNTIL JV-DONE = 1
+        IF JV-CLASS = "LayerManagerLoggingBase"
+            COMPUTE J-RESULT = FUNCTION LyrMngrLggngBs-clear0J(J-THIS)
+            MOVE 1 TO JV-DONE
+        ELSE
+            MOVE SPACES TO JV-NAME
+            STRING "V" DELIMITED BY SIZE JV-CLASS(1:22) DELIMITED BY SPACE "-clear0" DELIMITED BY SIZE INTO JV-NAME
+            CALL JV-NAME USING J-THIS J-RESULT
+                ON EXCEPTION
+                    MOVE SPACES TO JV-NAME
+                    STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                    CALL JV-NAME USING JV-CLASS
+                        ON EXCEPTION
+                            MOVE "LayerManagerLoggingBase" TO JV-CLASS
+                    END-CALL
+                    IF JV-CLASS = "Object"
+                        MOVE "LayerManagerLoggingBase" TO JV-CLASS
+                    END-IF
+                NOT ON EXCEPTION
+                    MOVE 1 TO JV-DONE
+            END-CALL
+        END-IF
+    END-PERFORM
+    GOBACK.
+END FUNCTION LayerManagerLoggingBase-clear0.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LyrMngrLggngBs-clear0J.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
 REPOSITORY.
@@ -170,5 +484,30 @@ PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
         CONTINUE
     GOBACK.
-END FUNCTION LayerManagerLoggingBase-clear0.
+END FUNCTION LyrMngrLggngBs-clear0J.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VLayerManagerLoggingBas-clear0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION LyrMngrLggngBs-clear0J(J-THIS)
+    GOBACK.
+END PROGRAM VLayerManagerLoggingBas-clear0.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. LayerManagerLoggingBase-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM LayerManagerLoggingBase-jsuper.
 

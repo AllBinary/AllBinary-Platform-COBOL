@@ -142,9 +142,9 @@ LOCAL-STORAGE SECTION.
 01 JFIVE BINARY-DOUBLE VALUE 5.
 01 JSIX BINARY-DOUBLE VALUE 6.
 01 J-stringBuffer BINARY-DOUBLE.
-01 J-METHOD_NAME BINARY-DOUBLE.
-01 J-SELECTED_ARRAY_RETURN BINARY-DOUBLE.
-01 J-SELECTED_SEP BINARY-DOUBLE.
+01 J-METHOD_NAME-C BINARY-DOUBLE.
+01 J-SELECTED_ARRAY_RETURN-C BINARY-DOUBLE.
+01 J-SELECTED_SEP-C BINARY-DOUBLE.
 01 J-selectedArray_return BINARY-DOUBLE.
 01 J-total BINARY-DOUBLE.
 01 J-features BINARY-DOUBLE.
@@ -155,7 +155,7 @@ LOCAL-STORAGE SECTION.
 01 jtemp1 BINARY-DOUBLE.
 01 jtemp2 BINARY-DOUBLE.
 01 jtemp3 BINARY-DOUBLE.
-01 JFIRST1 BINARY-DOUBLE.
+01 JFIRST-N70007 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-choiceGroup BINARY-DOUBLE.
@@ -163,31 +163,31 @@ LINKAGE SECTION.
 PROCEDURE DIVISION USING J-THIS J-choiceGroup RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
         COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
-        COMPUTE J-METHOD_NAME = FUNCTION JR-STR("setDefault")
-        COMPUTE J-SELECTED_ARRAY_RETURN = FUNCTION JR-STR("selectedArray_return[")
-        COMPUTE J-SELECTED_SEP = FUNCTION JR-STR("] = ")
+        COMPUTE J-METHOD_NAME-C = FUNCTION JR-STR("setDefault")
+        COMPUTE J-SELECTED_ARRAY_RETURN-C = FUNCTION JR-STR("selectedArray_return[")
+        COMPUTE J-SELECTED_SEP-C = FUNCTION JR-STR("] = ")
         COMPUTE J-selectedArray_return = FUNCTION JR-NEW-ARRAY(FUNCTION ChoiceGroup-size0(J-choiceGroup))
         COMPUTE J-total = FUNCTION ChoiceGroup-getSelectedFlags1(J-choiceGroup, J-selectedArray_return)
         COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR("Multiple Total Choices: "))
         COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, J-total)
-        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-stringBuffer), J-THIS, J-METHOD_NAME)
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-stringBuffer), J-THIS, J-METHOD_NAME-C)
         COMPUTE J-features = FUNCTION Features-getInstance0
         COMPUTE J-index = 0
-        MOVE 1 TO JFIRST1
+        MOVE 1 TO JFIRST-N70007
         PERFORM FOREVER
-            IF JFIRST1 = 0
+            IF JFIRST-N70007 = 0
                 COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
             END-IF
-            MOVE 0 TO JFIRST1
+            MOVE 0 TO JFIRST-N70007
             IF NOT (J-index < FUNCTION JR-ARRAY-LENGTH(J-selectedArray_return)) EXIT PERFORM END-IF
             COMPUTE J-isSelected = FUNCTION JR-ARRAY-GET(J-selectedArray_return, J-index)
             COMPUTE jtemp1 = 0
             COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringBuffer, jtemp1, FUNCTION StringMaker-length0(J-stringBuffer))
-            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-SELECTED_ARRAY_RETURN)
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-SELECTED_ARRAY_RETURN-C)
             COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, J-index)
-            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-SELECTED_SEP)
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-SELECTED_SEP-C)
             COMPUTE JDISCARD = FUNCTION StringMaker-appendboolean1(J-stringBuffer, J-isSelected)
-            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-stringBuffer), J-THIS, J-METHOD_NAME)
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-stringBuffer), J-THIS, J-METHOD_NAME-C)
             COMPUTE J-selectedChoiceLabel = FUNCTION ChoiceGroup-getString1(J-choiceGroup, J-index)
             COMPUTE J-gameFeature = FUNCTION Feature-getInstance1(J-selectedChoiceLabel)
             IF (FUNCTION Features-isDefault1(J-features, J-gameFeature) = 1)
@@ -202,6 +202,22 @@ PROCEDURE DIVISION USING J-THIS J-choiceGroup RETURNING J-RESULT.
         END-PERFORM
     GOBACK.
 END FUNCTION GameFeatureUtil-setDefault1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VGameFeatureUtil-setDefault1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-choiceGroup BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-choiceGroup J-RESULT.
+    COMPUTE J-RESULT = FUNCTION GameFeatureUtil-setDefault1(J-THIS, J-choiceGroup)
+    GOBACK.
+END PROGRAM VGameFeatureUtil-setDefault1.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. GmFtrUtl-updateMultiple1.
@@ -222,9 +238,9 @@ LOCAL-STORAGE SECTION.
 01 JFIVE BINARY-DOUBLE VALUE 5.
 01 JSIX BINARY-DOUBLE VALUE 6.
 01 J-stringBuffer BINARY-DOUBLE.
-01 J-METHOD_NAME BINARY-DOUBLE.
-01 J-SELECTED_ARRAY_RETURN BINARY-DOUBLE.
-01 J-SELECTED_SEP BINARY-DOUBLE.
+01 J-METHOD_NAME-C BINARY-DOUBLE.
+01 J-SELECTED_ARRAY_RETURN-C BINARY-DOUBLE.
+01 J-SELECTED_SEP-C BINARY-DOUBLE.
 01 J-selectedArray_return BINARY-DOUBLE.
 01 J-total BINARY-DOUBLE.
 01 J-features BINARY-DOUBLE.
@@ -233,7 +249,7 @@ LOCAL-STORAGE SECTION.
 01 J-gameFeature BINARY-DOUBLE.
 01 J-index BINARY-DOUBLE.
 01 jtemp4 BINARY-DOUBLE.
-01 JFIRST2 BINARY-DOUBLE.
+01 JFIRST-N71109 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-choiceGroup BINARY-DOUBLE.
@@ -241,31 +257,31 @@ LINKAGE SECTION.
 PROCEDURE DIVISION USING J-THIS J-choiceGroup RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
         COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
-        COMPUTE J-METHOD_NAME = FUNCTION JR-STR("updateMultiple")
-        COMPUTE J-SELECTED_ARRAY_RETURN = FUNCTION JR-STR("selectedArray_return[")
-        COMPUTE J-SELECTED_SEP = FUNCTION JR-STR("] = ")
+        COMPUTE J-METHOD_NAME-C = FUNCTION JR-STR("updateMultiple")
+        COMPUTE J-SELECTED_ARRAY_RETURN-C = FUNCTION JR-STR("selectedArray_return[")
+        COMPUTE J-SELECTED_SEP-C = FUNCTION JR-STR("] = ")
         COMPUTE J-selectedArray_return = FUNCTION JR-NEW-ARRAY(FUNCTION ChoiceGroup-size0(J-choiceGroup))
         COMPUTE J-total = FUNCTION ChoiceGroup-getSelectedFlags1(J-choiceGroup, J-selectedArray_return)
         COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR("Multiple Total Choices: "))
         COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, J-total)
-        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-stringBuffer), J-THIS, J-METHOD_NAME)
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-stringBuffer), J-THIS, J-METHOD_NAME-C)
         COMPUTE J-features = FUNCTION Features-getInstance0
         COMPUTE J-index = 0
-        MOVE 1 TO JFIRST2
+        MOVE 1 TO JFIRST-N71109
         PERFORM FOREVER
-            IF JFIRST2 = 0
+            IF JFIRST-N71109 = 0
                 COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
             END-IF
-            MOVE 0 TO JFIRST2
+            MOVE 0 TO JFIRST-N71109
             IF NOT (J-index < FUNCTION JR-ARRAY-LENGTH(J-selectedArray_return)) EXIT PERFORM END-IF
             COMPUTE J-isSelected = FUNCTION JR-ARRAY-GET(J-selectedArray_return, J-index)
             COMPUTE jtemp4 = 0
             COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringBuffer, jtemp4, FUNCTION StringMaker-length0(J-stringBuffer))
-            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-SELECTED_ARRAY_RETURN)
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-SELECTED_ARRAY_RETURN-C)
             COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, J-index)
-            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-SELECTED_SEP)
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-SELECTED_SEP-C)
             COMPUTE JDISCARD = FUNCTION StringMaker-appendboolean1(J-stringBuffer, J-isSelected)
-            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-stringBuffer), J-THIS, J-METHOD_NAME)
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-stringBuffer), J-THIS, J-METHOD_NAME-C)
             COMPUTE J-selectedChoiceLabel = FUNCTION ChoiceGroup-getString1(J-choiceGroup, J-index)
             COMPUTE J-gameFeature = FUNCTION Feature-getInstance1(J-selectedChoiceLabel)
             IF ((NOT (J-isSelected = 1)) AND (FUNCTION Features-isFeature1(J-features, J-gameFeature) = 1))
@@ -278,6 +294,22 @@ PROCEDURE DIVISION USING J-THIS J-choiceGroup RETURNING J-RESULT.
         END-PERFORM
     GOBACK.
 END FUNCTION GmFtrUtl-updateMultiple1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VGameFeatureUt-updateMultiple1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-choiceGroup BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-choiceGroup J-RESULT.
+    COMPUTE J-RESULT = FUNCTION GmFtrUtl-updateMultiple1(J-THIS, J-choiceGroup)
+    GOBACK.
+END PROGRAM VGameFeatureUt-updateMultiple1.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. GmFtrUtl-updtExclsvFrChcGrp1.
@@ -298,16 +330,16 @@ LOCAL-STORAGE SECTION.
 01 JFIVE BINARY-DOUBLE VALUE 5.
 01 JSIX BINARY-DOUBLE VALUE 6.
 01 J-stringBuffer BINARY-DOUBLE.
-01 J-METHOD_NAME BINARY-DOUBLE.
-01 J-SELECTED_ARRAY_RETURN BINARY-DOUBLE.
-01 J-SELECTED_SEP BINARY-DOUBLE.
+01 J-METHOD_NAME-C BINARY-DOUBLE.
+01 J-SELECTED_ARRAY_RETURN-C BINARY-DOUBLE.
+01 J-SELECTED_SEP-C BINARY-DOUBLE.
 01 J-selectedArray_return BINARY-DOUBLE.
 01 J-total BINARY-DOUBLE.
 01 J-isSelected BINARY-DOUBLE.
 01 J-selectedChoiceLabel BINARY-DOUBLE.
 01 J-index BINARY-DOUBLE.
 01 jtemp5 BINARY-DOUBLE.
-01 JFIRST3 BINARY-DOUBLE.
+01 JFIRST-N72165 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-choiceGroup BINARY-DOUBLE.
@@ -315,30 +347,30 @@ LINKAGE SECTION.
 PROCEDURE DIVISION USING J-THIS J-choiceGroup RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
         COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
-        COMPUTE J-METHOD_NAME = FUNCTION JR-STR("updateExclusive")
-        COMPUTE J-SELECTED_ARRAY_RETURN = FUNCTION JR-STR("selectedArray_return[")
-        COMPUTE J-SELECTED_SEP = FUNCTION JR-STR("] = ")
+        COMPUTE J-METHOD_NAME-C = FUNCTION JR-STR("updateExclusive")
+        COMPUTE J-SELECTED_ARRAY_RETURN-C = FUNCTION JR-STR("selectedArray_return[")
+        COMPUTE J-SELECTED_SEP-C = FUNCTION JR-STR("] = ")
         COMPUTE J-selectedArray_return = FUNCTION JR-NEW-ARRAY(FUNCTION ChoiceGroup-size0(J-choiceGroup))
         COMPUTE J-total = FUNCTION ChoiceGroup-getSelectedFlags1(J-choiceGroup, J-selectedArray_return)
         COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR("Exclusive Total Choices: 1=="))
         COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, J-total)
-        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-stringBuffer), J-THIS, J-METHOD_NAME)
+        COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-stringBuffer), J-THIS, J-METHOD_NAME-C)
         COMPUTE J-index = 0
-        MOVE 1 TO JFIRST3
+        MOVE 1 TO JFIRST-N72165
         PERFORM FOREVER
-            IF JFIRST3 = 0
+            IF JFIRST-N72165 = 0
                 COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
             END-IF
-            MOVE 0 TO JFIRST3
+            MOVE 0 TO JFIRST-N72165
             IF NOT (J-index < FUNCTION JR-ARRAY-LENGTH(J-selectedArray_return)) EXIT PERFORM END-IF
             COMPUTE J-isSelected = FUNCTION JR-ARRAY-GET(J-selectedArray_return, J-index)
             COMPUTE jtemp5 = 0
             COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringBuffer, jtemp5, FUNCTION StringMaker-length0(J-stringBuffer))
-            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-SELECTED_ARRAY_RETURN)
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-SELECTED_ARRAY_RETURN-C)
             COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, J-index)
-            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-SELECTED_SEP)
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-SELECTED_SEP-C)
             COMPUTE JDISCARD = FUNCTION StringMaker-appendboolean1(J-stringBuffer, J-isSelected)
-            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-stringBuffer), J-THIS, J-METHOD_NAME)
+            COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-stringBuffer), J-THIS, J-METHOD_NAME-C)
             IF (J-isSelected = 1)
                 COMPUTE J-selectedChoiceLabel = FUNCTION ChoiceGroup-getString1(J-choiceGroup, J-index)
                 COMPUTE JDISCARD = FUNCTION GmFtrUtl-updateExclusive1(J-THIS, J-selectedChoiceLabel)
@@ -346,6 +378,22 @@ PROCEDURE DIVISION USING J-THIS J-choiceGroup RETURNING J-RESULT.
         END-PERFORM
     GOBACK.
 END FUNCTION GmFtrUtl-updtExclsvFrChcGrp1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VGameFe-updateExclusiveFo46251.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-choiceGroup BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-choiceGroup J-RESULT.
+    COMPUTE J-RESULT = FUNCTION GmFtrUtl-updtExclsvFrChcGrp1(J-THIS, J-choiceGroup)
+    GOBACK.
+END PROGRAM VGameFe-updateExclusiveFo46251.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. GameFeatureUtil-isExclusive1.
@@ -393,6 +441,22 @@ PROCEDURE DIVISION USING J-THIS J-itemLabel RETURNING J-RESULT.
 END FUNCTION GameFeatureUtil-isExclusive1.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VGameFeatureUtil-isExclusive1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-itemLabel BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-itemLabel J-RESULT.
+    COMPUTE J-RESULT = FUNCTION GameFeatureUtil-isExclusive1(J-THIS, J-itemLabel)
+    GOBACK.
+END PROGRAM VGameFeatureUtil-isExclusive1.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. GmFtrUtl-updateExclusive1.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -423,7 +487,7 @@ LOCAL-STORAGE SECTION.
 01 jtemp11 BINARY-DOUBLE.
 01 jtemp12 BINARY-DOUBLE.
 01 jtemp13 BINARY-DOUBLE.
-01 JFIRST4 BINARY-DOUBLE.
+01 JFIRST-N73390 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-selectedChoiceLabel BINARY-DOUBLE.
@@ -444,12 +508,12 @@ PROCEDURE DIVISION USING J-THIS J-selectedChoiceLabel RETURNING J-RESULT.
         CONTINUE
         COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(J-objectArray)
         COMPUTE J-index = 0
-        MOVE 1 TO JFIRST4
+        MOVE 1 TO JFIRST-N73390
         PERFORM FOREVER
-            IF JFIRST4 = 0
+            IF JFIRST-N73390 = 0
                 COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
             END-IF
-            MOVE 0 TO JFIRST4
+            MOVE 0 TO JFIRST-N73390
             IF NOT (J-index < J-size) EXIT PERFORM END-IF
             COMPUTE J-anyType = FUNCTION JR-ARRAY-GET(J-objectArray, J-index)
             COMPUTE J-basicArrayList = FUNCTION Hashtable-get1(J-hashtable, J-anyType)
@@ -457,6 +521,22 @@ PROCEDURE DIVISION USING J-THIS J-selectedChoiceLabel RETURNING J-RESULT.
         END-PERFORM
     GOBACK.
 END FUNCTION GmFtrUtl-updateExclusive1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VGameFeatureU-updateExclusive1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-selectedChoiceLabel BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-selectedChoiceLabel J-RESULT.
+    COMPUTE J-RESULT = FUNCTION GmFtrUtl-updateExclusive1(J-THIS, J-selectedChoiceLabel)
+    GOBACK.
+END PROGRAM VGameFeatureU-updateExclusive1.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. GmFtrUtl-updateExclusiveList2.
@@ -482,7 +562,7 @@ LOCAL-STORAGE SECTION.
 01 J-index BINARY-DOUBLE.
 01 jtemp14 BINARY-DOUBLE.
 01 jtemp15 BINARY-DOUBLE.
-01 JFIRST5 BINARY-DOUBLE.
+01 JFIRST-N73833 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-gameFeature BINARY-DOUBLE.
@@ -495,12 +575,12 @@ PROCEDURE DIVISION USING J-THIS J-gameFeature J-list RETURNING J-RESULT.
             COMPUTE J-addIndex = FUNCTION BasicArrayList-indexOf1(J-list, J-gameFeature)
             COMPUTE J-size = FUNCTION BasicArrayList-size0(J-list)
             COMPUTE J-index = 0
-            MOVE 1 TO JFIRST5
+            MOVE 1 TO JFIRST-N73833
             PERFORM FOREVER
-                IF JFIRST5 = 0
+                IF JFIRST-N73833 = 0
                     COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
                 END-IF
-                MOVE 0 TO JFIRST5
+                MOVE 0 TO JFIRST-N73833
                 IF NOT (J-index < J-size) EXIT PERFORM END-IF
                 IF (J-addIndex NOT = J-index)
                     COMPUTE jtemp15 = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
@@ -513,4 +593,31 @@ PROCEDURE DIVISION USING J-THIS J-gameFeature J-list RETURNING J-RESULT.
         END-IF
     GOBACK.
 END FUNCTION GmFtrUtl-updateExclusiveList2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VGameFeat-updateExclusiveList2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameFeature BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gameFeature J-list J-RESULT.
+    COMPUTE J-RESULT = FUNCTION GmFtrUtl-updateExclusiveList2(J-THIS, J-gameFeature, J-list)
+    GOBACK.
+END PROGRAM VGameFeat-updateExclusiveList2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. GameFeatureUtil-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM GameFeatureUtil-jsuper.
 

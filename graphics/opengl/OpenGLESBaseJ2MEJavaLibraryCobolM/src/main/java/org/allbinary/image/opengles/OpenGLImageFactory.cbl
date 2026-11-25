@@ -88,6 +88,57 @@ CONFIGURATION SECTION.
 REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
+LOCAL-STORAGE SECTION.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-image BINARY-DOUBLE.
+01 J-bitmapFactory BINARY-DOUBLE.
+01 J-textureFactory BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-image J-bitmapFactory J-textureFactory RETURNING J-RESULT.
+    MOVE 0 TO JV-DONE
+    MOVE "OpenGLImageFactory" TO JV-CLASS
+    IF J-THIS NOT = 0
+        MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    END-IF
+    PERFORM UNTIL JV-DONE = 1
+        IF JV-CLASS = "OpenGLImageFactory"
+            COMPUTE J-RESULT = FUNCTION OpnGLImgFctry-getInstance3J(J-THIS, J-image, J-bitmapFactory, J-textureFactory)
+            MOVE 1 TO JV-DONE
+        ELSE
+            MOVE SPACES TO JV-NAME
+            STRING "V" DELIMITED BY SIZE JV-CLASS(1:16) DELIMITED BY SPACE "-getInstance3" DELIMITED BY SIZE INTO JV-NAME
+            CALL JV-NAME USING J-THIS J-image J-bitmapFactory J-textureFactory J-RESULT
+                ON EXCEPTION
+                    MOVE SPACES TO JV-NAME
+                    STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                    CALL JV-NAME USING JV-CLASS
+                        ON EXCEPTION
+                            MOVE "OpenGLImageFactory" TO JV-CLASS
+                    END-CALL
+                    IF JV-CLASS = "Object"
+                        MOVE "OpenGLImageFactory" TO JV-CLASS
+                    END-IF
+                NOT ON EXCEPTION
+                    MOVE 1 TO JV-DONE
+            END-CALL
+        END-IF
+    END-PERFORM
+    GOBACK.
+END FUNCTION OpnGLImgFctry-getInstance3.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. OpnGLImgFctry-getInstance3J.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -109,5 +160,33 @@ PROCEDURE DIVISION USING J-THIS J-image J-bitmapFactory J-textureFactory RETURNI
     MOVE 0 TO J-RESULT
         COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
     GOBACK.
-END FUNCTION OpnGLImgFctry-getInstance3.
+END FUNCTION OpnGLImgFctry-getInstance3J.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VOpenGLImageFacto-getInstance3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-image BINARY-DOUBLE.
+01 J-bitmapFactory BINARY-DOUBLE.
+01 J-textureFactory BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-image J-bitmapFactory J-textureFactory J-RESULT.
+    COMPUTE J-RESULT = FUNCTION OpnGLImgFctry-getInstance3J(J-THIS, J-image, J-bitmapFactory, J-textureFactory)
+    GOBACK.
+END PROGRAM VOpenGLImageFacto-getInstance3.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. OpenGLImageFactory-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM OpenGLImageFactory-jsuper.
 

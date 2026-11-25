@@ -64,7 +64,7 @@ LOCAL-STORAGE SECTION.
 01 JFIVE BINARY-DOUBLE VALUE 5.
 01 JSIX BINARY-DOUBLE VALUE 6.
 01 J-gameKeyMapping BINARY-DOUBLE.
-01 J-EQUAL BINARY-DOUBLE.
+01 J-EQUAL-C BINARY-DOUBLE.
 01 J-stringMaker BINARY-DOUBLE.
 01 J-size BINARY-DOUBLE.
 01 J-keyInfo BINARY-DOUBLE.
@@ -78,7 +78,7 @@ LOCAL-STORAGE SECTION.
 01 jtemp6 BINARY-DOUBLE.
 01 jtemp7 BINARY-DOUBLE.
 01 jtemp8 BINARY-DOUBLE.
-01 JFIRST1 BINARY-DOUBLE.
+01 JFIRST-N69275 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-selectedGameKey BINARY-DOUBLE.
@@ -88,7 +88,7 @@ PROCEDURE DIVISION USING J-THIS J-selectedGameKey J-selectedInput RETURNING J-RE
     MOVE 0 TO J-RESULT
         COMPUTE jtemp3 = FUNCTION PltfrmInptMppngFctry-gtInstnc0
         COMPUTE J-gameKeyMapping = FUNCTION PltfrmInptMppngFctry-gtPr75051(jtemp3)
-        COMPUTE J-EQUAL = FUNCTION JR-STR(" = ")
+        COMPUTE J-EQUAL-C = FUNCTION JR-STR(" = ")
         COMPUTE J-stringMaker = FUNCTION StringMaker-new0
         COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(FUNCTION JR-GET(J-THIS, "f_gameInputMappingArray"))
         COMPUTE J-keyInfo = FUNCTION JR-NEW-ARRAY(J-size)
@@ -96,12 +96,12 @@ PROCEDURE DIVISION USING J-THIS J-selectedGameKey J-selectedInput RETURNING J-RE
         CONTINUE
         CONTINUE
         COMPUTE J-index = 0
-        MOVE 1 TO JFIRST1
+        MOVE 1 TO JFIRST-N69275
         PERFORM FOREVER
-            IF JFIRST1 = 0
+            IF JFIRST-N69275 = 0
                 COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
             END-IF
-            MOVE 0 TO JFIRST1
+            MOVE 0 TO JFIRST-N69275
             IF NOT (J-index < J-size) EXIT PERFORM END-IF
             COMPUTE J-gameInputMapping = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_gameInputMappingArray"), J-index)
             COMPUTE J-gameKey = FUNCTION GameInputMapping-getGameKey0(J-gameInputMapping)
@@ -110,7 +110,7 @@ PROCEDURE DIVISION USING J-THIS J-selectedGameKey J-selectedInput RETURNING J-RE
             COMPUTE jtemp5 = 0
             COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringMaker, jtemp5, FUNCTION StringMaker-length0(J-stringMaker))
             COMPUTE jtemp8 = FUNCTION StringMaker-append1(J-stringMaker, FUNCTION GameInputMapping-getName0(J-gameInputMapping))
-            COMPUTE jtemp7 = FUNCTION StringMaker-append1(jtemp8, J-EQUAL)
+            COMPUTE jtemp7 = FUNCTION StringMaker-append1(jtemp8, J-EQUAL-C)
             COMPUTE jtemp6 = FUNCTION StringMaker-append1(jtemp7, FUNCTION BscInptMppngHlpPntbl-get1(J-THIS, J-list))
             COMPUTE JVALUE = FUNCTION JR-TO-STRING(jtemp6)
             COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-keyInfo, J-index, JVALUE)
@@ -118,6 +118,23 @@ PROCEDURE DIVISION USING J-THIS J-selectedGameKey J-selectedInput RETURNING J-RE
         COMPUTE JDISCARD = FUNCTION HelpPaintable-setInputInfoP1(J-THIS, J-keyInfo)
     GOBACK.
 END FUNCTION BscInptMppngHlpPntbl-update2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VBasicInputMappingHelp-update2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-selectedGameKey BINARY-DOUBLE.
+01 J-selectedInput BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-selectedGameKey J-selectedInput J-RESULT.
+    COMPUTE J-RESULT = FUNCTION BscInptMppngHlpPntbl-update2(J-THIS, J-selectedGameKey, J-selectedInput)
+    GOBACK.
+END PROGRAM VBasicInputMappingHelp-update2.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. BscInptMppngHlpPntbl-get1.
@@ -139,14 +156,14 @@ LOCAL-STORAGE SECTION.
 01 JSIX BINARY-DOUBLE VALUE 6.
 01 J-commonSeps BINARY-DOUBLE.
 01 J-stringBuffer BINARY-DOUBLE.
-01 J-AND BINARY-DOUBLE.
+01 J-AND-C BINARY-DOUBLE.
 01 J-key BINARY-DOUBLE.
 01 J-size BINARY-DOUBLE.
 01 J-index BINARY-DOUBLE.
 01 jtemp9 BINARY-DOUBLE.
 01 jtemp10 BINARY-DOUBLE.
 01 jtemp11 BINARY-DOUBLE.
-01 JFIRST2 BINARY-DOUBLE.
+01 JFIRST-N69950 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-keyList BINARY-DOUBLE.
@@ -155,16 +172,16 @@ PROCEDURE DIVISION USING J-THIS J-keyList RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
         COMPUTE J-commonSeps = FUNCTION CommonSeps-getInstance0
         COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
-        COMPUTE J-AND = FUNCTION JR-STR("and ")
+        COMPUTE J-AND-C = FUNCTION JR-STR("and ")
         CONTINUE
         COMPUTE J-size = FUNCTION BasicArrayList-size0(J-keyList)
         COMPUTE J-index = 0
-        MOVE 1 TO JFIRST2
+        MOVE 1 TO JFIRST-N69950
         PERFORM FOREVER
-            IF JFIRST2 = 0
+            IF JFIRST-N69950 = 0
                 COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
             END-IF
-            MOVE 0 TO JFIRST2
+            MOVE 0 TO JFIRST-N69950
             IF NOT (J-index < J-size) EXIT PERFORM END-IF
             COMPUTE J-key = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-keyList, "f_objectArray"), J-index)
             COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION Input-getName0(J-key))
@@ -172,12 +189,12 @@ PROCEDURE DIVISION USING J-THIS J-keyList RETURNING J-RESULT.
             IF ((FUNCTION MOD((J-index + jtemp9) + 2147483648, 4294967296) - 2147483648) < FUNCTION BasicArrayList-size0(J-keyList))
                 IF (FUNCTION BasicArrayList-size0(J-keyList) = 2)
                     COMPUTE jtemp11 = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-commonSeps, "f_SPACE"))
-                    COMPUTE JDISCARD = FUNCTION StringMaker-append1(jtemp11, J-AND)
+                    COMPUTE JDISCARD = FUNCTION StringMaker-append1(jtemp11, J-AND-C)
                 ELSE
                     COMPUTE jtemp10 = 2
                     IF ((FUNCTION MOD((J-index + jtemp10) + 2147483648, 4294967296) - 2147483648) = FUNCTION BasicArrayList-size0(J-keyList))
                         COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-commonSeps, "f_COMMA_SEP"))
-                        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-AND)
+                        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-AND-C)
                     ELSE
                         COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(J-commonSeps, "f_COMMA_SEP"))
                     END-IF
@@ -188,4 +205,30 @@ PROCEDURE DIVISION USING J-THIS J-keyList RETURNING J-RESULT.
         GOBACK
     GOBACK.
 END FUNCTION BscInptMppngHlpPntbl-get1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VBasicInputMappingHelpPai-get1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-keyList BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-keyList J-RESULT.
+    COMPUTE J-RESULT = FUNCTION BscInptMppngHlpPntbl-get1(J-THIS, J-keyList)
+    GOBACK.
+END PROGRAM VBasicInputMappingHelpPai-get1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. BasicInputMappingHelpPa-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "HelpPaintable" TO J-CLASS
+    GOBACK.
+END PROGRAM BasicInputMappingHelpPa-jsuper.
 

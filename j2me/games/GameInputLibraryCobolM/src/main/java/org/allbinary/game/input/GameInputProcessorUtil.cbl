@@ -53,7 +53,7 @@ LOCAL-STORAGE SECTION.
 01 J-inputProcessorCanBeNull BINARY-DOUBLE.
 01 J-index BINARY-DOUBLE.
 01 jtemp1 BINARY-DOUBLE.
-01 JFIRST1 BINARY-DOUBLE.
+01 JFIRST-N66243 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-inputProcessorArray BINARY-DOUBLE.
 01 J-RESULT BINARY-DOUBLE.
@@ -63,12 +63,12 @@ PROCEDURE DIVISION USING J-inputProcessorArray RETURNING J-RESULT.
         COMPUTE jtemp1 = FUNCTION InputFactory-getInstance0
         COMPUTE J-total = FUNCTION JR-GET(jtemp1, "f_MAX")
         COMPUTE J-index = 0
-        MOVE 1 TO JFIRST1
+        MOVE 1 TO JFIRST-N66243
         PERFORM FOREVER
-            IF JFIRST1 = 0
+            IF JFIRST-N66243 = 0
                 COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
             END-IF
-            MOVE 0 TO JFIRST1
+            MOVE 0 TO JFIRST-N66243
             IF NOT (J-index < J-total) EXIT PERFORM END-IF
             COMPUTE J-inputProcessorCanBeNull = FUNCTION JR-ARRAY-GET(J-inputProcessorArray, J-index)
             IF (J-inputProcessorCanBeNull = 0)
@@ -78,4 +78,14 @@ PROCEDURE DIVISION USING J-inputProcessorArray RETURNING J-RESULT.
         END-PERFORM
     GOBACK.
 END FUNCTION GameInputProcessorUtil-init1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. GameInputProcessorUtil-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM GameInputProcessorUtil-jsuper.
 

@@ -139,11 +139,28 @@ PROCEDURE DIVISION USING J-THIS J-width J-height RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
         COMPUTE jtemp2 = FUNCTION JR-CLASS-NAME(J-THIS)
         COMPUTE jtemp1 = FUNCTION GmFtrImgCchFctry-getInstance0
-        COMPUTE J-image = FUNCTION GmFtrImgCchFctry-get3(jtemp1, jtemp2, J-width, J-height)
+        COMPUTE J-image = FUNCTION ImageCache-get3(jtemp1, jtemp2, J-width, J-height)
         COMPUTE J-RESULT = J-image
         GOBACK
     GOBACK.
 END FUNCTION ImgCrtnUtl-createImageWH2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VImageCreationU-createImageWH2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-width J-height J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ImgCrtnUtl-createImageWH2(J-THIS, J-width, J-height)
+    GOBACK.
+END PROGRAM VImageCreationU-createImageWH2.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. ImageCreationUtil-createImage4.
@@ -189,9 +206,38 @@ PROCEDURE DIVISION USING J-THIS J-width J-height J-maxScaleX J-maxScaleY RETURNI
         COMPUTE jtemp5 = (FUNCTION MOD((jtemp6 + jtemp7) + 2147483648, 4294967296) - 2147483648)
         COMPUTE jtemp8 = (FUNCTION MOD((jtemp9 + jtemp10) + 2147483648, 4294967296) - 2147483648)
         COMPUTE jtemp3 = FUNCTION GmFtrImgCchFctry-getInstance0
-        COMPUTE J-image = FUNCTION GmFtrImgCchFctry-get3(jtemp3, jtemp4, jtemp5, jtemp8)
+        COMPUTE J-image = FUNCTION ImageCache-get3(jtemp3, jtemp4, jtemp5, jtemp8)
         COMPUTE J-RESULT = J-image
         GOBACK
     GOBACK.
 END FUNCTION ImageCreationUtil-createImage4.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VImageCreationUti-createImage4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-width BINARY-DOUBLE.
+01 J-height BINARY-DOUBLE.
+01 J-maxScaleX COMP-2.
+01 J-maxScaleY COMP-2.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-width J-height J-maxScaleX J-maxScaleY J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ImageCreationUtil-createImage4(J-THIS, J-width, J-height, J-maxScaleX, J-maxScaleY)
+    GOBACK.
+END PROGRAM VImageCreationUti-createImage4.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. ImageCreationUtil-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM ImageCreationUtil-jsuper.
 

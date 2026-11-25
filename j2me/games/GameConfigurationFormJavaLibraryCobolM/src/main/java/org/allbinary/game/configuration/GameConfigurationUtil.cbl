@@ -155,10 +155,27 @@ PROCEDURE DIVISION USING J-THIS J-gameOptionsForm J-gauge RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
         COMPUTE JDISCARD = FUNCTION GameConfigurationUtil-update1(J-THIS, J-gauge)
         COMPUTE J-gameConfigurationSingleton = FUNCTION GmCnfgrtnSngltn-getInstance0
-        COMPUTE J-gameConfiguration = FUNCTION GmCnfgrtnSngltn-gtInstncByNm1(J-gameConfigurationSingleton, FUNCTION Gauge-getLabel0(J-gauge))
+        COMPUTE J-gameConfiguration = FUNCTION GmCnfgrtnSngltn-gtInstncByNm1(J-gameConfigurationSingleton, FUNCTION Item-getLabel0(J-gauge))
         COMPUTE JDISCARD = FUNCTION GmCnfgrtnUtl-updateChallange2(J-THIS, J-gameOptionsForm, J-gameConfiguration)
     GOBACK.
 END FUNCTION GameConfigurationUtil-change2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VGameConfigurationUtil-change2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameOptionsForm BINARY-DOUBLE.
+01 J-gauge BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gameOptionsForm J-gauge J-RESULT.
+    COMPUTE J-RESULT = FUNCTION GameConfigurationUtil-change2(J-THIS, J-gameOptionsForm, J-gauge)
+    GOBACK.
+END PROGRAM VGameConfigurationUtil-change2.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. GameConfigurationUtil-update1.
@@ -193,7 +210,7 @@ LINKAGE SECTION.
 PROCEDURE DIVISION USING J-THIS J-gauge RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
         COMPUTE J-gameConfigurationSingleton = FUNCTION GmCnfgrtnSngltn-getInstance0
-        COMPUTE J-gameConfiguration = FUNCTION GmCnfgrtnSngltn-gtInstncByNm1(J-gameConfigurationSingleton, FUNCTION Gauge-getLabel0(J-gauge))
+        COMPUTE J-gameConfiguration = FUNCTION GmCnfgrtnSngltn-gtInstncByNm1(J-gameConfigurationSingleton, FUNCTION Item-getLabel0(J-gauge))
         COMPUTE J-smallIntegerSingletonFactory = FUNCTION SmllIntgrSngltnFctry-gtInstnc0
         COMPUTE jtemp2 = FUNCTION GameConfiguration-getMinValue0(J-gameConfiguration)
         COMPUTE jtemp1 = (FUNCTION MOD((FUNCTION Gauge-getValue0(J-gauge) + FUNCTION JR-CLASS-NAME(jtemp2)) + 2147483648, 4294967296) - 2147483648)
@@ -210,6 +227,22 @@ PROCEDURE DIVISION USING J-THIS J-gauge RETURNING J-RESULT.
         COMPUTE JDISCARD = FUNCTION GameConfiguration-setValue1(J-gameConfiguration, J-value)
     GOBACK.
 END FUNCTION GameConfigurationUtil-update1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VGameConfigurationUtil-update1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gauge BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gauge J-RESULT.
+    COMPUTE J-RESULT = FUNCTION GameConfigurationUtil-update1(J-THIS, J-gauge)
+    GOBACK.
+END PROGRAM VGameConfigurationUtil-update1.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. GmCnfgrtnUtl-setDefault1.
@@ -243,7 +276,7 @@ LINKAGE SECTION.
 PROCEDURE DIVISION USING J-THIS J-gauge RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
         COMPUTE J-gameConfigurationSingleton = FUNCTION GmCnfgrtnSngltn-getInstance0
-        COMPUTE J-gameConfiguration = FUNCTION GmCnfgrtnSngltn-gtInstncByNm1(J-gameConfigurationSingleton, FUNCTION Gauge-getLabel0(J-gauge))
+        COMPUTE J-gameConfiguration = FUNCTION GmCnfgrtnSngltn-gtInstncByNm1(J-gameConfigurationSingleton, FUNCTION Item-getLabel0(J-gauge))
         COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
         COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR("Gauge Default: "))
         COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION GameConfiguration-getName0(J-gameConfiguration))
@@ -258,6 +291,22 @@ PROCEDURE DIVISION USING J-THIS J-gauge RETURNING J-RESULT.
         COMPUTE JDISCARD = FUNCTION GameConfiguration-setValue1(J-gameConfiguration, FUNCTION GmCnfgrtn-getDefaultValue0(J-gameConfiguration))
     GOBACK.
 END FUNCTION GmCnfgrtnUtl-setDefault1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VGameConfiguration-setDefault1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gauge BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gauge J-RESULT.
+    COMPUTE J-RESULT = FUNCTION GmCnfgrtnUtl-setDefault1(J-THIS, J-gauge)
+    GOBACK.
+END PROGRAM VGameConfiguration-setDefault1.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. GmCnfgrtnUtl-updateChallange2.
@@ -297,7 +346,7 @@ LOCAL-STORAGE SECTION.
 01 jtemp17 BINARY-DOUBLE.
 01 jtemp18 BINARY-DOUBLE.
 01 jtemp19 BINARY-DOUBLE.
-01 JFIRST1 BINARY-DOUBLE.
+01 JFIRST-N71077 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-gameOptionsForm BINARY-DOUBLE.
@@ -315,12 +364,12 @@ PROCEDURE DIVISION USING J-THIS J-gameOptionsForm J-gameConfiguration RETURNING 
             COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-gameConfigurationCentral, "f_SPEED_CHALLENGE_LEVEL"))
             COMPUTE J-size = FUNCTION Form-size0(J-gameOptionsForm)
             COMPUTE J-index = 0
-            MOVE 1 TO JFIRST1
+            MOVE 1 TO JFIRST-N71077
             PERFORM FOREVER
-                IF JFIRST1 = 0
+                IF JFIRST-N71077 = 0
                     COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
                 END-IF
-                MOVE 0 TO JFIRST1
+                MOVE 0 TO JFIRST-N71077
                 IF NOT (J-index < J-size) EXIT PERFORM END-IF
                 COMPUTE J-item = FUNCTION Form-get1(J-gameOptionsForm, J-index)
                 IF (FUNCTION JR-STR-EQUALS(FUNCTION JR-CLASS-NAME(J-item), FUNCTION JR-STR("GameConfigurationGauge")) = 1)
@@ -359,6 +408,23 @@ PROCEDURE DIVISION USING J-THIS J-gameOptionsForm J-gameConfiguration RETURNING 
         END-IF
     GOBACK.
 END FUNCTION GmCnfgrtnUtl-updateChallange2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VGameConfigur-updateChallange2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-gameOptionsForm BINARY-DOUBLE.
+01 J-gameConfiguration BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-gameOptionsForm J-gameConfiguration J-RESULT.
+    COMPUTE J-RESULT = FUNCTION GmCnfgrtnUtl-updateChallange2(J-THIS, J-gameOptionsForm, J-gameConfiguration)
+    GOBACK.
+END PROGRAM VGameConfigur-updateChallange2.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. GmCnfgrtnUtl-updtCmpttnVl0.
@@ -406,6 +472,21 @@ PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
 END FUNCTION GmCnfgrtnUtl-updtCmpttnVl0.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VGameCo-updateCompetition26067.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION GmCnfgrtnUtl-updtCmpttnVl0(J-THIS)
+    GOBACK.
+END PROGRAM VGameCo-updateCompetition26067.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. GmCnfgrtnUtl-gtCmpttnVl0.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -432,4 +513,29 @@ PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
         GOBACK
     GOBACK.
 END FUNCTION GmCnfgrtnUtl-gtCmpttnVl0.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VGameConf-getCompetitionValue0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION GmCnfgrtnUtl-gtCmpttnVl0(J-THIS)
+    GOBACK.
+END PROGRAM VGameConf-getCompetitionValue0.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. GameConfigurationUtil-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM GameConfigurationUtil-jsuper.
 

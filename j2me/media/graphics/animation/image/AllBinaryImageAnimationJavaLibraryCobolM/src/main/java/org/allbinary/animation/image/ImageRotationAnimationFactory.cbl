@@ -80,17 +80,33 @@ PROCEDURE DIVISION USING J-THIS J-instanceId RETURNING J-RESULT.
             COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_animationFactoryImageScaleUtil"))
             COMPUTE jtemp4 = FUNCTION AngleFactory-getInstance0
             COMPUTE J-RESULT = FUNCTION AdjstdImgBsRttnAnmtn-new6(FUNCTION BsImgAnmtnFctry-getImage0(J-THIS), FUNCTION AngleInfo-getInstance1(FUNCTION JR-GET(J-THIS, "f_angleIncrement")), FUNCTION JR-GET(jtemp4, "f_TOTAL_ANGLE"), FUNCTION
-        JR-GET(FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor"), "f_dx"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor"), "f_dy"), FUNCTION AnmtnBhvrFctry-gtOrCrtInstnc0(FUNCTION
-        JR-GET(J-THIS, "f_animationBehaviorFactory")))
+        JR-GET(FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor"), "f_dx"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor"), "f_dy"), FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS,
+        "f_animationBehaviorFactory")))
             GOBACK
         ELSE
             COMPUTE jtemp3 = FUNCTION AngleFactory-getInstance0
             COMPUTE J-RESULT = FUNCTION ImgBsRttnAnmtn-new4(FUNCTION BsImgAnmtnFctry-getImage0(J-THIS), FUNCTION AngleInfo-getInstance1(FUNCTION JR-GET(J-THIS, "f_angleIncrement")), FUNCTION JR-GET(jtemp3, "f_TOTAL_ANGLE"), FUNCTION
-        AnmtnBhvrFctry-gtOrCrtInstnc0(FUNCTION JR-GET(J-THIS, "f_animationBehaviorFactory")))
+        JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_animationBehaviorFactory")))
             GOBACK
         END-IF
     GOBACK.
 END FUNCTION ImgRttnAnmtnFctry-getInstance1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VImageRotationAni-getInstance1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-instanceId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-instanceId J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ImgRttnAnmtnFctry-getInstance1(J-THIS, J-instanceId)
+    GOBACK.
+END PROGRAM VImageRotationAni-getInstance1.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. ImgRttnAnmtnFctry-gtAnglI40773.
@@ -119,4 +135,29 @@ PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
         GOBACK
     GOBACK.
 END FUNCTION ImgRttnAnmtnFctry-gtAnglI40773.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VImageRota-getAngleIncrementP0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ImgRttnAnmtnFctry-gtAnglI40773(J-THIS)
+    GOBACK.
+END PROGRAM VImageRota-getAngleIncrementP0.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. ImageRotationAnimationF-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "BaseImageAnimationFactory" TO J-CLASS
+    GOBACK.
+END PROGRAM ImageRotationAnimationF-jsuper.
 

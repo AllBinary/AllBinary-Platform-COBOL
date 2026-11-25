@@ -70,8 +70,8 @@ LOCAL-STORAGE SECTION.
 01 jtemp1 BINARY-DOUBLE.
 01 jtemp2 BINARY-DOUBLE.
 01 jtemp3 BINARY-DOUBLE.
-01 JFIRST1 BINARY-DOUBLE.
-01 JFIRST2 BINARY-DOUBLE.
+01 JFIRST-N69215 BINARY-DOUBLE.
+01 JFIRST-N69750 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-vector BINARY-DOUBLE.
@@ -96,12 +96,12 @@ PROCEDURE DIVISION USING J-THIS J-vector J-backgroundBasicColor J-foregroundBasi
         END-IF
         CONTINUE
         COMPUTE J-index = 0
-        MOVE 1 TO JFIRST1
+        MOVE 1 TO JFIRST-N69215
         PERFORM FOREVER
-            IF JFIRST1 = 0
+            IF JFIRST-N69215 = 0
                 COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
             END-IF
-            MOVE 0 TO JFIRST1
+            MOVE 0 TO JFIRST-N69215
             IF NOT (J-index < J-size) EXIT PERFORM END-IF
             COMPUTE J-command = FUNCTION VectorUtil-elementAt2(J-vectorUtil, J-vector, J-index)
             IF (FUNCTION Command-getPriority0(J-command) < J-priorityLimit)
@@ -116,12 +116,12 @@ PROCEDURE DIVISION USING J-THIS J-vector J-backgroundBasicColor J-foregroundBasi
         COMPUTE J-textItemArray = FUNCTION JR-NEW-ARRAY(FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_list")))
         COMPUTE J-size2 = FUNCTION JR-ARRAY-LENGTH(J-textItemArray)
         COMPUTE J-index = 0
-        MOVE 1 TO JFIRST2
+        MOVE 1 TO JFIRST-N69750
         PERFORM FOREVER
-            IF JFIRST2 = 0
+            IF JFIRST-N69750 = 0
                 COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
             END-IF
-            MOVE 0 TO JFIRST2
+            MOVE 0 TO JFIRST-N69750
             IF NOT (J-index < J-size2) EXIT PERFORM END-IF
             COMPUTE JVALUE = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_list"), "f_objectArray"), J-index)
             COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-textItemArray, J-index, JVALUE)
@@ -130,4 +130,32 @@ PROCEDURE DIVISION USING J-THIS J-vector J-backgroundBasicColor J-foregroundBasi
         GOBACK
     GOBACK.
 END FUNCTION CmmndTxtItmArryFctry-gtInstnc3.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VCommandTextItemA-getInstance3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-vector BINARY-DOUBLE.
+01 J-backgroundBasicColor BINARY-DOUBLE.
+01 J-foregroundBasicColor BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-vector J-backgroundBasicColor J-foregroundBasicColor J-RESULT.
+    COMPUTE J-RESULT = FUNCTION CmmndTxtItmArryFctry-gtInstnc3(J-THIS, J-vector, J-backgroundBasicColor, J-foregroundBasicColor)
+    GOBACK.
+END PROGRAM VCommandTextItemA-getInstance3.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. CommandTextItemArrayFac-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM CommandTextItemArrayFac-jsuper.
 

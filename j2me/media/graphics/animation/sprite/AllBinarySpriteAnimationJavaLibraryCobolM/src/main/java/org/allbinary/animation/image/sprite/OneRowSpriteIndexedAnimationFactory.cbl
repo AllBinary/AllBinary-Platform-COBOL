@@ -219,6 +219,23 @@ PROCEDURE DIVISION USING J-THIS J-dx J-dy RETURNING J-RESULT.
 END FUNCTION OnRwSprtIndxdAnmtnFctry-init2.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VOneRowSpriteIndexedAnim-init2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-dx BINARY-DOUBLE.
+01 J-dy BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-dx J-dy J-RESULT.
+    COMPUTE J-RESULT = FUNCTION OnRwSprtIndxdAnmtnFctry-init2(J-THIS, J-dx, J-dy)
+    GOBACK.
+END PROGRAM VOneRowSpriteIndexedAnim-init2.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. OnRwSprtIndxdAnmtnFctry-initW1.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -250,6 +267,22 @@ PROCEDURE DIVISION USING J-THIS J-dx RETURNING J-RESULT.
         COMPUTE JDISCARD = FUNCTION JR-SET(FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor"), "f_dx", JVALUE)
     GOBACK.
 END FUNCTION OnRwSprtIndxdAnmtnFctry-initW1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VOneRowSpriteIndexedAni-initW1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-dx BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-dx J-RESULT.
+    COMPUTE J-RESULT = FUNCTION OnRwSprtIndxdAnmtnFctry-initW1(J-THIS, J-dx)
+    GOBACK.
+END PROGRAM VOneRowSpriteIndexedAni-initW1.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. OnRwSprtIndxdAnmtnFctry-g82830.
@@ -284,15 +317,40 @@ PROCEDURE DIVISION USING J-THIS J-instanceId RETURNING J-RESULT.
         IF ((FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor"), "f_dx") NOT = 0) OR (FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor"), "f_dy") NOT = 0))
             COMPUTE jtemp11 = FUNCTION BasicColorUtil-getInstance0
             COMPUTE J-RESULT = FUNCTION AdjstdSprtIndxdAnmtn-new6(J-sprite, FUNCTION BsImgAnmtnFctry-getImage0(J-THIS), FUNCTION JR-GET(jtemp11, "f_ZERO_ARRAY"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS,
-        "f_animationFactoryInitializationVisitor"), "f_dx"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor"), "f_dy"), FUNCTION AnmtnBhvrFctry-gtOrCrtInstnc0(FUNCTION JR-GET(J-THIS,
-        "f_animationBehaviorFactory")))
+        "f_animationFactoryInitializationVisitor"), "f_dx"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor"), "f_dy"), FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_animationBehaviorFactory")))
             GOBACK
         ELSE
             COMPUTE jtemp10 = FUNCTION BasicColorUtil-getInstance0
-            COMPUTE J-RESULT = FUNCTION SpriteIndexedAnimation-new4(J-sprite, FUNCTION BsImgAnmtnFctry-getImage0(J-THIS), FUNCTION JR-GET(jtemp10, "f_ZERO_ARRAY"), FUNCTION AnmtnBhvrFctry-gtOrCrtInstnc0(FUNCTION JR-GET(J-THIS,
+            COMPUTE J-RESULT = FUNCTION SpriteIndexedAnimation-new4(J-sprite, FUNCTION BsImgAnmtnFctry-getImage0(J-THIS), FUNCTION JR-GET(jtemp10, "f_ZERO_ARRAY"), FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS,
         "f_animationBehaviorFactory")))
             GOBACK
         END-IF
     GOBACK.
 END FUNCTION OnRwSprtIndxdAnmtnFctry-g82830.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VOneRowSpriteInde-getInstance1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-instanceId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-instanceId J-RESULT.
+    COMPUTE J-RESULT = FUNCTION OnRwSprtIndxdAnmtnFctry-g82830(J-THIS, J-instanceId)
+    GOBACK.
+END PROGRAM VOneRowSpriteInde-getInstance1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. OneRowSpriteIndexedAnim-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "BaseImageAnimationFactory" TO J-CLASS
+    GOBACK.
+END PROGRAM OneRowSpriteIndexedAnim-jsuper.
 

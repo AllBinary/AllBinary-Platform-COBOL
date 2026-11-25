@@ -62,3 +62,13 @@ PROCEDURE DIVISION USING J-cacheableInterfaceFactoryInterface J-cacheType J-cach
     GOBACK.
 END FUNCTION AtmtcCchIntrfcFctry-gtInstnc3.
 
+IDENTIFICATION DIVISION.
+PROGRAM-ID. AutomaticCacheInterface-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM AutomaticCacheInterface-jsuper.
+

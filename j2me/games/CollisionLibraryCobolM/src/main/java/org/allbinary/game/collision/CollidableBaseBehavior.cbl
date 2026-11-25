@@ -73,6 +73,21 @@ PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
 END FUNCTION CollidableBaseBehavior-update0.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VCollidableBaseBehavio-update0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION CollidableBaseBehavior-update0(J-THIS)
+    GOBACK.
+END PROGRAM VCollidableBaseBehavio-update0.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. ClldblBsBhvr-getName0.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -101,6 +116,21 @@ PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
         GOBACK
     GOBACK.
 END FUNCTION ClldblBsBhvr-getName0.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VCollidableBaseBehavi-getName0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ClldblBsBhvr-getName0(J-THIS)
+    GOBACK.
+END PROGRAM VCollidableBaseBehavi-getName0.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. ClldblBsBhvr-setCollidable1.
@@ -132,6 +162,22 @@ PROCEDURE DIVISION USING J-THIS J-collidable RETURNING J-RESULT.
 END FUNCTION ClldblBsBhvr-setCollidable1.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VCollidableBase-setCollidable1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-collidable BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-collidable J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ClldblBsBhvr-setCollidable1(J-THIS, J-collidable)
+    GOBACK.
+END PROGRAM VCollidableBase-setCollidable1.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. ClldblBsBhvr-isCollidable1.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -161,7 +207,73 @@ PROCEDURE DIVISION USING J-THIS J-ownerLayer RETURNING J-RESULT.
 END FUNCTION ClldblBsBhvr-isCollidable1.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VCollidableBaseB-isCollidable1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ownerLayer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ownerLayer J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ClldblBsBhvr-isCollidable1(J-THIS, J-ownerLayer)
+    GOBACK.
+END PROGRAM VCollidableBaseB-isCollidable1.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. ClldblBsBhvr-collide2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
+LOCAL-STORAGE SECTION.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ownerLayer BINARY-DOUBLE.
+01 J-allbinaryCollidableLayer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ownerLayer J-allbinaryCollidableLayer RETURNING J-RESULT.
+    MOVE 0 TO JV-DONE
+    MOVE "CollidableBaseBehavior" TO JV-CLASS
+    IF J-THIS NOT = 0
+        MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    END-IF
+    PERFORM UNTIL JV-DONE = 1
+        IF JV-CLASS = "CollidableBaseBehavior"
+            COMPUTE J-RESULT = FUNCTION ClldblBsBhvr-collide2J(J-THIS, J-ownerLayer, J-allbinaryCollidableLayer)
+            MOVE 1 TO JV-DONE
+        ELSE
+            MOVE SPACES TO JV-NAME
+            STRING "V" DELIMITED BY SIZE JV-CLASS(1:20) DELIMITED BY SPACE "-collide2" DELIMITED BY SIZE INTO JV-NAME
+            CALL JV-NAME USING J-THIS J-ownerLayer J-allbinaryCollidableLayer J-RESULT
+                ON EXCEPTION
+                    MOVE SPACES TO JV-NAME
+                    STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                    CALL JV-NAME USING JV-CLASS
+                        ON EXCEPTION
+                            MOVE "CollidableBaseBehavior" TO JV-CLASS
+                    END-CALL
+                    IF JV-CLASS = "Object"
+                        MOVE "CollidableBaseBehavior" TO JV-CLASS
+                    END-IF
+                NOT ON EXCEPTION
+                    MOVE 1 TO JV-DONE
+            END-CALL
+        END-IF
+    END-PERFORM
+    GOBACK.
+END FUNCTION ClldblBsBhvr-collide2.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblBsBhvr-collide2J.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
 REPOSITORY.
@@ -199,10 +311,77 @@ PROCEDURE DIVISION USING J-THIS J-ownerLayer J-allbinaryCollidableLayer RETURNIN
         COMPUTE jtemp2 = FUNCTION StringMaker-append1(jtemp3, jtemp7)
         COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
     GOBACK.
-END FUNCTION ClldblBsBhvr-collide2.
+END FUNCTION ClldblBsBhvr-collide2J.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VCollidableBaseBehavi-collide2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ownerLayer BINARY-DOUBLE.
+01 J-allbinaryCollidableLayer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ownerLayer J-allbinaryCollidableLayer J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ClldblBsBhvr-collide2J(J-THIS, J-ownerLayer, J-allbinaryCollidableLayer)
+    GOBACK.
+END PROGRAM VCollidableBaseBehavi-collide2.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. ClldblBsBhvr-isCollision2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
+LOCAL-STORAGE SECTION.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ownerLayer BINARY-DOUBLE.
+01 J-collisionLayer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ownerLayer J-collisionLayer RETURNING J-RESULT.
+    MOVE 0 TO JV-DONE
+    MOVE "CollidableBaseBehavior" TO JV-CLASS
+    IF J-THIS NOT = 0
+        MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    END-IF
+    PERFORM UNTIL JV-DONE = 1
+        IF JV-CLASS = "CollidableBaseBehavior"
+            COMPUTE J-RESULT = FUNCTION ClldblBsBhvr-isCollision2J(J-THIS, J-ownerLayer, J-collisionLayer)
+            MOVE 1 TO JV-DONE
+        ELSE
+            MOVE SPACES TO JV-NAME
+            STRING "V" DELIMITED BY SIZE JV-CLASS(1:16) DELIMITED BY SPACE "-isCollision2" DELIMITED BY SIZE INTO JV-NAME
+            CALL JV-NAME USING J-THIS J-ownerLayer J-collisionLayer J-RESULT
+                ON EXCEPTION
+                    MOVE SPACES TO JV-NAME
+                    STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                    CALL JV-NAME USING JV-CLASS
+                        ON EXCEPTION
+                            MOVE "CollidableBaseBehavior" TO JV-CLASS
+                    END-CALL
+                    IF JV-CLASS = "Object"
+                        MOVE "CollidableBaseBehavior" TO JV-CLASS
+                    END-IF
+                NOT ON EXCEPTION
+                    MOVE 1 TO JV-DONE
+            END-CALL
+        END-IF
+    END-PERFORM
+    GOBACK.
+END FUNCTION ClldblBsBhvr-isCollision2.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblBsBhvr-isCollision2J.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
 REPOSITORY.
@@ -229,10 +408,77 @@ PROCEDURE DIVISION USING J-THIS J-ownerLayer J-collisionLayer RETURNING J-RESULT
         COMPUTE J-RESULT = FUNCTION LyrCllsnUtl-isCollision2(FUNCTION JR-GET(J-THIS, "f_layerCollisionUtil"), J-ownerLayer, J-collisionLayer)
         GOBACK
     GOBACK.
-END FUNCTION ClldblBsBhvr-isCollision2.
+END FUNCTION ClldblBsBhvr-isCollision2J.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VCollidableBaseBe-isCollision2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ownerLayer BINARY-DOUBLE.
+01 J-collisionLayer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ownerLayer J-collisionLayer J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ClldblBsBhvr-isCollision2J(J-THIS, J-ownerLayer, J-collisionLayer)
+    GOBACK.
+END PROGRAM VCollidableBaseBe-isCollision2.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. ClldblBsBhvr-isCllsnIntrfc2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
+LOCAL-STORAGE SECTION.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ownerLayer BINARY-DOUBLE.
+01 J-collidableInterfaceCompositeInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ownerLayer J-collidableInterfaceCompositeInterface RETURNING J-RESULT.
+    MOVE 0 TO JV-DONE
+    MOVE "CollidableBaseBehavior" TO JV-CLASS
+    IF J-THIS NOT = 0
+        MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    END-IF
+    PERFORM UNTIL JV-DONE = 1
+        IF JV-CLASS = "CollidableBaseBehavior"
+            COMPUTE J-RESULT = FUNCTION ClldblBsBhvr-isCllsnIntrfc2J(J-THIS, J-ownerLayer, J-collidableInterfaceCompositeInterface)
+            MOVE 1 TO JV-DONE
+        ELSE
+            MOVE SPACES TO JV-NAME
+            STRING "V" DELIMITED BY SIZE JV-CLASS(1:7) DELIMITED BY SPACE "-isCollisionInterface2" DELIMITED BY SIZE INTO JV-NAME
+            CALL JV-NAME USING J-THIS J-ownerLayer J-collidableInterfaceCompositeInterface J-RESULT
+                ON EXCEPTION
+                    MOVE SPACES TO JV-NAME
+                    STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                    CALL JV-NAME USING JV-CLASS
+                        ON EXCEPTION
+                            MOVE "CollidableBaseBehavior" TO JV-CLASS
+                    END-CALL
+                    IF JV-CLASS = "Object"
+                        MOVE "CollidableBaseBehavior" TO JV-CLASS
+                    END-IF
+                NOT ON EXCEPTION
+                    MOVE 1 TO JV-DONE
+            END-CALL
+        END-IF
+    END-PERFORM
+    GOBACK.
+END FUNCTION ClldblBsBhvr-isCllsnIntrfc2.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblBsBhvr-isCllsnIntrfc2J.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
 REPOSITORY.
@@ -261,10 +507,77 @@ PROCEDURE DIVISION USING J-THIS J-ownerLayer J-collidableInterfaceCompositeInter
         COMPUTE J-RESULT = FUNCTION LyrCllsnUtl-isCollision2(FUNCTION JR-GET(J-THIS, "f_layerCollisionUtil"), J-ownerLayer, jtemp8)
         GOBACK
     GOBACK.
-END FUNCTION ClldblBsBhvr-isCllsnIntrfc2.
+END FUNCTION ClldblBsBhvr-isCllsnIntrfc2J.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VCollida-isCollisionInterface2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ownerLayer BINARY-DOUBLE.
+01 J-collidableInterfaceCompositeInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ownerLayer J-collidableInterfaceCompositeInterface J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ClldblBsBhvr-isCllsnIntrfc2J(J-THIS, J-ownerLayer, J-collidableInterfaceCompositeInterface)
+    GOBACK.
+END PROGRAM VCollida-isCollisionInterface2.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. ClldblBsBhvr-collideInterface2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
+LOCAL-STORAGE SECTION.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ownerLayer BINARY-DOUBLE.
+01 J-collidableInterfaceCompositeInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ownerLayer J-collidableInterfaceCompositeInterface RETURNING J-RESULT.
+    MOVE 0 TO JV-DONE
+    MOVE "CollidableBaseBehavior" TO JV-CLASS
+    IF J-THIS NOT = 0
+        MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    END-IF
+    PERFORM UNTIL JV-DONE = 1
+        IF JV-CLASS = "CollidableBaseBehavior"
+            COMPUTE J-RESULT = FUNCTION ClldblBsBhvr-clldIntrfc2J(J-THIS, J-ownerLayer, J-collidableInterfaceCompositeInterface)
+            MOVE 1 TO JV-DONE
+        ELSE
+            MOVE SPACES TO JV-NAME
+            STRING "V" DELIMITED BY SIZE JV-CLASS(1:11) DELIMITED BY SPACE "-collideInterface2" DELIMITED BY SIZE INTO JV-NAME
+            CALL JV-NAME USING J-THIS J-ownerLayer J-collidableInterfaceCompositeInterface J-RESULT
+                ON EXCEPTION
+                    MOVE SPACES TO JV-NAME
+                    STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                    CALL JV-NAME USING JV-CLASS
+                        ON EXCEPTION
+                            MOVE "CollidableBaseBehavior" TO JV-CLASS
+                    END-CALL
+                    IF JV-CLASS = "Object"
+                        MOVE "CollidableBaseBehavior" TO JV-CLASS
+                    END-IF
+                NOT ON EXCEPTION
+                    MOVE 1 TO JV-DONE
+            END-CALL
+        END-IF
+    END-PERFORM
+    GOBACK.
+END FUNCTION ClldblBsBhvr-collideInterface2.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblBsBhvr-clldIntrfc2J.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
 REPOSITORY.
@@ -290,7 +603,24 @@ PROCEDURE DIVISION USING J-THIS J-ownerLayer J-collidableInterfaceCompositeInter
     MOVE 0 TO J-RESULT
         COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
     GOBACK.
-END FUNCTION ClldblBsBhvr-collideInterface2.
+END FUNCTION ClldblBsBhvr-clldIntrfc2J.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VCollidableB-collideInterface2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ownerLayer BINARY-DOUBLE.
+01 J-collidableInterfaceCompositeInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ownerLayer J-collidableInterfaceCompositeInterface J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ClldblBsBhvr-clldIntrfc2J(J-THIS, J-ownerLayer, J-collidableInterfaceCompositeInterface)
+    GOBACK.
+END PROGRAM VCollidableB-collideInterface2.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. CollidableBaseBehavior-paint2.
@@ -322,7 +652,73 @@ PROCEDURE DIVISION USING J-THIS J-ownerLayer J-graphics RETURNING J-RESULT.
 END FUNCTION CollidableBaseBehavior-paint2.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VCollidableBaseBehavior-paint2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ownerLayer BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ownerLayer J-graphics J-RESULT.
+    COMPUTE J-RESULT = FUNCTION CollidableBaseBehavior-paint2(J-THIS, J-ownerLayer, J-graphics)
+    GOBACK.
+END PROGRAM VCollidableBaseBehavior-paint2.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. ClldblBsBhvr-gtCllsnTypWth1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
+LOCAL-STORAGE SECTION.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerInterface RETURNING J-RESULT.
+    MOVE 0 TO JV-DONE
+    MOVE "CollidableBaseBehavior" TO JV-CLASS
+    IF J-THIS NOT = 0
+        MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    END-IF
+    PERFORM UNTIL JV-DONE = 1
+        IF JV-CLASS = "CollidableBaseBehavior"
+            COMPUTE J-RESULT = FUNCTION ClldblBsBhvr-gtCllsnTypWth1J(J-THIS, J-layerInterface)
+            MOVE 1 TO JV-DONE
+        ELSE
+            MOVE SPACES TO JV-NAME
+            STRING "V" DELIMITED BY SIZE JV-CLASS(1:7) DELIMITED BY SPACE "-getCollisionTypeWith1" DELIMITED BY SIZE INTO JV-NAME
+            CALL JV-NAME USING J-THIS J-layerInterface J-RESULT
+                ON EXCEPTION
+                    MOVE SPACES TO JV-NAME
+                    STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                    CALL JV-NAME USING JV-CLASS
+                        ON EXCEPTION
+                            MOVE "CollidableBaseBehavior" TO JV-CLASS
+                    END-CALL
+                    IF JV-CLASS = "Object"
+                        MOVE "CollidableBaseBehavior" TO JV-CLASS
+                    END-IF
+                NOT ON EXCEPTION
+                    MOVE 1 TO JV-DONE
+            END-CALL
+        END-IF
+    END-PERFORM
+    GOBACK.
+END FUNCTION ClldblBsBhvr-gtCllsnTypWth1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ClldblBsBhvr-gtCllsnTypWth1J.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
 REPOSITORY.
@@ -350,5 +746,31 @@ PROCEDURE DIVISION USING J-THIS J-layerInterface RETURNING J-RESULT.
         COMPUTE J-RESULT = FUNCTION JR-GET(jtemp9, "f_NONE")
         GOBACK
     GOBACK.
-END FUNCTION ClldblBsBhvr-gtCllsnTypWth1.
+END FUNCTION ClldblBsBhvr-gtCllsnTypWth1J.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VCollida-getCollisionTypeWith1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerInterface J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ClldblBsBhvr-gtCllsnTypWth1J(J-THIS, J-layerInterface)
+    GOBACK.
+END PROGRAM VCollida-getCollisionTypeWith1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. CollidableBaseBehavior-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM CollidableBaseBehavior-jsuper.
 

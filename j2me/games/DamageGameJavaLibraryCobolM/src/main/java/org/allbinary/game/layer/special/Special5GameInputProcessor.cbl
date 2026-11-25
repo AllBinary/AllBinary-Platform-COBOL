@@ -57,7 +57,34 @@ LINKAGE SECTION.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION USING J-THIS J-allbinaryLayerManager J-gameKeyEvent RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
-        COMPUTE JDISCARD = FUNCTION ClldblDstryblDmgblLyr-spcl52(FUNCTION JR-GET(J-THIS, "f_collidableDestroyableDamageableLayer"), J-allbinaryLayerManager, J-gameKeyEvent)
+        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_collidableDestroyableDamageableLayer"))
     GOBACK.
 END FUNCTION Spcl5GmInptPrcssr-prcssEvnt2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VSpecial5GameInp-processEvent2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allbinaryLayerManager BINARY-DOUBLE.
+01 J-gameKeyEvent BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allbinaryLayerManager J-gameKeyEvent J-RESULT.
+    COMPUTE J-RESULT = FUNCTION Spcl5GmInptPrcssr-prcssEvnt2(J-THIS, J-allbinaryLayerManager, J-gameKeyEvent)
+    GOBACK.
+END PROGRAM VSpecial5GameInp-processEvent2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. Special5GameInputProces-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "SpecialGameInputProcessor" TO J-CLASS
+    GOBACK.
+END PROGRAM Special5GameInputProces-jsuper.
 

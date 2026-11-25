@@ -37,6 +37,8 @@ CONFIGURATION SECTION.
 REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -48,14 +50,37 @@ LOCAL-STORAGE SECTION.
 01 JFOUR BINARY-DOUBLE VALUE 4.
 01 JFIVE BINARY-DOUBLE VALUE 5.
 01 JSIX BINARY-DOUBLE VALUE 6.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-instanceId BINARY-DOUBLE.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION USING J-THIS J-instanceId RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
-    DISPLAY "AbstractMethodError: AnimationInterfaceFactoryInterface.getInstance"
-    STOP RUN
+    IF J-THIS = 0
+        DISPLAY "java.lang.NullPointerException: AnimationInterfaceFactoryInterface.getInstance"
+        STOP RUN
+    END-IF
+    MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    MOVE 0 TO JV-DONE
+    PERFORM UNTIL JV-DONE = 1
+        MOVE SPACES TO JV-NAME
+        STRING "V" DELIMITED BY SIZE JV-CLASS(1:16) DELIMITED BY SPACE "-getInstance1" DELIMITED BY SIZE INTO JV-NAME
+        CALL JV-NAME USING J-THIS J-instanceId J-RESULT
+            ON EXCEPTION
+                MOVE SPACES TO JV-NAME
+                STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                CALL JV-NAME USING JV-CLASS
+                    ON EXCEPTION
+                        DISPLAY "AbstractMethodError: AnimationInterfaceFactoryInterface.getInstance"
+                        STOP RUN
+                END-CALL
+            NOT ON EXCEPTION
+                MOVE 1 TO JV-DONE
+        END-CALL
+    END-PERFORM
     GOBACK.
 END FUNCTION AnmtnIntrfcFctryIntrfc-gt17695.
 
@@ -66,6 +91,8 @@ CONFIGURATION SECTION.
 REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -77,14 +104,37 @@ LOCAL-STORAGE SECTION.
 01 JFOUR BINARY-DOUBLE VALUE 4.
 01 JFIVE BINARY-DOUBLE VALUE 5.
 01 JSIX BINARY-DOUBLE VALUE 6.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-scaleProperties BINARY-DOUBLE.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION USING J-THIS J-scaleProperties RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
-    DISPLAY "AbstractMethodError: AnimationInterfaceFactoryInterface.setInitialScale"
-    STOP RUN
+    IF J-THIS = 0
+        DISPLAY "java.lang.NullPointerException: AnimationInterfaceFactoryInterface.setInitialScale"
+        STOP RUN
+    END-IF
+    MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    MOVE 0 TO JV-DONE
+    PERFORM UNTIL JV-DONE = 1
+        MOVE SPACES TO JV-NAME
+        STRING "V" DELIMITED BY SIZE JV-CLASS(1:12) DELIMITED BY SPACE "-setInitialScale1" DELIMITED BY SIZE INTO JV-NAME
+        CALL JV-NAME USING J-THIS J-scaleProperties J-RESULT
+            ON EXCEPTION
+                MOVE SPACES TO JV-NAME
+                STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                CALL JV-NAME USING JV-CLASS
+                    ON EXCEPTION
+                        DISPLAY "AbstractMethodError: AnimationInterfaceFactoryInterface.setInitialScale"
+                        STOP RUN
+                END-CALL
+            NOT ON EXCEPTION
+                MOVE 1 TO JV-DONE
+        END-CALL
+    END-PERFORM
     GOBACK.
 END FUNCTION AnmtnIntrfcFctryIntrfc-st29873.
 

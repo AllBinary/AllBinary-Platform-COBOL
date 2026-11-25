@@ -77,3 +77,13 @@ PROCEDURE DIVISION USING J-title J-items J-rectangle J-formType J-border J-moveF
     GOBACK.
 END FUNCTION CmmndCrrntSlctnFrmFctry-g56257.
 
+IDENTIFICATION DIVISION.
+PROGRAM-ID. CommandCurrentSelection-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM CommandCurrentSelection-jsuper.
+

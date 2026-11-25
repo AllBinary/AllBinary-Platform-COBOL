@@ -36,3 +36,13 @@ PROCEDURE DIVISION USING J-animationInterface J-width J-height RETURNING J-RESUL
     GOBACK.
 END FUNCTION ImgAnmtnSngltnIntrfcFctry-new3.
 
+IDENTIFICATION DIVISION.
+PROGRAM-ID. ImageAnimationSingleton-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "SingletonAnimationInterfaceFactory" TO J-CLASS
+    GOBACK.
+END PROGRAM ImageAnimationSingleton-jsuper.
+

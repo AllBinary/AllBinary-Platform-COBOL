@@ -45,6 +45,57 @@ CONFIGURATION SECTION.
 REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
+LOCAL-STORAGE SECTION.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryLayerManager BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager J-layerInterface J-index RETURNING J-RESULT.
+    MOVE 0 TO JV-DONE
+    MOVE "LayerProcessor" TO JV-CLASS
+    IF J-THIS NOT = 0
+        MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    END-IF
+    PERFORM UNTIL JV-DONE = 1
+        IF JV-CLASS = "LayerProcessor"
+            COMPUTE J-RESULT = FUNCTION LayerProcessor-processAt3J(J-THIS, J-allBinaryLayerManager, J-layerInterface, J-index)
+            MOVE 1 TO JV-DONE
+        ELSE
+            MOVE SPACES TO JV-NAME
+            STRING "V" DELIMITED BY SIZE JV-CLASS(1:18) DELIMITED BY SPACE "-processAt3" DELIMITED BY SIZE INTO JV-NAME
+            CALL JV-NAME USING J-THIS J-allBinaryLayerManager J-layerInterface J-index J-RESULT
+                ON EXCEPTION
+                    MOVE SPACES TO JV-NAME
+                    STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                    CALL JV-NAME USING JV-CLASS
+                        ON EXCEPTION
+                            MOVE "LayerProcessor" TO JV-CLASS
+                    END-CALL
+                    IF JV-CLASS = "Object"
+                        MOVE "LayerProcessor" TO JV-CLASS
+                    END-IF
+                NOT ON EXCEPTION
+                    MOVE 1 TO JV-DONE
+            END-CALL
+        END-IF
+    END-PERFORM
+    GOBACK.
+END FUNCTION LayerProcessor-processAt3.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LayerProcessor-processAt3J.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -66,10 +117,77 @@ PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager J-layerInterface J-index
     MOVE 0 TO J-RESULT
         COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
     GOBACK.
-END FUNCTION LayerProcessor-processAt3.
+END FUNCTION LayerProcessor-processAt3J.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VLayerProcessor-processAt3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryLayerManager BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager J-layerInterface J-index J-RESULT.
+    COMPUTE J-RESULT = FUNCTION LayerProcessor-processAt3J(J-THIS, J-allBinaryLayerManager, J-layerInterface, J-index)
+    GOBACK.
+END PROGRAM VLayerProcessor-processAt3.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. LyrPrcssr-isProcessorLayer1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
+LOCAL-STORAGE SECTION.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerInterface RETURNING J-RESULT.
+    MOVE 0 TO JV-DONE
+    MOVE "LayerProcessor" TO JV-CLASS
+    IF J-THIS NOT = 0
+        MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    END-IF
+    PERFORM UNTIL JV-DONE = 1
+        IF JV-CLASS = "LayerProcessor"
+            COMPUTE J-RESULT = FUNCTION LyrPrcssr-isProcessorLayer1J(J-THIS, J-layerInterface)
+            MOVE 1 TO JV-DONE
+        ELSE
+            MOVE SPACES TO JV-NAME
+            STRING "V" DELIMITED BY SIZE JV-CLASS(1:11) DELIMITED BY SPACE "-isProcessorLayer1" DELIMITED BY SIZE INTO JV-NAME
+            CALL JV-NAME USING J-THIS J-layerInterface J-RESULT
+                ON EXCEPTION
+                    MOVE SPACES TO JV-NAME
+                    STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                    CALL JV-NAME USING JV-CLASS
+                        ON EXCEPTION
+                            MOVE "LayerProcessor" TO JV-CLASS
+                    END-CALL
+                    IF JV-CLASS = "Object"
+                        MOVE "LayerProcessor" TO JV-CLASS
+                    END-IF
+                NOT ON EXCEPTION
+                    MOVE 1 TO JV-DONE
+            END-CALL
+        END-IF
+    END-PERFORM
+    GOBACK.
+END FUNCTION LyrPrcssr-isProcessorLayer1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LyrPrcssr-isProcessorLayer1J.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
 REPOSITORY.
@@ -94,7 +212,23 @@ PROCEDURE DIVISION USING J-THIS J-layerInterface RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
         COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
     GOBACK.
-END FUNCTION LyrPrcssr-isProcessorLayer1.
+END FUNCTION LyrPrcssr-isProcessorLayer1J.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VLayerProces-isProcessorLayer1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerInterface J-RESULT.
+    COMPUTE J-RESULT = FUNCTION LyrPrcssr-isProcessorLayer1J(J-THIS, J-layerInterface)
+    GOBACK.
+END PROGRAM VLayerProces-isProcessorLayer1.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. LyrPrcssr-getLayerManager0.
@@ -125,7 +259,71 @@ PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
 END FUNCTION LyrPrcssr-getLayerManager0.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VLayerProcess-getLayerManager0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION LyrPrcssr-getLayerManager0(J-THIS)
+    GOBACK.
+END PROGRAM VLayerProcess-getLayerManager0.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. LayerProcessor-process1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
+LOCAL-STORAGE SECTION.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryLayerManager BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager RETURNING J-RESULT.
+    MOVE 0 TO JV-DONE
+    MOVE "LayerProcessor" TO JV-CLASS
+    IF J-THIS NOT = 0
+        MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    END-IF
+    PERFORM UNTIL JV-DONE = 1
+        IF JV-CLASS = "LayerProcessor"
+            COMPUTE J-RESULT = FUNCTION LayerProcessor-process1J(J-THIS, J-allBinaryLayerManager)
+            MOVE 1 TO JV-DONE
+        ELSE
+            MOVE SPACES TO JV-NAME
+            STRING "V" DELIMITED BY SIZE JV-CLASS(1:20) DELIMITED BY SPACE "-process1" DELIMITED BY SIZE INTO JV-NAME
+            CALL JV-NAME USING J-THIS J-allBinaryLayerManager J-RESULT
+                ON EXCEPTION
+                    MOVE SPACES TO JV-NAME
+                    STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                    CALL JV-NAME USING JV-CLASS
+                        ON EXCEPTION
+                            MOVE "LayerProcessor" TO JV-CLASS
+                    END-CALL
+                    IF JV-CLASS = "Object"
+                        MOVE "LayerProcessor" TO JV-CLASS
+                    END-IF
+                NOT ON EXCEPTION
+                    MOVE 1 TO JV-DONE
+            END-CALL
+        END-IF
+    END-PERFORM
+    GOBACK.
+END FUNCTION LayerProcessor-process1.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. LayerProcessor-process1J.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
 REPOSITORY.
@@ -146,7 +344,7 @@ LOCAL-STORAGE SECTION.
 01 J-size BINARY-DOUBLE.
 01 J-index BINARY-DOUBLE.
 01 jtemp1 BINARY-DOUBLE.
-01 JFIRST1 BINARY-DOUBLE.
+01 JFIRST-N68227 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-allBinaryLayerManager BINARY-DOUBLE.
@@ -156,16 +354,42 @@ PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager RETURNING J-RESULT.
         COMPUTE J-layerManager = FUNCTION LyrPrcssr-getLayerManager0(J-THIS)
         COMPUTE J-size = FUNCTION ABLayerManager-getSize0(J-layerManager)
         COMPUTE J-index = 0
-        MOVE 1 TO JFIRST1
+        MOVE 1 TO JFIRST-N68227
         PERFORM FOREVER
-            IF JFIRST1 = 0
+            IF JFIRST-N68227 = 0
                 COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
             END-IF
-            MOVE 0 TO JFIRST1
+            MOVE 0 TO JFIRST-N68227
             IF NOT (J-index < J-size) EXIT PERFORM END-IF
             COMPUTE jtemp1 = FUNCTION ABLayerManager-getLayerAt1(J-layerManager, J-index)
             COMPUTE JDISCARD = FUNCTION LayerProcessor-processAt3(J-THIS, J-allBinaryLayerManager, jtemp1, J-index)
         END-PERFORM
     GOBACK.
-END FUNCTION LayerProcessor-process1.
+END FUNCTION LayerProcessor-process1J.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VLayerProcessor-process1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryLayerManager BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager J-RESULT.
+    COMPUTE J-RESULT = FUNCTION LayerProcessor-process1J(J-THIS, J-allBinaryLayerManager)
+    GOBACK.
+END PROGRAM VLayerProcessor-process1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. LayerProcessor-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM LayerProcessor-jsuper.
 

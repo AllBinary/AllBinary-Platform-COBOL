@@ -142,3 +142,30 @@ PROCEDURE DIVISION USING J-THIS J-eventObject J-eventListenerInterface RETURNING
     GOBACK.
 END FUNCTION InptMppngEvntHndlr-process2.
 
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VInputMappingEventHan-process2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-eventObject BINARY-DOUBLE.
+01 J-eventListenerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-eventObject J-eventListenerInterface J-RESULT.
+    COMPUTE J-RESULT = FUNCTION InptMppngEvntHndlr-process2(J-THIS, J-eventObject, J-eventListenerInterface)
+    GOBACK.
+END PROGRAM VInputMappingEventHan-process2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. InputMappingEventHandle-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "BasicEventHandler" TO J-CLASS
+    GOBACK.
+END PROGRAM InputMappingEventHandle-jsuper.
+

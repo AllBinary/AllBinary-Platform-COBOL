@@ -112,11 +112,21 @@ PROCEDURE DIVISION USING J-paintableInterface J-width J-height RETURNING J-RESUL
     MOVE 0 TO J-RESULT
         COMPUTE jtemp2 = FUNCTION JR-CLASS-NAME(FUNCTION PntblTImgUtl-static-instance)
         COMPUTE jtemp1 = FUNCTION GmFtrImgCchFctry-getInstance0
-        COMPUTE J-image = FUNCTION GmFtrImgCchFctry-get3(jtemp1, jtemp2, J-width, J-height)
+        COMPUTE J-image = FUNCTION ImageCache-get3(jtemp1, jtemp2, J-width, J-height)
         COMPUTE J-graphics = FUNCTION Image-getGraphics0(J-image)
         COMPUTE JDISCARD = FUNCTION PaintableInterface-paint1(J-paintableInterface, J-graphics)
         COMPUTE J-RESULT = J-image
         GOBACK
     GOBACK.
 END FUNCTION PaintableToImageUtil-getImage3.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PaintableToImageUtil-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM PaintableToImageUtil-jsuper.
 

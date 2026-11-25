@@ -37,6 +37,8 @@ CONFIGURATION SECTION.
 REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -48,13 +50,36 @@ LOCAL-STORAGE SECTION.
 01 JFOUR BINARY-DOUBLE VALUE 4.
 01 JFIVE BINARY-DOUBLE VALUE 5.
 01 JSIX BINARY-DOUBLE VALUE 6.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
-    DISPLAY "AbstractMethodError: BasicVelocityInterface.getVelocityXBasicDecimalP"
-    STOP RUN
+    IF J-THIS = 0
+        DISPLAY "java.lang.NullPointerException: BasicVelocityInterface.getVelocityXBasicDecimalP"
+        STOP RUN
+    END-IF
+    MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    MOVE 0 TO JV-DONE
+    PERFORM UNTIL JV-DONE = 1
+        MOVE SPACES TO JV-NAME
+        STRING "V" DELIMITED BY SIZE JV-CLASS(1:6) DELIMITED BY SPACE "-getVelocityXBasic14913" DELIMITED BY SIZE INTO JV-NAME
+        CALL JV-NAME USING J-THIS J-RESULT
+            ON EXCEPTION
+                MOVE SPACES TO JV-NAME
+                STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                CALL JV-NAME USING JV-CLASS
+                    ON EXCEPTION
+                        DISPLAY "AbstractMethodError: BasicVelocityInterface.getVelocityXBasicDecimalP"
+                        STOP RUN
+                END-CALL
+            NOT ON EXCEPTION
+                MOVE 1 TO JV-DONE
+        END-CALL
+    END-PERFORM
     GOBACK.
 END FUNCTION BscVlctyIntrfc-gtVlctyXBs30687.
 
@@ -65,6 +90,8 @@ CONFIGURATION SECTION.
 REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -76,13 +103,36 @@ LOCAL-STORAGE SECTION.
 01 JFOUR BINARY-DOUBLE VALUE 4.
 01 JFIVE BINARY-DOUBLE VALUE 5.
 01 JSIX BINARY-DOUBLE VALUE 6.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
-    DISPLAY "AbstractMethodError: BasicVelocityInterface.getVelocityYBasicDecimalP"
-    STOP RUN
+    IF J-THIS = 0
+        DISPLAY "java.lang.NullPointerException: BasicVelocityInterface.getVelocityYBasicDecimalP"
+        STOP RUN
+    END-IF
+    MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    MOVE 0 TO JV-DONE
+    PERFORM UNTIL JV-DONE = 1
+        MOVE SPACES TO JV-NAME
+        STRING "V" DELIMITED BY SIZE JV-CLASS(1:6) DELIMITED BY SPACE "-getVelocityYBasic51033" DELIMITED BY SIZE INTO JV-NAME
+        CALL JV-NAME USING J-THIS J-RESULT
+            ON EXCEPTION
+                MOVE SPACES TO JV-NAME
+                STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                CALL JV-NAME USING JV-CLASS
+                    ON EXCEPTION
+                        DISPLAY "AbstractMethodError: BasicVelocityInterface.getVelocityYBasicDecimalP"
+                        STOP RUN
+                END-CALL
+            NOT ON EXCEPTION
+                MOVE 1 TO JV-DONE
+        END-CALL
+    END-PERFORM
     GOBACK.
 END FUNCTION BscVlctyIntrfc-gtVlctyYBs66807.
 
@@ -93,6 +143,8 @@ CONFIGURATION SECTION.
 REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -104,13 +156,36 @@ LOCAL-STORAGE SECTION.
 01 JFOUR BINARY-DOUBLE VALUE 4.
 01 JFIVE BINARY-DOUBLE VALUE 5.
 01 JSIX BINARY-DOUBLE VALUE 6.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
-    DISPLAY "AbstractMethodError: BasicVelocityInterface.zero"
-    STOP RUN
+    IF J-THIS = 0
+        DISPLAY "java.lang.NullPointerException: BasicVelocityInterface.zero"
+        STOP RUN
+    END-IF
+    MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    MOVE 0 TO JV-DONE
+    PERFORM UNTIL JV-DONE = 1
+        MOVE SPACES TO JV-NAME
+        STRING "V" DELIMITED BY SIZE JV-CLASS(1:23) DELIMITED BY SPACE "-zero0" DELIMITED BY SIZE INTO JV-NAME
+        CALL JV-NAME USING J-THIS J-RESULT
+            ON EXCEPTION
+                MOVE SPACES TO JV-NAME
+                STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                CALL JV-NAME USING JV-CLASS
+                    ON EXCEPTION
+                        DISPLAY "AbstractMethodError: BasicVelocityInterface.zero"
+                        STOP RUN
+                END-CALL
+            NOT ON EXCEPTION
+                MOVE 1 TO JV-DONE
+        END-CALL
+    END-PERFORM
     GOBACK.
 END FUNCTION BasicVelocityInterface-zero0.
 
@@ -121,6 +196,8 @@ CONFIGURATION SECTION.
 REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -132,6 +209,9 @@ LOCAL-STORAGE SECTION.
 01 JFOUR BINARY-DOUBLE VALUE 4.
 01 JFIVE BINARY-DOUBLE VALUE 5.
 01 JSIX BINARY-DOUBLE VALUE 6.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-magnitudeBasicDecimal BINARY-DOUBLE.
@@ -140,8 +220,28 @@ LINKAGE SECTION.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION USING J-THIS J-magnitudeBasicDecimal J-direction J-otherDirection RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
-    DISPLAY "AbstractMethodError: BasicVelocityInterface.setVelocityWithBigDecimalAndDirection"
-    STOP RUN
+    IF J-THIS = 0
+        DISPLAY "java.lang.NullPointerException: BasicVelocityInterface.setVelocityWithBigDecimalAndDirection"
+        STOP RUN
+    END-IF
+    MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    MOVE 0 TO JV-DONE
+    PERFORM UNTIL JV-DONE = 1
+        MOVE SPACES TO JV-NAME
+        STRING "V" DELIMITED BY SIZE JV-CLASS(1:6) DELIMITED BY SPACE "-setVelocityWithBi72882" DELIMITED BY SIZE INTO JV-NAME
+        CALL JV-NAME USING J-THIS J-magnitudeBasicDecimal J-direction J-otherDirection J-RESULT
+            ON EXCEPTION
+                MOVE SPACES TO JV-NAME
+                STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                CALL JV-NAME USING JV-CLASS
+                    ON EXCEPTION
+                        DISPLAY "AbstractMethodError: BasicVelocityInterface.setVelocityWithBigDecimalAndDirection"
+                        STOP RUN
+                END-CALL
+            NOT ON EXCEPTION
+                MOVE 1 TO JV-DONE
+        END-CALL
+    END-PERFORM
     GOBACK.
 END FUNCTION BscVlctyIntrfc-stVlctyWth64282.
 
@@ -152,6 +252,8 @@ CONFIGURATION SECTION.
 REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -163,6 +265,9 @@ LOCAL-STORAGE SECTION.
 01 JFOUR BINARY-DOUBLE VALUE 4.
 01 JFIVE BINARY-DOUBLE VALUE 5.
 01 JSIX BINARY-DOUBLE VALUE 6.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-magnitudeBasicDecimal BINARY-DOUBLE.
@@ -171,8 +276,28 @@ LINKAGE SECTION.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION USING J-THIS J-magnitudeBasicDecimal J-direction J-otherDirection RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
-    DISPLAY "AbstractMethodError: BasicVelocityInterface.addVelocityWithBigDecimalAndDirection"
-    STOP RUN
+    IF J-THIS = 0
+        DISPLAY "java.lang.NullPointerException: BasicVelocityInterface.addVelocityWithBigDecimalAndDirection"
+        STOP RUN
+    END-IF
+    MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    MOVE 0 TO JV-DONE
+    PERFORM UNTIL JV-DONE = 1
+        MOVE SPACES TO JV-NAME
+        STRING "V" DELIMITED BY SIZE JV-CLASS(1:6) DELIMITED BY SPACE "-addVelocityWithBi29606" DELIMITED BY SIZE INTO JV-NAME
+        CALL JV-NAME USING J-THIS J-magnitudeBasicDecimal J-direction J-otherDirection J-RESULT
+            ON EXCEPTION
+                MOVE SPACES TO JV-NAME
+                STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                CALL JV-NAME USING JV-CLASS
+                    ON EXCEPTION
+                        DISPLAY "AbstractMethodError: BasicVelocityInterface.addVelocityWithBigDecimalAndDirection"
+                        STOP RUN
+                END-CALL
+            NOT ON EXCEPTION
+                MOVE 1 TO JV-DONE
+        END-CALL
+    END-PERFORM
     GOBACK.
 END FUNCTION BscVlctyIntrfc-addVlctyWt10882.
 
@@ -183,6 +308,8 @@ CONFIGURATION SECTION.
 REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -194,6 +321,9 @@ LOCAL-STORAGE SECTION.
 01 JFOUR BINARY-DOUBLE VALUE 4.
 01 JFIVE BINARY-DOUBLE VALUE 5.
 01 JSIX BINARY-DOUBLE VALUE 6.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-magnitude BINARY-DOUBLE.
@@ -202,8 +332,28 @@ LINKAGE SECTION.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION USING J-THIS J-magnitude J-direction J-otherDirection RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
-    DISPLAY "AbstractMethodError: BasicVelocityInterface.setVelocityWithDirection"
-    STOP RUN
+    IF J-THIS = 0
+        DISPLAY "java.lang.NullPointerException: BasicVelocityInterface.setVelocityWithDirection"
+        STOP RUN
+    END-IF
+    MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    MOVE 0 TO JV-DONE
+    PERFORM UNTIL JV-DONE = 1
+        MOVE SPACES TO JV-NAME
+        STRING "V" DELIMITED BY SIZE JV-CLASS(1:6) DELIMITED BY SPACE "-setVelocityWithDi93880" DELIMITED BY SIZE INTO JV-NAME
+        CALL JV-NAME USING J-THIS J-magnitude J-direction J-otherDirection J-RESULT
+            ON EXCEPTION
+                MOVE SPACES TO JV-NAME
+                STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                CALL JV-NAME USING JV-CLASS
+                    ON EXCEPTION
+                        DISPLAY "AbstractMethodError: BasicVelocityInterface.setVelocityWithDirection"
+                        STOP RUN
+                END-CALL
+            NOT ON EXCEPTION
+                MOVE 1 TO JV-DONE
+        END-CALL
+    END-PERFORM
     GOBACK.
 END FUNCTION BscVlctyIntrfc-stVlctyWth80063.
 
@@ -214,6 +364,8 @@ CONFIGURATION SECTION.
 REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -225,6 +377,9 @@ LOCAL-STORAGE SECTION.
 01 JFOUR BINARY-DOUBLE VALUE 4.
 01 JFIVE BINARY-DOUBLE VALUE 5.
 01 JSIX BINARY-DOUBLE VALUE 6.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-magnitude BINARY-DOUBLE.
@@ -233,8 +388,28 @@ LINKAGE SECTION.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION USING J-THIS J-magnitude J-direction J-otherDirection RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
-    DISPLAY "AbstractMethodError: BasicVelocityInterface.addVelocityWithDirection"
-    STOP RUN
+    IF J-THIS = 0
+        DISPLAY "java.lang.NullPointerException: BasicVelocityInterface.addVelocityWithDirection"
+        STOP RUN
+    END-IF
+    MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    MOVE 0 TO JV-DONE
+    PERFORM UNTIL JV-DONE = 1
+        MOVE SPACES TO JV-NAME
+        STRING "V" DELIMITED BY SIZE JV-CLASS(1:6) DELIMITED BY SPACE "-addVelocityWithDi80241" DELIMITED BY SIZE INTO JV-NAME
+        CALL JV-NAME USING J-THIS J-magnitude J-direction J-otherDirection J-RESULT
+            ON EXCEPTION
+                MOVE SPACES TO JV-NAME
+                STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                CALL JV-NAME USING JV-CLASS
+                    ON EXCEPTION
+                        DISPLAY "AbstractMethodError: BasicVelocityInterface.addVelocityWithDirection"
+                        STOP RUN
+                END-CALL
+            NOT ON EXCEPTION
+                MOVE 1 TO JV-DONE
+        END-CALL
+    END-PERFORM
     GOBACK.
 END FUNCTION BscVlctyIntrfc-addVlctyWt66424.
 
@@ -245,6 +420,8 @@ CONFIGURATION SECTION.
 REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -256,6 +433,9 @@ LOCAL-STORAGE SECTION.
 01 JFOUR BINARY-DOUBLE VALUE 4.
 01 JFIVE BINARY-DOUBLE VALUE 5.
 01 JSIX BINARY-DOUBLE VALUE 6.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-magnitudeBasicDecimal BINARY-DOUBLE.
@@ -264,8 +444,28 @@ LINKAGE SECTION.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION USING J-THIS J-magnitudeBasicDecimal J-angle J-otherAngle RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
-    DISPLAY "AbstractMethodError: BasicVelocityInterface.setVelocityWithBigDecimal"
-    STOP RUN
+    IF J-THIS = 0
+        DISPLAY "java.lang.NullPointerException: BasicVelocityInterface.setVelocityWithBigDecimal"
+        STOP RUN
+    END-IF
+    MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    MOVE 0 TO JV-DONE
+    PERFORM UNTIL JV-DONE = 1
+        MOVE SPACES TO JV-NAME
+        STRING "V" DELIMITED BY SIZE JV-CLASS(1:6) DELIMITED BY SPACE "-setVelocityWithBi21040" DELIMITED BY SIZE INTO JV-NAME
+        CALL JV-NAME USING J-THIS J-magnitudeBasicDecimal J-angle J-otherAngle J-RESULT
+            ON EXCEPTION
+                MOVE SPACES TO JV-NAME
+                STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                CALL JV-NAME USING JV-CLASS
+                    ON EXCEPTION
+                        DISPLAY "AbstractMethodError: BasicVelocityInterface.setVelocityWithBigDecimal"
+                        STOP RUN
+                END-CALL
+            NOT ON EXCEPTION
+                MOVE 1 TO JV-DONE
+        END-CALL
+    END-PERFORM
     GOBACK.
 END FUNCTION BscVlctyIntrfc-stVlctyWth36814.
 
@@ -276,6 +476,8 @@ CONFIGURATION SECTION.
 REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -287,6 +489,9 @@ LOCAL-STORAGE SECTION.
 01 JFOUR BINARY-DOUBLE VALUE 4.
 01 JFIVE BINARY-DOUBLE VALUE 5.
 01 JSIX BINARY-DOUBLE VALUE 6.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-magnitudeBasicDecimal BINARY-DOUBLE.
@@ -295,8 +500,28 @@ LINKAGE SECTION.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION USING J-THIS J-magnitudeBasicDecimal J-angle J-otherAngle RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
-    DISPLAY "AbstractMethodError: BasicVelocityInterface.addVelocityWithBigDecimal"
-    STOP RUN
+    IF J-THIS = 0
+        DISPLAY "java.lang.NullPointerException: BasicVelocityInterface.addVelocityWithBigDecimal"
+        STOP RUN
+    END-IF
+    MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    MOVE 0 TO JV-DONE
+    PERFORM UNTIL JV-DONE = 1
+        MOVE SPACES TO JV-NAME
+        STRING "V" DELIMITED BY SIZE JV-CLASS(1:6) DELIMITED BY SPACE "-addVelocityWithBi21749" DELIMITED BY SIZE INTO JV-NAME
+        CALL JV-NAME USING J-THIS J-magnitudeBasicDecimal J-angle J-otherAngle J-RESULT
+            ON EXCEPTION
+                MOVE SPACES TO JV-NAME
+                STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                CALL JV-NAME USING JV-CLASS
+                    ON EXCEPTION
+                        DISPLAY "AbstractMethodError: BasicVelocityInterface.addVelocityWithBigDecimal"
+                        STOP RUN
+                END-CALL
+            NOT ON EXCEPTION
+                MOVE 1 TO JV-DONE
+        END-CALL
+    END-PERFORM
     GOBACK.
 END FUNCTION BscVlctyIntrfc-addVlctyWt37523.
 
@@ -307,6 +532,8 @@ CONFIGURATION SECTION.
 REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -318,6 +545,9 @@ LOCAL-STORAGE SECTION.
 01 JFOUR BINARY-DOUBLE VALUE 4.
 01 JFIVE BINARY-DOUBLE VALUE 5.
 01 JSIX BINARY-DOUBLE VALUE 6.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-magnitude BINARY-DOUBLE.
@@ -326,8 +556,28 @@ LINKAGE SECTION.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION USING J-THIS J-magnitude J-angle J-otherAngle RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
-    DISPLAY "AbstractMethodError: BasicVelocityInterface.setVelocity"
-    STOP RUN
+    IF J-THIS = 0
+        DISPLAY "java.lang.NullPointerException: BasicVelocityInterface.setVelocity"
+        STOP RUN
+    END-IF
+    MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    MOVE 0 TO JV-DONE
+    PERFORM UNTIL JV-DONE = 1
+        MOVE SPACES TO JV-NAME
+        STRING "V" DELIMITED BY SIZE JV-CLASS(1:16) DELIMITED BY SPACE "-setVelocity3" DELIMITED BY SIZE INTO JV-NAME
+        CALL JV-NAME USING J-THIS J-magnitude J-angle J-otherAngle J-RESULT
+            ON EXCEPTION
+                MOVE SPACES TO JV-NAME
+                STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                CALL JV-NAME USING JV-CLASS
+                    ON EXCEPTION
+                        DISPLAY "AbstractMethodError: BasicVelocityInterface.setVelocity"
+                        STOP RUN
+                END-CALL
+            NOT ON EXCEPTION
+                MOVE 1 TO JV-DONE
+        END-CALL
+    END-PERFORM
     GOBACK.
 END FUNCTION BscVlctyIntrfc-setVelocity3.
 
@@ -338,6 +588,8 @@ CONFIGURATION SECTION.
 REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -349,6 +601,9 @@ LOCAL-STORAGE SECTION.
 01 JFOUR BINARY-DOUBLE VALUE 4.
 01 JFIVE BINARY-DOUBLE VALUE 5.
 01 JSIX BINARY-DOUBLE VALUE 6.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-magnitude BINARY-DOUBLE.
@@ -357,8 +612,28 @@ LINKAGE SECTION.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION USING J-THIS J-magnitude J-angle J-otherAngle RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
-    DISPLAY "AbstractMethodError: BasicVelocityInterface.addVelocity"
-    STOP RUN
+    IF J-THIS = 0
+        DISPLAY "java.lang.NullPointerException: BasicVelocityInterface.addVelocity"
+        STOP RUN
+    END-IF
+    MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    MOVE 0 TO JV-DONE
+    PERFORM UNTIL JV-DONE = 1
+        MOVE SPACES TO JV-NAME
+        STRING "V" DELIMITED BY SIZE JV-CLASS(1:16) DELIMITED BY SPACE "-addVelocity3" DELIMITED BY SIZE INTO JV-NAME
+        CALL JV-NAME USING J-THIS J-magnitude J-angle J-otherAngle J-RESULT
+            ON EXCEPTION
+                MOVE SPACES TO JV-NAME
+                STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                CALL JV-NAME USING JV-CLASS
+                    ON EXCEPTION
+                        DISPLAY "AbstractMethodError: BasicVelocityInterface.addVelocity"
+                        STOP RUN
+                END-CALL
+            NOT ON EXCEPTION
+                MOVE 1 TO JV-DONE
+        END-CALL
+    END-PERFORM
     GOBACK.
 END FUNCTION BscVlctyIntrfc-addVelocity3.
 
@@ -369,6 +644,8 @@ CONFIGURATION SECTION.
 REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -380,6 +657,9 @@ LOCAL-STORAGE SECTION.
 01 JFOUR BINARY-DOUBLE VALUE 4.
 01 JFIVE BINARY-DOUBLE VALUE 5.
 01 JSIX BINARY-DOUBLE VALUE 6.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-magnitude BINARY-DOUBLE.
@@ -388,8 +668,28 @@ LINKAGE SECTION.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION USING J-THIS J-magnitude J-angle J-otherAngle RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
-    DISPLAY "AbstractMethodError: BasicVelocityInterface.addVelocityi"
-    STOP RUN
+    IF J-THIS = 0
+        DISPLAY "java.lang.NullPointerException: BasicVelocityInterface.addVelocityi"
+        STOP RUN
+    END-IF
+    MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    MOVE 0 TO JV-DONE
+    PERFORM UNTIL JV-DONE = 1
+        MOVE SPACES TO JV-NAME
+        STRING "V" DELIMITED BY SIZE JV-CLASS(1:15) DELIMITED BY SPACE "-addVelocityi3" DELIMITED BY SIZE INTO JV-NAME
+        CALL JV-NAME USING J-THIS J-magnitude J-angle J-otherAngle J-RESULT
+            ON EXCEPTION
+                MOVE SPACES TO JV-NAME
+                STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                CALL JV-NAME USING JV-CLASS
+                    ON EXCEPTION
+                        DISPLAY "AbstractMethodError: BasicVelocityInterface.addVelocityi"
+                        STOP RUN
+                END-CALL
+            NOT ON EXCEPTION
+                MOVE 1 TO JV-DONE
+        END-CALL
+    END-PERFORM
     GOBACK.
 END FUNCTION BscVlctyIntrfc-addVelocityi3.
 

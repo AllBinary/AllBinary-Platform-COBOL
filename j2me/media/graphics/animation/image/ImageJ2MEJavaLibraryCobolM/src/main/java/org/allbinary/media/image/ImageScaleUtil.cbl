@@ -147,6 +147,28 @@ PROCEDURE DIVISION USING J-THIS J-imageCache J-originalImage J-scaleNominatorX J
 END FUNCTION ImageScaleUtil-createImage27.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VImageScaleUtil-createImage27.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-imageCache BINARY-DOUBLE.
+01 J-originalImage BINARY-DOUBLE.
+01 J-scaleNominatorX COMP-2.
+01 J-scaleDenominatorX COMP-2.
+01 J-scaleNominatorY COMP-2.
+01 J-scaleDenominatorY COMP-2.
+01 J-cached BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-imageCache J-originalImage J-scaleNominatorX J-scaleDenominatorX J-scaleNominatorY J-scaleDenominatorY J-cached J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ImageScaleUtil-createImage27(J-THIS, J-imageCache, J-originalImage, J-scaleNominatorX, J-scaleDenominatorX, J-scaleNominatorY, J-scaleDenominatorY, J-cached)
+    GOBACK.
+END PROGRAM VImageScaleUtil-createImage27.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. ImageScaleUtil-createImage38.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -181,4 +203,37 @@ PROCEDURE DIVISION USING J-THIS J-imageCache J-originalImage J-scaleNominatorX J
         GOBACK
     GOBACK.
 END FUNCTION ImageScaleUtil-createImage38.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VImageScaleUtil-createImage38.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-imageCache BINARY-DOUBLE.
+01 J-originalImage BINARY-DOUBLE.
+01 J-scaleNominatorX COMP-2.
+01 J-scaleDenominatorX COMP-2.
+01 J-scaleNominatorY COMP-2.
+01 J-scaleDenominatorY COMP-2.
+01 J-cached BINARY-DOUBLE.
+01 J-mutable BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-imageCache J-originalImage J-scaleNominatorX J-scaleDenominatorX J-scaleNominatorY J-scaleDenominatorY J-cached J-mutable J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ImageScaleUtil-createImage38(J-THIS, J-imageCache, J-originalImage, J-scaleNominatorX, J-scaleDenominatorX, J-scaleNominatorY, J-scaleDenominatorY, J-cached, J-mutable)
+    GOBACK.
+END PROGRAM VImageScaleUtil-createImage38.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. ImageScaleUtil-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM ImageScaleUtil-jsuper.
 

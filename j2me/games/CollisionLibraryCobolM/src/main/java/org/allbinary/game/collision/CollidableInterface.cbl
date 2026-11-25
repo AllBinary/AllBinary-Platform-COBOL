@@ -37,6 +37,8 @@ CONFIGURATION SECTION.
 REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -48,14 +50,37 @@ LOCAL-STORAGE SECTION.
 01 JFOUR BINARY-DOUBLE VALUE 4.
 01 JFIVE BINARY-DOUBLE VALUE 5.
 01 JSIX BINARY-DOUBLE VALUE 6.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-ownerLayer BINARY-DOUBLE.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION USING J-THIS J-ownerLayer RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
-    DISPLAY "AbstractMethodError: CollidableInterface.isCollidable"
-    STOP RUN
+    IF J-THIS = 0
+        DISPLAY "java.lang.NullPointerException: CollidableInterface.isCollidable"
+        STOP RUN
+    END-IF
+    MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    MOVE 0 TO JV-DONE
+    PERFORM UNTIL JV-DONE = 1
+        MOVE SPACES TO JV-NAME
+        STRING "V" DELIMITED BY SIZE JV-CLASS(1:15) DELIMITED BY SPACE "-isCollidable1" DELIMITED BY SIZE INTO JV-NAME
+        CALL JV-NAME USING J-THIS J-ownerLayer J-RESULT
+            ON EXCEPTION
+                MOVE SPACES TO JV-NAME
+                STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                CALL JV-NAME USING JV-CLASS
+                    ON EXCEPTION
+                        DISPLAY "AbstractMethodError: CollidableInterface.isCollidable"
+                        STOP RUN
+                END-CALL
+            NOT ON EXCEPTION
+                MOVE 1 TO JV-DONE
+        END-CALL
+    END-PERFORM
     GOBACK.
 END FUNCTION ClldblIntrfc-isCollidable1.
 
@@ -66,6 +91,8 @@ CONFIGURATION SECTION.
 REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -77,6 +104,9 @@ LOCAL-STORAGE SECTION.
 01 JFOUR BINARY-DOUBLE VALUE 4.
 01 JFIVE BINARY-DOUBLE VALUE 5.
 01 JSIX BINARY-DOUBLE VALUE 6.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-ownerLayer BINARY-DOUBLE.
@@ -84,8 +114,28 @@ LINKAGE SECTION.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION USING J-THIS J-ownerLayer J-collidableInterfaceCompositeInterface RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
-    DISPLAY "AbstractMethodError: CollidableInterface.isCollision"
-    STOP RUN
+    IF J-THIS = 0
+        DISPLAY "java.lang.NullPointerException: CollidableInterface.isCollision"
+        STOP RUN
+    END-IF
+    MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    MOVE 0 TO JV-DONE
+    PERFORM UNTIL JV-DONE = 1
+        MOVE SPACES TO JV-NAME
+        STRING "V" DELIMITED BY SIZE JV-CLASS(1:16) DELIMITED BY SPACE "-isCollision2" DELIMITED BY SIZE INTO JV-NAME
+        CALL JV-NAME USING J-THIS J-ownerLayer J-collidableInterfaceCompositeInterface J-RESULT
+            ON EXCEPTION
+                MOVE SPACES TO JV-NAME
+                STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                CALL JV-NAME USING JV-CLASS
+                    ON EXCEPTION
+                        DISPLAY "AbstractMethodError: CollidableInterface.isCollision"
+                        STOP RUN
+                END-CALL
+            NOT ON EXCEPTION
+                MOVE 1 TO JV-DONE
+        END-CALL
+    END-PERFORM
     GOBACK.
 END FUNCTION ClldblIntrfc-isCollision2.
 
@@ -96,6 +146,8 @@ CONFIGURATION SECTION.
 REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -107,6 +159,9 @@ LOCAL-STORAGE SECTION.
 01 JFOUR BINARY-DOUBLE VALUE 4.
 01 JFIVE BINARY-DOUBLE VALUE 5.
 01 JSIX BINARY-DOUBLE VALUE 6.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-ownerLayer BINARY-DOUBLE.
@@ -114,8 +169,28 @@ LINKAGE SECTION.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION USING J-THIS J-ownerLayer J-collidableInterfaceCompositeInterface RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
-    DISPLAY "AbstractMethodError: CollidableInterface.collide"
-    STOP RUN
+    IF J-THIS = 0
+        DISPLAY "java.lang.NullPointerException: CollidableInterface.collide"
+        STOP RUN
+    END-IF
+    MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    MOVE 0 TO JV-DONE
+    PERFORM UNTIL JV-DONE = 1
+        MOVE SPACES TO JV-NAME
+        STRING "V" DELIMITED BY SIZE JV-CLASS(1:20) DELIMITED BY SPACE "-collide2" DELIMITED BY SIZE INTO JV-NAME
+        CALL JV-NAME USING J-THIS J-ownerLayer J-collidableInterfaceCompositeInterface J-RESULT
+            ON EXCEPTION
+                MOVE SPACES TO JV-NAME
+                STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                CALL JV-NAME USING JV-CLASS
+                    ON EXCEPTION
+                        DISPLAY "AbstractMethodError: CollidableInterface.collide"
+                        STOP RUN
+                END-CALL
+            NOT ON EXCEPTION
+                MOVE 1 TO JV-DONE
+        END-CALL
+    END-PERFORM
     GOBACK.
 END FUNCTION CollidableInterface-collide2.
 
@@ -126,6 +201,8 @@ CONFIGURATION SECTION.
 REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -137,14 +214,37 @@ LOCAL-STORAGE SECTION.
 01 JFOUR BINARY-DOUBLE VALUE 4.
 01 JFIVE BINARY-DOUBLE VALUE 5.
 01 JSIX BINARY-DOUBLE VALUE 6.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-layerInterface BINARY-DOUBLE.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION USING J-THIS J-layerInterface RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
-    DISPLAY "AbstractMethodError: CollidableInterface.getCollisionTypeWith"
-    STOP RUN
+    IF J-THIS = 0
+        DISPLAY "java.lang.NullPointerException: CollidableInterface.getCollisionTypeWith"
+        STOP RUN
+    END-IF
+    MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    MOVE 0 TO JV-DONE
+    PERFORM UNTIL JV-DONE = 1
+        MOVE SPACES TO JV-NAME
+        STRING "V" DELIMITED BY SIZE JV-CLASS(1:7) DELIMITED BY SPACE "-getCollisionTypeWith1" DELIMITED BY SIZE INTO JV-NAME
+        CALL JV-NAME USING J-THIS J-layerInterface J-RESULT
+            ON EXCEPTION
+                MOVE SPACES TO JV-NAME
+                STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                CALL JV-NAME USING JV-CLASS
+                    ON EXCEPTION
+                        DISPLAY "AbstractMethodError: CollidableInterface.getCollisionTypeWith"
+                        STOP RUN
+                END-CALL
+            NOT ON EXCEPTION
+                MOVE 1 TO JV-DONE
+        END-CALL
+    END-PERFORM
     GOBACK.
 END FUNCTION ClldblIntrfc-gtCllsnTypWth1.
 

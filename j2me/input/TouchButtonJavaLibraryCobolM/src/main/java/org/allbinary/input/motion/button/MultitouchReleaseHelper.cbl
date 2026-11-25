@@ -56,7 +56,7 @@ LOCAL-STORAGE SECTION.
 01 J-index BINARY-DOUBLE.
 01 jtemp1 BINARY-DOUBLE.
 01 jtemp2 BINARY-DOUBLE.
-01 JFIRST1 BINARY-DOUBLE.
+01 JFIRST-N66872 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-touchButtonInput BINARY-DOUBLE.
@@ -69,12 +69,12 @@ PROCEDURE DIVISION USING J-THIS J-touchButtonInput J-deviceId RETURNING J-RESULT
         CONTINUE
         CONTINUE
         COMPUTE J-index = (FUNCTION MOD((FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_touchButtonRecognizer"), "f_currentlyPressedTouchButtonSingleton")) - 1) + 2147483648, 4294967296) - 2147483648)
-        MOVE 1 TO JFIRST1
+        MOVE 1 TO JFIRST-N66872
         PERFORM FOREVER
-            IF JFIRST1 = 0
+            IF JFIRST-N66872 = 0
                 COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
             END-IF
-            MOVE 0 TO JFIRST1
+            MOVE 0 TO JFIRST-N66872
             IF NOT (J-index >= 0) EXIT PERFORM END-IF
             COMPUTE J-nextTouchButtonInput = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_touchButtonRecognizer"), "f_currentlyPressedTouchButtonSingleton"))
             IF (J-cancelTouchButtonInput = J-nextTouchButtonInput)
@@ -87,4 +87,31 @@ PROCEDURE DIVISION USING J-THIS J-touchButtonInput J-deviceId RETURNING J-RESULT
         END-PERFORM
     GOBACK.
 END FUNCTION MlttchRlsHlpr-release2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VMultitouchReleaseHel-release2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-touchButtonInput BINARY-DOUBLE.
+01 J-deviceId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-touchButtonInput J-deviceId J-RESULT.
+    COMPUTE J-RESULT = FUNCTION MlttchRlsHlpr-release2(J-THIS, J-touchButtonInput, J-deviceId)
+    GOBACK.
+END PROGRAM VMultitouchReleaseHel-release2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. MultitouchReleaseHelper-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "ReleaseHelper" TO J-CLASS
+    GOBACK.
+END PROGRAM MultitouchReleaseHelper-jsuper.
 

@@ -104,10 +104,40 @@ PROCEDURE DIVISION USING J-THIS J-allbinaryLayerManager J-angle J-otherAngle J-w
     MOVE 0 TO J-RESULT
         COMPUTE jtemp1 = J-angle
         COMPUTE jtemp2 = J-otherAngle
-        COMPUTE J-weaponLayer = FUNCTION WpnLyrCrclrPl-gtInstncWpnLyr8(FUNCTION JR-GET(J-THIS, "f_weaponLayerCircularStaticPool"), FUNCTION BscWpnPrt-gtOwnrLyrIntrfc0(J-THIS), FUNCTION RelativeRelationship-getX0(FUNCTION JR-GET(J-THIS,
-        "f_relativeRelationship")), FUNCTION RelativeRelationship-getY0(FUNCTION JR-GET(J-THIS, "f_relativeRelationship")), FUNCTION RelativeRelationship-getZ0(FUNCTION JR-GET(J-THIS, "f_relativeRelationship")), jtemp1, jtemp2,
-        J-weaponProperties, J-scoreableInterface)
+        COMPUTE J-weaponLayer = FUNCTION WpnLyrCrclrPl-gtInstncWpnLyr8(FUNCTION JR-GET(J-THIS, "f_weaponLayerCircularStaticPool"), FUNCTION BscWpnPrt-gtOwnrLyrIntrfc0(J-THIS), FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS,
+        "f_relativeRelationship")), FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_relativeRelationship")), FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_relativeRelationship")), jtemp1, jtemp2, J-weaponProperties,
+        J-scoreableInterface)
         COMPUTE JDISCARD = FUNCTION AllBinaryLayerManager-append1(J-allbinaryLayerManager, J-weaponLayer)
     GOBACK.
 END FUNCTION BscPrjctlWpnPrt-processScore5.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VBasicProjectile-processScore5.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allbinaryLayerManager BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-otherAngle BINARY-DOUBLE.
+01 J-weaponProperties BINARY-DOUBLE.
+01 J-scoreableInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allbinaryLayerManager J-angle J-otherAngle J-weaponProperties J-scoreableInterface J-RESULT.
+    COMPUTE J-RESULT = FUNCTION BscPrjctlWpnPrt-processScore5(J-THIS, J-allbinaryLayerManager, J-angle, J-otherAngle, J-weaponProperties, J-scoreableInterface)
+    GOBACK.
+END PROGRAM VBasicProjectile-processScore5.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. BasicProjectileWeaponPa-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "BasicWeaponPart" TO J-CLASS
+    GOBACK.
+END PROGRAM BasicProjectileWeaponPa-jsuper.
 

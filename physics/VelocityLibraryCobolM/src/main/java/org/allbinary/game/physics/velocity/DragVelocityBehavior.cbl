@@ -126,6 +126,24 @@ PROCEDURE DIVISION USING J-THIS J-velocityProperties J-nominator J-denominator R
 END FUNCTION DragVelocityBehavior-reduce3.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VDragVelocityBehavior-reduce3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-velocityProperties BINARY-DOUBLE.
+01 J-nominator BINARY-DOUBLE.
+01 J-denominator BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-velocityProperties J-nominator J-denominator J-RESULT.
+    COMPUTE J-RESULT = FUNCTION DragVelocityBehavior-reduce3(J-THIS, J-velocityProperties, J-nominator, J-denominator)
+    GOBACK.
+END PROGRAM VDragVelocityBehavior-reduce3.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. DragVelocityBehavior-reduceX3.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -159,6 +177,24 @@ PROCEDURE DIVISION USING J-THIS J-velocityProperties J-nominator J-denominator R
         END-IF
     GOBACK.
 END FUNCTION DragVelocityBehavior-reduceX3.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VDragVelocityBehavior-reduceX3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-velocityProperties BINARY-DOUBLE.
+01 J-nominator BINARY-DOUBLE.
+01 J-denominator BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-velocityProperties J-nominator J-denominator J-RESULT.
+    COMPUTE J-RESULT = FUNCTION DragVelocityBehavior-reduceX3(J-THIS, J-velocityProperties, J-nominator, J-denominator)
+    GOBACK.
+END PROGRAM VDragVelocityBehavior-reduceX3.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. DragVelocityBehavior-reduceY3.
@@ -196,4 +232,32 @@ PROCEDURE DIVISION USING J-THIS J-velocityProperties J-nominator J-denominator R
         END-IF
     GOBACK.
 END FUNCTION DragVelocityBehavior-reduceY3.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VDragVelocityBehavior-reduceY3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-velocityProperties BINARY-DOUBLE.
+01 J-nominator BINARY-DOUBLE.
+01 J-denominator BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-velocityProperties J-nominator J-denominator J-RESULT.
+    COMPUTE J-RESULT = FUNCTION DragVelocityBehavior-reduceY3(J-THIS, J-velocityProperties, J-nominator, J-denominator)
+    GOBACK.
+END PROGRAM VDragVelocityBehavior-reduceY3.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. DragVelocityBehavior-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "VelocityBehaviorBase" TO J-CLASS
+    GOBACK.
+END PROGRAM DragVelocityBehavior-jsuper.
 

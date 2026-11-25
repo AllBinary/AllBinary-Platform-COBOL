@@ -1,21 +1,18 @@
-// Generated Code Do Not Modify
-// package java.lang
-unit Override;
+>>SOURCE FORMAT IS FREE
+*> Generated Code Do Not Modify
+*> package java.lang
 
-{$mode delphi}{$H+}
-{$interfaces corba}
-{$modeswitch typehelpers}
-
-interface
-
-
-
-implementation
-
-
-initialization
-  {AB:INITIALIZATION}
-  {AB:END}
-
-end.
+IDENTIFICATION DIVISION.
+FUNCTION-ID. Override-jann.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION RETURNING J-RESULT.
+    MOVE 0 TO J-RESULT
+    GOBACK.
+END FUNCTION Override-jann.
 

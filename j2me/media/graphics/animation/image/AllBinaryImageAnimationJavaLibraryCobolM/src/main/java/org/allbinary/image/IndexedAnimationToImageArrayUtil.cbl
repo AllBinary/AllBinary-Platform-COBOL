@@ -52,7 +52,7 @@ LOCAL-STORAGE SECTION.
 01 J-imageArray BINARY-DOUBLE.
 01 J-index BINARY-DOUBLE.
 01 jtemp1 BINARY-DOUBLE.
-01 JFIRST1 BINARY-DOUBLE.
+01 JFIRST-N67095 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-width BINARY-DOUBLE.
 01 J-height BINARY-DOUBLE.
@@ -63,12 +63,12 @@ PROCEDURE DIVISION USING J-width J-height J-sequentialAnimationInterface RETURNI
         COMPUTE J-size = FUNCTION IndxdAnmtn-getAnimationSize0(J-sequentialAnimationInterface)
         COMPUTE J-imageArray = FUNCTION JR-NEW-ARRAY(J-size)
         COMPUTE J-index = 0
-        MOVE 1 TO JFIRST1
+        MOVE 1 TO JFIRST-N67095
         PERFORM FOREVER
-            IF JFIRST1 = 0
+            IF JFIRST-N67095 = 0
                 COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
             END-IF
-            MOVE 0 TO JFIRST1
+            MOVE 0 TO JFIRST-N67095
             IF NOT (J-index < J-size) EXIT PERFORM END-IF
             COMPUTE JDISCARD = FUNCTION IndexedAnimation-setFrame1(J-sequentialAnimationInterface, J-index)
             COMPUTE jtemp1 = FUNCTION AnmtnFrmTImgUtl-getInstance0
@@ -79,4 +79,14 @@ PROCEDURE DIVISION USING J-width J-height J-sequentialAnimationInterface RETURNI
         GOBACK
     GOBACK.
 END FUNCTION IndxdAnmtnTImgArryUtl-gtI40052.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. IndexedAnimationToImage-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM IndexedAnimationToImage-jsuper.
 

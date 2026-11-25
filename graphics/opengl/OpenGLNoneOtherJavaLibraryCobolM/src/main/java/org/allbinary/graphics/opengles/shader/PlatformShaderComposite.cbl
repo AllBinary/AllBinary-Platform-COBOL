@@ -38,3 +38,13 @@ PROCEDURE DIVISION USING J-requiresOpenGLVersion J-shaderArray J-compositeShader
     GOBACK.
 END FUNCTION PlatformShaderComposite-new7.
 
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PlatformShaderComposite-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "ShaderComposite" TO J-CLASS
+    GOBACK.
+END PROGRAM PlatformShaderComposite-jsuper.
+

@@ -71,3 +71,36 @@ PROCEDURE DIVISION USING J-THIS J-sourceLayerInterface J-x J-y J-z J-angle J-oth
     GOBACK.
 END FUNCTION WpnLyrCrclrPl-gtInstncWpnLyr8.
 
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VWeapon-getInstanceWeapon51760.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-sourceLayerInterface BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-z BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-otherAngle BINARY-DOUBLE.
+01 J-weaponProperties BINARY-DOUBLE.
+01 J-scoreable BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-sourceLayerInterface J-x J-y J-z J-angle J-otherAngle J-weaponProperties J-scoreable J-RESULT.
+    COMPUTE J-RESULT = FUNCTION WpnLyrCrclrPl-gtInstncWpnLyr8(J-THIS, J-sourceLayerInterface, J-x, J-y, J-z, J-angle, J-otherAngle, J-weaponProperties, J-scoreable)
+    GOBACK.
+END PROGRAM VWeapon-getInstanceWeapon51760.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. WeaponLayerCircularPool-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "AllBinaryLayerCircularPool" TO J-CLASS
+    GOBACK.
+END PROGRAM WeaponLayerCircularPool-jsuper.
+

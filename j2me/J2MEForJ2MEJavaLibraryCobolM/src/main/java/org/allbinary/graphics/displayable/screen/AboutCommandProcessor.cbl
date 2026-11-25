@@ -138,3 +138,31 @@ PROCEDURE DIVISION USING J-THIS J-midletCommandListener J-command J-canvas RETUR
     GOBACK.
 END FUNCTION AboutCommandProcessor-process3.
 
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VAboutCommandProcesso-process3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-midletCommandListener BINARY-DOUBLE.
+01 J-command BINARY-DOUBLE.
+01 J-canvas BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-midletCommandListener J-command J-canvas J-RESULT.
+    COMPUTE J-RESULT = FUNCTION AboutCommandProcessor-process3(J-THIS, J-midletCommandListener, J-command, J-canvas)
+    GOBACK.
+END PROGRAM VAboutCommandProcesso-process3.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. AboutCommandProcessor-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM AboutCommandProcessor-jsuper.
+

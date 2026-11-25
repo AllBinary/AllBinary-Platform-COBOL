@@ -11,8 +11,8 @@ REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 GameFeatureChoiceGroups-jcell-gameFeatureChoiceGroupsExclusive BINARY-DOUBLE EXTERNAL.
-01 GameFeatureChoiceGroups-jset-gameFeatureChoiceGroupsExclusive BINARY-DOUBLE EXTERNAL.
+01 GameFeatureChoiceGro-jcell-gameFeatureChoiceGroupsE13958 BINARY-DOUBLE EXTERNAL.
+01 GameFeatureChoiceGro-jset-gameFeatureChoiceGroupsE13958 BINARY-DOUBLE EXTERNAL.
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -27,11 +27,11 @@ LOCAL-STORAGE SECTION.
 LINKAGE SECTION.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION RETURNING J-RESULT.
-    IF GameFeatureChoiceGroups-jset-gameFeatureChoiceGroupsExclusive = 0
-        MOVE 1 TO GameFeatureChoiceGroups-jset-gameFeatureChoiceGroupsExclusive
-        COMPUTE GameFeatureChoiceGroups-jcell-gameFeatureChoiceGroupsExclusive = FUNCTION GameFeatureChoiceGroups-new0
+    IF GameFeatureChoiceGro-jset-gameFeatureChoiceGroupsE13958 = 0
+        MOVE 1 TO GameFeatureChoiceGro-jset-gameFeatureChoiceGroupsE13958
+        COMPUTE GameFeatureChoiceGro-jcell-gameFeatureChoiceGroupsE13958 = FUNCTION GameFeatureChoiceGroups-new0
     END-IF
-    MOVE GameFeatureChoiceGroups-jcell-gameFeatureChoiceGroupsExclusive TO J-RESULT
+    MOVE GameFeatureChoiceGro-jcell-gameFeatureChoiceGroupsE13958 TO J-RESULT
     GOBACK.
 END FUNCTION GmFtrChcGrps-sttc-gmFtrC55776.
 
@@ -43,13 +43,13 @@ REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 GameFeatureChoiceGroups-jcell-gameFeatureChoiceGroupsExclusive BINARY-DOUBLE EXTERNAL.
+01 GameFeatureChoiceGro-jcell-gameFeatureChoiceGroupsE13958 BINARY-DOUBLE EXTERNAL.
 LINKAGE SECTION.
 01 J-VALUE BINARY-DOUBLE.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
     MOVE FUNCTION GmFtrChcGrps-sttc-gmFtrC55776 TO J-RESULT
-    MOVE J-VALUE TO GameFeatureChoiceGroups-jcell-gameFeatureChoiceGroupsExclusive
+    MOVE J-VALUE TO GameFeatureChoiceGro-jcell-gameFeatureChoiceGroupsE13958
     MOVE J-VALUE TO J-RESULT
     GOBACK.
 END FUNCTION GmFtrChcGrpssttcgmFtS43344.
@@ -62,8 +62,8 @@ REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 GameFeatureChoiceGroups-jcell-gameFeatureChoiceGroupsMultiple BINARY-DOUBLE EXTERNAL.
-01 GameFeatureChoiceGroups-jset-gameFeatureChoiceGroupsMultiple BINARY-DOUBLE EXTERNAL.
+01 GameFeatureChoiceGro-jcell-gameFeatureChoiceGroupsM64519 BINARY-DOUBLE EXTERNAL.
+01 GameFeatureChoiceGro-jset-gameFeatureChoiceGroupsM64519 BINARY-DOUBLE EXTERNAL.
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -78,11 +78,11 @@ LOCAL-STORAGE SECTION.
 LINKAGE SECTION.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION RETURNING J-RESULT.
-    IF GameFeatureChoiceGroups-jset-gameFeatureChoiceGroupsMultiple = 0
-        MOVE 1 TO GameFeatureChoiceGroups-jset-gameFeatureChoiceGroupsMultiple
-        COMPUTE GameFeatureChoiceGroups-jcell-gameFeatureChoiceGroupsMultiple = FUNCTION GameFeatureChoiceGroups-new0
+    IF GameFeatureChoiceGro-jset-gameFeatureChoiceGroupsM64519 = 0
+        MOVE 1 TO GameFeatureChoiceGro-jset-gameFeatureChoiceGroupsM64519
+        COMPUTE GameFeatureChoiceGro-jcell-gameFeatureChoiceGroupsM64519 = FUNCTION GameFeatureChoiceGroups-new0
     END-IF
-    MOVE GameFeatureChoiceGroups-jcell-gameFeatureChoiceGroupsMultiple TO J-RESULT
+    MOVE GameFeatureChoiceGro-jcell-gameFeatureChoiceGroupsM64519 TO J-RESULT
     GOBACK.
 END FUNCTION GmFtrChcGrps-sttc-gmFtrC22583.
 
@@ -94,13 +94,13 @@ REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 GameFeatureChoiceGroups-jcell-gameFeatureChoiceGroupsMultiple BINARY-DOUBLE EXTERNAL.
+01 GameFeatureChoiceGro-jcell-gameFeatureChoiceGroupsM64519 BINARY-DOUBLE EXTERNAL.
 LINKAGE SECTION.
 01 J-VALUE BINARY-DOUBLE.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
     MOVE FUNCTION GmFtrChcGrps-sttc-gmFtrC22583 TO J-RESULT
-    MOVE J-VALUE TO GameFeatureChoiceGroups-jcell-gameFeatureChoiceGroupsMultiple
+    MOVE J-VALUE TO GameFeatureChoiceGro-jcell-gameFeatureChoiceGroupsM64519
     MOVE J-VALUE TO J-RESULT
     GOBACK.
 END FUNCTION GmFtrChcGrpssttcgmFtS38917.
@@ -221,6 +221,21 @@ PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
 END FUNCTION GameFeatureChoiceGroups-get0.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VGameFeatureChoiceGroups-get0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION GameFeatureChoiceGroups-get0(J-THIS)
+    GOBACK.
+END PROGRAM VGameFeatureChoiceGroups-get0.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. GameFeatureChoiceGroups-add2.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -248,4 +263,31 @@ PROCEDURE DIVISION USING J-THIS J-name J-list RETURNING J-RESULT.
         COMPUTE JDISCARD = FUNCTION Hashtable-put2(FUNCTION JR-GET(J-THIS, "f_hashtable"), J-name, J-list)
     GOBACK.
 END FUNCTION GameFeatureChoiceGroups-add2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VGameFeatureChoiceGroups-add2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-name BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-name J-list J-RESULT.
+    COMPUTE J-RESULT = FUNCTION GameFeatureChoiceGroups-add2(J-THIS, J-name, J-list)
+    GOBACK.
+END PROGRAM VGameFeatureChoiceGroups-add2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. GameFeatureChoiceGroups-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM GameFeatureChoiceGroups-jsuper.
 

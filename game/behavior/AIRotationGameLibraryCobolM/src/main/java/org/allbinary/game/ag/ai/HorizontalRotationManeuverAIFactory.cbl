@@ -61,3 +61,31 @@ PROCEDURE DIVISION USING J-THIS J-hashtable J-ownerLayerInterface J-gameInput RE
     GOBACK.
 END FUNCTION HrzntlRttnMnvrAIFctry-gtI89661.
 
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VHorizontalRotati-getInstance3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-hashtable BINARY-DOUBLE.
+01 J-ownerLayerInterface BINARY-DOUBLE.
+01 J-gameInput BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-hashtable J-ownerLayerInterface J-gameInput J-RESULT.
+    COMPUTE J-RESULT = FUNCTION HrzntlRttnMnvrAIFctry-gtI89661(J-THIS, J-hashtable, J-ownerLayerInterface, J-gameInput)
+    GOBACK.
+END PROGRAM VHorizontalRotati-getInstance3.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. HorizontalRotationManeu-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM HorizontalRotationManeu-jsuper.
+

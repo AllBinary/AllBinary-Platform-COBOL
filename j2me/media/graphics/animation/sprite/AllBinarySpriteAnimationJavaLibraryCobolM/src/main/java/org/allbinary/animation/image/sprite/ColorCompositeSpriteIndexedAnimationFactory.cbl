@@ -75,11 +75,27 @@ PROCEDURE DIVISION USING J-THIS J-instanceId RETURNING J-RESULT.
         COMPUTE J-sprite = FUNCTION AnmtnFctrySprtSclUtl-crtImg5(FUNCTION JR-GET(J-THIS, "f_animationFactorySpriteScaleUtil"), FUNCTION BsImgAnmtnFctry-getImage0(J-THIS), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS,
         "f_animationFactoryInitializationVisitor"), "f_width"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor"), "f_height"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_scaleProperties"), "f_scaleWidth"),
         FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_scaleProperties"), "f_scaleHeight"))
-        COMPUTE J-RESULT = FUNCTION SpriteIndexedAnimation-new4(J-sprite, FUNCTION BsImgAnmtnFctry-getImage0(J-THIS), FUNCTION JR-GET(J-THIS, "f_basicColorArray"), FUNCTION AnmtnBhvrFctry-gtOrCrtInstnc0(FUNCTION JR-GET(J-THIS,
+        COMPUTE J-RESULT = FUNCTION SpriteIndexedAnimation-new4(J-sprite, FUNCTION BsImgAnmtnFctry-getImage0(J-THIS), FUNCTION JR-GET(J-THIS, "f_basicColorArray"), FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS,
         "f_animationBehaviorFactory")))
         GOBACK
     GOBACK.
 END FUNCTION ClrCmpstSprtIndxdAnmtnF-81591.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VColorCompositeSp-getInstance1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-instanceId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-instanceId J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ClrCmpstSprtIndxdAnmtnF-81591(J-THIS, J-instanceId)
+    GOBACK.
+END PROGRAM VColorCompositeSp-getInstance1.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. ClrCmpstSprtIndxdAnmtnF-92196.
@@ -111,4 +127,30 @@ PROCEDURE DIVISION USING J-THIS J-animationInterface RETURNING J-RESULT.
         GOBACK
     GOBACK.
 END FUNCTION ClrCmpstSprtIndxdAnmtnF-92196.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VColorCo-getInstanceAnimation1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-animationInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-animationInterface J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ClrCmpstSprtIndxdAnmtnF-92196(J-THIS, J-animationInterface)
+    GOBACK.
+END PROGRAM VColorCo-getInstanceAnimation1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. ColorCompositeSpriteInd-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "BaseImageAnimationFactory" TO J-CLASS
+    GOBACK.
+END PROGRAM ColorCompositeSpriteInd-jsuper.
 

@@ -196,7 +196,7 @@ PROCEDURE DIVISION USING J-soundsFactoryInterface RETURNING J-RESULT.
         COMPUTE JDISCARD = FUNCTION LogUtil-putF3(J-logUtil, FUNCTION JR-GET(J-commonString, "f_START"), FUNCTION AllBnryMdMngr-static-THIS, FUNCTION JR-GET(J-commonString, "f_INIT"))
         COMPUTE jtemp2 = 50
         COMPUTE jtemp1 = FUNCTION PrgrssCnvsFctry-getInstance0
-        COMPUTE JDISCARD = FUNCTION PrgrssCnvsFctry-addNrmlPrtn2(jtemp1, jtemp2, FUNCTION JR-STR("Media Manager"))
+        COMPUTE JDISCARD = FUNCTION PrgrssCnvs-addNormalPortion2(jtemp1, jtemp2, FUNCTION JR-STR("Media Manager"))
         COMPUTE jtemp3 = FUNCTION Sounds-new1(J-soundsFactoryInterface)
         COMPUTE JDISCARD = FUNCTION Sounds-init0(jtemp3)
     GOBACK.
@@ -323,4 +323,14 @@ PROCEDURE DIVISION USING J-frequency J-time J-volume RETURNING J-RESULT.
         END-IF
     GOBACK.
 END FUNCTION AllBnryMdMngr-playTone3.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. AllBinaryMediaManager-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM AllBinaryMediaManager-jsuper.
 

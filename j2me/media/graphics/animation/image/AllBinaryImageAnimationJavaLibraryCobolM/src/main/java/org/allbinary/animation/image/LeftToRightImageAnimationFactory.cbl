@@ -65,12 +65,38 @@ PROCEDURE DIVISION USING J-THIS J-instanceId RETURNING J-RESULT.
         IF ((FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor"), "f_dx") NOT = 0) OR (FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor"), "f_dy") NOT = 0))
             COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_animationFactoryImageScaleUtil"))
             COMPUTE J-RESULT = FUNCTION AdjstdLftTRghtImgAnmtn-new5(J-scaledImage, FUNCTION BsImgAnmtnFctry-gtSqncArry0(J-THIS), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor"), "f_dx"), FUNCTION
-        JR-GET(FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor"), "f_dy"), FUNCTION AnmtnBhvrFctry-gtOrCrtInstnc0(FUNCTION JR-GET(J-THIS, "f_animationBehaviorFactory")))
+        JR-GET(FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor"), "f_dy"), FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_animationBehaviorFactory")))
             GOBACK
         ELSE
-            COMPUTE J-RESULT = FUNCTION LeftToRightImageAnimation-new3(J-scaledImage, FUNCTION BsImgAnmtnFctry-gtSqncArry0(J-THIS), FUNCTION AnmtnBhvrFctry-gtOrCrtInstnc0(FUNCTION JR-GET(J-THIS, "f_animationBehaviorFactory")))
+            COMPUTE J-RESULT = FUNCTION LeftToRightImageAnimation-new3(J-scaledImage, FUNCTION BsImgAnmtnFctry-gtSqncArry0(J-THIS), FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_animationBehaviorFactory")))
             GOBACK
         END-IF
     GOBACK.
 END FUNCTION LftTRghtImgAnmtnFctry-gtI71493.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VLeftToRightImage-getInstance1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-instanceId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-instanceId J-RESULT.
+    COMPUTE J-RESULT = FUNCTION LftTRghtImgAnmtnFctry-gtI71493(J-THIS, J-instanceId)
+    GOBACK.
+END PROGRAM VLeftToRightImage-getInstance1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. LeftToRightImageAnimati-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "BaseImageAnimationFactory" TO J-CLASS
+    GOBACK.
+END PROGRAM LeftToRightImageAnimati-jsuper.
 

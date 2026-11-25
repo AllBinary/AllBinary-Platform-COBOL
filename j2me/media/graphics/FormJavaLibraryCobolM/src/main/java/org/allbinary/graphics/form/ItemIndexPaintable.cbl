@@ -115,6 +115,59 @@ CONFIGURATION SECTION.
 REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
+LOCAL-STORAGE SECTION.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-item BINARY-DOUBLE.
+01 J-dx BINARY-DOUBLE.
+01 J-dy BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-index J-item J-dx J-dy RETURNING J-RESULT.
+    MOVE 0 TO JV-DONE
+    MOVE "ItemIndexPaintable" TO JV-CLASS
+    IF J-THIS NOT = 0
+        MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    END-IF
+    PERFORM UNTIL JV-DONE = 1
+        IF JV-CLASS = "ItemIndexPaintable"
+            COMPUTE J-RESULT = FUNCTION ItemIndexPaintable-paint5J(J-THIS, J-graphics, J-index, J-item, J-dx, J-dy)
+            MOVE 1 TO JV-DONE
+        ELSE
+            MOVE SPACES TO JV-NAME
+            STRING "V" DELIMITED BY SIZE JV-CLASS(1:22) DELIMITED BY SPACE "-paint5" DELIMITED BY SIZE INTO JV-NAME
+            CALL JV-NAME USING J-THIS J-graphics J-index J-item J-dx J-dy J-RESULT
+                ON EXCEPTION
+                    MOVE SPACES TO JV-NAME
+                    STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                    CALL JV-NAME USING JV-CLASS
+                        ON EXCEPTION
+                            MOVE "ItemIndexPaintable" TO JV-CLASS
+                    END-CALL
+                    IF JV-CLASS = "Object"
+                        MOVE "ItemIndexPaintable" TO JV-CLASS
+                    END-IF
+                NOT ON EXCEPTION
+                    MOVE 1 TO JV-DONE
+            END-CALL
+        END-IF
+    END-PERFORM
+    GOBACK.
+END FUNCTION ItemIndexPaintable-paint5.
+
+IDENTIFICATION DIVISION.
+FUNCTION-ID. ItemIndexPaintable-paint5J.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -139,5 +192,35 @@ PROCEDURE DIVISION USING J-THIS J-graphics J-index J-item J-dx J-dy RETURNING J-
         COMPUTE J-RESULT = 0
         GOBACK
     GOBACK.
-END FUNCTION ItemIndexPaintable-paint5.
+END FUNCTION ItemIndexPaintable-paint5J.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VItemIndexPaintable-paint5.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-item BINARY-DOUBLE.
+01 J-dx BINARY-DOUBLE.
+01 J-dy BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-index J-item J-dx J-dy J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ItemIndexPaintable-paint5J(J-THIS, J-graphics, J-index, J-item, J-dx, J-dy)
+    GOBACK.
+END PROGRAM VItemIndexPaintable-paint5.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. ItemIndexPaintable-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM ItemIndexPaintable-jsuper.
 

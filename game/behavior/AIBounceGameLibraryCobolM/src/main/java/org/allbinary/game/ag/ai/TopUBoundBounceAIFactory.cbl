@@ -78,7 +78,7 @@ PROCEDURE DIVISION USING J-THIS J-hashtable J-ownerLayerInterface J-gameInput RE
     MOVE 0 TO J-RESULT
         COMPUTE J-velocityInterfaceCompositeInterface = J-ownerLayerInterface
         COMPUTE J-velocityInterface = FUNCTION VlctyIntrfcCmpstIntrfc-gt15512(J-velocityInterfaceCompositeInterface)
-        COMPUTE jtemp1 = FUNCTION VlctyIntrfc-gtVlctyXBscDcmlP0(J-velocityInterface)
+        COMPUTE jtemp1 = FUNCTION BscVlctyIntrfc-gtVlctyXBs30687(J-velocityInterface)
         COMPUTE J-maxDistancePerTick = (FUNCTION JR-SHIFT(JFIVE, FUNCTION VlctyIntrfc-gtMxFrwrdVlcty0(J-velocityInterface), FUNCTION JR-CLASS-NAME(jtemp1)))
         COMPUTE jtemp3 = (FUNCTION MOD((FUNCTION AllBinaryLayer-getWidth0(J-ownerLayerInterface) * 2) + 2147483648, 4294967296) - 2147483648)
         COMPUTE jtemp2 = (FUNCTION MOD((jtemp3 + J-maxDistancePerTick) + 2147483648, 4294967296) - 2147483648)
@@ -101,4 +101,32 @@ PROCEDURE DIVISION USING J-THIS J-hashtable J-ownerLayerInterface J-gameInput RE
         GOBACK
     GOBACK.
 END FUNCTION TpUBndBncAIFctry-getInstance3.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VTopUBoundBounceA-getInstance3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-hashtable BINARY-DOUBLE.
+01 J-ownerLayerInterface BINARY-DOUBLE.
+01 J-gameInput BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-hashtable J-ownerLayerInterface J-gameInput J-RESULT.
+    COMPUTE J-RESULT = FUNCTION TpUBndBncAIFctry-getInstance3(J-THIS, J-hashtable, J-ownerLayerInterface, J-gameInput)
+    GOBACK.
+END PROGRAM VTopUBoundBounceA-getInstance3.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. TopUBoundBounceAIFactor-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM TopUBoundBounceAIFactor-jsuper.
 

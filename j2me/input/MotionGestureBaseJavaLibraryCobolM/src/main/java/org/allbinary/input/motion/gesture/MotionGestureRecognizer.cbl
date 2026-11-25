@@ -121,6 +121,24 @@ PROCEDURE DIVISION USING J-THIS J-current J-deviceId J-button RETURNING J-RESULT
 END FUNCTION MtnGstrRcgnzr-prcssPrssdM62945.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VMotion-processPressedMot52767.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-current BINARY-DOUBLE.
+01 J-deviceId BINARY-DOUBLE.
+01 J-button BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-current J-deviceId J-button J-RESULT.
+    COMPUTE J-RESULT = FUNCTION MtnGstrRcgnzr-prcssPrssdM62945(J-THIS, J-current, J-deviceId, J-button)
+    GOBACK.
+END PROGRAM VMotion-processPressedMot52767.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. MtnGstrRcgnzr-prcssRlsdMt56528.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -157,6 +175,24 @@ PROCEDURE DIVISION USING J-THIS J-current J-deviceId J-button RETURNING J-RESULT
         GOBACK
     GOBACK.
 END FUNCTION MtnGstrRcgnzr-prcssRlsdMt56528.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VMotion-processReleasedMo46148.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-current BINARY-DOUBLE.
+01 J-deviceId BINARY-DOUBLE.
+01 J-button BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-current J-deviceId J-button J-RESULT.
+    COMPUTE J-RESULT = FUNCTION MtnGstrRcgnzr-prcssRlsdMt56528(J-THIS, J-current, J-deviceId, J-button)
+    GOBACK.
+END PROGRAM VMotion-processReleasedMo46148.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. MtnGstrRcgnzr-prcssDrggdM55938.
@@ -209,7 +245,7 @@ PROCEDURE DIVISION USING J-THIS J-current J-deviceId J-buttonMask RETURNING J-RE
         COMPUTE JDISCARD = FUNCTION Line-setP11(FUNCTION JR-GET(J-THIS, "f_line"), FUNCTION JR-GET(J-THIS, "f_previous"))
         COMPUTE JDISCARD = FUNCTION Line-setP21(FUNCTION JR-GET(J-THIS, "f_line"), J-current)
         COMPUTE jtemp4 = FUNCTION MtnGstrCnfgrtnFctry-gtInstnc0
-        COMPUTE J-minimumMotionGesture = FUNCTION MtnGstrCnfgrtnFctry-gtMnm54044(jtemp4)
+        COMPUTE J-minimumMotionGesture = FUNCTION MtnGstrCnfgrtn-gtMnmmMtnGstr0(jtemp4)
         COMPUTE jtemp5 = FUNCTION Line-getDeltaX0(FUNCTION JR-GET(J-THIS, "f_line"))
         COMPUTE jtemp6 = FUNCTION Line-getDeltaY0(FUNCTION JR-GET(J-THIS, "f_line"))
         IF ((FUNCTION J2SEMath-abs1(FUNCTION JR-GET(J-THIS, "f_j2seMath"), jtemp5) < J-minimumMotionGesture) AND (FUNCTION J2SEMath-abs1(FUNCTION JR-GET(J-THIS, "f_j2seMath"), jtemp6) < J-minimumMotionGesture))
@@ -229,7 +265,7 @@ PROCEDURE DIVISION USING J-THIS J-current J-deviceId J-buttonMask RETURNING J-RE
             COMPUTE J-diagonalToleranceHigher = ((FUNCTION MOD((90 - FUNCTION MtnGstrCnfgrtn-gtDgnlTlrnc0(J-conf)) + 2147483648, 4294967296) - 2147483648))
             COMPUTE J-diagonalToleranceLower = FUNCTION MtnGstrCnfgrtn-gtDgnlTlrnc0(J-conf)
         END-IF
-        COMPUTE jtemp8 = FUNCTION TORADIANS(J-diagonalToleranceHigher)
+        COMPUTE jtemp8 = ((J-diagonalToleranceHigher) * FUNCTION PI / 180)
         IF (J-absGradient > FUNCTION TAN(jtemp8))
             IF (FUNCTION Line-getDeltaY0(FUNCTION JR-GET(J-THIS, "f_line")) > 0)
                 COMPUTE J-newMotionGesture = FUNCTION JR-GET(J-touchMotionGestureFactory, "f_UP")
@@ -237,7 +273,7 @@ PROCEDURE DIVISION USING J-THIS J-current J-deviceId J-buttonMask RETURNING J-RE
                 COMPUTE J-newMotionGesture = FUNCTION JR-GET(J-touchMotionGestureFactory, "f_DOWN")
             END-IF
         ELSE
-            COMPUTE jtemp9 = FUNCTION TORADIANS(J-diagonalToleranceLower)
+            COMPUTE jtemp9 = ((J-diagonalToleranceLower) * FUNCTION PI / 180)
             IF (J-absGradient < FUNCTION TAN(jtemp9))
                 IF (FUNCTION Line-getDeltaX0(FUNCTION JR-GET(J-THIS, "f_line")) > 0)
                     COMPUTE J-newMotionGesture = FUNCTION JR-GET(J-touchMotionGestureFactory, "f_LEFT")
@@ -271,6 +307,24 @@ PROCEDURE DIVISION USING J-THIS J-current J-deviceId J-buttonMask RETURNING J-RE
         GOBACK
     GOBACK.
 END FUNCTION MtnGstrRcgnzr-prcssDrggdM55938.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VMotion-processDraggedMot45760.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-current BINARY-DOUBLE.
+01 J-deviceId BINARY-DOUBLE.
+01 J-buttonMask BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-current J-deviceId J-buttonMask J-RESULT.
+    COMPUTE J-RESULT = FUNCTION MtnGstrRcgnzr-prcssDrggdM55938(J-THIS, J-current, J-deviceId, J-buttonMask)
+    GOBACK.
+END PROGRAM VMotion-processDraggedMot45760.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. MtnGstrRcgnzr-prcssMvdMtnEvnt3.
@@ -309,6 +363,24 @@ PROCEDURE DIVISION USING J-THIS J-current J-deviceId J-button RETURNING J-RESULT
         GOBACK
     GOBACK.
 END FUNCTION MtnGstrRcgnzr-prcssMvdMtnEvnt3.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VMotion-processMovedMotio17656.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-current BINARY-DOUBLE.
+01 J-deviceId BINARY-DOUBLE.
+01 J-button BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-current J-deviceId J-button J-RESULT.
+    COMPUTE J-RESULT = FUNCTION MtnGstrRcgnzr-prcssMvdMtnEvnt3(J-THIS, J-current, J-deviceId, J-button)
+    GOBACK.
+END PROGRAM VMotion-processMovedMotio17656.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. MtnGstrRcgnzr-prcssScrlld70660.
@@ -358,6 +430,24 @@ PROCEDURE DIVISION USING J-THIS J-current J-deviceId J-button RETURNING J-RESULT
 END FUNCTION MtnGstrRcgnzr-prcssScrlld70660.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VMotion-processScrolledMo60280.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-current BINARY-DOUBLE.
+01 J-deviceId BINARY-DOUBLE.
+01 J-button BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-current J-deviceId J-button J-RESULT.
+    COMPUTE J-RESULT = FUNCTION MtnGstrRcgnzr-prcssScrlld70660(J-THIS, J-current, J-deviceId, J-button)
+    GOBACK.
+END PROGRAM VMotion-processScrolledMo60280.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. MtnGstrRcgnzr-gtMtnGstrsHndlr0.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -384,4 +474,29 @@ PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
         GOBACK
     GOBACK.
 END FUNCTION MtnGstrRcgnzr-gtMtnGstrsHndlr0.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VMotion-getMotionGestures15565.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION MtnGstrRcgnzr-gtMtnGstrsHndlr0(J-THIS)
+    GOBACK.
+END PROGRAM VMotion-getMotionGestures15565.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. MotionGestureRecognizer-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM MotionGestureRecognizer-jsuper.
 

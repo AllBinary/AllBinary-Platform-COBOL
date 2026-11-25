@@ -131,7 +131,7 @@ LOCAL-STORAGE SECTION.
 01 J-collidableInterfaceCompositeInterface2 BINARY-DOUBLE.
 01 J-index BINARY-DOUBLE.
 01 jtemp1 BINARY-DOUBLE.
-01 JFIRST1 BINARY-DOUBLE.
+01 JFIRST-N67840 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-layerManager BINARY-DOUBLE.
@@ -143,18 +143,36 @@ PROCEDURE DIVISION USING J-THIS J-layerManager J-collidableInterfaceCompositeInt
         COMPUTE J-size = FUNCTION ABLayerManager-getSize0(J-layerManager)
         COMPUTE jtemp1 = 1
         COMPUTE J-index = (FUNCTION MOD((J-startIndex + jtemp1) + 2147483648, 4294967296) - 2147483648)
-        MOVE 1 TO JFIRST1
+        MOVE 1 TO JFIRST-N67840
         PERFORM FOREVER
-            IF JFIRST1 = 0
+            IF JFIRST-N67840 = 0
                 COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
             END-IF
-            MOVE 0 TO JFIRST1
+            MOVE 0 TO JFIRST-N67840
             IF NOT (J-index < J-size) EXIT PERFORM END-IF
             COMPUTE J-collidableInterfaceCompositeInterface2 = FUNCTION ABLayerManager-getLayerAt1(J-layerManager, J-index)
             COMPUTE JDISCARD = FUNCTION AllBnryCllsnMngr-collide3(J-THIS, J-layerManager, J-collidableInterfaceCompositeInterface, J-collidableInterfaceCompositeInterface2)
         END-PERFORM
     GOBACK.
 END FUNCTION AllBnryCllsnMngr-process3.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VAllBinaryCollisionMa-process3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerManager BINARY-DOUBLE.
+01 J-collidableInterfaceCompositeInterface BINARY-DOUBLE.
+01 J-startIndex BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerManager J-collidableInterfaceCompositeInterface J-startIndex J-RESULT.
+    COMPUTE J-RESULT = FUNCTION AllBnryCllsnMngr-process3(J-THIS, J-layerManager, J-collidableInterfaceCompositeInterface, J-startIndex)
+    GOBACK.
+END PROGRAM VAllBinaryCollisionMa-process3.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. AllBnryCllsnMngr-collide3.
@@ -202,4 +220,32 @@ PROCEDURE DIVISION USING J-THIS J-layerManager J-collidableInterfaceCompositeInt
         END-IF
     GOBACK.
 END FUNCTION AllBnryCllsnMngr-collide3.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VAllBinaryCollisionMa-collide3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerManager BINARY-DOUBLE.
+01 J-collidableInterfaceCompositeInterface BINARY-DOUBLE.
+01 J-collidableInterfaceCompositeInterface2 BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerManager J-collidableInterfaceCompositeInterface J-collidableInterfaceCompositeInterface2 J-RESULT.
+    COMPUTE J-RESULT = FUNCTION AllBnryCllsnMngr-collide3(J-THIS, J-layerManager, J-collidableInterfaceCompositeInterface, J-collidableInterfaceCompositeInterface2)
+    GOBACK.
+END PROGRAM VAllBinaryCollisionMa-collide3.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. AllBinaryCollisionManag-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM AllBinaryCollisionManag-jsuper.
 

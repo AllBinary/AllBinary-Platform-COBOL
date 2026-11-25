@@ -139,7 +139,7 @@ LOCAL-STORAGE SECTION.
 01 jtemp2 BINARY-DOUBLE.
 01 jtemp3 BINARY-DOUBLE.
 01 jtemp4 BINARY-DOUBLE.
-01 JFIRST1 BINARY-DOUBLE.
+01 JFIRST-N68119 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-resource BINARY-DOUBLE.
@@ -151,15 +151,15 @@ PROCEDURE DIVISION USING J-THIS J-resource J-layer RETURNING J-RESULT.
         COMPUTE jtemp1 = FUNCTION FtrdRsrcFctry-getList0(J-THIS)
         COMPUTE J-size = FUNCTION JR-CLASS-NAME(jtemp1)
         COMPUTE J-index = 0
-        MOVE 1 TO JFIRST1
+        MOVE 1 TO JFIRST-N68119
         PERFORM FOREVER
-            IF JFIRST1 = 0
+            IF JFIRST-N68119 = 0
                 COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
             END-IF
-            MOVE 0 TO JFIRST1
+            MOVE 0 TO JFIRST-N68119
             IF NOT (J-index < J-size) EXIT PERFORM END-IF
             COMPUTE J-featureInterface = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-featureReleaseList, "f_objectArray"), J-index)
-            IF (FUNCTION RsrcRltvRltnshpFctryInt-41163(J-featureInterface) = 1)
+            IF (FUNCTION GmFtrCntrlldIntrfc-isFeature0(J-featureInterface) = 1)
                 COMPUTE J-list = FUNCTION RsrcRltvRltnshpFctryInt-12237(J-featureInterface, J-resource)
                 IF (J-list NOT = FUNCTION BscArryLstUtl-gtImmtblInstnc0(FUNCTION JR-GET(J-THIS, "f_basicArrayListUtil")))
                     COMPUTE J-RESULT = FUNCTION FtrdRsrcRltvRltnshpFctr-87969(J-THIS, J-list, J-layer)
@@ -173,6 +173,23 @@ PROCEDURE DIVISION USING J-THIS J-resource J-layer RETURNING J-RESULT.
         COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
     GOBACK.
 END FUNCTION FtrdRsrcRltvRltnshpFctr-21960.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VFeatur-getRelativeRelati15676.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-resource BINARY-DOUBLE.
+01 J-layer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-resource J-layer J-RESULT.
+    COMPUTE J-RESULT = FUNCTION FtrdRsrcRltvRltnshpFctr-21960(J-THIS, J-resource, J-layer)
+    GOBACK.
+END PROGRAM VFeatur-getRelativeRelati15676.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. FtrdRsrcRltvRltnshpFctr-87969.
@@ -198,7 +215,7 @@ LOCAL-STORAGE SECTION.
 01 J-relativeRelationship BINARY-DOUBLE.
 01 J-index BINARY-DOUBLE.
 01 jtemp5 BINARY-DOUBLE.
-01 JFIRST2 BINARY-DOUBLE.
+01 JFIRST-N68711 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-list BINARY-DOUBLE.
@@ -210,12 +227,12 @@ PROCEDURE DIVISION USING J-THIS J-list J-layer RETURNING J-RESULT.
         COMPUTE J-newList = FUNCTION BasicArrayListD-new0
         COMPUTE J-size = FUNCTION BasicArrayList-size0(J-list)
         COMPUTE J-index = 0
-        MOVE 1 TO JFIRST2
+        MOVE 1 TO JFIRST-N68711
         PERFORM FOREVER
-            IF JFIRST2 = 0
+            IF JFIRST-N68711 = 0
                 COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
             END-IF
-            MOVE 0 TO JFIRST2
+            MOVE 0 TO JFIRST-N68711
             IF NOT (J-index < J-size) EXIT PERFORM END-IF
             COMPUTE J-relativeRelationship = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
             COMPUTE jtemp5 = FUNCTION BscArryLstUtl-getInstance0
@@ -226,4 +243,31 @@ PROCEDURE DIVISION USING J-THIS J-list J-layer RETURNING J-RESULT.
         GOBACK
     GOBACK.
 END FUNCTION FtrdRsrcRltvRltnshpFctr-87969.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VFeaturedResourceRe-duplicate2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-list BINARY-DOUBLE.
+01 J-layer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-list J-layer J-RESULT.
+    COMPUTE J-RESULT = FUNCTION FtrdRsrcRltvRltnshpFctr-87969(J-THIS, J-list, J-layer)
+    GOBACK.
+END PROGRAM VFeaturedResourceRe-duplicate2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. FeaturedResourceRelativ-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "FeaturedResourceFactory" TO J-CLASS
+    GOBACK.
+END PROGRAM FeaturedResourceRelativ-jsuper.
 

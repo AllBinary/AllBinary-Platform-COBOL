@@ -11,8 +11,8 @@ REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 FeaturedAnimationInterfaceFactoryInterfaceFactory-jcell-INSTANCE BINARY-DOUBLE EXTERNAL.
-01 FeaturedAnimationInterfaceFactoryInterfaceFactory-jset-INSTANCE BINARY-DOUBLE EXTERNAL.
+01 FeaturedAnimationInt-jcell-INSTANCE67423 BINARY-DOUBLE EXTERNAL.
+01 FeaturedAnimationInt-jset-INSTANCE67423 BINARY-DOUBLE EXTERNAL.
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -27,11 +27,11 @@ LOCAL-STORAGE SECTION.
 LINKAGE SECTION.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION RETURNING J-RESULT.
-    IF FeaturedAnimationInterfaceFactoryInterfaceFactory-jset-INSTANCE = 0
-        MOVE 1 TO FeaturedAnimationInterfaceFactoryInterfaceFactory-jset-INSTANCE
-        COMPUTE FeaturedAnimationInterfaceFactoryInterfaceFactory-jcell-INSTANCE = FUNCTION FtrdAnmtnIntrfcFctryInt-28643
+    IF FeaturedAnimationInt-jset-INSTANCE67423 = 0
+        MOVE 1 TO FeaturedAnimationInt-jset-INSTANCE67423
+        COMPUTE FeaturedAnimationInt-jcell-INSTANCE67423 = FUNCTION FtrdAnmtnIntrfcFctryInt-28643
     END-IF
-    MOVE FeaturedAnimationInterfaceFactoryInterfaceFactory-jcell-INSTANCE TO J-RESULT
+    MOVE FeaturedAnimationInt-jcell-INSTANCE67423 TO J-RESULT
     GOBACK.
 END FUNCTION FtrdAnmtnIntrfcFctryInt-22227.
 
@@ -43,13 +43,13 @@ REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 FeaturedAnimationInterfaceFactoryInterfaceFactory-jcell-INSTANCE BINARY-DOUBLE EXTERNAL.
+01 FeaturedAnimationInt-jcell-INSTANCE67423 BINARY-DOUBLE EXTERNAL.
 LINKAGE SECTION.
 01 J-VALUE BINARY-DOUBLE.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
     MOVE FUNCTION FtrdAnmtnIntrfcFctryInt-22227 TO J-RESULT
-    MOVE J-VALUE TO FeaturedAnimationInterfaceFactoryInterfaceFactory-jcell-INSTANCE
+    MOVE J-VALUE TO FeaturedAnimationInt-jcell-INSTANCE67423
     MOVE J-VALUE TO J-RESULT
     GOBACK.
 END FUNCTION FtrdAnmtnIntrfcFctryS24653.
@@ -143,6 +143,22 @@ PROCEDURE DIVISION USING J-THIS J-resource RETURNING J-RESULT.
 END FUNCTION FtrdAnmtnIntrfcFctryInt-52819.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VFeaturedAnimati-getRectangle1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-resource BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-resource J-RESULT.
+    COMPUTE J-RESULT = FUNCTION FtrdAnmtnIntrfcFctryInt-52819(J-THIS, J-resource)
+    GOBACK.
+END PROGRAM VFeaturedAnimati-getRectangle1.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. FtrdAnmtnIntrfcFctryInt-46339.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -175,7 +191,7 @@ LOCAL-STORAGE SECTION.
 01 jtemp8 BINARY-DOUBLE.
 01 jtemp9 BINARY-DOUBLE.
 01 jtemp10 BINARY-DOUBLE.
-01 JFIRST1 BINARY-DOUBLE.
+01 JFIRST-N68346 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-resource BINARY-DOUBLE.
@@ -192,16 +208,16 @@ PROCEDURE DIVISION USING J-THIS J-resource J-x J-y RETURNING J-RESULT.
         COMPUTE jtemp5 = FUNCTION FtrdRsrcFctry-getList0(J-THIS)
         COMPUTE J-size = FUNCTION JR-CLASS-NAME(jtemp5)
         COMPUTE J-index = 0
-        MOVE 1 TO JFIRST1
+        MOVE 1 TO JFIRST-N68346
         PERFORM FOREVER
-            IF JFIRST1 = 0
+            IF JFIRST-N68346 = 0
                 COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
             END-IF
-            MOVE 0 TO JFIRST1
+            MOVE 0 TO JFIRST-N68346
             IF NOT (J-index < J-size) EXIT PERFORM END-IF
             COMPUTE J-featureInterface = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
-            IF (FUNCTION FtrRsrcAnmtnIntrfcFctry-73049(J-featureInterface) = 1)
-                COMPUTE J-rectangle = FUNCTION FtrRsrcAnmtnIntrfcFctry-16113(J-featureInterface, J-resource)
+            IF (FUNCTION GmFtrCntrlldIntrfc-isFeature0(J-featureInterface) = 1)
+                COMPUTE J-rectangle = FUNCTION RctnglRsrcFctryIntrfc-gtR80067(J-featureInterface, J-resource)
                 IF (J-rectangle NOT = FUNCTION RctnglFctry-static-SINGLETON)
                     COMPUTE jtemp6 = (FUNCTION JR-SHIFT(JFIVE, ((FUNCTION MOD((FUNCTION Rectangle-getWidth0(J-rectangle) * J-scale) + 2147483648, 4294967296) - 2147483648)), 1))
                     COMPUTE jtemp7 = (FUNCTION JR-SHIFT(JFIVE, ((FUNCTION MOD((FUNCTION Rectangle-getHeight0(J-rectangle) * J-scale) + 2147483648, 4294967296) - 2147483648)), 1))
@@ -216,6 +232,24 @@ PROCEDURE DIVISION USING J-THIS J-resource J-x J-y RETURNING J-RESULT.
         COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
     GOBACK.
 END FUNCTION FtrdAnmtnIntrfcFctryInt-46339.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VFeaturedAnima-getRectangleXY3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-resource BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-resource J-x J-y J-RESULT.
+    COMPUTE J-RESULT = FUNCTION FtrdAnmtnIntrfcFctryInt-46339(J-THIS, J-resource, J-x, J-y)
+    GOBACK.
+END PROGRAM VFeaturedAnima-getRectangleXY3.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. FtrdAnmtnIntrfcFctryInt-17476.
@@ -247,6 +281,22 @@ PROCEDURE DIVISION USING J-THIS J-resource RETURNING J-RESULT.
 END FUNCTION FtrdAnmtnIntrfcFctryInt-17476.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VFeaturedAnimat-getProcedural1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-resource BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-resource J-RESULT.
+    COMPUTE J-RESULT = FUNCTION FtrdAnmtnIntrfcFctryInt-17476(J-THIS, J-resource)
+    GOBACK.
+END PROGRAM VFeaturedAnimat-getProcedural1.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. FtrdAnmtnIntrfcFctryInt-13097.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -276,6 +326,22 @@ PROCEDURE DIVISION USING J-THIS J-resource RETURNING J-RESULT.
 END FUNCTION FtrdAnmtnIntrfcFctryInt-13097.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VFeaturedAnimationInterfa-get1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-resource BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-resource J-RESULT.
+    COMPUTE J-RESULT = FUNCTION FtrdAnmtnIntrfcFctryInt-13097(J-THIS, J-resource)
+    GOBACK.
+END PROGRAM VFeaturedAnimationInterfa-get1.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. FtrdAnmtnIntrfcFctryInt-93280.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -301,11 +367,11 @@ LOCAL-STORAGE SECTION.
 01 J-index BINARY-DOUBLE.
 01 J-stringBuffer BINARY-DOUBLE.
 01 J-result-L BINARY-DOUBLE.
-01 J-NO_ANIMATION_AVAILABLE_FROM BINARY-DOUBLE.
-01 J-FOR_FACTORIES BINARY-DOUBLE.
-01 J-FOR_RESOURCE BINARY-DOUBLE.
-01 J-HAS_KEY BINARY-DOUBLE.
-01 J-RESOURCES_LABEL BINARY-DOUBLE.
+01 J-NO_ANIMATION_AVAILABLE_FROM-C BINARY-DOUBLE.
+01 J-FOR_FACTORIES-C BINARY-DOUBLE.
+01 J-FOR_RESOURCE-C BINARY-DOUBLE.
+01 J-HAS_KEY-C BINARY-DOUBLE.
+01 J-RESOURCES_LABEL-C BINARY-DOUBLE.
 01 J-size2 BINARY-DOUBLE.
 01 jtemp11 BINARY-DOUBLE.
 01 jtemp12 BINARY-DOUBLE.
@@ -320,10 +386,10 @@ LOCAL-STORAGE SECTION.
 01 jtemp21 BINARY-DOUBLE.
 01 jtemp22 BINARY-DOUBLE.
 01 jtemp23 BINARY-DOUBLE.
-01 JFIRST2 BINARY-DOUBLE.
-01 JFIRST3 BINARY-DOUBLE.
-01 JFIRST4 BINARY-DOUBLE.
-01 JFIRST5 BINARY-DOUBLE.
+01 JFIRST-N69338 BINARY-DOUBLE.
+01 JFIRST-N69702 BINARY-DOUBLE.
+01 JFIRST-N70583 BINARY-DOUBLE.
+01 JFIRST-N70824 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-resource BINARY-DOUBLE.
@@ -337,17 +403,17 @@ PROCEDURE DIVISION USING J-THIS J-resource RETURNING J-RESULT.
         CONTINUE
         CONTINUE
         COMPUTE J-index = 0
-        MOVE 1 TO JFIRST2
+        MOVE 1 TO JFIRST-N69338
         PERFORM FOREVER
-            IF JFIRST2 = 0
+            IF JFIRST-N69338 = 0
                 COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
             END-IF
-            MOVE 0 TO JFIRST2
+            MOVE 0 TO JFIRST-N69338
             IF NOT (J-index < J-size) EXIT PERFORM END-IF
             COMPUTE J-featureInterface = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
-            IF (FUNCTION FtrRsrcAnmtnIntrfcFctry-73049(J-featureInterface) = 1)
+            IF (FUNCTION GmFtrCntrlldIntrfc-isFeature0(J-featureInterface) = 1)
                 COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(J-resourceTypeAvailableList, J-featureInterface)
-                COMPUTE J-animationInterfaceFactoryInterface = FUNCTION FtrRsrcAnmtnIntrfcFctry-47398(J-featureInterface, J-resource)
+                COMPUTE J-animationInterfaceFactoryInterface = FUNCTION RsrcAnmtnIntrfcFctryInt-10067(J-featureInterface, J-resource)
                 IF (J-animationInterfaceFactoryInterface NOT = FUNCTION NllAnmtnFctry-sttc-68402)
                     COMPUTE J-RESULT = J-animationInterfaceFactoryInterface
                     GOBACK
@@ -355,64 +421,64 @@ PROCEDURE DIVISION USING J-THIS J-resource RETURNING J-RESULT.
             END-IF
         END-PERFORM
         IF (FUNCTION BasicArrayList-size0(J-resourceTypeAvailableList) > 0)
-            COMPUTE J-NO_ANIMATION_AVAILABLE_FROM = FUNCTION JR-STR("No animation available from: ")
-            COMPUTE J-FOR_FACTORIES = FUNCTION JR-STR(" factories: ")
-            COMPUTE J-FOR_RESOURCE = FUNCTION JR-STR(" for Resource: ")
-            COMPUTE J-HAS_KEY = FUNCTION JR-STR(" has: ")
-            COMPUTE J-RESOURCES_LABEL = FUNCTION JR-STR(" resources ")
+            COMPUTE J-NO_ANIMATION_AVAILABLE_FROM-C = FUNCTION JR-STR("No animation available from: ")
+            COMPUTE J-FOR_FACTORIES-C = FUNCTION JR-STR(" factories: ")
+            COMPUTE J-FOR_RESOURCE-C = FUNCTION JR-STR(" for Resource: ")
+            COMPUTE J-HAS_KEY-C = FUNCTION JR-STR(" has: ")
+            COMPUTE J-RESOURCES_LABEL-C = FUNCTION JR-STR(" resources ")
             COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
-            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-NO_ANIMATION_AVAILABLE_FROM)
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-NO_ANIMATION_AVAILABLE_FROM-C)
             COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, FUNCTION BasicArrayList-size0(J-resourceTypeAvailableList))
             COMPUTE jtemp18 = FUNCTION CommonSeps-getInstance0
             COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(jtemp18, "f_FORWARD_SLASH"))
             COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, J-size)
-            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-FOR_FACTORIES)
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-FOR_FACTORIES-C)
             COMPUTE J-size2 = FUNCTION BasicArrayList-size0(J-resourceTypeAvailableList)
             COMPUTE J-index = 0
-            MOVE 1 TO JFIRST4
+            MOVE 1 TO JFIRST-N70583
             PERFORM FOREVER
-                IF JFIRST4 = 0
+                IF JFIRST-N70583 = 0
                     COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
                 END-IF
-                MOVE 0 TO JFIRST4
+                MOVE 0 TO JFIRST-N70583
                 IF NOT (J-index < J-size2) EXIT PERFORM END-IF
                 COMPUTE jtemp19 = FUNCTION BasicArrayList-get1(J-resourceTypeAvailableList, J-index)
                 COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-TO-STRING(jtemp19))
                 COMPUTE jtemp20 = FUNCTION CommonSeps-getInstance0
                 COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(jtemp20, "f_COMMA_SEP"))
             END-PERFORM
-            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-FOR_RESOURCE)
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-FOR_RESOURCE-C)
             COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-resource)
             COMPUTE J-index = 0
-            MOVE 1 TO JFIRST5
+            MOVE 1 TO JFIRST-N70824
             PERFORM FOREVER
-                IF JFIRST5 = 0
+                IF JFIRST-N70824 = 0
                     COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
                 END-IF
-                MOVE 0 TO JFIRST5
+                MOVE 0 TO JFIRST-N70824
                 IF NOT (J-index < J-size) EXIT PERFORM END-IF
                 COMPUTE jtemp21 = FUNCTION CommonSeps-getInstance0
                 COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(jtemp21, "f_NEW_LINE"))
                 COMPUTE J-featureInterface = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
-                IF (FUNCTION FtrRsrcAnmtnIntrfcFctry-73049(J-featureInterface) = 1)
+                IF (FUNCTION GmFtrCntrlldIntrfc-isFeature0(J-featureInterface) = 1)
                     COMPUTE jtemp22 = FUNCTION StringUtil-getInstance0
                     COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION StringUtil-toString1(jtemp22, J-featureInterface))
-                    COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-HAS_KEY)
+                    COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-HAS_KEY-C)
                     COMPUTE jtemp23 = FUNCTION FtrRsrcAnmtnIntrfcFctry-35657(J-featureInterface)
                     COMPUTE JDISCARD = FUNCTION StringMaker-appendint1(J-stringBuffer, FUNCTION JR-CLASS-NAME(jtemp23))
-                    COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-RESOURCES_LABEL)
+                    COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, J-RESOURCES_LABEL-C)
                 END-IF
             END-PERFORM
             COMPUTE JDISCARD = FUNCTION JR-THROW(JZERO)
         ELSE
             COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
             COMPUTE J-index = 0
-            MOVE 1 TO JFIRST3
+            MOVE 1 TO JFIRST-N69702
             PERFORM FOREVER
-                IF JFIRST3 = 0
+                IF JFIRST-N69702 = 0
                     COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
                 END-IF
-                MOVE 0 TO JFIRST3
+                MOVE 0 TO JFIRST-N69702
                 IF NOT (J-index < J-size) EXIT PERFORM END-IF
                 COMPUTE J-featureInterface = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
                 COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-TO-STRING(J-featureInterface))
@@ -430,4 +496,30 @@ PROCEDURE DIVISION USING J-THIS J-resource RETURNING J-RESULT.
         END-IF
     GOBACK.
 END FUNCTION FtrdAnmtnIntrfcFctryInt-93280.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VFeatur-getBasicAnimation13359.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-resource BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-resource J-RESULT.
+    COMPUTE J-RESULT = FUNCTION FtrdAnmtnIntrfcFctryInt-93280(J-THIS, J-resource)
+    GOBACK.
+END PROGRAM VFeatur-getBasicAnimation13359.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. FeaturedAnimationInterf-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "FeaturedResourceFactory" TO J-CLASS
+    GOBACK.
+END PROGRAM FeaturedAnimationInterf-jsuper.
 

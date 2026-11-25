@@ -210,6 +210,26 @@ PROCEDURE DIVISION USING J-THIS J-calendar J-yearString J-monthString J-dayStrin
 END FUNCTION TimeUtil-setCalendar5.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VTimeUtil-setCalendar5.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-calendar BINARY-DOUBLE.
+01 J-yearString BINARY-DOUBLE.
+01 J-monthString BINARY-DOUBLE.
+01 J-dayString BINARY-DOUBLE.
+01 J-hourString BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-calendar J-yearString J-monthString J-dayString J-hourString J-RESULT.
+    COMPUTE J-RESULT = FUNCTION TimeUtil-setCalendar5(J-THIS, J-calendar, J-yearString, J-monthString, J-dayString, J-hourString)
+    GOBACK.
+END PROGRAM VTimeUtil-setCalendar5.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. TimeUtil-setCalendarWithTime7.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -266,6 +286,28 @@ PROCEDURE DIVISION USING J-THIS J-calendar J-yearString J-monthString J-dayStrin
         COMPUTE JDISCARD = FUNCTION Calendar-set6(J-calendar, J-year, J-month, J-day, J-hour, J-minute, J-second)
     GOBACK.
 END FUNCTION TimeUtil-setCalendarWithTime7.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VTimeUtil-setCalendarWithTime7.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-calendar BINARY-DOUBLE.
+01 J-yearString BINARY-DOUBLE.
+01 J-monthString BINARY-DOUBLE.
+01 J-dayString BINARY-DOUBLE.
+01 J-hourString BINARY-DOUBLE.
+01 J-minuteString BINARY-DOUBLE.
+01 J-secondString BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-calendar J-yearString J-monthString J-dayString J-hourString J-minuteString J-secondString J-RESULT.
+    COMPUTE J-RESULT = FUNCTION TimeUtil-setCalendarWithTime7(J-THIS, J-calendar, J-yearString, J-monthString, J-dayString, J-hourString, J-minuteString, J-secondString)
+    GOBACK.
+END PROGRAM VTimeUtil-setCalendarWithTime7.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. TmUtl-setExpirationCalendar7.
@@ -326,6 +368,28 @@ PROCEDURE DIVISION USING J-THIS J-calendar J-yearsString J-monthsString J-daysSt
 END FUNCTION TmUtl-setExpirationCalendar7.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VTimeUt-setExpirationCalendar7.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-calendar BINARY-DOUBLE.
+01 J-yearsString BINARY-DOUBLE.
+01 J-monthsString BINARY-DOUBLE.
+01 J-daysString BINARY-DOUBLE.
+01 J-hoursString BINARY-DOUBLE.
+01 J-minutesString BINARY-DOUBLE.
+01 J-secondsString BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-calendar J-yearsString J-monthsString J-daysString J-hoursString J-minutesString J-secondsString J-RESULT.
+    COMPUTE J-RESULT = FUNCTION TmUtl-setExpirationCalendar7(J-THIS, J-calendar, J-yearsString, J-monthsString, J-daysString, J-hoursString, J-minutesString, J-secondsString)
+    GOBACK.
+END PROGRAM VTimeUt-setExpirationCalendar7.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. TimeUtil-getTotalTime6.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -363,4 +427,35 @@ PROCEDURE DIVISION USING J-THIS J-yearString J-monthString J-dayString J-hourStr
         GOBACK
     GOBACK.
 END FUNCTION TimeUtil-getTotalTime6.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VTimeUtil-getTotalTime6.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-yearString BINARY-DOUBLE.
+01 J-monthString BINARY-DOUBLE.
+01 J-dayString BINARY-DOUBLE.
+01 J-hourString BINARY-DOUBLE.
+01 J-minuteString BINARY-DOUBLE.
+01 J-secondString BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-yearString J-monthString J-dayString J-hourString J-minuteString J-secondString J-RESULT.
+    COMPUTE J-RESULT = FUNCTION TimeUtil-getTotalTime6(J-THIS, J-yearString, J-monthString, J-dayString, J-hourString, J-minuteString, J-secondString)
+    GOBACK.
+END PROGRAM VTimeUtil-getTotalTime6.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. TimeUtil-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM TimeUtil-jsuper.
 

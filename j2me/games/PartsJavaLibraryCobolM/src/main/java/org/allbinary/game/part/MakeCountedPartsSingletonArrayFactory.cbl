@@ -144,9 +144,9 @@ LOCAL-STORAGE SECTION.
 01 J-newSize BINARY-DOUBLE.
 01 jtemp2 BINARY-DOUBLE.
 01 jtemp3 BINARY-DOUBLE.
-01 JFIRST1 BINARY-DOUBLE.
-01 JFIRST2 BINARY-DOUBLE.
-01 JFIRST3 BINARY-DOUBLE.
+01 JFIRST-N68466 BINARY-DOUBLE.
+01 JFIRST-N68718 BINARY-DOUBLE.
+01 JFIRST-N69321 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-partInterfaceArray BINARY-DOUBLE.
@@ -156,12 +156,12 @@ PROCEDURE DIVISION USING J-THIS J-partInterfaceArray RETURNING J-RESULT.
         COMPUTE JVALUE = FUNCTION BasicArrayListD-new0
         COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_list", JVALUE)
         COMPUTE J-index = 0
-        MOVE 1 TO JFIRST1
+        MOVE 1 TO JFIRST-N68466
         PERFORM FOREVER
-            IF JFIRST1 = 0
+            IF JFIRST-N68466 = 0
                 COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
             END-IF
-            MOVE 0 TO JFIRST1
+            MOVE 0 TO JFIRST-N68466
             IF NOT (J-index < FUNCTION JR-ARRAY-LENGTH(J-partInterfaceArray)) EXIT PERFORM END-IF
             COMPUTE JDISCARD = FUNCTION BasicArrayList-add1(FUNCTION JR-GET(J-THIS, "f_list"), FUNCTION JR-ARRAY-GET(J-partInterfaceArray, J-index))
         END-PERFORM
@@ -170,12 +170,12 @@ PROCEDURE DIVISION USING J-THIS J-partInterfaceArray RETURNING J-RESULT.
         CONTINUE
         COMPUTE J-size = FUNCTION BasicArrayList-size0(J-countedBasicArrayList)
         COMPUTE J-index = 0
-        MOVE 1 TO JFIRST2
+        MOVE 1 TO JFIRST-N68718
         PERFORM FOREVER
-            IF JFIRST2 = 0
+            IF JFIRST-N68718 = 0
                 COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
             END-IF
-            MOVE 0 TO JFIRST2
+            MOVE 0 TO JFIRST-N68718
             IF NOT (J-index < J-size) EXIT PERFORM END-IF
             COMPUTE J-layerInterfaceFactoryInterface = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-countedBasicArrayList, "f_objectArray"), J-index)
             COMPUTE jtemp3 = 0
@@ -191,12 +191,12 @@ PROCEDURE DIVISION USING J-THIS J-partInterfaceArray RETURNING J-RESULT.
         COMPUTE J-newPartInterfaceArray = FUNCTION JR-NEW-ARRAY(FUNCTION BasicArrayList-size0(FUNCTION JR-GET(J-THIS, "f_list")))
         COMPUTE J-newSize = FUNCTION JR-ARRAY-LENGTH(J-newPartInterfaceArray)
         COMPUTE J-index = 0
-        MOVE 1 TO JFIRST3
+        MOVE 1 TO JFIRST-N69321
         PERFORM FOREVER
-            IF JFIRST3 = 0
+            IF JFIRST-N69321 = 0
                 COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
             END-IF
-            MOVE 0 TO JFIRST3
+            MOVE 0 TO JFIRST-N69321
             IF NOT (J-index < J-newSize) EXIT PERFORM END-IF
             COMPUTE JVALUE = FUNCTION BasicArrayList-get1(FUNCTION JR-GET(J-THIS, "f_list"), J-index)
             COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-newPartInterfaceArray, J-index, JVALUE)
@@ -205,4 +205,30 @@ PROCEDURE DIVISION USING J-THIS J-partInterfaceArray RETURNING J-RESULT.
         GOBACK
     GOBACK.
 END FUNCTION MkCntdPrtsSngltnArryFct-84380.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VMakeCountedPartsS-getUpdated1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-partInterfaceArray BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-partInterfaceArray J-RESULT.
+    COMPUTE J-RESULT = FUNCTION MkCntdPrtsSngltnArryFct-84380(J-THIS, J-partInterfaceArray)
+    GOBACK.
+END PROGRAM VMakeCountedPartsS-getUpdated1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. MakeCountedPartsSinglet-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM MakeCountedPartsSinglet-jsuper.
 

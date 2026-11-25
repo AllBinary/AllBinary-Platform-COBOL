@@ -150,7 +150,7 @@ PROCEDURE DIVISION USING J-THIS J-classLoader J-pathString RETURNING J-RESULT.
         COMPUTE J-commonStrings = FUNCTION CommonStrings-getInstance0
         COMPUTE J-appUrlGlobals = FUNCTION AppUrlGlobals-new0
         COMPUTE JDISCARD = FUNCTION AppUrlGlobals-setWebappPath1(J-appUrlGlobals, J-pathString)
-        COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION -static-URLGLOBALS)
+        COMPUTE JDISCARD = FUNCTION URLGLOBALS-init1(J-appUrlGlobals)
         COMPUTE JDISCARD = FUNCTION WbppClssLdrInf-setLoader1(J-classLoader)
         COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
         COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR("Setting Up AllBinary System Configuration Args: "))
@@ -171,14 +171,41 @@ PROCEDURE DIVISION USING J-THIS J-classLoader J-pathString RETURNING J-RESULT.
             COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(jtemp4, "f_EQUALS"))
             COMPUTE jtemp5 = FUNCTION CommonSeps-getInstance0
             COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-GET(jtemp5, "f_SPACE"))
-            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-CLASS-NAME(FUNCTION -static-URLGLOBALS))
+            COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION URLGLOBALS-getWebappPath0)
             COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-stringBuffer), J-THIS, FUNCTION JR-GET(J-commonStrings, "f_INIT"))
         END-IF
         COMPUTE jtemp6 = 0
         COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringBuffer, jtemp6, FUNCTION StringMaker-length0(J-stringBuffer))
         COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-STR("Webapp Path Set To: "))
-        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-CLASS-NAME(FUNCTION -static-URLGLOBALS))
+        COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION URLGLOBALS-getWebappPath0)
         COMPUTE JDISCARD = FUNCTION LogUtil-putF3(FUNCTION JR-GET(J-THIS, "f_logUtil"), FUNCTION JR-TO-STRING(J-stringBuffer), J-THIS, FUNCTION JR-GET(J-commonStrings, "f_INIT"))
     GOBACK.
 END FUNCTION Globals-init2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VGlobals-init2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-classLoader BINARY-DOUBLE.
+01 J-pathString BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-classLoader J-pathString J-RESULT.
+    COMPUTE J-RESULT = FUNCTION Globals-init2(J-THIS, J-classLoader, J-pathString)
+    GOBACK.
+END PROGRAM VGlobals-init2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. Globals-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM Globals-jsuper.
 

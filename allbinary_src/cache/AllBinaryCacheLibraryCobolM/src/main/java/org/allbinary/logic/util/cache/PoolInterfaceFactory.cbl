@@ -62,3 +62,13 @@ PROCEDURE DIVISION USING J-cacheableInterfaceFactoryInterface J-poolType J-cache
     GOBACK.
 END FUNCTION PlIntrfcFctry-getInstance3.
 
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PoolInterfaceFactory-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM PoolInterfaceFactory-jsuper.
+

@@ -56,7 +56,7 @@ LOCAL-STORAGE SECTION.
 01 jtemp1 BINARY-DOUBLE.
 01 jtemp2 BINARY-DOUBLE.
 01 jtemp3 BINARY-DOUBLE.
-01 JFIRST1 BINARY-DOUBLE.
+01 JFIRST-N67103 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-value BINARY-DOUBLE.
 01 J-RESULT BINARY-DOUBLE.
@@ -66,12 +66,12 @@ PROCEDURE DIVISION USING J-value RETURNING J-RESULT.
             COMPUTE J-array = J-value
             COMPUTE J-stringBuffer = FUNCTION StringMaker-new0
             COMPUTE J-index = 0
-            MOVE 1 TO JFIRST1
+            MOVE 1 TO JFIRST-N67103
             PERFORM FOREVER
-                IF JFIRST1 = 0
+                IF JFIRST-N67103 = 0
                     COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
                 END-IF
-                MOVE 0 TO JFIRST1
+                MOVE 0 TO JFIRST-N67103
                 IF NOT (J-index < FUNCTION JR-ARRAY-LENGTH(J-array)) EXIT PERFORM END-IF
                 COMPUTE jtemp1 = FUNCTION JR-ARRAY-GET(J-array, J-index)
                 COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION JR-TO-STRING(jtemp1))
@@ -112,7 +112,7 @@ LOCAL-STORAGE SECTION.
 01 J-commonStrings BINARY-DOUBLE.
 01 jtemp4 BINARY-DOUBLE.
 01 jtemp5 BINARY-DOUBLE.
-01 JFIRST2 BINARY-DOUBLE.
+01 JFIRST-N67886 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-value BINARY-DOUBLE.
 01 J-RESULT BINARY-DOUBLE.
@@ -126,12 +126,12 @@ PROCEDURE DIVISION USING J-value RETURNING J-RESULT.
             COMPUTE J-decode = FUNCTION JR-NEW-ARRAY(J-size)
             CONTINUE
             COMPUTE J-index = 0
-            MOVE 1 TO JFIRST2
+            MOVE 1 TO JFIRST-N67886
             PERFORM FOREVER
-                IF JFIRST2 = 0
+                IF JFIRST-N67886 = 0
                     COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
                 END-IF
-                MOVE 0 TO JFIRST2
+                MOVE 0 TO JFIRST-N67886
                 IF NOT (J-index < J-size) EXIT PERFORM END-IF
                 COMPUTE J-byteOfData = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-vector, "f_objectArray"), J-index)
                 COMPUTE JVALUE = FUNCTION Byte-parseByte1(J-byteOfData)
@@ -141,4 +141,14 @@ PROCEDURE DIVISION USING J-value RETURNING J-RESULT.
             GOBACK
     GOBACK.
 END FUNCTION DatabaseEncoder-decode1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. DatabaseEncoder-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM DatabaseEncoder-jsuper.
 

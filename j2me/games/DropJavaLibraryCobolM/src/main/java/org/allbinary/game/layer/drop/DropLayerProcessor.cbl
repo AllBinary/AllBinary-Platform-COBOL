@@ -132,7 +132,7 @@ LOCAL-STORAGE SECTION.
 01 J-layerInterface BINARY-DOUBLE.
 01 J-dropLayerInterface BINARY-DOUBLE.
 01 J-index BINARY-DOUBLE.
-01 JFIRST1 BINARY-DOUBLE.
+01 JFIRST-N68248 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-allBinaryLayerManager BINARY-DOUBLE.
@@ -144,12 +144,12 @@ PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager RETURNING J-RESULT.
         CONTINUE
         CONTINUE
         COMPUTE J-index = 0
-        MOVE 1 TO JFIRST1
+        MOVE 1 TO JFIRST-N68248
         PERFORM FOREVER
-            IF JFIRST1 = 0
+            IF JFIRST-N68248 = 0
                 COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
             END-IF
-            MOVE 0 TO JFIRST1
+            MOVE 0 TO JFIRST-N68248
             IF NOT (J-index < J-size) EXIT PERFORM END-IF
             COMPUTE J-layerInterface = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
             COMPUTE J-dropLayerInterface = J-layerInterface
@@ -159,4 +159,30 @@ PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager RETURNING J-RESULT.
         COMPUTE JDISCARD = FUNCTION BasicArrayList-clear0(J-list)
     GOBACK.
 END FUNCTION DropLayerProcessor-process1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VDropLayerProcessor-process1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryLayerManager BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager J-RESULT.
+    COMPUTE J-RESULT = FUNCTION DropLayerProcessor-process1(J-THIS, J-allBinaryLayerManager)
+    GOBACK.
+END PROGRAM VDropLayerProcessor-process1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. DropLayerProcessor-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "BasicLayerProcessor" TO J-CLASS
+    GOBACK.
+END PROGRAM DropLayerProcessor-jsuper.
 

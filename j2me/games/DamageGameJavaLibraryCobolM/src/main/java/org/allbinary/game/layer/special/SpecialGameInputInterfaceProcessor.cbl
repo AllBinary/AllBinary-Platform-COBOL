@@ -35,3 +35,13 @@ PROCEDURE DIVISION USING J-collidableDestroyableDamageableLayer RETURNING J-RESU
     GOBACK.
 END FUNCTION SpclGmInptIntrfcPrcssr-new1.
 
+IDENTIFICATION DIVISION.
+PROGRAM-ID. SpecialGameInputInterfa-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "GameInputProcessor" TO J-CLASS
+    GOBACK.
+END PROGRAM SpecialGameInputInterfa-jsuper.
+

@@ -72,10 +72,27 @@ PROCEDURE DIVISION USING J-THIS J-ownerLayer J-collidableInterfaceCompositeInter
             COMPUTE jtemp2 = FUNCTION ClldblDstryblDmgblLyr-gtP91554(J-collidableDestroyableDamageableLayer)
             COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(jtemp2)
         ELSE
-            COMPUTE JDISCARD = FUNCTION ClldblDstryblDmgblBhvr-clld2(J-THIS, J-ownerLayer, J-collidableInterfaceCompositeInterface)
+            COMPUTE JDISCARD = FUNCTION ClldblDstryblDmgblBhvr-clld2J(J-THIS, J-ownerLayer, J-collidableInterfaceCompositeInterface)
         END-IF
     GOBACK.
 END FUNCTION ClldblChrctrBhvr-collide2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VCollidableCharacterB-collide2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ownerLayer BINARY-DOUBLE.
+01 J-collidableInterfaceCompositeInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ownerLayer J-collidableInterfaceCompositeInterface J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ClldblChrctrBhvr-collide2(J-THIS, J-ownerLayer, J-collidableInterfaceCompositeInterface)
+    GOBACK.
+END PROGRAM VCollidableCharacterB-collide2.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. ClldblChrctrBhvr-clldIntrfc2.
@@ -105,4 +122,31 @@ PROCEDURE DIVISION USING J-THIS J-ownerLayer J-collidableInterfaceCompositeInter
         COMPUTE JDISCARD = FUNCTION ForcedLogUtil-log2(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_commonStrings"), "f_NOT_IMPLEMENTED"), J-THIS)
     GOBACK.
 END FUNCTION ClldblChrctrBhvr-clldIntrfc2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VCollidableC-collideInterface2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ownerLayer BINARY-DOUBLE.
+01 J-collidableInterfaceCompositeInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ownerLayer J-collidableInterfaceCompositeInterface J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ClldblChrctrBhvr-clldIntrfc2(J-THIS, J-ownerLayer, J-collidableInterfaceCompositeInterface)
+    GOBACK.
+END PROGRAM VCollidableC-collideInterface2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. CollidableCharacterBeha-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "CollidableDestroyableDamageableBehavior" TO J-CLASS
+    GOBACK.
+END PROGRAM CollidableCharacterBeha-jsuper.
 

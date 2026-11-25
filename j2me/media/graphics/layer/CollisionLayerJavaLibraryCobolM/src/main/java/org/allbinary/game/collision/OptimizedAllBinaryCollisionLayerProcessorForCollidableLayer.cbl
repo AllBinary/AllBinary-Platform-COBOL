@@ -57,7 +57,7 @@ LOCAL-STORAGE SECTION.
 01 J-collidableBase2 BINARY-DOUBLE.
 01 J-index BINARY-DOUBLE.
 01 jtemp1 BINARY-DOUBLE.
-01 JFIRST1 BINARY-DOUBLE.
+01 JFIRST-N68756 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-allBinaryLayerManager BINARY-DOUBLE.
@@ -75,12 +75,12 @@ PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager J-layerInterface J-start
             CONTINUE
             COMPUTE jtemp1 = 1
             COMPUTE J-index = (FUNCTION MOD((J-startIndex + jtemp1) + 2147483648, 4294967296) - 2147483648)
-            MOVE 1 TO JFIRST1
+            MOVE 1 TO JFIRST-N68756
             PERFORM FOREVER
-                IF JFIRST1 = 0
+                IF JFIRST-N68756 = 0
                     COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
                 END-IF
-                MOVE 0 TO JFIRST1
+                MOVE 0 TO JFIRST-N68756
                 IF NOT (J-index < J-size) EXIT PERFORM END-IF
                 COMPUTE J-collidableInterfaceCompositeInterface2 = FUNCTION ABLayerManager-getLayerAt1(J-layerManager, J-index)
                 COMPUTE J-collidableBase2 = FUNCTION ClldblCmpstLyr-gtClldblInfrfc0(J-collidableInterfaceCompositeInterface2)
@@ -93,6 +93,24 @@ PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager J-layerInterface J-start
         END-IF
     GOBACK.
 END FUNCTION OptmzdAllBnryCllsnLyrPr-80695.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VOptimizedAllBinary-processAt3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryLayerManager BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-startIndex BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager J-layerInterface J-startIndex J-RESULT.
+    COMPUTE J-RESULT = FUNCTION OptmzdAllBnryCllsnLyrPr-80695(J-THIS, J-allBinaryLayerManager, J-layerInterface, J-startIndex)
+    GOBACK.
+END PROGRAM VOptimizedAllBinary-processAt3.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. OptmzdAllBnryCllsnLyrPr-15215.
@@ -127,4 +145,30 @@ PROCEDURE DIVISION USING J-THIS J-layerInterface RETURNING J-RESULT.
         END-IF
     GOBACK.
 END FUNCTION OptmzdAllBnryCllsnLyrPr-15215.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VOptimizedAl-isProcessorLayer1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerInterface J-RESULT.
+    COMPUTE J-RESULT = FUNCTION OptmzdAllBnryCllsnLyrPr-15215(J-THIS, J-layerInterface)
+    GOBACK.
+END PROGRAM VOptimizedAl-isProcessorLayer1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. OptimizedAllBinaryColli-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "LayerProcessor" TO J-CLASS
+    GOBACK.
+END PROGRAM OptimizedAllBinaryColli-jsuper.
 

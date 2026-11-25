@@ -63,6 +63,23 @@ PROCEDURE DIVISION USING J-THIS J-ownerLayer J-allbinaryCollidableLayer RETURNIN
 END FUNCTION ClldblNvrClldBhvr-isCollision2.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VCollidableNeverC-isCollision2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ownerLayer BINARY-DOUBLE.
+01 J-allbinaryCollidableLayer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ownerLayer J-allbinaryCollidableLayer J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ClldblNvrClldBhvr-isCollision2(J-THIS, J-ownerLayer, J-allbinaryCollidableLayer)
+    GOBACK.
+END PROGRAM VCollidableNeverC-isCollision2.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. ClldblNvrClldBhvr-collide2.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -90,6 +107,23 @@ PROCEDURE DIVISION USING J-THIS J-ownerLayer J-allbinaryCollidableLayer RETURNIN
         CONTINUE
     GOBACK.
 END FUNCTION ClldblNvrClldBhvr-collide2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VCollidableNeverColli-collide2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ownerLayer BINARY-DOUBLE.
+01 J-allbinaryCollidableLayer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ownerLayer J-allbinaryCollidableLayer J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ClldblNvrClldBhvr-collide2(J-THIS, J-ownerLayer, J-allbinaryCollidableLayer)
+    GOBACK.
+END PROGRAM VCollidableNeverColli-collide2.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. ClldblNvrClldBhvr-clldIntrfc2.
@@ -121,6 +155,23 @@ PROCEDURE DIVISION USING J-THIS J-ownerLayer J-collidableInterfaceCompositeInter
 END FUNCTION ClldblNvrClldBhvr-clldIntrfc2.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VCollidableN-collideInterface2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ownerLayer BINARY-DOUBLE.
+01 J-collidableInterfaceCompositeInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ownerLayer J-collidableInterfaceCompositeInterface J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ClldblNvrClldBhvr-clldIntrfc2(J-THIS, J-ownerLayer, J-collidableInterfaceCompositeInterface)
+    GOBACK.
+END PROGRAM VCollidableN-collideInterface2.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. ClldblNvrClldBhvr-isCllsn86617.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -149,4 +200,31 @@ PROCEDURE DIVISION USING J-THIS J-ownerLayer J-collidableInterfaceCompositeInter
         GOBACK
     GOBACK.
 END FUNCTION ClldblNvrClldBhvr-isCllsn86617.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VCollida-isCollisionInterface2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-ownerLayer BINARY-DOUBLE.
+01 J-collidableInterfaceCompositeInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-ownerLayer J-collidableInterfaceCompositeInterface J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ClldblNvrClldBhvr-isCllsn86617(J-THIS, J-ownerLayer, J-collidableInterfaceCompositeInterface)
+    GOBACK.
+END PROGRAM VCollida-isCollisionInterface2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. CollidableNeverCollideB-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "CollidableBaseBehavior" TO J-CLASS
+    GOBACK.
+END PROGRAM CollidableNeverCollideB-jsuper.
 

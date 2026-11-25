@@ -149,6 +149,23 @@ PROCEDURE DIVISION USING J-THIS J-inputProcessorArray J-collidableDestroyableDam
 END FUNCTION AnalogInputBuilder-disable2.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VAnalogInputBuilder-disable2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-inputProcessorArray BINARY-DOUBLE.
+01 J-collidableDestroyableDamageableLayer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-inputProcessorArray J-collidableDestroyableDamageableLayer J-RESULT.
+    COMPUTE J-RESULT = FUNCTION AnalogInputBuilder-disable2(J-THIS, J-inputProcessorArray, J-collidableDestroyableDamageableLayer)
+    GOBACK.
+END PROGRAM VAnalogInputBuilder-disable2.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. AnalogInputBuilder-enable2.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -187,4 +204,31 @@ PROCEDURE DIVISION USING J-THIS J-inputProcessorArray J-collidableDestroyableDam
         COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-inputProcessorArray, FUNCTION Canvas-static-KEY-NUM5, JVALUE)
     GOBACK.
 END FUNCTION AnalogInputBuilder-enable2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VAnalogInputBuilder-enable2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-inputProcessorArray BINARY-DOUBLE.
+01 J-collidableDestroyableDamageableLayer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-inputProcessorArray J-collidableDestroyableDamageableLayer J-RESULT.
+    COMPUTE J-RESULT = FUNCTION AnalogInputBuilder-enable2(J-THIS, J-inputProcessorArray, J-collidableDestroyableDamageableLayer)
+    GOBACK.
+END PROGRAM VAnalogInputBuilder-enable2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. AnalogInputBuilder-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM AnalogInputBuilder-jsuper.
 

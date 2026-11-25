@@ -53,7 +53,7 @@ LOCAL-STORAGE SECTION.
 01 J-point BINARY-DOUBLE.
 01 J-index BINARY-DOUBLE.
 01 jtemp1 BINARY-DOUBLE.
-01 JFIRST1 BINARY-DOUBLE.
+01 JFIRST-N66178 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-rectX1 BINARY-DOUBLE.
 01 J-rectY1 BINARY-DOUBLE.
@@ -68,9 +68,9 @@ PROCEDURE DIVISION USING J-rectX1 J-rectY1 J-rectX2 J-rectY2 J-list RETURNING J-
         COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
         COMPUTE jtemp1 = J-index
         COMPUTE J-index = FUNCTION BasicArrayList-size0(J-list)
-        MOVE 1 TO JFIRST1
+        MOVE 1 TO JFIRST-N66178
         PERFORM FOREVER
-            MOVE 0 TO JFIRST1
+            MOVE 0 TO JFIRST-N66178
             IF NOT (jtemp1 >= 0) EXIT PERFORM END-IF
             COMPUTE J-point = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
             IF (NOT (FUNCTION RctnglCllsnUtl-isInside6(J-rectangleCollisionUtil, J-rectX1, J-rectY1, J-rectX2, J-rectY2, FUNCTION GPoint-getX0(J-point), FUNCTION GPoint-getY0(J-point)) = 1))
@@ -107,7 +107,7 @@ LOCAL-STORAGE SECTION.
 01 jtemp2 BINARY-DOUBLE.
 01 jtemp3 BINARY-DOUBLE.
 01 jtemp4 BINARY-DOUBLE.
-01 JFIRST2 BINARY-DOUBLE.
+01 JFIRST-N66600 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-rectX1 BINARY-DOUBLE.
 01 J-rectY1 BINARY-DOUBLE.
@@ -124,9 +124,9 @@ PROCEDURE DIVISION USING J-rectX1 J-rectY1 J-rectX2 J-rectY2 J-list J-xCellSize 
         COMPUTE J-index = (FUNCTION MOD(J-index - 1 + 2147483648, 4294967296) - 2147483648)
         COMPUTE jtemp4 = J-index
         COMPUTE J-index = FUNCTION BasicArrayList-size0(J-list)
-        MOVE 1 TO JFIRST2
+        MOVE 1 TO JFIRST-N66600
         PERFORM FOREVER
-            MOVE 0 TO JFIRST2
+            MOVE 0 TO JFIRST-N66600
             IF NOT (jtemp4 >= 0) EXIT PERFORM END-IF
             COMPUTE J-point = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index)
             COMPUTE jtemp2 = (FUNCTION MOD((FUNCTION GPoint-getX0(J-point) * J-xCellSize) + 2147483648, 4294967296) - 2147483648)
@@ -140,4 +140,14 @@ PROCEDURE DIVISION USING J-rectX1 J-rectY1 J-rectX2 J-rectY2 J-list J-xCellSize 
         GOBACK
     GOBACK.
 END FUNCTION RctnglCllsnPntUtl-allPnts87679.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. RectangleCollisionPoint-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM RectangleCollisionPoint-jsuper.
 

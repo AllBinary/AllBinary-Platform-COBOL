@@ -37,6 +37,8 @@ CONFIGURATION SECTION.
 REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -48,14 +50,37 @@ LOCAL-STORAGE SECTION.
 01 JFOUR BINARY-DOUBLE VALUE 4.
 01 JFIVE BINARY-DOUBLE VALUE 5.
 01 JSIX BINARY-DOUBLE VALUE 6.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-motionGestureEvent BINARY-DOUBLE.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION USING J-THIS J-motionGestureEvent RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
-    DISPLAY "AbstractMethodError: BaseMotionGestureEventListener.onMotionGestureEvent"
-    STOP RUN
+    IF J-THIS = 0
+        DISPLAY "java.lang.NullPointerException: BaseMotionGestureEventListener.onMotionGestureEvent"
+        STOP RUN
+    END-IF
+    MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    MOVE 0 TO JV-DONE
+    PERFORM UNTIL JV-DONE = 1
+        MOVE SPACES TO JV-NAME
+        STRING "V" DELIMITED BY SIZE JV-CLASS(1:7) DELIMITED BY SPACE "-onMotionGestureEvent1" DELIMITED BY SIZE INTO JV-NAME
+        CALL JV-NAME USING J-THIS J-motionGestureEvent J-RESULT
+            ON EXCEPTION
+                MOVE SPACES TO JV-NAME
+                STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                CALL JV-NAME USING JV-CLASS
+                    ON EXCEPTION
+                        DISPLAY "AbstractMethodError: BaseMotionGestureEventListener.onMotionGestureEvent"
+                        STOP RUN
+                END-CALL
+            NOT ON EXCEPTION
+                MOVE 1 TO JV-DONE
+        END-CALL
+    END-PERFORM
     GOBACK.
 END FUNCTION BsMtnGstrEvntLstnr-onMtnG88550.
 
@@ -66,6 +91,8 @@ CONFIGURATION SECTION.
 REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
+WORKING-STORAGE SECTION.
+COPY "jrstorage.cpy".
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -77,14 +104,37 @@ LOCAL-STORAGE SECTION.
 01 JFOUR BINARY-DOUBLE VALUE 4.
 01 JFIVE BINARY-DOUBLE VALUE 5.
 01 JSIX BINARY-DOUBLE VALUE 6.
+01 JV-CLASS PIC X(60).
+01 JV-NAME PIC X(31).
+01 JV-DONE BINARY-LONG.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-motionGestureEvent BINARY-DOUBLE.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION USING J-THIS J-motionGestureEvent RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
-    DISPLAY "AbstractMethodError: BaseMotionGestureEventListener.onScrolledMotionGestureEvent"
-    STOP RUN
+    IF J-THIS = 0
+        DISPLAY "java.lang.NullPointerException: BaseMotionGestureEventListener.onScrolledMotionGestureEvent"
+        STOP RUN
+    END-IF
+    MOVE JH-OBJECT-CLASS(J-THIS) TO JV-CLASS
+    MOVE 0 TO JV-DONE
+    PERFORM UNTIL JV-DONE = 1
+        MOVE SPACES TO JV-NAME
+        STRING "V" DELIMITED BY SIZE JV-CLASS(1:6) DELIMITED BY SPACE "-onScrolledMotionG98632" DELIMITED BY SIZE INTO JV-NAME
+        CALL JV-NAME USING J-THIS J-motionGestureEvent J-RESULT
+            ON EXCEPTION
+                MOVE SPACES TO JV-NAME
+                STRING JV-CLASS(1:23) DELIMITED BY SPACE "-jsuper" DELIMITED BY SIZE INTO JV-NAME
+                CALL JV-NAME USING JV-CLASS
+                    ON EXCEPTION
+                        DISPLAY "AbstractMethodError: BaseMotionGestureEventListener.onScrolledMotionGestureEvent"
+                        STOP RUN
+                END-CALL
+            NOT ON EXCEPTION
+                MOVE 1 TO JV-DONE
+        END-CALL
+    END-PERFORM
     GOBACK.
 END FUNCTION BsMtnGstrEvntLstnr-onScrl75923.
 

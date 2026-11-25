@@ -144,6 +144,23 @@ PROCEDURE DIVISION USING J-THIS J-path J-ext RETURNING J-RESULT.
 END FUNCTION ResourceUtil-setLoadingPaths2.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VResourceUtil-setLoadingPaths2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-path BINARY-DOUBLE.
+01 J-ext BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-path J-ext J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ResourceUtil-setLoadingPaths2(J-THIS, J-path, J-ext)
+    GOBACK.
+END PROGRAM VResourceUtil-setLoadingPaths2.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. RsrcUtl-getResourceAsStream1.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -165,9 +182,9 @@ LOCAL-STORAGE SECTION.
 01 J-stringMaker BINARY-DOUBLE.
 01 J-index BINARY-DOUBLE.
 01 J-resourcePath BINARY-DOUBLE.
-01 J-RES BINARY-DOUBLE.
-01 J-COLON BINARY-DOUBLE.
-01 J-RESOURCE_STRING BINARY-DOUBLE.
+01 J-RES-C BINARY-DOUBLE.
+01 J-COLON-C BINARY-DOUBLE.
+01 J-RESOURCE_STRING-C BINARY-DOUBLE.
 01 jtemp2 BINARY-DOUBLE.
 01 jtemp3 BINARY-DOUBLE.
 01 jtemp4 BINARY-DOUBLE.
@@ -240,8 +257,8 @@ PROCEDURE DIVISION USING J-THIS J-resource RETURNING J-RESULT.
                         COMPUTE jtemp9 = FUNCTION JR-CLASS-NAME(J-resource)
                         COMPUTE J-inputStream = FUNCTION JR-CLASS-NAME(jtemp9)
                         IF (J-inputStream = 0)
-                            COMPUTE J-RES = FUNCTION JR-STR("res")
-                            COMPUTE jtemp11 = FUNCTION StringMaker-append1(J-stringMaker, J-RES)
+                            COMPUTE J-RES-C = FUNCTION JR-STR("res")
+                            COMPUTE jtemp11 = FUNCTION StringMaker-append1(J-stringMaker, J-RES-C)
                             COMPUTE jtemp10 = FUNCTION StringMaker-append1(jtemp11, FUNCTION JR-SUBSTRING(J-resource, J-index))
                             COMPUTE J-resourcePath = FUNCTION JR-TO-STRING(jtemp10)
                             COMPUTE jtemp12 = FUNCTION JR-CLASS-NAME(J-resource)
@@ -250,18 +267,18 @@ PROCEDURE DIVISION USING J-THIS J-resource RETURNING J-RESULT.
                                 COMPUTE jtemp13 = 0
                                 COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringMaker, jtemp13, FUNCTION StringMaker-length0(J-stringMaker))
                                 COMPUTE jtemp16 = FUNCTION StringMaker-append1(J-stringMaker, FUNCTION JR-STR("/"))
-                                COMPUTE jtemp15 = FUNCTION StringMaker-append1(jtemp16, J-RES)
+                                COMPUTE jtemp15 = FUNCTION StringMaker-append1(jtemp16, J-RES-C)
                                 COMPUTE jtemp14 = FUNCTION StringMaker-append1(jtemp15, FUNCTION JR-SUBSTRING(J-resource, J-index))
                                 COMPUTE J-resourcePath = FUNCTION JR-TO-STRING(jtemp14)
                                 COMPUTE jtemp17 = FUNCTION JR-CLASS-NAME(J-resource)
                                 COMPUTE J-inputStream = FUNCTION JR-CLASS-NAME(jtemp17)
                                 COMPUTE jtemp18 = FUNCTION CommonSeps-getInstance0
-                                COMPUTE J-COLON = FUNCTION JR-GET(jtemp18, "f_COLON")
+                                COMPUTE J-COLON-C = FUNCTION JR-GET(jtemp18, "f_COLON")
                                 IF (J-inputStream = 0)
                                     COMPUTE jtemp19 = 0
                                     COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringMaker, jtemp19, FUNCTION StringMaker-length0(J-stringMaker))
-                                    COMPUTE jtemp22 = FUNCTION StringMaker-append1(J-stringMaker, J-RES)
-                                    COMPUTE jtemp21 = FUNCTION StringMaker-append1(jtemp22, J-COLON)
+                                    COMPUTE jtemp22 = FUNCTION StringMaker-append1(J-stringMaker, J-RES-C)
+                                    COMPUTE jtemp21 = FUNCTION StringMaker-append1(jtemp22, J-COLON-C)
                                     COMPUTE jtemp20 = FUNCTION StringMaker-append1(jtemp21, FUNCTION JR-SUBSTRING(J-resource, J-index))
                                     COMPUTE J-resourcePath = FUNCTION JR-TO-STRING(jtemp20)
                                     COMPUTE jtemp23 = FUNCTION JR-CLASS-NAME(J-resource)
@@ -271,18 +288,18 @@ PROCEDURE DIVISION USING J-THIS J-resource RETURNING J-RESULT.
                                         COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringMaker, jtemp24, FUNCTION StringMaker-length0(J-stringMaker))
                                         COMPUTE jtemp29 = 1
                                         COMPUTE jtemp28 = (FUNCTION MOD((J-index + jtemp29) + 2147483648, 4294967296) - 2147483648)
-                                        COMPUTE jtemp27 = FUNCTION StringMaker-append1(J-stringMaker, J-RES)
-                                        COMPUTE jtemp26 = FUNCTION StringMaker-append1(jtemp27, J-COLON)
+                                        COMPUTE jtemp27 = FUNCTION StringMaker-append1(J-stringMaker, J-RES-C)
+                                        COMPUTE jtemp26 = FUNCTION StringMaker-append1(jtemp27, J-COLON-C)
                                         COMPUTE jtemp25 = FUNCTION StringMaker-append1(jtemp26, FUNCTION JR-SUBSTRING(J-resource, jtemp28))
                                         COMPUTE J-resourcePath = FUNCTION JR-TO-STRING(jtemp25)
                                         COMPUTE jtemp30 = FUNCTION JR-CLASS-NAME(J-resource)
                                         COMPUTE J-inputStream = FUNCTION JR-CLASS-NAME(jtemp30)
                                         IF (J-inputStream = 0)
-                                            COMPUTE J-RESOURCE_STRING = FUNCTION JR-STR("resource")
+                                            COMPUTE J-RESOURCE_STRING-C = FUNCTION JR-STR("resource")
                                             COMPUTE jtemp31 = 0
                                             COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringMaker, jtemp31, FUNCTION StringMaker-length0(J-stringMaker))
-                                            COMPUTE jtemp34 = FUNCTION StringMaker-append1(J-stringMaker, J-RESOURCE_STRING)
-                                            COMPUTE jtemp33 = FUNCTION StringMaker-append1(jtemp34, J-COLON)
+                                            COMPUTE jtemp34 = FUNCTION StringMaker-append1(J-stringMaker, J-RESOURCE_STRING-C)
+                                            COMPUTE jtemp33 = FUNCTION StringMaker-append1(jtemp34, J-COLON-C)
                                             COMPUTE jtemp32 = FUNCTION StringMaker-append1(jtemp33, FUNCTION JR-SUBSTRING(J-resource, J-index))
                                             COMPUTE J-resourcePath = FUNCTION JR-TO-STRING(jtemp32)
                                             COMPUTE jtemp35 = FUNCTION JR-CLASS-NAME(J-resource)
@@ -292,8 +309,8 @@ PROCEDURE DIVISION USING J-THIS J-resource RETURNING J-RESULT.
                                                 COMPUTE JDISCARD = FUNCTION StringMaker-delete2(J-stringMaker, jtemp36, FUNCTION StringMaker-length0(J-stringMaker))
                                                 COMPUTE jtemp41 = 1
                                                 COMPUTE jtemp40 = (FUNCTION MOD((J-index + jtemp41) + 2147483648, 4294967296) - 2147483648)
-                                                COMPUTE jtemp39 = FUNCTION StringMaker-append1(J-stringMaker, J-RESOURCE_STRING)
-                                                COMPUTE jtemp38 = FUNCTION StringMaker-append1(jtemp39, J-COLON)
+                                                COMPUTE jtemp39 = FUNCTION StringMaker-append1(J-stringMaker, J-RESOURCE_STRING-C)
+                                                COMPUTE jtemp38 = FUNCTION StringMaker-append1(jtemp39, J-COLON-C)
                                                 COMPUTE jtemp37 = FUNCTION StringMaker-append1(jtemp38, FUNCTION JR-SUBSTRING(J-resource, jtemp40))
                                                 COMPUTE J-resourcePath = FUNCTION JR-TO-STRING(jtemp37)
                                                 COMPUTE jtemp42 = FUNCTION JR-CLASS-NAME(J-resource)
@@ -319,6 +336,22 @@ PROCEDURE DIVISION USING J-THIS J-resource RETURNING J-RESULT.
         GOBACK
     GOBACK.
 END FUNCTION RsrcUtl-getResourceAsStream1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VResource-getResourceAsStream1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-resource BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-resource J-RESULT.
+    COMPUTE J-RESULT = FUNCTION RsrcUtl-getResourceAsStream1(J-THIS, J-resource)
+    GOBACK.
+END PROGRAM VResource-getResourceAsStream1.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. RsrcUtl-gtRsrcAsStrmAtStrt2.
@@ -369,6 +402,23 @@ PROCEDURE DIVISION USING J-THIS J-resource J-startIndex RETURNING J-RESULT.
 END FUNCTION RsrcUtl-gtRsrcAsStrmAtStrt2.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VResour-getResourceAsStre50200.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-resource BINARY-DOUBLE.
+01 J-startIndex BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-resource J-startIndex J-RESULT.
+    COMPUTE J-RESULT = FUNCTION RsrcUtl-gtRsrcAsStrmAtStrt2(J-THIS, J-resource, J-startIndex)
+    GOBACK.
+END PROGRAM VResour-getResourceAsStre50200.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. ResourceUtil-addResource2.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -396,4 +446,31 @@ PROCEDURE DIVISION USING J-THIS J-resource J-value RETURNING J-RESULT.
         CONTINUE
     GOBACK.
 END FUNCTION ResourceUtil-addResource2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VResourceUtil-addResource2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-resource BINARY-DOUBLE.
+01 J-value BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-resource J-value J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ResourceUtil-addResource2(J-THIS, J-resource, J-value)
+    GOBACK.
+END PROGRAM VResourceUtil-addResource2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. ResourceUtil-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM ResourceUtil-jsuper.
 

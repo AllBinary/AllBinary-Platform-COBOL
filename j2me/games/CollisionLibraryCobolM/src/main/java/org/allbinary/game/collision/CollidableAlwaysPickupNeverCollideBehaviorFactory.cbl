@@ -11,8 +11,8 @@ REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 CollidableAlwaysPickupNeverCollideBehaviorFactory-jcell-instanceC BINARY-DOUBLE EXTERNAL.
-01 CollidableAlwaysPickupNeverCollideBehaviorFactory-jset-instanceC BINARY-DOUBLE EXTERNAL.
+01 CollidableAlwaysPick-jcell-instanceC57717 BINARY-DOUBLE EXTERNAL.
+01 CollidableAlwaysPick-jset-instanceC57717 BINARY-DOUBLE EXTERNAL.
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -27,11 +27,11 @@ LOCAL-STORAGE SECTION.
 LINKAGE SECTION.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION RETURNING J-RESULT.
-    IF CollidableAlwaysPickupNeverCollideBehaviorFactory-jset-instanceC = 0
-        MOVE 1 TO CollidableAlwaysPickupNeverCollideBehaviorFactory-jset-instanceC
-        COMPUTE CollidableAlwaysPickupNeverCollideBehaviorFactory-jcell-instanceC = FUNCTION ClldblAlwysPckpNvrClldB-95779
+    IF CollidableAlwaysPick-jset-instanceC57717 = 0
+        MOVE 1 TO CollidableAlwaysPick-jset-instanceC57717
+        COMPUTE CollidableAlwaysPick-jcell-instanceC57717 = FUNCTION ClldblAlwysPckpNvrClldB-95779
     END-IF
-    MOVE CollidableAlwaysPickupNeverCollideBehaviorFactory-jcell-instanceC TO J-RESULT
+    MOVE CollidableAlwaysPick-jcell-instanceC57717 TO J-RESULT
     GOBACK.
 END FUNCTION ClldblAlwysPckpNvrClldB-35862.
 
@@ -43,13 +43,13 @@ REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 CollidableAlwaysPickupNeverCollideBehaviorFactory-jcell-instanceC BINARY-DOUBLE EXTERNAL.
+01 CollidableAlwaysPick-jcell-instanceC57717 BINARY-DOUBLE EXTERNAL.
 LINKAGE SECTION.
 01 J-VALUE BINARY-DOUBLE.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
     MOVE FUNCTION ClldblAlwysPckpNvrClldB-35862 TO J-RESULT
-    MOVE J-VALUE TO CollidableAlwaysPickupNeverCollideBehaviorFactory-jcell-instanceC
+    MOVE J-VALUE TO CollidableAlwaysPick-jcell-instanceC57717
     MOVE J-VALUE TO J-RESULT
     GOBACK.
 END FUNCTION ClldblAlwysPckpNvrClS34980.
@@ -138,4 +138,29 @@ PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
         GOBACK
     GOBACK.
 END FUNCTION ClldblAlwysPckpNvrClldB-34151.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VCollidableAlw-createBehavior0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ClldblAlwysPckpNvrClldB-34151(J-THIS)
+    GOBACK.
+END PROGRAM VCollidableAlw-createBehavior0.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. CollidableAlwaysPickupN-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "CollidableBaseBehaviorFactory" TO J-CLASS
+    GOBACK.
+END PROGRAM CollidableAlwaysPickupN-jsuper.
 

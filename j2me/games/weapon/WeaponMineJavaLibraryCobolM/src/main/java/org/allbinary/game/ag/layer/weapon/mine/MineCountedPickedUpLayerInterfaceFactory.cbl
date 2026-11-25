@@ -11,8 +11,8 @@ REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 MineCountedPickedUpLayerInterfaceFactory-jcell-pickedUpLayerInterfaceFactoryInterface BINARY-DOUBLE EXTERNAL.
-01 MineCountedPickedUpLayerInterfaceFactory-jset-pickedUpLayerInterfaceFactoryInterface BINARY-DOUBLE EXTERNAL.
+01 MineCountedPickedUpL-jcell-pickedUpLayerInterfaceFa89188 BINARY-DOUBLE EXTERNAL.
+01 MineCountedPickedUpL-jset-pickedUpLayerInterfaceFa89188 BINARY-DOUBLE EXTERNAL.
 LOCAL-STORAGE SECTION.
 01 JDISCARD BINARY-DOUBLE.
 01 JVALUE BINARY-DOUBLE.
@@ -27,11 +27,11 @@ LOCAL-STORAGE SECTION.
 LINKAGE SECTION.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION RETURNING J-RESULT.
-    IF MineCountedPickedUpLayerInterfaceFactory-jset-pickedUpLayerInterfaceFactoryInterface = 0
-        MOVE 1 TO MineCountedPickedUpLayerInterfaceFactory-jset-pickedUpLayerInterfaceFactoryInterface
-        COMPUTE MineCountedPickedUpLayerInterfaceFactory-jcell-pickedUpLayerInterfaceFactoryInterface = FUNCTION CntdPckdUpLyrIntrfcFctr-47319
+    IF MineCountedPickedUpL-jset-pickedUpLayerInterfaceFa89188 = 0
+        MOVE 1 TO MineCountedPickedUpL-jset-pickedUpLayerInterfaceFa89188
+        COMPUTE MineCountedPickedUpL-jcell-pickedUpLayerInterfaceFa89188 = FUNCTION CntdPckdUpLyrIntrfcFctr-47319
     END-IF
-    MOVE MineCountedPickedUpLayerInterfaceFactory-jcell-pickedUpLayerInterfaceFactoryInterface TO J-RESULT
+    MOVE MineCountedPickedUpL-jcell-pickedUpLayerInterfaceFa89188 TO J-RESULT
     GOBACK.
 END FUNCTION MnCntdPckdUpLyrIntrfcFc-19914.
 
@@ -43,13 +43,13 @@ REPOSITORY.
 COPY "jrepository.cpy".
 DATA DIVISION.
 WORKING-STORAGE SECTION.
-01 MineCountedPickedUpLayerInterfaceFactory-jcell-pickedUpLayerInterfaceFactoryInterface BINARY-DOUBLE EXTERNAL.
+01 MineCountedPickedUpL-jcell-pickedUpLayerInterfaceFa89188 BINARY-DOUBLE EXTERNAL.
 LINKAGE SECTION.
 01 J-VALUE BINARY-DOUBLE.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION USING J-VALUE RETURNING J-RESULT.
     MOVE FUNCTION MnCntdPckdUpLyrIntrfcFc-19914 TO J-RESULT
-    MOVE J-VALUE TO MineCountedPickedUpLayerInterfaceFactory-jcell-pickedUpLayerInterfaceFactoryInterface
+    MOVE J-VALUE TO MineCountedPickedUpL-jcell-pickedUpLayerInterfaceFa89188
     MOVE J-VALUE TO J-RESULT
     GOBACK.
 END FUNCTION MnCntdPckdUpLyrIntrfS37027.
@@ -205,6 +205,21 @@ PROCEDURE DIVISION USING J-THIS RETURNING J-RESULT.
 END FUNCTION MnCntdPckdUpLyrIntrfcFc-79532.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VMineCountedPickedUp-getTotal0.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-RESULT.
+    COMPUTE J-RESULT = FUNCTION MnCntdPckdUpLyrIntrfcFc-79532(J-THIS)
+    GOBACK.
+END PROGRAM VMineCountedPickedUp-getTotal0.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. MnCntdPckdUpLyrIntrfcFc-63911.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -254,4 +269,33 @@ PROCEDURE DIVISION USING J-THIS J-hashtable J-x J-y J-z RETURNING J-RESULT.
         GOBACK
     GOBACK.
 END FUNCTION MnCntdPckdUpLyrIntrfcFc-63911.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VMineCountedP-getNextInstance4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-hashtable BINARY-DOUBLE.
+01 J-x BINARY-DOUBLE.
+01 J-y BINARY-DOUBLE.
+01 J-z BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-hashtable J-x J-y J-z J-RESULT.
+    COMPUTE J-RESULT = FUNCTION MnCntdPckdUpLyrIntrfcFc-63911(J-THIS, J-hashtable, J-x, J-y, J-z)
+    GOBACK.
+END PROGRAM VMineCountedP-getNextInstance4.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. MineCountedPickedUpLaye-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "CountedPickedUpLayerInterfaceFactory" TO J-CLASS
+    GOBACK.
+END PROGRAM MineCountedPickedUpLaye-jsuper.
 

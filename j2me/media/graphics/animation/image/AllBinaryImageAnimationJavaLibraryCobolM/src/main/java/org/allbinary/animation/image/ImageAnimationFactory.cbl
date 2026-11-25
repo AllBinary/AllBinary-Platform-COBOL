@@ -101,12 +101,38 @@ PROCEDURE DIVISION USING J-THIS J-instanceId RETURNING J-RESULT.
         IF ((FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor"), "f_dx") NOT = 0) OR (FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor"), "f_dy") NOT = 0))
             COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_animationFactoryImageScaleUtil"))
             COMPUTE J-RESULT = FUNCTION AdjustedImageAnimation-new4(J-scaledImage, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_animationFactoryInitializationVisitor"), "f_dx"), FUNCTION JR-GET(FUNCTION JR-GET(J-THIS,
-        "f_animationFactoryInitializationVisitor"), "f_dy"), FUNCTION AnmtnBhvrFctry-gtOrCrtInstnc0(FUNCTION JR-GET(J-THIS, "f_animationBehaviorFactory")))
+        "f_animationFactoryInitializationVisitor"), "f_dy"), FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_animationBehaviorFactory")))
             GOBACK
         ELSE
-            COMPUTE J-RESULT = FUNCTION ImageAnimation-new2(J-scaledImage, FUNCTION AnmtnBhvrFctry-gtOrCrtInstnc0(FUNCTION JR-GET(J-THIS, "f_animationBehaviorFactory")))
+            COMPUTE J-RESULT = FUNCTION ImageAnimation-new2(J-scaledImage, FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_animationBehaviorFactory")))
             GOBACK
         END-IF
     GOBACK.
 END FUNCTION ImgAnmtnFctry-getInstance1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VImageAnimationFa-getInstance1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-instanceId BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-instanceId J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ImgAnmtnFctry-getInstance1(J-THIS, J-instanceId)
+    GOBACK.
+END PROGRAM VImageAnimationFa-getInstance1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. ImageAnimationFactory-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "BaseImageAnimationFactory" TO J-CLASS
+    GOBACK.
+END PROGRAM ImageAnimationFactory-jsuper.
 

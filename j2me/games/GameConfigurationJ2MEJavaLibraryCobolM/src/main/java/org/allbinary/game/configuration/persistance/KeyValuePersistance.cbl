@@ -66,6 +66,22 @@ PROCEDURE DIVISION USING J-THIS J-abeClientInformation RETURNING J-RESULT.
 END FUNCTION KeyValuePersistance-loadAll1.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VKeyValuePersistance-loadAll1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-abeClientInformation BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-abeClientInformation J-RESULT.
+    COMPUTE J-RESULT = FUNCTION KeyValuePersistance-loadAll1(J-THIS, J-abeClientInformation)
+    GOBACK.
+END PROGRAM VKeyValuePersistance-loadAll1.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. KyVlPrsstnc-loadAllSize2.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -100,7 +116,7 @@ LOCAL-STORAGE SECTION.
 01 jtemp4 BINARY-DOUBLE.
 01 jtemp5 BINARY-DOUBLE.
 01 jtemp6 BINARY-DOUBLE.
-01 JFIRST1 BINARY-DOUBLE.
+01 JFIRST-N69237 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-abeClientInformation BINARY-DOUBLE.
@@ -136,12 +152,12 @@ PROCEDURE DIVISION USING J-THIS J-abeClientInformation J-size RETURNING J-RESULT
                     COMPUTE J-inputStream = FUNCTION DataInputStream-new1(J-byteArrayInputStream)
                     COMPUTE J-hashtable = FUNCTION ABHashtable-new0
                     COMPUTE J-index = 0
-                    MOVE 1 TO JFIRST1
+                    MOVE 1 TO JFIRST-N69237
                     PERFORM FOREVER
-                        IF JFIRST1 = 0
+                        IF JFIRST-N69237 = 0
                             COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
                         END-IF
-                        MOVE 0 TO JFIRST1
+                        MOVE 0 TO JFIRST-N69237
                         IF NOT (J-index < J-size) EXIT PERFORM END-IF
                         COMPUTE J-name = FUNCTION DataInputStream-readUTF0(J-inputStream)
                         COMPUTE JDISCARD = FUNCTION DataInputStream-readUTF0(J-inputStream)
@@ -158,6 +174,23 @@ PROCEDURE DIVISION USING J-THIS J-abeClientInformation J-size RETURNING J-RESULT
             END-IF
     GOBACK.
 END FUNCTION KyVlPrsstnc-loadAllSize2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VKeyValuePersista-loadAllSize2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-abeClientInformation BINARY-DOUBLE.
+01 J-size BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-abeClientInformation J-size J-RESULT.
+    COMPUTE J-RESULT = FUNCTION KyVlPrsstnc-loadAllSize2(J-THIS, J-abeClientInformation, J-size)
+    GOBACK.
+END PROGRAM VKeyValuePersista-loadAllSize2.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. KeyValuePersistance-save2.
@@ -196,7 +229,7 @@ LOCAL-STORAGE SECTION.
 01 jtemp12 BINARY-DOUBLE.
 01 jtemp13 BINARY-DOUBLE.
 01 jtemp14 BINARY-DOUBLE.
-01 JFIRST2 BINARY-DOUBLE.
+01 JFIRST-N70369 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-abeClientInformation BINARY-DOUBLE.
@@ -222,12 +255,12 @@ PROCEDURE DIVISION USING J-THIS J-abeClientInformation J-hashtable RETURNING J-R
             CONTINUE
             COMPUTE J-size = FUNCTION JR-ARRAY-LENGTH(J-objectArray)
             COMPUTE J-index = 0
-            MOVE 1 TO JFIRST2
+            MOVE 1 TO JFIRST-N70369
             PERFORM FOREVER
-                IF JFIRST2 = 0
+                IF JFIRST-N70369 = 0
                     COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
                 END-IF
-                MOVE 0 TO JFIRST2
+                MOVE 0 TO JFIRST-N70369
                 IF NOT (J-index < J-size) EXIT PERFORM END-IF
                 COMPUTE jtemp13 = FUNCTION JR-ARRAY-GET(J-objectArray, J-index)
                 COMPUTE JDISCARD = FUNCTION DataOutputStream-writeUTF1(J-outputStream, jtemp13)
@@ -246,6 +279,23 @@ PROCEDURE DIVISION USING J-THIS J-abeClientInformation J-hashtable RETURNING J-R
             END-IF
     GOBACK.
 END FUNCTION KeyValuePersistance-save2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VKeyValuePersistance-save2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-abeClientInformation BINARY-DOUBLE.
+01 J-hashtable BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-abeClientInformation J-hashtable J-RESULT.
+    COMPUTE J-RESULT = FUNCTION KeyValuePersistance-save2(J-THIS, J-abeClientInformation, J-hashtable)
+    GOBACK.
+END PROGRAM VKeyValuePersistance-save2.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. KeyValuePersistance-get1.
@@ -277,4 +327,30 @@ PROCEDURE DIVISION USING J-THIS J-index RETURNING J-RESULT.
         GOBACK
     GOBACK.
 END FUNCTION KeyValuePersistance-get1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VKeyValuePersistance-get1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-index BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-index J-RESULT.
+    COMPUTE J-RESULT = FUNCTION KeyValuePersistance-get1(J-THIS, J-index)
+    GOBACK.
+END PROGRAM VKeyValuePersistance-get1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. KeyValuePersistance-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "BasicPersitance" TO J-CLASS
+    GOBACK.
+END PROGRAM KeyValuePersistance-jsuper.
 

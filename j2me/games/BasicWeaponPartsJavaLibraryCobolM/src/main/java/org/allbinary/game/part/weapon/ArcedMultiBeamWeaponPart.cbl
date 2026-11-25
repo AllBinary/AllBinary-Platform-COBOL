@@ -77,7 +77,7 @@ LOCAL-STORAGE SECTION.
 01 jtemp2 BINARY-DOUBLE.
 01 jtemp3 BINARY-DOUBLE.
 01 jtemp4 BINARY-DOUBLE.
-01 JFIRST1 BINARY-DOUBLE.
+01 JFIRST-N71490 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-allbinaryLayerManager BINARY-DOUBLE.
@@ -95,21 +95,51 @@ PROCEDURE DIVISION USING J-THIS J-allbinaryLayerManager J-angle J-otherAngle J-w
         COMPUTE J-next = 0
         CONTINUE
         COMPUTE J-index = 0
-        MOVE 1 TO JFIRST1
+        MOVE 1 TO JFIRST-N71490
         PERFORM FOREVER
-            IF JFIRST1 = 0
+            IF JFIRST-N71490 = 0
                 COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
             END-IF
-            MOVE 0 TO JFIRST1
+            MOVE 0 TO JFIRST-N71490
             IF NOT (J-index < FUNCTION JR-GET(J-THIS, "f_total")) EXIT PERFORM END-IF
             COMPUTE jtemp2 = 0
             COMPUTE jtemp3 = ((FUNCTION MOD((J-minAngle + J-increment) + 2147483648, 4294967296) - 2147483648))
             COMPUTE jtemp4 = J-otherAngle
-            COMPUTE J-weaponLayer = FUNCTION WpnLyrCrclrPl-gtInstncWpnLyr8(FUNCTION JR-GET(J-THIS, "f_weaponLayerCircularStaticPool"), FUNCTION BscWpnPrt-gtOwnrLyrIntrfc0(J-THIS), FUNCTION RelativeRelationship-getX0(FUNCTION JR-GET(J-THIS,
-        "f_relativeRelationship")), FUNCTION RelativeRelationship-getY0(FUNCTION JR-GET(J-THIS, "f_relativeRelationship")), jtemp2, jtemp3, jtemp4, J-weaponProperties, J-scoreableInterface)
+            COMPUTE J-weaponLayer = FUNCTION WpnLyrCrclrPl-gtInstncWpnLyr8(FUNCTION JR-GET(J-THIS, "f_weaponLayerCircularStaticPool"), FUNCTION BscWpnPrt-gtOwnrLyrIntrfc0(J-THIS), FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS,
+        "f_relativeRelationship")), FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_relativeRelationship")), jtemp2, jtemp3, jtemp4, J-weaponProperties, J-scoreableInterface)
             COMPUTE JDISCARD = FUNCTION AllBinaryLayerManager-append1(J-allbinaryLayerManager, J-weaponLayer)
             COMPUTE J-next = (FUNCTION MOD((J-next + J-increment) + 2147483648, 4294967296) - 2147483648)
         END-PERFORM
     GOBACK.
 END FUNCTION ArcdMltBmWpnPrt-processScore5.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VArcedMultiBeamW-processScore5.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allbinaryLayerManager BINARY-DOUBLE.
+01 J-angle BINARY-DOUBLE.
+01 J-otherAngle BINARY-DOUBLE.
+01 J-weaponProperties BINARY-DOUBLE.
+01 J-scoreableInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allbinaryLayerManager J-angle J-otherAngle J-weaponProperties J-scoreableInterface J-RESULT.
+    COMPUTE J-RESULT = FUNCTION ArcdMltBmWpnPrt-processScore5(J-THIS, J-allbinaryLayerManager, J-angle, J-otherAngle, J-weaponProperties, J-scoreableInterface)
+    GOBACK.
+END PROGRAM VArcedMultiBeamW-processScore5.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. ArcedMultiBeamWeaponPar-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "BasicWeaponPart" TO J-CLASS
+    GOBACK.
+END PROGRAM ArcedMultiBeamWeaponPar-jsuper.
 

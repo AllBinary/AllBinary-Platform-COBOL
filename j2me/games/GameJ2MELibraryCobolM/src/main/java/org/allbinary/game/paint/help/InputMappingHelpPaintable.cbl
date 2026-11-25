@@ -289,8 +289,8 @@ LOCAL-STORAGE SECTION.
 01 jtemp17 BINARY-DOUBLE.
 01 jtemp18 BINARY-DOUBLE.
 01 jtemp19 BINARY-DOUBLE.
-01 JFIRST1 BINARY-DOUBLE.
-01 JFIRST2 BINARY-DOUBLE.
+01 JFIRST-N71805 BINARY-DOUBLE.
+01 JFIRST-N72600 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-graphics BINARY-DOUBLE.
@@ -325,12 +325,12 @@ PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
         CONTINUE
         COMPUTE J-size2 = 0
         COMPUTE J-index = 0
-        MOVE 1 TO JFIRST1
+        MOVE 1 TO JFIRST-N71805
         PERFORM FOREVER
-            IF JFIRST1 = 0
+            IF JFIRST-N71805 = 0
                 COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
             END-IF
-            MOVE 0 TO JFIRST1
+            MOVE 0 TO JFIRST-N71805
             IF NOT (J-index < J-size) EXIT PERFORM END-IF
             COMPUTE J-list = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_keyMappingArray"), J-index)
             COMPUTE J-keyMappings = FUNCTION InputMappingHelpPaintable-get1(J-THIS, J-list)
@@ -359,12 +359,12 @@ PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
             COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY(J-size2)
             COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-GET(J-updateMyFontProperties, "f_sepWidthArray"), J-index, JVALUE)
             COMPUTE J-index2 = 0
-            MOVE 1 TO JFIRST2
+            MOVE 1 TO JFIRST-N72600
             PERFORM FOREVER
-                IF JFIRST2 = 0
+                IF JFIRST-N72600 = 0
                     COMPUTE J-index2 = (FUNCTION MOD(J-index2 + 1 + 2147483648, 4294967296) - 2147483648)
                 END-IF
-                MOVE 0 TO JFIRST2
+                MOVE 0 TO JFIRST-N72600
                 IF NOT (J-index2 < J-size2) EXIT PERFORM END-IF
                 COMPUTE J-input = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index2)
                 COMPUTE JVALUE = FUNCTION Font-stringWidth1(J-font, FUNCTION Input-getName0(J-input))
@@ -395,9 +395,25 @@ PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
         END-PERFORM
         COMPUTE JVALUE = J-updateMyFontProperties
         COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_updateMyFontProperties", JVALUE)
-        COMPUTE JDISCARD = FUNCTION HlpPntbl-updateMeasurement1(J-THIS, J-graphics)
+        COMPUTE JDISCARD = FUNCTION HlpPntbl-updateMeasurement1J(J-THIS, J-graphics)
     GOBACK.
 END FUNCTION InptMppngHlpPntbl-updtMsrmnt1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VInputMappi-updateMeasurement1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-RESULT.
+    COMPUTE J-RESULT = FUNCTION InptMppngHlpPntbl-updtMsrmnt1(J-THIS, J-graphics)
+    GOBACK.
+END PROGRAM VInputMappi-updateMeasurement1.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. InptMppngHlpPntbl-update2.
@@ -445,8 +461,8 @@ LOCAL-STORAGE SECTION.
 01 jtemp31 BINARY-DOUBLE.
 01 jtemp32 BINARY-DOUBLE.
 01 jtemp33 BINARY-DOUBLE.
-01 JFIRST3 BINARY-DOUBLE.
-01 JFIRST4 BINARY-DOUBLE.
+01 JFIRST-N74287 BINARY-DOUBLE.
+01 JFIRST-N74515 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-selectedGameKey BINARY-DOUBLE.
@@ -473,12 +489,12 @@ PROCEDURE DIVISION USING J-THIS J-selectedGameKey J-selectedInput RETURNING J-RE
         CONTINUE
         CONTINUE
         COMPUTE J-index = 0
-        MOVE 1 TO JFIRST3
+        MOVE 1 TO JFIRST-N74287
         PERFORM FOREVER
-            IF JFIRST3 = 0
+            IF JFIRST-N74287 = 0
                 COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
             END-IF
-            MOVE 0 TO JFIRST3
+            MOVE 0 TO JFIRST-N74287
             IF NOT (J-index < J-size) EXIT PERFORM END-IF
             COMPUTE J-gameInputMapping = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_gameInputMappingArray"), J-index)
             COMPUTE J-gameKey = FUNCTION GameInputMapping-getGameKey0(J-gameInputMapping)
@@ -488,12 +504,12 @@ PROCEDURE DIVISION USING J-THIS J-selectedGameKey J-selectedInput RETURNING J-RE
             COMPUTE JVALUE = FUNCTION JR-NEW-ARRAY(J-size2)
             COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(J-inputBasicColorArray, J-index, JVALUE)
             COMPUTE J-index2 = 0
-            MOVE 1 TO JFIRST4
+            MOVE 1 TO JFIRST-N74515
             PERFORM FOREVER
-                IF JFIRST4 = 0
+                IF JFIRST-N74515 = 0
                     COMPUTE J-index2 = (FUNCTION MOD(J-index2 + 1 + 2147483648, 4294967296) - 2147483648)
                 END-IF
-                MOVE 0 TO JFIRST4
+                MOVE 0 TO JFIRST-N74515
                 IF NOT (J-index2 < J-size2) EXIT PERFORM END-IF
                 COMPUTE JVALUE = FUNCTION JR-GET(J-THIS, "f_basicColor")
                 COMPUTE JDISCARD = FUNCTION JR-ARRAY-SET(FUNCTION JR-ARRAY-GET(J-inputBasicColorArray, J-index), J-index2, JVALUE)
@@ -538,6 +554,23 @@ PROCEDURE DIVISION USING J-THIS J-selectedGameKey J-selectedInput RETURNING J-RE
 END FUNCTION InptMppngHlpPntbl-update2.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VInputMappingHelpPaint-update2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-selectedGameKey BINARY-DOUBLE.
+01 J-selectedInput BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-selectedGameKey J-selectedInput J-RESULT.
+    COMPUTE J-RESULT = FUNCTION InptMppngHlpPntbl-update2(J-THIS, J-selectedGameKey, J-selectedInput)
+    GOBACK.
+END PROGRAM VInputMappingHelpPaint-update2.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. InputMappingHelpPaintable-get1.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -561,7 +594,7 @@ LOCAL-STORAGE SECTION.
 01 J-index BINARY-DOUBLE.
 01 jtemp34 BINARY-DOUBLE.
 01 jtemp35 BINARY-DOUBLE.
-01 JFIRST5 BINARY-DOUBLE.
+01 JFIRST-N75704 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-keyList BINARY-DOUBLE.
@@ -572,12 +605,12 @@ PROCEDURE DIVISION USING J-THIS J-keyList RETURNING J-RESULT.
         CONTINUE
         COMPUTE J-size = FUNCTION BasicArrayList-size0(J-keyList)
         COMPUTE J-index = 0
-        MOVE 1 TO JFIRST5
+        MOVE 1 TO JFIRST-N75704
         PERFORM FOREVER
-            IF JFIRST5 = 0
+            IF JFIRST-N75704 = 0
                 COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
             END-IF
-            MOVE 0 TO JFIRST5
+            MOVE 0 TO JFIRST-N75704
             IF NOT (J-index < J-size) EXIT PERFORM END-IF
             COMPUTE J-key = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-keyList, "f_objectArray"), J-index)
             COMPUTE JDISCARD = FUNCTION StringMaker-append1(J-stringBuffer, FUNCTION Input-getName0(J-key))
@@ -599,6 +632,22 @@ PROCEDURE DIVISION USING J-THIS J-keyList RETURNING J-RESULT.
         GOBACK
     GOBACK.
 END FUNCTION InputMappingHelpPaintable-get1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VInputMappingHelpPaintabl-get1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-keyList BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-keyList J-RESULT.
+    COMPUTE J-RESULT = FUNCTION InputMappingHelpPaintable-get1(J-THIS, J-keyList)
+    GOBACK.
+END PROGRAM VInputMappingHelpPaintabl-get1.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. InptMppngHlpPntbl-paint1.
@@ -639,8 +688,8 @@ LOCAL-STORAGE SECTION.
 01 jtemp41 BINARY-DOUBLE.
 01 jtemp42 BINARY-DOUBLE.
 01 jtemp43 BINARY-DOUBLE.
-01 JFIRST6 BINARY-DOUBLE.
-01 JFIRST7 BINARY-DOUBLE.
+01 JFIRST-N76738 BINARY-DOUBLE.
+01 JFIRST-N77200 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-graphics BINARY-DOUBLE.
@@ -649,7 +698,7 @@ PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
         COMPUTE JDISCARD = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_myFontProcessor"))
         COMPUTE J-halfWidth = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_displayInfo"))
-        COMPUTE JDISCARD = FUNCTION Graphics-setColor1(J-graphics, FUNCTION BasicColor-intValue0(FUNCTION JR-GET(J-THIS, "f_basicColor")))
+        COMPUTE JDISCARD = FUNCTION Graphics-setColor1(J-graphics, FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_basicColor")))
         COMPUTE jtemp36 = (FUNCTION MOD((J-halfWidth - FUNCTION JR-GET(J-THIS, "f_titleBeginWidth")) + 2147483648, 4294967296) - 2147483648)
         COMPUTE JDISCARD = FUNCTION Graphics-drawString4(J-graphics, FUNCTION JR-GET(J-THIS, "f_title"), jtemp36, FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_updateMyFontProperties"), "f_charHeight"), FUNCTION JR-GET(J-THIS, "f_anchor"))
         COMPUTE J-inputInfo = FUNCTION JR-GET(J-THIS, "f_inputInfo")
@@ -663,12 +712,12 @@ PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
         CONTINUE
         CONTINUE
         COMPUTE J-index = 0
-        MOVE 1 TO JFIRST6
+        MOVE 1 TO JFIRST-N76738
         PERFORM FOREVER
-            IF JFIRST6 = 0
+            IF JFIRST-N76738 = 0
                 COMPUTE J-index = (FUNCTION MOD(J-index + 1 + 2147483648, 4294967296) - 2147483648)
             END-IF
-            MOVE 0 TO JFIRST6
+            MOVE 0 TO JFIRST-N76738
             IF NOT (J-index < J-size) EXIT PERFORM END-IF
             COMPUTE jtemp37 = 3
             COMPUTE J-y = (FUNCTION MOD((((FUNCTION MOD((J-index + jtemp37) + 2147483648, 4294967296) - 2147483648)) * FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_updateMyFontProperties"), "f_charHeight")) + 2147483648, 4294967296) -
@@ -684,12 +733,12 @@ PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
             COMPUTE JDISCARD = FUNCTION Graphics-drawString4(J-graphics, J-actionString, jtemp38, J-y, FUNCTION JR-GET(J-THIS, "f_anchor"))
             COMPUTE J-deltaX = (FUNCTION MOD((J-deltaX + FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_updateMyFontProperties"), "f_actionStringDeltaXArray"), J-index)) + 2147483648, 4294967296) - 2147483648)
             COMPUTE J-index2 = 0
-            MOVE 1 TO JFIRST7
+            MOVE 1 TO JFIRST-N77200
             PERFORM FOREVER
-                IF JFIRST7 = 0
+                IF JFIRST-N77200 = 0
                     COMPUTE J-index2 = (FUNCTION MOD(J-index2 + 1 + 2147483648, 4294967296) - 2147483648)
                 END-IF
-                MOVE 0 TO JFIRST7
+                MOVE 0 TO JFIRST-N77200
                 IF NOT (J-index2 < J-size2) EXIT PERFORM END-IF
                 COMPUTE J-input = FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-list, "f_objectArray"), J-index2)
                 COMPUTE JDISCARD = FUNCTION Graphics-setColor1(J-graphics, FUNCTION JR-CLASS-NAME(FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(J-THIS, "f_inputBasicColorArray"), J-index), J-index2)))
@@ -699,7 +748,7 @@ PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
                 COMPUTE J-deltaX = (FUNCTION MOD((J-deltaX + FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_updateMyFontProperties"), "f_inputDeltaXArray"), J-index), J-index2)) + 2147483648,
         4294967296) - 2147483648)
                 COMPUTE J-sep = FUNCTION JR-ARRAY-GET(FUNCTION JR-ARRAY-GET(FUNCTION JR-GET(FUNCTION JR-GET(J-THIS, "f_updateMyFontProperties"), "f_sepArray"), J-index), J-index2)
-                COMPUTE JDISCARD = FUNCTION Graphics-setColor1(J-graphics, FUNCTION BasicColor-intValue0(FUNCTION JR-GET(J-THIS, "f_basicColor")))
+                COMPUTE JDISCARD = FUNCTION Graphics-setColor1(J-graphics, FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_basicColor")))
                 COMPUTE jtemp43 = (FUNCTION MOD((J-halfWidth - J-beginWidth) + 2147483648, 4294967296) - 2147483648)
                 COMPUTE jtemp42 = (FUNCTION MOD((jtemp43 + J-deltaX) + 2147483648, 4294967296) - 2147483648)
                 COMPUTE JDISCARD = FUNCTION Graphics-drawString4(J-graphics, J-sep, jtemp42, J-y, FUNCTION JR-GET(J-THIS, "f_anchor"))
@@ -709,4 +758,30 @@ PROCEDURE DIVISION USING J-THIS J-graphics RETURNING J-RESULT.
         END-PERFORM
     GOBACK.
 END FUNCTION InptMppngHlpPntbl-paint1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VInputMappingHelpPainta-paint1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-graphics BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-graphics J-RESULT.
+    COMPUTE J-RESULT = FUNCTION InptMppngHlpPntbl-paint1(J-THIS, J-graphics)
+    GOBACK.
+END PROGRAM VInputMappingHelpPainta-paint1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. InputMappingHelpPaintab-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "HelpPaintable" TO J-CLASS
+    GOBACK.
+END PROGRAM InputMappingHelpPaintab-jsuper.
 

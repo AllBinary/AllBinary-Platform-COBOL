@@ -24,10 +24,10 @@ LOCAL-STORAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-onDemandResourcesFactory BINARY-DOUBLE.
-01 J-gameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory BINARY-DOUBLE.
+01 J-gameLayerPlacementInterfaceBasicArrayListFactoryIn54988 BINARY-DOUBLE.
 01 J-resourceAnimationInterfaceFactoryInterfaceFactory BINARY-DOUBLE.
 01 J-RESULT BINARY-DOUBLE.
-PROCEDURE DIVISION USING J-onDemandResourcesFactory J-gameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory J-resourceAnimationInterfaceFactoryInterfaceFactory RETURNING J-RESULT.
+PROCEDURE DIVISION USING J-onDemandResourcesFactory J-gameLayerPlacementInterfaceBasicArrayListFactoryIn54988 J-resourceAnimationInterfaceFactoryInterfaceFactory RETURNING J-RESULT.
     COMPUTE J-THIS = FUNCTION JR-NEW-OBJECT("OnDemandLoader")
     COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_onDemandResourcesFactory")
     COMPUTE JDISCARD = FUNCTION JR-FIELD(J-THIS, "f_gameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory")
@@ -37,7 +37,7 @@ PROCEDURE DIVISION USING J-onDemandResourcesFactory J-gameLayerPlacementInterfac
     
         COMPUTE JVALUE = J-onDemandResourcesFactory
         COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_onDemandResourcesFactory", JVALUE)
-        COMPUTE JVALUE = J-gameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory
+        COMPUTE JVALUE = J-gameLayerPlacementInterfaceBasicArrayListFactoryIn54988
         COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_gameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory", JVALUE)
         COMPUTE JVALUE = J-resourceAnimationInterfaceFactoryInterfaceFactory
         COMPUTE JDISCARD = FUNCTION JR-SET(J-THIS, "f_resourceAnimationInterfaceFactoryInterfaceFactory", JVALUE)
@@ -93,6 +93,24 @@ PROCEDURE DIVISION USING J-THIS J-imageCache J-level J-loadingString RETURNING J
 END FUNCTION OnDemandLoader-init3.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VOnDemandLoader-init3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-imageCache BINARY-DOUBLE.
+01 J-level BINARY-DOUBLE.
+01 J-loadingString BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-imageCache J-level J-loadingString J-RESULT.
+    COMPUTE J-RESULT = FUNCTION OnDemandLoader-init3(J-THIS, J-imageCache, J-level, J-loadingString)
+    GOBACK.
+END PROGRAM VOnDemandLoader-init3.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. OnDemandLoader-initAll2.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -115,7 +133,7 @@ LOCAL-STORAGE SECTION.
 01 J-onDemandResources BINARY-DOUBLE.
 01 J-onDemandIndex BINARY-DOUBLE.
 01 jtemp3 BINARY-DOUBLE.
-01 JFIRST1 BINARY-DOUBLE.
+01 JFIRST-N68600 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-imageCache BINARY-DOUBLE.
@@ -129,9 +147,9 @@ PROCEDURE DIVISION USING J-THIS J-imageCache J-loadingString RETURNING J-RESULT.
         COMPUTE J-onDemandIndex = (FUNCTION MOD(J-onDemandIndex - 1 + 2147483648, 4294967296) - 2147483648)
         COMPUTE jtemp3 = J-onDemandIndex
         COMPUTE J-onDemandIndex = FUNCTION OnDemandResourcesFactory-size0(FUNCTION JR-GET(J-THIS, "f_onDemandResourcesFactory"))
-        MOVE 1 TO JFIRST1
+        MOVE 1 TO JFIRST-N68600
         PERFORM FOREVER
-            MOVE 0 TO JFIRST1
+            MOVE 0 TO JFIRST-N68600
             IF NOT (jtemp3 >= 0) EXIT PERFORM END-IF
             COMPUTE J-onDemandResources = FUNCTION OnDmndRsrcsFctry-remove1(FUNCTION JR-GET(J-THIS, "f_onDemandResourcesFactory"), J-onDemandIndex)
             IF (J-onDemandResources NOT = FUNCTION OnDmndRsrcs-sttc-NULL74683)
@@ -140,6 +158,23 @@ PROCEDURE DIVISION USING J-THIS J-imageCache J-loadingString RETURNING J-RESULT.
         END-PERFORM
     GOBACK.
 END FUNCTION OnDemandLoader-initAll2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VOnDemandLoader-initAll2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-imageCache BINARY-DOUBLE.
+01 J-loadingString BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-imageCache J-loadingString J-RESULT.
+    COMPUTE J-RESULT = FUNCTION OnDemandLoader-initAll2(J-THIS, J-imageCache, J-loadingString)
+    GOBACK.
+END PROGRAM VOnDemandLoader-initAll2.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. OnDemandLoader-initLevel4.
@@ -169,7 +204,7 @@ LOCAL-STORAGE SECTION.
 01 jtemp5 BINARY-DOUBLE.
 01 jtemp6 BINARY-DOUBLE.
 01 jtemp7 BINARY-DOUBLE.
-01 JFIRST2 BINARY-DOUBLE.
+01 JFIRST-N69224 BINARY-DOUBLE.
 LINKAGE SECTION.
 01 J-THIS BINARY-DOUBLE.
 01 J-layerPlacementInterfaceBasicArrayListFactoryInterface BINARY-DOUBLE.
@@ -191,9 +226,9 @@ PROCEDURE DIVISION USING J-THIS J-layerPlacementInterfaceBasicArrayListFactoryIn
         COMPUTE J-onDemandIndex = (FUNCTION MOD(J-onDemandIndex - 1 + 2147483648, 4294967296) - 2147483648)
         COMPUTE jtemp7 = J-onDemandIndex
         COMPUTE J-onDemandIndex = FUNCTION JR-ARRAY-LENGTH(J-onDemandArray)
-        MOVE 1 TO JFIRST2
+        MOVE 1 TO JFIRST-N69224
         PERFORM FOREVER
-            MOVE 0 TO JFIRST2
+            MOVE 0 TO JFIRST-N69224
             IF NOT (jtemp7 >= 0) EXIT PERFORM END-IF
             COMPUTE J-onDemandResources = FUNCTION OnDmndRsrcsFctry-remove1(FUNCTION JR-GET(J-THIS, "f_onDemandResourcesFactory"), FUNCTION JR-ARRAY-GET(J-onDemandArray, J-onDemandIndex))
             IF (J-onDemandResources NOT = FUNCTION OnDmndRsrcs-sttc-NULL74683)
@@ -202,4 +237,33 @@ PROCEDURE DIVISION USING J-THIS J-layerPlacementInterfaceBasicArrayListFactoryIn
         END-PERFORM
     GOBACK.
 END FUNCTION OnDemandLoader-initLevel4.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VOnDemandLoader-initLevel4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-layerPlacementInterfaceBasicArrayListFactoryInterface BINARY-DOUBLE.
+01 J-imageCache BINARY-DOUBLE.
+01 J-level BINARY-DOUBLE.
+01 J-loadingString BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-layerPlacementInterfaceBasicArrayListFactoryInterface J-imageCache J-level J-loadingString J-RESULT.
+    COMPUTE J-RESULT = FUNCTION OnDemandLoader-initLevel4(J-THIS, J-layerPlacementInterfaceBasicArrayListFactoryInterface, J-imageCache, J-level, J-loadingString)
+    GOBACK.
+END PROGRAM VOnDemandLoader-initLevel4.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. OnDemandLoader-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM OnDemandLoader-jsuper.
 

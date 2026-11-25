@@ -65,12 +65,38 @@ LINKAGE SECTION.
 PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
         IF (FUNCTION SequenceAI-getIndex0(J-THIS) = 0)
-            IF (FUNCTION LayerManager-getSize0(J-allBinaryLayerManager) < FUNCTION JR-GET(J-THIS, "f_numberOfLayersLeft"))
+            IF (FUNCTION ABLayerManager-getSize0(J-allBinaryLayerManager) < FUNCTION JR-GET(J-THIS, "f_numberOfLayersLeft"))
                 COMPUTE jtemp1 = 1
                 COMPUTE JDISCARD = FUNCTION SequenceAI-setIndex1(J-THIS, jtemp1)
             END-IF
         END-IF
-        COMPUTE JDISCARD = FUNCTION SequenceAI-processAI1(J-THIS, J-allBinaryLayerManager)
+        COMPUTE JDISCARD = FUNCTION SequenceAI-processAI1J(J-THIS, J-allBinaryLayerManager)
     GOBACK.
 END FUNCTION NmbrLyrsSqncAI-processAI1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VNumberLayersSequen-processAI1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-allBinaryLayerManager BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-allBinaryLayerManager J-RESULT.
+    COMPUTE J-RESULT = FUNCTION NmbrLyrsSqncAI-processAI1(J-THIS, J-allBinaryLayerManager)
+    GOBACK.
+END PROGRAM VNumberLayersSequen-processAI1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. NumberLayersSequenceAI-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "SequenceAI" TO J-CLASS
+    GOBACK.
+END PROGRAM NumberLayersSequenceAI-jsuper.
 

@@ -58,17 +58,43 @@ LINKAGE SECTION.
 01 J-RESULT BINARY-DOUBLE.
 PROCEDURE DIVISION USING J-THIS J-boundsVisitorInterface RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
-        IF (FUNCTION BoundsVisitorInterface-getX0(J-boundsVisitorInterface) > FUNCTION Rectangle-getMaxX0(FUNCTION JR-GET(J-THIS, "f_rectangle")))
+        IF (FUNCTION BoundsVisitorInterface-getX0(J-boundsVisitorInterface) > FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_rectangle")))
             COMPUTE JDISCARD = FUNCTION BoundsVisitorInterface-maxX0(J-boundsVisitorInterface)
         END-IF
-        COMPUTE jtemp1 = FUNCTION Rectangle-getPoint0(FUNCTION JR-GET(J-THIS, "f_rectangle"))
+        COMPUTE jtemp1 = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_rectangle"))
         IF (FUNCTION BoundsVisitorInterface-getX0(J-boundsVisitorInterface) < FUNCTION JR-CLASS-NAME(jtemp1))
             COMPUTE JDISCARD = FUNCTION BoundsVisitorInterface-minX0(J-boundsVisitorInterface)
         END-IF
-        COMPUTE jtemp2 = FUNCTION Rectangle-getPoint0(FUNCTION JR-GET(J-THIS, "f_rectangle"))
+        COMPUTE jtemp2 = FUNCTION JR-CLASS-NAME(FUNCTION JR-GET(J-THIS, "f_rectangle"))
         IF (FUNCTION BoundsVisitorInterface-getY0(J-boundsVisitorInterface) < FUNCTION JR-CLASS-NAME(jtemp2))
             COMPUTE JDISCARD = FUNCTION BoundsVisitorInterface-minY0(J-boundsVisitorInterface)
         END-IF
     GOBACK.
 END FUNCTION TopULayerBounds-visit1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VTopULayerBounds-visit1.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-boundsVisitorInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-boundsVisitorInterface J-RESULT.
+    COMPUTE J-RESULT = FUNCTION TopULayerBounds-visit1(J-THIS, J-boundsVisitorInterface)
+    GOBACK.
+END PROGRAM VTopULayerBounds-visit1.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. TopULayerBounds-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "LayerBounds" TO J-CLASS
+    GOBACK.
+END PROGRAM TopULayerBounds-jsuper.
 

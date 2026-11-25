@@ -107,7 +107,17 @@ LINKAGE SECTION.
 PROCEDURE DIVISION RETURNING J-RESULT.
     MOVE 0 TO J-RESULT
         COMPUTE jtemp1 = FUNCTION ImageCacheFactory-getInstance0
-        COMPUTE JDISCARD = FUNCTION ImageCacheFactory-releaseAll0(jtemp1)
+        COMPUTE JDISCARD = FUNCTION ImageCacheBase-releaseAll0(jtemp1)
     GOBACK.
 END FUNCTION GmFtrImgCchFctry-releaseAll0.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. GameFeatureImageCacheFa-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM GameFeatureImageCacheFa-jsuper.
 

@@ -140,6 +140,24 @@ PROCEDURE DIVISION USING J-THIS J-abeClientInformation J-canvas J-gameInitializa
 END FUNCTION GmIntlztnUtl-initDemo3.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VGameInitializationU-initDemo3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-abeClientInformation BINARY-DOUBLE.
+01 J-canvas BINARY-DOUBLE.
+01 J-gameInitializationInterfaceFactoryInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-abeClientInformation J-canvas J-gameInitializationInterfaceFactoryInterface J-RESULT.
+    COMPUTE J-RESULT = FUNCTION GmIntlztnUtl-initDemo3(J-THIS, J-abeClientInformation, J-canvas, J-gameInitializationInterfaceFactoryInterface)
+    GOBACK.
+END PROGRAM VGameInitializationU-initDemo3.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. GmIntlztnUtl-initGame3.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -190,6 +208,24 @@ PROCEDURE DIVISION USING J-THIS J-abeClientInformation J-canvas J-gameInitializa
 END FUNCTION GmIntlztnUtl-initGame3.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VGameInitializationU-initGame3.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-abeClientInformation BINARY-DOUBLE.
+01 J-canvas BINARY-DOUBLE.
+01 J-gameInitializationInterfaceFactoryInterface BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-abeClientInformation J-canvas J-gameInitializationInterfaceFactoryInterface J-RESULT.
+    COMPUTE J-RESULT = FUNCTION GmIntlztnUtl-initGame3(J-THIS, J-abeClientInformation, J-canvas, J-gameInitializationInterfaceFactoryInterface)
+    GOBACK.
+END PROGRAM VGameInitializationU-initGame3.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. GmIntlztnUtl-getInstance0.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -215,4 +251,14 @@ PROCEDURE DIVISION RETURNING J-RESULT.
         GOBACK
     GOBACK.
 END FUNCTION GmIntlztnUtl-getInstance0.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. GameInitializationUtil-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM GameInitializationUtil-jsuper.
 

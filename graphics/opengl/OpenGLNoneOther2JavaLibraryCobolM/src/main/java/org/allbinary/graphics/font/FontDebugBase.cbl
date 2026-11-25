@@ -143,6 +143,25 @@ PROCEDURE DIVISION USING J-THIS J-currentFont J-convertedTextSize J-displayMetri
 END FUNCTION FontDebugBase-debugMetrics4.
 
 IDENTIFICATION DIVISION.
+PROGRAM-ID. VFontDebugBase-debugMetrics4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-currentFont BINARY-DOUBLE.
+01 J-convertedTextSize COMP-2.
+01 J-displayMetrics BINARY-DOUBLE.
+01 J-stringBuffer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-currentFont J-convertedTextSize J-displayMetrics J-stringBuffer J-RESULT.
+    COMPUTE J-RESULT = FUNCTION FontDebugBase-debugMetrics4(J-THIS, J-currentFont, J-convertedTextSize, J-displayMetrics, J-stringBuffer)
+    GOBACK.
+END PROGRAM VFontDebugBase-debugMetrics4.
+
+IDENTIFICATION DIVISION.
 FUNCTION-ID. FontDebugBase-debugDpi2.
 ENVIRONMENT DIVISION.
 CONFIGURATION SECTION.
@@ -170,6 +189,23 @@ PROCEDURE DIVISION USING J-THIS J-densityDpi J-stringBuffer RETURNING J-RESULT.
         CONTINUE
     GOBACK.
 END FUNCTION FontDebugBase-debugDpi2.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VFontDebugBase-debugDpi2.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-densityDpi BINARY-DOUBLE.
+01 J-stringBuffer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-densityDpi J-stringBuffer J-RESULT.
+    COMPUTE J-RESULT = FUNCTION FontDebugBase-debugDpi2(J-THIS, J-densityDpi, J-stringBuffer)
+    GOBACK.
+END PROGRAM VFontDebugBase-debugDpi2.
 
 IDENTIFICATION DIVISION.
 FUNCTION-ID. FontDebugBase-debugDimension4.
@@ -201,4 +237,33 @@ PROCEDURE DIVISION USING J-THIS J-currentFont J-convertedTextSize J-longestDimen
         CONTINUE
     GOBACK.
 END FUNCTION FontDebugBase-debugDimension4.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. VFontDebugBase-debugDimension4.
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+REPOSITORY.
+COPY "jrepository.cpy".
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-THIS BINARY-DOUBLE.
+01 J-currentFont BINARY-DOUBLE.
+01 J-convertedTextSize COMP-2.
+01 J-longestDimensionTotalPixels BINARY-DOUBLE.
+01 J-stringBuffer BINARY-DOUBLE.
+01 J-RESULT BINARY-DOUBLE.
+PROCEDURE DIVISION USING J-THIS J-currentFont J-convertedTextSize J-longestDimensionTotalPixels J-stringBuffer J-RESULT.
+    COMPUTE J-RESULT = FUNCTION FontDebugBase-debugDimension4(J-THIS, J-currentFont, J-convertedTextSize, J-longestDimensionTotalPixels, J-stringBuffer)
+    GOBACK.
+END PROGRAM VFontDebugBase-debugDimension4.
+
+IDENTIFICATION DIVISION.
+PROGRAM-ID. FontDebugBase-jsuper.
+DATA DIVISION.
+LINKAGE SECTION.
+01 J-CLASS PIC X(60).
+PROCEDURE DIVISION USING J-CLASS.
+    MOVE "Object" TO J-CLASS
+    GOBACK.
+END PROGRAM FontDebugBase-jsuper.
 
